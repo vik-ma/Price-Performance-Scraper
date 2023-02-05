@@ -1,37 +1,46 @@
-GeForce RTX 4090
-GeForce RTX 4080
-Radeon RX 7900 XTX
-GeForce RTX 4070 Ti
-Radeon RX 6950 XT
-Radeon RX 7900 XT
-Radeon RX 6800 XT
-GeForce RTX 3070 Ti
-GeForce RTX 3070
-Radeon RX 6800
-Radeon RX 6750 XT
-GeForce RTX 3060 Ti
-Radeon RX 6700 XT
-Radeon RX 6700
-Radeon RX 6650 XT
-GeForce RTX 3060
-Radeon RX 6600 XT
-Radeon RX 6600
-GeForce RTX 2060
-GeForce GTX 1660 Super
-GeForce RTX 3050
-GeForce GTX 1660 Ti
-GeForce GTX 1660
-Radeon RX 6500 XT
-Intel Arc A770
-Intel Arc A750
-Radeon RX 6400
+TOP TIER
+    GeForce RTX 4090
+    GeForce RTX 4080
+
+HIGH TIER
+    Radeon RX 7900 XTX
+    GeForce RTX 4070 Ti
+    Radeon RX 6950 XT
+    Radeon RX 7900 XT
+
+MID TIER
+    Radeon RX 6800 XT
+    GeForce RTX 3070 Ti
+    GeForce RTX 3070
+    Radeon RX 6800
+    Radeon RX 6750 XT
+    GeForce RTX 3060 Ti
+    Radeon RX 6700 XT
+    Radeon RX 6700
+
+LOW TIER
+    Radeon RX 6650 XT
+    GeForce RTX 3060
+    Radeon RX 6600 XT
+    Radeon RX 6600
+    GeForce RTX 2060
+
+BOTTOM TIER
+    GeForce GTX 1660 Super
+    GeForce RTX 3050
+    GeForce GTX 1660 Ti
+    GeForce GTX 1660
+    Radeon RX 6500 XT
+    Radeon RX 6400
 
 NO VALUE
-GeForce RTX 3090 Ti
-GeForce RTX 3090
-GeForce RTX 3080 Ti
-Radeon RX 6900 XT
-GeForce RTX 3080
-GeForce GTX 1650 Super
-GeForce GTX 1650
-Geforce GTX 1050 Ti
+    GeForce RTX 3090 Ti
+    GeForce RTX 3090
+    GeForce RTX 3080 Ti
+    Radeon RX 6900 XT
+    GeForce RTX 3080
+    GeForce GTX 1650 Super
+    GeForce GTX 1650
+    Geforce GTX 1050 Ti
+    Intel Arc A770
+    Intel Arc A750
