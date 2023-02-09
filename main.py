@@ -36,18 +36,19 @@ def local_page_test():
 
     price_dict = {}
     
-    page_json = soup.find_all("script")[5].string
+    page_json = soup.find_all("script")[5].text
 
     start_text = r'{"__typename":"ProductsSlice"'
     end_text = r',{"__typename":"DescriptionSlice"'
     price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
     # price_data = re.search(f"{start_text}(.*?){end_text}", page_json).group(1)
 
-    # json_data = json.loads(price_data)
+    price_data = price_data.replace("\\", "")
+    json_data = json.loads(price_data)
 
-    print(price_data)
-    # with open("pjtestt.json", "w") as file:
-    #     json.dump(json_data, file)
+    # print(price_data)
+    with open("pjtest.json", "w") as file:
+        json.dump(json_data, file, indent=4)
 
 
     # price_body = soup.find("tbody")
