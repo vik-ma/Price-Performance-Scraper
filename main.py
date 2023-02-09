@@ -1,6 +1,7 @@
 import json
 from bs4 import BeautifulSoup
 import requests
+import re
 
 
 
@@ -34,15 +35,30 @@ def local_page_test():
         soup = BeautifulSoup(file, "html.parser")
 
     price_dict = {}
+    
+    page_json = soup.find_all("script")[5].string
 
-    price_body = soup.find("tbody")
-    for tr in price_body.find_all("tr"):
-        product = tr.find("a")
-        if product:
-            link = f"https://www.prisjakt.nu{product['href']}"
-            price_dict[link] = 0
+    start_text = r'{"__typename":"ProductsSlice"'
+    end_text = r',{"__typename":"DescriptionSlice"'
+    price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
+    # price_data = re.search(f"{start_text}(.*?){end_text}", page_json).group(1)
+
+    # json_data = json.loads(price_data)
+
+    print(price_data)
+    # with open("pjtestt.json", "w") as file:
+    #     json.dump(json_data, file)
+
+
+    # price_body = soup.find("tbody")
+    # for tr in price_body.find_all("tr"):
+    #     product = tr.find("a")
+    #     if product:
+    #         link = f"https://www.prisjakt.nu{product['href']}"
+    #         price_dict[link] = 0
         # print(link)
         # print("end")
+    # print(price_dict)
 
 
     # tag = soup.find("a", {"aria-label": "Visa nästa"})
@@ -51,3 +67,6 @@ def local_page_test():
     #     print(href)
     # else:
     #     print("none")
+
+local_page_test()
+# get_prices_test()
