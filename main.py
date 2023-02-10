@@ -33,8 +33,6 @@ def get_prices_test():
 def local_page_test():
     with open("pj.html", "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
-
-    price_dict = {}
     
     page_json = soup.find_all("script")[5].text
 
@@ -46,21 +44,8 @@ def local_page_test():
     price_data = price_data.replace("\\", "")
     json_data = json.loads(price_data)
 
-    # print(price_data)
     with open("pjtest.json", "w") as file:
         json.dump(json_data, file, indent=4)
-
-
-    # price_body = soup.find("tbody")
-    # for tr in price_body.find_all("tr"):
-    #     product = tr.find("a")
-    #     if product:
-    #         link = f"https://www.prisjakt.nu{product['href']}"
-    #         price_dict[link] = 0
-        # print(link)
-        # print("end")
-    # print(price_dict)
-
 
     # tag = soup.find("a", {"aria-label": "Visa nästa"})
     # if tag:
@@ -69,5 +54,27 @@ def local_page_test():
     # else:
     #     print("none")
 
-local_page_test()
+def get_gpu_price_list():
+    with open("pjtest.json") as file:
+        products_json = json.load(file)
+
+    price_list = []
+
+    for product in products_json["products"]:
+        if product["priceSummary"]["regular"] != None:
+            product_id = product["id"]
+            product_link = f"https://www.prisjakt.nu/produkt.php?p={product_id}"
+            product_price = int(product["priceSummary"]["regular"])
+            price_list.append((product_link, product_price))
+
+    sorted_price_list = sorted(price_list, key = lambda x: x[1])
+    slice_num = 4
+    list_slicer = int(len(sorted_price_list) / slice_num)
+
+    sorted_price_list = sorted_price_list[:list_slicer]
+    print(sorted_price_list)
+
+get_gpu_price_list()
+
+# local_page_test()
 # get_prices_test()
