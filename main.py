@@ -54,16 +54,16 @@ def save_local_html_page(soup):
     with open(f"pjtest_{current_time}.html", "w", encoding="utf-8") as file:
         file.write(soup.prettify())
 
-def create_json_list(soup_list):
+def create_json_list(soup_list, *, read_local_files=False):
     # FROM LOCAL HTML FILES 
     # soup_list is list of strings of file paths
-
-    # local_html_list = soup_list
-    # soup_list = []
-    # for html_file in local_html_list:
-    #     with open(html_file, "r", encoding="utf-8") as file:
-    #         soup = BeautifulSoup(file, "html.parser")
-    #         soup_list.append(soup)
+    if read_local_files:
+        local_html_list = soup_list
+        soup_list = []
+        for html_file in local_html_list:
+            with open(html_file, "r", encoding="utf-8") as file:
+                soup = BeautifulSoup(file, "html.parser")
+                soup_list.append(soup)
 
     json_list = []
     for soup in soup_list:
@@ -82,8 +82,8 @@ def create_json_list(soup_list):
 def write_local_json_files(json_list):
     current_time = get_current_time()
 
-    for json_file in json_list:
-        with open(f"pj_json_{current_time}.json", "w") as file:
+    for i, json_file in enumerate(json_list, start=1):
+        with open(f"pj_json_{current_time}_{i}.json", "w") as file:
             json.dump(json_file, file, indent=4)
 
 def get_gpu_price_list(page_list):
@@ -110,6 +110,7 @@ def get_gpu_price_list(page_list):
     return sorted_price_list
 
 pj_pages = ["pjmultpagetest.html", "pjmultpagetest2.html", "pjmultpagetest3.html"]
+pj_pages_2 = ["pjtest_2023-02-11_23-22-24.html", "pjtest_2023-02-11_23-22-25.html"]
 pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json"]
 
 # print(get_gpu_price_list(pj_json))
@@ -121,13 +122,17 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 # 1 Page (3080)
 # url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
 # 1 Page (4090)
-url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
+# url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
 # 17 Pages (NVIDIA GeForce Grafikkort)
 # url = "https://www.prisjakt.nu/c/grafikkort?103551=36436"
 # 4 Pages
 # url = "https://www.prisjakt.nu/c/videoredigering"
 # 2 Pages
 # url = "https://www.prisjakt.nu/c/optiska-enheter-for-datorer?557=1093"
-html_soup_list = fetch_html_page(url)
-json_list = create_json_list(html_soup_list)
+
+# html_soup_list = fetch_html_page(url)
+# json_list = create_json_list(html_soup_list)
+
+json_list = create_json_list(pj_pages_2, read_local_files=True)
+
 write_local_json_files(json_list)
