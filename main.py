@@ -2,7 +2,8 @@ import json
 from bs4 import BeautifulSoup
 import requests
 import re
-
+import datetime
+import time
 
 
 def import_benchmark_json(benchmark_type):
@@ -10,27 +11,31 @@ def import_benchmark_json(benchmark_type):
         data = json.load(f)
     return data
 
-def get_prices_test():
-    # 1 Page (3080)
-    # url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
-    # 1 Page (4090)
-    # url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
-    # 17 Pages (NVIDIA GeForce Grafikkort)
-    url = "https://www.prisjakt.nu/c/grafikkort?103551=36436"
-
+def fetch_html_page(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
+    # TODO: Change to create and return SOUP LIST
+    save_local_html_page(soup)
+
     tag = soup.find("a", {"aria-label": "Visa nästa"})
     if tag:
-        link = f"https://www.prisjakt.nu{tag['href']}"
-        print(link)
+        next_page_link = f"https://www.prisjakt.nu{tag['href']}"
+        print("sleeping")
+        time.sleep(0.5)
+        print(next_page_link)
+        fetch_html_page(next_page_link)
     else:
         print("No link")
 
-    # TODO: Change to return SOUP OBJECT instead of writing file
-    with open("pjmultpagetest3.html", "w", encoding="utf-8") as file:
+
+    
+
+def save_local_html_page(soup):
+    current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    with open(f"pjtest_{current_time}.html", "w", encoding="utf-8") as file:
         file.write(soup.prettify())
+
 
 def write_local_json_file(page_list):
     for index, page in enumerate(page_list, start=1):
@@ -78,9 +83,17 @@ def get_gpu_price_list(page_list):
 pj_pages = ["pjmultpagetest.html", "pjmultpagetest2.html", "pjmultpagetest3.html"]
 pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json"]
 
-print(get_gpu_price_list(pj_json))
+# print(get_gpu_price_list(pj_json))
 
 # write_local_json_file(pj_pages)
 
 
-# get_prices_test()
+# 1 Page (3080)
+# url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
+# 1 Page (4090)
+# url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
+# 17 Pages (NVIDIA GeForce Grafikkort)
+# url = "https://www.prisjakt.nu/c/grafikkort?103551=36436"
+# 4 Pages
+url = "https://www.prisjakt.nu/c/videoredigering"
+fetch_html_page(url)
