@@ -101,7 +101,7 @@ def get_gpu_price_list(json_list, *, read_local_json_list=False):
 
     for products_json in json_list:
         for product in products_json["products"]:
-            if product["priceSummary"]["regular"] != None:
+            if product["priceSummary"]["regular"] != None and product["stockStatus"] == "in_stock":
                 product_id = product["id"]
                 product_link = f"https://www.prisjakt.nu/produkt.php?p={product_id}"
                 product_price = int(product["priceSummary"]["regular"])
@@ -128,7 +128,7 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 # 1 Page (3080)
 # url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
 # 1 Page (4090)
-url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
+# url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
 # 17 Pages (NVIDIA GeForce Grafikkort)
 # url = "https://www.prisjakt.nu/c/grafikkort?103551=36436"
 # 4 Pages
@@ -136,13 +136,16 @@ url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
 # 2 Pages
 # url = "https://www.prisjakt.nu/c/optiska-enheter-for-datorer?557=1093"
 
-html_soup_list = fetch_html_page(url)
-json_list = create_json_list(html_soup_list)
-print(get_gpu_price_list(json_list))
+# html_soup_list = fetch_html_page(url)
+# json_list = create_json_list(html_soup_list)
+# print(get_gpu_price_list(json_list))
 
 # write_local_json_files(json_list)
 
 # json_list = create_json_list(pj_pages_2, read_local_files=True)
 
-# print(get_gpu_price_list(pj_json, read_local_json_list=True))
+gpu_price_list = get_gpu_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)
+
+# print(len(gpu_price_list))
+print(gpu_price_list)
 
