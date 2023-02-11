@@ -46,32 +46,45 @@ def test_local_html_page():
     with open("pj.html", "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
 
+def get_current_time():
+    return datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 def save_local_html_page(soup):
-    current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    current_time = get_current_time()
     with open(f"pjtest_{current_time}.html", "w", encoding="utf-8") as file:
         file.write(soup.prettify())
 
+def create_json_list(soup_list):
+    # FROM LOCAL HTML FILES 
+    # soup_list is list of strings of file paths
 
-def write_local_json_file(page_list):
-    for index, page in enumerate(page_list, start=1):
-        # TODO: Change to SOUP OBJECT instead of file
-        with open(page, "r", encoding="utf-8") as file:
-            soup = BeautifulSoup(file, "html.parser")
-    
+    # local_html_list = soup_list
+    # soup_list = []
+    # for html_file in local_html_list:
+    #     with open(html_file, "r", encoding="utf-8") as file:
+    #         soup = BeautifulSoup(file, "html.parser")
+    #         soup_list.append(soup)
+
+    json_list = []
+    for soup in soup_list:
         page_json = soup.find_all("script")[5].text
 
         start_text = r'{"__typename":"ProductsSlice"'
         end_text = r',{"__typename":"DescriptionSlice"'
         price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
-        # price_data = re.search(f"{start_text}(.*?){end_text}", page_json).group(1)
 
         price_data = price_data.replace("\\", "")
         json_data = json.loads(price_data)
 
-        with open(f"pjmultpagejson{index}.json", "w") as file:
-            json.dump(json_data, file, indent=4)
+        json_list.append(json_data)
+    return json_list
 
+def write_local_json_files(json_list):
+    current_time = get_current_time()
+
+    for json_file in json_list:
+        with open(f"pj_json_{current_time}.json", "w") as file:
+            json.dump(json_file, file, indent=4)
 
 def get_gpu_price_list(page_list):
     price_list = []
@@ -103,16 +116,18 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 
 # write_local_json_file(pj_pages)
 
-test_local_html_page()
+# test_local_html_page()
 
 # 1 Page (3080)
 # url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
 # 1 Page (4090)
-# url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
+url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
 # 17 Pages (NVIDIA GeForce Grafikkort)
 # url = "https://www.prisjakt.nu/c/grafikkort?103551=36436"
 # 4 Pages
 # url = "https://www.prisjakt.nu/c/videoredigering"
 # 2 Pages
-url = "https://www.prisjakt.nu/c/optiska-enheter-for-datorer?557=1093"
+# url = "https://www.prisjakt.nu/c/optiska-enheter-for-datorer?557=1093"
 html_soup_list = fetch_html_page(url)
+json_list = create_json_list(html_soup_list)
+write_local_json_files(json_list)
