@@ -15,21 +15,37 @@ def fetch_html_page(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
-    # TODO: Change to create and return SOUP LIST
-    save_local_html_page(soup)
+    soup_list = []
+    soup_list.append(soup)
+    # save_local_html_page(soup)
 
-    tag = soup.find("a", {"aria-label": "Visa nästa"})
-    if tag:
-        next_page_link = f"https://www.prisjakt.nu{tag['href']}"
-        print("sleeping")
-        time.sleep(0.5)
-        print(next_page_link)
-        fetch_html_page(next_page_link)
+    next_page_tag = soup.find("a", {"aria-label": "Visa nästa"})
+    if next_page_tag:
+        num_pages_tag = soup.find("ul", {"data-test": "Pagination"})
+        num_pages = int(num_pages_tag.find_all("li")[-2].text.strip())
+
+        for i in range(1, num_pages):
+            offset_num = i * 44
+            next_page_link = f"{url}&offset={offset_num}"
+
+            print("sleeping")
+            time.sleep(0.5)
+
+            response = requests.get(next_page_link)
+            soup = BeautifulSoup(response.text, "html.parser")
+            print(next_page_link)
+
+            soup_list.append(soup)
+            # save_local_html_page(soup)
     else:
-        print("No link")
+        print("No next page tag")
 
+    return soup_list
 
-    
+def test_local_html_page():
+    with open("pj.html", "r", encoding="utf-8") as file:
+        soup = BeautifulSoup(file, "html.parser")
+
 
 def save_local_html_page(soup):
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -87,6 +103,7 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 
 # write_local_json_file(pj_pages)
 
+test_local_html_page()
 
 # 1 Page (3080)
 # url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
@@ -95,5 +112,7 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 # 17 Pages (NVIDIA GeForce Grafikkort)
 # url = "https://www.prisjakt.nu/c/grafikkort?103551=36436"
 # 4 Pages
-url = "https://www.prisjakt.nu/c/videoredigering"
-fetch_html_page(url)
+# url = "https://www.prisjakt.nu/c/videoredigering"
+# 2 Pages
+url = "https://www.prisjakt.nu/c/optiska-enheter-for-datorer?557=1093"
+html_soup_list = fetch_html_page(url)
