@@ -7,8 +7,8 @@ import time
 
 
 def import_benchmark_json(benchmark_type):
-    with open(f"benchmarks/latest/{benchmark_type}.json", "r") as f:
-        data = json.load(f)
+    with open(f"benchmarks/latest/{benchmark_type}.json", "r") as file:
+        data = json.load(file)
     return data
 
 def fetch_gpu_category_page(url):
@@ -61,6 +61,23 @@ def test_local_html_page():
     json_data = json.loads(price_data)
 
     write_local_json_files([json_data])
+
+def test_local_json_file():
+    with open("pj_json_2023-02-13_17-50-45_1.json", "r") as file:
+        json_data = json.load(file)
+
+    product_list = []
+
+    for product in json_data["prices"]["nodes"]:
+        if product["stock"]["status"] == "in_stock" and product["store"]["currency"] == "SEK":
+            store_name = product["store"]["name"]
+            store_price = int(product["price"]["exclShipping"])
+            product_name = product["name"]
+            product_link = product["externalUri"]
+            product_list.append((store_name, store_price, product_link, product_name))
+
+    for product in product_list:
+        print(product)
 
 def get_current_time():
     return datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
@@ -174,5 +191,6 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 # print(len(gpu_price_list))
 # print(gpu_price_list)
 
-test_local_html_page()
+# test_local_html_page()
+test_local_json_file()
 
