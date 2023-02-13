@@ -51,23 +51,27 @@ def test_local_html_page():
     with open("pjproductpage.html", "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
 
-    page_json = soup.find_all("script")[7].text
-
-    start_text = r'"prices":'
-    end_text = r',"popularProducts"'
-    price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
-    price_data = f"{{{price_data}}}"
-    price_data = price_data.replace("\\", "")
-    json_data = json.loads(price_data)
-
-    write_local_json_files([json_data])
+    # write_local_json_files([json_data])
 
 def test_local_json_file():
     with open("pj_json_2023-02-13_17-50-45_1.json", "r") as file:
         json_data = json.load(file)
 
-    product_list = []
+def get_product_json(soup):
+    page_json = soup.find_all("script")[7].text
 
+    start_text = r'"prices":'
+    end_text = r',"popularProducts"'
+    price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
+
+    price_data = f"{{{price_data}}}"
+    price_data = price_data.replace("\\", "")
+
+    json_data = json.loads(price_data)
+    return json_data
+
+def get_product_price_list(json_data):
+    product_list = []
     for product in json_data["prices"]["nodes"]:
         if product["stock"]["status"] == "in_stock" and product["store"]["currency"] == "SEK":
             store_name = product["store"]["name"]
@@ -75,9 +79,7 @@ def test_local_json_file():
             product_name = product["name"]
             product_link = product["externalUri"]
             product_list.append((store_name, store_price, product_link, product_name))
-
-    for product in product_list:
-        print(product)
+    return product_list
 
 def get_current_time():
     return datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
