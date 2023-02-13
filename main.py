@@ -11,7 +11,7 @@ def import_benchmark_json(benchmark_type):
         data = json.load(f)
     return data
 
-def fetch_html_page(url):
+def fetch_gpu_category_page(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -39,22 +39,43 @@ def fetch_html_page(url):
             # save_local_html_page(soup)
     else:
         print("No next page tag")
-
     return soup_list
 
+def fetch_product_page(url):
+    response = requests.get(url)
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    save_local_html_page(soup, "pjproductpage.html")
+
 def test_local_html_page():
-    with open("pj.html", "r", encoding="utf-8") as file:
+    with open("pjproductpage.html", "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
+
+    page_json = soup.find_all("script")[7].text
+
+    start_text = r'"prices":'
+    end_text = r',"popularProducts"'
+    price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
+    price_data = f"{{{price_data}}}"
+    price_data = price_data.replace("\\", "")
+    json_data = json.loads(price_data)
+
+    write_local_json_files([json_data])
 
 def get_current_time():
     return datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
-def save_local_html_page(soup):
-    current_time = get_current_time()
-    with open(f"pjtest_{current_time}.html", "w", encoding="utf-8") as file:
+def save_local_html_page(soup, filename=None):
+    if filename:
+        target_filename = filename
+    else:
+        current_time = get_current_time()
+        target_filename = f"pjtest_{current_time}.html"
+
+    with open(target_filename, "w", encoding="utf-8") as file:
         file.write(soup.prettify())
 
-def create_json_list(soup_list, *, read_local_files=False):
+def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
     # FROM LOCAL HTML FILES 
     # soup_list is list of strings of file paths
     if read_local_files:
@@ -135,6 +156,10 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 # url = "https://www.prisjakt.nu/c/videoredigering"
 # 2 Pages
 # url = "https://www.prisjakt.nu/c/optiska-enheter-for-datorer?557=1093"
+# Product Page (Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB)
+# url = "https://www.prisjakt.nu/produkt.php?p=7124177"
+
+# fetch_product_page(url)
 
 # html_soup_list = fetch_html_page(url)
 # json_list = create_json_list(html_soup_list)
@@ -144,8 +169,10 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 
 # json_list = create_json_list(pj_pages_2, read_local_files=True)
 
-gpu_price_list = get_gpu_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)
+# gpu_price_list = get_gpu_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)
 
 # print(len(gpu_price_list))
-print(gpu_price_list)
+# print(gpu_price_list)
+
+test_local_html_page()
 
