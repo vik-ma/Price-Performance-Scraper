@@ -45,7 +45,8 @@ def fetch_product_page(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
-    save_local_html_page(soup, "pjproductpage.html")
+    return soup
+    # save_local_html_page(soup, "pjproductpage.html")
 
 def test_local_html_page():
     with open("pjproductpage.html", "r", encoding="utf-8") as file:
@@ -126,7 +127,7 @@ def write_local_json_files(json_list):
         with open(f"pj_json_{current_time}_{i}.json", "w") as file:
             json.dump(json_file, file, indent=4)
 
-def get_gpu_price_list(json_list, *, read_local_json_list=False):
+def get_gpu_category_price_list(json_list, *, read_local_json_list=False):
     # FROM LOCAL JSON FILES 
     # json_list is list of strings of file paths
     if read_local_json_list:
@@ -155,6 +156,23 @@ def get_gpu_price_list(json_list, *, read_local_json_list=False):
     
     return sorted_price_list
 
+def get_product_list_prices(product_link_list):
+    store_price_list = []
+    for product in product_link_list:
+        product_link = product[0]
+
+        soup = fetch_product_page(product_link)
+        print(f"Fetched {product_link}")
+
+        json_data = get_product_json(soup)
+
+        product_price_list = get_product_price_list(json_data)
+        store_price_list.extend(product_price_list)
+        if product != product_link_list[-1]:
+            time.sleep(0.5)
+    return store_price_list
+
+
 pj_pages = ["pjmultpagetest.html", "pjmultpagetest2.html", "pjmultpagetest3.html"]
 pj_pages_2 = ["pjtest_2023-02-11_23-22-24.html", "pjtest_2023-02-11_23-22-25.html"]
 pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json"]
@@ -178,6 +196,11 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 # Product Page (Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB)
 # url = "https://www.prisjakt.nu/produkt.php?p=7124177"
 
+gpu_price_list = get_gpu_category_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)[:2]
+products_in_stock_list = get_product_list_prices(gpu_price_list)
+# product_list = ["https://www.prisjakt.nu/produkt.php?p=7124177", "https://www.prisjakt.nu/produkt.php?p=7123378", "https://www.prisjakt.nu/produkt.php?p=7123212"]
+
+
 # fetch_product_page(url)
 
 # html_soup_list = fetch_html_page(url)
@@ -188,11 +211,10 @@ pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json
 
 # json_list = create_json_list(pj_pages_2, read_local_files=True)
 
-# gpu_price_list = get_gpu_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)
 
 # print(len(gpu_price_list))
 # print(gpu_price_list)
 
 # test_local_html_page()
-test_local_json_file()
+# test_local_json_file()
 
