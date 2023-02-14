@@ -174,32 +174,41 @@ def get_product_list_prices(product_link_list):
 
 gpu_benchmarks = import_benchmark_json("GPU")
 gpu_pj_url_dict = {
-    "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
-    "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
-    "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
-    "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
-    "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
-    "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
-    "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
-    "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
-    "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
-    "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
-    "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
-    "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
-    "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
-    "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
-    "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
-    "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
-    "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
-    "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
-    "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
-    "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
-    "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
-    "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
-    "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
-    "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
+    "TOP TIER": {
+        "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
+        "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
+        },
+    "HIGH TIER": {
+        "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
+        "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
+        "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
+        "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
+        },
+    "MID TIER": {
+        "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
+        "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
+        "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
+        "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
+        "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
+        "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
+        "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
+        "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
+        },
+    "LOW TIER": {
+        "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
+        "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
+        "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
+        "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
+        "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
+        },
+    "BOTTOM TIER": {
+        "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
+        "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
+        "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
+        "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
+        "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
+        }
 }
-
 
 # pj_pages = ["pjmultpagetest.html", "pjmultpagetest2.html", "pjmultpagetest3.html"]
 # pj_pages_2 = ["pjtest_2023-02-11_23-22-24.html", "pjtest_2023-02-11_23-22-25.html"]
