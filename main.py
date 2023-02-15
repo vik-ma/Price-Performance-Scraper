@@ -28,7 +28,7 @@ def fetch_gpu_category_page(url):
             offset_num = i * 44
             next_page_link = f"{url}&offset={offset_num}"
 
-            print("sleeping")
+            print("Sleeping until next page")
             time.sleep(0.5)
 
             response = requests.get(next_page_link)
@@ -38,7 +38,7 @@ def fetch_gpu_category_page(url):
             soup_list.append(soup)
             # save_local_html_page(soup)
     else:
-        print("No next page tag")
+        print("Only one page in category")
 
     return soup_list
 
@@ -140,7 +140,7 @@ def write_local_json_files(json_list):
             json.dump(json_file, file, indent=4)
 
 
-def get_gpu_category_price_list(json_list, *, read_local_json_list=False):
+def get_lowest_prices_in_gpu_category(json_list, *, read_local_json_list=False):
     # FROM LOCAL JSON FILES 
     # json_list is list of strings of file paths
     if read_local_json_list:
@@ -170,7 +170,7 @@ def get_gpu_category_price_list(json_list, *, read_local_json_list=False):
     return lowest_price_list
 
 
-def get_store_price_for_product(product_link_list, product_category):
+def get_store_price_for_products(product_link_list, product_category):
     store_price_list = []
 
     for product in product_link_list:
@@ -200,8 +200,24 @@ def get_price_benchmark_score(product_price_list, benchmark_json):
     
     return price_score_list
 
+def start_price_fetching_gpu(tier_choice):
+    benchmark_json = import_benchmark_json("GPU")
 
-gpu_benchmarks = import_benchmark_json("GPU")
+    benchmark_price_list = []
+    for product_category, product_category_url in tier_choice.items():
+        soup_list = fetch_gpu_category_page(product_category_url)
+        json_list = create_json_list_from_gpu_category(soup_list)
+        lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
+        product_price_list = get_store_price_for_products(lowest_category_prices, str(product_category))
+        benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
+        benchmark_price_list.extend(benchmark_score_list)
+    
+    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[5], reverse=True)
+
+    for entry in sorted_benchmark_price_list:
+        print(entry)
+
+# gpu_benchmarks = import_benchmark_json("GPU")
 gpu_pj_url_dict = {
     "TOP TIER": {
         "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
@@ -239,8 +255,7 @@ gpu_pj_url_dict = {
         },
     }
 
-product_price_list = [
-]
+start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
 
 # get_price_benchmark_score(product_price_list, gpu_benchmarks)
 
