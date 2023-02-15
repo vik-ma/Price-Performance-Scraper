@@ -189,7 +189,16 @@ def get_store_price_for_product(product_link_list, product_category):
     return store_price_list
 
 def get_price_benchmark_score(product_price_list, benchmark_json):
-    pass
+    benchmark_category = product_price_list[0][0]
+    benchmark_value = int(benchmark_json[benchmark_category].replace(",", ""))
+
+    price_score_list = []
+    for product in product_price_list:
+        price_score = round(benchmark_value / product[2], 3)
+        new_product_info = product + (price_score,)
+        price_score_list.append(new_product_info)
+    
+    return price_score_list
 
 
 gpu_benchmarks = import_benchmark_json("GPU")
@@ -258,10 +267,10 @@ product_price_list = [
 # Product Page (Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB)
 # url = "https://www.prisjakt.nu/produkt.php?p=7124177"
 
-gpu_price_list = get_gpu_category_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)[:3]
-products_in_stock_list = get_store_price_for_product(gpu_price_list, "GeForce RTX 4090")
-for product in products_in_stock_list:
-    print(product)
+# gpu_price_list = get_gpu_category_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)[:3]
+# products_in_stock_list = get_store_price_for_product(gpu_price_list, "GeForce RTX 4090")
+# for product in products_in_stock_list:
+#     print(product)
 
 # product_list = ["https://www.prisjakt.nu/produkt.php?p=7124177", "https://www.prisjakt.nu/produkt.php?p=7123378", "https://www.prisjakt.nu/produkt.php?p=7123212"]
 
