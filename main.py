@@ -10,6 +10,7 @@ def import_benchmark_json(benchmark_type):
         data = json.load(file)
     return data
 
+
 def fetch_gpu_category_page(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
@@ -38,7 +39,9 @@ def fetch_gpu_category_page(url):
             # save_local_html_page(soup)
     else:
         print("No next page tag")
+
     return soup_list
+
 
 def fetch_product_page(url):
     response = requests.get(url)
@@ -47,15 +50,18 @@ def fetch_product_page(url):
     return soup
     # save_local_html_page(soup, "pjproductpage.html")
 
+
 def test_local_html_page():
     with open("pjproductpage.html", "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
 
     # write_local_json_files([json_data])
 
+
 def test_local_json_file():
     with open("pj_json_2023-02-13_17-50-45_1.json", "r") as file:
         json_data = json.load(file)
+
 
 def get_product_json(soup):
     page_json = soup.find_all("script")[7].text
@@ -68,9 +74,11 @@ def get_product_json(soup):
     price_data = price_data.replace("\\", "")
 
     json_data = json.loads(price_data)
+
     return json_data
 
-def get_product_price_list(json_data):
+
+def get_product_price_list(json_data, product_category):
     product_list = []
     for product in json_data["prices"]["nodes"]:
         if product["stock"]["status"] == "in_stock" and product["store"]["currency"] == "SEK":
@@ -78,11 +86,13 @@ def get_product_price_list(json_data):
             store_price = int(product["price"]["exclShipping"])
             product_name = product["name"]
             product_link = product["externalUri"]
-            product_list.append((store_name, store_price, product_link, product_name))
+            product_list.append((product_category, store_name, store_price, product_link, product_name))
     return product_list
+
 
 def get_current_time():
     return datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+
 
 def save_local_html_page(soup, filename=None):
     if filename:
@@ -93,6 +103,7 @@ def save_local_html_page(soup, filename=None):
 
     with open(target_filename, "w", encoding="utf-8") as file:
         file.write(soup.prettify())
+
 
 def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
     # FROM LOCAL HTML FILES 
@@ -117,7 +128,9 @@ def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
         json_data = json.loads(price_data)
 
         json_list.append(json_data)
+
     return json_list
+
 
 def write_local_json_files(json_list):
     current_time = get_current_time()
@@ -125,6 +138,7 @@ def write_local_json_files(json_list):
     for i, json_file in enumerate(json_list, start=1):
         with open(f"pj_json_{current_time}_{i}.json", "w") as file:
             json.dump(json_file, file, indent=4)
+
 
 def get_gpu_category_price_list(json_list, *, read_local_json_list=False):
     # FROM LOCAL JSON FILES 
@@ -151,12 +165,14 @@ def get_gpu_category_price_list(json_list, *, read_local_json_list=False):
     slice_num = 4
     list_slicer = int(len(sorted_price_list) / slice_num)
 
-    sorted_price_list = sorted_price_list[:list_slicer]
+    lowest_price_list = sorted_price_list[:list_slicer]
     
-    return sorted_price_list
+    return lowest_price_list
 
-def get_product_list_prices(product_link_list):
+
+def get_store_price_for_product(product_link_list, product_category):
     store_price_list = []
+
     for product in product_link_list:
         product_link = product[0]
 
@@ -165,11 +181,15 @@ def get_product_list_prices(product_link_list):
 
         json_data = get_product_json(soup)
 
-        product_price_list = get_product_price_list(json_data)
+        product_price_list = get_product_price_list(json_data, product_category)
         store_price_list.extend(product_price_list)
         if product != product_link_list[-1]:
             time.sleep(0.5)
+
     return store_price_list
+
+def get_price_benchmark_score(product_price_list, benchmark_json):
+    pass
 
 
 gpu_benchmarks = import_benchmark_json("GPU")
@@ -207,8 +227,13 @@ gpu_pj_url_dict = {
         "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
         "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
         "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
-        }
-}
+        },
+    }
+
+product_price_list = [
+]
+
+# get_price_benchmark_score(product_price_list, gpu_benchmarks)
 
 # pj_pages = ["pjmultpagetest.html", "pjmultpagetest2.html", "pjmultpagetest3.html"]
 # pj_pages_2 = ["pjtest_2023-02-11_23-22-24.html", "pjtest_2023-02-11_23-22-25.html"]
@@ -219,9 +244,6 @@ gpu_pj_url_dict = {
 # write_local_json_file(pj_pages)
 
 # test_local_html_page()
-
-
-
 
 # 1 Page (3080)
 # url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
@@ -236,12 +258,12 @@ gpu_pj_url_dict = {
 # Product Page (Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB)
 # url = "https://www.prisjakt.nu/produkt.php?p=7124177"
 
-# gpu_price_list = get_gpu_category_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)[:2]
-# products_in_stock_list = get_product_list_prices(gpu_price_list)
-# for product in products_in_stock_list:
-#     print(product)
-# product_list = ["https://www.prisjakt.nu/produkt.php?p=7124177", "https://www.prisjakt.nu/produkt.php?p=7123378", "https://www.prisjakt.nu/produkt.php?p=7123212"]
+gpu_price_list = get_gpu_category_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)[:3]
+products_in_stock_list = get_store_price_for_product(gpu_price_list, "GeForce RTX 4090")
+for product in products_in_stock_list:
+    print(product)
 
+# product_list = ["https://www.prisjakt.nu/produkt.php?p=7124177", "https://www.prisjakt.nu/produkt.php?p=7123378", "https://www.prisjakt.nu/produkt.php?p=7123212"]
 
 # fetch_product_page(url)
 
