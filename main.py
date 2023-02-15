@@ -437,7 +437,7 @@ def get_lowest_prices_in_gpu_category(json_list, *, read_local_json_list=False):
     return lowest_price_list
 
 
-def get_store_price_for_products(product_link_list, product_category):
+def get_store_price_for_products_from_category(product_link_list, product_category):
     store_price_list = []
 
     for product in product_link_list:
@@ -475,7 +475,7 @@ def start_price_fetching_gpu(tier_choice):
         soup_list = fetch_gpu_category_page(product_category_url)
         json_list = create_json_list_from_gpu_category(soup_list)
         lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
-        product_price_list = get_store_price_for_products(lowest_category_prices, str(product_category))
+        product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
         benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
         benchmark_price_list.extend(benchmark_score_list)
     
@@ -484,10 +484,36 @@ def start_price_fetching_gpu(tier_choice):
     for entry in sorted_benchmark_price_list:
         print(entry)
 
+def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_dict):
+    benchmark_json = import_benchmark_json(benchmark_type)
 
-print(sum(len(v) for v in cpu_normal_tier_dict.values()))
-print(sum(len(v) for v in cpu_gaming_tier_dict.values()))
-print(sum(len(v) for v in cpu_socket_dict.values()))
+    store_price_list = []
+
+    for product in product_choice_dict:
+        product_link = cpu_url_dict[product]
+
+        soup = fetch_product_page(product_link)
+        print(f"Fetched {product_link}")
+
+        json_data = get_product_json(soup)
+
+        product_price_list = get_product_price_list(json_data, product)
+        store_price_list.extend(product_price_list)
+
+        time.sleep(0.5)
+
+    benchmark_price_list = get_price_benchmark_score(store_price_list, benchmark_json)
+
+    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[5], reverse=True)
+
+    for entry in sorted_benchmark_price_list:
+        print(entry)
+
+
+
+start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
+
+
 # fetch_product_page(cpu_pj_url_dict["Intel Core i9-13900KS"])
 # test_local_json_file()
 
