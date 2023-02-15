@@ -229,12 +229,14 @@ gpu_pj_url_dict = {
         "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
         "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
         },
-    "MID TIER": {
+    "UPPER MID TIER": {
         "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
         "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
         "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
         "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
         "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
+        },
+    "LOWER MID TIER": {
         "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
         "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
         "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
@@ -247,15 +249,16 @@ gpu_pj_url_dict = {
         "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
         },
     "BOTTOM TIER": {
-        "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
         "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
+        "GeForce GTX 1660 SUPER": "https://www.prisjakt.nu/c/grafikkort?532=32763",
+        "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
         "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
         "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
         "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
         },
     }
 
-start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
+start_price_fetching_gpu(gpu_pj_url_dict["UPPER MID TIER"])
 
 # get_price_benchmark_score(product_price_list, gpu_benchmarks)
 
