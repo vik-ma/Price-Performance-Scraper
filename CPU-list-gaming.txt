@@ -38,8 +38,6 @@ Socket LGA 1700
     TOP TIER
         Intel Core i9-13900K
         Intel Core i9-13900KF
-        Intel Core i9-13900F
-        Intel Core i9-13900
 
     HIGH TIER
         Intel Core i7-13700K
@@ -72,3 +70,9 @@ Socket LGA 1700
         Intel Core i5-12500
         Intel Core i5-12400F
         Intel Core i5-12400
+
+
+NO GAMING VALUES
+    TOP TIER
+        Intel Core i9-13900F
+        Intel Core i9-13900
