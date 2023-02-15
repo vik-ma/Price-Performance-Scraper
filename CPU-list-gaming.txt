@@ -8,15 +8,12 @@ Socket AM4
     
     LOW TIER
         AMD Ryzen 5 5600
-        AMD Ryzen 9 5900
         AMD Ryzen 7 5800X
         AMD Ryzen 9 5950X
         AMD Ryzen 7 5700X
     
     BOTTOM TIER
-        AMD Ryzen 7 5800
         AMD Ryzen 7 5700G
-        AMD Ryzen 7 5700
         AMD Ryzen 5 5600G
         AMD Ryzen 5 5500
 
@@ -36,6 +33,7 @@ Socket AM5
 
 Socket LGA 1700
     TOP TIER
+        Intel Core i9-13900KS
         Intel Core i9-13900K
         Intel Core i9-13900KF
 
@@ -51,7 +49,6 @@ Socket LGA 1700
         Intel Core i9-12900KF
 
     MID TIER
-        Intel Core i5-13600
         Intel Core i9-12900F
         Intel Core i9-12900
         Intel Core i5-12600K
@@ -62,7 +59,6 @@ Socket LGA 1700
         Intel Core i5-13400
 
     LOW TIER
-        Intel Core i5-12490F
         Intel Core i5-12600
         Intel Core i7-12700
         Intel Core i5-13400F

@@ -5,6 +5,95 @@ import re
 import datetime
 import time
 
+gpu_pj_url_dict = {
+    "TOP TIER": {
+        "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
+        "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
+        },
+    "HIGH TIER": {
+        "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
+        "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
+        "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
+        "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
+        },
+    "UPPER MID TIER": {
+        "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
+        "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
+        "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
+        "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
+        "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
+        },
+    "LOWER MID TIER": {
+        "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
+        "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
+        "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
+        },
+    "LOW TIER": {
+        "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
+        "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
+        "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
+        "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
+        "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
+        },
+    "BOTTOM TIER": {
+        "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
+        "GeForce GTX 1660 SUPER": "https://www.prisjakt.nu/c/grafikkort?532=32763",
+        "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
+        "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
+        "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
+        "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
+        },
+    }
+
+cpu_pj_url_dict = {
+    "AMD Ryzen 9 5950X": "https://www.prisjakt.nu/produkt.php?p=5588372",
+    "AMD Ryzen 9 5900X": "https://www.prisjakt.nu/produkt.php?p=5588367",
+    "AMD Ryzen 7 5800X": "https://www.prisjakt.nu/produkt.php?p=5588364",
+    "AMD Ryzen 7 5800X3D": "https://www.prisjakt.nu/produkt.php?p=6040557",
+    "AMD Ryzen 7 5700X": "https://www.prisjakt.nu/produkt.php?p=6040676",
+    "AMD Ryzen 7 5700G": "https://www.prisjakt.nu/produkt.php?p=5834672",
+    "AMD Ryzen 5 5600X": "https://www.prisjakt.nu/produkt.php?p=5588360",
+    "AMD Ryzen 5 5600": "https://www.prisjakt.nu/produkt.php?p=6090826",
+    "AMD Ryzen 5 5600G": "https://www.prisjakt.nu/produkt.php?p=5834674",
+    "AMD Ryzen 5 5500": "https://www.prisjakt.nu/produkt.php?p=6090894",
+    "AMD Ryzen 9 7950X": "https://www.prisjakt.nu/produkt.php?p=6999752",
+    "AMD Ryzen 9 7900X": "https://www.prisjakt.nu/produkt.php?p=6999757",
+    "AMD Ryzen 9 7900": "https://www.prisjakt.nu/produkt.php?p=7328156",
+    "AMD Ryzen 7 7700X": "https://www.prisjakt.nu/produkt.php?p=6999756",
+    "AMD Ryzen 7 7700": "https://www.prisjakt.nu/produkt.php?p=7327472",
+    "AMD Ryzen 5 7600X": "https://www.prisjakt.nu/produkt.php?p=6999754",
+    "AMD Ryzen 5 7600": "https://www.prisjakt.nu/produkt.php?p=7327471",
+    "Intel Core i9-13900KS": "https://www.prisjakt.nu/produkt.php?p=7334329",
+    "Intel Core i9-13900K": "https://www.prisjakt.nu/produkt.php?p=7014938",
+    "Intel Core i9-13900KF": "https://www.prisjakt.nu/produkt.php?p=7132476",
+    "Intel Core i9-13900F": "https://www.prisjakt.nu/produkt.php?p=7335288",
+    "Intel Core i9-13900": "https://www.prisjakt.nu/produkt.php?p=7335286",
+    "Intel Core i7-13700K": "https://www.prisjakt.nu/produkt.php?p=7014937",
+    "Intel Core i7-13700KF": "https://www.prisjakt.nu/produkt.php?p=7132477",
+    "Intel Core i9-12900KS": "https://www.prisjakt.nu/produkt.php?p=6031273",
+    "Intel Core i9-12900K": "https://www.prisjakt.nu/produkt.php?p=5879155",
+    "Intel Core i9-12900KF": "https://www.prisjakt.nu/produkt.php?p=5879153",
+    "Intel Core i7-13700": "https://www.prisjakt.nu/produkt.php?p=7335263",
+    "Intel Core i7-13700F": "https://www.prisjakt.nu/produkt.php?p=7335267",
+    "Intel Core i5-13600K": "https://www.prisjakt.nu/produkt.php?p=7014939",
+    "Intel Core i5-13600KF": "https://www.prisjakt.nu/produkt.php?p=7132478",
+    "Intel Core i9-12900F": "https://www.prisjakt.nu/produkt.php?p=5948039",
+    "Intel Core i9-12900": "https://www.prisjakt.nu/produkt.php?p=5948038",
+    "Intel Core i7-12700K": "https://www.prisjakt.nu/produkt.php?p=5879157",
+    "Intel Core i7-12700KF": "https://www.prisjakt.nu/produkt.php?p=5879156",
+    "Intel Core i5-13500": "https://www.prisjakt.nu/produkt.php?p=7335292",
+    "Intel Core i7-12700F": "https://www.prisjakt.nu/produkt.php?p=5948036",
+    "Intel Core i7-12700": "https://www.prisjakt.nu/produkt.php?p=5948024",
+    "Intel Core i5-12600K": "https://www.prisjakt.nu/produkt.php?p=5879154",
+    "Intel Core i5-12600KF": "https://www.prisjakt.nu/produkt.php?p=5879152",
+    "Intel Core i5-13400": "https://www.prisjakt.nu/produkt.php?p=7335275",
+    "Intel Core i5-13400F": "https://www.prisjakt.nu/produkt.php?p=7335279",
+    "Intel Core i5-12600": "https://www.prisjakt.nu/produkt.php?p=5948015",
+    "Intel Core i5-12500": "https://www.prisjakt.nu/produkt.php?p=5948021",
+    "Intel Core i5-12400F": "https://www.prisjakt.nu/produkt.php?p=5948013",
+    "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
+}    
+
 def import_benchmark_json(benchmark_type):
     with open(f"benchmarks/latest/{benchmark_type}.json", "r") as file:
         data = json.load(file)
@@ -217,48 +306,12 @@ def start_price_fetching_gpu(tier_choice):
     for entry in sorted_benchmark_price_list:
         print(entry)
 
-# gpu_benchmarks = import_benchmark_json("GPU")
-gpu_pj_url_dict = {
-    "TOP TIER": {
-        "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
-        "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
-        },
-    "HIGH TIER": {
-        "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
-        "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
-        "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
-        "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
-        },
-    "UPPER MID TIER": {
-        "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
-        "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
-        "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
-        "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
-        "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
-        },
-    "LOWER MID TIER": {
-        "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
-        "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
-        "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
-        },
-    "LOW TIER": {
-        "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
-        "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
-        "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
-        "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
-        "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
-        },
-    "BOTTOM TIER": {
-        "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
-        "GeForce GTX 1660 SUPER": "https://www.prisjakt.nu/c/grafikkort?532=32763",
-        "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
-        "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
-        "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
-        "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
-        },
-    }
 
-start_price_fetching_gpu(gpu_pj_url_dict["UPPER MID TIER"])
+
+
+
+
+# start_price_fetching_gpu(gpu_pj_url_dict["UPPER MID TIER"])
 
 # get_price_benchmark_score(product_price_list, gpu_benchmarks)
 
