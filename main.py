@@ -453,7 +453,7 @@ def get_price_benchmark_score(product_price_list, benchmark_json):
 
     price_score_list = []
     for product in product_price_list:
-        price_score = round(benchmark_value / product[2], 3)
+        price_score = round(benchmark_value / product[2] * 100, 2) 
         new_product_info = product + (price_score,)
         price_score_list.append(new_product_info)
     
@@ -504,6 +504,7 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_dict):
 
 
 start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
+# start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
 
 
 # fetch_product_page(cpu_pj_url_dict["Intel Core i9-13900KS"])
