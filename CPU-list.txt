@@ -9,12 +9,10 @@ Socket AM4
         AMD Ryzen 7 5800X
         AMD Ryzen 7 5800X3D
         AMD Ryzen 7 5700X
-        AMD Ryzen 7 5700G
 
     LOW TIER
         AMD Ryzen 5 5600X
         AMD Ryzen 5 5600
-        AMD Ryzen 5 5600G
         AMD Ryzen 5 5500
 
 

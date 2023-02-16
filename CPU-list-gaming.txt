@@ -13,8 +13,6 @@ Socket AM4
         AMD Ryzen 7 5700X
     
     BOTTOM TIER
-        AMD Ryzen 7 5700G
-        AMD Ryzen 5 5600G
         AMD Ryzen 5 5500
 
 

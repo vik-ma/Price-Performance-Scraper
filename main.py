@@ -51,10 +51,8 @@ cpu_pj_url_dict = {
     "AMD Ryzen 7 5800X": "https://www.prisjakt.nu/produkt.php?p=5588364",
     "AMD Ryzen 7 5800X3D": "https://www.prisjakt.nu/produkt.php?p=6040557",
     "AMD Ryzen 7 5700X": "https://www.prisjakt.nu/produkt.php?p=6040676",
-    "AMD Ryzen 7 5700G": "https://www.prisjakt.nu/produkt.php?p=5834672",
     "AMD Ryzen 5 5600X": "https://www.prisjakt.nu/produkt.php?p=5588360",
     "AMD Ryzen 5 5600": "https://www.prisjakt.nu/produkt.php?p=6090826",
-    "AMD Ryzen 5 5600G": "https://www.prisjakt.nu/produkt.php?p=5834674",
     "AMD Ryzen 5 5500": "https://www.prisjakt.nu/produkt.php?p=6090894",
     "AMD Ryzen 9 7950X": "https://www.prisjakt.nu/produkt.php?p=6999752",
     "AMD Ryzen 9 7900X": "https://www.prisjakt.nu/produkt.php?p=6999757",
@@ -101,10 +99,8 @@ cpu_socket_dict = {
         "AMD Ryzen 7 5800X",
         "AMD Ryzen 7 5800X3D",
         "AMD Ryzen 7 5700X",
-        "AMD Ryzen 7 5700G",
         "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
-        "AMD Ryzen 5 5600G",
         "AMD Ryzen 5 5500",
     },
     "Socket AM5": {
@@ -183,7 +179,6 @@ cpu_normal_tier_dict = {
         "AMD Ryzen 7 5800X",
         "AMD Ryzen 7 5800X3D",
         "AMD Ryzen 7 5700X",
-        "AMD Ryzen 7 5700G",
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 5 7600",
         "Intel Core i5-13500",
@@ -201,7 +196,6 @@ cpu_normal_tier_dict = {
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
-        "AMD Ryzen 5 5600G",
         "AMD Ryzen 5 5500",   
     },
 }
@@ -255,8 +249,6 @@ cpu_gaming_tier_dict = {
         "Intel Core i5-12400",
     },
     "BOTTOM TIER": {
-        "AMD Ryzen 7 5700G",
-        "AMD Ryzen 5 5600G",
         "AMD Ryzen 5 5500",
         "AMD Ryzen 9 7900",
         "AMD Ryzen 7 7700"
