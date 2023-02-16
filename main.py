@@ -449,7 +449,7 @@ def get_store_price_for_products_from_category(product_link_list, product_catego
 
 def get_price_benchmark_score(product_price_list, benchmark_json):
     benchmark_category = product_price_list[0][0]
-    benchmark_value = int(benchmark_json[benchmark_category].replace(",", ""))
+    benchmark_value = benchmark_json[benchmark_category]
 
     price_score_list = []
     for product in product_price_list:
