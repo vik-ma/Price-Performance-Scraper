@@ -93,7 +93,7 @@ cpu_pj_url_dict = {
 }    
 
 cpu_socket_dict = {
-    "Socket AM4": {
+    "Socket AM4": [
         "AMD Ryzen 9 5950X",
         "AMD Ryzen 9 5900X",
         "AMD Ryzen 7 5800X",
@@ -102,8 +102,8 @@ cpu_socket_dict = {
         "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
         "AMD Ryzen 5 5500",
-    },
-    "Socket AM5": {
+    ],
+    "Socket AM5": [
         "AMD Ryzen 9 7950X",
         "AMD Ryzen 9 7900X",
         "AMD Ryzen 9 7900",
@@ -111,8 +111,8 @@ cpu_socket_dict = {
         "AMD Ryzen 7 7700",
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 5 7600",
-    },
-    "Socket LGA 1700": {
+    ],
+    "Socket LGA 1700": [
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
@@ -142,11 +142,11 @@ cpu_socket_dict = {
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
-    }
+    ]
 }
 
 cpu_normal_tier_dict = {
-    "TOP TIER":{
+    "TOP TIER":[
         "AMD Ryzen 9 5950X",
         "AMD Ryzen 9 7950X",
         "AMD Ryzen 9 7900X",
@@ -158,8 +158,8 @@ cpu_normal_tier_dict = {
         "Intel Core i9-13900",
         "Intel Core i7-13700K",
         "Intel Core i7-13700KF",
-    },
-    "HIGH TIER": {
+    ],
+    "HIGH TIER": [
         "AMD Ryzen 9 5900X",
         "AMD Ryzen 7 7700X",
         "AMD Ryzen 7 7700",
@@ -174,8 +174,8 @@ cpu_normal_tier_dict = {
         "Intel Core i9-12900",
         "Intel Core i7-12700K",
         "Intel Core i7-12700KF",
-    },
-    "MID TIER": {
+    ],
+    "MID TIER": [
         "AMD Ryzen 7 5800X",
         "AMD Ryzen 7 5800X3D",
         "AMD Ryzen 7 5700X",
@@ -188,8 +188,8 @@ cpu_normal_tier_dict = {
         "Intel Core i5-12600KF",
         "Intel Core i5-13400",
         "Intel Core i5-13400F",
-    },
-    "LOW TIER": {
+    ],
+    "LOW TIER": [
         "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
         "Intel Core i5-12600",
@@ -197,16 +197,16 @@ cpu_normal_tier_dict = {
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
         "AMD Ryzen 5 5500",   
-    },
+    ],
 }
 
 cpu_gaming_tier_dict = {
-    "TOP TIER":{
+    "TOP TIER": [
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
-    },
-    "HIGH TIER": {
+    ],
+    "HIGH TIER": [
         "AMD Ryzen 7 5800X3D",
         "AMD Ryzen 9 7900X",
         "AMD Ryzen 5 7600X",
@@ -222,8 +222,8 @@ cpu_gaming_tier_dict = {
         "Intel Core i9-12900KS",
         "Intel Core i9-12900K",
         "Intel Core i9-12900KF",
-    },
-    "MID TIER": {
+    ],
+    "MID TIER": [
         "AMD Ryzen 9 5900X",
         "AMD Ryzen 5 5600X",
         "Intel Core i9-12900F",
@@ -234,8 +234,8 @@ cpu_gaming_tier_dict = {
         "Intel Core i5-12600KF",
         "Intel Core i7-12700KF",
         "Intel Core i5-13400",
-    },
-    "LOW TIER": {
+    ],
+    "LOW TIER": [
         "AMD Ryzen 5 5600",
         "AMD Ryzen 7 5800X",
         "AMD Ryzen 9 5950X",
@@ -247,12 +247,12 @@ cpu_gaming_tier_dict = {
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
-    },
-    "BOTTOM TIER": {
+    ],
+    "BOTTOM TIER": [
         "AMD Ryzen 5 5500",
         "AMD Ryzen 9 7900",
         "AMD Ryzen 7 7700"
-    }
+    ]
 }
 
 
@@ -453,7 +453,7 @@ def get_price_benchmark_score(product_price_list, benchmark_json):
 
     price_score_list = []
     for product in product_price_list:
-        price_score = round(benchmark_value / product[2] * 100, 2) 
+        price_score = round(benchmark_value / product[2] * 100, 2)
         new_product_info = product + (price_score,)
         price_score_list.append(new_product_info)
     
@@ -476,12 +476,12 @@ def start_price_fetching_gpu(tier_choice):
     for entry in sorted_benchmark_price_list:
         print(entry)
 
-def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_dict):
+def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list):
     benchmark_json = import_benchmark_json(benchmark_type)
 
     store_price_list = []
 
-    for product in product_choice_dict:
+    for product in product_choice_list:
         product_link = cpu_url_dict[product]
 
         soup = fetch_product_page(product_link)
@@ -515,9 +515,14 @@ def test_benchmark_price_score():
         ("GeForce RTX 4080", "MSI GeForce RTX 4080 Gaming X Trio HDMI 3xDP 16GB", 16960),
         ("GeForce RTX 4080", "Asus GeForce RTX 4080 TUF Gaming OC 2xHDMI 3xDP 16GB", 17699),
         ("GeForce RTX 4080", "PNY GeForce RTX 4080 Verto Triple Fan HDMI 3xDP 16GB", 15316),
+        ("GeForce RTX 4080", "Expensive Test 4080", 20959)
     ]
 
-    product_list = [product_list_4090, product_list_4080]
+    product_list_1660_super = [
+        ("GeForce GTX 1660 Super", "MSI GeForce GTX 1660 Super Ventus XS OC HDMI 3xDP 6GB", 3169)
+        ]
+
+    product_list = [product_list_4090, product_list_4080, product_list_1660_super]
 
     benchmark_price_list = []
 
@@ -529,12 +534,13 @@ def test_benchmark_price_score():
 
     for item in sorted_benchmark_price_list:
         print(item)
+        
 
 
-test_benchmark_price_score()
+# test_benchmark_price_score()
 
 # start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
-# start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
+start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
 
 
 # fetch_product_page(cpu_pj_url_dict["Intel Core i9-13900KS"])
