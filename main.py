@@ -492,7 +492,8 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list):
         product_price_list = get_product_price_list(json_data, product)
         store_price_list.extend(product_price_list)
 
-        time.sleep(0.5)
+        if product != product_choice_list[-1]:
+            time.sleep(0.5)
 
     benchmark_price_list = get_price_benchmark_score(store_price_list, benchmark_json)
 
