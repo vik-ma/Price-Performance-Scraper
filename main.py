@@ -502,8 +502,38 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_dict):
         print(entry)
 
 
+def test_benchmark_price_score():
+    benchmarks = import_benchmark_json("GPU")
 
-start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
+    product_list_4090 = [
+        ("GeForce RTX 4090", "Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB", 21990),
+        ("GeForce RTX 4090", "Asus GeForce RTX 4090 TUF Gaming OC 2xHDMI 3xDP 24GB", 23287),
+        ("GeForce RTX 4090", "MSI GeForce RTX 4090 SUPRIM X HDMI 3xDP 24GB", 24990),
+        ("GeForce RTX 4090", "Palit GeForce RTX 4090 GameRock HDMI 3xDP 24GB", 20959),
+    ]
+    product_list_4080 = [
+        ("GeForce RTX 4080", "MSI GeForce RTX 4080 Gaming X Trio HDMI 3xDP 16GB", 16960),
+        ("GeForce RTX 4080", "Asus GeForce RTX 4080 TUF Gaming OC 2xHDMI 3xDP 16GB", 17699),
+        ("GeForce RTX 4080", "PNY GeForce RTX 4080 Verto Triple Fan HDMI 3xDP 16GB", 15316),
+    ]
+
+    product_list = [product_list_4090, product_list_4080]
+
+    benchmark_price_list = []
+
+    for product in product_list:
+        benchmark_score = get_price_benchmark_score(product, benchmarks)
+        benchmark_price_list.extend(benchmark_score)
+
+    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[3], reverse=True)
+
+    for item in sorted_benchmark_price_list:
+        print(item)
+
+
+test_benchmark_price_score()
+
+# start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
 # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
 
 
