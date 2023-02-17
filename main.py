@@ -205,9 +205,9 @@ cpu_gaming_tier_dict = {
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
+        "AMD Ryzen 7 5800X3D",
     ],
     "HIGH TIER": [
-        "AMD Ryzen 7 5800X3D",
         "AMD Ryzen 9 7900X",
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 5 7600",
@@ -540,8 +540,8 @@ def test_benchmark_price_score():
 
 # test_benchmark_price_score()
 
-# start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
-start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
+start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
+# start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
 
 
 # fetch_product_page(cpu_pj_url_dict["Intel Core i9-13900KS"])
