@@ -259,7 +259,6 @@ cpu_gaming_tier_dict = {
     ]
 }
 
-
 def import_benchmark_json(benchmark_type):
     with open(f"benchmarks/latest/{benchmark_type}.json", "r") as file:
         data = json.load(file)
@@ -451,6 +450,7 @@ def get_store_price_for_products_from_category(product_link_list, product_catego
 
     return store_price_list
 
+
 def get_price_benchmark_score(product_price_list, benchmark_json):
     benchmark_category = product_price_list[0][0]
     benchmark_value = benchmark_json[benchmark_category]
@@ -458,10 +458,11 @@ def get_price_benchmark_score(product_price_list, benchmark_json):
     price_score_list = []
     for product in product_price_list:
         price_score = round(benchmark_value / product[2] * 100, 2)
-        new_product_info = product + (price_score,)
+        new_product_info = product + (benchmark_value, price_score)
         price_score_list.append(new_product_info)
     
     return price_score_list
+
 
 def start_price_fetching_gpu(tier_choice):
     benchmark_json = import_benchmark_json("GPU")
@@ -475,10 +476,11 @@ def start_price_fetching_gpu(tier_choice):
         benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
         benchmark_price_list.extend(benchmark_score_list)
     
-    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[5], reverse=True)
+    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
     for entry in sorted_benchmark_price_list:
         print(entry)
+
 
 def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list):
     benchmark_json = import_benchmark_json(benchmark_type)
@@ -501,33 +503,33 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list):
 
     benchmark_price_list = get_price_benchmark_score(store_price_list, benchmark_json)
 
-    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[5], reverse=True)
+    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
     for entry in sorted_benchmark_price_list:
         print(entry)
 
 
-def test_benchmark_price_score():
+def test_benchmark_price_score(product_list=[]):
     benchmarks = import_benchmark_json("GPU")
 
-    product_list_4090 = [
+    product_item_1 = [
         ("GeForce RTX 4090", "Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB", 21990),
         ("GeForce RTX 4090", "Asus GeForce RTX 4090 TUF Gaming OC 2xHDMI 3xDP 24GB", 23287),
         ("GeForce RTX 4090", "MSI GeForce RTX 4090 SUPRIM X HDMI 3xDP 24GB", 24990),
         ("GeForce RTX 4090", "Palit GeForce RTX 4090 GameRock HDMI 3xDP 24GB", 20959),
     ]
-    product_list_4080 = [
+    product_item_2 = [
         ("GeForce RTX 4080", "MSI GeForce RTX 4080 Gaming X Trio HDMI 3xDP 16GB", 16960),
         ("GeForce RTX 4080", "Asus GeForce RTX 4080 TUF Gaming OC 2xHDMI 3xDP 16GB", 17699),
         ("GeForce RTX 4080", "PNY GeForce RTX 4080 Verto Triple Fan HDMI 3xDP 16GB", 15316),
         ("GeForce RTX 4080", "Expensive Test 4080", 20959)
     ]
-
-    product_list_1660_super = [
+    product_item_3 = [
         ("GeForce GTX 1660 Super", "MSI GeForce GTX 1660 Super Ventus XS OC HDMI 3xDP 6GB", 3169)
-        ]
+    ]
 
-    product_list = [product_list_4090, product_list_4080, product_list_1660_super]
+    if product_list == []:
+        product_list = [product_item_1, product_item_2, product_item_3]
 
     benchmark_price_list = []
 
@@ -535,70 +537,14 @@ def test_benchmark_price_score():
         benchmark_score = get_price_benchmark_score(product, benchmarks)
         benchmark_price_list.extend(benchmark_score)
 
-    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[3], reverse=True)
+    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[4], reverse=True)
 
     for item in sorted_benchmark_price_list:
         print(item)
         
 
 
-# test_benchmark_price_score()
+test_benchmark_price_score()
 
-start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
+# start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
 # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
-
-
-# fetch_product_page(cpu_pj_url_dict["Intel Core i9-13900KS"])
-# test_local_json_file()
-
-# start_price_fetching_gpu(gpu_pj_url_dict["UPPER MID TIER"])
-
-# get_price_benchmark_score(product_price_list, gpu_benchmarks)
-
-# pj_pages = ["pjmultpagetest.html", "pjmultpagetest2.html", "pjmultpagetest3.html"]
-# pj_pages_2 = ["pjtest_2023-02-11_23-22-24.html", "pjtest_2023-02-11_23-22-25.html"]
-# pj_json = ["pjmultpagejson1.json", "pjmultpagejson2.json", "pjmultpagejson3.json"]
-
-# print(get_gpu_price_list(pj_json))
-
-# write_local_json_file(pj_pages)
-
-# test_local_html_page()
-
-# 1 Page (3080)
-# url = "https://www.prisjakt.nu/c/grafikkort?532=36254"
-# 1 Page (4090)
-# url = "https://www.prisjakt.nu/c/grafikkort?532=39780"
-# 17 Pages (NVIDIA GeForce Grafikkort)
-# url = "https://www.prisjakt.nu/c/grafikkort?103551=36436"
-# 4 Pages
-# url = "https://www.prisjakt.nu/c/videoredigering"
-# 2 Pages
-# url = "https://www.prisjakt.nu/c/optiska-enheter-for-datorer?557=1093"
-# Product Page (Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB)
-# url = "https://www.prisjakt.nu/produkt.php?p=7124177"
-
-# gpu_price_list = get_gpu_category_price_list(["pj_json_2023-02-12_00-30-01_1.json"], read_local_json_list=True)[:3]
-# products_in_stock_list = get_store_price_for_product(gpu_price_list, "GeForce RTX 4090")
-# for product in products_in_stock_list:
-#     print(product)
-
-# product_list = ["https://www.prisjakt.nu/produkt.php?p=7124177", "https://www.prisjakt.nu/produkt.php?p=7123378", "https://www.prisjakt.nu/produkt.php?p=7123212"]
-
-# fetch_product_page(url)
-
-# html_soup_list = fetch_html_page(url)
-# json_list = create_json_list(html_soup_list)
-# print(get_gpu_price_list(json_list))
-
-# write_local_json_files(json_list)
-
-# json_list = create_json_list(pj_pages_2, read_local_files=True)
-
-
-# print(len(gpu_price_list))
-# print(gpu_price_list)
-
-# test_local_html_page()
-# test_local_json_file()
-
