@@ -147,41 +147,45 @@ cpu_socket_dict = {
 
 cpu_normal_tier_dict = {
     "TOP TIER":[
-        "AMD Ryzen 9 5950X",
         "AMD Ryzen 9 7950X",
-        "AMD Ryzen 9 7900X",
-        "AMD Ryzen 9 7900",
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
         "Intel Core i9-13900F",
+    ],
+    "HIGH TIER": [
+        "AMD Ryzen 9 5950X",
+        "AMD Ryzen 9 7900X",
+        "AMD Ryzen 9 7900",
         "Intel Core i9-13900",
         "Intel Core i7-13700K",
         "Intel Core i7-13700KF",
-    ],
-    "HIGH TIER": [
-        "AMD Ryzen 9 5900X",
-        "AMD Ryzen 7 7700X",
-        "AMD Ryzen 7 7700",
         "Intel Core i9-12900KS",
+    ],
+    "UPPER MID TIER": [
+        "AMD Ryzen 9 5900X",
         "Intel Core i9-12900K",
         "Intel Core i9-12900KF",
         "Intel Core i7-13700",
         "Intel Core i7-13700F",
         "Intel Core i5-13600K",
         "Intel Core i5-13600KF",
-        "Intel Core i9-12900F",
-        "Intel Core i9-12900",
-        "Intel Core i7-12700K",
-        "Intel Core i7-12700KF",
     ],
-    "MID TIER": [
+    "LOWER MID TIER": [
+        "AMD Ryzen 7 7700X",
+        "AMD Ryzen 7 7700",
+        "Intel Core i9-12900F",
+        "Intel Core i7-12700K",
+        "Intel Core i9-12900",
+        "Intel Core i7-12700KF",
+        "Intel Core i5-13500",
+    ],
+    "LOW TIER": [
         "AMD Ryzen 7 5800X",
         "AMD Ryzen 7 5800X3D",
         "AMD Ryzen 7 5700X",
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 5 7600",
-        "Intel Core i5-13500",
         "Intel Core i7-12700F",
         "Intel Core i7-12700",
         "Intel Core i5-12600K",
@@ -189,14 +193,14 @@ cpu_normal_tier_dict = {
         "Intel Core i5-13400",
         "Intel Core i5-13400F",
     ],
-    "LOW TIER": [
+    "BOTTOM TIER": [
         "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
+        "AMD Ryzen 5 5500",   
         "Intel Core i5-12600",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
-        "AMD Ryzen 5 5500",   
     ],
 }
 
