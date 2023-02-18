@@ -1,36 +1,36 @@
 TOP TIER
     GeForce RTX 4090
     GeForce RTX 4080
+    Radeon RX 7900 XTX
 
 HIGH TIER
-    Radeon RX 7900 XTX
     GeForce RTX 4070 Ti
     Radeon RX 6950 XT
     Radeon RX 7900 XT
 
 UPPER MID TIER
     Radeon RX 6800 XT
+    Radeon RX 6800
     GeForce RTX 3070 Ti
     GeForce RTX 3070
-    Radeon RX 6800
     Radeon RX 6750 XT
 
 LOWER MID TIER
-    GeForce RTX 3060 Ti
     Radeon RX 6700 XT
+    GeForce RTX 3060 Ti
     Radeon RX 6700
+    Radeon RX 6650 XT
 
 LOW TIER
-    Radeon RX 6650 XT
-    GeForce RTX 3060
     Radeon RX 6600 XT
     Radeon RX 6600
+    GeForce RTX 3060
     GeForce RTX 2060
+    GeForce RTX 3050
 
 BOTTOM TIER
     GeForce GTX 1660 Ti
     GeForce GTX 1660 SUPER
-    GeForce RTX 3050
     GeForce GTX 1660
     Radeon RX 6500 XT
     Radeon RX 6400
