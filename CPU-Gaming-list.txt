@@ -1,4 +1,4 @@
-TOP TIER
+TIER 1
     Intel Core i9-13900KS
     Intel Core i9-13900K
     AMD Ryzen 7 5800X3D
@@ -7,7 +7,7 @@ TOP TIER
     Intel Core i5-13600K
     AMD Ryzen 9 7900X
 
-HIGH TIER
+TIER 2
     AMD Ryzen 9 7950X
     AMD Ryzen 5 7600X
     AMD Ryzen 7 7700X
@@ -18,7 +18,7 @@ HIGH TIER
     Intel Core i7-13700F
     Intel Core i7-13700
 
-MID TIER
+TIER 3
     Intel Core i9-12900K
     Intel Core i5-13400
     Intel Core i9-12900KF
@@ -31,7 +31,7 @@ MID TIER
     Intel Core i9-12900F
     AMD Ryzen 7 7700
 
-LOW TIER
+TIER 4
     Intel Core i9-12900
     Intel Core i5-12600K
     Intel Core i5-12400
@@ -40,7 +40,7 @@ LOW TIER
     Intel Core i5-12600KF
     Intel Core i7-12700KF
 
-BOTTOM TIER
+TIER 5
     AMD Ryzen 5 5600
     Intel Core i5-12600
     Intel Core i7-12700

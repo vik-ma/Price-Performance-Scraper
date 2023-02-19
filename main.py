@@ -6,37 +6,37 @@ import datetime
 import time
 
 gpu_pj_url_dict = {
-    "TOP TIER": {
+    "TIER 1": {
         "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
         "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
         "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
         },
-    "HIGH TIER": {
+    "TIER 2": {
         "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
         "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
         "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
         },
-    "UPPER MID TIER": {
+    "TIER 3": {
         "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
         "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
         "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
         "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
         "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
         },
-    "LOWER MID TIER": {
+    "TIER 4": {
         "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
         "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
         "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
         "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
         },
-    "LOW TIER": {
+    "TIER 5": {
         "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
         "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
         "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
         "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
         "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
         },
-    "BOTTOM TIER": {
+    "TIER 6": {
         "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
         "GeForce GTX 1660 SUPER": "https://www.prisjakt.nu/c/grafikkort?532=32763",
         "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
@@ -146,66 +146,66 @@ cpu_socket_dict = {
 }
 
 cpu_normal_tier_dict = {
-    "TOP TIER":[
+    "TIER 1":[
         "AMD Ryzen 9 7950X",
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
         "Intel Core i9-13900F",
     ],
-    "HIGH TIER": [
-        "AMD Ryzen 9 5950X",
+    "TIER 2": [
         "AMD Ryzen 9 7900X",
-        "AMD Ryzen 9 7900",
         "Intel Core i9-13900",
         "Intel Core i7-13700K",
         "Intel Core i7-13700KF",
+        "AMD Ryzen 9 7900",
         "Intel Core i9-12900KS",
+        "AMD Ryzen 9 5950X",
     ],
-    "UPPER MID TIER": [
-        "AMD Ryzen 9 5900X",
+    "TIER 3": [
         "Intel Core i9-12900K",
         "Intel Core i9-12900KF",
         "Intel Core i7-13700",
         "Intel Core i7-13700F",
         "Intel Core i5-13600K",
         "Intel Core i5-13600KF",
+        "AMD Ryzen 9 5900X",
     ],
-    "LOWER MID TIER": [
-        "AMD Ryzen 7 7700X",
-        "AMD Ryzen 7 7700",
+    "TIER 4": [
         "Intel Core i9-12900F",
         "Intel Core i7-12700K",
+        "AMD Ryzen 7 7700X",
         "Intel Core i9-12900",
         "Intel Core i7-12700KF",
+        "AMD Ryzen 7 7700",
         "Intel Core i5-13500",
     ],
-    "LOW TIER": [
-        "AMD Ryzen 7 5800X",
-        "AMD Ryzen 7 5800X3D",
-        "AMD Ryzen 7 5700X",
-        "AMD Ryzen 5 7600X",
-        "AMD Ryzen 5 7600",
+    "TIER 5": [
         "Intel Core i7-12700F",
         "Intel Core i7-12700",
         "Intel Core i5-12600K",
+        "AMD Ryzen 5 7600X",
+        "AMD Ryzen 7 5800X",
         "Intel Core i5-12600KF",
-        "Intel Core i5-13400",
+        "AMD Ryzen 7 5800X3D",
         "Intel Core i5-13400F",
+        "Intel Core i5-13400",
+        "AMD Ryzen 5 7600",
+        "AMD Ryzen 7 5700X",
     ],
-    "BOTTOM TIER": [
-        "AMD Ryzen 5 5600X",
+    "TIER 6": [
         "AMD Ryzen 5 5600",
-        "AMD Ryzen 5 5500",   
         "Intel Core i5-12600",
+        "AMD Ryzen 5 5600X",
+        "Intel Core i5-12400",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
-        "Intel Core i5-12400",
+        "AMD Ryzen 5 5500",
     ],
 }
 
 cpu_gaming_tier_dict = {
-    "TOP TIER": [
+    "TIER 1": [
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "AMD Ryzen 7 5800X3D",
@@ -214,7 +214,7 @@ cpu_gaming_tier_dict = {
         "Intel Core i5-13600K",
         "AMD Ryzen 9 7900X",
     ],
-    "HIGH TIER": [
+    "TIER 2": [
         "AMD Ryzen 9 7950X",
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 7 7700X",
@@ -225,7 +225,7 @@ cpu_gaming_tier_dict = {
         "Intel Core i7-13700F",
         "Intel Core i7-13700",
     ],
-    "MID TIER": [
+    "TIER 3": [
         "Intel Core i9-12900K",
         "Intel Core i5-13400",
         "Intel Core i9-12900KF",
@@ -238,7 +238,7 @@ cpu_gaming_tier_dict = {
         "Intel Core i9-12900F",
         "AMD Ryzen 7 7700"
     ],
-    "LOW TIER": [
+    "TIER 4": [
         "Intel Core i9-12900",
         "Intel Core i5-12600K",
         "Intel Core i5-12400",
@@ -247,7 +247,7 @@ cpu_gaming_tier_dict = {
         "Intel Core i5-12600KF",
         "Intel Core i7-12700KF",
     ],
-    "BOTTOM TIER": [
+    "TIER 5": [
         "AMD Ryzen 5 5600",
         "Intel Core i5-12600",
         "Intel Core i7-12700",
