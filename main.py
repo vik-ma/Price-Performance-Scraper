@@ -208,54 +208,54 @@ cpu_gaming_tier_dict = {
     "TOP TIER": [
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
-        "Intel Core i9-13900KF",
         "AMD Ryzen 7 5800X3D",
+        "Intel Core i9-13900KF",
         "Intel Core i7-13700K",
+        "Intel Core i5-13600K",
+        "AMD Ryzen 9 7900X",
     ],
     "HIGH TIER": [
         "AMD Ryzen 9 7950X",
-        "AMD Ryzen 9 7900X",
-        "AMD Ryzen 7 7700X",
         "AMD Ryzen 5 7600X",
+        "AMD Ryzen 7 7700X",
         "AMD Ryzen 5 7600",
-        "Intel Core i5-13600K",
         "Intel Core i5-13600KF",
         "Intel Core i7-13700KF",
         "Intel Core i9-12900KS",
         "Intel Core i7-13700F",
+        "Intel Core i7-13700",
     ],
     "MID TIER": [
-        "AMD Ryzen 9 5900X",
-        "AMD Ryzen 5 5600X",
-        "AMD Ryzen 9 5950X",
-        "AMD Ryzen 9 7900",
-        "Intel Core i7-13700",
         "Intel Core i9-12900K",
         "Intel Core i5-13400",
         "Intel Core i9-12900KF",
+        "AMD Ryzen 9 5900X",
         "Intel Core i5-13400F",
+        "AMD Ryzen 5 5600X",
+        "AMD Ryzen 9 5950X",
+        "AMD Ryzen 9 7900",
+        "AMD Ryzen 7 5700X",
         "Intel Core i9-12900F",
+        "AMD Ryzen 7 7700"
     ],
     "LOW TIER": [
-        "AMD Ryzen 5 5600",
-        "AMD Ryzen 7 5700X",
         "Intel Core i9-12900",
         "Intel Core i5-12600K",
         "Intel Core i5-12400",
-        "Intel Core i7-12700K",
         "Intel Core i5-13500",
+        "Intel Core i7-12700K",
         "Intel Core i5-12600KF",
         "Intel Core i7-12700KF",
     ],
     "BOTTOM TIER": [
-        "AMD Ryzen 7 5800X",
-        "AMD Ryzen 5 5500",
-        "AMD Ryzen 7 7700"
+        "AMD Ryzen 5 5600",
         "Intel Core i5-12600",
         "Intel Core i7-12700",
         "Intel Core i7-12700F",
+        "AMD Ryzen 7 5800X",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
+        "AMD Ryzen 5 5500",
     ]
 }
 
@@ -544,7 +544,7 @@ def test_benchmark_price_score(product_list=[]):
         
 
 
-test_benchmark_price_score()
+# test_benchmark_price_score()
 
-# start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TOP TIER"])
+start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["MID TIER"])
 # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
