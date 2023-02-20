@@ -196,6 +196,8 @@ cpu_gen_dict = {
     ]
 }
 
+
+
 cpu_normal_tier_dict = {
     "TIER 1":[
         "AMD Ryzen 9 7950X",
@@ -207,50 +209,50 @@ cpu_normal_tier_dict = {
     "TIER 2": [
         "AMD Ryzen 9 7900X",
         "Intel Core i9-13900",
+        "AMD Ryzen 9 7900",
         "Intel Core i7-13700K",
         "Intel Core i7-13700KF",
-        "AMD Ryzen 9 7900",
-        "Intel Core i9-12900KS",
         "AMD Ryzen 9 5950X",
+        "Intel Core i9-12900KS",
     ],
     "TIER 3": [
         "Intel Core i9-12900K",
+        "Intel Core i7-13700F",
         "Intel Core i9-12900KF",
         "Intel Core i7-13700",
-        "Intel Core i7-13700F",
+        "AMD Ryzen 9 5900X",
         "Intel Core i5-13600K",
         "Intel Core i5-13600KF",
-        "AMD Ryzen 9 5900X",
     ],
     "TIER 4": [
         "Intel Core i9-12900F",
-        "Intel Core i7-12700K",
         "AMD Ryzen 7 7700X",
-        "Intel Core i9-12900",
-        "Intel Core i7-12700KF",
         "AMD Ryzen 7 7700",
+        "Intel Core i9-12900",
+        "Intel Core i7-12700K",
+        "Intel Core i7-12700KF",
         "Intel Core i5-13500",
     ],
     "TIER 5": [
         "Intel Core i7-12700F",
         "Intel Core i7-12700",
-        "Intel Core i5-12600K",
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 7 5800X",
-        "Intel Core i5-12600KF",
         "AMD Ryzen 7 5800X3D",
-        "Intel Core i5-13400F",
-        "Intel Core i5-13400",
+        "Intel Core i5-12600K",
         "AMD Ryzen 5 7600",
+        "Intel Core i5-12600KF",
         "AMD Ryzen 7 5700X",
+        "Intel Core i5-13400", 
+        "Intel Core i5-13400F",
     ],
     "TIER 6": [
+        "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
         "Intel Core i5-12600",
-        "AMD Ryzen 5 5600X",
-        "Intel Core i5-12400",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
+        "Intel Core i5-12400",
         "AMD Ryzen 5 5500",
     ],
 }
@@ -259,54 +261,54 @@ cpu_gaming_tier_dict = {
     "TIER 1": [
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
-        "AMD Ryzen 7 5800X3D",
         "Intel Core i9-13900KF",
+        "AMD Ryzen 7 5800X3D",
+        "AMD Ryzen 9 7900X",
         "Intel Core i7-13700K",
         "Intel Core i5-13600K",
-        "AMD Ryzen 9 7900X",
-    ],
-    "TIER 2": [
-        "AMD Ryzen 9 7950X",
-        "AMD Ryzen 5 7600X",
-        "AMD Ryzen 7 7700X",
-        "AMD Ryzen 5 7600",
         "Intel Core i5-13600KF",
         "Intel Core i7-13700KF",
+    ],
+    "TIER 2": [
         "Intel Core i9-12900KS",
+        "AMD Ryzen 5 7600",
+        "AMD Ryzen 5 7600X",
         "Intel Core i7-13700F",
         "Intel Core i7-13700",
+        "AMD Ryzen 9 7950X",
+        "Intel Core i9-12900K",
+        "AMD Ryzen 7 7700X",
+        "Intel Core i9-12900KF",
     ],
     "TIER 3": [
-        "Intel Core i9-12900K",
-        "Intel Core i5-13400",
-        "Intel Core i9-12900KF",
-        "AMD Ryzen 9 5900X",
-        "Intel Core i5-13400F",
-        "AMD Ryzen 5 5600X",
-        "AMD Ryzen 9 5950X",
-        "AMD Ryzen 9 7900",
-        "AMD Ryzen 7 5700X",
         "Intel Core i9-12900F",
-        "AMD Ryzen 7 7700"
-    ],
-    "TIER 4": [
         "Intel Core i9-12900",
-        "Intel Core i5-12600K",
-        "Intel Core i5-12400",
         "Intel Core i5-13500",
+        "Intel Core i5-12600K",
         "Intel Core i7-12700K",
         "Intel Core i5-12600KF",
         "Intel Core i7-12700KF",
+        "Intel Core i5-13400",
+        "AMD Ryzen 9 5900X",
     ],
-    "TIER 5": [
+    "TIER 4": [
+        "AMD Ryzen 5 5600X",
+        "Intel Core i5-13400F",
         "AMD Ryzen 5 5600",
         "Intel Core i5-12600",
         "Intel Core i7-12700",
         "Intel Core i7-12700F",
         "AMD Ryzen 7 5800X",
+        "AMD Ryzen 9 5950X",
+    ],
+    "TIER 5": [
         "Intel Core i5-12500",
+        "AMD Ryzen 7 5700X",
         "Intel Core i5-12400F",
+        "Intel Core i5-12400",
         "AMD Ryzen 5 5500",
+        "AMD Ryzen 9 7900",
+        "AMD Ryzen 7 7700"
     ]
 }
 
@@ -597,5 +599,5 @@ def test_benchmark_price_score(product_list=[]):
 
 # test_benchmark_price_score()
 
-start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["MID TIER"])
+start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TIER 3"])
 # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
