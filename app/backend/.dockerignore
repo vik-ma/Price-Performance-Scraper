@@ -1,0 +1,7 @@
+# Ignore everything
+**
+
+# Except for
+!price_fetcher.py
+!benchmarks
+!requirements.txt

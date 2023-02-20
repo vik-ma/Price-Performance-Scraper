@@ -313,7 +313,7 @@ cpu_gaming_tier_dict = {
 }
 
 def import_benchmark_json(benchmark_type):
-    with open(f"benchmarks/latest/{benchmark_type}.json", "r") as file:
+    with open(f"backend/benchmarks/latest/{benchmark_type}.json", "r") as file:
         data = json.load(file)
     return data
 
@@ -602,7 +602,10 @@ def test_benchmark_price_score(product_list=[]):
         print(item)
         
 # test_local_html_page()
-
+# print(import_benchmark_json("GPU"))
 # test_benchmark_price_score()
-start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TIER 5"])
+# start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, ["AMD Ryzen 9 7950X"])
 # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
+
+if __name__ == "__main__":
+    print("TEST123")

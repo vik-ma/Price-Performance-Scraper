@@ -1,2 +1,4 @@
-benchmarks
+app/backend/benchmarks
+app/backend/test_files
 pj*
+app/docker-compose.yaml
