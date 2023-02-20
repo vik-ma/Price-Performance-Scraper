@@ -53,7 +53,7 @@ cpu_pj_url_dict = {
     "AMD Ryzen 7 5700X": "https://www.prisjakt.nu/produkt.php?p=6040676",
     "AMD Ryzen 5 5600X": "https://www.prisjakt.nu/produkt.php?p=5588360",
     "AMD Ryzen 5 5600": "https://www.prisjakt.nu/produkt.php?p=6090826",
-    "AMD Ryzen 5 5500": "https://www.prisjakt.nu/produkt.php?p=6090894",
+    "AMD Ryzen 5 5500": "https://www.prisjakt.nu/produkt.php?p=6090824",
     "AMD Ryzen 9 7950X": "https://www.prisjakt.nu/produkt.php?p=6999752",
     "AMD Ryzen 9 7900X": "https://www.prisjakt.nu/produkt.php?p=6999757",
     "AMD Ryzen 9 7900": "https://www.prisjakt.nu/produkt.php?p=7328156",
@@ -139,9 +139,9 @@ cpu_socket_dict = {
         "Intel Core i5-13400",
         "Intel Core i5-13400F",
         "Intel Core i5-12600",
-        "Intel Core i5-12500",
+        "Intel Core i5-12500", 
         "Intel Core i5-12400F",
-        "Intel Core i5-12400",
+        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
     ]
 }
 
@@ -192,7 +192,7 @@ cpu_gen_dict = {
         "Intel Core i5-12600",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
-        "Intel Core i5-12400",
+        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
     ]
 }
 
@@ -252,7 +252,7 @@ cpu_normal_tier_dict = {
         "Intel Core i5-12600",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
-        "Intel Core i5-12400",
+        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
         "AMD Ryzen 5 5500",
     ],
 }
@@ -305,7 +305,7 @@ cpu_gaming_tier_dict = {
         "Intel Core i5-12500",
         "AMD Ryzen 7 5700X",
         "Intel Core i5-12400F",
-        "Intel Core i5-12400",
+        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
         "AMD Ryzen 5 5500",
         "AMD Ryzen 9 7900",
         "AMD Ryzen 7 7700"
@@ -359,8 +359,12 @@ def fetch_product_page(url):
 
 
 def test_local_html_page():
-    with open("pjproductpagecpu.html", "r", encoding="utf-8") as file:
+    with open("pjtest_2023-02-20_02-11-06.html", "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
+    # with open("pjtest_2023-02-20_02-20-09.html", "r", encoding="utf-8") as file:
+    #     soup = BeautifulSoup(file, "html.parser")   
+    # with open("pjproductpagecpu.html", "r", encoding="utf-8") as file:
+    #     soup = BeautifulSoup(file, "html.parser") 
 
     json_data = get_product_json(soup)
 
@@ -440,6 +444,7 @@ def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
         price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
         price_data = price_data.replace("\\", "")
+
         json_data = json.loads(price_data)
 
         json_list.append(json_data)
@@ -543,6 +548,7 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list):
     for product in product_choice_list:
         product_link = cpu_url_dict[product]
 
+        print(f"Trying to fetch {product}")
         soup = fetch_product_page(product_link)
         print(f"Fetched {product_link}")
 
@@ -595,9 +601,8 @@ def test_benchmark_price_score(product_list=[]):
     for item in sorted_benchmark_price_list:
         print(item)
         
-
+# test_local_html_page()
 
 # test_benchmark_price_score()
-
-start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TIER 3"])
+start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, cpu_gaming_tier_dict["TIER 5"])
 # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
