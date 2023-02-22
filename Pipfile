@@ -8,6 +8,7 @@ requests = "*"
 beautifulsoup4 = "*"
 django = "*"
 psycopg2-binary = "*"
+python-decouple = "*"
 
 [dev-packages]
 
