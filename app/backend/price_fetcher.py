@@ -313,7 +313,7 @@ cpu_gaming_tier_dict = {
 }
 
 def import_benchmark_json(benchmark_type):
-    with open(f"backend/benchmarks/latest/{benchmark_type}.json", "r") as file:
+    with open(f"benchmarks/latest/{benchmark_type}.json", "r") as file:
         data = json.load(file)
     return data
 
