@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
 from .models import Test
+from . import prj_fetcher as pf
 import datetime
 
 # Create your views here.
@@ -27,3 +28,8 @@ def delete_test_item(request, test_id):
     test_to_delete.delete()
 
     return redirect('/price_fetcher/test_list')
+
+def test_module_return(request:HttpRequest):
+    module_test = pf.test_django()
+    response = f"<h1>{' '.join(map(str, module_test))}</h1>"
+    return HttpResponse(response)

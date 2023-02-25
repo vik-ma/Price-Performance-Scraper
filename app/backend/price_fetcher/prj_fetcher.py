@@ -600,7 +600,10 @@ def test_benchmark_price_score(product_list=[]):
 
     for item in sorted_benchmark_price_list:
         print(item)
-        
+
+def test_django():
+    return (1, "TWO", 3.0, "FOUR", 5)
+
 # test_local_html_page()
 # print(import_benchmark_json("GPU"))
 # test_benchmark_price_score()

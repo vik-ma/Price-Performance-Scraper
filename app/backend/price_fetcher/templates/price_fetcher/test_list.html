@@ -39,6 +39,12 @@
                 {% endfor %}
             </ul>
         </div>
+        <div style="display:inline-block;margin-left:50px;">
+            <form action="{% url 'test_module_return' %}" method="post" style="display:inline-block;">
+                {% csrf_token %}
+                <input type="submit" value="Test Module"><br />       
+            </form>
+        </div>
     </div>
 </body>
 </html>
