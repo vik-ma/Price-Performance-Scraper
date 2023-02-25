@@ -312,8 +312,12 @@ cpu_gaming_tier_dict = {
     ]
 }
 
-def import_benchmark_json(benchmark_type):
-    with open(f"benchmarks/latest/{benchmark_type}.json", "r") as file:
+def import_benchmark_json(benchmark_type, run_locally = False):
+    if run_locally:
+        file_path = f"app/backend/price_fetcher/latest_benchmarks/{benchmark_type}.json"
+    else:
+        file_path = f"price_fetcher/latest_benchmarks/{benchmark_type}.json"
+    with open(file_path, "r") as file:
         data = json.load(file)
     return data
 
@@ -522,8 +526,8 @@ def get_price_benchmark_score(product_price_list, benchmark_json):
     return price_score_list
 
 
-def start_price_fetching_gpu(tier_choice):
-    benchmark_json = import_benchmark_json("GPU")
+def start_price_fetching_gpu(tier_choice, *, run_locally = False):
+    benchmark_json = import_benchmark_json("GPU", run_locally)
 
     benchmark_price_list = []
     for product_category, product_category_url in tier_choice.items():
@@ -540,8 +544,8 @@ def start_price_fetching_gpu(tier_choice):
         print(entry)
 
 
-def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list):
-    benchmark_json = import_benchmark_json(benchmark_type)
+def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list, *, run_locally = False):
+    benchmark_json = import_benchmark_json(benchmark_type, run_locally)
 
     store_price_list = []
 
@@ -568,8 +572,8 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list):
         print(entry)
 
 
-def test_benchmark_price_score(product_list=[]):
-    benchmarks = import_benchmark_json("GPU")
+def test_benchmark_price_score(product_list=[], *, run_locally = False):
+    benchmarks = import_benchmark_json("GPU", run_locally)
 
     product_item_1 = [
         ("GeForce RTX 4090", "Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB", 21990),
@@ -602,7 +606,7 @@ def test_benchmark_price_score(product_list=[]):
         print(item)
 
 def test_django():
-    return (1, "TWO", 3.0, "FOUR", 5)
+    return import_benchmark_json("GPU")
 
 # test_local_html_page()
 # print(import_benchmark_json("GPU"))
@@ -611,4 +615,5 @@ def test_django():
 # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
 
 if __name__ == "__main__":
-    print("TEST123")
+    print(import_benchmark_json("GPU", run_locally=True))
+    # start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, ["AMD Ryzen 9 7950X"], run_locally=True)
