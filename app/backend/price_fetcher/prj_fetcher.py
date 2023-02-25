@@ -540,8 +540,10 @@ def start_price_fetching_gpu(tier_choice, *, run_locally = False):
     
     sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
-    for entry in sorted_benchmark_price_list:
-        print(entry)
+    # for entry in sorted_benchmark_price_list:
+    #     print(entry)
+
+    return sorted_benchmark_price_list
 
 
 def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list, *, run_locally = False):
@@ -568,8 +570,10 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list, 
 
     sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
-    for entry in sorted_benchmark_price_list:
-        print(entry)
+    # for entry in sorted_benchmark_price_list:
+    #     print(entry)
+
+    return sorted_benchmark_price_list
 
 
 def test_benchmark_price_score(product_list=[], *, run_locally = False):

@@ -30,6 +30,7 @@ def delete_test_item(request, test_id):
     return redirect('/price_fetcher/test_list')
 
 def test_module_return(request:HttpRequest):
-    module_test = pf.test_django()
+    # module_test = pf.test_django()
+    module_test = pf.start_price_fetching_cpu("CPU-Gaming", pf.cpu_pj_url_dict, ["AMD Ryzen 9 7950X"])
     response = f"<h1>{' '.join(map(str, module_test))}</h1>"
     return HttpResponse(response)
