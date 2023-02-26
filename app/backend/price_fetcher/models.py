@@ -14,3 +14,8 @@ class Product_Listing(models.Model):
     product_name = models.TextField()
     price_performance_ratio = models.DecimalField(max_digits=5, decimal_places=2)
     benchmark_value = models.DecimalField(max_digits=5, decimal_places=2)
+
+class Completed_Fetch(models.Model):
+    product_list = models.TextField()
+    benchmark_type = models.CharField(max_length=10)
+    timestamp = models.DateTimeField()
