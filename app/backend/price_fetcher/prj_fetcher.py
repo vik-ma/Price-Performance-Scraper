@@ -620,6 +620,7 @@ def test_django():
 
 if __name__ == "__main__":
     # print(import_benchmark_json("GPU", run_locally=True))
-    test = start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, ["AMD Ryzen 9 7950X"], run_locally=True)
-    for t in test:
-        print(t)
+    # test = start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, ["AMD Ryzen 9 7950X"], run_locally=True)
+    # for t in test:
+    #     print(t)
+    print(", ".join(gpu_pj_url_dict["TIER 1"]))

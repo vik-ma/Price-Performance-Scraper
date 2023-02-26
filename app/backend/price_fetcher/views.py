@@ -33,23 +33,30 @@ def test_button(request:HttpRequest):
     # module_test = pf.test_django()
     # response = f"<h1>{' '.join(map(str, module_test))}</h1>"
 
-    create_completed_fetch()
+    # create_completed_fetch()
+    start_price_fetching()
 
     return redirect('/price_fetcher/test_list')
 
 def get_current_timestamp():
     return datetime.datetime.now()
 
-def create_completed_fetch():
+def create_completed_fetch(product_list, benchmark_type, timestamp):
     completed_fetch = Completed_Fetch()
-    completed_fetch.product_list = "Product 1, Product 2, Product 3, Product 4"
-    completed_fetch.benchmark_type = "CPU-Gaming"
-    completed_fetch.timestamp = get_current_timestamp()
+    completed_fetch.product_list = product_list
+    completed_fetch.benchmark_type = benchmark_type
+    completed_fetch.timestamp = timestamp
     completed_fetch.save()
 
 def start_price_fetching():
     # module_test = pf.start_price_fetching_cpu("CPU-Gaming", pf.cpu_pj_url_dict, ["AMD Ryzen 9 7950X"])
-    module_test = pf.start_price_fetching_gpu(pf.gpu_pj_url_dict["TIER 1"])
+    fetch_category = pf.gpu_pj_url_dict["TIER 1"]
+    benchmark_type = "GPU"
+
+    module_test = pf.start_price_fetching_gpu(fetch_category)
+
+    current_timestamp = get_current_timestamp()
+    product_list = ", ".join(fetch_category)
 
     for listing in module_test:
         product_listing = Product_Listing()
@@ -60,4 +67,7 @@ def start_price_fetching():
         product_listing.product_name = listing[4]
         product_listing.benchmark_value = listing[5]
         product_listing.price_performance_ratio = listing[6]
+        product_listing.timestamp_id = current_timestamp
         product_listing.save()
+
+    create_completed_fetch(product_list, benchmark_type, current_timestamp)
