@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
-from .models import Test, Product_Listing
+from .models import Test, Product_Listing, Completed_Fetch
 from . import prj_fetcher as pf
 import datetime
 
@@ -29,15 +29,29 @@ def delete_test_item(request, test_id):
 
     return redirect('/price_fetcher/test_list')
 
-def test_module_return(request:HttpRequest):
+def test_button(request:HttpRequest):
     # module_test = pf.test_django()
+    # response = f"<h1>{' '.join(map(str, module_test))}</h1>"
+
+    create_completed_fetch()
+
+    return redirect('/price_fetcher/test_list')
+
+def get_current_timestamp():
+    return datetime.datetime.now()
+
+def create_completed_fetch():
+    completed_fetch = Completed_Fetch()
+    completed_fetch.product_list = "Product 1, Product 2, Product 3, Product 4"
+    completed_fetch.benchmark_type = "CPU-Gaming"
+    completed_fetch.timestamp = get_current_timestamp()
+    completed_fetch.save()
+
+def start_price_fetching():
     # module_test = pf.start_price_fetching_cpu("CPU-Gaming", pf.cpu_pj_url_dict, ["AMD Ryzen 9 7950X"])
     module_test = pf.start_price_fetching_gpu(pf.gpu_pj_url_dict["TIER 1"])
-    # response = f"<h1>{' '.join(map(str, module_test))}</h1>"
-    # return HttpResponse(response)
-    # response = ""
+
     for listing in module_test:
-        # response += f"<h3>{listing}</h3>"
         product_listing = Product_Listing()
         product_listing.product_category = listing[0]
         product_listing.store_name = listing[1]
@@ -47,5 +61,3 @@ def test_module_return(request:HttpRequest):
         product_listing.benchmark_value = listing[5]
         product_listing.price_performance_ratio = listing[6]
         product_listing.save()
-    # return HttpResponse(response)
-    return redirect('/price_fetcher/test_list')
