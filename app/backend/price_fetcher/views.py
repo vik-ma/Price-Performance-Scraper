@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
-from .models import Test, Product_Listing, Completed_Fetch
+from .models import Test, ProductListing, CompletedFetch
 from . import prj_fetcher as pf
 import datetime
 
@@ -42,7 +42,7 @@ def get_current_timestamp():
     return datetime.datetime.now()
 
 def create_completed_fetch(product_list, benchmark_type, timestamp):
-    completed_fetch = Completed_Fetch()
+    completed_fetch = CompletedFetch()
     completed_fetch.product_list = product_list
     completed_fetch.benchmark_type = benchmark_type
     completed_fetch.timestamp = timestamp
@@ -59,7 +59,7 @@ def start_price_fetching():
     product_list = ", ".join(fetch_category)
 
     for listing in module_test:
-        product_listing = Product_Listing()
+        product_listing = ProductListing()
         product_listing.product_category = listing[0]
         product_listing.store_name = listing[1]
         product_listing.price = listing[2]
