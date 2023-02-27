@@ -192,7 +192,7 @@ cpu_gen_dict = {
         "Intel Core i5-12600",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
-        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
+        "Intel Core i5-12400",
     ]
 }
 
@@ -252,7 +252,7 @@ cpu_normal_tier_dict = {
         "Intel Core i5-12600",
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
-        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
+        "Intel Core i5-12400"
         "AMD Ryzen 5 5500",
     ],
 }
@@ -305,7 +305,7 @@ cpu_gaming_tier_dict = {
         "Intel Core i5-12500",
         "AMD Ryzen 7 5700X",
         "Intel Core i5-12400F",
-        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
+        "Intel Core i5-12400",
         "AMD Ryzen 5 5500",
         "AMD Ryzen 9 7900",
         "AMD Ryzen 7 7700"
@@ -394,9 +394,10 @@ def get_product_json(soup):
     price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
     price_data = f"{{{price_data}}}"
-    price_data = price_data.replace("\\", "")
+    # price_data = price_data.replace("\\", "")
+    reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
 
-    json_data = json.loads(price_data)
+    json_data = json.loads(reencoded_price_data)
 
     return json_data
 
@@ -447,9 +448,10 @@ def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
         end_text = r',{"__typename":"DescriptionSlice"'
         price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
-        price_data = price_data.replace("\\", "")
+        # price_data = price_data.replace("\\", "")
+        reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
 
-        json_data = json.loads(price_data)
+        json_data = json.loads(reencoded_price_data)
 
         json_list.append(json_data)
 
@@ -609,18 +611,28 @@ def test_benchmark_price_score(product_list=[], *, run_locally = False):
     for item in sorted_benchmark_price_list:
         print(item)
 
+
 def test_django():
     return import_benchmark_json("GPU")
 
-# test_local_html_page()
-# print(import_benchmark_json("GPU"))
-# test_benchmark_price_score()
-# start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, ["AMD Ryzen 9 7950X"])
-# start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
+
+def test_function():
+    response = requests.get("https://www.prisjakt.nu/produkt.php?p=5948016")
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    json_data = get_product_json(soup)
+    product_price_list = get_product_price_list(json_data, "asd")
+
+    for product in product_price_list:
+        print(product)
+
 
 if __name__ == "__main__":
+    # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
     # print(import_benchmark_json("GPU", run_locally=True))
     # test = start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, ["AMD Ryzen 9 7950X"], run_locally=True)
     # for t in test:
     #     print(t)
-    print(", ".join(gpu_pj_url_dict["TIER 1"]))
+    # print(", ".join(gpu_pj_url_dict["TIER 1"]))
+    # test_function()
+    pass
