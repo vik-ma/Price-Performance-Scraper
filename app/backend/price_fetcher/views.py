@@ -41,11 +41,12 @@ def test_button(request:HttpRequest):
 def get_current_timestamp():
     return datetime.datetime.now()
 
-def create_completed_fetch(product_list, benchmark_type, timestamp):
+def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id):
     completed_fetch = CompletedFetch()
     completed_fetch.product_list = product_list
     completed_fetch.benchmark_type = benchmark_type
     completed_fetch.timestamp = timestamp
+    completed_fetch.timestamp_id = timestamp_id
     completed_fetch.save()
 
 def start_price_fetching():
@@ -56,6 +57,7 @@ def start_price_fetching():
     module_test = pf.start_price_fetching_cpu(benchmark_type, pf.cpu_pj_url_dict, fetch_category)
 
     current_timestamp = get_current_timestamp()
+    timestamp_id = int(''.join(i for i in str(current_timestamp)[:-6] if i.isdigit()))
     product_list = ", ".join(fetch_category)
 
     for listing in module_test:
@@ -67,7 +69,7 @@ def start_price_fetching():
         product_listing.product_name = listing[4]
         product_listing.benchmark_value = listing[5]
         product_listing.price_performance_ratio = listing[6]
-        product_listing.timestamp_id = current_timestamp
+        product_listing.timestamp_id = timestamp_id
         product_listing.save()
 
-    create_completed_fetch(product_list, benchmark_type, current_timestamp)
+    create_completed_fetch(product_list, benchmark_type, current_timestamp, timestamp_id)
