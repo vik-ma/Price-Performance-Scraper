@@ -57,7 +57,7 @@ def start_price_fetching():
     module_test = pf.start_price_fetching_cpu(benchmark_type, pf.cpu_pj_url_dict, fetch_category)
 
     current_timestamp = get_current_timestamp()
-    timestamp_id = int(''.join(i for i in str(current_timestamp)[:-6] if i.isdigit()))
+    timestamp_id = (''.join(i for i in str(current_timestamp) if i.isdigit()))
     product_list = ", ".join(fetch_category)
 
     for listing in module_test:
