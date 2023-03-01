@@ -10,6 +10,7 @@ django = "*"
 psycopg2-binary = "*"
 python-decouple = "*"
 graphene-django = "*"
+djangorestframework = "*"
 
 [dev-packages]
 

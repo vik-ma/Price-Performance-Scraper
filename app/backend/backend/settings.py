@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'price_fetcher',
     'graphene_django',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -24,6 +24,8 @@ cssselect==1.2.0 ; python_version >= '3.7'
 
 django==4.1.7
 
+djangorestframework==3.14.0
+
 filelock==3.9.0 ; python_version >= '3.7'
 
 graphene==3.2.1
@@ -69,6 +71,8 @@ pydispatcher==2.0.6 ; platform_python_implementation == 'CPython'
 pyopenssl==23.0.0 ; python_version >= '3.6'
 
 python-decouple==3.7
+
+pytz==2022.7.1
 
 queuelib==1.6.2 ; python_version >= '3.5'
 
