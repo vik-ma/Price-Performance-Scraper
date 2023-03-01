@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'price_fetcher',
     'graphene_django',
     'rest_framework',
+    'api',
 ]
 
 MIDDLEWARE = [
