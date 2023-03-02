@@ -90,6 +90,7 @@ cpu_pj_url_dict = {
     "Intel Core i5-12500": "https://www.prisjakt.nu/produkt.php?p=5948021",
     "Intel Core i5-12400F": "https://www.prisjakt.nu/produkt.php?p=5948013",
     "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
+    "aa": "aa123"
 }    
 
 cpu_socket_dict = {
@@ -141,7 +142,7 @@ cpu_socket_dict = {
         "Intel Core i5-12600",
         "Intel Core i5-12500", 
         "Intel Core i5-12400F",
-        # "Intel Core i5-12400", BUGGED WHEN TRYING TO FETCH
+        "Intel Core i5-12400",
     ]
 }
 
@@ -549,7 +550,10 @@ def start_price_fetching_gpu(tier_choice, *, run_locally = False):
 
 
 def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list, *, run_locally = False):
-    benchmark_json = import_benchmark_json(benchmark_type, run_locally)
+    try:
+        benchmark_json = import_benchmark_json(benchmark_type, run_locally)
+    except:
+        return Exception("Error importing benchmarks")
 
     store_price_list = []
 
@@ -557,12 +561,22 @@ def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list, 
         product_link = cpu_url_dict[product]
 
         print(f"Trying to fetch {product}")
-        soup = fetch_product_page(product_link)
-        print(f"Fetched {product_link}")
+        try:
+            soup = fetch_product_page(product_link)
+            print(f"Fetched {product_link}")
+        except:
+            return Exception(f"Error fetching URL: {product_link}")
 
-        json_data = get_product_json(soup)
+        try:
+            json_data = get_product_json(soup)
+        except:
+            return Exception(f"Error creating json for {product_link}")
 
-        product_price_list = get_product_price_list(json_data, product)
+        try:
+            product_price_list = get_product_price_list(json_data, product)
+        except:
+            return Exception(f"Error parsing json for {product_link}")
+
         store_price_list.extend(product_price_list)
 
         if product != product_choice_list[-1]:
@@ -617,15 +631,10 @@ def test_django():
 
 
 def test_function():
-    response = requests.get("https://www.prisjakt.nu/produkt.php?p=5948016")
-    soup = BeautifulSoup(response.text, "html.parser")
-
-    json_data = get_product_json(soup)
-    product_price_list = get_product_price_list(json_data, "asd")
-
-    for product in product_price_list:
-        print(product)
-
+    try:
+        asd = 5/0
+    except:
+        return Exception("assadsds")
 
 if __name__ == "__main__":
     # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
@@ -634,5 +643,7 @@ if __name__ == "__main__":
     # for t in test:
     #     print(t)
     # print(", ".join(gpu_pj_url_dict["TIER 1"]))
-    # test_function()
-    pass
+    aa = test_function()
+    if type(aa) == Exception:
+        print(str(aa))
+    # pass
