@@ -3,8 +3,6 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import serializers
 from .serializers import FetchPropertiesSerializer
-# from . import test_module
-
 
 valid_fetch_types = {"GPU", "CPU-Gaming", "CPU-Normal"}
 
@@ -111,7 +109,6 @@ def validate_fetch_request(serializer_data):
 def test_post(request):
     serializer = FetchPropertiesSerializer(data=request.data)
     if serializer.is_valid():
-        # test = test_module.test_function(serializer.data)
         validated_data = validate_fetch_request(serializer.data)
         return Response(validated_data)
     return Response(serializer.errors)
