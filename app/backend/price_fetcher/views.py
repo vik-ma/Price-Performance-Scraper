@@ -51,12 +51,12 @@ def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id
 
 def start_price_fetching():
     # module_test = pf.start_price_fetching_cpu("CPU-Gaming", pf.cpu_pj_url_dict, ["AMD Ryzen 9 7950X"])
-    fetch_category = pf.cpu_gaming_tier_dict["TIER 5"]
-    # fetch_category = ["aa"]
-    
-    benchmark_type = "CPU-Gaming"
+    # fetch_category = pf.cpu_gaming_tier_dict["TIER 5"]
+    fetch_category = ["GeForce RTX 4090"]
+    url_dict = pf.gpu_pj_url_dict
+    benchmark_type = "GPU"
 
-    module_test = pf.start_price_fetching_cpu(benchmark_type, pf.cpu_pj_url_dict, fetch_category)
+    module_test = pf.start_price_fetching_gpu(fetch_category)
 
     # if type(module_test) == Exception:
     #     asd = f"<h1>{str(module_test)}</h1>"

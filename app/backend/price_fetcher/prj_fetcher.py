@@ -5,45 +5,73 @@ import re
 import datetime
 import time
 
-gpu_pj_url_dict = {
+gpu_tier_dict = {
     "TIER 1": {
-        "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
-        "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
-        "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
+        "GeForce RTX 4090",
+        "GeForce RTX 4080",
+        "Radeon RX 7900 XTX",
         },
     "TIER 2": {
-        "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
-        "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
-        "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
+        "GeForce RTX 4070 Ti",
+        "Radeon RX 6950 XT",
+        "Radeon RX 7900 XT",
         },
     "TIER 3": {
-        "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
-        "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
-        "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
-        "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
-        "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
+        "Radeon RX 6800 XT",
+        "Radeon RX 6800",
+        "GeForce RTX 3070 Ti",
+        "GeForce RTX 3070",
+        "Radeon RX 6750 XT",
         },
     "TIER 4": {
-        "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
-        "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
-        "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
-        "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
+        "Radeon RX 6700 XT",
+        "GeForce RTX 3060 Ti",
+        "Radeon RX 6700",
+        "Radeon RX 6650 XT",
         },
     "TIER 5": {
-        "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
-        "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
-        "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
-        "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
-        "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
+        "Radeon RX 6600 XT",
+        "Radeon RX 6600",
+        "GeForce RTX 3060",
+        "GeForce RTX 2060",
+        "GeForce RTX 3050",
         },
     "TIER 6": {
-        "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
-        "GeForce GTX 1660 SUPER": "https://www.prisjakt.nu/c/grafikkort?532=32763",
-        "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
-        "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
-        "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
+        "GeForce GTX 1660 Ti",
+        "GeForce GTX 1660 SUPER",
+        "GeForce GTX 1660",
+        "Radeon RX 6500 XT",
+        "Radeon RX 6400"
         },
     }
+
+gpu_pj_url_dict = {
+    "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
+    "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
+    "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
+    "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
+    "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
+    "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
+    "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
+    "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
+    "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
+    "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
+    "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
+    "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
+    "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
+    "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
+    "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
+    "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
+    "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
+    "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
+    "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
+    "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
+    "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
+    "GeForce GTX 1660 SUPER": "https://www.prisjakt.nu/c/grafikkort?532=32763",
+    "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
+    "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
+    "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",  
+}
 
 cpu_pj_url_dict = {
     "AMD Ryzen 9 5950X": "https://www.prisjakt.nu/produkt.php?p=5588372",
@@ -529,15 +557,36 @@ def get_price_benchmark_score(product_price_list, benchmark_json):
     return price_score_list
 
 
-def start_price_fetching_gpu(tier_choice, *, run_locally = False):
-    benchmark_json = import_benchmark_json("GPU", run_locally)
+def start_price_fetching_gpu(product_choice_list, *, run_locally = False):
+    try:
+        benchmark_json = import_benchmark_json("GPU", run_locally)
+    except:
+        return Exception("Error importing benchmarks")
 
     benchmark_price_list = []
-    for product_category, product_category_url in tier_choice.items():
-        soup_list = fetch_gpu_category_page(product_category_url)
-        json_list = create_json_list_from_gpu_category(soup_list)
-        lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
-        product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
+    for product_category in product_choice_list:
+        product_category_url = gpu_pj_url_dict[product_category]
+
+        try:
+            soup_list = fetch_gpu_category_page(product_category_url)
+        except:
+            return Exception(f"Error fetching GPU category page: {product_category_url}")
+
+        try:
+            json_list = create_json_list_from_gpu_category(soup_list)
+        except:
+            return Exception(f"Error creating json for GPU category page: {product_category_url}")
+
+        try:
+            lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
+        except:
+            return Exception(f"Error parsing json for GPU category page: {product_category_url}")
+
+        try:
+            product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
+        except:
+            return Exception(f"Error getting store price for product for GPU category page: {product_category_url}")
+        
         benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
         benchmark_price_list.extend(benchmark_score_list)
     
