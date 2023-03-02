@@ -91,17 +91,26 @@ def validate_fetch_request(serializer_data):
         
     fetch_type = serializer_data["fetch_type"]
 
-    product_list = serializer_data["product_list"].split(",")
-    
+    try:
+        product_list = set(serializer_data["product_list"].split(","))
+    except:
+        raise serializers.ValidationError("Not a valid product_list string")
+
+    if fetch_type == "GPU" and len(product_list) > 5:
+        raise serializers.ValidationError("product_list too long")
+
+    if (fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal") and len(product_list) > 11:
+        raise serializers.ValidationError("product_list too long")
+
     if fetch_type == "GPU":
-        valid_product_set = valid_gpu_set
+        valid_product_set = valid_gpu_set     
     elif fetch_type == "CPU-Gaming":
         valid_product_set = valid_cpu_gaming_set
     elif fetch_type == "CPU-Normal":
         valid_product_set = valid_cpu_normal_set
 
-    if not set(product_list).issubset(valid_product_set):
-        raise serializers.ValidationError(f"Not a valid {fetch_type} product_list")
+    if not product_list.issubset(valid_product_set):
+        raise serializers.ValidationError("Invalid items in product_list")
 
     return "Success"
 
