@@ -120,7 +120,5 @@ def start_price_fetch(request):
     if serializer.is_valid():
         validate_fetch_request(serializer.data)
         price_fetch = pf.start_price_fetching(serializer.data)
-        if type(price_fetch) == Exception:
-            return Response(str(price_fetch))
         return Response(price_fetch)
     return Response(serializer.errors)

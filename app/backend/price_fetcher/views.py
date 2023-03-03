@@ -59,7 +59,7 @@ def start_price_fetching(data):
         fetched_prices = pf.start_price_fetching_cpu(fetch_type, products_to_fetch)
 
     if type(fetched_prices) == Exception:
-        return fetched_prices
+        return {"success": False, "message": str(fetched_prices)}
 
     current_timestamp = get_current_timestamp()
     timestamp_id = (''.join(i for i in str(current_timestamp) if i.isdigit()))
@@ -82,5 +82,5 @@ def start_price_fetching(data):
     except:
         return Exception("Error adding price fetch to database")
     
-    return f"Price Fetch Success. ID: {timestamp_id}"
+    return {"success": True, "message": str(timestamp_id)}
 
