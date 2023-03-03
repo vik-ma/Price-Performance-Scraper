@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import serializers
 from .serializers import FetchPropertiesSerializer
+import price_fetcher.views as pf
 
 valid_fetch_types = {"GPU", "CPU-Gaming", "CPU-Normal"}
 
@@ -112,12 +113,14 @@ def validate_fetch_request(serializer_data):
     if not product_list.issubset(valid_product_set):
         raise serializers.ValidationError("Invalid items in product_list")
 
-    return "Success"
 
 @api_view(['POST'])
-def test_post(request):
+def start_price_fetch(request):
     serializer = FetchPropertiesSerializer(data=request.data)
     if serializer.is_valid():
-        validated_data = validate_fetch_request(serializer.data)
-        return Response(validated_data)
+        validate_fetch_request(serializer.data)
+        price_fetch = pf.start_price_fetching(serializer.data)
+        if type(price_fetch) == Exception:
+            return Response(str(price_fetch))
+        return Response(price_fetch)
     return Response(serializer.errors)

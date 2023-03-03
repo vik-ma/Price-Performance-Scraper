@@ -49,33 +49,38 @@ def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id
     completed_fetch.timestamp_id = timestamp_id
     completed_fetch.save()
 
-def start_price_fetching():
-    # module_test = pf.start_price_fetching_cpu("CPU-Gaming", pf.cpu_pj_url_dict, ["AMD Ryzen 9 7950X"])
-    # fetch_category = pf.cpu_gaming_tier_dict["TIER 5"]
-    fetch_category = ["GeForce RTX 4090"]
-    url_dict = pf.gpu_pj_url_dict
-    benchmark_type = "GPU"
+def start_price_fetching(data):
+    fetch_type = data["fetch_type"]
+    products_to_fetch = data["product_list"].split(",")
 
-    module_test = pf.start_price_fetching_gpu(fetch_category)
+    if fetch_type == "GPU":
+        fetched_prices = pf.start_price_fetching_gpu(products_to_fetch)
+    elif fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal":
+        fetched_prices = pf.start_price_fetching_cpu(fetch_type, products_to_fetch)
 
-    # if type(module_test) == Exception:
-    #     asd = f"<h1>{str(module_test)}</h1>"
-    #     return HttpResponse(asd)
+    if type(fetched_prices) == Exception:
+        return fetched_prices
 
     current_timestamp = get_current_timestamp()
     timestamp_id = (''.join(i for i in str(current_timestamp) if i.isdigit()))
-    product_list = ", ".join(fetch_category)
+    product_list = data["product_list"].replace(",", ", ")
 
-    for listing in module_test:
-        product_listing = ProductListing()
-        product_listing.product_category = listing[0]
-        product_listing.store_name = listing[1]
-        product_listing.price = listing[2]
-        product_listing.product_link = listing[3]
-        product_listing.product_name = listing[4]
-        product_listing.benchmark_value = listing[5]
-        product_listing.price_performance_ratio = listing[6]
-        product_listing.timestamp_id = timestamp_id
-        product_listing.save()
+    try:
+        for listing in fetched_prices:
+            product_listing = ProductListing()
+            product_listing.product_category = listing[0]
+            product_listing.store_name = listing[1]
+            product_listing.price = listing[2]
+            product_listing.product_link = listing[3]
+            product_listing.product_name = listing[4]
+            product_listing.benchmark_value = listing[5]
+            product_listing.price_performance_ratio = listing[6]
+            product_listing.timestamp_id = timestamp_id
+            product_listing.save()
 
-    create_completed_fetch(product_list, benchmark_type, current_timestamp, timestamp_id)
+        create_completed_fetch(product_list, fetch_type, current_timestamp, timestamp_id)
+    except:
+        return Exception("Error adding price fetch to database")
+    
+    return f"Price Fetch Success. ID: {timestamp_id}"
+

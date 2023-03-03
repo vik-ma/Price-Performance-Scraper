@@ -118,7 +118,6 @@ cpu_pj_url_dict = {
     "Intel Core i5-12500": "https://www.prisjakt.nu/produkt.php?p=5948021",
     "Intel Core i5-12400F": "https://www.prisjakt.nu/produkt.php?p=5948013",
     "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
-    "aa": "aa123"
 }    
 
 cpu_socket_dict = {
@@ -598,11 +597,13 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally = False):
     return sorted_benchmark_price_list
 
 
-def start_price_fetching_cpu(benchmark_type, cpu_url_dict, product_choice_list, *, run_locally = False):
+def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally = False):
     try:
         benchmark_json = import_benchmark_json(benchmark_type, run_locally)
     except:
         return Exception("Error importing benchmarks")
+
+    cpu_url_dict = cpu_pj_url_dict
 
     store_price_list = []
 

@@ -2,5 +2,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.test_post),
+    path('', views.start_price_fetch),
 ]
