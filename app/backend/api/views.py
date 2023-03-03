@@ -122,3 +122,9 @@ def start_price_fetch(request):
         price_fetch = pf.start_price_fetching(serializer.data)
         return Response(price_fetch)
     return Response(serializer.errors)
+
+@api_view(['GET'])
+def test_frontend(request):
+    return Response({
+        "data": "TEST 123"
+    })
