@@ -82,7 +82,9 @@ cpu_pj_url_dict = {
     "AMD Ryzen 5 5600X": "https://www.prisjakt.nu/produkt.php?p=5588360",
     "AMD Ryzen 5 5600": "https://www.prisjakt.nu/produkt.php?p=6090826",
     "AMD Ryzen 5 5500": "https://www.prisjakt.nu/produkt.php?p=6090824",
+    "AMD Ryzen 9 7950X3D": "https://www.prisjakt.nu/produkt.php?p=8053683",
     "AMD Ryzen 9 7950X": "https://www.prisjakt.nu/produkt.php?p=6999752",
+    "AMD Ryzen 9 7900X3D": "https://www.prisjakt.nu/produkt.php?p=8053693",
     "AMD Ryzen 9 7900X": "https://www.prisjakt.nu/produkt.php?p=6999757",
     "AMD Ryzen 9 7900": "https://www.prisjakt.nu/produkt.php?p=7328156",
     "AMD Ryzen 7 7700X": "https://www.prisjakt.nu/produkt.php?p=6999756",
@@ -132,6 +134,8 @@ cpu_socket_dict = {
         "AMD Ryzen 5 5500",
     ],
     "Socket AM5": [
+        "AMD Ryzen 9 7950X3D",
+        "AMD Ryzen 9 7900X3D",
         "AMD Ryzen 9 7950X",
         "AMD Ryzen 9 7900X",
         "AMD Ryzen 9 7900",
@@ -175,6 +179,8 @@ cpu_socket_dict = {
 
 cpu_gen_dict = {
     "CURRENT GENERATION":[
+        "AMD Ryzen 9 7950X3D",
+        "AMD Ryzen 9 7900X3D",
         "AMD Ryzen 9 7950X",
         "AMD Ryzen 9 7900X",
         "AMD Ryzen 9 7900",
@@ -228,6 +234,7 @@ cpu_gen_dict = {
 
 cpu_normal_tier_dict = {
     "TIER 1":[
+        "AMD Ryzen 9 7950X3D",
         "AMD Ryzen 9 7950X",
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
@@ -235,6 +242,7 @@ cpu_normal_tier_dict = {
         "Intel Core i9-13900F",
     ],
     "TIER 2": [
+        "AMD Ryzen 9 7900X3D",
         "AMD Ryzen 9 7900X",
         "Intel Core i9-13900",
         "AMD Ryzen 9 7900",
@@ -285,11 +293,14 @@ cpu_normal_tier_dict = {
     ],
 }
 
+# MISSING: 7900X3D, 13900
 cpu_gaming_tier_dict = {
     "TIER 1": [
         "Intel Core i9-13900KS",
+        "AMD Ryzen 9 7950X3D",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
+        "Intel Core i9-13900F",
         "AMD Ryzen 7 5800X3D",
         "AMD Ryzen 9 7900X",
         "Intel Core i7-13700K",
