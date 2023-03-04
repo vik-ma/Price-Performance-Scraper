@@ -128,5 +128,5 @@ def start_price_fetch(request):
 @api_view(['GET'])
 def test_frontend(request):
     return Response({
-        "data": "TEST 123"
+        "data": "TEST FROM API"
     })

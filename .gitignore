@@ -15,8 +15,10 @@ db.sqlite3
 /coverage
 
 # next.js
-/.next/
+**/.next/
 /out/
+
+**/.vscode
 
 # production
 /build
