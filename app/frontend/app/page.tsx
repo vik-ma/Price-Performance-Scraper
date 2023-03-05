@@ -7,7 +7,7 @@ import { useState, useEffect } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 async function getApiData() {
-  const res = await fetch("http://localhost:8000/api/test_frontend/",
+  const res = await fetch(`${process.env.DJANGO_URL}/api/test_frontend/`,
   { cache: 'no-store' }
   );
 
