@@ -597,9 +597,15 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally = False):
         except:
             return Exception(f"Error getting store price for product for GPU category page: {product_category_url}")
         
+        if len(product_price_list) < 1:
+            continue
+
         benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
         benchmark_price_list.extend(benchmark_score_list)
     
+    if len(benchmark_price_list) < 1:
+        return Exception("No products in store for any products in list")
+        
     sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
     # for entry in sorted_benchmark_price_list:
@@ -642,6 +648,9 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
 
         if product != product_choice_list[-1]:
             time.sleep(0.5)
+
+    if len(store_price_list) < 1:
+        return Exception("No products in store for any products in list")
 
     benchmark_price_list = get_price_benchmark_score(store_price_list, benchmark_json)
 
