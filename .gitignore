@@ -8,7 +8,7 @@ db.sqlite3
 
 # dependencies
 **/node_modules
-/.pnp
+**/.pnp
 .pnp.js
 
 # testing
@@ -16,12 +16,12 @@ db.sqlite3
 
 # next.js
 **/.next/
-/out/
+**/out/
 
 **/.vscode
 
 # production
-/build
+**/build
 
 # misc
 .DS_Store

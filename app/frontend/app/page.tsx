@@ -7,7 +7,9 @@ import { useState, useEffect } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 async function getApiData() {
-  const res = await fetch("http://localhost:8000/api/test_frontend/");
+  const res = await fetch("http://localhost:8000/api/test_frontend/",
+  { cache: 'no-store' }
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -24,7 +26,7 @@ export default async function Home() {
     <main>
       <div>
         <h1>Home</h1>
-        <p>APIasdasdsa Test: {apiData.data}</p>
+        <p>API Test: {apiData.message}</p>
         <div className="padding-top: 3em">
           <Link href="/fetches">View Completed Fetches</Link>
         </div>
