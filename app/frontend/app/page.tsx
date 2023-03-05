@@ -2,11 +2,14 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 // import styles from "./page.module.css";
 import Link from "next/link";
-import { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-async function getApiData() {
+type TestApiProps = {
+  message: string
+}
+
+async function getApiData(): Promise<TestApiProps> {
   const res = await fetch(`${process.env.DJANGO_URL}/api/test_frontend/`,
   { cache: 'no-store' }
   );
