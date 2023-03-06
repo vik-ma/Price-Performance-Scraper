@@ -25,9 +25,13 @@ class ProductListingType(DjangoObjectType):
 class Query(graphene.ObjectType):
     all_completed_fetches = graphene.List(CompletedFetchType)
     product_listings = graphene.List(ProductListingType, timestamp_id = graphene.String(required=True))
+    completed_fetch_by_id = graphene.List(CompletedFetchType, timestamp_id = graphene.String(required=True))
 
     def resolve_all_completed_fetches(self, info):
         return CompletedFetch.objects.all()
+
+    def resolve_completed_fetch_by_id(self, info, timestamp_id):
+        return CompletedFetch.objects.filter(timestamp_id = timestamp_id)
     
     def resolve_product_listings(self, info, timestamp_id):
         return ProductListing.objects.filter(timestamp_id = timestamp_id)
