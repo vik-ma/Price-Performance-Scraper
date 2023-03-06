@@ -1,7 +1,7 @@
-// import './globals.css'
 import Link from "next/link";
+import Navbar from "./Navbar";
 import "@picocss/pico/css/pico.min.css";
-// import "../app/css/custom.css";
+
 
 export const metadata = {
   title: "Create Next App",
@@ -17,10 +17,7 @@ export default function RootLayout({
     <html lang="en" data-theme="dark">
       <body>
         <main className="container">
-          <nav>
-            <Link href="/">Home</Link>
-            <Link href="/fetches">Completed Price Fetches</Link>
-          </nav>
+          <Navbar />
           {children}
         </main>
       </body>
