@@ -5,7 +5,7 @@ export type CompletedFetchProps = {
     timestampId: string;
   };
 
-export type ProductListings = {
+export type ProductListingsProps = {
     productCategory: string;
     storeName: string;
     price: number;
@@ -13,5 +13,4 @@ export type ProductListings = {
     productName: string;
     pricePerformanceRatio: number;
     benchmarkValue: number;
-    timestampId: string;
   };
