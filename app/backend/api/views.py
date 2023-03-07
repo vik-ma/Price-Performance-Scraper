@@ -5,9 +5,9 @@ from rest_framework import serializers
 from .serializers import FetchPropertiesSerializer
 import price_fetcher.views as pf
 
-valid_fetch_types = {"GPU", "CPU-Gaming", "CPU-Normal"}
+valid_fetch_types = frozenset(["GPU", "CPU-Gaming", "CPU-Normal"])
 
-valid_gpu_set = {
+valid_gpu_set = frozenset([
     "GeForce RTX 4090",
     "GeForce RTX 4080",
     "Radeon RX 7900 XTX",
@@ -33,9 +33,9 @@ valid_gpu_set = {
     "GeForce GTX 1660",
     "Radeon RX 6500 XT",
     "Radeon RX 6400",
-}
+])
 
-valid_cpu_normal_set = {
+valid_cpu_normal_list = [
     "AMD Ryzen 9 7950X3D",
     "AMD Ryzen 9 7900X3D",
     "AMD Ryzen 9 5950X",
@@ -82,10 +82,13 @@ valid_cpu_normal_set = {
     "Intel Core i5-12500",
     "Intel Core i5-12400F",
     "Intel Core i5-12400",
-}
+]
 
-valid_cpu_gaming_set = valid_cpu_normal_set.copy()
-valid_cpu_gaming_set.remove("Intel Core i9-13900")
+valid_cpu_normal_set = frozenset(valid_cpu_normal_list)
+
+valid_cpu_gaming_list = valid_cpu_normal_list.copy()
+valid_cpu_gaming_list.remove("Intel Core i9-13900")
+valid_cpu_gaming_set = frozenset(valid_cpu_gaming_list)
 
 def validate_fetch_request(serializer_data):
     if serializer_data["fetch_type"] not in valid_fetch_types:
