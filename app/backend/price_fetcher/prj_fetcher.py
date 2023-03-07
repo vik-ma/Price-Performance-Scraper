@@ -630,7 +630,7 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
 
     cpu_url_dict = cpu_pj_url_dict
 
-    store_price_list = []
+    benchmark_price_list = []
 
     for product in product_choice_list:
         product_link = cpu_url_dict[product]
@@ -652,15 +652,15 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
         except:
             return Exception(f"Error parsing json for {product_link}")
 
-        store_price_list.extend(product_price_list)
+        product_benchmark_price_list = get_price_benchmark_score(product_price_list, benchmark_json)
+
+        benchmark_price_list.extend(product_benchmark_price_list)
 
         if product != product_choice_list[-1]:
             time.sleep(0.5)
 
-    if len(store_price_list) < 1:
+    if len(benchmark_price_list) < 1:
         return Exception("No products in store for any products in list")
-
-    benchmark_price_list = get_price_benchmark_score(store_price_list, benchmark_json)
 
     sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
@@ -670,8 +670,8 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
     return sorted_benchmark_price_list
 
 
-def test_benchmark_price_score(product_list=[], *, run_locally = False):
-    benchmarks = import_benchmark_json("GPU", run_locally)
+def test_benchmark_price_score(fetch_type, *, run_locally = False):
+    benchmarks = import_benchmark_json(fetch_type, run_locally)
 
     product_item_1 = [
         ("GeForce RTX 4090", "Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB", 21990),
@@ -717,11 +717,9 @@ def test_function():
 if __name__ == "__main__":
     # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
     # print(import_benchmark_json("GPU", run_locally=True))
-    # test = start_price_fetching_cpu("CPU-Gaming", cpu_pj_url_dict, ["AMD Ryzen 9 7950X"], run_locally=True)
-    # for t in test:
-    #     print(t)
+    test = start_price_fetching_cpu("CPU-Normal", ["Intel Core i9-13900KS","AMD Ryzen 9 7900X3D"], run_locally=True)
+    for t in test:
+        print(t)
     # print(", ".join(gpu_pj_url_dict["TIER 1"]))
-    aa = test_function()
-    if type(aa) == Exception:
-        print(str(aa))
+    # test_benchmark_price_score("CPU-Gaming", run_locally=True)
     # pass
