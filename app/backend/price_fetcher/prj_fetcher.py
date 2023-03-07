@@ -577,97 +577,103 @@ def get_price_benchmark_score(product_price_list, benchmark_json):
 
 def start_price_fetching_gpu(product_choice_list, *, run_locally = False):
     try:
-        benchmark_json = import_benchmark_json("GPU", run_locally)
+        try:
+            benchmark_json = import_benchmark_json("GPU", run_locally)
+        except:
+            return Exception("Error importing benchmarks")
+
+        benchmark_price_list = []
+        for product_category in product_choice_list:
+            product_category_url = gpu_pj_url_dict[product_category]
+
+            try:
+                soup_list = fetch_gpu_category_page(product_category_url)
+            except:
+                return Exception(f"Error fetching GPU category page: {product_category_url}")
+
+            try:
+                json_list = create_json_list_from_gpu_category(soup_list)
+            except:
+                return Exception(f"Error creating json for GPU category page: {product_category_url}")
+
+            try:
+                lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
+            except:
+                return Exception(f"Error parsing json for GPU category page: {product_category_url}")
+
+            try:
+                product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
+            except:
+                return Exception(f"Error getting store price for product for GPU category page: {product_category_url}")
+            
+            if len(product_price_list) < 1:
+                continue
+
+            benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
+            benchmark_price_list.extend(benchmark_score_list)
+        
+        if len(benchmark_price_list) < 1:
+            return Exception("No products in store for any products in list")
+            
+        sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
+
+        # for entry in sorted_benchmark_price_list:
+        #     print(entry)
+
+        return sorted_benchmark_price_list
     except:
-        return Exception("Error importing benchmarks")
-
-    benchmark_price_list = []
-    for product_category in product_choice_list:
-        product_category_url = gpu_pj_url_dict[product_category]
-
-        try:
-            soup_list = fetch_gpu_category_page(product_category_url)
-        except:
-            return Exception(f"Error fetching GPU category page: {product_category_url}")
-
-        try:
-            json_list = create_json_list_from_gpu_category(soup_list)
-        except:
-            return Exception(f"Error creating json for GPU category page: {product_category_url}")
-
-        try:
-            lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
-        except:
-            return Exception(f"Error parsing json for GPU category page: {product_category_url}")
-
-        try:
-            product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
-        except:
-            return Exception(f"Error getting store price for product for GPU category page: {product_category_url}")
-        
-        if len(product_price_list) < 1:
-            continue
-
-        benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
-        benchmark_price_list.extend(benchmark_score_list)
-    
-    if len(benchmark_price_list) < 1:
-        return Exception("No products in store for any products in list")
-        
-    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
-
-    # for entry in sorted_benchmark_price_list:
-    #     print(entry)
-
-    return sorted_benchmark_price_list
+        return Exception("Unexpected Error")
 
 
 def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally = False):
     try:
-        benchmark_json = import_benchmark_json(benchmark_type, run_locally)
+        try:
+            benchmark_json = import_benchmark_json(benchmark_type, run_locally)
+        except:
+            return Exception("Error importing benchmarks")
+
+        cpu_url_dict = cpu_pj_url_dict
+
+        benchmark_price_list = []
+
+        for product in product_choice_list:
+            product_link = cpu_url_dict[product]
+
+            print(f"Trying to fetch {product}")
+            try:
+                soup = fetch_product_page(product_link)
+                print(f"Fetched {product_link}")
+            except:
+                return Exception(f"Error fetching URL: {product_link}")
+
+            try:
+                json_data = get_product_json(soup)
+            except:
+                return Exception(f"Error creating json for {product_link}")
+
+            try:
+                product_price_list = get_product_price_list(json_data, product)
+            except:
+                return Exception(f"Error parsing json for {product_link}")
+
+            product_benchmark_price_list = get_price_benchmark_score(product_price_list, benchmark_json)
+
+            benchmark_price_list.extend(product_benchmark_price_list)
+
+            if product != product_choice_list[-1]:
+                time.sleep(0.5)
+
+        if len(benchmark_price_list) < 1:
+            return Exception("No products in store for any products in list")
+
+        sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
+
+        # for entry in sorted_benchmark_price_list:
+        #     print(entry)
+
+        return sorted_benchmark_price_list
     except:
-        return Exception("Error importing benchmarks")
-
-    cpu_url_dict = cpu_pj_url_dict
-
-    benchmark_price_list = []
-
-    for product in product_choice_list:
-        product_link = cpu_url_dict[product]
-
-        print(f"Trying to fetch {product}")
-        try:
-            soup = fetch_product_page(product_link)
-            print(f"Fetched {product_link}")
-        except:
-            return Exception(f"Error fetching URL: {product_link}")
-
-        try:
-            json_data = get_product_json(soup)
-        except:
-            return Exception(f"Error creating json for {product_link}")
-
-        try:
-            product_price_list = get_product_price_list(json_data, product)
-        except:
-            return Exception(f"Error parsing json for {product_link}")
-
-        product_benchmark_price_list = get_price_benchmark_score(product_price_list, benchmark_json)
-
-        benchmark_price_list.extend(product_benchmark_price_list)
-
-        if product != product_choice_list[-1]:
-            time.sleep(0.5)
-
-    if len(benchmark_price_list) < 1:
-        return Exception("No products in store for any products in list")
-
-    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
-
-    # for entry in sorted_benchmark_price_list:
-    #     print(entry)
-
-    return sorted_benchmark_price_list
+        return Exception("Unexpected Error")
 
 
 def test_benchmark_price_score(fetch_type, *, run_locally = False):
