@@ -86,7 +86,6 @@ valid_cpu_normal_set = {
 
 valid_cpu_gaming_set = valid_cpu_normal_set.copy()
 valid_cpu_gaming_set.remove("Intel Core i9-13900")
-valid_cpu_gaming_set.remove("AMD Ryzen 9 7900X3D")
 
 def validate_fetch_request(serializer_data):
     if serializer_data["fetch_type"] not in valid_fetch_types:

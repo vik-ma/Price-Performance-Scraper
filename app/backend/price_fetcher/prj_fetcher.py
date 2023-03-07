@@ -15,9 +15,9 @@ gpu_tier_dict = {
         "GeForce RTX 4070 Ti",
         "Radeon RX 6950 XT",
         "Radeon RX 7900 XT",
+        "Radeon RX 6800 XT",
         },
     "TIER 3": {
-        "Radeon RX 6800 XT",
         "Radeon RX 6800",
         "GeForce RTX 3070 Ti",
         "GeForce RTX 3070",
@@ -33,17 +33,19 @@ gpu_tier_dict = {
         "Radeon RX 6600 XT",
         "Radeon RX 6600",
         "GeForce RTX 3060",
-        "GeForce RTX 2060",
-        "GeForce RTX 3050",
         },
     "TIER 6": {
+        "GeForce RTX 3050",
+        "GeForce RTX 2060",
         "GeForce GTX 1660 Ti",
         "GeForce GTX 1660 SUPER",
+        },
+    "TIER 7": {
         "GeForce GTX 1660",
         "Radeon RX 6500 XT",
         "Radeon RX 6400"
-        },
     }
+}
 
 gpu_pj_url_dict = {
     "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
@@ -123,7 +125,7 @@ cpu_pj_url_dict = {
 }    
 
 cpu_socket_dict = {
-    "Socket AM4": [
+    "Socket AM4": {
         "AMD Ryzen 9 5950X",
         "AMD Ryzen 9 5900X",
         "AMD Ryzen 7 5800X",
@@ -132,8 +134,8 @@ cpu_socket_dict = {
         "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
         "AMD Ryzen 5 5500",
-    ],
-    "Socket AM5": [
+    },
+    "Socket AM5": {
         "AMD Ryzen 9 7950X3D",
         "AMD Ryzen 9 7900X3D",
         "AMD Ryzen 9 7950X",
@@ -143,8 +145,8 @@ cpu_socket_dict = {
         "AMD Ryzen 7 7700",
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 5 7600",
-    ],
-    "Socket LGA 1700": [
+    },
+    "Socket LGA 1700": {
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
@@ -174,11 +176,11 @@ cpu_socket_dict = {
         "Intel Core i5-12500", 
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
-    ]
+    }
 }
 
 cpu_gen_dict = {
-    "CURRENT GENERATION":[
+    "CURRENT GENERATION": {
         "AMD Ryzen 9 7950X3D",
         "AMD Ryzen 9 7900X3D",
         "AMD Ryzen 9 7950X",
@@ -202,8 +204,8 @@ cpu_gen_dict = {
         "Intel Core i5-13500",
         "Intel Core i5-13400",
         "Intel Core i5-13400F",
-    ],
-    "PREVIOUS GENERATION":[
+    },
+    "PREVIOUS GENERATION": {
         "AMD Ryzen 9 5950X",
         "AMD Ryzen 9 5900X",
         "AMD Ryzen 7 5800X",
@@ -227,21 +229,20 @@ cpu_gen_dict = {
         "Intel Core i5-12500",
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
-    ]
+    }
 }
 
 
-
 cpu_normal_tier_dict = {
-    "TIER 1":[
+    "TIER 1": {
         "AMD Ryzen 9 7950X3D",
         "AMD Ryzen 9 7950X",
         "Intel Core i9-13900KS",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
         "Intel Core i9-13900F",
-    ],
-    "TIER 2": [
+    },
+    "TIER 2": {
         "AMD Ryzen 9 7900X3D",
         "AMD Ryzen 9 7900X",
         "Intel Core i9-13900",
@@ -250,8 +251,8 @@ cpu_normal_tier_dict = {
         "Intel Core i7-13700KF",
         "AMD Ryzen 9 5950X",
         "Intel Core i9-12900KS",
-    ],
-    "TIER 3": [
+    },
+    "TIER 3": {
         "Intel Core i9-12900K",
         "Intel Core i7-13700F",
         "Intel Core i9-12900KF",
@@ -259,19 +260,21 @@ cpu_normal_tier_dict = {
         "AMD Ryzen 9 5900X",
         "Intel Core i5-13600K",
         "Intel Core i5-13600KF",
-    ],
-    "TIER 4": [
+    },
+    "TIER 4": {
         "Intel Core i9-12900F",
         "AMD Ryzen 7 7700X",
         "AMD Ryzen 7 7700",
         "Intel Core i9-12900",
         "Intel Core i7-12700K",
         "Intel Core i7-12700KF",
+    },
+    "TIER 5": {
         "Intel Core i5-13500",
-    ],
-    "TIER 5": [
         "Intel Core i7-12700F",
         "Intel Core i7-12700",
+    },
+    "TIER 6": {
         "AMD Ryzen 5 7600X",
         "AMD Ryzen 7 5800X",
         "AMD Ryzen 7 5800X3D",
@@ -281,8 +284,8 @@ cpu_normal_tier_dict = {
         "AMD Ryzen 7 5700X",
         "Intel Core i5-13400", 
         "Intel Core i5-13400F",
-    ],
-    "TIER 6": [
+    },
+    "TIER 7": {
         "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
         "Intel Core i5-12600",
@@ -290,36 +293,39 @@ cpu_normal_tier_dict = {
         "Intel Core i5-12400F",
         "Intel Core i5-12400"
         "AMD Ryzen 5 5500",
-    ],
+    },
 }
 
-# MISSING: 7900X3D, 13900
+# MISSING: Intel Core i9-13900
 cpu_gaming_tier_dict = {
-    "TIER 1": [
+    "TIER 1": {
+        "AMD Ryzen 9 7900X3D",
         "Intel Core i9-13900KS",
         "AMD Ryzen 9 7950X3D",
         "Intel Core i9-13900K",
         "Intel Core i9-13900KF",
         "Intel Core i9-13900F",
         "AMD Ryzen 7 5800X3D",
+    },
+    "TIER 2": {
         "AMD Ryzen 9 7900X",
         "Intel Core i7-13700K",
         "Intel Core i5-13600K",
         "Intel Core i5-13600KF",
         "Intel Core i7-13700KF",
-    ],
-    "TIER 2": [
         "Intel Core i9-12900KS",
         "AMD Ryzen 5 7600",
         "AMD Ryzen 5 7600X",
+    },
+    "TIER 3": {
+        "AMD Ryzen 9 7950X",
         "Intel Core i7-13700F",
         "Intel Core i7-13700",
-        "AMD Ryzen 9 7950X",
         "Intel Core i9-12900K",
         "AMD Ryzen 7 7700X",
         "Intel Core i9-12900KF",
-    ],
-    "TIER 3": [
+    },
+    "TIER 4": {
         "Intel Core i9-12900F",
         "Intel Core i9-12900",
         "Intel Core i5-13500",
@@ -327,28 +333,30 @@ cpu_gaming_tier_dict = {
         "Intel Core i7-12700K",
         "Intel Core i5-12600KF",
         "Intel Core i7-12700KF",
+    },
+    "TIER 5": {
         "Intel Core i5-13400",
         "AMD Ryzen 9 5900X",
-    ],
-    "TIER 4": [
-        "AMD Ryzen 5 5600X",
         "Intel Core i5-13400F",
+        "AMD Ryzen 5 5600X",
         "AMD Ryzen 5 5600",
         "Intel Core i5-12600",
         "Intel Core i7-12700",
         "Intel Core i7-12700F",
+    },
+    "TIER 6": {
         "AMD Ryzen 7 5800X",
         "AMD Ryzen 9 5950X",
-    ],
-    "TIER 5": [
         "Intel Core i5-12500",
         "AMD Ryzen 7 5700X",
         "Intel Core i5-12400F",
         "Intel Core i5-12400",
+    },
+    "TIER 7": {
         "AMD Ryzen 5 5500",
         "AMD Ryzen 9 7900",
         "AMD Ryzen 7 7700"
-    ]
+    }
 }
 
 def import_benchmark_json(benchmark_type, run_locally = False):
