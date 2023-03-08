@@ -6,7 +6,7 @@ import {
   FetchPageProps,
 } from "@/typings";
 
-export default function ProductListingTable({
+export default function CpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
   const tableHeading = [

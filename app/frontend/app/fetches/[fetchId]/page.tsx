@@ -6,7 +6,8 @@ import {
   CompletedFetchProps,
   FetchPageProps,
 } from "@/typings";
-import ProductListingTable from "./ProductListingTable";
+import CpuListingsTable from "./CpuListingsTable";
+import GpuListingsTable from "./GpuListingsTable";
 
 type PageProps = {
   params: {
@@ -69,12 +70,21 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
       <h1>{gqlCompletedFetchData.benchmarkType}</h1>
       <h2>{gqlCompletedFetchData.productList}</h2>
       <h3>{formattedTimestamp}</h3>
-      <ProductListingTable
-        params={{
-          fetchInfo: gqlCompletedFetchData,
-          productListings: gqlProductListingData,
-        }}
-      />
+      {gqlCompletedFetchData.benchmarkType === "GPU" ? (
+        <GpuListingsTable
+          params={{
+            fetchInfo: gqlCompletedFetchData,
+            productListings: gqlProductListingData,
+          }}
+        />
+      ) : (
+        <CpuListingsTable
+          params={{
+            fetchInfo: gqlCompletedFetchData,
+            productListings: gqlProductListingData,
+          }}
+        />
+      )}
     </>
   );
 }
