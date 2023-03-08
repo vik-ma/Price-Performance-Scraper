@@ -14,3 +14,10 @@ export type ProductListingsProps = {
     pricePerformanceRatio: number;
     benchmarkValue: number;
   };
+
+export type FetchPageProps = {
+  params: {
+  fetchInfo: CompletedFetchProps;
+  productListings: ProductListingsProps[];
+  }
+};

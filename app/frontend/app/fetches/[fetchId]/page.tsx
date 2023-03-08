@@ -1,7 +1,12 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import client from "../../../apollo-client";
-import { ProductListingsProps, CompletedFetchProps } from "@/typings";
+import {
+  ProductListingsProps,
+  CompletedFetchProps,
+  FetchPageProps,
+} from "@/typings";
+import ProductListingTable from "./ProductListingTable";
 
 type PageProps = {
   params: {
@@ -49,13 +54,7 @@ const getCompletedFetch = async (fetchId: string) => {
 export default async function FetchPage({ params: { fetchId } }: PageProps) {
   const gqlProductListingData = await getProductListings(fetchId);
   const gqlCompletedFetchData = await getCompletedFetch(fetchId);
-  const tableHeading = [
-    "Product",
-    "Store",
-    "Benchmark Value",
-    "Price",
-    "Price/Performance Score",
-  ];
+
   const timestamp = fetchId;
   const year = timestamp.substring(0, 4);
   const month = timestamp.substring(4, 6);
@@ -65,34 +64,17 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
   const second = timestamp.substring(12, 14);
 
   const formattedTimestamp = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
-
   return (
     <>
       <h1>{gqlCompletedFetchData.benchmarkType}</h1>
       <h2>{gqlCompletedFetchData.productList}</h2>
       <h3>{formattedTimestamp}</h3>
-      <table>
-        <thead>
-          <tr>
-            {tableHeading.map((head, headID) => (
-              <th key={headID}>{head}</th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {gqlProductListingData?.map(
-            (listing: ProductListingsProps, index: number) => (
-              <tr key={index}>
-                <td>{listing.productCategory}</td> <td>{listing.storeName}</td>{" "}
-                <td>{listing.benchmarkValue}</td>{" "}
-                {/* {listing.productLink} {listing.productName}{" "} */}
-                <td>{listing.price}</td>{" "}
-                <td>{listing.pricePerformanceRatio}</td>
-              </tr>
-            )
-          )}
-        </tbody>
-      </table>
+      <ProductListingTable
+        params={{
+          fetchInfo: gqlCompletedFetchData,
+          productListings: gqlProductListingData,
+        }}
+      />
     </>
   );
 }
