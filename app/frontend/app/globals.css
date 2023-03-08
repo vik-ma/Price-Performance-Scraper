@@ -1,3 +1,14 @@
 #test {
   color:brown;
 }
+
+#error-header {
+  position: absolute;
+  top: 20%;
+}
+
+.centered-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -8,6 +8,7 @@ import {
 } from "@/typings";
 import CpuListingsTable from "./CpuListingsTable";
 import GpuListingsTable from "./GpuListingsTable";
+import { notFound } from "next/navigation";
 
 export const dynamic = "auto",
   dynamicParams = true,
@@ -61,6 +62,8 @@ const getCompletedFetch = async (fetchId: string) => {
 export default async function FetchPage({ params: { fetchId } }: PageProps) {
   const gqlProductListingData = await getProductListings(fetchId);
   const gqlCompletedFetchData = await getCompletedFetch(fetchId);
+
+  if (gqlCompletedFetchData === undefined) return notFound();
 
   const timestamp = fetchId;
   const year = timestamp.substring(0, 4);
