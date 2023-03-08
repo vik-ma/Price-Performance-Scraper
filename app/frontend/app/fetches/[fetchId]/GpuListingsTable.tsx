@@ -10,7 +10,7 @@ export default function GpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
   const tableHeading = [
-    "Product Name",
+    "Product",
     "Store",
     "Product Category",
     "Benchmark Value",
