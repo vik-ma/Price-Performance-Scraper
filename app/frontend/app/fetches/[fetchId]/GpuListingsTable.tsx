@@ -28,19 +28,20 @@ export default function GpuListingsTable({
             ))}
           </tr>
         </thead>
-        {/* <tbody>
+        <tbody>
           {productListings?.map(
             (listing: ProductListingsProps, index: number) => (
               <tr key={index}>
-                <td>{listing.productCategory}</td> <td>{listing.storeName}</td>{" "}
+                <td>{listing.productName}</td> <td>{listing.storeName}</td>{" "}
+                <td>{listing.productCategory}</td>{" "}
+                {/* {listing.productLink} */}
                 <td>{listing.benchmarkValue}</td>{" "}
-                {listing.productLink} {listing.productName}{" "}
                 <td>{listing.price}</td>{" "}
                 <td>{listing.pricePerformanceRatio}</td>
               </tr>
             )
           )}
-        </tbody> */}
+        </tbody>
       </table>
     </>
   );
