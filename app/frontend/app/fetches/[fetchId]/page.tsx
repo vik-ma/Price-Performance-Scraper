@@ -12,7 +12,7 @@ type PageProps = {
 const getProductListings = async (fetchId: string) => {
   const { data } = await client.query({
     query: gql`
-      query {
+      {
         productListings(timestampId:"${fetchId}") {
             productCategory
             storeName
@@ -26,33 +26,35 @@ const getProductListings = async (fetchId: string) => {
     `,
   });
 
-  return data;
+  return data.productListings as ProductListingsProps[];
 };
 
 const getCompletedFetch = async (fetchId: string) => {
-    const { data } = await client.query({
-      query: gql`
-        query {
-            completedFetchById(timestampId:"${fetchId}") {
-            productList
-            benchmarkType
-          }
+  const { data } = await client.query({
+    query: gql`
+      {
+        completedFetchById(timestampId:"${fetchId}") {
+          productList
+          benchmarkType
+          timestamp
+          timestampId
         }
-      `,
-    });
-  
-    return data;
-  }
+      }
+    `,
+  });
+
+  return data.completedFetchById[0] as CompletedFetchProps;
+};
 
 export default async function FetchPage({ params: { fetchId } }: PageProps) {
   const gqlProductListingData = await getProductListings(fetchId);
   const gqlCompletedFetchData = await getCompletedFetch(fetchId);
-  const heading = [
+  const tableHeading = [
     "Product",
     "Store",
-    "Price",
-    "Price/Performance Ratio",
     "Benchmark Value",
+    "Price",
+    "Price/Performance Score",
   ];
   const timestamp = fetchId;
   const year = timestamp.substring(0, 4);
@@ -64,30 +66,28 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
 
   const formattedTimestamp = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
-  const fetchInfo = gqlCompletedFetchData.completedFetchById[0]
-
   return (
     <>
-      <h1>{fetchInfo.benchmarkType}</h1>
-      <h2>{fetchInfo.productList}</h2>
+      <h1>{gqlCompletedFetchData.benchmarkType}</h1>
+      <h2>{gqlCompletedFetchData.productList}</h2>
       <h3>{formattedTimestamp}</h3>
       <table>
         <thead>
           <tr>
-            {heading.map((head, headID) => (
+            {tableHeading.map((head, headID) => (
               <th key={headID}>{head}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {gqlProductListingData?.productListings.map(
+          {gqlProductListingData?.map(
             (listing: ProductListingsProps, index: number) => (
               <tr key={index}>
                 <td>{listing.productCategory}</td> <td>{listing.storeName}</td>{" "}
-                <td>{listing.price}</td>{" "}
+                <td>{listing.benchmarkValue}</td>{" "}
                 {/* {listing.productLink} {listing.productName}{" "} */}
-                <td>{listing.pricePerformanceRatio}</td>{" "}
-                <td>{listing.benchmarkValue}</td>
+                <td>{listing.price}</td>{" "}
+                <td>{listing.pricePerformanceRatio}</td>
               </tr>
             )
           )}

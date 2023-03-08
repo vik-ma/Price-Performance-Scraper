@@ -232,7 +232,6 @@ cpu_gen_dict = {
     }
 }
 
-
 cpu_normal_tier_dict = {
     "TIER 1": {
         "AMD Ryzen 9 7950X3D",
@@ -723,9 +722,9 @@ def test_function():
 if __name__ == "__main__":
     # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
     # print(import_benchmark_json("GPU", run_locally=True))
-    test = start_price_fetching_cpu("CPU-Normal", ["Intel Core i9-13900KS","AMD Ryzen 9 7900X3D"], run_locally=True)
-    for t in test:
-        print(t)
+    # test = start_price_fetching_cpu("CPU-Normal", ["Intel Core i9-13900KS","AMD Ryzen 9 7900X3D"], run_locally=True)
+    # for t in test:
+    #     print(t)
     # print(", ".join(gpu_pj_url_dict["TIER 1"]))
     # test_benchmark_price_score("CPU-Gaming", run_locally=True)
-    # pass
+    pass

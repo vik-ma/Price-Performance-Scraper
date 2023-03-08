@@ -8,7 +8,7 @@ import { CompletedFetchProps } from "@/typings";
 async function getCompletedFetches() {
   const { data } = await client.query({
     query: gql`
-      query {
+      {
         allCompletedFetches {
           productList
           benchmarkType
@@ -19,7 +19,7 @@ async function getCompletedFetches() {
     `,
   });
 
-  return data;
+  return data.allCompletedFetches as CompletedFetchProps[];
 }
 
 export default async function FetchesList() {
@@ -27,7 +27,7 @@ export default async function FetchesList() {
 
   return (
     <ul>
-      {gqlData?.allCompletedFetches.map((fetch: CompletedFetchProps) => (
+      {gqlData?.map((fetch: CompletedFetchProps) => (
         <li key={fetch.timestampId}>
           <Link href={`/fetches/${fetch.timestampId}`}>
             {fetch.productList}
