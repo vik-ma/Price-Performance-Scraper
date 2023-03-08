@@ -9,6 +9,12 @@ import {
 import CpuListingsTable from "./CpuListingsTable";
 import GpuListingsTable from "./GpuListingsTable";
 
+export const dynamic = "auto",
+  dynamicParams = true,
+  revalidate = 60,
+  fetchCache = "auto",
+  runtime = "nodejs";
+
 type PageProps = {
   params: {
     fetchId: string;
@@ -87,4 +93,25 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
       )}
     </>
   );
+}
+
+export async function generateStaticParams() {
+  const { data } = await client.query({
+    query: gql`
+      {
+        allCompletedFetches {
+          productList
+          benchmarkType
+          timestamp
+          timestampId
+        }
+      }
+    `,
+  });
+
+  const fetches: CompletedFetchProps[] = await data.allCompletedFetches;
+
+  return fetches.map((fetch) => ({
+    fetchId: fetch.timestampId,
+  }));
 }
