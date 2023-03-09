@@ -15,7 +15,7 @@ export default function GpuListingsTable({
     "Product Category",
     "Benchmark Value",
     "Price",
-    "Price/Performance Score",
+    "Price / Performance Score",
   ];
 
   return (

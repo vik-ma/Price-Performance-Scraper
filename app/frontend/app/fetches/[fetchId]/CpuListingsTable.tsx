@@ -14,7 +14,7 @@ export default function CpuListingsTable({
     "Store",
     "Benchmark Value",
     "Price",
-    "Price/Performance Score",
+    "Price / Performance Score",
   ];
 
   return (

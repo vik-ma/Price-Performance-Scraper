@@ -75,7 +75,7 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
 
   const formattedTimestamp = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
   return (
-    <>
+    <div className="fetchContent">
       <h1>{gqlCompletedFetchData.benchmarkType}</h1>
       <h2>{gqlCompletedFetchData.productList}</h2>
       <h3>{formattedTimestamp}</h3>
@@ -94,7 +94,7 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
           }}
         />
       )}
-    </>
+    </div>
   );
 }
 

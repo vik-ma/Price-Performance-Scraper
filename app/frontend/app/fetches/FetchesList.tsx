@@ -4,7 +4,6 @@ import client from "../../apollo-client";
 import Link from "next/link";
 import { CompletedFetchProps } from "@/typings";
 
-
 async function getCompletedFetches() {
   const { data } = await client.query({
     query: gql`
@@ -30,10 +29,15 @@ export default async function FetchesList() {
       {gqlData?.map((fetch: CompletedFetchProps) => (
         <li key={fetch.timestampId}>
           <Link href={`/fetches/${fetch.timestampId}`}>
-            {fetch.productList}
+            {/* {fetch.productList}
+              <br /> */}
+            <strong>{fetch.benchmarkType}</strong>
             <br />
-            {fetch.benchmarkType} -{" "}
-            {fetch.timestamp.substring(0, 19).replace("T", " ")}
+            <small>
+              {fetch.timestamp.substring(0, 10)}
+              <br />
+              {fetch.timestamp.substring(11, 19)}
+            </small>
           </Link>
         </li>
       ))}

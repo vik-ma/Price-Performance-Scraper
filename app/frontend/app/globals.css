@@ -1,7 +1,3 @@
-#test {
-  color:brown;
-}
-
 #error-header {
   position: absolute;
   top: 20%;
@@ -11,4 +7,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+.sidebar {
+  width: 160px;
+  position: absolute;
+  /* height: 100%; */
+  padding-top: 10px;
+  overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
+}
+
+.fetchContent {
+  margin-left: 180px;
+  position: relative;
+}
+
+ul, li {
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 50em){
+  .sidebar{
+    display: none;
+  }
+  .fetchContent {
+    margin-left: 0;
+  }
 }
