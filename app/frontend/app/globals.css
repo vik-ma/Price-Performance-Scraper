@@ -99,3 +99,15 @@ h4 {
     margin-left: 0;
   }
 }
+
+.externalLink {
+  color:rgb(32, 147, 214);
+}
+
+.externalLink:hover {
+  color:rgb(144, 197, 228);
+}
+
+.externalLink:visited {
+  color:rgb(144, 53, 230);
+}

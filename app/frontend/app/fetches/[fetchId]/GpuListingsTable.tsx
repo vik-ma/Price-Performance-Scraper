@@ -32,11 +32,27 @@ export default function GpuListingsTable({
           {productListings?.map(
             (listing: ProductListingsProps, index: number) => (
               <tr key={index}>
-                <td>{listing.productName}</td> <td>{listing.storeName}</td>{" "}
-                <td>{listing.productCategory}</td>{" "}
+                {listing.productLink !== "" ? (
+                  <td>
+                    <a
+                      href={listing.productLink}
+                      target="_blank"
+                      className="externalLink"
+                      data-tooltip="Go to product page on store 🡕"
+                    >
+                      {listing.productName}
+                    </a>
+                  </td>
+                ) : (
+                  <td>
+                    <em data-tooltip="No link available">
+                      {listing.productName}
+                    </em>
+                  </td>
+                )}{" "}
+                <td>{listing.storeName}</td> <td>{listing.productCategory}</td>{" "}
                 {/* {listing.productLink} */}
-                <td>{listing.benchmarkValue}</td>{" "}
-                <td>{listing.price}</td>{" "}
+                <td>{listing.benchmarkValue}</td> <td>{listing.price}</td>{" "}
                 <td>{listing.pricePerformanceRatio}</td>
               </tr>
             )

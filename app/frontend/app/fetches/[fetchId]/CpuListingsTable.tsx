@@ -31,8 +31,25 @@ export default function CpuListingsTable({
           {productListings?.map(
             (listing: ProductListingsProps, index: number) => (
               <tr key={index}>
-                <td>{listing.productCategory}</td> <td>{listing.storeName}</td>{" "}
-                <td>{listing.benchmarkValue}</td>{" "}
+                {listing.productLink !== "" ? (
+                  <td>
+                    <a
+                      href={listing.productLink}
+                      target="_blank"
+                      className="externalLink"
+                      data-tooltip="Go to product page on store 🡕"
+                    >
+                      {listing.productCategory}
+                    </a>
+                  </td>
+                ) : (
+                  <td>
+                    <em data-tooltip="No link available">
+                      {listing.productCategory}
+                    </em>
+                  </td>
+                )}{" "}
+                <td>{listing.storeName}</td> <td>{listing.benchmarkValue}</td>{" "}
                 {/* {listing.productLink} {listing.productName}{" "} */}
                 <td>{listing.price}</td>{" "}
                 <td>{listing.pricePerformanceRatio}</td>
