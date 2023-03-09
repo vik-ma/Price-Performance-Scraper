@@ -74,27 +74,33 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
   const second = timestamp.substring(12, 14);
 
   const formattedTimestamp = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+
   return (
-    <div className="fetchContent">
-      <h1>{gqlCompletedFetchData.benchmarkType}</h1>
-      <h2>{gqlCompletedFetchData.productList}</h2>
-      <h3>{formattedTimestamp}</h3>
-      {gqlCompletedFetchData.benchmarkType === "GPU" ? (
-        <GpuListingsTable
-          params={{
-            fetchInfo: gqlCompletedFetchData,
-            productListings: gqlProductListingData,
-          }}
-        />
-      ) : (
-        <CpuListingsTable
-          params={{
-            fetchInfo: gqlCompletedFetchData,
-            productListings: gqlProductListingData,
-          }}
-        />
-      )}
-    </div>
+    <>
+      <title>
+        {`${gqlCompletedFetchData.benchmarkType} - ${formattedTimestamp}`}
+      </title>
+      <div className="fetchContent">
+        <h1>{gqlCompletedFetchData.benchmarkType}</h1>
+        <h2>{gqlCompletedFetchData.productList}</h2>
+        <h3>{formattedTimestamp}</h3>
+        {gqlCompletedFetchData.benchmarkType === "GPU" ? (
+          <GpuListingsTable
+            params={{
+              fetchInfo: gqlCompletedFetchData,
+              productListings: gqlProductListingData,
+            }}
+          />
+        ) : (
+          <CpuListingsTable
+            params={{
+              fetchInfo: gqlCompletedFetchData,
+              productListings: gqlProductListingData,
+            }}
+          />
+        )}
+      </div>
+    </>
   );
 }
 
