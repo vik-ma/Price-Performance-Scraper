@@ -1,3 +1,8 @@
+:root {
+  --primary: #c3c6d3;
+  --primary-hover: #616161;
+  --primary-focus: rgba(172, 172, 172, 0.125);
+}
 
 #error-header {
   position: absolute;
