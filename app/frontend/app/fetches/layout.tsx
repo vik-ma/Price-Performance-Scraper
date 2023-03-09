@@ -1,4 +1,5 @@
 import FetchesList from "./FetchesList";
+import Link from "next/link";
 
 export default function RootLayout({
   children,
@@ -8,7 +9,7 @@ export default function RootLayout({
   return (
     <main className="container">
       <div className="sidebar">
-        <h4>Last fetches</h4>
+      <Link href="/fetches"><h4>View Full List</h4></Link>
         {/* @ts-ignore */}
         <FetchesList />
       </div>

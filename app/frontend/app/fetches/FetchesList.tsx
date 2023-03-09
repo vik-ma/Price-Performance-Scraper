@@ -25,22 +25,27 @@ export default async function FetchesList() {
   const gqlData = await getCompletedFetches();
 
   return (
-    <ul>
-      {gqlData?.slice(0).reverse().map((fetch: CompletedFetchProps) => (
-        <li key={fetch.timestampId}>
-          <Link href={`/fetches/${fetch.timestampId}`}>
-            {/* {fetch.productList}
+    <div className="sidebarFetchItems">
+      <ul>
+        {gqlData
+          ?.slice(0)
+          .reverse()
+          .map((fetch: CompletedFetchProps) => (
+            <li key={fetch.timestampId}>
+              <Link href={`/fetches/${fetch.timestampId}`}>
+                {/* {fetch.productList}
               <br /> */}
-            <strong>{fetch.benchmarkType}</strong>
-            <br />
-            <small>
-              {fetch.timestamp.substring(0, 10)}
-              <br />
-              {fetch.timestamp.substring(11, 19)}
-            </small>
-          </Link>
-        </li>
-      ))}
-    </ul>
+                <strong>{fetch.benchmarkType}</strong>
+                <br />
+                <small>
+                  {fetch.timestamp.substring(0, 10)}
+                  <br />
+                  {fetch.timestamp.substring(11, 19)}
+                </small>
+              </Link>
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 }

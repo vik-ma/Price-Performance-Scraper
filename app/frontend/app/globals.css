@@ -1,5 +1,5 @@
 :root {
-  --primary: #c3c6d3;
+  --primary: #dedfe4;
   --primary-hover: #616161;
   --primary-focus: rgba(172, 172, 172, 0.125);
 }
@@ -60,8 +60,14 @@ p {
 
 .fullFetchListItem:hover {
   background-color: rgb(73, 73, 73) !important;
-  color: black !important;
   text-decoration: none !important;
+}
+
+.sidebarFetchItems {
+  background-color:rgb(44, 44, 44) !important;
+  padding: 1px 10px;
+  padding-bottom: 8px;
+  border-radius: 10px;
 }
 
 .GPU {
@@ -81,6 +87,7 @@ h1, h2, h3 {
 }
 
 h4 {
+  margin-left: 2px;
   margin-bottom: 20px !important;
 }
 
