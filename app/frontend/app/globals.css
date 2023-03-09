@@ -1,3 +1,4 @@
+
 #error-header {
   position: absolute;
   top: 20%;
@@ -9,11 +10,9 @@
   align-items: center;
 }
 
-
 .sidebar {
   width: 160px;
   position: absolute;
-  /* height: 100%; */
   padding-top: 10px;
   overflow: auto;
   -ms-overflow-style: none;
@@ -39,13 +38,38 @@ li {
   margin-top: 6px;
 }
 
-.fullFetchListItem {
-  background-color:rgb(77, 77, 77) !important;
-  padding: 2px 10px;
-  border-radius: 5px;
+p {
+  margin: 2px;
+  color: white;
 }
 
+.fullFetchLink {
+  text-decoration: none !important;
+}
 
+.fullFetchListItem {
+  background-color:rgb(44, 44, 44) !important;
+  padding: 2px 10px;
+  border-radius: 10px;
+}
+
+.fullFetchListItem:hover {
+  background-color: rgb(73, 73, 73) !important;
+  color: black !important;
+  text-decoration: none !important;
+}
+
+.GPU {
+  color:rgb(42, 175, 25);
+}
+
+.CPU-Gaming {
+  color:rgb(190, 31, 71);
+}
+
+.CPU-Normal {
+  color:rgb(197, 166, 28);
+}
 
 h1, h2, h3 {
   margin-bottom: 10px !important;

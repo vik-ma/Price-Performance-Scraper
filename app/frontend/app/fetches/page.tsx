@@ -34,12 +34,21 @@ export default async function Fetches() {
             .reverse()
             .map((fetch: CompletedFetchProps) => (
               <li className="fullFetchListItem" key={fetch.timestampId}>
-                <Link href={`/fetches/${fetch.timestampId}`}>
-                  <strong>{fetch.benchmarkType}</strong>
-                  <br />
-                  {fetch.productList}
-                  <br />
-                  <small>{fetch.timestamp.substring(0, 19).replace("T", " ")}</small>
+                <Link
+                  className="fullFetchLink"
+                  href={`/fetches/${fetch.timestampId}`}
+                >
+                  <p>
+                    <strong className={fetch.benchmarkType}>
+                      {fetch.benchmarkType}
+                    </strong>
+                    <br />
+                    {fetch.productList}
+                    <br />
+                    <small>
+                      {fetch.timestamp.substring(0, 19).replace("T", " ")}
+                    </small>
+                  </p>
                 </Link>
               </li>
             ))}
