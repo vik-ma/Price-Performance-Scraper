@@ -26,7 +26,7 @@ export default async function FetchesList() {
 
   return (
     <ul>
-      {gqlData?.map((fetch: CompletedFetchProps) => (
+      {gqlData?.slice(0).reverse().map((fetch: CompletedFetchProps) => (
         <li key={fetch.timestampId}>
           <Link href={`/fetches/${fetch.timestampId}`}>
             {/* {fetch.productList}
