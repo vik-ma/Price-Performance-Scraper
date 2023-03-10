@@ -40,7 +40,11 @@ export default async function Fetches() {
                 >
                   <p>
                     <strong className={fetch.benchmarkType}>
-                      {fetch.benchmarkType}
+                      {fetch.benchmarkType === "CPU-Normal"
+                        ? `CPU (Multi-threaded Performance)`
+                        : fetch.benchmarkType === "CPU-Gaming"
+                        ? `CPU (Gaming Performance)`
+                        : `${fetch.benchmarkType}`}
                     </strong>
                     <br />
                     {fetch.productList}

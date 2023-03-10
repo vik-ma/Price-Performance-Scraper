@@ -35,7 +35,13 @@ export default async function FetchesList() {
               <Link href={`/fetches/${fetch.timestampId}`}>
                 {/* {fetch.productList}
               <br /> */}
-                <strong>{fetch.benchmarkType}</strong>
+                <strong>
+                  {fetch.benchmarkType === "CPU-Normal"
+                    ? `CPU (Multi-th.)`
+                    : fetch.benchmarkType === "CPU-Gaming"
+                    ? `CPU (Gaming)`
+                    : `${fetch.benchmarkType}`}
+                </strong>
                 <br />
                 <small>
                   {fetch.timestamp.substring(0, 10)}
