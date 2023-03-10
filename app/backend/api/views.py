@@ -137,6 +137,8 @@ def test_frontend(request):
 @api_view(['POST'])
 def test_post(request):
     time.sleep(2)
+    # if 1 != 0:
+    #     raise serializers.ValidationError("asd")
     return Response({
         "message": "TEST FROM POST REQUEST"
     })

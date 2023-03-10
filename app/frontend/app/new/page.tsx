@@ -13,11 +13,45 @@ async function testPostRequest(data = {}) {
   return response.json();
 }
 
+async function startPriceFetch(data = {}) {
+  const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return response.json();
+}
+
 export default function New() {
-  const handleClickPost = async () => {
+  const handleClickTest = async () => {
     setLoading(true);
     const response = await testPostRequest({});
-    setPostReturn(response.message);
+
+    if (!response.ok) {
+      setPostReturn(JSON.stringify(response));
+    } else {
+      setPostReturn(JSON.stringify(response));
+    }
+
+    setLoading(false);
+  };
+
+  const handleClickStartPriceFetch = async () => {
+    const data = {
+      fetch_type: "CPU-Gaming",
+      product_list: "AMD Ryzen 9 7900X,Intel Core i7-13700K",
+    };
+    setLoading(true);
+    const response = await startPriceFetch(data);
+
+    if (!response.ok) {
+      setPostReturn(JSON.stringify(response));
+    } else {
+      setPostReturn(JSON.stringify(response));
+    }
+
     setLoading(false);
   };
 
@@ -27,8 +61,8 @@ export default function New() {
   return (
     <>
       <h1>NEW</h1>
-      <button onClick={handleClickPost}>TEST POST</button>
-
+      <button onClick={handleClickTest}>TEST POST</button>
+      <button onClick={handleClickStartPriceFetch}>START PRICE FETCH</button>
       {loading ? (
         <div>
           <progress></progress>
