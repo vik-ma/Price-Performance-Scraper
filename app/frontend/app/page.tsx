@@ -1,15 +1,12 @@
 import Image from "next/image";
 import { Inter } from "next/font/google";
-// import styles from "./page.module.css";
 import Link from "next/link";
-
 
 const inter = Inter({ subsets: ["latin"] });
 
 type TestApiProps = {
   message: string;
 };
-
 
 
 async function getApiData(): Promise<TestApiProps> {
@@ -23,6 +20,8 @@ async function getApiData(): Promise<TestApiProps> {
 
   return res.json();
 }
+
+
 
 export default async function Home() {
   const apiData = await getApiData();

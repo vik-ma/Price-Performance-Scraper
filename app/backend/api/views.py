@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view
 from rest_framework import serializers
 from .serializers import FetchPropertiesSerializer
 import price_fetcher.views as pf
+import time
 
 valid_fetch_types = frozenset(["GPU", "CPU-Gaming", "CPU-Normal"])
 
@@ -135,6 +136,7 @@ def test_frontend(request):
 
 @api_view(['POST'])
 def test_post(request):
+    time.sleep(2)
     return Response({
         "message": "TEST FROM POST REQUEST"
     })
