@@ -21,3 +21,14 @@ export type FetchPageProps = {
   productListings: ProductListingsProps[];
   }
 };
+
+export type ProductTableSortProps = {
+  SortKey: keyof ProductListingsProps;
+  SortDirection: "asc" | "desc";
+};
+
+export type TableHeadingProps = {
+  Label: string;
+  Key: keyof ProductListingsProps;
+  Tooltip: string;
+};

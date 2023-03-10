@@ -5,28 +5,21 @@ import {
   CompletedFetchProps,
   ProductListingsProps,
   FetchPageProps,
+  ProductTableSortProps,
+  TableHeadingProps
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
-
-type ProductTableSortProps = {
-  SortKey: keyof ProductListingsProps;
-  SortDirection: "asc" | "desc";
-};
-
-type TableHeadingProps = {
-  Label: string;
-  Key: keyof ProductListingsProps;
-};
 
 export default function CpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
+
   const tableHeading: TableHeadingProps[] = [
-    { Label: "Product", Key: "productName" },
-    { Label: "Store", Key: "storeName" },
-    { Label: "Benchmark Value", Key: "benchmarkValue" },
-    { Label: "Price", Key: "price" },
-    { Label: "Price / Performance Score", Key: "pricePerformanceRatio" },
+    { Label: "Product", Key: "productName", Tooltip: ""},
+    { Label: "Store", Key: "storeName", Tooltip: ""},
+    { Label: "Benchmark Score", Key: "benchmarkValue", Tooltip: "Average benchmark score for CPU model"},
+    { Label: "Price", Key: "price", Tooltip: "Price excluding shipping"},
+    { Label: "Price / Performance Score", Key: "pricePerformanceRatio", Tooltip: "Higher is better"},
   ];
 
   const [sortTable, setSortTable] = useState<ProductTableSortProps>({
@@ -73,7 +66,7 @@ export default function CpuListingsTable({
                 }
                 className={headID === 0 || headID === 1 ? "" : "clickable"}
               >
-                <span>
+                <span data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}>
                   <strong>{head.Label}</strong>
                 </span>
                 {sortTable.SortKey === head.Key ? (
