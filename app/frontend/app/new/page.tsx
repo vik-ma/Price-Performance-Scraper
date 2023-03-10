@@ -15,17 +15,28 @@ async function testPostRequest(data = {}) {
 
 export default function New() {
   const handleClickPost = async () => {
+    setLoading(true);
     const response = await testPostRequest({});
-    setPostReturn(response.message)
+    setPostReturn(response.message);
+    setLoading(false);
   };
 
-  const [postReturn, setPostReturn] = useState<string>("")
+  const [postReturn, setPostReturn] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
 
   return (
     <>
-    <h1>NEW</h1>
+      <h1>NEW</h1>
       <button onClick={handleClickPost}>TEST POST</button>
-      <h2>{postReturn}</h2>
+
+      {loading ? (
+        <div>
+          <progress></progress>
+          <p>Loading...</p>
+        </div>
+      ) : (
+        <h2>{postReturn}</h2>
+      )}
     </>
   );
 }
