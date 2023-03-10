@@ -6,6 +6,7 @@ import {
   ProductListingsProps,
   FetchPageProps,
 } from "@/typings";
+import Caret from "@/app/icons/Caret";
 
 type ProductTableSortProps = {
   SortKey: keyof ProductListingsProps;
@@ -56,7 +57,7 @@ export default function CpuListingsTable({
 
   return (
     <>
-      <table>
+      <table role="grid">
         <thead>
           <tr>
             {tableHeading.map((head, headID) => (
@@ -70,13 +71,26 @@ export default function CpuListingsTable({
                           head.Key as keyof ProductListingsProps
                         )
                 }
+                className={headID === 0 || headID === 1 ? "" : "clickable"}
               >
-                {head.Label}{" "}
-                {sortTable.SortKey === head.Key
-                  ? sortTable.SortDirection === "asc"
-                    ? "↑"
-                    : "↓"
-                  : ""}
+                <span>
+                  <strong>{head.Label}</strong>
+                </span>
+                {sortTable.SortKey === head.Key ? (
+                  sortTable.SortDirection === "asc" ? (
+                    <span className="arrow">
+                      {" "}
+                      <Caret rotate={180} />
+                    </span>
+                  ) : (
+                    <span className="arrow">
+                      {" "}
+                      <Caret />
+                    </span>
+                  )
+                ) : (
+                  ""
+                )}
               </th>
             ))}
           </tr>

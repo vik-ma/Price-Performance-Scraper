@@ -112,3 +112,15 @@ h4 {
 .externalLink:visited {
   color:rgb(144, 53, 230);
 }
+
+.arrow {
+  position: absolute;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.clickable:hover {
+  color: var(--primary-hover);
+}
