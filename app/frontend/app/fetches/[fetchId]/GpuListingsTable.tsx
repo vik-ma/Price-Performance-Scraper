@@ -18,7 +18,7 @@ export default function GpuListingsTable({
     { Label: "Product", Key: "productName", Tooltip: ""},
     { Label: "Store", Key: "storeName", Tooltip: ""},
     { Label: "Model", Key: "productCategory", Tooltip: ""},
-    { Label: "Benchmark Score", Key: "benchmarkValue", Tooltip: "Average benchmark score for CPU model"},
+    { Label: "Benchmark Score", Key: "benchmarkValue", Tooltip: "Average benchmark score for GPU model"},
     { Label: "Price", Key: "price", Tooltip: "Price excluding shipping"},
     { Label: "Price / Performance Score", Key: "pricePerformanceRatio", Tooltip: "Higher is better"},
   ];

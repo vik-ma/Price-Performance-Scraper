@@ -132,3 +132,9 @@ def test_frontend(request):
     return Response({
         "message": "TEST FROM API"
     })
+
+@api_view(['POST'])
+def test_post(request):
+    return Response({
+        "message": "TEST FROM POST REQUEST"
+    })
