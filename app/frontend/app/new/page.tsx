@@ -33,10 +33,16 @@ export default function New() {
     const response = await testPostRequest({});
 
     setLoading(false);
-    if (!response.success) {
-      setPostReturn(JSON.stringify(response));
+    if (response.hasOwnProperty("success")) {
+      if (response.success) {
+        router.push("/fetches");
+      } else {
+        setPostReturn(
+          `'Success' exists and is false ${JSON.stringify(response)}`
+        );
+      }
     } else {
-      router.push("/fetches");
+      setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
     }
   };
 
@@ -48,13 +54,19 @@ export default function New() {
     setLoading(true);
     const response = await startPriceFetch(data);
 
-    if (!response.ok) {
-      setPostReturn(JSON.stringify(response));
-    } else {
-      setPostReturn(JSON.stringify(response));
-    }
-
     setLoading(false);
+
+    if (response.hasOwnProperty("success")) {
+      if (response.success) {
+        router.push(`/fetches/${response.message}`);
+      } else {
+        setPostReturn(
+          `'Success' exists and is false ${JSON.stringify(response)}`
+        );
+      }
+    } else {
+      setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
+    }
   };
 
   const [postReturn, setPostReturn] = useState<string>("");

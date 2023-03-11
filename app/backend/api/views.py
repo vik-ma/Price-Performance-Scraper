@@ -136,7 +136,7 @@ def test_frontend(request):
 
 @api_view(['POST'])
 def test_post(request):
-    time.sleep(2)
+    time.sleep(1)
     # if 1 != 0:
     #     raise serializers.ValidationError("asd")
     return Response({
