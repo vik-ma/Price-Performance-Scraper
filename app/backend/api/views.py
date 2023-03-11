@@ -140,5 +140,5 @@ def test_post(request):
     # if 1 != 0:
     #     raise serializers.ValidationError("asd")
     return Response({
-        "message": "TEST FROM POST REQUEST"
+        "message": "TEST FROM POST REQUEST", "success": False
     })

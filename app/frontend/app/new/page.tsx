@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 async function testPostRequest(data = {}) {
   const response = await fetch(`http://localhost:8000/api/test_post/`, {
@@ -25,17 +26,18 @@ async function startPriceFetch(data = {}) {
 }
 
 export default function New() {
+  const router = useRouter();
+
   const handleClickTest = async () => {
     setLoading(true);
     const response = await testPostRequest({});
 
-    if (!response.ok) {
+    setLoading(false);
+    if (!response.success) {
       setPostReturn(JSON.stringify(response));
     } else {
-      setPostReturn(JSON.stringify(response));
+      router.push("/fetches");
     }
-
-    setLoading(false);
   };
 
   const handleClickStartPriceFetch = async () => {
