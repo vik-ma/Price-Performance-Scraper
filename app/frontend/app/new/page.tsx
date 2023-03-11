@@ -30,19 +30,25 @@ export default function New() {
 
   const handleClickTest = async () => {
     setLoading(true);
-    const response = await testPostRequest({});
+    try {
+      const response = await testPostRequest({});
 
-    setLoading(false);
-    if (response.hasOwnProperty("success")) {
-      if (response.success) {
-        router.push("/fetches");
+      setLoading(false);
+
+      if (response.hasOwnProperty("success")) {
+        if (response.success) {
+          router.push("/fetches");
+        } else {
+          setPostReturn(
+            `'Success' exists and is false ${JSON.stringify(response)}`
+          );
+        }
       } else {
-        setPostReturn(
-          `'Success' exists and is false ${JSON.stringify(response)}`
-        );
+        setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
       }
-    } else {
-      setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
+    } catch {
+      setLoading(false);
+      setPostReturn(`Failed to communicate with server`);
     }
   };
 
@@ -52,20 +58,25 @@ export default function New() {
       product_list: "AMD Ryzen 9 7900X,Intel Core i7-13700K",
     };
     setLoading(true);
-    const response = await startPriceFetch(data);
+    try {
+      const response = await startPriceFetch(data);
 
-    setLoading(false);
+      setLoading(false);
 
-    if (response.hasOwnProperty("success")) {
-      if (response.success) {
-        router.push(`/fetches/${response.message}`);
+      if (response.hasOwnProperty("success")) {
+        if (response.success) {
+          router.push(`/fetches/${response.message}`);
+        } else {
+          setPostReturn(
+            `'Success' exists and is false ${JSON.stringify(response)}`
+          );
+        }
       } else {
-        setPostReturn(
-          `'Success' exists and is false ${JSON.stringify(response)}`
-        );
+        setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
       }
-    } else {
-      setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
+    } catch {
+      setLoading(false);
+      setPostReturn(`Failed to communicate with server`);
     }
   };
 
