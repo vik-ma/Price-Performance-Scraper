@@ -1,13 +1,9 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
 import Link from "next/link";
-
-const inter = Inter({ subsets: ["latin"] });
 
 type TestApiProps = {
   message: string;
 };
-
 
 async function getApiData(): Promise<TestApiProps> {
   const res = await fetch(`${process.env.DJANGO_API_URL}/test_frontend/`, {
@@ -20,8 +16,6 @@ async function getApiData(): Promise<TestApiProps> {
 
   return res.json();
 }
-
-
 
 export default async function Home() {
   const apiData = await getApiData();

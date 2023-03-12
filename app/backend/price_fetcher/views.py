@@ -90,7 +90,8 @@ def get_benchmarks():
         benchmarks["GPU"] = pf.import_benchmark_json("GPU")
         benchmarks["CPU-Gaming"] = pf.import_benchmark_json("CPU-Gaming")
         benchmarks["CPU-Normal"] = pf.import_benchmark_json("CPU-Normal")
+        success = True
     except:
-        return {"success": False, "message": "Error importing benchmarks"}
-    return {"success": True, "benchmarks": benchmarks}
+        success = False
+    return {"success": success, "benchmarks": benchmarks}
 
