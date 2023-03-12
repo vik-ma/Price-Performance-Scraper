@@ -13,9 +13,11 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="fetchContent">
-      <h1>Something went wrong!</h1>
+    <main>
+      <div className="centered-container">
+        <h1>Something went wrong!</h1>
+      </div>
       <button onClick={() => reset()}>Try again</button>
-    </div>
+    </main>
   );
 }

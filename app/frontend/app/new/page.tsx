@@ -86,8 +86,8 @@ export default function New() {
   return (
     <>
       <h1>NEW</h1>
-      <button onClick={handleClickTest}>TEST POST</button>
-      <button onClick={handleClickStartPriceFetch}>START PRICE FETCH</button>
+      <button onClick={handleClickTest} className="secondary">TEST POST</button>
+      <button onClick={handleClickStartPriceFetch} className="secondary">START PRICE FETCH</button>
       {loading ? (
         <div>
           <progress></progress>
