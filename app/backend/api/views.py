@@ -142,3 +142,8 @@ def test_post(request):
     return Response({
         "message": "TEST FROM POST REQUEST", "success": False
     })
+
+@api_view(['GET'])
+def get_benchmarks(request):
+    benchmarks = pf.get_benchmarks()
+    return Response(benchmarks)
