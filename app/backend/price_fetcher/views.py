@@ -86,8 +86,11 @@ def start_price_fetching(data):
 
 def get_benchmarks():
     benchmarks = {}
-    benchmarks["GPU"] = pf.import_benchmark_json("GPU")
-    benchmarks["CPU-Gaming"] = pf.import_benchmark_json("CPU-Gaming")
-    benchmarks["CPU-Normal"] = pf.import_benchmark_json("CPU-Normal")
-    return benchmarks
+    try:
+        benchmarks["GPU"] = pf.import_benchmark_json("GPU")
+        benchmarks["CPU-Gaming"] = pf.import_benchmark_json("CPU-Gaming")
+        benchmarks["CPU-Normal"] = pf.import_benchmark_json("CPU-Normal")
+    except:
+        return {"success": False, "message": "Error importing benchmarks"}
+    return {"success": True, "benchmarks": benchmarks}
 
