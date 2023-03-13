@@ -1,3 +1,5 @@
+import BenchmarkTable from "./BenchmarkTable";
+
 interface Benchmarks {
   [key: string]: { [key: string]: number };
 }
@@ -29,11 +31,12 @@ export default async function Benchmarks() {
     <>
       <h1>Completed Fetches</h1>
       {benchmarkData.success ? (
-        <ul>
-          {Object.entries(benchmarkData.benchmarks.GPU).map(([key, value], i) => (
-            <li key={i}>{key} {value}</li>
-          ))}
-        </ul>
+        // <ul>
+        //   {Object.entries(benchmarkData.benchmarks.GPU).map(([key, value], i) => (
+        //     <li key={i}>{key} {value}</li>
+        //   ))}
+        // </ul>
+        <BenchmarkTable />
       ) : (
         <p>Error fetching benchmarks</p>
       )}

@@ -124,3 +124,75 @@ h4 {
 .clickable:hover {
   color: var(--primary-hover);
 }
+
+.benchmarkTableContainer {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 500px;
+  height: 300px;
+  background: #f1f1f1;
+  margin: 100px auto 0;
+  word-break: break-all;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.benchmarkTableTabsContainer {
+  display: flex;
+}
+
+.benchmarkTableTabs {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: rgba(128, 128, 128, 0.075);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.274);
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+
+.benchmarkTableTabs:not(:last-child) {
+  border-right: 1px solid rgba(0, 0, 0, 0.274);
+}
+
+.benchmarkTableActiveTabs {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+.benchmarkTableActiveTabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: rgb(88, 147, 241);
+}
+
+.benchmarkTableContentTabs {
+  flex-grow : 1;
+}
+
+.benchmarkTableContent {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.benchmarkTableActiveContent {
+  display: block;
+}
+
+.benchmarkTableContent h2 {
+  color:black !important;
+}
+.benchmarkTableContent p {
+  color:black !important;
+}
