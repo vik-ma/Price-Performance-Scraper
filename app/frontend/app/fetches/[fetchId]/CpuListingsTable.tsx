@@ -6,20 +6,27 @@ import {
   ProductListingsProps,
   FetchPageProps,
   ProductTableSortProps,
-  TableHeadingProps
+  TableHeadingProps,
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
 
 export default function CpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
-
   const tableHeading: TableHeadingProps[] = [
-    { Label: "Product", Key: "productName", Tooltip: ""},
-    { Label: "Store", Key: "storeName", Tooltip: ""},
-    { Label: "Benchmark Score", Key: "benchmarkValue", Tooltip: "Average benchmark score for CPU model"},
-    { Label: "Price", Key: "price", Tooltip: "Price excluding shipping"},
-    { Label: "Price / Performance Score", Key: "pricePerformanceRatio", Tooltip: "Higher is better"},
+    { Label: "Product", Key: "productName", Tooltip: "" },
+    { Label: "Store", Key: "storeName", Tooltip: "" },
+    {
+      Label: "Benchmark Score",
+      Key: "benchmarkValue",
+      Tooltip: "Average benchmark score for CPU model",
+    },
+    { Label: "Price", Key: "price", Tooltip: "Price excluding shipping" },
+    {
+      Label: "Price / Performance Score",
+      Key: "pricePerformanceRatio",
+      Tooltip: "Higher is better",
+    },
   ];
 
   const [sortTable, setSortTable] = useState<ProductTableSortProps>({
@@ -66,7 +73,9 @@ export default function CpuListingsTable({
                 }
                 className={headID === 0 || headID === 1 ? "" : "clickable"}
               >
-                <span data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}>
+                <span
+                  data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}
+                >
                   <strong>{head.Label}</strong>
                 </span>
                 {sortTable.SortKey === head.Key ? (
@@ -97,7 +106,7 @@ export default function CpuListingsTable({
                     <a
                       href={listing.productLink}
                       target="_blank"
-                      className="externalLink"
+                      className="external-link"
                       data-tooltip="Go to product page on store 🡕"
                     >
                       {listing.productCategory}

@@ -10,46 +10,46 @@ export default function BenchmarkTable() {
   };
   return (
     <>
-      <div className="benchmarkTableContainer">
-        <div className="benchmarkTableTabsContainer">
+      <div className="benchmark-table-container">
+        <div className="benchmark-table-tabs-container">
           <div
             className={
               tabIndex === 1
-                ? "benchmarkTableTabs benchmarkTableActiveTabs"
-                : "benchmarkTableTabs"
+                ? "benchmark-table-tabs benchmark-table-active-tabs"
+                : "benchmark-table-tabs"
             }
             onClick={() => toggleTab(1)}
           >
-            Tab 1
+            GPU
           </div>
           <div
             className={
               tabIndex === 2
-                ? "benchmarkTableTabs benchmarkTableActiveTabs"
-                : "benchmarkTableTabs"
+                ? "benchmark-table-tabs benchmark-table-active-tabs"
+                : "benchmark-table-tabs"
             }
             onClick={() => toggleTab(2)}
           >
-            Tab 2
+            CPU (Gaming)
           </div>
           <div
             className={
               tabIndex === 3
-                ? "benchmarkTableTabs benchmarkTableActiveTabs"
-                : "benchmarkTableTabs"
+                ? "benchmark-table-tabs benchmark-table-active-tabs"
+                : "benchmark-table-tabs"
             }
             onClick={() => toggleTab(3)}
           >
-            Tab 3
+            CPU (Multi-threading)
           </div>
         </div>
 
-        <div className="benchmarkTableContentTabs">
+        <div className="benchmark-table-content-tabs">
           <div
             className={
               tabIndex === 1
-                ? "benchmarkTableContent benchmarkTableActiveContent"
-                : "benchmarkTableContent"
+                ? "benchmark-table-content benchmark-table-active-content"
+                : "benchmark-table-content"
             }
           >
             <h2>TEST 1</h2>
@@ -61,8 +61,8 @@ export default function BenchmarkTable() {
           <div
             className={
               tabIndex === 2
-                 ? "benchmarkTableContent benchmarkTableActiveContent"
-                : "benchmarkTableContent"
+                 ? "benchmark-table-content benchmark-table-active-content"
+                : "benchmark-table-content"
             }
           >
             <h2>TEST 2</h2>
@@ -74,8 +74,8 @@ export default function BenchmarkTable() {
           <div
             className={
               tabIndex === 3
-                ? "benchmarkTableContent benchmarkTableActiveContent"
-                : "benchmarkTableContent"
+                ? "benchmark-table-content benchmark-table-active-content"
+                : "benchmark-table-content"
             }
           >
             <h2>TEST 3</h2>

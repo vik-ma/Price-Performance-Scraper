@@ -25,7 +25,7 @@ export default async function FetchesList() {
   const gqlData = await getCompletedFetches();
 
   return (
-    <div className="sidebarFetchItems">
+    <div className="sidebar-fetch-items">
       <ul>
         {gqlData
           ?.slice(0)

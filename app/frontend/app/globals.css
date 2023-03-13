@@ -29,7 +29,7 @@
   display: none;
 }
 
-.fetchContent {
+.fetch-content {
   margin-left: 190px;
   position: relative;
 }
@@ -49,22 +49,22 @@ p {
   color: white;
 }
 
-.fullFetchLink {
+.full-fetch-link {
   text-decoration: none !important;
 }
 
-.fullFetchListItem {
+.full-fetch-list-item {
   background-color:rgb(44, 44, 44) !important;
   padding: 2px 10px;
   border-radius: 10px;
 }
 
-.fullFetchListItem:hover {
+.full-fetch-list-item:hover {
   background-color: rgb(73, 73, 73) !important;
   text-decoration: none !important;
 }
 
-.sidebarFetchItems {
+.sidebar-fetch-items {
   background-color:rgb(44, 44, 44) !important;
   padding: 1px 10px;
   padding-bottom: 8px;
@@ -96,20 +96,20 @@ h4 {
   .sidebar{
     display: none;
   }
-  .fetchContent {
+  .fetch-content {
     margin-left: 0;
   }
 }
 
-.externalLink {
+.external-link {
   color:rgb(32, 147, 214);
 }
 
-.externalLink:hover {
+.external-link:hover {
   color:rgb(144, 197, 228);
 }
 
-.externalLink:visited {
+.external-link:visited {
   color:rgb(144, 53, 230);
 }
 
@@ -125,23 +125,23 @@ h4 {
   color: var(--primary-hover);
 }
 
-.benchmarkTableContainer {
+.benchmark-table-container {
   display: flex;
   flex-direction: column;
   position: relative;
-  width: 500px;
-  height: 300px;
+  /* width: 500px; */
+  /* height: 300px; */
   background: #f1f1f1;
   margin: 100px auto 0;
   word-break: break-all;
   border: 1px solid rgba(0, 0, 0, 0.274);
 }
 
-.benchmarkTableTabsContainer {
+.benchmark-table-tabs-container {
   display: flex;
 }
 
-.benchmarkTableTabs {
+.benchmark-table-tabs {
   padding: 15px;
   text-align: center;
   width: 50%;
@@ -153,16 +153,16 @@ h4 {
   outline: none;
 }
 
-.benchmarkTableTabs:not(:last-child) {
+.benchmark-table-tabs:not(:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.274);
 }
 
-.benchmarkTableActiveTabs {
+.benchmark-table-active-tabs {
   background: white;
   border-bottom: 1px solid transparent;
 }
 
-.benchmarkTableActiveTabs::before {
+.benchmark-table-active-tabs::before {
   content: "";
   display: block;
   position: absolute;
@@ -174,11 +174,11 @@ h4 {
   background: rgb(88, 147, 241);
 }
 
-.benchmarkTableContentTabs {
+.benchmark-table-content-tabs {
   flex-grow : 1;
 }
 
-.benchmarkTableContent {
+.benchmark-table-content {
   background: white;
   padding: 20px;
   width: 100%;
@@ -186,13 +186,13 @@ h4 {
   display: none;
 }
 
-.benchmarkTableActiveContent {
+.benchmark-table-active-content {
   display: block;
 }
 
-.benchmarkTableContent h2 {
+.benchmark-table-content h2 {
   color:black !important;
 }
-.benchmarkTableContent p {
+.benchmark-table-content p {
   color:black !important;
 }

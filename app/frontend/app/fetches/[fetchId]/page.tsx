@@ -80,7 +80,7 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
       <title>
         {`${gqlCompletedFetchData.benchmarkType} - ${formattedTimestamp}`}
       </title>
-      <div className="fetchContent">
+      <div className="fetch-content">
         <h1>{gqlCompletedFetchData.benchmarkType}</h1>
         <h2>{gqlCompletedFetchData.productList}</h2>
         <h3>{formattedTimestamp}</h3>

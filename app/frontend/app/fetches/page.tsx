@@ -26,7 +26,7 @@ export default async function Fetches() {
 
   return (
     <>
-      <div className="fetchContent">
+      <div className="fetch-content">
         <h1>Completed Fetches</h1>
         <Suspense fallback={<article aria-busy="true"></article>}>
           <ul>
@@ -34,9 +34,9 @@ export default async function Fetches() {
               ?.slice(0)
               .reverse()
               .map((fetch: CompletedFetchProps) => (
-                <li className="fullFetchListItem" key={fetch.timestampId}>
+                <li className="full-fetch-list-item" key={fetch.timestampId}>
                   <Link
-                    className="fullFetchLink"
+                    className="full-fetch-link"
                     href={`/fetches/${fetch.timestampId}`}
                   >
                     <p>
