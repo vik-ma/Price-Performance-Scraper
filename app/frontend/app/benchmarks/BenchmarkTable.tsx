@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { BenchmarkProps, BenchmarkData, BenchmarksDataProps } from "@/typings";
+import { BenchmarksDataProps } from "@/typings";
 
 export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
   const [tabIndex, setTabIndex] = useState(1);
