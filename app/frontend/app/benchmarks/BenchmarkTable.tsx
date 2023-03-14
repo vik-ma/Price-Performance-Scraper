@@ -20,7 +20,7 @@ export default function BenchmarkTable() {
             }
             onClick={() => toggleTab(1)}
           >
-            GPU
+            <strong>GPU</strong>
           </div>
           <div
             className={
@@ -30,7 +30,7 @@ export default function BenchmarkTable() {
             }
             onClick={() => toggleTab(2)}
           >
-            CPU (Gaming)
+            <strong>CPU (Gaming)</strong>
           </div>
           <div
             className={
@@ -40,7 +40,7 @@ export default function BenchmarkTable() {
             }
             onClick={() => toggleTab(3)}
           >
-            CPU (Multi-threading)
+            <strong>CPU (Multi-threading)</strong>
           </div>
         </div>
 
@@ -61,7 +61,7 @@ export default function BenchmarkTable() {
           <div
             className={
               tabIndex === 2
-                 ? "benchmark-table-content benchmark-table-active-content"
+                ? "benchmark-table-content benchmark-table-active-content"
                 : "benchmark-table-content"
             }
           >

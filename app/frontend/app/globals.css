@@ -131,10 +131,10 @@ h4 {
   position: relative;
   /* width: 500px; */
   /* height: 300px; */
-  background: #f1f1f1;
+  /* background: #f1f1f1; */
   margin: 100px auto 0;
   word-break: break-all;
-  border: 1px solid rgba(0, 0, 0, 0.274);
+  /* border: 1px solid rgba(255, 255, 255, 0.274); */
 }
 
 .benchmark-table-tabs-container {
@@ -142,15 +142,23 @@ h4 {
 }
 
 .benchmark-table-tabs {
-  padding: 15px;
+  padding: 12px;
   text-align: center;
   width: 50%;
-  background: rgba(128, 128, 128, 0.075);
+  background: rgba(128, 128, 128, 0.13);
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.274);
   box-sizing: content-box;
   position: relative;
-  outline: none;
+  outline: 1px solid rgb(0, 0, 0);
+  font-size: x-large;
+  word-break: break-word;
+}
+
+.benchmark-table-tabs:hover {
+  background: rgba(128, 128, 128, 0.39);
+  color:white;
+  transition-duration: 0.3s;
 }
 
 .benchmark-table-tabs:not(:last-child) {
@@ -158,20 +166,24 @@ h4 {
 }
 
 .benchmark-table-active-tabs {
-  background: white;
-  border-bottom: 1px solid transparent;
+  /* color:white; */
+  color:#ebeff3;
+  /* background: rgb(13,163,10) !important;
+  background: linear-gradient(42deg, rgba(13,163,10,1) 0%, rgba(152,241,15,1) 100%) !important; */
+  background: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%) !important;
 }
 
 .benchmark-table-active-tabs::before {
-  content: "";
-  display: block;
+  /* content: ""; */
+  /* display: block;
   position: absolute;
-  top: -5px;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: calc(100% + 2px);
-  height: 5px;
-  background: rgb(88, 147, 241);
+  /* height: 5px; */
+  /* height: 100%;
+  background: rgb(88, 147, 241);  */
 }
 
 .benchmark-table-content-tabs {
@@ -179,7 +191,7 @@ h4 {
 }
 
 .benchmark-table-content {
-  background: white;
+  /* background: white; */
   padding: 20px;
   width: 100%;
   height: 100%;
@@ -191,8 +203,8 @@ h4 {
 }
 
 .benchmark-table-content h2 {
-  color:black !important;
+  /* color:black !important; */
 }
 .benchmark-table-content p {
-  color:black !important;
+  /* color:black !important; */
 }
