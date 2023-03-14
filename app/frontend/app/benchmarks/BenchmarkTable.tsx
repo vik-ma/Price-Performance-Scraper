@@ -1,8 +1,9 @@
 "use client";
 import React from "react";
 import { useState } from "react";
+import { BenchmarkProps, BenchmarkData, BenchmarksDataProps } from "@/typings";
 
-export default function BenchmarkTable() {
+export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
   const [tabIndex, setTabIndex] = useState(1);
 
   const toggleTab = (index: number) => {
@@ -52,11 +53,14 @@ export default function BenchmarkTable() {
                 : "benchmark-table-content"
             }
           >
-            <h2>TEST 1</h2>
-            <p>
-              TEST 1 TEST 1 TEST 1 TEST 1 TEST 1 TEST 1 TEST 1TEST 1TEST 1TEST
-              1TEST 1TEST 1
-            </p>
+            <h2>GPU Benchmarks</h2>
+            <ul>
+              {Object.entries(benchmarks.GPU).map(([key, value]) => (
+                <li key={key}>
+                  {key}: {value.toString()}
+                </li>
+              ))}
+            </ul>
           </div>
           <div
             className={
@@ -65,11 +69,7 @@ export default function BenchmarkTable() {
                 : "benchmark-table-content"
             }
           >
-            <h2>TEST 2</h2>
-            <p>
-              adsdsjdsadsa dadsjdsaodsaoidsa a idsa idsidsidsoisaudo iasdsds
-              adsaadsadsdasasd
-            </p>
+            <h2>CPU Benchmarks (Gaming Performance)</h2>
           </div>
           <div
             className={
@@ -78,11 +78,7 @@ export default function BenchmarkTable() {
                 : "benchmark-table-content"
             }
           >
-            <h2>TEST 3</h2>
-            <p>
-              33333 3333333 333333333333333 3333333 33333333 33333333333333333
-              3333333333 3333333 3333333333 3333333 333333333
-            </p>
+            <h2>CPU Benchmarks (Multi-threaded Performance)</h2>
           </div>
         </div>
       </div>

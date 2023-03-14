@@ -152,7 +152,7 @@ h4 {
   position: relative;
   outline: 1px solid rgb(0, 0, 0);
   font-size: x-large;
-  word-break: break-word;
+  word-break: normal;
 }
 
 .benchmark-table-tabs:hover {
@@ -173,18 +173,7 @@ h4 {
   background: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%) !important;
 }
 
-.benchmark-table-active-tabs::before {
-  /* content: ""; */
-  /* display: block;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: calc(100% + 2px);
-  /* height: 5px; */
-  /* height: 100%;
-  background: rgb(88, 147, 241);  */
-}
+
 
 .benchmark-table-content-tabs {
   flex-grow : 1;
@@ -200,11 +189,4 @@ h4 {
 
 .benchmark-table-active-content {
   display: block;
-}
-
-.benchmark-table-content h2 {
-  /* color:black !important; */
-}
-.benchmark-table-content p {
-  /* color:black !important; */
 }

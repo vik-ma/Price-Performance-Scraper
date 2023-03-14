@@ -1,13 +1,5 @@
 import BenchmarkTable from "./BenchmarkTable";
-
-interface Benchmarks {
-  [key: string]: { [key: string]: number };
-}
-
-interface BenchmarkAPIResponse {
-  success: boolean;
-  benchmarks: Benchmarks;
-}
+import { BenchmarkProps, BenchmarkAPIResponse, BenchmarkData } from "@/typings";
 
 async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
   const response = await fetch(
@@ -27,6 +19,7 @@ async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
 export default async function Benchmarks() {
   const benchmarkData = await getBenchmarkData();
 
+  const benchmarks : BenchmarkData = benchmarkData.benchmarks;
   return (
     <>
       <h1>Completed Fetches</h1>
@@ -36,7 +29,7 @@ export default async function Benchmarks() {
         //     <li key={i}>{key} {value}</li>
         //   ))}
         // </ul>
-        <BenchmarkTable />
+        <BenchmarkTable benchmarks = {benchmarks} />
       ) : (
         <p>Error fetching benchmarks</p>
       )}

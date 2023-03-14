@@ -32,3 +32,22 @@ export type TableHeadingProps = {
   Key: keyof ProductListingsProps;
   Tooltip: string;
 };
+
+export interface BenchmarkProps {
+  [key: string]: { [key: string]: number };
+}
+
+export interface BenchmarkData {
+  "GPU": BenchmarkProps;
+  "CPU-Gaming": BenchmarkProps;
+  "CPU-Normal": BenchmarkProps;
+}
+
+export interface BenchmarkAPIResponse {
+  success: boolean;
+  benchmarks: Benchmarks;
+}
+
+export interface BenchmarksDataProps {
+  benchmarks: BenchmarkData;
+}
