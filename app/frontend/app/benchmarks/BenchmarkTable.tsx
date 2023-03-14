@@ -54,13 +54,22 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
           >
             <h2>GPU Benchmarks</h2>
-            <ul>
-              {Object.entries(benchmarks.GPU).map(([key, value]) => (
-                <li key={key}>
-                  {key}: {value.toString()}
-                </li>
-              ))}
-            </ul>
+            <table role="grid">
+              <thead>
+                <tr>
+                  <th><strong>Model</strong></th>
+                  <th><strong>Benchmark Score</strong></th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(benchmarks["GPU"]).map(([key, value]) => (
+                  <tr key={key}>
+                    <td>{key}</td>
+                    <td>{value.toString()}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
           <div
             className={
@@ -70,6 +79,28 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
           >
             <h2>CPU Benchmarks (Gaming Performance)</h2>
+            <table role="grid">
+              <thead>
+                <tr>
+                  <th>
+                    <strong>Model</strong>
+                  </th>
+                  <th>
+                    <strong>Benchmark Score</strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(benchmarks["CPU-Gaming"]).map(
+                  ([key, value]) => (
+                    <tr key={key}>
+                      <td>{key}</td>
+                      <td>{value.toString()}</td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
           </div>
           <div
             className={
@@ -79,6 +110,28 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
           >
             <h2>CPU Benchmarks (Multi-threaded Performance)</h2>
+            <table role="grid">
+              <thead>
+                <tr>
+                  <th>
+                    <strong>Model</strong>
+                  </th>
+                  <th>
+                    <strong>Benchmark Score</strong>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {Object.entries(benchmarks["CPU-Normal"]).map(
+                  ([key, value]) => (
+                    <tr key={key}>
+                      <td>{key}</td>
+                      <td>{value.toString()}</td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
