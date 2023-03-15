@@ -194,3 +194,30 @@ h4 {
   display: block;
 }
 
+.text-color-tier-1 {
+  color: #2ECC71;
+}
+
+.text-color-tier-2 {
+  color: #DAF7A6;
+}
+
+.text-color-tier-3 {
+  color: #F4D03F;
+}
+
+.text-color-tier-4 {
+  color: #E67E22;
+}
+
+.text-color-tier-5 {
+  color: #E74C3C;
+}
+
+.text-color-tier-6 {
+  color: #943126;
+}
+
+.text-color-tier-7 {
+  color: #7B7D7D;
+}

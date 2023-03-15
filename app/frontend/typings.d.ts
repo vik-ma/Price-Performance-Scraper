@@ -51,3 +51,10 @@ export interface BenchmarkAPIResponse {
 export interface BenchmarksDataProps {
   benchmarks: BenchmarkData;
 }
+
+export type GpuInfo = {
+  [key: string]: {
+    tier: string;
+    cssName: string;
+  };
+};
