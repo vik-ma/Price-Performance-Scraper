@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { useState } from "react";
-import { BenchmarksDataProps, GpuInfo } from "@/typings";
+import { BenchmarksDataProps, GpuInfoProps, CpuInfoProps } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
 
 export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
@@ -9,10 +9,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
 
   const toggleTab = (index: number) => {
     setTabIndex(index);
-
   };
 
-  const gpuProductInfo: GpuInfo = gpuInfo;
+  const gpuProductInfo: GpuInfoProps = gpuInfo;
+  const cpuProductInfo: CpuInfoProps = cpuInfo;
   return (
     <>
       <div className="benchmark-table-container">
@@ -61,18 +61,28 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th><strong>Model</strong></th>
-                  <th><strong>Benchmark Score</strong></th>
+                  <th className="benchmarkTableHead">
+                    <strong>Model</strong>
+                  </th>
+                  <th className="benchmarkTableHead">
+                    <strong>Benchmark Score</strong>
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {Object.entries(benchmarks["GPU"]).map(([key, value]) => {
-                  const gpuTier = (gpuProductInfo[key] as { tier: string })?.tier;
+                  const gpuTier = (gpuProductInfo[key] as { tier: string })
+                    ?.tier;
                   return (
-                  <tr key={key}>
-                    <td><strong>{key}</strong></td>
-                    <td className={`text-color-tier-${gpuTier}`}><strong>{value.toString()}</strong></td>
-                  </tr>);
+                    <tr key={key}>
+                      <td>
+                        <strong>{key}</strong>
+                      </td>
+                      <td className={`text-color-tier-${gpuTier}`}>
+                        <strong>{value.toString()}</strong>
+                      </td>
+                    </tr>
+                  );
                 })}
               </tbody>
             </table>
@@ -88,23 +98,29 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th>
+                  <th className="benchmarkTableHead">
                     <strong>Model</strong>
                   </th>
-                  <th>
+                  <th className="benchmarkTableHead">
                     <strong>Benchmark Score</strong>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(benchmarks["CPU-Gaming"]).map(
-                  ([key, value]) => (
+              {Object.entries(benchmarks["CPU-Gaming"]).map(([key, value]) => {
+                  const cpuGamingTier = (cpuProductInfo[key] as { gamingTier: string })
+                    ?.gamingTier;
+                  return (
                     <tr key={key}>
-                      <td>{key}</td>
-                      <td>{value.toString()}</td>
+                      <td>
+                        <strong>{key}</strong>
+                      </td>
+                      <td className={`text-color-tier-${cpuGamingTier}`}>
+                        <strong>{value.toString()}</strong>
+                      </td>
                     </tr>
-                  )
-                )}
+                  );
+                })}
               </tbody>
             </table>
           </div>
@@ -119,23 +135,29 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th>
+                  <th className="benchmarkTableHead">
                     <strong>Model</strong>
                   </th>
-                  <th>
+                  <th className="benchmarkTableHead">
                     <strong>Benchmark Score</strong>
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(benchmarks["CPU-Normal"]).map(
-                  ([key, value]) => (
+              {Object.entries(benchmarks["CPU-Normal"]).map(([key, value]) => {
+                  const cpuNormalTier = (cpuProductInfo[key] as { normalTier: string })
+                    ?.normalTier;
+                  return (
                     <tr key={key}>
-                      <td>{key}</td>
-                      <td>{value.toString()}</td>
+                      <td>
+                        <strong>{key}</strong>
+                      </td>
+                      <td className={`text-color-tier-${cpuNormalTier}`}>
+                        <strong>{value.toString()}</strong>
+                      </td>
                     </tr>
-                  )
-                )}
+                  );
+                })}
               </tbody>
             </table>
           </div>

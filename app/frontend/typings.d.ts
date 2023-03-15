@@ -52,9 +52,19 @@ export interface BenchmarksDataProps {
   benchmarks: BenchmarkData;
 }
 
-export type GpuInfo = {
+export type GpuInfoProps = {
   [key: string]: {
     tier: string;
+    cssName: string;
+  };
+};
+
+export type CpuInfoProps = {
+  [key: string]: {
+    gamingTier: string;
+    normalTier: string;
+    generation: string;
+    socket: string;
     cssName: string;
   };
 };
