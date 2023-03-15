@@ -225,3 +225,226 @@ h4 {
 .benchmarkTableHead {
   color:#e1e6eb;
 }
+
+/* +9 -10 -15 */
+/* .test-color-1 {
+  color: rgb(0, 200, 255);
+}
+.test-color-2 {
+  color: rgb(9, 190, 240);
+}
+.test-color-3 {
+  color: rgb(18, 180, 225);
+}
+.test-color-4 {
+  color: rgb(27, 170, 210);
+}
+.test-color-5 {
+  color: rgb(36, 160, 195);
+}
+.test-color-6 {
+  color: rgb(45, 150, 180);
+}
+.test-color-7 {
+  color: rgb(54, 140, 165);
+}
+.test-color-8 {
+  color: rgb(63, 130, 150);
+}
+.test-color-9 {
+  color: rgb(72, 120, 135);
+}
+.test-color-10 {
+  color: rgb(81, 110, 120);
+}
+.test-color-11 {
+  color: rgb(90, 100, 105);
+}
+.test-color-12 {
+  color: rgb(92, 92, 92);
+} */
+
+/* +4 -7 +1 */
+.test-color-0 {
+  color: rgb(0, 255, 64);
+}
+.test-color-1 {
+  color: rgb(4, 248, 65);
+}
+.test-color-2 {
+  color: rgb(8, 241, 66);
+}
+.test-color-3 {
+  color: rgb(12, 234, 67);
+}
+.test-color-4 {
+  color: rgb(16, 227, 68);
+}
+.test-color-5 {
+  color: rgb(20, 220, 69);
+}
+.test-color-6 {
+  color: rgb(24, 213, 70);
+}
+.test-color-7 {
+  color: rgb(28, 206, 71);
+}
+.test-color-8 {
+  color: rgb(32, 199, 72);
+}
+.test-color-9 {
+  color: rgb(36, 192, 73);
+}
+.test-color-10 {
+  color: rgb(40, 185, 74);
+}
+.test-color-11 {
+  color: rgb(44, 178, 75);
+}
+.test-color-12 {
+  color: rgb(48, 171, 76);
+}
+.test-color-13 {
+  color: rgb(52, 164, 77);
+}
+.test-color-14 {
+  color: rgb(56, 157, 78);
+}
+.test-color-15 {
+  color: rgb(60, 150, 79);
+}
+.test-color-16 {
+  color: rgb(64, 143, 80);
+}
+.test-color-17 {
+  color: rgb(68, 136, 81);
+}
+.test-color-18 {
+  color: rgb(72, 129, 82);
+}
+.test-color-19 {
+  color: rgb(76, 122, 83);
+}
+.test-color-20 {
+  color: rgb(80, 115, 84);
+}
+.test-color-21 {
+  color: rgb(84, 108, 85);
+}
+.test-color-22 {
+  color: rgb(88, 101, 86);
+}
+.test-color-23 {
+  color: rgb(92, 94, 87);
+}
+.test-color-24 {
+  color: rgb(96, 87, 88);
+}
+
+.ppr-color-25 {
+  color: rgb(0, 255, 64);
+}
+
+.ppr-color-24 {
+  color: rgb(4, 248, 65);
+}
+
+.ppr-color-23 {
+  color: rgb(8, 241, 66);
+}
+
+.ppr-color-22 {
+  color: rgb(12, 234, 67);
+}
+
+.ppr-color-21 {
+  color: rgb(16, 227, 68);
+}
+
+.ppr-color-20 {
+  color: rgb(20, 220, 69);
+}
+
+.ppr-color-19 {
+  color: rgb(24, 213, 70);
+}
+
+.ppr-color-18 {
+  color: rgb(28, 206, 71);
+}
+
+.ppr-color-17 {
+  color: rgb(32, 199, 72);
+}
+
+.ppr-color-16 {
+  color: rgb(36, 192, 73);
+}
+
+.ppr-color-15 {
+  color: rgb(40, 185, 74);
+}
+
+.ppr-color-14 {
+  color: rgb(44, 178, 75);
+}
+
+.ppr-color-13 {
+  color: rgb(48, 171, 76);
+}
+
+.ppr-color-12 {
+  color: rgb(52, 164, 77);
+}
+
+.ppr-color-11 {
+  color: rgb(56, 157, 78);
+}
+
+.ppr-color-10 {
+  color: rgb(60, 150, 79);
+}
+
+.ppr-color-9 {
+  color: rgb(64, 143, 80);
+}
+
+.ppr-color-8 {
+  color: rgb(68, 136, 81);
+}
+
+.ppr-color-7 {
+  color: rgb(72, 129, 82);
+}
+
+.ppr-color-6 {
+  color: rgb(76, 122, 83);
+}
+
+.ppr-color-5 {
+  color: rgb(80, 115, 84);
+}
+
+.ppr-color-4 {
+  color: rgb(84, 108, 85);
+}
+
+.ppr-color-3 {
+  color: rgb(88, 101, 86);
+}
+
+.ppr-color-2 {
+  color: rgb(92, 94, 87);
+}
+
+.ppr-color-1 {
+  color: rgb(96, 87, 88);
+}
+
+.ppr-color-0 {
+  color: rgb(82, 82, 82);
+}
+
+.ppr-color-0 {
+  color: rgb(100, 80, 89);
+}

@@ -56,6 +56,14 @@ export default function GpuListingsTable({
     return 0;
   });
 
+  const pprMaxValue: number = productListings[0].pricePerformanceRatio;
+  const pprMinValue: number =
+    productListings[productListings.length - 1].pricePerformanceRatio;
+
+  const pprDiffValue: number = pprMaxValue - pprMinValue;
+
+  const pprNumColors: number = 24;
+
   return (
     <>
       <table role="grid">
@@ -104,32 +112,39 @@ export default function GpuListingsTable({
         </thead>
         <tbody>
           {sortedListings?.map(
-            (listing: ProductListingsProps, index: number) => (
-              <tr key={index}>
-                {listing.productLink !== "" ? (
-                  <td>
-                    <a
-                      href={listing.productLink}
-                      target="_blank"
-                      className="external-link"
-                      data-tooltip="Go to product page on store 🡕"
-                    >
-                      {listing.productName}
-                    </a>
-                  </td>
-                ) : (
-                  <td>
-                    <em data-tooltip="No link available">
-                      {listing.productName}
-                    </em>
-                  </td>
-                )}{" "}
-                <td>{listing.storeName}</td> <td>{listing.productCategory}</td>{" "}
-                {/* {listing.productLink} */}
-                <td>{listing.benchmarkValue}</td> <td>{listing.price}</td>{" "}
-                <td>{listing.pricePerformanceRatio}</td>
-              </tr>
-            )
+            (listing: ProductListingsProps, index: number) => {
+              const pprTextColor: number = Math.round(
+                ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
+                  pprNumColors
+              );
+              return (
+                <tr key={index}>
+                  {listing.productLink !== "" ? (
+                    <td>
+                      <a
+                        href={listing.productLink}
+                        target="_blank"
+                        className="external-link"
+                        data-tooltip="Go to product page on store 🡕"
+                      >
+                        {listing.productName}
+                      </a>
+                    </td>
+                  ) : (
+                    <td>
+                      <em data-tooltip="No link available">
+                        {listing.productName}
+                      </em>
+                    </td>
+                  )}{" "}
+                  <td>{listing.storeName}</td>{" "}
+                  <td>{listing.productCategory}</td>{" "}
+                  {/* {listing.productLink} */}
+                  <td>{listing.benchmarkValue}</td> <td>{listing.price}</td>{" "}
+                  <td className={`ppr-color-${pprTextColor}`}><strong>{listing.pricePerformanceRatio}</strong></td>
+                </tr>
+              );
+            }
           )}
         </tbody>
       </table>

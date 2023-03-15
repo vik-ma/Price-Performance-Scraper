@@ -29,6 +29,31 @@ export default async function Home() {
         <div className="padding-top: 3em">
           <Link href="/fetches">View Completed Fetches</Link>
         </div>
+        <p className="test-color-0"><strong>TEST</strong></p>
+        <p className="test-color-1"><strong>TEST</strong></p>
+        <p className="test-color-2"><strong>TEST</strong></p>
+        <p className="test-color-3"><strong>TEST</strong></p>
+        <p className="test-color-4"><strong>TEST</strong></p>
+        <p className="test-color-5"><strong>TEST</strong></p>
+        <p className="test-color-6"><strong>TEST</strong></p>
+        <p className="test-color-7"><strong>TEST</strong></p>
+        <p className="test-color-8"><strong>TEST</strong></p>
+        <p className="test-color-9"><strong>TEST</strong></p>
+        <p className="test-color-10"><strong>TEST</strong></p>
+        <p className="test-color-11"><strong>TEST</strong></p>
+        <p className="test-color-12"><strong>TEST</strong></p>
+        <p className="test-color-13"><strong>TEST</strong></p>
+        <p className="test-color-14"><strong>TEST</strong></p>
+        <p className="test-color-15"><strong>TEST</strong></p>
+        <p className="test-color-16"><strong>TEST</strong></p>
+        <p className="test-color-17"><strong>TEST</strong></p>
+        <p className="test-color-18"><strong>TEST</strong></p>
+        <p className="test-color-19"><strong>TEST</strong></p>
+        <p className="test-color-20"><strong>TEST</strong></p>
+        <p className="test-color-21"><strong>TEST</strong></p>
+        <p className="test-color-22"><strong>TEST</strong></p>
+        <p className="test-color-23"><strong>TEST</strong></p>
+        <p className="test-color-24"><strong>TEST</strong></p>
       </div>
     </main>
   );
