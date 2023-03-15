@@ -61,10 +61,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th className="benchmarkTableHead">
+                  <th className="tableHead">
                     <strong>Model</strong>
                   </th>
-                  <th className="benchmarkTableHead">
+                  <th className="tableHead">
                     <strong>Benchmark Score</strong>
                   </th>
                 </tr>
@@ -98,10 +98,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th className="benchmarkTableHead">
+                  <th className="tableHead">
                     <strong>Model</strong>
                   </th>
-                  <th className="benchmarkTableHead">
+                  <th className="tableHead">
                     <strong>Benchmark Score</strong>
                   </th>
                 </tr>
@@ -135,10 +135,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th className="benchmarkTableHead">
+                  <th className="tableHead">
                     <strong>Model</strong>
                   </th>
-                  <th className="benchmarkTableHead">
+                  <th className="tableHead">
                     <strong>Benchmark Score</strong>
                   </th>
                 </tr>

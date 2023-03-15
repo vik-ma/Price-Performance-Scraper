@@ -55,6 +55,14 @@ export default function CpuListingsTable({
     return 0;
   });
 
+  const pprMaxValue: number = productListings[0].pricePerformanceRatio;
+  const pprMinValue: number =
+    productListings[productListings.length - 1].pricePerformanceRatio;
+
+  const pprDiffValue: number = pprMaxValue - pprMinValue;
+
+  const pprNumColors: number = 24;
+
   return (
     <>
       <table role="grid">
@@ -71,7 +79,11 @@ export default function CpuListingsTable({
                           head.Key as keyof ProductListingsProps
                         )
                 }
-                className={headID === 0 || headID === 1 ? "" : "clickable"}
+                className={
+                  headID === 0 || headID === 1
+                    ? "tableHead"
+                    : "tableHead clickable"
+                }
               >
                 <span
                   data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}
@@ -99,32 +111,51 @@ export default function CpuListingsTable({
         </thead>
         <tbody>
           {sortedListings?.map(
-            (listing: ProductListingsProps, index: number) => (
-              <tr key={index}>
-                {listing.productLink !== "" ? (
+            (listing: ProductListingsProps, index: number) => {
+              const pprTextColor: number = Math.round(
+                ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
+                  pprNumColors
+              );
+              return (
+                <tr key={index}>
+                  {listing.productLink !== "" ? (
+                    <td>
+                      <strong>
+                        <a
+                          href={listing.productLink}
+                          target="_blank"
+                          className="external-link"
+                          data-tooltip="Go to product page on store 🡕"
+                        >
+                          {listing.productCategory}
+                        </a>
+                      </strong>
+                    </td>
+                  ) : (
+                    <td>
+                      <strong>
+                        <em data-tooltip="No link available">
+                          {listing.productCategory}
+                        </em>
+                      </strong>
+                    </td>
+                  )}{" "}
                   <td>
-                    <a
-                      href={listing.productLink}
-                      target="_blank"
-                      className="external-link"
-                      data-tooltip="Go to product page on store 🡕"
-                    >
-                      {listing.productCategory}
-                    </a>
-                  </td>
-                ) : (
+                    <strong>{listing.storeName}</strong>
+                  </td>{" "}
                   <td>
-                    <em data-tooltip="No link available">
-                      {listing.productCategory}
-                    </em>
+                    <strong>{listing.benchmarkValue}</strong>
+                  </td>{" "}
+                  {/* {listing.productLink} {listing.productName}{" "} */}
+                  <td>
+                    <strong>{listing.price}</strong>
+                  </td>{" "}
+                  <td className={`ppr-color-${pprTextColor}`}>
+                    <strong>{listing.pricePerformanceRatio}</strong>
                   </td>
-                )}{" "}
-                <td>{listing.storeName}</td> <td>{listing.benchmarkValue}</td>{" "}
-                {/* {listing.productLink} {listing.productName}{" "} */}
-                <td>{listing.price}</td>{" "}
-                <td>{listing.pricePerformanceRatio}</td>
-              </tr>
-            )
+                </tr>
+              );
+            }
           )}
         </tbody>
       </table>

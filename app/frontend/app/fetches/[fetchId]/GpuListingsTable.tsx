@@ -82,8 +82,8 @@ export default function GpuListingsTable({
                 }
                 className={
                   headID === 0 || headID === 1 || headID === 2
-                    ? ""
-                    : "clickable"
+                    ? "tableHead"
+                    : "tableHead clickable"
                 }
               >
                 <span
@@ -121,27 +121,42 @@ export default function GpuListingsTable({
                 <tr key={index}>
                   {listing.productLink !== "" ? (
                     <td>
-                      <a
-                        href={listing.productLink}
-                        target="_blank"
-                        className="external-link"
-                        data-tooltip="Go to product page on store 🡕"
-                      >
-                        {listing.productName}
-                      </a>
+                      <strong>
+                        <a
+                          href={listing.productLink}
+                          target="_blank"
+                          className="external-link"
+                          data-tooltip="Go to product page on store 🡕"
+                        >
+                          {listing.productName}
+                        </a>
+                      </strong>
                     </td>
                   ) : (
                     <td>
-                      <em data-tooltip="No link available">
-                        {listing.productName}
-                      </em>
+                      <strong>
+                        <em data-tooltip="No link available">
+                          {listing.productName}
+                        </em>
+                      </strong>
                     </td>
                   )}{" "}
-                  <td>{listing.storeName}</td>{" "}
-                  <td>{listing.productCategory}</td>{" "}
+                  <td>
+                    <strong>{listing.storeName}</strong>
+                  </td>{" "}
+                  <td>
+                    <strong>{listing.productCategory}</strong>
+                  </td>{" "}
                   {/* {listing.productLink} */}
-                  <td>{listing.benchmarkValue}</td> <td>{listing.price}</td>{" "}
-                  <td className={`ppr-color-${pprTextColor}`}><strong>{listing.pricePerformanceRatio}</strong></td>
+                  <td>
+                    <strong>{listing.benchmarkValue}</strong>
+                  </td>{" "}
+                  <td>
+                    <strong>{listing.price}</strong>
+                  </td>{" "}
+                  <td className={`ppr-color-${pprTextColor}`}>
+                    <strong>{listing.pricePerformanceRatio}</strong>
+                  </td>
                 </tr>
               );
             }
