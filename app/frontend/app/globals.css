@@ -72,15 +72,15 @@ p {
 }
 
 .GPU {
-  color:rgb(42, 175, 25);
+  color: #00FF7F;
 }
 
 .CPU-Gaming {
-  color:rgb(190, 31, 71);
+  color: #F0E68C;
 }
 
 .CPU-Normal {
-  color:rgb(197, 166, 28);
+  color: #64abed;
 }
 
 h1, h2, h3 {
