@@ -154,6 +154,7 @@ h4 {
   outline: 1px solid rgb(0, 0, 0);
   font-size: x-large;
   word-break: normal;
+  border-radius: 30px;
 }
 
 .benchmark-table-tabs:hover {
