@@ -55,18 +55,21 @@ p {
 }
 
 .full-fetch-list-item {
-  background-color:rgb(44, 44, 44) !important;
+  /* background-color:rgb(44, 44, 44) !important; */
+  background: linear-gradient(to bottom right, #202020, #3F3F3F);
   padding: 2px 10px;
   border-radius: 10px;
 }
 
 .full-fetch-list-item:hover {
-  background-color: rgb(73, 73, 73) !important;
+  /* background-color: rgb(73, 73, 73) !important; */
+  background: linear-gradient(to bottom right, #464646, #505050);
   text-decoration: none !important;
 }
 
 .sidebar-fetch-items {
-  background-color:rgb(44, 44, 44) !important;
+  /* background-color:rgb(44, 44, 44) !important; */
+  background: linear-gradient(to bottom right, #202020, #3F3F3F);
   padding: 1px 10px;
   padding-bottom: 8px;
   border-radius: 10px;
