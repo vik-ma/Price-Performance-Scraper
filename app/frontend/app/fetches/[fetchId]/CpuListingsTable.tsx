@@ -180,13 +180,12 @@ export default function CpuListingsTable({
                       </strong>
                     </td>
                   )}{" "}
-                  <td>
+                  <td className="word-break">
                     <strong>{listing.storeName}</strong>
                   </td>{" "}
                   <td>
                     <strong>{listing.benchmarkValue}</strong>
                   </td>{" "}
-                  {/* {listing.productLink} {listing.productName}{" "} */}
                   <td className="nowrap">
                     <strong>{listing.price} kr</strong>
                   </td>{" "}

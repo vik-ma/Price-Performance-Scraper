@@ -181,13 +181,12 @@ export default function GpuListingsTable({
                       </strong>
                     </td>
                   )}{" "}
-                  <td>
+                  <td className="word-break">
                     <strong>{listing.storeName}</strong>
                   </td>{" "}
                   <td className="nowrap">
                     <strong>{listing.productCategory}</strong>
                   </td>{" "}
-                  {/* {listing.productLink} */}
                   <td>
                     <strong>{listing.benchmarkValue}</strong>
                   </td>{" "}

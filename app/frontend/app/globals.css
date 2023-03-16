@@ -484,8 +484,17 @@ input[type="checkbox"]:checked {
   white-space: nowrap;
 }
 
+.word-break {
+  word-break: normal;
+}
+
 @media (max-width: 50em){
   .nowrap {
     white-space: normal;
   }
+
+  .word-break {
+    word-break: break-all;
+  }
 }
+
