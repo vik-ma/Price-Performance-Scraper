@@ -2,6 +2,7 @@
   --primary: #dedfe4;
   --primary-hover: #616161;
   --primary-focus: rgba(172, 172, 172, 0.125);
+  --table-border-color: rgba(44, 44, 44, 0.226);
 }
 
 #error-header {
@@ -498,3 +499,6 @@ input[type="checkbox"]:checked {
   }
 }
 
+table[role=grid] tbody tr:nth-child(odd) {
+  background-color: rgba(87, 87, 87, 0.226);
+}
