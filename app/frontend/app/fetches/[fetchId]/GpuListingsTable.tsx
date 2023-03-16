@@ -14,13 +14,13 @@ export default function GpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
   const tableHeading: TableHeadingProps[] = [
-    { Label: "Product", Key: "productName", Tooltip: "" },
+    { Label: "Product", Key: "productName", Tooltip: "Link to product may not work for older scrapes" },
     { Label: "Store", Key: "storeName", Tooltip: "" },
     { Label: "Model", Key: "productCategory", Tooltip: "" },
     {
       Label: "Benchmark Score",
       Key: "benchmarkValue",
-      Tooltip: "Average benchmark score for GPU model",
+      Tooltip: "Average benchmark score for GPU model at the time of scrape",
     },
     { Label: "Price", Key: "price", Tooltip: "Price excluding shipping" },
     {
@@ -184,15 +184,15 @@ export default function GpuListingsTable({
                   <td>
                     <strong>{listing.storeName}</strong>
                   </td>{" "}
-                  <td>
+                  <td className="nowrap">
                     <strong>{listing.productCategory}</strong>
                   </td>{" "}
                   {/* {listing.productLink} */}
                   <td>
                     <strong>{listing.benchmarkValue}</strong>
                   </td>{" "}
-                  <td>
-                    <strong>{listing.price}</strong>
+                  <td className="nowrap">
+                    <strong>{listing.price} kr</strong>
                   </td>{" "}
                   <td className={`ppr-color-${pprTextColor}`}>
                     <strong>{listing.pricePerformanceRatio}</strong>

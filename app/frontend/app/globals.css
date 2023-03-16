@@ -476,6 +476,16 @@ details {
 }
 
 input[type="checkbox"]:checked {
-  background-color: #0495e9;
-  border-color: #00c3ff;
+  background-color: #008ee0;
+  border-color: #00d9ff;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+@media (max-width: 50em){
+  .nowrap {
+    white-space: normal;
+  }
 }
