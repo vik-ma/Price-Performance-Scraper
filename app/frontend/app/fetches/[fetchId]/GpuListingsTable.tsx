@@ -64,8 +64,48 @@ export default function GpuListingsTable({
 
   const pprNumColors: number = 24;
 
+  const storeNames = Array.from(
+    new Set(sortedListings.map((listing) => listing.storeName))
+  );
+
+  const [selectedStores, setSelectedStores] = useState<string[]>(storeNames);
+
+  const filteredListings = sortedListings.filter((listing) =>
+    selectedStores.includes(listing.storeName)
+  );
+
   return (
     <>
+      <details>
+        <summary className="filter-button" role="button">
+          <strong>Filter Stores</strong>
+        </summary>
+        <div className="filter-container">
+          {storeNames.map((storeName, index) => (
+            <div key={index}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={selectedStores.includes(storeName)}
+                  onChange={(event) => {
+                    const isChecked = event.target.checked;
+                    setSelectedStores((prevSelectedStores) => {
+                      if (isChecked) {
+                        return [...prevSelectedStores, storeName];
+                      } else {
+                        return prevSelectedStores.filter(
+                          (name) => name !== storeName
+                        );
+                      }
+                    });
+                  }}
+                />
+                {storeName}
+              </label>
+            </div>
+          ))}
+        </div>
+      </details>
       <table role="grid">
         <thead>
           <tr>
@@ -111,7 +151,7 @@ export default function GpuListingsTable({
           </tr>
         </thead>
         <tbody>
-          {sortedListings?.map(
+          {filteredListings?.map(
             (listing: ProductListingsProps, index: number) => {
               const pprTextColor: number = Math.round(
                 ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
