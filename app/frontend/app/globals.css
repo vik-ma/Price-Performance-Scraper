@@ -453,10 +453,21 @@ h4 {
   font-size: x-large;
   background: linear-gradient(to bottom right, #045DE9, #09C6F9);
   padding: 10px 15px;
+  margin-bottom: 0;
 }
 
 .filter-button::after {
   background-size: 1.5rem auto;
   width: 1.5rem;
   margin-top: 3px;
+}
+
+details {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.filter-container {
+  padding: 0 10px;
 }
