@@ -65,6 +65,10 @@ export default function CpuListingsTable({
 
   return (
     <>
+      <details>
+        <summary className="filter-button" role="button"><strong>Filters</strong></summary>
+        <p>…</p>
+      </details>
       <table role="grid">
         <thead>
           <tr>

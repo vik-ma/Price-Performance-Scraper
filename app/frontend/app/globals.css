@@ -448,3 +448,15 @@ h4 {
 .ppr-color-0 {
   color: rgb(100, 80, 89);
 }
+
+.filter-button {
+  font-size: x-large;
+  background: linear-gradient(to bottom right, #045DE9, #09C6F9);
+  padding: 10px 15px;
+}
+
+.filter-button::after {
+  background-size: 1.5rem auto;
+  width: 1.5rem;
+  margin-top: 3px;
+}
