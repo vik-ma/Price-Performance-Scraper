@@ -74,12 +74,16 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   const gpuTier = (gpuProductInfo[key] as { tier: string })
                     ?.tier;
                   const cssName: string = (
-                      gpuProductInfo[key] as { cssName: string }
-                    )?.cssName;
+                    gpuProductInfo[key] as { cssName: string }
+                  )?.cssName;
                   return (
                     <tr key={key}>
                       <td>
-                        <strong><div className={`model-background ${cssName}`}>{key}</div></strong>
+                        <strong>
+                          <div className={`model-background ${cssName}`}>
+                            {key}
+                          </div>
+                        </strong>
                       </td>
                       <td className={`text-color-tier-${gpuTier}`}>
                         <strong>{value.toString()}</strong>
@@ -110,20 +114,30 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 </tr>
               </thead>
               <tbody>
-              {Object.entries(benchmarks["CPU-Gaming"]).map(([key, value]) => {
-                  const cpuGamingTier = (cpuProductInfo[key] as { gamingTier: string })
-                    ?.gamingTier;
-                  return (
-                    <tr key={key}>
-                      <td>
-                        <strong>{key}</strong>
-                      </td>
-                      <td className={`text-color-tier-${cpuGamingTier}`}>
-                        <strong>{value.toString()}</strong>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {Object.entries(benchmarks["CPU-Gaming"]).map(
+                  ([key, value]) => {
+                    const cpuGamingTier = (
+                      cpuProductInfo[key] as { gamingTier: string }
+                    )?.gamingTier;
+                    const cssName: string = (
+                      cpuProductInfo[key] as { cssName: string }
+                    )?.cssName;
+                    return (
+                      <tr key={key}>
+                        <td>
+                          <strong>
+                            <div className={`model-background ${cssName}-g`}>
+                              {key}
+                            </div>
+                          </strong>
+                        </td>
+                        <td className={`text-color-tier-${cpuGamingTier}`}>
+                          <strong>{value.toString()}</strong>
+                        </td>
+                      </tr>
+                    );
+                  }
+                )}
               </tbody>
             </table>
           </div>
@@ -147,20 +161,30 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 </tr>
               </thead>
               <tbody>
-              {Object.entries(benchmarks["CPU-Normal"]).map(([key, value]) => {
-                  const cpuNormalTier = (cpuProductInfo[key] as { normalTier: string })
-                    ?.normalTier;
-                  return (
-                    <tr key={key}>
-                      <td>
-                        <strong>{key}</strong>
-                      </td>
-                      <td className={`text-color-tier-${cpuNormalTier}`}>
-                        <strong>{value.toString()}</strong>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {Object.entries(benchmarks["CPU-Normal"]).map(
+                  ([key, value]) => {
+                    const cpuNormalTier = (
+                      cpuProductInfo[key] as { normalTier: string }
+                    )?.normalTier;
+                    const cssName: string = (
+                      cpuProductInfo[key] as { cssName: string }
+                    )?.cssName;
+                    return (
+                      <tr key={key}>
+                        <td>
+                          <strong>
+                            <div className={`model-background ${cssName}-n`}>
+                              {key}
+                            </div>
+                          </strong>
+                        </td>
+                        <td className={`text-color-tier-${cpuNormalTier}`}>
+                          <strong>{value.toString()}</strong>
+                        </td>
+                      </tr>
+                    );
+                  }
+                )}
               </tbody>
             </table>
           </div>

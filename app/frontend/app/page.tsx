@@ -29,7 +29,13 @@ export default async function Home() {
         <div className="padding-top: 3em">
           <Link href="/fetches">View Completed Fetches</Link>
         </div>
-        <p className="test-color-0"><strong>TEST</strong></p>
+        <div className="model-background test-bg-1"><strong>TEST</strong></div>
+        <div className="model-background test-bg-4"><strong>TEST</strong></div>
+        <div className="model-background test-bg-2"><strong>TEST</strong></div>
+        <div className="model-background test-bg-5"><strong>TEST</strong></div>
+        <div className="model-background test-bg-3"><strong>TEST</strong></div>
+        <div className="model-background test-bg-6"><strong>TEST</strong></div>
+        {/* <p className="test-color-0"><strong>TEST</strong></p>
         <p className="test-color-1"><strong>TEST</strong></p>
         <p className="test-color-2"><strong>TEST</strong></p>
         <p className="test-color-3"><strong>TEST</strong></p>
@@ -53,7 +59,7 @@ export default async function Home() {
         <p className="test-color-21"><strong>TEST</strong></p>
         <p className="test-color-22"><strong>TEST</strong></p>
         <p className="test-color-23"><strong>TEST</strong></p>
-        <p className="test-color-24"><strong>TEST</strong></p>
+        <p className="test-color-24"><strong>TEST</strong></p> */}
       </div>
     </main>
   );
