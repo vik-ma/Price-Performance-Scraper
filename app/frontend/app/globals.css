@@ -505,3 +505,11 @@ input[type="checkbox"]:checked {
 table[role=grid] tbody tr:nth-child(odd) {
   background-color: rgba(87, 87, 87, 0.226);
 }
+
+.rtx-4090 {
+  color: white;
+  background: linear-gradient(to bottom right, #045DE9, #09C6F9);
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid rgb(160, 225, 255);
+}

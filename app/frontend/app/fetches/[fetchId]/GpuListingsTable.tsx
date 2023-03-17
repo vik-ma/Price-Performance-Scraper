@@ -7,14 +7,20 @@ import {
   FetchPageProps,
   ProductTableSortProps,
   TableHeadingProps,
+  GpuInfoProps,
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
+import { gpuInfo } from "@/app/ProductInfo";
 
 export default function GpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
   const tableHeading: TableHeadingProps[] = [
-    { Label: "Product", Key: "productName", Tooltip: "Link to product may not work for older scrapes" },
+    {
+      Label: "Product",
+      Key: "productName",
+      Tooltip: "Link to product may not work for older scrapes",
+    },
     { Label: "Store", Key: "storeName", Tooltip: "" },
     { Label: "Model", Key: "productCategory", Tooltip: "" },
     {
@@ -73,6 +79,8 @@ export default function GpuListingsTable({
   const filteredListings = sortedListings.filter((listing) =>
     selectedStores.includes(listing.storeName)
   );
+
+  const gpuProductInfo: GpuInfoProps = gpuInfo;
 
   return (
     <>
@@ -157,6 +165,9 @@ export default function GpuListingsTable({
                 ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
                   pprNumColors
               );
+              const cssName: string = (
+                gpuProductInfo[listing.productCategory] as { cssName: string }
+              )?.cssName;
               return (
                 <tr key={index}>
                   {listing.productLink !== "" ? (
@@ -185,7 +196,9 @@ export default function GpuListingsTable({
                     <strong>{listing.storeName}</strong>
                   </td>{" "}
                   <td className="nowrap">
-                    <strong>{listing.productCategory}</strong>
+                    <strong>
+                      <div className={cssName}>{listing.productCategory}</div>
+                    </strong>
                   </td>{" "}
                   <td>
                     <strong>{listing.benchmarkValue}</strong>
