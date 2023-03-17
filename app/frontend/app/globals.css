@@ -874,3 +874,238 @@ table[role=grid] tbody tr:nth-child(odd) {
   background: linear-gradient(to bottom right, #1aabee, #dcfdff);
   border: 2px solid rgb(96, 231, 255);
 }
+
+.amd-7900x3d-n {
+  background: linear-gradient(to bottom right, #7c792a, #F7F477);
+  border: 2px solid rgb(255, 253, 109);
+}
+
+.intel-13900ks-n {
+  background: linear-gradient(to bottom right, #15a025, #92F475);
+  border: 2px solid rgb(109, 255, 141);
+}
+
+.amd-7950x3d-n {
+  background: linear-gradient(to bottom right, #15a025, #92F475);
+  border: 2px solid rgb(109, 255, 141);
+}
+
+.intel-13900k-n {
+  background: linear-gradient(to bottom right, #92F475, #15a025);
+  border: 2px solid rgb(109, 255, 141);
+}
+
+.intel-13900f-n {
+  background: linear-gradient(to bottom right, #EFFCA9, #51bd30);
+  border: 2px solid rgb(162, 255, 109);
+}
+
+.intel-13900kf-n {
+  background: linear-gradient(to bottom right, #51bd30, #EFFCA9);
+  border: 2px solid rgb(162, 255, 109);
+}
+
+.amd-5800x3d-n {
+  background: linear-gradient(to bottom right, #cc00ff, #d481f5);
+  border: 2px solid rgb(245, 132, 255);
+}
+
+.rx-7900-xtx {
+  background: linear-gradient(to bottom right, #51bd30, #EFFCA9);
+  border: 2px solid rgb(162, 255, 109);
+}
+
+.amd-7900x-n {
+  background: linear-gradient(to bottom right, #4e491f, #ebdf3a);
+  border: 2px solid rgb(255, 253, 109);
+}
+
+.intel-13700k-n {
+  background: linear-gradient(to bottom right, #ebdf3a, #4e491f);
+  border: 2px solid rgb(255, 253, 109);
+}
+
+.intel-13600k-n {
+  background: linear-gradient(to bottom right, #fdca5b, #c58307);
+  border: 2px solid rgb(255, 202, 132);
+}
+
+.intel-13600kf-n {
+  background: linear-gradient(to bottom right, #fffae1, #dba102);
+  border: 2px solid rgb(255, 243, 132);
+}
+
+.intel-13700kf-n {
+  background: linear-gradient(to bottom right, #ebdf3a, #4e491f);
+  border: 2px solid rgb(255, 253, 109);
+}
+
+.intel-12900ks-n {
+  background: linear-gradient(to bottom right, #f7f4b9, #fcf151);
+  border: 2px solid rgb(255, 249, 216);
+}
+
+.amd-7600-n {
+  background: linear-gradient(to bottom right, #7f35c4, #300888);
+  border: 2px solid rgb(147, 52, 255);
+}
+
+.amd-7600x-n {
+  background: linear-gradient(to bottom right, #300888, #7f35c4);
+  border: 2px solid rgb(147, 52, 255);
+}
+
+.amd-7950x-n {
+  background: linear-gradient(to bottom right, #3abb3e, #1a5c06);
+  border: 2px solid rgb(109, 255, 141);
+}
+
+.intel-13700f-n {
+  background: linear-gradient(to bottom right, #b47603, #d3b50e);
+  border: 2px solid rgb(250, 189, 22);
+}
+
+.intel-13700-n {
+  background: linear-gradient(to bottom right, #b48d20, #f6f87b);
+  border: 2px solid rgb(248, 248, 145);
+}
+
+.intel-12900k-n {
+  background: linear-gradient(to bottom right, #c58307, #fdca5b);
+  border: 2px solid rgb(255, 202, 132);
+}
+
+.amd-7700x-n {
+  background: linear-gradient(to bottom right, #a03b00, #ffb108);
+  border: 2px solid rgb(255, 136, 0);
+}
+
+.intel-12900kf-n {
+  background: linear-gradient(to bottom right, #dba102, #fffae1);
+  border: 2px solid rgb(255, 243, 132);
+}
+
+.intel-12900f-n {
+  background: linear-gradient(to bottom right, #6e3f06, #FF9D08);
+  border: 2px solid rgb(250, 144, 22);
+}
+
+.intel-12900-n {
+  background: linear-gradient(to bottom right, #FF9D08, #6e3f06);
+  border: 2px solid rgb(250, 144, 22);
+}
+
+.intel-13500-n {
+  background: linear-gradient(to bottom right, #7c011a, #f23a43);
+  border: 2px solid rgb(250, 22, 22);
+}
+
+.intel-12600k-n {
+  background: linear-gradient(to bottom right, #a84ad3, #d89af1);
+  border: 2px solid rgb(246, 142, 255);
+}
+
+.intel-12700k-n {
+  background: linear-gradient(to bottom right, #ffb108, #a03b00);
+  border: 2px solid rgb(255, 136, 0);
+}
+
+.intel-12600kf-n {
+  background: linear-gradient(to bottom right, #a46fd6, #651eff);
+  border: 2px solid rgb(167, 91, 255);
+}
+
+.intel-12700kf-n {
+  background: linear-gradient(to bottom right, #ffd20c, #ff4800);
+  border: 2px solid rgb(250, 178, 22);
+}
+
+.intel-13400-n {
+  background: linear-gradient(to bottom right, #d89af1, #a84ad3);
+  border: 2px solid rgb(246, 142, 255);
+}
+
+.amd-5900x-n {
+  background: linear-gradient(to bottom right, #d3b50e, #b47603);
+  border: 2px solid rgb(250, 189, 22);
+}
+
+.intel-13400f-n {
+  background: linear-gradient(to bottom right, #300888, #d89af1);
+  border: 2px solid rgb(147, 52, 255);
+}
+
+.amd-5600x-n {
+  background: linear-gradient(to bottom right, #220f8d, #3f70db);
+  border: 2px solid rgb(30, 127, 255);
+}
+
+.amd-5600-n {
+  background: linear-gradient(to bottom right, #2751dd, #69d1f3);
+  border: 2px solid rgb(60, 144, 255);
+}
+
+.intel-12600-n {
+  background: linear-gradient(to bottom right, #1aabee, #dcfdff);
+  border: 2px solid rgb(96, 231, 255);
+}
+
+.intel-12700-n {
+  background: linear-gradient(to bottom right, #d60202, #f35b5b);
+  border: 2px solid rgb(255, 86, 86);
+}
+
+.intel-12700f-n {
+  background: linear-gradient(to bottom right, #cf2a2f, #f87a7e);
+  border: 2px solid rgb(255, 114, 114);
+}
+
+.amd-5800x-n {
+  background: linear-gradient(to bottom right, #651eff, #a46fd6);
+  border: 2px solid rgb(167, 91, 255);
+}
+
+.amd-5950x-n {
+  background: linear-gradient(to bottom right, #fffea5, #bbb34a);
+  border: 2px solid rgb(255, 254, 199);
+}
+
+.amd-5700x-n {
+  background: linear-gradient(to bottom right, #d481f5, #cc00ff);
+  border: 2px solid rgb(245, 132, 255);
+}
+
+.intel-12400f-n {
+  background: linear-gradient(to bottom right, #69d1f3, #2751dd);
+  border: 2px solid rgb(60, 144, 255);
+}
+
+.intel-12500-n {
+  background: linear-gradient(to bottom right, #3f70db, #220f8d);
+  border: 2px solid rgb(30, 127, 255);
+}
+
+.intel-12400-n {
+  background: linear-gradient(to bottom right, #dcfdff, #1aabee);
+  border: 2px solid rgb(96, 231, 255);
+}
+
+.amd-5500-n {
+  background: linear-gradient(to bottom right, #220f8d, #dcfdff);
+  border: 2px solid rgb(30, 127, 255);
+}
+
+.amd-7900-n {
+  background: linear-gradient(to bottom right, #fcf151, #f7f4b9);
+  border: 2px solid rgb(255, 249, 216);
+}
+
+.amd-7700-n {
+  background: linear-gradient(to bottom right, #ff4800, #ffd20c);
+  border: 2px solid rgb(250, 178, 22);
+}
+
+.intel-13900-n {
+  background: linear-gradient(to bottom right, #bbb34a, #fffea5);
+  border: 2px solid rgb(255, 254, 199);
+}
