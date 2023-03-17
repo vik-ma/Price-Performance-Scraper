@@ -506,10 +506,43 @@ table[role=grid] tbody tr:nth-child(odd) {
   background-color: rgba(87, 87, 87, 0.226);
 }
 
-.rtx-4090 {
-  color: white;
-  background: linear-gradient(to bottom right, #045DE9, #09C6F9);
+.model-background {
   border-radius: 10px;
   padding: 10px;
-  border: 1px solid rgb(160, 225, 255);
+  color: white;
+}
+
+.rtx-4090 {
+  background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
+  border: 1px solid rgb(109, 255, 141);
+}
+
+.rtx-4080 {
+  background: linear-gradient(to bottom right, #15a025, #92F475);
+  border: 1px solid rgb(109, 255, 141);
+}
+
+.rx-7900-xtx {
+  background: linear-gradient(to bottom right, #51bd30, #EFFCA9);
+  border: 1px solid rgb(162, 255, 109);
+}
+
+.rtx-4070-ti {
+  background: linear-gradient(to bottom right, #4e491f, #ebdf3a);
+  border: 1px solid rgb(255, 253, 109);
+}
+
+.rx-6950-xt {
+  background: linear-gradient(to bottom right, #7c792a, #F7F477);
+  border: 1px solid rgb(255, 253, 109);
+}
+
+.rx-7900-xt {
+  background: linear-gradient(to bottom right, #bbb34a, #fffea5);
+  border: 1px solid rgb(255, 254, 199);
+}
+
+.rx-6800-xt {
+  background: linear-gradient(to bottom right, #bdc022, #f6f87b);
+  border: 1px solid rgb(248, 248, 145);
 }

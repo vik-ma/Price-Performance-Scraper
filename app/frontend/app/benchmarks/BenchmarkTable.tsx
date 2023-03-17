@@ -73,10 +73,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 {Object.entries(benchmarks["GPU"]).map(([key, value]) => {
                   const gpuTier = (gpuProductInfo[key] as { tier: string })
                     ?.tier;
+                  const cssName: string = (
+                      gpuProductInfo[key] as { cssName: string }
+                    )?.cssName;
                   return (
                     <tr key={key}>
                       <td>
-                        <strong>{key}</strong>
+                        <strong><div className={`model-background ${cssName}`}>{key}</div></strong>
                       </td>
                       <td className={`text-color-tier-${gpuTier}`}>
                         <strong>{value.toString()}</strong>

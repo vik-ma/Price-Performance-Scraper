@@ -197,7 +197,7 @@ export default function GpuListingsTable({
                   </td>{" "}
                   <td className="nowrap">
                     <strong>
-                      <div className={cssName}>{listing.productCategory}</div>
+                      <div className={`model-background ${cssName}`}>{listing.productCategory}</div>
                     </strong>
                   </td>{" "}
                   <td>
