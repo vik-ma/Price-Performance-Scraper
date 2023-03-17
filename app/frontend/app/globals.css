@@ -219,11 +219,13 @@ h4 {
 }
 
 .text-color-tier-6 {
-  color: #943126;
+  /* color: #943126; */
+  color: #b535ec;
 }
 
 .text-color-tier-7 {
-  color: #7B7D7D;
+  /* color: #7B7D7D; */
+  color: #2f81fc;
 }
 
 .tableHead {
@@ -520,75 +522,125 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .rtx-4090 {
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
-  border: 1px solid rgb(109, 255, 141);
+  border: 2px solid rgb(109, 255, 141);
 }
 
 .rtx-4080 {
   background: linear-gradient(to bottom right, #15a025, #92F475);
-  border: 1px solid rgb(109, 255, 141);
+  border: 2px solid rgb(109, 255, 141);
 }
 
 .rx-7900-xtx {
   background: linear-gradient(to bottom right, #51bd30, #EFFCA9);
-  border: 1px solid rgb(162, 255, 109);
+  border: 2px solid rgb(162, 255, 109);
 }
 
 .rtx-4070-ti {
   background: linear-gradient(to bottom right, #4e491f, #ebdf3a);
-  border: 1px solid rgb(255, 253, 109);
+  border: 2px solid rgb(255, 253, 109);
 }
 
 .rx-6950-xt {
   background: linear-gradient(to bottom right, #7c792a, #F7F477);
-  border: 1px solid rgb(255, 253, 109);
+  border: 2px solid rgb(255, 253, 109);
 }
 
 .rx-7900-xt {
   background: linear-gradient(to bottom right, #bbb34a, #fffea5);
-  border: 1px solid rgb(255, 254, 199);
+  border: 2px solid rgb(255, 254, 199);
 }
 
 .rx-6800-xt {
   background: linear-gradient(to bottom right, #bdc022, #f6f87b);
-  border: 1px solid rgb(248, 248, 145);
+  border: 2px solid rgb(248, 248, 145);
 }
 
 .rx-6800 {
   background: linear-gradient(to bottom right, #b47603, #d3b50e);
-  border: 1px solid rgb(250, 189, 22);
+  border: 2px solid rgb(250, 189, 22);
 }
 
 .rtx-3070-ti {
   background: linear-gradient(to bottom right, #df9307, #fdca5b);
-  border: 1px solid rgb(255, 202, 132);
+  border: 2px solid rgb(255, 202, 132);
 }
 
 .rx-6750-xt {
   background: linear-gradient(to bottom right, #dbb302, #ebdea4);
-  border: 1px solid rgb(255, 243, 132);
+  border: 2px solid rgb(255, 243, 132);
 }
 
 .rtx-3070 {
   background: linear-gradient(to bottom right, #fcf151, #f7f4b9);
-  border: 1px solid rgb(255, 249, 216);
+  border: 2px solid rgb(255, 249, 216);
 }
 
 .rx-6700-xt {
   background: linear-gradient(to bottom right, #6e3f06, #FF9D08);
-  border: 1px solid rgb(250, 144, 22);
+  border: 2px solid rgb(250, 144, 22);
 }
 
 .rtx-3060-ti {
   background: linear-gradient(to bottom right, #a03b00, #ffb108);
-  border: 1px solid rgb(255, 136, 0);
+  border: 2px solid rgb(255, 136, 0);
 }
 
 .rx-6700 {
   background: linear-gradient(to bottom right, #ff4800, #ffd20c);
-  border: 1px solid rgb(250, 178, 22);
+  border: 2px solid rgb(250, 178, 22);
 }
 
 .rx-6650-xt {
   background: linear-gradient(to bottom right, #da3300, #df9408);
-  border: 1px solid rgb(250, 144, 22);
+  border: 2px solid rgb(250, 144, 22);
+}
+
+.rx-6600-xt {
+  background: linear-gradient(to bottom right, #7c011a, #f23a43);
+  border: 2px solid rgb(250, 22, 22);
+}
+
+.rtx-3060 {
+  background: linear-gradient(to bottom right, #d60202, #f35b5b);
+  border: 2px solid rgb(255, 86, 86);
+}
+
+.rx-6600 {
+  background: linear-gradient(to bottom right, #cf2a2f, #f87a7e);
+  border: 2px solid rgb(255, 114, 114);
+}
+
+.rtx-2060 {
+  background: linear-gradient(to bottom right, #300888, #7f35c4);
+  border: 2px solid rgb(147, 52, 255);
+}
+
+.rtx-3050 {
+  background: linear-gradient(to bottom right, #651eff, #a46fd6);
+  border: 2px solid rgb(167, 91, 255);
+}
+
+.gtx-1660-ti {
+  background: linear-gradient(to bottom right, #cc00ff, #d481f5);
+  border: 2px solid rgb(245, 132, 255);
+}
+
+.gtx-1660-super {
+  background: linear-gradient(to bottom right, #a84ad3, #d89af1);
+  border: 2px solid rgb(246, 142, 255);
+}
+
+.gtx-1660 {
+  background: linear-gradient(to bottom right, #220f8d, #3f70db);
+  border: 2px solid rgb(30, 127, 255);
+}
+
+.rx-6500-xt {
+  background: linear-gradient(to bottom right, #2751dd, #69d1f3);
+  border: 2px solid rgb(60, 144, 255);
+}
+
+.rx-6400 {
+  background: linear-gradient(to bottom right, #1aabee, #dcfdff);
+  border: 2px solid rgb(96, 231, 255);
 }
