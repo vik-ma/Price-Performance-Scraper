@@ -14,8 +14,12 @@ export default function CpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
   const tableHeading: TableHeadingProps[] = [
-    { Label: "Product", Key: "productName", Tooltip: "Link to product may not work for older scrapes" },
-    { Label: "Store", Key: "storeName", Tooltip: "" },
+    { Label: "Product", Key: "productName", Tooltip: "" },
+    {
+      Label: "Store",
+      Key: "storeName",
+      Tooltip: "Link to product may not work for older scrapes",
+    },
     {
       Label: "Benchmark Score",
       Key: "benchmarkValue",
@@ -158,8 +162,11 @@ export default function CpuListingsTable({
               );
               return (
                 <tr key={index}>
+                  <td className="nowrap">
+                    <strong>{listing.productCategory}</strong>
+                  </td>{" "}
                   {listing.productLink !== "" ? (
-                    <td className="nowrap">
+                    <td className="word-break">
                       <strong>
                         <a
                           href={listing.productLink}
@@ -167,22 +174,19 @@ export default function CpuListingsTable({
                           className="external-link"
                           data-tooltip="Go to product page on store 🡕"
                         >
-                          {listing.productCategory}
+                          {listing.storeName}
                         </a>
                       </strong>
                     </td>
                   ) : (
-                    <td className="nowrap">
+                    <td className="word-break">
                       <strong>
                         <em data-tooltip="No link available">
-                          {listing.productCategory}
+                          {listing.storeName}
                         </em>
                       </strong>
                     </td>
                   )}{" "}
-                  <td className="word-break">
-                    <strong>{listing.storeName}</strong>
-                  </td>{" "}
                   <td>
                     <strong>{listing.benchmarkValue}</strong>
                   </td>{" "}
