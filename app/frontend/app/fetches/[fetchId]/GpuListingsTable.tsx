@@ -19,9 +19,13 @@ export default function GpuListingsTable({
     {
       Label: "Product",
       Key: "productName",
+      Tooltip: "",
+    },
+    {
+      Label: "Store",
+      Key: "storeName",
       Tooltip: "Link to product may not work for older scrapes",
     },
-    { Label: "Store", Key: "storeName", Tooltip: "" },
     { Label: "Model", Key: "productCategory", Tooltip: "" },
     {
       Label: "Benchmark Score",
@@ -170,8 +174,11 @@ export default function GpuListingsTable({
               )?.cssName;
               return (
                 <tr key={index}>
+                  <td>
+                    <strong>{listing.productName}</strong>
+                  </td>{" "}
                   {listing.productLink !== "" ? (
-                    <td>
+                    <td className="word-break">
                       <strong>
                         <a
                           href={listing.productLink}
@@ -179,25 +186,24 @@ export default function GpuListingsTable({
                           className="external-link"
                           data-tooltip="Go to product page on store 🡕"
                         >
-                          {listing.productName}
+                          {listing.storeName}
                         </a>
                       </strong>
                     </td>
                   ) : (
-                    <td>
+                    <td className="word-break">
                       <strong>
                         <em data-tooltip="No link available">
-                          {listing.productName}
+                          {listing.storeName}
                         </em>
                       </strong>
                     </td>
                   )}{" "}
-                  <td className="word-break">
-                    <strong>{listing.storeName}</strong>
-                  </td>{" "}
                   <td className="nowrap">
                     <strong>
-                      <div className={`model-background ${cssName}`}>{listing.productCategory}</div>
+                      <div className={`model-background ${cssName}`}>
+                        {listing.productCategory}
+                      </div>
                     </strong>
                   </td>{" "}
                   <td>
