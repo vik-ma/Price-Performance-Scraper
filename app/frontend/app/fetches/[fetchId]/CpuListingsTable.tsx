@@ -7,8 +7,10 @@ import {
   FetchPageProps,
   ProductTableSortProps,
   TableHeadingProps,
+  CpuInfoProps,
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
+import { cpuInfo } from "@/app/ProductInfo";
 
 export default function CpuListingsTable({
   params: { fetchInfo, productListings },
@@ -76,6 +78,11 @@ export default function CpuListingsTable({
   const filteredListings = sortedListings.filter((listing) =>
     selectedStores.includes(listing.storeName)
   );
+
+  const cpuProductInfo: CpuInfoProps = cpuInfo;
+
+  const benchmarkType: string =
+    fetchInfo.benchmarkType === "CPU-Gaming" ? "-g" : "-n";
 
   return (
     <>
@@ -160,10 +167,17 @@ export default function CpuListingsTable({
                 ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
                   pprNumColors
               );
+              const cssName: string = (
+                cpuProductInfo[listing.productCategory] as { cssName: string }
+              )?.cssName;
               return (
                 <tr key={index}>
                   <td className="nowrap">
-                    <strong>{listing.productCategory}</strong>
+                    <strong>
+                      <div className={`model-background ${cssName}${benchmarkType}`}>
+                        {listing.productCategory}
+                      </div>
+                    </strong>
                   </td>{" "}
                   {listing.productLink !== "" ? (
                     <td className="word-break">
