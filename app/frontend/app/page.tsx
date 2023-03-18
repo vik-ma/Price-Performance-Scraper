@@ -30,10 +30,10 @@ export default async function Home() {
           <Link href="/fetches">View Completed Fetches</Link>
         </div>
         <div className="model-background test-bg-1"><strong>TEST</strong></div>
-        <div className="model-background test-bg-4"><strong>TEST</strong></div>
         <div className="model-background test-bg-2"><strong>TEST</strong></div>
-        <div className="model-background test-bg-5"><strong>TEST</strong></div>
         <div className="model-background test-bg-3"><strong>TEST</strong></div>
+        <div className="model-background test-bg-4"><strong>TEST</strong></div>
+        <div className="model-background test-bg-5"><strong>TEST</strong></div>
         <div className="model-background test-bg-6"><strong>TEST</strong></div>
         {/* <p className="test-color-0"><strong>TEST</strong></p>
         <p className="test-color-1"><strong>TEST</strong></p>

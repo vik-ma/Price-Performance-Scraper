@@ -510,7 +510,9 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .model-background {
   border-radius: 14px;
-  padding: 10px;
+  padding: 5px 8px;
+  margin: -5px;
+  text-align: center;
   color: white;
   text-shadow:
        0px 0px 1px rgb(26, 26, 26),
@@ -1108,4 +1110,31 @@ table[role=grid] tbody tr:nth-child(odd) {
 .intel-13900-n {
   background: linear-gradient(to bottom right, #7c792a, #F7F477);
   border: 2px solid rgb(255, 253, 109);
+}
+
+.test-bg-1 {
+  background: linear-gradient(to bottom right, #000000, #F7F477);
+  border: 2px solid rgb(255, 253, 109);
+}
+
+.test-bg-2 {
+  background: linear-gradient(to bottom right, #000000, #ffb108);
+  border: 2px solid rgb(255, 136, 0);
+}
+
+.test-bg-3 {
+  
+}
+
+.test-bg-4 {
+  background: linear-gradient(to bottom right, #9e5a00, #ffd61f);
+  border: 2px solid rgb(223, 121, 4);
+}
+
+.test-bg-5 {
+  
+}
+
+.test-bg-6 {
+  
 }
