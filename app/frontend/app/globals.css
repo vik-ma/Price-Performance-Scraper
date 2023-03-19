@@ -107,7 +107,7 @@ h4 {
 }
 
 .external-link {
-  color:rgb(32, 147, 214);
+  color:rgb(52, 163, 228);
 }
 
 .external-link:hover {
@@ -219,13 +219,13 @@ h4 {
 }
 
 .text-color-tier-6 {
-  /* color: #943126; */
-  color: #b535ec;
+  color: #943126;
+  /* color: #b535ec; */
 }
 
 .text-color-tier-7 {
-  /* color: #7B7D7D; */
-  color: #2f81fc;
+  color: #7B7D7D;
+  /* color: #2f81fc; */
 }
 
 .tableHead {
@@ -1133,8 +1133,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .model-gradient-3 {
-  background: linear-gradient(to bottom right, #a03b00, #ffb108);
-  border: 2px solid rgb(255, 136, 0);
+  background: linear-gradient(to bottom right, #3f220a, #fcdba9);
+  border: 2px solid rgb(146, 102, 36);
 }
 
 .model-gradient-4 {
@@ -1143,8 +1143,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .model-gradient-5 {
-  background: linear-gradient(to bottom right, #3f220a, #fcdba9);
-  border: 2px solid rgb(146, 102, 36);
+  background: linear-gradient(to bottom right, #a03b00, #ffb108);
+  border: 2px solid rgb(255, 136, 0);
 }
 
 .model-gradient-6 {

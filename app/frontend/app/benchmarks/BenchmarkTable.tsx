@@ -13,6 +13,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
 
   const gpuProductInfo: GpuInfoProps = gpuInfo;
   const cpuProductInfo: CpuInfoProps = cpuInfo;
+
+  // TODO: DELETE CSSNAME AND GRADIENT BACKGROUND DIV
   return (
     <>
       <div className="benchmark-table-container">
@@ -80,9 +82,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                     <tr key={key}>
                       <td>
                         <strong>
-                          <div className={`model-background ${cssName}`}>
+                          {/* <div className={`model-background ${cssName}`}>
                             {key}
-                          </div>
+                          </div> */}
+                          {key}
                         </strong>
                       </td>
                       <td className={`text-color-tier-${gpuTier}`}>
@@ -126,9 +129,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                       <tr key={key}>
                         <td>
                           <strong>
-                            <div className={`model-background ${cssName}-g`}>
+                            {/* <div className={`model-background ${cssName}-g`}>
                               {key}
-                            </div>
+                            </div> */}
+                            {key}
                           </strong>
                         </td>
                         <td className={`text-color-tier-${cpuGamingTier}`}>
@@ -173,9 +177,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                       <tr key={key}>
                         <td>
                           <strong>
-                            <div className={`model-background ${cssName}-n`}>
+                            {/* <div className={`model-background ${cssName}-n`}>
                               {key}
-                            </div>
+                            </div> */}
+                            {key}
                           </strong>
                         </td>
                         <td className={`text-color-tier-${cpuNormalTier}`}>
