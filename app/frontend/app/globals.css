@@ -1128,28 +1128,28 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .model-gradient-3 {
+  background: linear-gradient(to bottom right, #a03b00, #ffb108);
+  border: 2px solid rgb(255, 136, 0);
+}
+
+.model-gradient-4 {
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
   border: 2px solid rgb(79, 230, 112);
 }
 
-.model-gradient-4 {
-  background: linear-gradient(to bottom right, #7c792a, #F7F477);
-  border: 2px solid rgb(255, 253, 109);
-}
-
 .model-gradient-5 {
-  background: linear-gradient(to bottom right, #e71968, #ffa9ad);
-  border: 2px solid rgb(255, 124, 153);
-}
-
-.model-gradient-6 {
   background: linear-gradient(to bottom right, #3f220a, #fcdba9);
   border: 2px solid rgb(146, 102, 36);
 }
 
+.model-gradient-6 {
+  background: linear-gradient(to bottom right, #e71968, #ffa9ad);
+  border: 2px solid rgb(255, 124, 153);
+}
+
 .model-gradient-7 {
-  background: linear-gradient(to bottom right, #a03b00, #ffb108);
-  border: 2px solid rgb(255, 136, 0);
+  background: linear-gradient(to bottom right, #7c792a, #F7F477);
+  border: 2px solid rgb(255, 253, 109);
 }
 
 .model-gradient-8 {
