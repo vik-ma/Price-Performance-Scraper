@@ -105,7 +105,7 @@ def validate_fetch_request(serializer_data):
     if fetch_type == "GPU" and len(product_list) > 5:
         raise serializers.ValidationError("product_list too long")
 
-    if (fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal") and len(product_list) > 11:
+    if (fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal") and len(product_list) > 10:
         raise serializers.ValidationError("product_list too long")
 
     if fetch_type == "GPU":
