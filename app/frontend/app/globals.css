@@ -202,10 +202,10 @@ h4 {
 }
 
 .benchmark-legend {
-  width: 150px;
+  width: 160px;
   margin-top: 20px;
-  margin-left: 10px;
-  padding: 12px;
+  margin-left: 15px;
+  padding: 17px;
   padding-top: 5px;
   border-radius: 20px;
   height: fit-content;
@@ -214,16 +214,12 @@ h4 {
 }
 
 .legend-list {
-  padding: 0 6px;
+  padding: 0 7px;
 }
 
 @media (max-width: 50em){
-  .benchmark-table-content {
-    padding: 15px 0px 10px;
-  }
-
   .benchmark-legend {
-    margin-left: 5px;
+    display: none;
   }
 }
 
