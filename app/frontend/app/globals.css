@@ -509,8 +509,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .model-background {
-  border-radius: 14px;
-  padding: 5px 8px;
+  border-radius: 20px;
+  padding: 2px 9px;
   margin: -5px;
   text-align: center;
   color: white;
