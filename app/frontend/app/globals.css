@@ -230,6 +230,7 @@ h4 {
 
 .tableHead {
   color:#e1e6eb;
+  padding-top: 0px;
 }
 
 /* +9 -10 -15 */
@@ -1162,4 +1163,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   border: 2px solid rgb(96, 231, 255);
 }
 
-
+.color-toggle-container {
+  margin-top: 15px;
+  color: white;
+}

@@ -8,7 +8,7 @@ import {
   ProductTableSortProps,
   TableHeadingProps,
   CpuInfoProps,
-  NumberMap
+  NumberMap,
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
 import { cpuInfo } from "@/app/ProductInfo";
@@ -84,13 +84,15 @@ export default function CpuListingsTable({
 
   const benchmarkType: string =
     fetchInfo.benchmarkType === "CPU-Gaming" ? "-g" : "-n";
-   
+
   const modelColor: NumberMap = fetchInfo.productList
     .split(", ")
     .reduce((acc, cur, idx) => {
       acc[cur] = idx;
       return acc;
     }, {} as NumberMap);
+
+  const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
 
   return (
     <>
@@ -124,6 +126,14 @@ export default function CpuListingsTable({
           ))}
         </div>
       </details>
+      <div className="color-toggle-container">
+        <input
+          type="checkbox"
+          checked={colorCodingEnabled}
+          onChange={() => setColorCodingEnabled(!colorCodingEnabled)}
+        />
+        <label htmlFor="colorCodingEnabled">Enable color coding for different CPU models</label>
+      </div>
       <table role="grid">
         <thead>
           <tr>
@@ -179,15 +189,15 @@ export default function CpuListingsTable({
               //   cpuProductInfo[listing.productCategory] as { cssName: string }
               // )?.cssName;
               // TODO: DELETE LATER
-              const colorNum: number = (
-                modelColor[listing.productCategory] as number
-              );
+              const colorNum: number = modelColor[
+                listing.productCategory
+              ] as number;
               return (
                 <tr key={index}>
                   <td className="nowrap">
                     <strong>
                       <div
-                        className={`model-background model-gradient-${colorNum}`}
+                        className={colorCodingEnabled ? `model-background model-gradient-${colorNum}` : ""}
                       >
                         {listing.productCategory}
                       </div>

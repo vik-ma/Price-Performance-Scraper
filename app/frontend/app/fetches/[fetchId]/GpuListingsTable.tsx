@@ -8,6 +8,7 @@ import {
   ProductTableSortProps,
   TableHeadingProps,
   GpuInfoProps,
+  NumberMap,
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
 import { gpuInfo } from "@/app/ProductInfo";
@@ -86,6 +87,15 @@ export default function GpuListingsTable({
 
   const gpuProductInfo: GpuInfoProps = gpuInfo;
 
+  const modelColor: NumberMap = fetchInfo.productList
+    .split(", ")
+    .reduce((acc, cur, idx) => {
+      acc[cur] = idx;
+      return acc;
+    }, {} as NumberMap);
+
+  const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
+
   return (
     <>
       <details>
@@ -118,6 +128,16 @@ export default function GpuListingsTable({
           ))}
         </div>
       </details>
+      <div className="color-toggle-container">
+        <input
+          type="checkbox"
+          checked={colorCodingEnabled}
+          onChange={() => setColorCodingEnabled(!colorCodingEnabled)}
+        />
+        <label htmlFor="colorCodingEnabled">
+          Enable color coding for different GPU models
+        </label>
+      </div>
       <table role="grid">
         <thead>
           <tr>
@@ -169,9 +189,13 @@ export default function GpuListingsTable({
                 ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
                   pprNumColors
               );
-              const cssName: string = (
-                gpuProductInfo[listing.productCategory] as { cssName: string }
-              )?.cssName;
+              // const cssName: string = (
+              //   gpuProductInfo[listing.productCategory] as { cssName: string }
+              // )?.cssName;
+              // TODO: DELETE LATER
+              const colorNum: number = modelColor[
+                listing.productCategory
+              ] as number;
               return (
                 <tr key={index}>
                   <td>
@@ -201,7 +225,9 @@ export default function GpuListingsTable({
                   )}{" "}
                   <td className="nowrap">
                     <strong>
-                      <div className={`model-background ${cssName}`}>
+                      <div
+                        className={colorCodingEnabled ? `model-background model-gradient-${colorNum}` : ""}
+                      >
                         {listing.productCategory}
                       </div>
                     </strong>
