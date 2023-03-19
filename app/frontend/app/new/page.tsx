@@ -55,7 +55,7 @@ export default function New() {
   const handleClickStartPriceFetch = async () => {
     const data = {
       fetch_type: "CPU-Gaming",
-      product_list: "AMD Ryzen 9 7900X,Intel Core i7-13700K",
+      product_list: "AMD Ryzen 9 7900X,Intel Core i7-13700K,AMD Ryzen 7 5800X3D",
     };
     setLoading(true);
     try {

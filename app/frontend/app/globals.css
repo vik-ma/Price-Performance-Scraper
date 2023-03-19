@@ -131,6 +131,7 @@ h4 {
 }
 
 .benchmark-table-container {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -179,8 +180,6 @@ h4 {
   background: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%) !important;
 }
 
-
-
 .benchmark-table-content-tabs {
   flex-grow : 1;
 }
@@ -196,6 +195,36 @@ h4 {
 
 .benchmark-table-active-content {
   display: block;
+}
+
+.benchmark-wrapper {
+  display: flex;
+}
+
+.benchmark-legend {
+  width: 150px;
+  margin-top: 20px;
+  margin-left: 10px;
+  padding: 12px;
+  padding-top: 5px;
+  border-radius: 20px;
+  height: fit-content;
+  border: 2px solid #458fff;
+  box-shadow: 0 0 10px #458fff;
+}
+
+.legend-list {
+  padding: 0 6px;
+}
+
+@media (max-width: 50em){
+  .benchmark-table-content {
+    padding: 15px 0px 10px;
+  }
+
+  .benchmark-legend {
+    margin-left: 5px;
+  }
 }
 
 .text-color-tier-1 {

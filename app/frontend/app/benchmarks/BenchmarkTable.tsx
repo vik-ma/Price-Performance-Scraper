@@ -16,7 +16,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
 
   // TODO: DELETE CSSNAME AND GRADIENT BACKGROUND DIV
   return (
-    <>
+    <div className="benchmark-wrapper">
       <div className="benchmark-table-container">
         <div className="benchmark-table-tabs-container">
           <div
@@ -195,6 +195,20 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
           </div>
         </div>
       </div>
-    </>
+      <div className="benchmark-legend">
+        <h2>Legend</h2>
+        <ul className="legend-list">
+          <strong>
+            <li className="text-color-tier-1">Tier 1</li>
+            <li className="text-color-tier-2">Tier 2</li>
+            <li className="text-color-tier-3">Tier 3</li>
+            <li className="text-color-tier-4">Tier 4</li>
+            <li className="text-color-tier-5">Tier 5</li>
+            <li className="text-color-tier-6">Tier 6</li>
+            <li className="text-color-tier-7">Tier 7</li>
+          </strong>
+        </ul>
+      </div>
+    </div>
   );
 }
