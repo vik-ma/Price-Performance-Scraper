@@ -1098,7 +1098,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .amd-7900-n {
-  background: linear-gradient(to bottom right, #F7F477, #7c792a);
+  background: linear-gradient(to bottom right, #e4e268, #7c792a);
   border: 2px solid rgb(255, 253, 109);
 }
 
@@ -1112,29 +1112,54 @@ table[role=grid] tbody tr:nth-child(odd) {
   border: 2px solid rgb(255, 253, 109);
 }
 
-.test-bg-1 {
-  background: linear-gradient(to bottom right, #000000, #F7F477);
+.model-gradient-0 {
+  background: linear-gradient(to bottom right, #1aabee, #dcfdff);
+  border: 2px solid rgb(96, 231, 255);
+}
+
+.model-gradient-1 {
+  background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
+  border: 2px solid rgb(79, 230, 112);
+}
+
+.model-gradient-2 {
+  background: linear-gradient(to bottom right, #3f220a, #fcdba9);
+  border: 2px solid rgb(146, 102, 36);
+}
+
+.model-gradient-3 {
+  background: linear-gradient(to bottom right, #7c792a, #F7F477);
   border: 2px solid rgb(255, 253, 109);
 }
 
-.test-bg-2 {
-  background: linear-gradient(to bottom right, #000000, #ffb108);
+.model-gradient-4 {
+  background: linear-gradient(to bottom right, #a03b00, #ffb108);
   border: 2px solid rgb(255, 136, 0);
 }
 
-.test-bg-3 {
-  
+.model-gradient-5 {
+  background: linear-gradient(to bottom right, #7c011a, #f23a43);
+  border: 2px solid rgb(250, 22, 22);
 }
 
-.test-bg-4 {
-  background: linear-gradient(to bottom right, #9e5a00, #ffd61f);
-  border: 2px solid rgb(223, 121, 4);
+.model-gradient-6 {
+  background: linear-gradient(to bottom right, #e71968, #ffa9ad);
+  border: 2px solid rgb(255, 124, 153);
 }
 
-.test-bg-5 {
-  
+.model-gradient-7 {
+  background: linear-gradient(to bottom right, #942cc4, #d89af1);
+  border: 2px solid rgb(246, 142, 255);
 }
 
-.test-bg-6 {
-  
+.model-gradient-8 {
+  background: linear-gradient(to bottom right, #300888, #7f35c4);
+  border: 2px solid rgb(147, 52, 255);
 }
+
+.model-gradient-9 {
+  background: linear-gradient(to bottom right, #1722c0, #69bcf3);
+  border: 2px solid rgb(36, 131, 255);
+}
+
+

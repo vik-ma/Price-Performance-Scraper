@@ -29,12 +29,80 @@ export default async function Home() {
         <div className="padding-top: 3em">
           <Link href="/fetches">View Completed Fetches</Link>
         </div>
-        <div className="model-background test-bg-1"><strong>TEST</strong></div>
-        <div className="model-background test-bg-2"><strong>TEST</strong></div>
-        <div className="model-background test-bg-3"><strong>TEST</strong></div>
-        <div className="model-background test-bg-4"><strong>TEST</strong></div>
-        <div className="model-background test-bg-5"><strong>TEST</strong></div>
-        <div className="model-background test-bg-6"><strong>TEST</strong></div>
+        <table>
+          <tbody>
+          <tr>
+              <td>
+                <div className="model-background model-gradient-0">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-1">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-2">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-3">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-4">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-5">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-6">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-7">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-8">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div className="model-background model-gradient-9">
+                  <strong>TEST</strong>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
         {/* <p className="test-color-0"><strong>TEST</strong></p>
         <p className="test-color-1"><strong>TEST</strong></p>
         <p className="test-color-2"><strong>TEST</strong></p>
