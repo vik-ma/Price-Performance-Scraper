@@ -75,9 +75,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 {Object.entries(benchmarks["GPU"]).map(([key, value]) => {
                   const gpuTier = (gpuProductInfo[key] as { tier: string })
                     ?.tier;
-                  const cssName: string = (
-                    gpuProductInfo[key] as { cssName: string }
-                  )?.cssName;
+                  // const cssName: string = (
+                  //   gpuProductInfo[key] as { cssName: string }
+                  // )?.cssName;
                   return (
                     <tr key={key}>
                       <td>
@@ -122,9 +122,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                     const cpuGamingTier = (
                       cpuProductInfo[key] as { gamingTier: string }
                     )?.gamingTier;
-                    const cssName: string = (
-                      cpuProductInfo[key] as { cssName: string }
-                    )?.cssName;
+                    // const cssName: string = (
+                    //   cpuProductInfo[key] as { cssName: string }
+                    // )?.cssName;
                     return (
                       <tr key={key}>
                         <td>
@@ -170,9 +170,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                     const cpuNormalTier = (
                       cpuProductInfo[key] as { normalTier: string }
                     )?.normalTier;
-                    const cssName: string = (
-                      cpuProductInfo[key] as { cssName: string }
-                    )?.cssName;
+                    // const cssName: string = (
+                    //   cpuProductInfo[key] as { cssName: string }
+                    // )?.cssName;
                     return (
                       <tr key={key}>
                         <td>

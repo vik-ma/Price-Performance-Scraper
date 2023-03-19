@@ -55,7 +55,8 @@ export default function New() {
   const handleClickStartPriceFetch = async () => {
     const data = {
       fetch_type: "CPU-Gaming",
-      product_list: "AMD Ryzen 9 7900X,Intel Core i7-13700K,AMD Ryzen 7 5800X3D",
+      product_list:
+        "AMD Ryzen 9 7900X,Intel Core i7-13700K,AMD Ryzen 7 5800X3D",
     };
     setLoading(true);
     try {
@@ -83,11 +84,86 @@ export default function New() {
   const [postReturn, setPostReturn] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
+  const [tabIndex, setTabIndex] = useState(1);
+
+  const toggleTab = (index: number) => {
+    setTabIndex(index);
+  };
+
   return (
     <>
       <h1>NEW</h1>
-      <button onClick={handleClickTest} className="secondary">TEST POST</button>
-      <button onClick={handleClickStartPriceFetch} className="secondary">START PRICE FETCH</button>
+      <h2>Choose Benchmark Type</h2>
+      <div className="benchmark-table-container">
+        <div className="benchmark-table-tabs-container">
+          <div
+            className={
+              tabIndex === 1
+                ? "benchmark-table-tabs benchmark-table-active-tabs"
+                : "benchmark-table-tabs"
+            }
+            onClick={() => toggleTab(1)}
+          >
+            <strong>GPU</strong>
+          </div>
+          <div
+            className={
+              tabIndex === 2
+                ? "benchmark-table-tabs benchmark-table-active-tabs"
+                : "benchmark-table-tabs"
+            }
+            onClick={() => toggleTab(2)}
+          >
+            <strong>CPU (Gaming)</strong>
+          </div>
+          <div
+            className={
+              tabIndex === 3
+                ? "benchmark-table-tabs benchmark-table-active-tabs"
+                : "benchmark-table-tabs"
+            }
+            onClick={() => toggleTab(3)}
+          >
+            <strong>CPU (Multi-threading)</strong>
+          </div>
+        </div>
+        <div className="benchmark-table-content-tabs">
+          <div
+            className={
+              tabIndex === 1
+                ? "benchmark-table-content benchmark-table-active-content"
+                : "benchmark-table-content"
+            }
+          >
+            <h2>GPU</h2>
+          </div>
+          <div
+            className={
+              tabIndex === 2
+                ? "benchmark-table-content benchmark-table-active-content"
+                : "benchmark-table-content"
+            }
+          >
+            <h2>CPU (Gaming Performance)</h2>
+          </div>
+          <div
+            className={
+              tabIndex === 3
+                ? "benchmark-table-content benchmark-table-active-content"
+                : "benchmark-table-content"
+            }
+          >
+            <h2>CPU (Multi-threaded Performance)</h2>
+          </div>
+        </div>
+      </div>
+      <br />
+      <button onClick={handleClickTest} className="secondary">
+        TEST POST
+      </button>
+      <button onClick={handleClickStartPriceFetch} className="secondary">
+        START PRICE FETCH
+      </button>
       {loading ? (
         <div>
           <progress></progress>
