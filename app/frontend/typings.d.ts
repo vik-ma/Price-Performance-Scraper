@@ -68,3 +68,7 @@ export type CpuInfoProps = {
     cssName: string;
   };
 };
+
+export interface NumberMap {
+  [key: string]: number;
+}

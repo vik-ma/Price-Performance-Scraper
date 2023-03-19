@@ -8,6 +8,7 @@ import {
   ProductTableSortProps,
   TableHeadingProps,
   CpuInfoProps,
+  NumberMap
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
 import { cpuInfo } from "@/app/ProductInfo";
@@ -83,6 +84,13 @@ export default function CpuListingsTable({
 
   const benchmarkType: string =
     fetchInfo.benchmarkType === "CPU-Gaming" ? "-g" : "-n";
+   
+  const modelColor: NumberMap = fetchInfo.productList
+    .split(", ")
+    .reduce((acc, cur, idx) => {
+      acc[cur] = idx;
+      return acc;
+    }, {} as NumberMap);
 
   return (
     <>
@@ -167,14 +175,20 @@ export default function CpuListingsTable({
                 ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
                   pprNumColors
               );
-              const cssName: string = (
-                cpuProductInfo[listing.productCategory] as { cssName: string }
-              )?.cssName;
+              // const cssName: string = (
+              //   cpuProductInfo[listing.productCategory] as { cssName: string }
+              // )?.cssName;
+              // TODO: DELETE LATER
+              const colorNum: number = (
+                modelColor[listing.productCategory] as number
+              );
               return (
                 <tr key={index}>
                   <td className="nowrap">
                     <strong>
-                      <div className={`model-background ${cssName}${benchmarkType}`}>
+                      <div
+                        className={`model-background model-gradient-${colorNum}`}
+                      >
                         {listing.productCategory}
                       </div>
                     </strong>

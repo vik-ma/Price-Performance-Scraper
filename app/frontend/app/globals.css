@@ -1113,53 +1113,53 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .model-gradient-0 {
-  background: linear-gradient(to bottom right, #1aabee, #dcfdff);
-  border: 2px solid rgb(96, 231, 255);
+  background: linear-gradient(to bottom right, #1722c0, #69bcf3);
+  border: 2px solid rgb(36, 131, 255);
 }
 
 .model-gradient-1 {
-  background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
-  border: 2px solid rgb(79, 230, 112);
-}
-
-.model-gradient-2 {
-  background: linear-gradient(to bottom right, #3f220a, #fcdba9);
-  border: 2px solid rgb(146, 102, 36);
-}
-
-.model-gradient-3 {
-  background: linear-gradient(to bottom right, #7c792a, #F7F477);
-  border: 2px solid rgb(255, 253, 109);
-}
-
-.model-gradient-4 {
-  background: linear-gradient(to bottom right, #a03b00, #ffb108);
-  border: 2px solid rgb(255, 136, 0);
-}
-
-.model-gradient-5 {
-  background: linear-gradient(to bottom right, #7c011a, #f23a43);
-  border: 2px solid rgb(250, 22, 22);
-}
-
-.model-gradient-6 {
-  background: linear-gradient(to bottom right, #e71968, #ffa9ad);
-  border: 2px solid rgb(255, 124, 153);
-}
-
-.model-gradient-7 {
-  background: linear-gradient(to bottom right, #942cc4, #d89af1);
-  border: 2px solid rgb(246, 142, 255);
-}
-
-.model-gradient-8 {
   background: linear-gradient(to bottom right, #300888, #7f35c4);
   border: 2px solid rgb(147, 52, 255);
 }
 
+.model-gradient-2 {
+  background: linear-gradient(to bottom right, #7c011a, #f23a43);
+  border: 2px solid rgb(250, 22, 22);
+}
+
+.model-gradient-3 {
+  background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
+  border: 2px solid rgb(79, 230, 112);
+}
+
+.model-gradient-4 {
+  background: linear-gradient(to bottom right, #7c792a, #F7F477);
+  border: 2px solid rgb(255, 253, 109);
+}
+
+.model-gradient-5 {
+  background: linear-gradient(to bottom right, #e71968, #ffa9ad);
+  border: 2px solid rgb(255, 124, 153);
+}
+
+.model-gradient-6 {
+  background: linear-gradient(to bottom right, #3f220a, #fcdba9);
+  border: 2px solid rgb(146, 102, 36);
+}
+
+.model-gradient-7 {
+  background: linear-gradient(to bottom right, #a03b00, #ffb108);
+  border: 2px solid rgb(255, 136, 0);
+}
+
+.model-gradient-8 {
+  background: linear-gradient(to bottom right, #942cc4, #d89af1);
+  border: 2px solid rgb(246, 142, 255);
+}
+
 .model-gradient-9 {
-  background: linear-gradient(to bottom right, #1722c0, #69bcf3);
-  border: 2px solid rgb(36, 131, 255);
+  background: linear-gradient(to bottom right, #1aabee, #dcfdff);
+  border: 2px solid rgb(96, 231, 255);
 }
 
 
