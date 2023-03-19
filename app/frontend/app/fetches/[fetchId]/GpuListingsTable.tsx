@@ -196,6 +196,11 @@ export default function GpuListingsTable({
               const colorNum: number = modelColor[
                 listing.productCategory
               ] as number;
+              const tierColor = (
+                gpuProductInfo[listing.productCategory] as {
+                  tier: string;
+                }
+              )?.tier;
               return (
                 <tr key={index}>
                   <td>
@@ -226,16 +231,20 @@ export default function GpuListingsTable({
                   <td className="nowrap">
                     <strong>
                       <div
-                        className={colorCodingEnabled ? `model-background model-gradient-${colorNum}` : ""}
+                        className={
+                          colorCodingEnabled
+                            ? `model-background model-gradient-${colorNum}`
+                            : ""
+                        }
                       >
                         {listing.productCategory}
                       </div>
                     </strong>
                   </td>{" "}
-                  <td>
+                  <td className={`text-color-tier-${tierColor}`}>
                     <strong>{listing.benchmarkValue}</strong>
                   </td>{" "}
-                  <td className="nowrap">
+                  <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
                   </td>{" "}
                   <td className={`ppr-color-${pprTextColor}`}>

@@ -83,7 +83,7 @@ export default function CpuListingsTable({
   const cpuProductInfo: CpuInfoProps = cpuInfo;
 
   const benchmarkType: string =
-    fetchInfo.benchmarkType === "CPU-Gaming" ? "-g" : "-n";
+    fetchInfo.benchmarkType === "CPU-Gaming" ? "gamingTier" : "normalTier";
 
   const modelColor: NumberMap = fetchInfo.productList
     .split(", ")
@@ -132,7 +132,9 @@ export default function CpuListingsTable({
           checked={colorCodingEnabled}
           onChange={() => setColorCodingEnabled(!colorCodingEnabled)}
         />
-        <label htmlFor="colorCodingEnabled">Enable color coding for different CPU models</label>
+        <label htmlFor="colorCodingEnabled">
+          Enable color coding for different CPU models
+        </label>
       </div>
       <table role="grid">
         <thead>
@@ -192,12 +194,21 @@ export default function CpuListingsTable({
               const colorNum: number = modelColor[
                 listing.productCategory
               ] as number;
+              const tierColor = (
+                cpuProductInfo[listing.productCategory] as {
+                  [key: string]: string;
+                }
+              )?.[benchmarkType];
               return (
                 <tr key={index}>
                   <td className="nowrap">
                     <strong>
                       <div
-                        className={colorCodingEnabled ? `model-background model-gradient-${colorNum}` : ""}
+                        className={
+                          colorCodingEnabled
+                            ? `model-background model-gradient-${colorNum}`
+                            : ""
+                        }
                       >
                         {listing.productCategory}
                       </div>
@@ -225,10 +236,10 @@ export default function CpuListingsTable({
                       </strong>
                     </td>
                   )}{" "}
-                  <td>
+                  <td className={`text-color-tier-${tierColor}`}>
                     <strong>{listing.benchmarkValue}</strong>
                   </td>{" "}
-                  <td className="nowrap">
+                  <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
                   </td>{" "}
                   <td className={`ppr-color-${pprTextColor}`}>

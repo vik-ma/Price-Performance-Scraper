@@ -1167,3 +1167,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-top: 15px;
   color: white;
 }
+
+.price-cell {
+  color:white;
+}
