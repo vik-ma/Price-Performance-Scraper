@@ -483,8 +483,12 @@ details {
 }
 
 input[type="checkbox"]:checked {
-  background-color: #008ee0;
-  border-color: #00d9ff;
+  /* background-color: #008ee0;
+  border-color: #00d9ff; */
+  /* background-color: #2370ec;
+  border-color: #43aaff; */
+  background-color: #3279ec;
+  border-color: #6cbdff;
 }
 
 .nowrap {
