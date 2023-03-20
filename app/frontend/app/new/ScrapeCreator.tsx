@@ -16,10 +16,16 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const [selectedItems, setSelectedItems] = useState(new Set<string>([]));
 
-  const handleItemClick = (name: string) => {
-    setSelectedItems(
-      (prevSelectedItems) => new Set(prevSelectedItems.add(name))
-    );
+  const handleAddItemClick = (name: string) => {
+    setSelectedItems((prev) => new Set(prev.add(name)));
+  };
+
+  const handleRemoveItemClick = (name: string) => {
+    setSelectedItems((prev) => {
+      const newSelectedItems = new Set(prev);
+      newSelectedItems.delete(name);
+      return newSelectedItems;
+    });
   };
 
   return (
@@ -39,7 +45,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                 )
                 .map(([name, gpu]) => (
                   <li key={name}>
-                    <button onClick={() => handleItemClick(name)}>
+                    <button onClick={() => handleAddItemClick(name)}>
                       {name}
                     </button>
                   </li>
@@ -47,12 +53,18 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             </ul>
           </div>
         ))}
-        <h2>Selected Items</h2>
-        <ul>
-          {Array.from(selectedItems).map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
+        <div className="tiers-item">
+          <h2>Selected Items</h2>
+          <ul>
+            {Array.from(selectedItems).map((name) => (
+              <li key={name}>
+                <button onClick={() => handleRemoveItemClick(name)}>
+                  {name}
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );
