@@ -552,6 +552,18 @@ table[role=grid] tbody tr:nth-child(odd) {
        1px 1px 1px rgb(26, 26, 26);
 }
 
+.tiers-container {
+  padding: 0px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.tiers-title {
+  margin-top: 15px;
+  margin-bottom: 0px !important;
+}
+
 .rtx-4090 {
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
   border: 2px solid rgb(109, 255, 141);
