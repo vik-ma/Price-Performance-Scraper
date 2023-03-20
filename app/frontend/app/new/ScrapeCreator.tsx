@@ -3,6 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { ScrapeType } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
+import { GpuInfoProps, CpuInfoProps } from "@/typings";
 
 export default function ScrapeCreator(scrapeType: ScrapeType) {
   const scrapeTypeTitle: string =
@@ -28,6 +29,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     });
   };
 
+  const gpuProductInfo: GpuInfoProps = gpuInfo;
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
@@ -45,7 +47,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                 )
                 .map(([name, gpu]) => (
                   <li key={name}>
-                    <button onClick={() => handleAddItemClick(name)}>
+                    <button
+                      className={`background-color-tier-${tier}`}
+                      onClick={() => handleAddItemClick(name)}
+                    >
                       {name}
                     </button>
                   </li>
@@ -56,13 +61,19 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         <div className="tiers-item">
           <h2>Selected Items</h2>
           <ul>
-            {Array.from(selectedItems).map((name) => (
-              <li key={name}>
-                <button onClick={() => handleRemoveItemClick(name)}>
-                  {name}
-                </button>
-              </li>
-            ))}
+            {Array.from(selectedItems).map((name) => {
+              const tier = (gpuProductInfo[name] as { tier: string })?.tier;
+              return (
+                <li key={name}>
+                  <button
+                    className={`background-color-tier-${tier}`}
+                    onClick={() => handleRemoveItemClick(name)}
+                  >
+                    {name}
+                  </button>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>
