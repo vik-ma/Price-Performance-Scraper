@@ -18,8 +18,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       <h2>{scrapeTypeTitle}</h2>
       <div className="tiers-container">
         {Array.from(tiers).map((tier) => (
-          <div key={tier}>
-            <h3 className="tiers-title">Tier {tier}</h3>
+          <div className="tiers-item" key={tier}>
+            <h3 className={`tiers-title text-color-tier-${tier}`}>Tier {tier}</h3>
             <ul>
               {Object.entries(gpuInfo)
                 .filter(([name, gpu]) => gpu.tier === tier)

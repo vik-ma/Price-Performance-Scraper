@@ -553,15 +553,18 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .tiers-container {
-  padding: 0px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
 
+.tiers-item {
+  padding: 0 10px;
+}
+
 .tiers-title {
   margin-top: 15px;
-  margin-bottom: 0px !important;
+  margin-bottom: -5px !important;
 }
 
 .rtx-4090 {
