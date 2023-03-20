@@ -2,6 +2,8 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import ScrapeCreator from "./ScrapeCreator";
+import { ScrapeType } from "@/typings";
 
 async function testPostRequest(data = {}) {
   const response = await fetch(`http://localhost:8000/api/test_post/`, {
@@ -135,7 +137,7 @@ export default function New() {
                 : "benchmark-table-content"
             }
           >
-            <h2>GPU</h2>
+            <ScrapeCreator name={"GPU"} />
           </div>
           <div
             className={
@@ -144,7 +146,7 @@ export default function New() {
                 : "benchmark-table-content"
             }
           >
-            <h2>CPU (Gaming Performance)</h2>
+            <ScrapeCreator name={"CPU-Gaming"} />
           </div>
           <div
             className={
@@ -153,7 +155,7 @@ export default function New() {
                 : "benchmark-table-content"
             }
           >
-            <h2>CPU (Multi-threaded Performance)</h2>
+            <ScrapeCreator name={"CPU-Normal"} />
           </div>
         </div>
       </div>

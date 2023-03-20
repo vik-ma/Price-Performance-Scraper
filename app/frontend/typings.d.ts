@@ -72,3 +72,7 @@ export type CpuInfoProps = {
 export interface NumberMap {
   [key: string]: number;
 }
+
+export type ScrapeType = {
+  name: "GPU" | "CPU-Gaming" | "CPU-Normal";
+}
