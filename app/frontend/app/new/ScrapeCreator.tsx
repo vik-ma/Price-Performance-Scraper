@@ -22,8 +22,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     );
   };
 
-
-
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
@@ -36,7 +34,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             </h3>
             <ul>
               {Object.entries(gpuInfo)
-                .filter(([name, gpu]) => gpu.tier === tier && !selectedItems.has(name))
+                .filter(
+                  ([name, gpu]) => gpu.tier === tier && !selectedItems.has(name)
+                )
                 .map(([name, gpu]) => (
                   <li key={name}>
                     <button onClick={() => handleItemClick(name)}>
@@ -49,7 +49,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         ))}
         <h2>Selected Items</h2>
         <ul>
-          {[...selectedItems].map((item) => (
+          {Array.from(selectedItems).map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
