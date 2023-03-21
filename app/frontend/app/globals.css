@@ -1250,12 +1250,12 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .clear-items-button {
   display: inline-block;
-  margin-left: 15px;
+  margin-left: 12px;
   width: fit-content;
   height: fit-content;
-  padding: 0px 20px 2px;
+  padding: 0px 17px 2px;
   border: 2px solid rgba(233, 233, 233, 0.781);
-  border-radius: 10px;
+  border-radius: 12px;
   font-size: larger;
   background: rgba(128, 128, 128, 0.13);
   color:rgb(225, 230, 235);
