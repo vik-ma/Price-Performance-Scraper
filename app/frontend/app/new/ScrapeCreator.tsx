@@ -31,6 +31,12 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     });
   };
 
+  const handleClickClearItems = () => {
+    if (selectedItems.size > 0) {
+      setSelectedItems(new Set<string>([]));
+    }
+  };
+
   const gpuProductInfo: GpuInfoProps = gpuInfo;
 
   const gpuSetLimit: number = 5;
@@ -42,7 +48,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         <h2 className="selected-items-heading">
           Selected Items ({selectedItems.size}/{gpuSetLimit})
         </h2>
-        <button className="clear-items-button"><strong>Clear</strong></button>
+        <button className="clear-items-button" onClick={handleClickClearItems}>
+          <strong>Clear All</strong>
+        </button>
         <ul>
           {Array.from(selectedItems).map((name) => {
             const tier = (gpuProductInfo[name] as { tier: string })?.tier;

@@ -1253,7 +1253,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-left: 15px;
   width: fit-content;
   height: fit-content;
-  padding: 0px 18px 2px;
+  padding: 0px 20px 2px;
   border: 2px solid rgba(233, 233, 233, 0.781);
   border-radius: 10px;
   font-size: larger;
@@ -1266,8 +1266,4 @@ table[role=grid] tbody tr:nth-child(odd) {
   background: rgba(128, 128, 128, 0.623);
   color: white;
   border: 2px solid white;
-}
-
-.selected-items-container {
-
 }
