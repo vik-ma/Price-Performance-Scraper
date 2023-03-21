@@ -1243,3 +1243,31 @@ table[role=grid] tbody tr:nth-child(odd) {
 .price-cell {
   color:white;
 }
+
+.selected-items-heading {
+  display: inline-block;
+}
+
+.clear-items-button {
+  display: inline-block;
+  margin-left: 15px;
+  width: fit-content;
+  height: fit-content;
+  padding: 0px 18px 2px;
+  border: 2px solid rgba(233, 233, 233, 0.781);
+  border-radius: 10px;
+  font-size: larger;
+  background: rgba(128, 128, 128, 0.13);
+  color:rgb(225, 230, 235);
+  word-break: normal;
+}
+
+.clear-items-button:hover {
+  background: rgba(128, 128, 128, 0.623);
+  color: white;
+  border: 2px solid white;
+}
+
+.selected-items-container {
+
+}

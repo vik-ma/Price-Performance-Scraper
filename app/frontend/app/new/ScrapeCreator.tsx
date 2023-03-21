@@ -34,12 +34,15 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const gpuProductInfo: GpuInfoProps = gpuInfo;
 
   const gpuSetLimit: number = 5;
-  
+
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
-      <div className="tiers-item">
-        <h2>Selected Items ({selectedItems.size}/{gpuSetLimit})</h2>
+      <div className="selected-items-container">
+        <h2 className="selected-items-heading">
+          Selected Items ({selectedItems.size}/{gpuSetLimit})
+        </h2>
+        <button className="clear-items-button"><strong>Clear</strong></button>
         <ul>
           {Array.from(selectedItems).map((name) => {
             const tier = (gpuProductInfo[name] as { tier: string })?.tier;
