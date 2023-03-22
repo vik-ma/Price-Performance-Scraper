@@ -75,9 +75,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const tiersArray: string[] = Array.from(tiers);
   tiersArray.sort();
 
-  const sortedTiers = new Set(tiersArray);
-
-  console.log(sortedTiers);
+  const sortedTiers: Set<string> = new Set(tiersArray);
 
   const [selectedItems, setSelectedItems] = useState(new Set<string>([]));
 
@@ -172,11 +170,16 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </button>
         <ul>
           {Array.from(selectedItems).map((name) => {
-            const tier = (productInfo[name] as { tier: string })?.tier;
+            const productTier =
+              scrapeType.name === "CPU-Gaming"
+                ? (productInfo[name] as { gamingTier: string })?.gamingTier
+                : scrapeType.name === "CPU-Normal"
+                ? (productInfo[name] as { normalTier: string })?.normalTier
+                : (productInfo[name] as { tier: string })?.tier;
             return (
               <li key={name}>
                 <button
-                  className={`background-color-tier-${tier}`}
+                  className={`background-color-tier-${productTier}`}
                   onClick={() => handleRemoveItemClick(name)}
                 >
                   {name}
