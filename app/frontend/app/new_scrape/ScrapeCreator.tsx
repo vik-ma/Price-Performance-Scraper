@@ -32,32 +32,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     return cpuInfo as CpuInfoProps;
   };
 
-  // const gpuProductInfo: GpuInfoProps = gpuInfo;
-  // const cpuProductInfo: CpuInfoProps = cpuInfo;
-
   const productInfo = getProductInfo();
 
   const productLimit: number = scrapeType.name === "GPU" ? 5 : 10;
-
-  // const getTiers = () => {
-  //   if (scrapeType.name === "CPU-Gaming") {
-  //     return new Set(Object.values(productInfo).map((product) => product.tier));
-  //   }
-  // };
-
-  // const tiers = new Set(Object.values(gpuInfo).map((gpu) => gpu.tier));
-
-  // const tiers = new Set(
-  //   Object.values(productInfo).map((product) =>
-  //   (product.gamingTier !== "") &&
-  //   (
-  //     scrapeType.name === "CPU-Gaming"
-  //       ? product.gamingTier
-  //       : scrapeType.name === "CPU-Normal"
-  //       ? product.normalTier
-  //       : product.tier
-  //   ))
-  // );
 
   const tiers: Set<string> = new Set();
   Object.values(productInfo).forEach((product) => {
@@ -74,8 +51,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const tiersArray: string[] = Array.from(tiers);
   tiersArray.sort();
-
-  const sortedTiers: Set<string> = new Set(tiersArray);
 
   const [selectedItems, setSelectedItems] = useState(new Set<string>([]));
 
