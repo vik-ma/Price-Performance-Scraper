@@ -27,7 +27,7 @@ async function startPriceFetch(data = {}) {
   return response.json();
 }
 
-export default function New() {
+export default function NewScrape() {
   const router = useRouter();
 
   const handleClickTest = async () => {
