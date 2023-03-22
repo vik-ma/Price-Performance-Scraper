@@ -583,7 +583,10 @@ table[role=grid] tbody tr:nth-child(odd) {
 .tiers-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
+  grid-template-rows: repeat(3, auto);
+  grid-auto-rows: auto;
+
 }
 
 .tiers-item {
