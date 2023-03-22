@@ -1275,4 +1275,18 @@ table[role=grid] tbody tr:nth-child(odd) {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;
+  margin: auto;
 }
+
+.error-msg-heading {
+  margin-bottom: 0px !important;
+}
+
+.error-msg-container {
+  background-color: #E74C3C;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 1px 30px 4px;
+  margin-bottom: 5px !important;
+}
+
