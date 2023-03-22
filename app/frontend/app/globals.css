@@ -1270,3 +1270,9 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: white;
   border: 2px solid white;
 }
+
+.horizontally-centered-container {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}

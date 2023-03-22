@@ -151,15 +151,21 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     <>
       <h2>{scrapeTypeTitle}</h2>
       {loading ? (
-        <div>
+        <div className="horizontally-centered-container ">
           <progress></progress>
+
           <h2>Scraping prices...</h2>
+
           <p>This process will take a few seconds.</p>
         </div>
       ) : (
         <button onClick={handleClickStartPriceFetch}>Start Price Scrape</button>
       )}
-      {showErrorMsg && <h2>{errorMsg}</h2>}
+      {showErrorMsg && (
+        <div className="horizontally-centered-container ">
+          <h2>{errorMsg}</h2>
+        </div>
+      )}
 
       <div className="selected-items-container">
         <h2 className="selected-items-heading">
