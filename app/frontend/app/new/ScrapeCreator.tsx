@@ -41,9 +41,23 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const gpuSetLimit: number = 5;
 
+  const createScrapePostBody = () => {
+    if (selectedItems.size > 0) {
+      const productList = Array.from(selectedItems).join(",");
+
+      const data = {
+        fetch_type: scrapeType.name,
+        product_list: productList,
+      };
+
+      console.log(data);
+    }
+  };
+
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
+      <button onClick={createScrapePostBody}>GET BODY</button>
       <div className="selected-items-container">
         <h2 className="selected-items-heading">
           Selected Items ({selectedItems.size}/{gpuSetLimit})
