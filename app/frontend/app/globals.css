@@ -1283,10 +1283,10 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .error-msg-container {
-  background-color: #E74C3C;
+  background-color: #e73c4a;
   border-radius: 20px;
   width: fit-content;
-  padding: 1px 30px 4px;
+  padding: 1px 20px 4px;
   margin-bottom: 5px !important;
 }
 

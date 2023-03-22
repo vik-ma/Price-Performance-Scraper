@@ -1,10 +1,11 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { ScrapeType } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
 import { GpuInfoProps, CpuInfoProps } from "@/typings";
 import { useRouter } from "next/navigation";
+import { LoadingScrapeContext } from "./page";
 
 async function startPriceFetch(data = {}) {
   const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
@@ -87,8 +88,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const router = useRouter();
 
+  const { loadingScrape, setLoadingScrape } = useContext(LoadingScrapeContext);
+
   const [errorMsg, setErrorMsg] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
   const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
 
   const handleClickStartPriceFetch = async () => {
@@ -97,11 +99,11 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
       setShowErrorMsg(false);
       setErrorMsg("");
-      setLoading(true);
+      setLoadingScrape(true);
       try {
         const response = await startPriceFetch(data);
 
-        setLoading(false);
+        setLoadingScrape(false);
 
         if (response.hasOwnProperty("success")) {
           if (response.success) {
@@ -115,12 +117,12 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           setShowErrorMsg(true);
         }
       } catch {
-        setLoading(false);
+        setLoadingScrape(false);
         setErrorMsg(`Failed to communicate with server.`);
         setShowErrorMsg(true);
       }
     } else {
-      setErrorMsg("No items selected");
+      setErrorMsg("No product(s) selected");
       setShowErrorMsg(true);
     }
   };
@@ -128,7 +130,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
-      {loading ? (
+      {loadingScrape ? (
         <div className="horizontally-centered-container">
           <progress></progress>
 

@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useContext, createContext } from "react";
 import { useRouter } from "next/navigation";
 import ScrapeCreator from "./ScrapeCreator";
 import { ScrapeType } from "@/typings";
@@ -26,16 +26,26 @@ async function startPriceFetch(data = {}) {
   });
   return response.json();
 }
+interface LoadingScrapeContextType {
+  loadingScrape: boolean;
+  setLoadingScrape: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const LoadingScrapeContext =
+  React.createContext<LoadingScrapeContextType>({
+    loadingScrape: false,
+    setLoadingScrape: () => {},
+  });
 
 export default function NewScrape() {
   const router = useRouter();
 
   const handleClickTest = async () => {
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await testPostRequest({});
 
-      setLoading(false);
+      // setLoading(false);
 
       if (response.hasOwnProperty("success")) {
         if (response.success) {
@@ -49,7 +59,7 @@ export default function NewScrape() {
         setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
       }
     } catch {
-      setLoading(false);
+      // setLoading(false);
       setPostReturn(`Failed to communicate with server`);
     }
   };
@@ -60,11 +70,11 @@ export default function NewScrape() {
       product_list:
         "AMD Ryzen 9 7900X,Intel Core i7-13700K,AMD Ryzen 7 5800X3D",
     };
-    setLoading(true);
+    // setLoading(true);
     try {
       const response = await startPriceFetch(data);
 
-      setLoading(false);
+      // setLoading(false);
 
       if (response.hasOwnProperty("success")) {
         if (response.success) {
@@ -78,108 +88,105 @@ export default function NewScrape() {
         setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
       }
     } catch {
-      setLoading(false);
+      // setLoading(false);
       setPostReturn(`Failed to communicate with server`);
     }
   };
 
   const [postReturn, setPostReturn] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(false);
+
+  const [loadingScrape, setLoadingScrape] = useState<boolean>(false);
 
   const [tabIndex, setTabIndex] = useState(1);
 
   const toggleTab = (index: number) => {
-    setTabIndex(index);
+    if (!loadingScrape) {
+      setTabIndex(index);
+    }
   };
 
   return (
     <>
-      <h1>NEW</h1>
-      <h2>Choose Benchmark Type</h2>
-      <div className="benchmark-table-container">
-        <div className="benchmark-table-tabs-container">
-          <div
-            className={
-              tabIndex === 1
-                ? "benchmark-table-tabs benchmark-table-active-tabs"
-                : "benchmark-table-tabs"
-            }
-            onClick={() => toggleTab(1)}
-          >
-            <strong>GPU</strong>
+      <LoadingScrapeContext.Provider value={{ loadingScrape, setLoadingScrape }}>
+        <h1>NEW</h1>
+        <h2>Choose Benchmark Type</h2>
+        <div className="benchmark-table-container">
+          <div className="benchmark-table-tabs-container">
+            <div
+              className={
+                tabIndex === 1
+                  ? "benchmark-table-tabs benchmark-table-active-tabs"
+                  : "benchmark-table-tabs"
+              }
+              onClick={() => toggleTab(1)}
+            >
+              <strong>GPU</strong>
+            </div>
+            <div
+              className={
+                tabIndex === 2
+                  ? "benchmark-table-tabs benchmark-table-active-tabs"
+                  : "benchmark-table-tabs"
+              }
+              onClick={() => toggleTab(2)}
+            >
+              <strong>CPU (Gaming)</strong>
+            </div>
+            <div
+              className={
+                tabIndex === 3
+                  ? "benchmark-table-tabs benchmark-table-active-tabs"
+                  : "benchmark-table-tabs"
+              }
+              onClick={() => toggleTab(3)}
+            >
+              <strong>CPU (Multi-threading)</strong>
+            </div>
           </div>
-          <div
-            className={
-              tabIndex === 2
-                ? "benchmark-table-tabs benchmark-table-active-tabs"
-                : "benchmark-table-tabs"
-            }
-            onClick={() => toggleTab(2)}
-          >
-            <strong>CPU (Gaming)</strong>
-          </div>
-          <div
-            className={
-              tabIndex === 3
-                ? "benchmark-table-tabs benchmark-table-active-tabs"
-                : "benchmark-table-tabs"
-            }
-            onClick={() => toggleTab(3)}
-          >
-            <strong>CPU (Multi-threading)</strong>
+          <div className="benchmark-table-content-tabs">
+            <div
+              className={
+                tabIndex === 1
+                  ? "benchmark-table-content benchmark-table-active-content"
+                  : "benchmark-table-content"
+              }
+            >
+              <ScrapeCreator name={"GPU"} />
+            </div>
+            <div
+              className={
+                tabIndex === 2
+                  ? "benchmark-table-content benchmark-table-active-content"
+                  : "benchmark-table-content"
+              }
+            >
+              <ScrapeCreator name={"CPU-Gaming"} />
+            </div>
+            <div
+              className={
+                tabIndex === 3
+                  ? "benchmark-table-content benchmark-table-active-content"
+                  : "benchmark-table-content"
+              }
+            >
+              <ScrapeCreator name={"CPU-Normal"} />
+            </div>
           </div>
         </div>
-        <div className="benchmark-table-content-tabs">
-          <div
-            className={
-              tabIndex === 1
-                ? "benchmark-table-content benchmark-table-active-content"
-                : "benchmark-table-content"
-            }
-          >
-            <ScrapeCreator name={"GPU"} />
-          </div>
-          <div
-            className={
-              tabIndex === 2
-                ? "benchmark-table-content benchmark-table-active-content"
-                : "benchmark-table-content"
-            }
-          >
-            <ScrapeCreator name={"CPU-Gaming"} />
-          </div>
-          <div
-            className={
-              tabIndex === 3
-                ? "benchmark-table-content benchmark-table-active-content"
-                : "benchmark-table-content"
-            }
-          >
-            <ScrapeCreator name={"CPU-Normal"} />
-          </div>
-        </div>
-      </div>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <button onClick={handleClickTest} className="secondary">
-        TEST POST
-      </button>
-      <button onClick={handleClickStartPriceFetch} className="secondary">
-        START PRICE FETCH
-      </button>
-      {loading ? (
-        <div>
-          <progress></progress>
-          <p>Loading...</p>
-        </div>
-      ) : (
-        <h2>{postReturn}</h2>
-      )}
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <button onClick={handleClickTest} className="secondary">
+          TEST POST
+        </button>
+        <button onClick={handleClickStartPriceFetch} className="secondary">
+          START PRICE FETCH
+        </button>
+      </LoadingScrapeContext.Provider>
     </>
   );
 }
