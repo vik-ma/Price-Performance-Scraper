@@ -4,6 +4,18 @@ import { useState } from "react";
 import { ScrapeType } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
 import { GpuInfoProps, CpuInfoProps } from "@/typings";
+import { useRouter } from "next/navigation";
+
+async function startPriceFetch(data = {}) {
+  const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return response.json();
+}
 
 export default function ScrapeCreator(scrapeType: ScrapeType) {
   const scrapeTypeTitle: string =
@@ -50,14 +62,59 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         product_list: productList,
       };
 
-      console.log(data);
+      return data;
+    }
+  };
+
+  const router = useRouter();
+
+  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
+
+  const handleClickStartPriceFetch = async () => {
+    const data = createScrapePostBody();
+
+    setShowErrorMsg(false);
+    setErrorMsg("");
+    setLoading(true);
+    try {
+      const response = await startPriceFetch(data);
+
+      setLoading(false);
+
+      if (response.hasOwnProperty("success")) {
+        if (response.success) {
+          router.push(`/fetches/${response.message}`);
+        } else {
+          setErrorMsg(`An error occured during price scraping.`);
+          setShowErrorMsg(true);
+        }
+      } else {
+        setErrorMsg(`An error occured when communicating with the API.`);
+        setShowErrorMsg(true);
+      }
+    } catch {
+      setLoading(false);
+      setErrorMsg(`Failed to communicate with server.`);
+      setShowErrorMsg(true);
     }
   };
 
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
-      <button onClick={createScrapePostBody}>GET BODY</button>
+      {loading ? (
+        <div>
+          <progress></progress>
+          <h2>Scraping prices...</h2>
+          <p>This process will take a few seconds.</p>
+        </div>
+      ) : (
+        <button onClick={handleClickStartPriceFetch}>Start Price Scrape</button>
+      )}
+      {showErrorMsg && <h2>{errorMsg}</h2>}
+
       <div className="selected-items-container">
         <h2 className="selected-items-heading">
           Selected Items ({selectedItems.size}/{gpuSetLimit})
