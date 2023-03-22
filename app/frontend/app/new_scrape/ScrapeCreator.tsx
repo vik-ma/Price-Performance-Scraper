@@ -100,16 +100,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   };
 
   const createScrapePostBody = () => {
-    if (selectedItems.size > 0) {
-      const productList = Array.from(selectedItems).join(",");
+    const productList = Array.from(selectedItems).join(",");
 
-      const data = {
-        fetch_type: scrapeType.name,
-        product_list: productList,
-      };
+    const data = {
+      fetch_type: scrapeType.name,
+      product_list: productList,
+    };
 
-      return data;
-    }
+    return data;
   };
 
   const router = useRouter();
@@ -119,30 +117,35 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
 
   const handleClickStartPriceFetch = async () => {
-    const data = createScrapePostBody();
+    if (selectedItems.size > 0) {
+      const data = createScrapePostBody();
 
-    setShowErrorMsg(false);
-    setErrorMsg("");
-    setLoading(true);
-    try {
-      const response = await startPriceFetch(data);
+      setShowErrorMsg(false);
+      setErrorMsg("");
+      setLoading(true);
+      try {
+        const response = await startPriceFetch(data);
 
-      setLoading(false);
+        setLoading(false);
 
-      if (response.hasOwnProperty("success")) {
-        if (response.success) {
-          router.push(`/fetches/${response.message}`);
+        if (response.hasOwnProperty("success")) {
+          if (response.success) {
+            router.push(`/fetches/${response.message}`);
+          } else {
+            setErrorMsg(`An error occured during price scraping.`);
+            setShowErrorMsg(true);
+          }
         } else {
-          setErrorMsg(`An error occured during price scraping.`);
+          setErrorMsg(`An error occured when communicating with the API.`);
           setShowErrorMsg(true);
         }
-      } else {
-        setErrorMsg(`An error occured when communicating with the API.`);
+      } catch {
+        setLoading(false);
+        setErrorMsg(`Failed to communicate with server.`);
         setShowErrorMsg(true);
       }
-    } catch {
-      setLoading(false);
-      setErrorMsg(`Failed to communicate with server.`);
+    } else {
+      setErrorMsg("No items selected");
       setShowErrorMsg(true);
     }
   };
