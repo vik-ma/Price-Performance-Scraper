@@ -25,12 +25,64 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       ? "CPU (Multi-threaded Performance)"
       : "GPU";
 
-  const tiers = new Set(Object.values(gpuInfo).map((gpu) => gpu.tier));
+  const getProductInfo = () => {
+    if (scrapeType.name === "GPU") {
+      return gpuInfo as GpuInfoProps;
+    }
+    return cpuInfo as CpuInfoProps;
+  };
+
+  // const gpuProductInfo: GpuInfoProps = gpuInfo;
+  // const cpuProductInfo: CpuInfoProps = cpuInfo;
+
+  const productInfo = getProductInfo();
+
+  const productLimit: number = scrapeType.name === "GPU" ? 5 : 10;
+
+  // const getTiers = () => {
+  //   if (scrapeType.name === "CPU-Gaming") {
+  //     return new Set(Object.values(productInfo).map((product) => product.tier));
+  //   }
+  // };
+
+  // const tiers = new Set(Object.values(gpuInfo).map((gpu) => gpu.tier));
+
+  // const tiers = new Set(
+  //   Object.values(productInfo).map((product) =>
+  //   (product.gamingTier !== "") &&
+  //   (
+  //     scrapeType.name === "CPU-Gaming"
+  //       ? product.gamingTier
+  //       : scrapeType.name === "CPU-Normal"
+  //       ? product.normalTier
+  //       : product.tier
+  //   ))
+  // );
+
+  const tiers: Set<string> = new Set();
+  Object.values(productInfo).forEach((product) => {
+    if (product.gamingTier !== "") {
+      const tier =
+        scrapeType.name === "CPU-Gaming"
+          ? product.gamingTier
+          : scrapeType.name === "CPU-Normal"
+          ? product.normalTier
+          : product.tier;
+      tiers.add(tier);
+    }
+  });
+
+  const tiersArray: string[] = Array.from(tiers);
+  tiersArray.sort();
+
+  const sortedTiers = new Set(tiersArray);
+
+  console.log(sortedTiers);
 
   const [selectedItems, setSelectedItems] = useState(new Set<string>([]));
 
   const handleAddItemClick = (name: string) => {
-    if (selectedItems.size < gpuSetLimit) {
+    if (selectedItems.size < productLimit) {
       setSelectedItems((prev) => new Set(prev.add(name)));
     }
   };
@@ -48,10 +100,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       setSelectedItems(new Set<string>([]));
     }
   };
-
-  const gpuProductInfo: GpuInfoProps = gpuInfo;
-
-  const gpuSetLimit: number = 5;
 
   const createScrapePostBody = () => {
     if (selectedItems.size > 0) {
@@ -117,14 +165,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
       <div className="selected-items-container">
         <h2 className="selected-items-heading">
-          Selected Items ({selectedItems.size}/{gpuSetLimit})
+          Selected Items ({selectedItems.size}/{productLimit})
         </h2>
         <button className="clear-items-button" onClick={handleClickClearItems}>
           <strong>Clear All</strong>
         </button>
         <ul>
           {Array.from(selectedItems).map((name) => {
-            const tier = (gpuProductInfo[name] as { tier: string })?.tier;
+            const tier = (productInfo[name] as { tier: string })?.tier;
             return (
               <li key={name}>
                 <button
@@ -139,17 +187,22 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </ul>
       </div>
       <div className="tiers-container">
-        {Array.from(tiers).map((tier) => (
+        {tiersArray.map((tier) => (
           <div className="tiers-item" key={tier}>
             <h3 className={`tiers-title text-color-tier-${tier}`}>
               Tier {tier}
             </h3>
             <ul>
-              {Object.entries(gpuInfo)
+              {Object.entries(productInfo)
                 .filter(
-                  ([name, gpu]) => gpu.tier === tier && !selectedItems.has(name)
+                  ([name, product]) =>
+                    (scrapeType.name === "CPU-Gaming"
+                      ? product.gamingTier === tier
+                      : scrapeType.name === "CPU-Normal"
+                      ? product.normalTier === tier
+                      : product.tier === tier) && !selectedItems.has(name)
                 )
-                .map(([name, gpu]) => (
+                .map(([name, product]) => (
                   <li key={name}>
                     <button
                       className={`background-color-tier-${tier}`}
