@@ -1286,7 +1286,17 @@ table[role=grid] tbody tr:nth-child(odd) {
   background-color: #e73c4a;
   border-radius: 20px;
   width: fit-content;
-  padding: 1px 20px 4px;
+  padding: 1px 15px 4px;
   margin-bottom: 5px !important;
+  animation: fade-in 0.2s;
+}
+
+@keyframes fade-in {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
 }
 

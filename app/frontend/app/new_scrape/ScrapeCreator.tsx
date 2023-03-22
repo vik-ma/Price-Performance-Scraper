@@ -5,7 +5,7 @@ import { ScrapeType } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
 import { GpuInfoProps, CpuInfoProps } from "@/typings";
 import { useRouter } from "next/navigation";
-import { LoadingScrapeContext } from "./page";
+import { CreateScrapeContext } from "./page";
 
 async function startPriceFetch(data = {}) {
   const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
@@ -88,10 +88,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const router = useRouter();
 
-  const { loadingScrape, setLoadingScrape } = useContext(LoadingScrapeContext);
-
-  const [errorMsg, setErrorMsg] = useState<string>("");
-  const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
+  const {
+    loadingScrape,
+    setLoadingScrape,
+    errorMsg,
+    setErrorMsg,
+    showErrorMsg,
+    setShowErrorMsg,
+  } = useContext(CreateScrapeContext);
 
   const handleClickStartPriceFetch = async () => {
     if (selectedItems.size > 0) {

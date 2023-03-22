@@ -3,7 +3,6 @@ import React from "react";
 import { useState, useContext, createContext } from "react";
 import { useRouter } from "next/navigation";
 import ScrapeCreator from "./ScrapeCreator";
-import { ScrapeType } from "@/typings";
 
 async function testPostRequest(data = {}) {
   const response = await fetch(`http://localhost:8000/api/test_post/`, {
@@ -26,16 +25,23 @@ async function startPriceFetch(data = {}) {
   });
   return response.json();
 }
-interface LoadingScrapeContextType {
+interface CreateScrapeContextType {
   loadingScrape: boolean;
   setLoadingScrape: React.Dispatch<React.SetStateAction<boolean>>;
+  errorMsg: string;
+  setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
+  showErrorMsg: boolean;
+  setShowErrorMsg: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export const LoadingScrapeContext =
-  React.createContext<LoadingScrapeContextType>({
-    loadingScrape: false,
-    setLoadingScrape: () => {},
-  });
+export const CreateScrapeContext = createContext<CreateScrapeContextType>({
+  loadingScrape: false,
+  setLoadingScrape: () => {},
+  errorMsg: "",
+  setErrorMsg: () => {},
+  showErrorMsg: false,
+  setShowErrorMsg: () => {},
+});
 
 export default function NewScrape() {
   const router = useRouter();
@@ -97,17 +103,31 @@ export default function NewScrape() {
 
   const [loadingScrape, setLoadingScrape] = useState<boolean>(false);
 
+  const [errorMsg, setErrorMsg] = useState<string>("");
+  const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
+
   const [tabIndex, setTabIndex] = useState(1);
 
   const toggleTab = (index: number) => {
     if (!loadingScrape) {
       setTabIndex(index);
+      setErrorMsg("");
+      setShowErrorMsg(false);
     }
   };
 
   return (
     <>
-      <LoadingScrapeContext.Provider value={{ loadingScrape, setLoadingScrape }}>
+      <CreateScrapeContext.Provider
+        value={{
+          loadingScrape,
+          setLoadingScrape,
+          errorMsg,
+          setErrorMsg,
+          showErrorMsg,
+          setShowErrorMsg,
+        }}
+      >
         <h1>NEW</h1>
         <h2>Choose Benchmark Type</h2>
         <div className="benchmark-table-container">
@@ -186,7 +206,7 @@ export default function NewScrape() {
         <button onClick={handleClickStartPriceFetch} className="secondary">
           START PRICE FETCH
         </button>
-      </LoadingScrapeContext.Provider>
+      </CreateScrapeContext.Provider>
     </>
   );
 }
