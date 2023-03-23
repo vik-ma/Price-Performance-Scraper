@@ -655,6 +655,9 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
             except:
                 return Exception(f"Error parsing json for {product_link}")
 
+            if len(product_price_list) < 1:
+                continue
+
             product_benchmark_price_list = get_price_benchmark_score(product_price_list, benchmark_json)
 
             benchmark_price_list.extend(product_benchmark_price_list)
@@ -727,4 +730,5 @@ if __name__ == "__main__":
     #     print(t)
     # print(", ".join(gpu_pj_url_dict["TIER 1"]))
     # test_benchmark_price_score("CPU-Gaming", run_locally=True)
+    # start_price_fetching_cpu("CPU-Normal", ["AMD Ryzen 9 7950X3D","AMD Ryzen 9 7900X3D"], run_locally=True)
     pass
