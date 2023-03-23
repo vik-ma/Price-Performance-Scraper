@@ -255,27 +255,27 @@ h4 {
 
 .background-color-tier-1 {
   background-color: #2ECC71;
-  background: linear-gradient(to bottom right, #1b5e00, #40ff59);
+  background: linear-gradient(to bottom right, #005e00, #1dff3b);
 }
 
 .background-color-tier-2 {
   background-color: #DAF7A6;
-  background: linear-gradient(to bottom right, #81792e, #dcfd9d);
+  background: linear-gradient(to bottom right, #5a6e00, #daff96);
 }
 
 .background-color-tier-3 {
   background-color: #F4D03F;
-  background: linear-gradient(to bottom right, #c08300, #fdff7e);
+  background: linear-gradient(to bottom right, #c28e00, #fff9a7);
 }
 
 .background-color-tier-4 {
   background-color: #E67E22;
-  background: linear-gradient(to bottom right, #a83e00, #ffbd41);
+  background: linear-gradient(to bottom right, #c44800, #ffbd41);
 }
 
 .background-color-tier-5 {
   background-color: #E74C3C;
-  background: linear-gradient(to bottom right, #bd1c00, #ff7777);
+  background: linear-gradient(to bottom right, #d82000, #ff8585);
 }
 
 .background-color-tier-6 {
@@ -285,7 +285,8 @@ h4 {
 
 .background-color-tier-7 {
   background-color: #7B7D7D;
-  background: linear-gradient(to bottom right, #0e0e0e, #b8b8b8);
+  background: linear-gradient(to bottom right, #2b2b2b, #979797);
+  
 }
 
 .tableHead {
