@@ -1328,3 +1328,12 @@ table[role=grid] tbody tr:nth-child(odd) {
   border: 3px solid white;
   box-shadow: 0 0 8px white;
 }
+
+.selected-items-list {
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+.selected-items-list-item {
+  margin: 5px;
+}

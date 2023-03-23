@@ -158,7 +158,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         <button className="clear-items-button" onClick={handleClickClearItems}>
           <strong>Clear All</strong>
         </button>
-        <ul>
+        <ul className="selected-items-list">
           {Array.from(selectedItems).map((name) => {
             const productTier =
               scrapeType.name === "CPU-Gaming"
@@ -167,7 +167,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                 ? (productInfo[name] as { normalTier: string })?.normalTier
                 : (productInfo[name] as { tier: string })?.tier;
             return (
-              <li key={name}>
+              <li className="selected-items-list-item" key={name}>
                 <button
                   className={`background-color-tier-${productTier} product-selection`}
                   onClick={() => handleRemoveItemClick(name)}
