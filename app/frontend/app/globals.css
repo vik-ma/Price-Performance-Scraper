@@ -1301,9 +1301,9 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .product-selection {
-  border-radius: 20px;
-  height: 40px;
-  padding: 0px 15px;
+  border-radius: 25px;
+  height: fit-content;
+  padding: 5px 15px;
   margin: 0;
   width: fit-content;
   color: white;
