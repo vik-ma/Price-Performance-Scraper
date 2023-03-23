@@ -194,7 +194,7 @@ export default function CpuListingsTable({
               const colorNum: number = modelColor[
                 listing.productCategory
               ] as number;
-              const tierColor = (
+              const tierNum = (
                 cpuProductInfo[listing.productCategory] as {
                   [key: string]: string;
                 }
@@ -236,8 +236,10 @@ export default function CpuListingsTable({
                       </strong>
                     </td>
                   )}{" "}
-                  <td className={`text-color-tier-${tierColor}`}>
-                    <strong>{listing.benchmarkValue}</strong>
+                  <td className={`text-color-tier-${tierNum}`}>
+                    <strong data-tooltip={`Tier ${tierNum}`}>
+                      {listing.benchmarkValue}
+                    </strong>
                   </td>{" "}
                   <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
