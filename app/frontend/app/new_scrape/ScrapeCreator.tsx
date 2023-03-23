@@ -53,16 +53,16 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const tiersArray: string[] = Array.from(tiers);
   tiersArray.sort();
 
-  const [selectedItems, setSelectedItems] = useState(new Set<string>([]));
+  const [selectedProducts, setSelectedProducts] = useState(new Set<string>([]));
 
   const handleAddItemClick = (name: string) => {
-    if (selectedItems.size < productLimit) {
-      setSelectedItems((prev) => new Set(prev.add(name)));
+    if (selectedProducts.size < productLimit) {
+      setSelectedProducts((prev) => new Set(prev.add(name)));
     }
   };
 
   const handleRemoveItemClick = (name: string) => {
-    setSelectedItems((prev) => {
+    setSelectedProducts((prev) => {
       const newSelectedItems = new Set(prev);
       newSelectedItems.delete(name);
       return newSelectedItems;
@@ -70,13 +70,13 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   };
 
   const handleClickClearItems = () => {
-    if (selectedItems.size > 0) {
-      setSelectedItems(new Set<string>([]));
+    if (selectedProducts.size > 0) {
+      setSelectedProducts(new Set<string>([]));
     }
   };
 
   const createScrapePostBody = () => {
-    const productList = Array.from(selectedItems).join(",");
+    const productList = Array.from(selectedProducts).join(",");
 
     const data = {
       fetch_type: scrapeType.name,
@@ -98,7 +98,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   } = useContext(CreateScrapeContext);
 
   const handleClickStartPriceFetch = async () => {
-    if (selectedItems.size > 0) {
+    if (selectedProducts.size > 0) {
       const data = createScrapePostBody();
 
       setShowErrorMsg(false);
@@ -151,15 +151,15 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </div>
       )}
 
-      <div className="selected-items-container">
-        <h2 className="selected-items-heading">
-          Selected Items ({selectedItems.size}/{productLimit})
+      <div className="selected-products-container">
+        <h2 className="selected-products-heading">
+          Selected Products ({selectedProducts.size}/{productLimit})
         </h2>
         <button className="clear-items-button" onClick={handleClickClearItems}>
           <strong>Clear All</strong>
         </button>
-        <ul className="selected-items-list">
-          {Array.from(selectedItems).map((name) => {
+        <ul className="selected-products-list">
+          {Array.from(selectedProducts).map((name) => {
             const productTier =
               scrapeType.name === "CPU-Gaming"
                 ? (productInfo[name] as { gamingTier: string })?.gamingTier
@@ -167,7 +167,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                 ? (productInfo[name] as { normalTier: string })?.normalTier
                 : (productInfo[name] as { tier: string })?.tier;
             return (
-              <li className="selected-items-list-item" key={name}>
+              <li className="selected-products-list-item" key={name}>
                 <button
                   className={`background-color-tier-${productTier} product-selection`}
                   onClick={() => handleRemoveItemClick(name)}
@@ -193,7 +193,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                       ? product.gamingTier === tier
                       : scrapeType.name === "CPU-Normal"
                       ? product.normalTier === tier
-                      : product.tier === tier) && !selectedItems.has(name)
+                      : product.tier === tier) && !selectedProducts.has(name)
                 )
                 .map(([name, product]) => (
                   <li key={name}>

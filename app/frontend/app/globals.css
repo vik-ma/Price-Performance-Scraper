@@ -1254,7 +1254,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   color:white;
 }
 
-.selected-items-heading {
+.selected-products-heading {
   display: inline-block;
 }
 
@@ -1329,11 +1329,11 @@ table[role=grid] tbody tr:nth-child(odd) {
   box-shadow: 0 0 8px white;
 }
 
-.selected-items-list {
+.selected-products-list {
   display: flex;
   flex-wrap: wrap;
 } 
 
-.selected-items-list-item {
+.selected-products-list-item {
   margin: 5px;
 }
