@@ -169,10 +169,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             return (
               <li key={name}>
                 <button
-                  className={`background-color-tier-${productTier}`}
+                  className={`background-color-tier-${productTier} product-selection`}
                   onClick={() => handleRemoveItemClick(name)}
                 >
-                  {name}
+                  <strong>{name}</strong>
                 </button>
               </li>
             );
@@ -198,10 +198,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                 .map(([name, product]) => (
                   <li key={name}>
                     <button
-                      className={`background-color-tier-${tier}`}
+                      className={`background-color-tier-${tier} product-selection`}
                       onClick={() => handleAddItemClick(name)}
                     >
-                      {name}
+                      <strong>{name}</strong>
                     </button>
                   </li>
                 ))}

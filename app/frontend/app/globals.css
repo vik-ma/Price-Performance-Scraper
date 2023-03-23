@@ -1300,3 +1300,24 @@ table[role=grid] tbody tr:nth-child(odd) {
   }
 }
 
+.product-selection {
+  border-radius: 20px;
+  height: 40px;
+  padding: 0px 15px;
+  margin: 0;
+  width: fit-content;
+  color: white;
+  text-shadow:
+      0px 0px 1px rgb(26, 26, 26),
+    -1px -1px 1px rgb(26, 26, 26),  
+    1px -1px 1px rgb(26, 26, 26),
+    -1px 1px 1px rgb(26, 26, 26),
+      1px 1px 1px rgb(26, 26, 26);
+  border: 1px solid white;
+  word-break: normal;
+}
+
+.product-selection:hover {
+  border: 3px solid white;
+  box-shadow: 0 0 8px white;
+}
