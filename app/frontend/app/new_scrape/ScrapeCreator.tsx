@@ -6,6 +6,7 @@ import { gpuInfo, cpuInfo } from "../ProductInfo";
 import { GpuInfoProps, CpuInfoProps } from "@/typings";
 import { useRouter } from "next/navigation";
 import { CreateScrapeContext } from "./page";
+import CircleCross from "../icons/CircleCross";
 
 async function startPriceFetch(data = {}) {
   const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
@@ -172,7 +173,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                   className={`background-color-tier-${productTier} product-selection`}
                   onClick={() => handleRemoveItemClick(name)}
                 >
-                  <strong>{name}</strong>
+                  <strong>{name} </strong>
+                  <CircleCross />
                 </button>
               </li>
             );
@@ -196,7 +198,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                       : product.tier === tier) && !selectedProducts.has(name)
                 )
                 .map(([name, product]) => (
-                  <li key={name}>
+                  <li className="tiers-list-item" key={name}>
                     <button
                       className={`background-color-tier-${tier} product-selection`}
                       onClick={() => handleAddItemClick(name)}

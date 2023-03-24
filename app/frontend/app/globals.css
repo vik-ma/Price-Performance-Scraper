@@ -605,6 +605,104 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-bottom: -5px !important;
 }
 
+.tiers-list-item {
+  margin-top: 5px;
+}
+
+.color-toggle-container {
+  margin-top: 15px;
+  color: white;
+}
+
+.price-cell {
+  color:white;
+}
+
+.selected-products-heading {
+  display: inline-block;
+}
+
+.clear-items-button {
+  display: inline-block;
+  margin-left: 12px;
+  width: fit-content;
+  height: fit-content;
+  padding: 0px 17px 2px;
+  border: 2px solid rgba(233, 233, 233, 0.781);
+  border-radius: 12px;
+  font-size: larger;
+  background: rgba(128, 128, 128, 0.13);
+  color:rgb(225, 230, 235);
+  word-break: normal;
+}
+
+.clear-items-button:hover {
+  background: rgba(128, 128, 128, 0.623);
+  color: white;
+  border: 2px solid white;
+}
+
+.horizontally-centered-container {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin: auto;
+}
+
+.error-msg-heading {
+  margin-bottom: 0px !important;
+}
+
+.error-msg-container {
+  background-color: #e73c4a;
+  border-radius: 20px;
+  width: fit-content;
+  padding: 1px 15px 4px;
+  margin-bottom: 5px !important;
+  animation: fade-in 0.2s;
+}
+
+@keyframes fade-in {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+.product-selection {
+  border-radius: 25px;
+  height: fit-content;
+  padding: 5px 15px;
+  margin: 0;
+  width: fit-content;
+  color: white;
+  text-shadow:
+      0px 0px 1px rgb(26, 26, 26),
+    -1px -1px 1px rgb(26, 26, 26),  
+    1px -1px 1px rgb(26, 26, 26),
+    -1px 1px 1px rgb(26, 26, 26),
+      1px 1px 1px rgb(26, 26, 26);
+  border: 2px solid white;
+  word-break: normal;
+  transition-duration: 0.1s;
+}
+
+.product-selection:hover {
+  outline: 2px solid white;
+  box-shadow: 0px 0px 10px 4px white;
+}
+
+.selected-products-list {
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+.selected-products-list-item {
+  margin: 3px;
+}
+
 .rtx-4090 {
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
   border: 2px solid rgb(109, 255, 141);
@@ -1245,95 +1343,4 @@ table[role=grid] tbody tr:nth-child(odd) {
   border: 2px solid rgb(96, 231, 255);
 }
 
-.color-toggle-container {
-  margin-top: 15px;
-  color: white;
-}
 
-.price-cell {
-  color:white;
-}
-
-.selected-products-heading {
-  display: inline-block;
-}
-
-.clear-items-button {
-  display: inline-block;
-  margin-left: 12px;
-  width: fit-content;
-  height: fit-content;
-  padding: 0px 17px 2px;
-  border: 2px solid rgba(233, 233, 233, 0.781);
-  border-radius: 12px;
-  font-size: larger;
-  background: rgba(128, 128, 128, 0.13);
-  color:rgb(225, 230, 235);
-  word-break: normal;
-}
-
-.clear-items-button:hover {
-  background: rgba(128, 128, 128, 0.623);
-  color: white;
-  border: 2px solid white;
-}
-
-.horizontally-centered-container {
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
-  margin: auto;
-}
-
-.error-msg-heading {
-  margin-bottom: 0px !important;
-}
-
-.error-msg-container {
-  background-color: #e73c4a;
-  border-radius: 20px;
-  width: fit-content;
-  padding: 1px 15px 4px;
-  margin-bottom: 5px !important;
-  animation: fade-in 0.2s;
-}
-
-@keyframes fade-in {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
-}
-
-.product-selection {
-  border-radius: 25px;
-  height: fit-content;
-  padding: 5px 15px;
-  margin: 0;
-  width: fit-content;
-  color: white;
-  text-shadow:
-      0px 0px 1px rgb(26, 26, 26),
-    -1px -1px 1px rgb(26, 26, 26),  
-    1px -1px 1px rgb(26, 26, 26),
-    -1px 1px 1px rgb(26, 26, 26),
-      1px 1px 1px rgb(26, 26, 26);
-  border: 1px solid white;
-  word-break: normal;
-}
-
-.product-selection:hover {
-  border: 3px solid white;
-  box-shadow: 0 0 8px white;
-}
-
-.selected-products-list {
-  display: flex;
-  flex-wrap: wrap;
-} 
-
-.selected-products-list-item {
-  margin: 5px;
-}
