@@ -143,7 +143,11 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const [selectedManufacturers, setSelectedManufacturers] =
     useState<string[]>(manufacturers);
 
-  const filteredProductInfo = productInfo;
+  const filteredProductInfo = Object.fromEntries(
+    Object.entries(productInfo).filter(([key, product]) => {
+      return selectedManufacturers.includes(product.manufacturer);
+    })
+  );
 
   return (
     <>
