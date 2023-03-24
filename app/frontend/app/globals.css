@@ -191,6 +191,7 @@ h4 {
   width: 100%;
   height: 100%;
   display: none;
+  padding-top: 5px;
 }
 
 .benchmark-table-active-content {
@@ -701,6 +702,11 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .selected-products-list-item {
   margin: 3px;
+}
+
+.benchmark-color-toggle-container {
+  padding-left: 10px;
+  color: rgb(225, 230, 235);
 }
 
 .rtx-4090 {

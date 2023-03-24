@@ -14,6 +14,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
   const gpuProductInfo: GpuInfoProps = gpuInfo;
   const cpuProductInfo: CpuInfoProps = cpuInfo;
 
+  const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
+
   return (
     <div className="benchmark-wrapper">
       <div className="benchmark-table-container">
@@ -49,7 +51,16 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <strong>CPU (Multi-threading)</strong>
           </div>
         </div>
-
+        <div className="color-toggle-container benchmark-color-toggle-container">
+          <input
+            type="checkbox"
+            checked={colorCodingEnabled}
+            onChange={() => setColorCodingEnabled(!colorCodingEnabled)}
+          />
+          <label htmlFor="colorCodingEnabled">
+            <strong>Enable color coding for different benchmark tiers</strong>
+          </label>
+        </div>
         <div className="benchmark-table-content-tabs">
           <div
             className={
@@ -75,18 +86,29 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               </thead>
               <tbody>
                 {Object.entries(benchmarks["GPU"]).map(([key, value]) => {
-                  const gpuTier = (gpuProductInfo[key] as { tier: string })
-                    ?.tier;
+                  const tier = (gpuProductInfo[key] as { tier: string })?.tier;
                   return (
                     <tr key={key}>
-                      <td className={`text-color-tier-${gpuTier}`}>
+                      <td
+                        className={
+                          colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                        }
+                      >
                         <strong>{key}</strong>
                       </td>
-                      <td className={`text-color-tier-${gpuTier}`}>
+                      <td
+                        className={
+                          colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                        }
+                      >
                         <strong>{value.toString()}</strong>
                       </td>
-                      <td className={`text-color-tier-${gpuTier}`}>
-                        <strong>Tier {gpuTier}</strong>
+                      <td
+                        className={
+                          colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                        }
+                      >
+                        <strong>Tier {tier}</strong>
                       </td>
                     </tr>
                   );
@@ -119,19 +141,30 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               <tbody>
                 {Object.entries(benchmarks["CPU-Gaming"]).map(
                   ([key, value]) => {
-                    const cpuGamingTier = (
-                      cpuProductInfo[key] as { gamingTier: string }
-                    )?.gamingTier;
+                    const tier = (cpuProductInfo[key] as { gamingTier: string })
+                      ?.gamingTier;
                     return (
                       <tr key={key}>
-                        <td className={`text-color-tier-${cpuGamingTier}`}>
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
                           <strong>{key}</strong>
                         </td>
-                        <td className={`text-color-tier-${cpuGamingTier}`}>
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
                           <strong>{value.toString()}</strong>
                         </td>
-                        <td className={`text-color-tier-${cpuGamingTier}`}>
-                          Tier {cpuGamingTier}
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
+                          <strong>Tier {tier}</strong>
                         </td>
                       </tr>
                     );
@@ -165,19 +198,30 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               <tbody>
                 {Object.entries(benchmarks["CPU-Normal"]).map(
                   ([key, value]) => {
-                    const cpuNormalTier = (
-                      cpuProductInfo[key] as { normalTier: string }
-                    )?.normalTier;
+                    const tier = (cpuProductInfo[key] as { normalTier: string })
+                      ?.normalTier;
                     return (
                       <tr key={key}>
-                        <td className={`text-color-tier-${cpuNormalTier}`}>
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
                           <strong>{key}</strong>
                         </td>
-                        <td className={`text-color-tier-${cpuNormalTier}`}>
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
                           <strong>{value.toString()}</strong>
                         </td>
-                        <td className={`text-color-tier-${cpuNormalTier}`}>
-                          Tier {cpuNormalTier}
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
+                          <strong>Tier {tier}</strong>
                         </td>
                       </tr>
                     );
