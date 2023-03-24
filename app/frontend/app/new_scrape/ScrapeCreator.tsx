@@ -132,8 +132,40 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   };
 
+  // const filteredProductInfo = Object.entries(productInfo).filter(
+  //   ([name, product]) => product.manufacturer === "AMD"
+  // );
+
+  const manufacturers = Array.from(
+    new Set(Object.values(productInfo).map((product) => product.manufacturer))
+  );
+
+  const [selectedManufacturers, setSelectedManufacturers] =
+    useState<string[]>(manufacturers);
+
+  const filteredProductInfo = productInfo;
+
   return (
     <>
+      {manufacturers.map((manufacturer) => (
+        <label>
+          <input
+            type="checkbox"
+            checked={selectedManufacturers.includes(manufacturer)}
+            onChange={(event) => {
+              const isChecked = event.target.checked;
+              setSelectedManufacturers((prev) => {
+                if (isChecked) {
+                  return [...prev, manufacturer];
+                } else {
+                  return prev.filter((name) => name !== manufacturer);
+                }
+              });
+            }}
+          />
+          {manufacturer}
+        </label>
+      ))}
       <h2>{scrapeTypeTitle}</h2>
       {loadingScrape ? (
         <div className="horizontally-centered-container">
@@ -187,7 +219,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               Tier {tier}
             </h3>
             <ul>
-              {Object.entries(productInfo)
+              {Object.entries(filteredProductInfo)
                 .filter(
                   ([name, product]) =>
                     (scrapeType.name === "CPU-Gaming"

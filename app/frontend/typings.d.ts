@@ -15,6 +15,7 @@ export type ProductListingsProps = {
     benchmarkValue: number;
   };
 
+
 export type FetchPageProps = {
   params: {
   fetchInfo: CompletedFetchProps;
@@ -22,10 +23,12 @@ export type FetchPageProps = {
   }
 };
 
+
 export type ProductTableSortProps = {
   SortKey: keyof ProductListingsProps;
   SortDirection: "asc" | "desc";
 };
+
 
 export type TableHeadingProps = {
   Label: string;
@@ -33,9 +36,11 @@ export type TableHeadingProps = {
   Tooltip: string;
 };
 
+
 export interface BenchmarkProps {
   [key: string]: { [key: string]: number };
 }
+
 
 export interface BenchmarkData {
   "GPU": BenchmarkProps;
@@ -43,14 +48,17 @@ export interface BenchmarkData {
   "CPU-Normal": BenchmarkProps;
 }
 
+
 export interface BenchmarkAPIResponse {
   success: boolean;
   benchmarks: Benchmarks;
 }
 
+
 export interface BenchmarksDataProps {
   benchmarks: BenchmarkData;
 }
+
 
 export type GpuInfoProps = {
   [key: string]: {
@@ -59,6 +67,7 @@ export type GpuInfoProps = {
     cssName: string;
   };
 };
+
 
 export type CpuInfoProps = {
   [key: string]: {
@@ -71,9 +80,11 @@ export type CpuInfoProps = {
   };
 };
 
+
 export interface NumberMap {
   [key: string]: number;
 }
+
 
 export type ScrapeType = {
   name: "GPU" | "CPU-Gaming" | "CPU-Normal";
