@@ -702,6 +702,11 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .selected-products-list-item {
   margin: 3px;
+  opacity: 100%;
+}
+
+.selected-products-list-item:hover {
+  opacity: 40%;
 }
 
 .benchmark-color-toggle-container {

@@ -173,8 +173,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                   className={`background-color-tier-${productTier} product-selection`}
                   onClick={() => handleRemoveItemClick(name)}
                 >
-                  <strong>{name} </strong>
-                  <CircleCross />
+                  <strong>{name}</strong>
                 </button>
               </li>
             );
