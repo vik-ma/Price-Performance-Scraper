@@ -14,7 +14,6 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
   const gpuProductInfo: GpuInfoProps = gpuInfo;
   const cpuProductInfo: CpuInfoProps = cpuInfo;
 
-  // TODO: DELETE CSSNAME AND GRADIENT BACKGROUND DIV
   return (
     <div className="benchmark-wrapper">
       <div className="benchmark-table-container">
@@ -69,27 +68,25 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   <th className="tableHead">
                     <strong>Benchmark Score</strong>
                   </th>
+                  <th className="tableHead">
+                    <strong>Tier</strong>
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {Object.entries(benchmarks["GPU"]).map(([key, value]) => {
                   const gpuTier = (gpuProductInfo[key] as { tier: string })
                     ?.tier;
-                  // const cssName: string = (
-                  //   gpuProductInfo[key] as { cssName: string }
-                  // )?.cssName;
                   return (
                     <tr key={key}>
-                      <td>
-                        <strong>
-                          {/* <div className={`model-background ${cssName}`}>
-                            {key}
-                          </div> */}
-                          {key}
-                        </strong>
+                      <td className={`text-color-tier-${gpuTier}`}>
+                        <strong>{key}</strong>
                       </td>
                       <td className={`text-color-tier-${gpuTier}`}>
                         <strong>{value.toString()}</strong>
+                      </td>
+                      <td className={`text-color-tier-${gpuTier}`}>
+                        <strong>Tier {gpuTier}</strong>
                       </td>
                     </tr>
                   );
@@ -114,6 +111,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   <th className="tableHead">
                     <strong>Benchmark Score</strong>
                   </th>
+                  <th className="tableHead">
+                    <strong>Tier</strong>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -122,21 +122,16 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                     const cpuGamingTier = (
                       cpuProductInfo[key] as { gamingTier: string }
                     )?.gamingTier;
-                    // const cssName: string = (
-                    //   cpuProductInfo[key] as { cssName: string }
-                    // )?.cssName;
                     return (
                       <tr key={key}>
-                        <td>
-                          <strong>
-                            {/* <div className={`model-background ${cssName}-g`}>
-                              {key}
-                            </div> */}
-                            {key}
-                          </strong>
+                        <td className={`text-color-tier-${cpuGamingTier}`}>
+                          <strong>{key}</strong>
                         </td>
                         <td className={`text-color-tier-${cpuGamingTier}`}>
                           <strong>{value.toString()}</strong>
+                        </td>
+                        <td className={`text-color-tier-${cpuGamingTier}`}>
+                          Tier {cpuGamingTier}
                         </td>
                       </tr>
                     );
@@ -162,6 +157,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   <th className="tableHead">
                     <strong>Benchmark Score</strong>
                   </th>
+                  <th className="tableHead">
+                    <strong>Tier</strong>
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -170,21 +168,16 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                     const cpuNormalTier = (
                       cpuProductInfo[key] as { normalTier: string }
                     )?.normalTier;
-                    // const cssName: string = (
-                    //   cpuProductInfo[key] as { cssName: string }
-                    // )?.cssName;
                     return (
                       <tr key={key}>
-                        <td>
-                          <strong>
-                            {/* <div className={`model-background ${cssName}-n`}>
-                              {key}
-                            </div> */}
-                            {key}
-                          </strong>
+                        <td className={`text-color-tier-${cpuNormalTier}`}>
+                          <strong>{key}</strong>
                         </td>
                         <td className={`text-color-tier-${cpuNormalTier}`}>
                           <strong>{value.toString()}</strong>
+                        </td>
+                        <td className={`text-color-tier-${cpuNormalTier}`}>
+                          Tier {cpuNormalTier}
                         </td>
                       </tr>
                     );
@@ -195,7 +188,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
           </div>
         </div>
       </div>
-      <div className="benchmark-legend">
+      {/* <div className="benchmark-legend">
         <h2>Legend</h2>
         <ul className="legend-list">
           <strong>
@@ -208,7 +201,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <li className="text-color-tier-7">Tier 7</li>
           </strong>
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 }
