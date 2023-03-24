@@ -55,6 +55,7 @@ export interface BenchmarksDataProps {
 export type GpuInfoProps = {
   [key: string]: {
     tier: string;
+    manufacturer: string;
     cssName: string;
   };
 };
@@ -64,6 +65,7 @@ export type CpuInfoProps = {
     gamingTier: string;
     normalTier: string;
     generation: string;
+    manufacturer: string;
     socket: string;
     cssName: string;
   };
