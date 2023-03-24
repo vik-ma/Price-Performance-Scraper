@@ -132,10 +132,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   };
 
-  // const filteredProductInfo = Object.entries(productInfo).filter(
-  //   ([name, product]) => product.manufacturer === "AMD"
-  // );
-
   const manufacturers = Array.from(
     new Set(Object.values(productInfo).map((product) => product.manufacturer))
   );
@@ -149,6 +145,23 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     })
   );
 
+  const handleFilterChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    filterKey: string,
+    filterValue: string
+  ) => {
+    const isChecked = event.target.checked;
+    if (filterKey === "manufacturer") {
+      setSelectedManufacturers((prev) => {
+        if (isChecked) {
+          return [...prev, filterValue];
+        } else {
+          return prev.filter((name) => name !== filterValue);
+        }
+      });
+    }
+  };
+
   return (
     <>
       {manufacturers.map((manufacturer) => (
@@ -156,16 +169,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           <input
             type="checkbox"
             checked={selectedManufacturers.includes(manufacturer)}
-            onChange={(event) => {
-              const isChecked = event.target.checked;
-              setSelectedManufacturers((prev) => {
-                if (isChecked) {
-                  return [...prev, manufacturer];
-                } else {
-                  return prev.filter((name) => name !== manufacturer);
-                }
-              });
-            }}
+            onChange={(event) =>
+              handleFilterChange(event, "manufacturer", manufacturer)
+            }
           />
           {manufacturer}
         </label>
