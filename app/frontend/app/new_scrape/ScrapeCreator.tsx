@@ -199,59 +199,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   return (
     <>
-      <div className="product-filter-container">
-        <div className="product-filter-item">
-          <h3>Manufacturer</h3>
-          {manufacturers.map((manufacturer) => (
-            <label>
-              <input
-                type="checkbox"
-                checked={selectedManufacturers.includes(manufacturer)}
-                onChange={(event) =>
-                  handleFilterChange(event, "manufacturer", manufacturer)
-                }
-              />
-              {manufacturer}
-            </label>
-          ))}
-        </div>
-
-        {scrapeType.name !== "GPU" && (
-          <div className="product-filter-item">
-            <h3>Socket</h3>
-            {sockets.map((sockets) => (
-              <label>
-                <input
-                  type="checkbox"
-                  checked={selectedSockets.includes(sockets)}
-                  onChange={(event) =>
-                    handleFilterChange(event, "socket", sockets)
-                  }
-                />
-                {sockets}
-              </label>
-            ))}
-          </div>
-        )}
-
-        {scrapeType.name !== "GPU" && (
-          <div className="product-filter-item">
-            <h3>Generation</h3>
-            {generations.map((generations) => (
-              <label>
-                <input
-                  type="checkbox"
-                  checked={selectedGenerations.includes(generations)}
-                  onChange={(event) =>
-                    handleFilterChange(event, "generation", generations)
-                  }
-                />
-                {generations}
-              </label>
-            ))}
-          </div>
-        )}
-      </div>
       <h2>{scrapeTypeTitle}</h2>
       {loadingScrape ? (
         <div className="horizontally-centered-container">
@@ -298,6 +245,64 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           })}
         </ul>
       </div>
+      <details>
+        <summary className="filter-button" role="button">
+          <strong>Filter Products</strong>
+        </summary>
+        <div className="product-filter-container">
+          <div className="product-filter-item">
+            <h3>Manufacturer</h3>
+            {manufacturers.map((manufacturer) => (
+              <label>
+                <input
+                  type="checkbox"
+                  checked={selectedManufacturers.includes(manufacturer)}
+                  onChange={(event) =>
+                    handleFilterChange(event, "manufacturer", manufacturer)
+                  }
+                />
+                {manufacturer}
+              </label>
+            ))}
+          </div>
+
+          {scrapeType.name !== "GPU" && (
+            <div className="product-filter-item">
+              <h3>Socket</h3>
+              {sockets.map((sockets) => (
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={selectedSockets.includes(sockets)}
+                    onChange={(event) =>
+                      handleFilterChange(event, "socket", sockets)
+                    }
+                  />
+                  {sockets}
+                </label>
+              ))}
+            </div>
+          )}
+
+          {scrapeType.name !== "GPU" && (
+            <div className="product-filter-item">
+              <h3>Generation</h3>
+              {generations.map((generations) => (
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={selectedGenerations.includes(generations)}
+                    onChange={(event) =>
+                      handleFilterChange(event, "generation", generations)
+                    }
+                  />
+                  {generations}
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
+      </details>
       <div className="tiers-container">
         {tiersArray.map((tier) => (
           <div className="tiers-item" key={tier}>
