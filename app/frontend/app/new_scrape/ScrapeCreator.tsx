@@ -197,6 +197,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   };
 
+  const totalNumProducts: number = Object.keys(productInfo).length;
+
+  const filteredNumProducts: number = Object.keys(filteredProductInfo).length;
+
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
@@ -247,7 +251,11 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       </div>
       <details>
         <summary className="filter-button" role="button">
-          <strong>Filter Products</strong>
+          <strong>
+            Filter Products{" "}
+            {filteredNumProducts < totalNumProducts &&
+              `(Showing ${filteredNumProducts} out of ${totalNumProducts} products)`}
+          </strong>
         </summary>
         <div className="product-filter-container">
           <div className="product-filter-item">
