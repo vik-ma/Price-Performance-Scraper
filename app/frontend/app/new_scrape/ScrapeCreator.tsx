@@ -132,12 +132,29 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   };
 
-  const manufacturers = Array.from(
-    new Set(Object.values(productInfo).map((product) => product.manufacturer))
-  );
+  const manufacturers: string[] = [];
+  const generations: string[] = [];
+  const sockets: string[] = [];
+
+  Object.values(productInfo).forEach((product) => {
+    if (!manufacturers.includes(product.manufacturer)) {
+      manufacturers.push(product.manufacturer);
+    }
+    if (!generations.includes(product.generation)) {
+      generations.push(product.generation);
+    }
+    if (!sockets.includes(product.socket)) {
+      sockets.push(product.socket);
+    }
+  });
 
   const [selectedManufacturers, setSelectedManufacturers] =
     useState<string[]>(manufacturers);
+
+  const [selectedGeneration, setSelectedGeneration] =
+    useState<string[]>(generations);
+    
+  const [selectedSocket, setSelectedSocket] = useState<string[]>(sockets);
 
   const filteredProductInfo = Object.fromEntries(
     Object.entries(productInfo).filter(([key, product]) => {
@@ -176,6 +193,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           {manufacturer}
         </label>
       ))}
+      {scrapeType.name !== "GPU" && <h1>test</h1>}
       <h2>{scrapeTypeTitle}</h2>
       {loadingScrape ? (
         <div className="horizontally-centered-container">
