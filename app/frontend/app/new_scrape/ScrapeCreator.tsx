@@ -140,25 +140,29 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     if (!manufacturers.includes(product.manufacturer)) {
       manufacturers.push(product.manufacturer);
     }
-    if (!generations.includes(product.generation)) {
-      generations.push(product.generation);
-    }
     if (!sockets.includes(product.socket)) {
       sockets.push(product.socket);
+    }
+    if (!generations.includes(product.generation)) {
+      generations.push(product.generation);
     }
   });
 
   const [selectedManufacturers, setSelectedManufacturers] =
     useState<string[]>(manufacturers);
 
-  const [selectedGeneration, setSelectedGeneration] =
+  const [selectedSockets, setSelectedSockets] = useState<string[]>(sockets);
+
+  const [selectedGenerations, setSelectedGenerations] =
     useState<string[]>(generations);
-    
-  const [selectedSocket, setSelectedSocket] = useState<string[]>(sockets);
 
   const filteredProductInfo = Object.fromEntries(
     Object.entries(productInfo).filter(([key, product]) => {
-      return selectedManufacturers.includes(product.manufacturer);
+      return (
+        selectedManufacturers.includes(product.manufacturer) &&
+        selectedSockets.includes(product.socket) &&
+        selectedGenerations.includes(product.generation)
+      );
     })
   );
 
@@ -169,13 +173,27 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   ) => {
     const isChecked = event.target.checked;
     if (filterKey === "manufacturer") {
-      setSelectedManufacturers((prev) => {
-        if (isChecked) {
-          return [...prev, filterValue];
-        } else {
-          return prev.filter((name) => name !== filterValue);
-        }
-      });
+      setSelectedManufacturers((prev) =>
+        changeFilter(isChecked, prev, filterValue)
+      );
+    } else if (filterKey === "socket") {
+      setSelectedSockets((prev) => changeFilter(isChecked, prev, filterValue));
+    } else if (filterKey === "generation") {
+      setSelectedGenerations((prev) =>
+        changeFilter(isChecked, prev, filterValue)
+      );
+    }
+  };
+
+  const changeFilter = (
+    isChecked: boolean,
+    prev: string[],
+    filterValue: string
+  ) => {
+    if (isChecked) {
+      return [...prev, filterValue];
+    } else {
+      return prev.filter((name) => name !== filterValue);
     }
   };
 
@@ -193,7 +211,30 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           {manufacturer}
         </label>
       ))}
-      {scrapeType.name !== "GPU" && <h1>test</h1>}
+      {scrapeType.name !== "GPU" &&
+        sockets.map((sockets) => (
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedSockets.includes(sockets)}
+              onChange={(event) => handleFilterChange(event, "socket", sockets)}
+            />
+            {sockets}
+          </label>
+        ))}
+      {scrapeType.name !== "GPU" &&
+        generations.map((generations) => (
+          <label>
+            <input
+              type="checkbox"
+              checked={selectedGenerations.includes(generations)}
+              onChange={(event) =>
+                handleFilterChange(event, "generation", generations)
+              }
+            />
+            {generations}
+          </label>
+        ))}
       <h2>{scrapeTypeTitle}</h2>
       {loadingScrape ? (
         <div className="horizontally-centered-container">
