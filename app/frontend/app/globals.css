@@ -714,6 +714,17 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: rgb(225, 230, 235);
 }
 
+.product-filter-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.product-filter-item {
+  margin: 10px;
+  word-break: normal;
+}
+
 .rtx-4090 {
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
   border: 2px solid rgb(109, 255, 141);
