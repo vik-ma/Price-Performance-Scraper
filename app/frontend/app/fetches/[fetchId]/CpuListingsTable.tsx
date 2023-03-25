@@ -100,7 +100,7 @@ export default function CpuListingsTable({
         <summary className="filter-button" role="button">
           <strong>Filter Stores</strong>
         </summary>
-        <div className="filter-container">
+        <div className="filter-stores-container">
           {storeNames.map((storeName, index) => (
             <div key={index}>
               <label>

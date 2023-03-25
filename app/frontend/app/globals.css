@@ -537,7 +537,7 @@ details {
   padding-bottom: 0;
 }
 
-.filter-container {
+.filter-stores-container {
   padding: 0 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -724,7 +724,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: rgb(225, 230, 235);
 }
 
-.product-filter-container {
+.filter-products-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -272,7 +272,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               `(Showing ${filteredNumProducts} out of ${totalNumProducts} products)`}
           </strong>
         </summary>
-        <div className="product-filter-container">
+        <div className="filter-products-container">
           <div className="product-filter-item">
             <h3>Manufacturer</h3>
             {manufacturers.map((manufacturer) => (
