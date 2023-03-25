@@ -522,6 +522,7 @@ h4 {
   background: linear-gradient(to bottom right, #045DE9, #09C6F9);
   padding: 10px 15px;
   margin-bottom: 0;
+  word-break: normal;
 }
 
 .filter-button::after {
@@ -623,9 +624,8 @@ table[role=grid] tbody tr:nth-child(odd) {
   display: inline-block;
 }
 
-.clear-items-button {
+.semi-transparent-button {
   display: inline-block;
-  margin-left: 12px;
   width: fit-content;
   height: fit-content;
   padding: 0px 17px 2px;
@@ -637,10 +637,20 @@ table[role=grid] tbody tr:nth-child(odd) {
   word-break: normal;
 }
 
-.clear-items-button:hover {
+.semi-transparent-button:hover {
   background: rgba(128, 128, 128, 0.623);
   color: white;
   border: 2px solid white;
+}
+
+.clear-items-button {
+  margin-left: 12px;
+}
+
+.toggle-all-filters-button {
+  position: absolute;
+  margin-top: 5px;
+  left: 5px;
 }
 
 .horizontally-centered-container {
@@ -718,6 +728,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
 }
 
 .product-filter-item {

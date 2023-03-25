@@ -201,6 +201,18 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const filteredNumProducts: number = Object.keys(filteredProductInfo).length;
 
+  const handleToggleAllClick = () => {
+    if (filteredNumProducts < totalNumProducts) {
+      setSelectedManufacturers(manufacturers);
+      setSelectedSockets(sockets);
+      setSelectedGenerations(generations);
+    } else {
+      setSelectedManufacturers([]);
+      setSelectedSockets([]);
+      setSelectedGenerations([]);
+    }
+  };
+
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
@@ -225,7 +237,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         <h2 className="selected-products-heading">
           Selected Products ({selectedProducts.size}/{productLimit})
         </h2>
-        <button className="clear-items-button" onClick={handleClickClearItems}>
+        <button
+          className="semi-transparent-button clear-items-button"
+          onClick={handleClickClearItems}
+        >
           <strong>Clear All</strong>
         </button>
         <ul className="selected-products-list">
@@ -272,6 +287,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                 {manufacturer}
               </label>
             ))}
+            {scrapeType.name !== "GPU" && (
+              <button
+                className="semi-transparent-button toggle-all-filters-button"
+                onClick={handleToggleAllClick}
+              >
+                <strong>Toggle All</strong>
+              </button>
+            )}
           </div>
 
           {scrapeType.name !== "GPU" && (
@@ -291,7 +314,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               ))}
             </div>
           )}
-
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
               <h3>Generation</h3>
