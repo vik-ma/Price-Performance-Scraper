@@ -223,22 +223,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   return (
     <>
       <h2>{scrapeTypeTitle}</h2>
-      {loadingScrape ? (
-        <div className="horizontally-centered-container">
-          <progress></progress>
-
-          <h2>Scraping prices...</h2>
-
-          <p>This process will take a few seconds.</p>
-        </div>
-      ) : (
-        <button onClick={handleClickStartPriceFetch}>Start Price Scrape</button>
-      )}
-      {showErrorMsg && (
-        <div className="horizontally-centered-container error-msg-container">
-          <h2 className="error-msg-heading">{errorMsg}</h2>
-        </div>
-      )}
       <div className="selected-products-border">
         <div className="selected-products-container">
           <h2 className="selected-products-heading">
@@ -277,6 +261,27 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               );
             })}
           </ul>
+          {loadingScrape ? (
+            <div className="horizontally-centered-container">
+              <progress></progress>
+
+              <h2>Scraping prices...</h2>
+
+              <p>This process will take a few seconds.</p>
+            </div>
+          ) : (
+            <button
+              className="start-button"
+              onClick={handleClickStartPriceFetch}
+            >
+              <strong>Start Price Scrape</strong>
+            </button>
+          )}
+          {showErrorMsg && (
+            <div className="horizontally-centered-container error-msg-container">
+              <h2 className="error-msg-heading">{errorMsg}</h2>
+            </div>
+          )}
         </div>
       </div>
       <details>

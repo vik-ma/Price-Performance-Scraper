@@ -518,7 +518,7 @@ h4 {
 }
 
 .red-text {
-  color: #cf1212;
+  color: #e74d4d;
 }
 
 .listing-table {
@@ -668,6 +668,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .horizontally-centered-container {
+  padding-top: 10px;
   text-align: center;
   margin-top: 10px;
   margin-bottom: 20px;
@@ -679,12 +680,14 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .error-msg-container {
+  display: inline-block;
   background-color: #e73c4a;
   border-radius: 20px;
   width: fit-content;
   padding: 1px 15px 4px;
-  margin-bottom: 5px !important;
+  /* margin-bottom: 15px !important; */
   animation: fade-in 0.2s;
+  margin-top: 5px;
 }
 
 @keyframes fade-in {
@@ -752,6 +755,18 @@ table[role=grid] tbody tr:nth-child(odd) {
   border-radius: 10px;
   margin-bottom: 20px;
   z-index: 1;
+}
+
+.start-button {
+  display: inline-block;
+  background: linear-gradient(to bottom right, #045DE9, #09C6F9);
+  max-width: 300px;
+  padding: 1px 5px 5px;
+  font-size: xx-large;
+  word-break: normal;
+  margin-top: 15px;
+  margin-bottom: 2px;
+  margin-right: 10px;
 }
 
 .benchmark-color-toggle-container {
