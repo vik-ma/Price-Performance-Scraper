@@ -30,6 +30,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const getProductInfo = () => {
     if (scrapeType.name === "GPU") {
       return gpuInfo as GpuInfoProps;
+    } else if (scrapeType.name === "CPU-Gaming") {
+      const cpuInfoGaming = { ...cpuInfo };
+      delete cpuInfoGaming["Intel Core i9-13900" as keyof typeof cpuInfoGaming];
+      return cpuInfoGaming as CpuInfoProps;
     }
     return cpuInfo as CpuInfoProps;
   };
@@ -40,13 +44,16 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const tiers: Set<string> = new Set();
   Object.values(productInfo).forEach((product) => {
-    if (product.gamingTier !== "") {
-      const tier =
-        scrapeType.name === "CPU-Gaming"
-          ? product.gamingTier
-          : scrapeType.name === "CPU-Normal"
-          ? product.normalTier
-          : product.tier;
+    const tier =
+      scrapeType.name === "CPU-Gaming"
+        ? product.gamingTier
+        : scrapeType.name === "CPU-Normal"
+        ? product.normalTier
+        : product.tier;
+    if (
+      (scrapeType.name === "CPU-Gaming" && product.gamingTier !== "") ||
+      scrapeType.name !== "CPU-Gaming"
+    ) {
       tiers.add(tier);
     }
   });
@@ -275,8 +282,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         <div className="filter-products-container">
           <div className="product-filter-item">
             <h4 className="product-filter-heading">Manufacturer</h4>
-            {manufacturers.map((manufacturer) => (
-              <label>
+            {manufacturers.map((manufacturer, index) => (
+              <label key={index}>
                 <input
                   type="checkbox"
                   checked={selectedManufacturers.includes(manufacturer)}
@@ -300,8 +307,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
               <h4 className="product-filter-heading">Socket</h4>
-              {sockets.map((sockets) => (
-                <label>
+              {sockets.map((sockets, index) => (
+                <label key={index}>
                   <input
                     type="checkbox"
                     checked={selectedSockets.includes(sockets)}
@@ -317,8 +324,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
               <h4 className="product-filter-heading">Generation</h4>
-              {generations.map((generations) => (
-                <label>
+              {generations.map((generations, index) => (
+                <label key={index}>
                   <input
                     type="checkbox"
                     checked={selectedGenerations.includes(generations)}

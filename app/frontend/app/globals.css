@@ -749,6 +749,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 .product-filter-heading {
   margin-left: -1px;
   margin-bottom: 0px !important;
+  color: #ebeff3;
 }
 
 .rtx-4090 {
