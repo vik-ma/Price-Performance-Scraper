@@ -265,7 +265,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </ul>
       </div>
       <details>
-        <summary className="filter-button" role="button">
+        <summary className="filter-button filter-button-products" role="button">
           <strong>
             Filter Products{" "}
             {filteredNumProducts < totalNumProducts &&
@@ -274,7 +274,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </summary>
         <div className="filter-products-container">
           <div className="product-filter-item">
-            <h3>Manufacturer</h3>
+            <h4 className="product-filter-heading">Manufacturer</h4>
             {manufacturers.map((manufacturer) => (
               <label>
                 <input
@@ -299,7 +299,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
-              <h3>Socket</h3>
+              <h4 className="product-filter-heading">Socket</h4>
               {sockets.map((sockets) => (
                 <label>
                   <input
@@ -316,7 +316,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           )}
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
-              <h3>Generation</h3>
+              <h4 className="product-filter-heading">Generation</h4>
               {generations.map((generations) => (
                 <label>
                   <input

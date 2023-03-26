@@ -180,7 +180,7 @@ export default function GpuListingsTable({
           Enable color coding for different GPU models
         </label>
       </div>
-      <table role="grid">
+      <table className="listing-table" role="grid">
         <thead>
           <tr>
             {tableHeading.map((head, headID) => (

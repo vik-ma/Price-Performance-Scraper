@@ -517,19 +517,27 @@ h4 {
   color: rgb(100, 80, 89);
 }
 
+.listing-table {
+  margin-top: 5px;
+}
+
 .filter-button {
   font-size: x-large;
   background: linear-gradient(to bottom right, #045DE9, #09C6F9);
-  padding: 4px 15px 7px;
+  padding: 3px 15px 6px;
   margin-bottom: 0;
   word-break: normal;
-  margin-bottom: 6px !important;
+  margin-bottom: 7px !important;
 }
 
 .filter-button::after {
   background-size: 1.5rem auto;
   width: 1.5rem;
-  margin-top: 5px;
+  margin-top: 4px;
+}
+
+.filter-button-products {
+  margin-bottom: 3px !important;
 }
 
 details {
@@ -614,7 +622,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .color-toggle-container {
-  margin-top: 5px;
+  /* margin-top: 5px; */
   color: white;
 }
 
@@ -734,8 +742,13 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .product-filter-item {
-  margin: 10px;
+  margin: 0 10px;
   word-break: normal;
+}
+
+.product-filter-heading {
+  margin-left: -1px;
+  margin-bottom: 0px !important;
 }
 
 .rtx-4090 {

@@ -181,7 +181,7 @@ export default function CpuListingsTable({
           Enable color coding for different CPU models
         </label>
       </div>
-      <table role="grid">
+      <table className="listing-table" role="grid">
         <thead>
           <tr>
             {tableHeading.map((head, headID) => (
