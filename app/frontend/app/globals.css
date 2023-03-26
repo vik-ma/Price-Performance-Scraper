@@ -737,6 +737,17 @@ table[role=grid] tbody tr:nth-child(odd) {
   opacity: 40%;
 }
 
+.selected-products-container {
+  position: sticky;
+  top: 2px;
+  border: 3px solid white;
+  padding: 5px 10px 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: rgb(31, 31, 31);
+  z-index: 1;
+}
+
 .benchmark-color-toggle-container {
   padding-left: 10px;
   color: rgb(225, 230, 235);
@@ -759,6 +770,8 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-bottom: 0px !important;
   color: #ebeff3;
 }
+
+
 
 .rtx-4090 {
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
