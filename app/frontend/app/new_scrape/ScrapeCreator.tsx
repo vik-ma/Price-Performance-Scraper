@@ -242,7 +242,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
       <div className="selected-products-container">
         <h2 className="selected-products-heading">
-          Selected Products ({selectedProducts.size}/{productLimit})
+          Selected Products{" "}
+          <span
+            className={
+              selectedProducts.size === productLimit ? "red-text" : ""
+            }
+          >
+            ({selectedProducts.size}/{productLimit})
+          </span>
         </h2>
         <button
           className="semi-transparent-button clear-items-button"
