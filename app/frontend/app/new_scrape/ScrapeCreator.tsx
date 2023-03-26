@@ -239,44 +239,45 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           <h2 className="error-msg-heading">{errorMsg}</h2>
         </div>
       )}
-
-      <div className="selected-products-container">
-        <h2 className="selected-products-heading">
-          Selected Products{" "}
-          <span
-            className={
-              selectedProducts.size === productLimit ? "red-text" : ""
-            }
+      <div className="selected-products-border">
+        <div className="selected-products-container">
+          <h2 className="selected-products-heading">
+            Selected Products{" "}
+            <span
+              className={
+                selectedProducts.size === productLimit ? "red-text" : ""
+              }
+            >
+              ({selectedProducts.size}/{productLimit})
+            </span>
+          </h2>
+          <button
+            className="semi-transparent-button clear-items-button"
+            onClick={handleClickClearItems}
           >
-            ({selectedProducts.size}/{productLimit})
-          </span>
-        </h2>
-        <button
-          className="semi-transparent-button clear-items-button"
-          onClick={handleClickClearItems}
-        >
-          <strong>Clear All</strong>
-        </button>
-        <ul className="selected-products-list">
-          {Array.from(selectedProducts).map((name) => {
-            const productTier =
-              scrapeType.name === "CPU-Gaming"
-                ? (productInfo[name] as { gamingTier: string })?.gamingTier
-                : scrapeType.name === "CPU-Normal"
-                ? (productInfo[name] as { normalTier: string })?.normalTier
-                : (productInfo[name] as { tier: string })?.tier;
-            return (
-              <li className="selected-products-list-item" key={name}>
-                <button
-                  className={`background-color-tier-${productTier} product-selection`}
-                  onClick={() => handleRemoveItemClick(name)}
-                >
-                  <strong>{name}</strong>
-                </button>
-              </li>
-            );
-          })}
-        </ul>
+            <strong>Clear All</strong>
+          </button>
+          <ul className="selected-products-list">
+            {Array.from(selectedProducts).map((name) => {
+              const productTier =
+                scrapeType.name === "CPU-Gaming"
+                  ? (productInfo[name] as { gamingTier: string })?.gamingTier
+                  : scrapeType.name === "CPU-Normal"
+                  ? (productInfo[name] as { normalTier: string })?.normalTier
+                  : (productInfo[name] as { tier: string })?.tier;
+              return (
+                <li className="selected-products-list-item" key={name}>
+                  <button
+                    className={`background-color-tier-${productTier} product-selection`}
+                    onClick={() => handleRemoveItemClick(name)}
+                  >
+                    <strong>{name}</strong>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
       <details>
         <summary className="filter-button filter-button-products" role="button">
