@@ -75,10 +75,6 @@ export default function GpuListingsTable({
 
   const pprNumColors: number = 24;
 
-  // const storeNames = Array.from(
-  //   new Set(sortedListings.map((listing) => listing.storeName))
-  // );
-
   const storeNames: string[] = [];
   const productModels: string[] = [];
 
@@ -119,7 +115,7 @@ export default function GpuListingsTable({
         <summary className="filter-button" role="button">
           <strong>Filter Stores</strong>
         </summary>
-        <div className="filter-stores-container">
+        <div className="filter-listing-container">
           {storeNames.map((storeName, index) => (
             <div key={index}>
               <label>
@@ -128,11 +124,11 @@ export default function GpuListingsTable({
                   checked={selectedStores.includes(storeName)}
                   onChange={(event) => {
                     const isChecked = event.target.checked;
-                    setSelectedStores((prevSelectedStores) => {
+                    setSelectedStores((prev) => {
                       if (isChecked) {
-                        return [...prevSelectedStores, storeName];
+                        return [...prev, storeName];
                       } else {
-                        return prevSelectedStores.filter(
+                        return prev.filter(
                           (name) => name !== storeName
                         );
                       }
@@ -147,9 +143,9 @@ export default function GpuListingsTable({
       </details>
       <details>
         <summary className="filter-button" role="button">
-          <strong>Filter Stores</strong>
+          <strong>Filter Product Models</strong>
         </summary>
-        <div className="filter-stores-container">
+        <div className="filter-listing-container">
           {productModels.map((model, index) => (
             <div key={index}>
               <label>

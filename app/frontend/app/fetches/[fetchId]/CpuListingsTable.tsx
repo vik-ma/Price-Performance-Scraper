@@ -70,14 +70,27 @@ export default function CpuListingsTable({
 
   const pprNumColors: number = 24;
 
-  const storeNames = Array.from(
-    new Set(sortedListings.map((listing) => listing.storeName))
-  );
+  const storeNames: string[] = [];
+  const productModels: string[] = [];
+
+  Object.values(sortedListings).forEach((listing) => {
+    if (!storeNames.includes(listing.storeName)) {
+      storeNames.push(listing.storeName);
+    }
+    if (!productModels.includes(listing.productCategory)) {
+      productModels.push(listing.productCategory);
+    }
+  });
 
   const [selectedStores, setSelectedStores] = useState<string[]>(storeNames);
 
-  const filteredListings = sortedListings.filter((listing) =>
-    selectedStores.includes(listing.storeName)
+  const [selectedProductModels, setSelectedProductModels] =
+    useState<string[]>(productModels);
+
+  const filteredListings = sortedListings.filter(
+    (listing) =>
+      selectedStores.includes(listing.storeName) &&
+      selectedProductModels.includes(listing.productCategory)
   );
 
   const cpuProductInfo: CpuInfoProps = cpuInfo;
@@ -100,7 +113,7 @@ export default function CpuListingsTable({
         <summary className="filter-button" role="button">
           <strong>Filter Stores</strong>
         </summary>
-        <div className="filter-stores-container">
+        <div className="filter-listing-container">
           {storeNames.map((storeName, index) => (
             <div key={index}>
               <label>
@@ -121,6 +134,35 @@ export default function CpuListingsTable({
                   }}
                 />
                 {storeName}
+              </label>
+            </div>
+          ))}
+        </div>
+      </details>
+      <details>
+        <summary className="filter-button" role="button">
+          <strong>Filter Product Models</strong>
+        </summary>
+        <div className="filter-listing-container">
+          {productModels.map((model, index) => (
+            <div key={index}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={selectedProductModels.includes(model)}
+                  onChange={(event) => {
+                    const isChecked = event.target.checked;
+                    console.log("asddsadsadsdasdsa");
+                    setSelectedProductModels((prev) => {
+                      if (isChecked) {
+                        return [...prev, model];
+                      } else {
+                        return prev.filter((name) => name !== model);
+                      }
+                    });
+                  }}
+                />
+                {model}
               </label>
             </div>
           ))}

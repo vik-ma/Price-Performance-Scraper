@@ -523,6 +523,7 @@ h4 {
   padding: 10px 15px;
   margin-bottom: 0;
   word-break: normal;
+  margin-bottom: 10px !important;
 }
 
 .filter-button::after {
@@ -537,11 +538,12 @@ details {
   padding-bottom: 0;
 }
 
-.filter-stores-container {
-  padding: 0 10px;
+.filter-listing-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  /* grid-template-rows: repeat(3, 1fr); */
+  padding: 0 10px;
+  margin-bottom: 10px;
 }
 
 input[type="checkbox"]:checked {
@@ -612,7 +614,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .color-toggle-container {
-  margin-top: 15px;
+  margin-top: 5px;
   color: white;
 }
 
