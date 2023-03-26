@@ -367,6 +367,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                   <li className="tiers-list-item" key={name}>
                     <button
                       className={`background-color-tier-${tier} product-selection`}
+                      disabled={selectedProducts.size === productLimit}
                       onClick={() => handleAddItemClick(name)}
                     >
                       <strong>{name}</strong>
