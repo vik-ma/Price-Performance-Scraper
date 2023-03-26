@@ -75,14 +75,31 @@ export default function GpuListingsTable({
 
   const pprNumColors: number = 24;
 
-  const storeNames = Array.from(
-    new Set(sortedListings.map((listing) => listing.storeName))
-  );
+  // const storeNames = Array.from(
+  //   new Set(sortedListings.map((listing) => listing.storeName))
+  // );
+
+  const storeNames: string[] = [];
+  const productModels: string[] = [];
+
+  Object.values(sortedListings).forEach((listing) => {
+    if (!storeNames.includes(listing.storeName)) {
+      storeNames.push(listing.storeName);
+    }
+    if (!productModels.includes(listing.productCategory)) {
+      productModels.push(listing.productCategory);
+    }
+  });
 
   const [selectedStores, setSelectedStores] = useState<string[]>(storeNames);
 
-  const filteredListings = sortedListings.filter((listing) =>
-    selectedStores.includes(listing.storeName)
+  const [selectedProductModels, setSelectedProductModels] =
+    useState<string[]>(productModels);
+
+  const filteredListings = sortedListings.filter(
+    (listing) =>
+      selectedStores.includes(listing.storeName) &&
+      selectedProductModels.includes(listing.productCategory)
   );
 
   const gpuProductInfo: GpuInfoProps = gpuInfo;
@@ -123,6 +140,34 @@ export default function GpuListingsTable({
                   }}
                 />
                 {storeName}
+              </label>
+            </div>
+          ))}
+        </div>
+      </details>
+      <details>
+        <summary className="filter-button" role="button">
+          <strong>Filter Stores</strong>
+        </summary>
+        <div className="filter-stores-container">
+          {productModels.map((model, index) => (
+            <div key={index}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={selectedProductModels.includes(model)}
+                  onChange={(event) => {
+                    const isChecked = event.target.checked;
+                    setSelectedProductModels((prev) => {
+                      if (isChecked) {
+                        return [...prev, model];
+                      } else {
+                        return prev.filter((name) => name !== model);
+                      }
+                    });
+                  }}
+                />
+                {model}
               </label>
             </div>
           ))}
