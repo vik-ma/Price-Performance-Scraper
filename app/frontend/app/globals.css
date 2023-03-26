@@ -520,16 +520,16 @@ h4 {
 .filter-button {
   font-size: x-large;
   background: linear-gradient(to bottom right, #045DE9, #09C6F9);
-  padding: 10px 15px;
+  padding: 4px 15px 7px;
   margin-bottom: 0;
   word-break: normal;
-  margin-bottom: 10px !important;
+  margin-bottom: 6px !important;
 }
 
 .filter-button::after {
   background-size: 1.5rem auto;
   width: 1.5rem;
-  margin-top: 3px;
+  margin-top: 5px;
 }
 
 details {
