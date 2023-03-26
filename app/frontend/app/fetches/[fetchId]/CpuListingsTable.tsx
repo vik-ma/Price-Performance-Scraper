@@ -82,6 +82,9 @@ export default function CpuListingsTable({
     }
   });
 
+  storeNames.sort();
+  productModels.sort();
+
   const [selectedStores, setSelectedStores] = useState<string[]>(storeNames);
 
   const [selectedProductModels, setSelectedProductModels] =
@@ -203,21 +206,16 @@ export default function CpuListingsTable({
                 >
                   <strong>{head.Label}</strong>
                 </span>
-                {sortTable.SortKey === head.Key ? (
-                  sortTable.SortDirection === "asc" ? (
+                {sortTable.SortKey === head.Key &&
+                  (sortTable.SortDirection === "asc" ? (
                     <span className="arrow">
-                      {" "}
                       <Caret rotate={180} />
                     </span>
                   ) : (
                     <span className="arrow">
-                      {" "}
                       <Caret />
                     </span>
-                  )
-                ) : (
-                  ""
-                )}
+                  ))}
               </th>
             ))}
           </tr>
@@ -229,10 +227,6 @@ export default function CpuListingsTable({
                 ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
                   pprNumColors
               );
-              // const cssName: string = (
-              //   cpuProductInfo[listing.productCategory] as { cssName: string }
-              // )?.cssName;
-              // TODO: DELETE LATER
               const colorNum: number = modelColor[
                 listing.productCategory
               ] as number;
@@ -255,7 +249,7 @@ export default function CpuListingsTable({
                         {listing.productCategory}
                       </div>
                     </strong>
-                  </td>{" "}
+                  </td>
                   {listing.productLink !== "" ? (
                     <td className="word-break">
                       <strong>
@@ -277,15 +271,15 @@ export default function CpuListingsTable({
                         </em>
                       </strong>
                     </td>
-                  )}{" "}
+                  )}
                   <td className={`text-color-tier-${tierNum}`}>
                     <strong data-tooltip={`Tier ${tierNum}`}>
                       {listing.benchmarkValue}
                     </strong>
-                  </td>{" "}
+                  </td>
                   <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
-                  </td>{" "}
+                  </td>
                   <td className={`ppr-color-${pprTextColor}`}>
                     <strong>{listing.pricePerformanceRatio}</strong>
                   </td>

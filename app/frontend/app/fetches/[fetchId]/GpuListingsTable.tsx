@@ -87,6 +87,9 @@ export default function GpuListingsTable({
     }
   });
 
+  storeNames.sort();
+  productModels.sort();
+
   const [selectedStores, setSelectedStores] = useState<string[]>(storeNames);
 
   const [selectedProductModels, setSelectedProductModels] =
@@ -128,9 +131,7 @@ export default function GpuListingsTable({
                       if (isChecked) {
                         return [...prev, storeName];
                       } else {
-                        return prev.filter(
-                          (name) => name !== storeName
-                        );
+                        return prev.filter((name) => name !== storeName);
                       }
                     });
                   }}
@@ -204,21 +205,16 @@ export default function GpuListingsTable({
                 >
                   <strong>{head.Label}</strong>
                 </span>
-                {sortTable.SortKey === head.Key ? (
-                  sortTable.SortDirection === "asc" ? (
+                {sortTable.SortKey === head.Key &&
+                  (sortTable.SortDirection === "asc" ? (
                     <span className="arrow">
-                      {" "}
                       <Caret rotate={180} />
                     </span>
                   ) : (
                     <span className="arrow">
-                      {" "}
                       <Caret />
                     </span>
-                  )
-                ) : (
-                  ""
-                )}
+                  ))}
               </th>
             ))}
           </tr>
@@ -230,10 +226,6 @@ export default function GpuListingsTable({
                 ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
                   pprNumColors
               );
-              // const cssName: string = (
-              //   gpuProductInfo[listing.productCategory] as { cssName: string }
-              // )?.cssName;
-              // TODO: DELETE LATER
               const colorNum: number = modelColor[
                 listing.productCategory
               ] as number;
@@ -246,7 +238,7 @@ export default function GpuListingsTable({
                 <tr key={index}>
                   <td>
                     <strong>{listing.productName}</strong>
-                  </td>{" "}
+                  </td>
                   {listing.productLink !== "" ? (
                     <td className="word-break">
                       <strong>
@@ -268,7 +260,7 @@ export default function GpuListingsTable({
                         </em>
                       </strong>
                     </td>
-                  )}{" "}
+                  )}
                   <td className="nowrap">
                     <strong>
                       <div
@@ -281,15 +273,15 @@ export default function GpuListingsTable({
                         {listing.productCategory}
                       </div>
                     </strong>
-                  </td>{" "}
+                  </td>
                   <td className={`text-color-tier-${tierNum}`}>
                     <strong data-tooltip={`Tier ${tierNum}`}>
                       {listing.benchmarkValue}
                     </strong>
-                  </td>{" "}
+                  </td>
                   <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
-                  </td>{" "}
+                  </td>
                   <td className={`ppr-color-${pprTextColor}`}>
                     <strong>{listing.pricePerformanceRatio}</strong>
                   </td>
