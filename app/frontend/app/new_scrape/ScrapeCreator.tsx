@@ -241,7 +241,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           >
             <strong>Clear All</strong>
           </button>
-          <p className="selected-products-type"><strong>{scrapeTypeTitle}</strong></p>
+          <p className="selected-products-type">
+            <strong>{scrapeTypeTitle}</strong>
+          </p>
+          {selectedProducts.size > 0 && (
+            <p className="hint-text">
+              <em>Click on product to remove from list</em>
+            </p>
+          )}
           <ul className="selected-products-list">
             {Array.from(selectedProducts).map((name) => {
               const productTier =

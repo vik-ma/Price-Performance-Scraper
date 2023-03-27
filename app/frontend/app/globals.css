@@ -765,6 +765,15 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-top: -7px;
   font-size: medium;
   color:rgb(74, 153, 255);
+  margin-bottom: 0px;
+}
+
+.hint-text {
+  font-size: small;
+  color:#cccccc;
+  margin-top: 0;
+  margin-bottom: 1px;
+  margin-left: 3px;
 }
 
 @media (max-width: 33.5em) {
@@ -780,8 +789,8 @@ table[role=grid] tbody tr:nth-child(odd) {
   padding: 1px 5px 5px;
   font-size: xx-large;
   word-break: normal;
-  margin-top: 15px;
-  margin-bottom: 4px;
+  margin-top: 6px;
+  margin-bottom: 2px;
   margin-right: 10px;
 }
 
