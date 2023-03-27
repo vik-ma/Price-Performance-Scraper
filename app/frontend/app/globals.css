@@ -636,6 +636,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .selected-products-heading {
   display: inline-block;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
 }
 
 .semi-transparent-button {
@@ -649,6 +651,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   background: rgba(128, 128, 128, 0.13);
   color:rgb(225, 230, 235);
   word-break: normal;
+  margin-bottom: 0;
 }
 
 .semi-transparent-button:hover {
@@ -658,7 +661,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .clear-items-button {
-  margin-left: 12px;
+  margin-left: 0px;
 }
 
 .toggle-all-filters-button {
@@ -741,13 +744,14 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .selected-products-container {
-  padding: 0px 10px 10px;
+  padding: 2px 15px 10px;
   border-radius: 10px;
   background: rgb(31, 31, 31);
 }
 
 .selected-products-border {
   position: sticky;
+  margin-top: 15px;
   top: 5px;
   background: linear-gradient(to bottom right, #70c6ff, #1a43b4);
   padding: 2px;
@@ -755,6 +759,12 @@ table[role=grid] tbody tr:nth-child(odd) {
   border-radius: 10px;
   margin-bottom: 20px;
   z-index: 1;
+}
+
+.selected-products-type {
+  margin-top: -8px;
+  font-size: medium;
+  color:rgb(74, 153, 255);
 }
 
 .start-button {
@@ -768,6 +778,8 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-bottom: 2px;
   margin-right: 10px;
 }
+
+
 
 .benchmark-color-toggle-container {
   padding-left: 10px;

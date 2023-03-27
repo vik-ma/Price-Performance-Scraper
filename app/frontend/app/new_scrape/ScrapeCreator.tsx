@@ -222,7 +222,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   return (
     <>
-      <h2>{scrapeTypeTitle}</h2>
+      {/* <h2>{scrapeTypeTitle}</h2> */}
       <div className="selected-products-border">
         <div className="selected-products-container">
           <h2 className="selected-products-heading">
@@ -241,6 +241,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           >
             <strong>Clear All</strong>
           </button>
+          <p className="selected-products-type"><strong>{scrapeTypeTitle}</strong></p>
           <ul className="selected-products-list">
             {Array.from(selectedProducts).map((name) => {
               const productTier =
