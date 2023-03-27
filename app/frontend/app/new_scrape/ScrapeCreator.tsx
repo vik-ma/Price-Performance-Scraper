@@ -324,7 +324,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               </button>
             )}
           </div>
-
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
               <h4 className="product-filter-heading">Socket</h4>
@@ -361,6 +360,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           )}
         </div>
       </details>
+      <h6 className="product-add-hint">
+        <em>Click on a product below to add to the list of products to be scraped</em>
+      </h6>
       <div className="tiers-container">
         {tiersArray.map((tier) => (
           <div className="tiers-item" key={tier}>

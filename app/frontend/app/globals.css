@@ -613,12 +613,13 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .tiers-item {
-  padding: 0 10px;
+  padding: 0 10px 8px;
 }
 
 .tiers-title {
-  margin-top: 15px;
+  margin-top: -3px !important;
   margin-bottom: -5px !important;
+  margin-left: 5px;
 }
 
 .tiers-list-item {
@@ -817,7 +818,12 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: #ebeff3;
 }
 
-
+.product-add-hint {
+  word-break: normal;
+  margin: 10px;
+  margin-bottom: 0;
+  color:#dfdfdf;
+}
 
 .rtx-4090 {
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
