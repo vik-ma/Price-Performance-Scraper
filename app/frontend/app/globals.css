@@ -661,7 +661,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .clear-items-button {
-  margin-left: 0px;
+  margin-bottom: 0px;
 }
 
 .toggle-all-filters-button {
@@ -762,9 +762,15 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .selected-products-type {
-  margin-top: -8px;
+  margin-top: -7px;
   font-size: medium;
   color:rgb(74, 153, 255);
+}
+
+@media (max-width: 33.5em) {
+  .selected-products-type {
+    margin-top: 0px;
+  }
 }
 
 .start-button {
@@ -775,11 +781,9 @@ table[role=grid] tbody tr:nth-child(odd) {
   font-size: xx-large;
   word-break: normal;
   margin-top: 15px;
-  margin-bottom: 2px;
+  margin-bottom: 4px;
   margin-right: 10px;
 }
-
-
 
 .benchmark-color-toggle-container {
   padding-left: 10px;
