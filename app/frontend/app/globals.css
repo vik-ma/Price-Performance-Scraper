@@ -57,9 +57,12 @@ p {
 
 .full-fetch-list-item {
   /* background-color:rgb(44, 44, 44) !important; */
-  background: linear-gradient(to bottom right, #202020, #3F3F3F);
+  /* background: linear-gradient(to bottom right, #202020, #3F3F3F); */
+  background-color: var(--dark-bg-color);
   padding: 2px 10px;
   border-radius: 10px;
+  border: 2px solid rgba(228, 228, 228, 0.850);
+  /* box-shadow: 0px 0px 3px white; */
 }
 
 .full-fetch-list-item:hover {
