@@ -33,8 +33,6 @@ export default async function FetchesList() {
           .map((fetch: CompletedFetchProps) => (
             <li key={fetch.timestampId}>
               <Link href={`/fetches/${fetch.timestampId}`}>
-                {/* {fetch.productList}
-              <br /> */}
                 <strong>
                   {fetch.benchmarkType === "CPU-Normal"
                     ? `CPU (Multi-th.)`

@@ -527,11 +527,17 @@ h4 {
 
 .filter-button {
   font-size: x-large;
-  background: linear-gradient(to bottom right, #045DE9, #09C6F9);
+  /* background: linear-gradient(to bottom right, #045DE9, #09C6F9); */
+  background: none;
+  background-color: #202020;
+  background-color: #1c1e20;
   padding: 3px 15px 6px;
   margin-bottom: 0;
   word-break: normal;
   margin-bottom: 7px !important;
+  color:#dfdfdf;
+  /* border-width: 2px; */
+  border-color: #d4d4d4;
 }
 
 .filter-button::after {
