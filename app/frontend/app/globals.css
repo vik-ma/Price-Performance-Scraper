@@ -810,6 +810,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .benchmark-color-toggle-container {
+  margin-top: 10px;
   padding-left: 10px;
   color: rgb(225, 230, 235);
 }
