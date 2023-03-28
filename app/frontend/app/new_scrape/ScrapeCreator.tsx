@@ -236,7 +236,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             </span>
           </h2>
           <button
-            className="semi-transparent-button clear-items-button"
+            className="dark-button clear-items-button"
             onClick={handleClickClearItems}
           >
             <strong>Clear All</strong>
@@ -317,7 +317,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             ))}
             {scrapeType.name !== "GPU" && (
               <button
-                className="semi-transparent-button toggle-all-filters-button"
+                className="dark-button toggle-all-filters-button"
                 onClick={handleToggleAllClick}
               >
                 <strong>Toggle All</strong>
@@ -361,7 +361,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </div>
       </details>
       <h6 className="product-add-hint">
-        <em>Click on a product below to add to the list of products to be scraped</em>
+        <em>
+          Click on a product below to add to the list of products to be scraped
+        </em>
       </h6>
       <div className="tiers-container">
         {tiersArray.map((tier) => (

@@ -652,22 +652,22 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-right: 10px;
 }
 
-.semi-transparent-button {
+.dark-button {
   display: inline-block;
   width: fit-content;
   height: fit-content;
-  padding: 0px 17px 2px;
+  padding: 0px 17px 4px;
   border: 2px solid rgba(233, 233, 233, 0.781);
   border-radius: 12px;
   font-size: larger;
   /* background: rgba(128, 128, 128, 0.13); */
   background-color: var(--dark-bg-color);
-  color:#dfdfdf;
+  color:#ececec;
   word-break: normal;
   margin-bottom: 0;
 }
 
-.semi-transparent-button:hover {
+.dark-button:hover {
   background: rgba(128, 128, 128, 0.623);
   background-color: rgba(160, 160, 170, 0.384);
   color: white;
