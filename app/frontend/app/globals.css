@@ -632,11 +632,11 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .tiers-item {
-  padding: 0 10px 15px;
+  padding: 0 10px 10px;
 }
 
 .tiers-title {
-  margin-top: -3px !important;
+  /* margin-top: -3px !important; */
   margin-bottom: -5px !important;
   margin-left: 5px;
 }
