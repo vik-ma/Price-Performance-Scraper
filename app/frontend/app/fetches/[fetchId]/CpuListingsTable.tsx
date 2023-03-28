@@ -147,28 +147,34 @@ export default function CpuListingsTable({
           <strong>Filter Product Models</strong>
         </summary>
         <div className="filter-listing-container">
-          {productModels.map((model, index) => (
-            <div key={index}>
-              <label>
-                <input
-                  type="checkbox"
-                  checked={selectedProductModels.includes(model)}
-                  onChange={(event) => {
-                    const isChecked = event.target.checked;
-                    console.log("asddsadsadsdasdsa");
-                    setSelectedProductModels((prev) => {
-                      if (isChecked) {
-                        return [...prev, model];
-                      } else {
-                        return prev.filter((name) => name !== model);
-                      }
-                    });
-                  }}
-                />
-                {model}
-              </label>
-            </div>
-          ))}
+          {productModels.map((model, index) => {
+            const colorNum: number = modelColor[model] as number;
+            return (
+              <div key={index}>
+                <label
+                  className={
+                    colorCodingEnabled ? `model-text-color-${colorNum}` : ""
+                  }
+                >
+                  <input
+                    type="checkbox"
+                    checked={selectedProductModels.includes(model)}
+                    onChange={(event) => {
+                      const isChecked = event.target.checked;
+                      setSelectedProductModels((prev) => {
+                        if (isChecked) {
+                          return [...prev, model];
+                        } else {
+                          return prev.filter((name) => name !== model);
+                        }
+                      });
+                    }}
+                  />
+                  <strong>{model}</strong>
+                </label>
+              </div>
+            );
+          })}
         </div>
       </details>
       <div className="color-toggle-container">

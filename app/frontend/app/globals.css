@@ -603,6 +603,10 @@ table[role=grid] tbody tr:nth-child(odd) {
        1px 1px 1px rgb(26, 26, 26);
 }
 
+.model-checkbox-label {
+  display: inline-block;
+}
+
 .tiers-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -823,6 +827,97 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin: 10px;
   margin-bottom: 0;
   color:#dfdfdf;
+}
+
+
+.model-gradient-0 {
+  background: linear-gradient(to bottom right, #1722c0, #69bcf3);
+  border: 2px solid rgb(36, 131, 255);
+}
+
+.model-gradient-1 {
+  background: linear-gradient(to bottom right, #300888, #7f35c4);
+  border: 2px solid rgb(147, 52, 255);
+}
+
+.model-gradient-2 {
+  background: linear-gradient(to bottom right, #7c011a, #f23a43);
+  border: 2px solid rgb(250, 22, 22);
+}
+
+.model-gradient-3 {
+  background: linear-gradient(to bottom right, #3f220a, #fcdba9);
+  border: 2px solid rgb(146, 102, 36);
+}
+
+.model-gradient-4 {
+  background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
+  border: 2px solid rgb(79, 230, 112);
+}
+
+.model-gradient-5 {
+  background: linear-gradient(to bottom right, #a03b00, #ffb108);
+  border: 2px solid rgb(255, 136, 0);
+}
+
+.model-gradient-6 {
+  background: linear-gradient(to bottom right, #7c792a, #F7F477);
+  border: 2px solid rgb(255, 253, 109);
+}
+
+.model-gradient-7 {
+  background: linear-gradient(to bottom right, #1aabee, #dcfdff);
+  border: 2px solid rgb(96, 231, 255);
+}
+
+.model-gradient-8 {
+  background: linear-gradient(to bottom right, #942cc4, #d89af1);
+  border: 2px solid rgb(246, 142, 255);
+}
+
+.model-gradient-9 {
+  background: linear-gradient(to bottom right, #e71968, #ffa9ad);
+  border: 2px solid rgb(255, 124, 153);
+}
+
+.model-text-color-0 {
+  color: rgb(82, 157, 255);
+}
+
+.model-text-color-1 {
+  color: rgb(175, 104, 255);
+}
+
+.model-text-color-2 {
+  color: rgb(223, 62, 62);
+}
+
+.model-text-color-3 {
+  color: rgb(160, 136, 100);
+}
+
+.model-text-color-4 {
+  color: rgb(88, 216, 84);
+}
+
+.model-text-color-5 {
+  color: rgb(255, 149, 28);
+}
+
+.model-text-color-6 {
+  color: rgb(255, 253, 140);
+}
+
+.model-text-color-7 {
+  color: rgb(124, 232, 247);
+}
+
+.model-text-color-8 {
+  color: rgb(228, 124, 238);
+}
+
+.model-text-color-9 {
+  color: rgb(255, 122, 151);
 }
 
 .rtx-4090 {
@@ -1414,55 +1509,4 @@ table[role=grid] tbody tr:nth-child(odd) {
   background: linear-gradient(to bottom right, #7c792a, #F7F477);
   border: 2px solid rgb(255, 253, 109);
 }
-
-.model-gradient-0 {
-  background: linear-gradient(to bottom right, #1722c0, #69bcf3);
-  border: 2px solid rgb(36, 131, 255);
-}
-
-.model-gradient-1 {
-  background: linear-gradient(to bottom right, #300888, #7f35c4);
-  border: 2px solid rgb(147, 52, 255);
-}
-
-.model-gradient-2 {
-  background: linear-gradient(to bottom right, #7c011a, #f23a43);
-  border: 2px solid rgb(250, 22, 22);
-}
-
-.model-gradient-3 {
-  background: linear-gradient(to bottom right, #3f220a, #fcdba9);
-  border: 2px solid rgb(146, 102, 36);
-}
-
-.model-gradient-4 {
-  background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
-  border: 2px solid rgb(79, 230, 112);
-}
-
-.model-gradient-5 {
-  background: linear-gradient(to bottom right, #a03b00, #ffb108);
-  border: 2px solid rgb(255, 136, 0);
-}
-
-.model-gradient-6 {
-  background: linear-gradient(to bottom right, #e71968, #ffa9ad);
-  border: 2px solid rgb(255, 124, 153);
-}
-
-.model-gradient-7 {
-  background: linear-gradient(to bottom right, #7c792a, #F7F477);
-  border: 2px solid rgb(255, 253, 109);
-}
-
-.model-gradient-8 {
-  background: linear-gradient(to bottom right, #942cc4, #d89af1);
-  border: 2px solid rgb(246, 142, 255);
-}
-
-.model-gradient-9 {
-  background: linear-gradient(to bottom right, #1aabee, #dcfdff);
-  border: 2px solid rgb(96, 231, 255);
-}
-
 
