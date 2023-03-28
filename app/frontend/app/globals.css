@@ -3,6 +3,7 @@
   --primary-hover: #616161;
   --primary-focus: rgba(172, 172, 172, 0.125);
   --table-border-color: rgba(44, 44, 44, 0.226);
+  --dark-bg-color: #1e1e1f;
 }
 
 #error-header {
@@ -529,8 +530,7 @@ h4 {
   font-size: x-large;
   /* background: linear-gradient(to bottom right, #045DE9, #09C6F9); */
   background: none;
-  background-color: #202020;
-  background-color: #1c1e20;
+  background-color: var(--dark-bg-color);
   padding: 3px 15px 6px;
   margin-bottom: 0;
   word-break: normal;
@@ -659,14 +659,16 @@ table[role=grid] tbody tr:nth-child(odd) {
   border: 2px solid rgba(233, 233, 233, 0.781);
   border-radius: 12px;
   font-size: larger;
-  background: rgba(128, 128, 128, 0.13);
-  color:rgb(225, 230, 235);
+  /* background: rgba(128, 128, 128, 0.13); */
+  background-color: var(--dark-bg-color);
+  color:#dfdfdf;
   word-break: normal;
   margin-bottom: 0;
 }
 
 .semi-transparent-button:hover {
   background: rgba(128, 128, 128, 0.623);
+  background-color: rgba(160, 160, 170, 0.384);
   color: white;
   border: 2px solid white;
 }
@@ -757,7 +759,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 .selected-products-container {
   padding: 2px 15px 10px;
   border-radius: 10px;
-  background: rgb(31, 31, 31);
+  background: var(--dark-bg-color);
 }
 
 .selected-products-border {
