@@ -152,7 +152,7 @@ h4 {
   padding: 12px;
   text-align: center;
   width: 50%;
-  background: rgba(128, 128, 128, 0.13);
+  background: rgba(90, 90, 90, 0.13);
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.274);
   box-sizing: content-box;
@@ -547,7 +547,8 @@ h4 {
 }
 
 .filter-button-products {
-  margin-bottom: 3px !important;
+  /* margin-bottom: 3px !important; */
+  margin-top:5px;
 }
 
 details {
@@ -832,8 +833,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .product-add-hint {
   word-break: normal;
-  margin: 10px;
-  margin-bottom: 0;
+  margin: 20px 10px 0;
   color:#dfdfdf;
 }
 
