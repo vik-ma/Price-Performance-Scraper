@@ -178,7 +178,8 @@ h4 {
   color:#ebeff3;
   /* background: rgb(13,163,10) !important;
   background: linear-gradient(42deg, rgba(13,163,10,1) 0%, rgba(152,241,15,1) 100%) !important; */
-  background: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%) !important;
+  /* background: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%) !important; */
+  background: linear-gradient(to bottom, #045DE9, #09C6F9) !important;
 }
 
 .benchmark-table-content-tabs {
@@ -798,7 +799,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .start-button {
   display: inline-block;
-  background: linear-gradient(to bottom right, #045DE9, #09C6F9);
+  background: linear-gradient(to top, #045DE9, #09C6F9);
   max-width: 300px;
   padding: 1px 5px 5px;
   font-size: xx-large;
