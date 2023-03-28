@@ -548,7 +548,7 @@ h4 {
 
 .filter-button-products {
   /* margin-bottom: 3px !important; */
-  margin-top:5px;
+  margin: 5px 0;
 }
 
 details {
@@ -624,7 +624,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .tiers-item {
-  padding: 0 10px 8px;
+  padding: 0 10px 15px;
 }
 
 .tiers-title {
