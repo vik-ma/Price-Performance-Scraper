@@ -7,6 +7,7 @@ import { GpuInfoProps, CpuInfoProps } from "@/typings";
 import { useRouter } from "next/navigation";
 import { CreateScrapeContext } from "./page";
 import CircleCross from "../icons/CircleCross";
+import Link from "next/link";
 
 async function startPriceFetch(data = {}) {
   const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
@@ -396,6 +397,23 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           </div>
         ))}
       </div>
+      <p className="benchmarks-hint">
+        <em>
+          <strong>
+            Tiers are derived from the different models' average benchmark
+            score.
+            <br />
+            See more detailed benchmark scores at{" "}
+            <Link
+              className="internal-link-color"
+              href="/benchmarks"
+              target="_blank"
+            >
+              Current Benchmarks
+            </Link>
+          </strong>
+        </em>
+      </p>
     </>
   );
 }

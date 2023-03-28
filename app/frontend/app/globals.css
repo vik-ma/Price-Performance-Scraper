@@ -846,6 +846,14 @@ table[role=grid] tbody tr:nth-child(odd) {
   color:#dfdfdf;
 }
 
+.benchmarks-hint {
+  padding: 10px;
+  color:#dfdfdf;
+}
+
+.internal-link-color {
+  color:rgb(47, 161, 255);
+}
 
 .model-gradient-0 {
   background: linear-gradient(to bottom right, #1722c0, #69bcf3);
