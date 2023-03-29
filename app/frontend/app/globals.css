@@ -211,26 +211,8 @@ h4 {
   display: flex;
 }
 
-.benchmark-legend {
-  width: 160px;
-  margin-top: 20px;
-  margin-left: 15px;
-  padding: 17px;
-  padding-top: 5px;
-  border-radius: 20px;
-  height: fit-content;
-  border: 2px solid #458fff;
-  box-shadow: 0 0 10px #458fff;
-}
-
-.legend-list {
-  padding: 0 7px;
-}
-
-@media (max-width: 50em){
-  .benchmark-legend {
-    display: none;
-  }
+.benchmark-info-wrapper {
+  padding: 10px;
 }
 
 .text-color-tier-1 {

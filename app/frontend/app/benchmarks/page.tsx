@@ -31,6 +31,9 @@ export default async function Benchmarks() {
           <h2 className="centered-container">Error fetching benchmarks</h2>
         </>
       )}
+      <div className="benchmark-info-wrapper">
+        <h2>Disclaimer</h2>
+      </div>
     </>
   );
 }
