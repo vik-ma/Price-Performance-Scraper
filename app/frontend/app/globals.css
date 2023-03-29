@@ -837,6 +837,11 @@ table[role=grid] tbody tr:nth-child(odd) {
   color:rgb(47, 161, 255);
 }
 
+.table-mod-button {
+  margin: 5px;
+  padding: 3px 5px;
+}
+
 .model-gradient-0 {
   background: linear-gradient(to bottom right, #1722c0, #69bcf3);
   border: 2px solid rgb(36, 131, 255);

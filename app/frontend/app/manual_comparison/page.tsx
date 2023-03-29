@@ -1,5 +1,7 @@
 "use client";
 import { useState } from "react";
+import Plus from "../icons/Plus";
+import Minus from "../icons/Minus";
 
 export default function ManualComparison() {
   const [numRows, setNumRows] = useState<number>(1);
@@ -58,6 +60,12 @@ export default function ManualComparison() {
             ))}
           </tbody>
         </table>
+        <button type="button" className="dark-button table-mod-button">
+          <Plus />
+        </button>
+        <button type="button" className="dark-button table-mod-button">
+          <Minus />
+        </button>
         <button type="submit">Calculate</button>
       </form>
     </>
