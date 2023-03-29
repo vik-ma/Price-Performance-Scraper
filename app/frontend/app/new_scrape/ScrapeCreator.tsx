@@ -122,11 +122,11 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           if (response.success) {
             router.push(`/fetches/${response.message}`);
           } else {
-            setErrorMsg(`An error occured during price scraping.`);
+            setErrorMsg(`An error occurred during price scraping.`);
             setShowErrorMsg(true);
           }
         } else {
-          setErrorMsg(`An error occured when communicating with the API.`);
+          setErrorMsg(`An error occurred when communicating with the API.`);
           setShowErrorMsg(true);
         }
       } catch {

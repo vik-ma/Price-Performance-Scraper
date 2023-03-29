@@ -32,7 +32,36 @@ export default async function Benchmarks() {
         </>
       )}
       <div className="benchmark-info-wrapper">
-        <h2>Disclaimer</h2>
+        <h2>Disclaimers</h2>
+        <p>
+          <em>
+            <strong>CPU Gaming</strong> benchmarks are semi-theoretical and{" "}
+            <strong>
+              not necessarily indicative of actual gaming performance
+            </strong>
+            , and should be taken with a grain of salt.
+          </em>
+        </p>
+        <br />
+        <p>
+          <em>
+            <strong>GPUs</strong> of the same model come in different
+            'sub-models' made by various third party manufacturers which may
+            differ in performance from each other.{" "}
+            <strong>
+              No comparisons are made between individual sub-models in these
+              benchmarks.
+            </strong>
+          </em>
+        </p>
+        <br />
+        <p><em>
+          <strong>
+            Use the Manual Comparison tool to calculate Price-to-Performance
+            using custom benchmark values.
+          </strong></em>
+        </p>
+        {/* TODO: ADD LINK */}
       </div>
     </>
   );
