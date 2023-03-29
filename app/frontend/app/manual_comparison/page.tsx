@@ -8,7 +8,7 @@ export default function ManualComparison() {
 
   const rows: number[] = Array.from({ length: numRows });
 
-  const [ppsArray, setPpsArray] = useState<number[]>([]);
+  const [ppsArray, setPpsArray] = useState<string[]>([]);
 
   const handleRowModClick = (modification: string) => {
     if (modification === "add") {
@@ -18,10 +18,30 @@ export default function ManualComparison() {
     }
   };
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const newPpsArray: string[] = [];
+    for (let i = 0; i < rows.length; i++) {
+      const priceInput = event.currentTarget.querySelector(
+        `#price-${i}`
+      ) as HTMLInputElement;
+
+      const perfInput = event.currentTarget.querySelector(
+        `#perf-${i}`
+      ) as HTMLInputElement;
+
+      const price: number = parseFloat(priceInput.value);
+      const perf: number = parseFloat(perfInput.value);
+      const ppsValue: number = (perf / price) * 100;
+      newPpsArray.push(ppsValue.toFixed(2));
+    }
+    setPpsArray(newPpsArray);
+  };
+
   return (
     <>
       <h1>Manual Comparison Tool</h1>
-      <form>
+      <form onSubmit={(event) => handleSubmit(event)}>
         <table role="grid">
           <thead>
             <tr>
@@ -44,13 +64,20 @@ export default function ManualComparison() {
               <tr key={index}>
                 <td>
                   <label>
-                    <input type="text" placeholder="Name (Optional)" />
+                    <input
+                      type="text"
+                      name={`name-${index}`}
+                      id={`name-${index}`}
+                      placeholder="Name (Optional)"
+                    />
                   </label>
                 </td>
                 <td>
                   <label>
                     <input
                       type="text"
+                      name={`perf-${index}`}
+                      id={`perf-${index}`}
                       placeholder="Performance Value"
                       required
                     />
@@ -58,7 +85,13 @@ export default function ManualComparison() {
                 </td>
                 <td>
                   <label>
-                    <input type="text" placeholder="Price" required />
+                    <input
+                      type="text"
+                      name={`price-${index}`}
+                      id={`price-${index}`}
+                      placeholder="Price"
+                      required
+                    />
                   </label>
                 </td>
                 <td>
