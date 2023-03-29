@@ -839,7 +839,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .table-mod-button {
   margin: 5px;
-  padding: 3px 5px;
+  padding: 0 8px 4px;
 }
 
 .model-gradient-0 {

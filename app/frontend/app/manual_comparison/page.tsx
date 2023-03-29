@@ -6,9 +6,17 @@ import Minus from "../icons/Minus";
 export default function ManualComparison() {
   const [numRows, setNumRows] = useState<number>(1);
 
-  const rows = Array.from({ length: numRows });
+  const rows: number[] = Array.from({ length: numRows });
 
   const [ppsArray, setPpsArray] = useState<number[]>([]);
+
+  const handleRowModClick = (modification: string) => {
+    if (modification === "add") {
+      setNumRows((prev) => prev + 1);
+    } else {
+      setNumRows((prev) => prev - 1);
+    }
+  };
 
   return (
     <>
@@ -60,11 +68,21 @@ export default function ManualComparison() {
             ))}
           </tbody>
         </table>
-        <button type="button" className="dark-button table-mod-button">
-          <Plus />
-        </button>
-        <button type="button" className="dark-button table-mod-button">
+        <button
+          type="button"
+          className="dark-button table-mod-button"
+          disabled={rows.length < 2}
+          onClick={() => handleRowModClick("remove")}
+        >
           <Minus />
+        </button>
+        <button
+          type="button"
+          className="dark-button table-mod-button"
+          disabled={rows.length > 9}
+          onClick={() => handleRowModClick("add")}
+        >
+          <Plus />
         </button>
         <button type="submit">Calculate</button>
       </form>
