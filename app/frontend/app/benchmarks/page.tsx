@@ -1,5 +1,6 @@
 import BenchmarkTable from "./BenchmarkTable";
 import { BenchmarkAPIResponse, BenchmarkData } from "@/typings";
+import Link from "next/link";
 
 async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
   const response = await fetch(
@@ -55,13 +56,21 @@ export default async function Benchmarks() {
           </em>
         </p>
         <br />
-        <p><em>
-          <strong>
-            Use the Manual Comparison tool to calculate Price-to-Performance
-            using custom benchmark values.
-          </strong></em>
+        <p>
+          <em>
+            <strong>
+              Use the{" "}
+              <Link
+                href="/manual_comparison"
+                className="internal-link-color"
+                target="_blank"
+              >
+                Manual Comparison Tool
+              </Link>{" "}
+              to calculate Price-to-Performance using custom benchmark values.
+            </strong>
+          </em>
         </p>
-        {/* TODO: ADD LINK */}
       </div>
     </>
   );

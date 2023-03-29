@@ -7,6 +7,7 @@ export default function Navbar() {
       <Link href="/">Home</Link>
       <Link href="/new_scrape">New Scrape</Link>
       <Link href="/benchmarks">Current Benchmarks</Link>
+      <Link href="/manual_comparison">Manual Comparison Tool</Link>
       <Link href="/fetches">Completed Price Fetches</Link>
     </nav>
   );
