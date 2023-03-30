@@ -838,7 +838,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .table-mod-button {
-  margin: 5px;
+  margin: 10px;
   /* padding: 0 8px 4px; */
   padding-left: 7px;
   padding-bottom: 4px;
@@ -879,18 +879,21 @@ table[role=grid] tbody tr:nth-child(odd) {
 .calculate-button {
   position: absolute;
   right: 0;
-  margin: 5px;
+  margin: 10px;
   background: linear-gradient(to top, #1c249b, #69c7f3);
 }
 
+.mct-text-container {
+  margin: 10px;
+}
 
 @media (max-width: 50em) {
   .calculate-button {
     left: 0;
-    margin-top: 50px;
+    margin-top: 60px;
   }
   .mct-text-container {
-    margin-top: 50px;
+    margin-top: 60px;
   }
 }
 
