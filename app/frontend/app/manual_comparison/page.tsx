@@ -42,7 +42,7 @@ export default function ManualComparison() {
     <>
       <h1>Manual Comparison Tool</h1>
       <form onSubmit={(event) => handleSubmit(event)}>
-        <table role="grid">
+        <table role="grid" className="mct-table">
           <thead>
             <tr>
               <th className="tableHead">
@@ -95,7 +95,7 @@ export default function ManualComparison() {
                   </label>
                 </td>
                 <td>
-                  <strong>{ppsArray[index]}</strong>
+                  <strong className="mct-pps">{ppsArray[index]}</strong>
                 </td>
               </tr>
             ))}

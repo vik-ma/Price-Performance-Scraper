@@ -848,6 +848,29 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-top: -4px;
 }
 
+.mct-table {
+  margin: 0;
+}
+
+.mct-table td {
+  padding: 0 10px;
+}
+
+.mct-table label {
+  margin: 0;
+}
+
+.mct-table input {
+  margin: 10px;
+  padding: 5px;
+  max-height: 40px;
+}
+
+.mct-pps {
+  font-size: x-large;
+  margin-left: 10px;
+  color: #1ab2ee;
+}
 
 .model-gradient-0 {
   background: linear-gradient(to bottom right, #1722c0, #69bcf3);
