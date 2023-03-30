@@ -883,9 +883,13 @@ table[role=grid] tbody tr:nth-child(odd) {
   background: linear-gradient(to top, #1c249b, #69c7f3);
 }
 
+
 @media (max-width: 50em) {
   .calculate-button {
     left: 0;
+    margin-top: 50px;
+  }
+  .mct-text-container {
     margin-top: 50px;
   }
 }

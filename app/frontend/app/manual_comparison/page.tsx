@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Plus from "../icons/Plus";
 import Minus from "../icons/Minus";
+import Link from "next/link";
 
 export default function ManualComparison() {
   const [numRows, setNumRows] = useState<number>(1);
@@ -56,7 +57,9 @@ export default function ManualComparison() {
                   <strong>Price</strong>
                 </th>
                 <th className="tableHead">
-                  <strong data-tooltip="Higher is better">Price / Performance Score</strong>
+                  <strong data-tooltip="Higher is better">
+                    Price / Performance Score
+                  </strong>
                 </th>
               </tr>
             </thead>
@@ -122,6 +125,30 @@ export default function ManualComparison() {
             <strong>Calculate</strong>
           </button>
         </form>
+        <div className="mct-text-container">
+          <p>
+            This tool can be used to manually enter custom price and performance
+            values to calculate and compare the Price / Performance Score of
+            different products.
+          </p>
+          <br />
+          <p>
+            The Price / Performance Scores from this tool will not be
+            proportionate to the Price / Performance Score from the site's{" "}
+            <Link
+              className="internal-link-color"
+              href="/fetches"
+              target="_blank"
+            >
+              Completed Scrapes
+            </Link>{" "}
+            <strong>
+              unless the performance values entered here are structured in the
+              same way as this site's Benchmark Values are constructed.
+            </strong>
+            {/* TODO: ADD LINK */}
+          </p>
+        </div>
       </div>
     </>
   );
