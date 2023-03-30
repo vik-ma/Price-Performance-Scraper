@@ -56,7 +56,7 @@ export default function ManualComparison() {
                   <strong>Price</strong>
                 </th>
                 <th className="tableHead">
-                  <strong>Price / Performance Score</strong>
+                  <strong data-tooltip="Higher is better">Price / Performance Score</strong>
                 </th>
               </tr>
             </thead>
