@@ -107,7 +107,7 @@ export default function ManualComparison() {
           disabled={rows.length < 2}
           onClick={() => handleRowModClick("remove")}
         >
-          <Minus />
+          <Minus /> Delete Row
         </button>
         <button
           type="button"
@@ -115,7 +115,7 @@ export default function ManualComparison() {
           disabled={rows.length > 9}
           onClick={() => handleRowModClick("add")}
         >
-          <Plus />
+          <Plus /> New Row
         </button>
         <button type="submit">Calculate</button>
       </form>
