@@ -880,6 +880,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   position: absolute;
   right: 0;
   margin: 5px;
+  background: linear-gradient(to top, #1c249b, #69c7f3);
 }
 
 .model-gradient-0 {
