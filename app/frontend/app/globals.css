@@ -105,7 +105,7 @@ h4 {
   margin-bottom: 20px !important;
 }
 
-@media (max-width: 50em){
+@media (max-width: 50em) {
   .sidebar{
     display: none;
   }
@@ -881,6 +881,13 @@ table[role=grid] tbody tr:nth-child(odd) {
   right: 0;
   margin: 5px;
   background: linear-gradient(to top, #1c249b, #69c7f3);
+}
+
+@media (max-width: 50em) {
+  .calculate-button {
+    left: 0;
+    margin-top: 50px;
+  }
 }
 
 .model-gradient-0 {
