@@ -41,84 +41,88 @@ export default function ManualComparison() {
   return (
     <>
       <h1>Manual Comparison Tool</h1>
-      <form onSubmit={(event) => handleSubmit(event)}>
-        <table role="grid" className="mct-table">
-          <thead>
-            <tr>
-              <th className="tableHead">
-                <strong>Name (Optional)</strong>
-              </th>
-              <th className="tableHead">
-                <strong>Performance Value</strong>
-              </th>
-              <th className="tableHead">
-                <strong>Price</strong>
-              </th>
-              <th className="tableHead">
-                <strong>Price / Performance Score</strong>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((_, index) => (
-              <tr key={index}>
-                <td>
-                  <label>
-                    <input
-                      type="text"
-                      name={`name-${index}`}
-                      id={`name-${index}`}
-                      placeholder="Name (Optional)"
-                    />
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <input
-                      type="text"
-                      name={`perf-${index}`}
-                      id={`perf-${index}`}
-                      placeholder="Performance Value"
-                      required
-                    />
-                  </label>
-                </td>
-                <td>
-                  <label>
-                    <input
-                      type="text"
-                      name={`price-${index}`}
-                      id={`price-${index}`}
-                      placeholder="Price"
-                      required
-                    />
-                  </label>
-                </td>
-                <td>
-                  <strong className="mct-pps">{ppsArray[index]}</strong>
-                </td>
+      <div className="mct-wrapper">
+        <form onSubmit={(event) => handleSubmit(event)}>
+          <table role="grid" className="mct-table">
+            <thead>
+              <tr>
+                <th className="tableHead">
+                  <strong>Name (Optional)</strong>
+                </th>
+                <th className="tableHead">
+                  <strong>Performance Value</strong>
+                </th>
+                <th className="tableHead">
+                  <strong>Price</strong>
+                </th>
+                <th className="tableHead">
+                  <strong>Price / Performance Score</strong>
+                </th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <button
-          type="button"
-          className="dark-button table-mod-button"
-          disabled={rows.length < 2}
-          onClick={() => handleRowModClick("remove")}
-        >
-          <Minus /> Delete Row
-        </button>
-        <button
-          type="button"
-          className="dark-button table-mod-button"
-          disabled={rows.length > 9}
-          onClick={() => handleRowModClick("add")}
-        >
-          <Plus /> New Row
-        </button>
-        <button type="submit">Calculate</button>
-      </form>
+            </thead>
+            <tbody>
+              {rows.map((_, index) => (
+                <tr key={index}>
+                  <td>
+                    <label>
+                      <input
+                        type="text"
+                        name={`name-${index}`}
+                        id={`name-${index}`}
+                        // placeholder="Name (Optional)"
+                      />
+                    </label>
+                  </td>
+                  <td>
+                    <label>
+                      <input
+                        type="text"
+                        name={`perf-${index}`}
+                        id={`perf-${index}`}
+                        placeholder="Performance Value"
+                        required
+                      />
+                    </label>
+                  </td>
+                  <td>
+                    <label>
+                      <input
+                        type="text"
+                        name={`price-${index}`}
+                        id={`price-${index}`}
+                        placeholder="Price"
+                        required
+                      />
+                    </label>
+                  </td>
+                  <td>
+                    <strong className="mct-pps">{ppsArray[index]}</strong>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <button
+            type="button"
+            className="dark-button table-mod-button"
+            disabled={rows.length < 2}
+            onClick={() => handleRowModClick("remove")}
+          >
+            <Minus /> Delete Row
+          </button>
+          <button
+            type="button"
+            className="dark-button table-mod-button"
+            disabled={rows.length > 9}
+            onClick={() => handleRowModClick("add")}
+          >
+            <Plus /> New Row
+          </button>
+          <button className="dark-button calculate-button" type="submit">
+            <strong>Calculate</strong>
+          </button>
+        </form>
+      </div>
     </>
   );
 }

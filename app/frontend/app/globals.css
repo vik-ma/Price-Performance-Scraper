@@ -869,7 +869,17 @@ table[role=grid] tbody tr:nth-child(odd) {
 .mct-pps {
   font-size: x-large;
   margin-left: 10px;
-  color: #1ab2ee;
+  color: #1fbbf8;
+}
+
+.mct-wrapper {
+  position: relative;
+}
+
+.calculate-button {
+  position: absolute;
+  right: 0;
+  margin: 5px;
 }
 
 .model-gradient-0 {
