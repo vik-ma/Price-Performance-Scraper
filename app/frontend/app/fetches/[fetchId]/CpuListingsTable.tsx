@@ -178,12 +178,12 @@ export default function CpuListingsTable({
         </div>
       </details>
       <div className="color-toggle-container">
-        <input
-          type="checkbox"
-          checked={colorCodingEnabled}
-          onChange={() => setColorCodingEnabled(!colorCodingEnabled)}
-        />
-        <label htmlFor="colorCodingEnabled">
+        <label>
+          <input
+            type="checkbox"
+            checked={colorCodingEnabled}
+            onChange={() => setColorCodingEnabled(!colorCodingEnabled)}
+          />
           Enable color coding for different CPU models
         </label>
       </div>
