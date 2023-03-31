@@ -4,9 +4,9 @@
   --primary-focus: rgba(172, 172, 172, 0.125);
   --table-border-color: rgba(44, 44, 44, 0.226);
   --dark-bg-color: #1e1e1f;
-  --gpu-color: #ac64ff;
-  --cpu-g-color: #ff4870;
-  --cpu-n-color: #485aff;
+  --gpu-color: #4dff82;
+  --cpu-g-color: #ff3471;
+  --cpu-n-color: #d467ff;
 }
 
 #error-header {
@@ -62,12 +62,13 @@ p {
   /* background-color:rgb(44, 44, 44) !important; */
   /* background: linear-gradient(to bottom right, #202020, #3F3F3F); */
   /* background: linear-gradient(to bottom right, #1a1a1a, #272727); */
-  /* background-color: var(--dark-bg-color); */
+  background-color: var(--dark-bg-color);
   padding: 3px 10px 5px;
   border-radius: 10px;
-  
-  margin-bottom: 15px;
+  margin-bottom: 18px;
   /* box-shadow: 0px 0px 3px white; */
+  /* border: 2px solid rgb(206, 206, 206) !important;
+  box-shadow: 0px 0px 6px white !important; */
 }
 
 .full-fetch-list-item:hover {
@@ -76,6 +77,7 @@ p {
   background-color: rgb(50, 50, 50);
   text-decoration: none !important;
   border: 2px solid white;
+  box-shadow: 0px 0px 10px white;
   transition: ease-in 0.15s;
 }
 
@@ -103,30 +105,30 @@ p {
 }
 
 .color-text-gpu {
-  color: #ac64ff
+  color: var(--gpu-color);
 }
 
 .color-text-cpu-g {
-  color: #ff4870;
+  color: var(--cpu-g-color);
 }
 
 .color-text-cpu-n {
-  color:#485aff;
+  color:var(--cpu-n-color);
 }
 
 .color-border-gpu {
   border: 2px solid var(--gpu-color);
-  box-shadow: 0px 0px 6px var(--gpu-color);
+  box-shadow: 0px 0px 8px var(--gpu-color);
 }
 
 .color-border-cpu-g {
   border: 2px solid var(--cpu-g-color);
-  box-shadow: 0px 0px 6px var(--cpu-g-color);
+  box-shadow: 0px 0px 8px var(--cpu-g-color);
 }
 
 .color-border-cpu-n {
   border: 2px solid var(--cpu-n-color);
-  box-shadow: 0px 0px 6px var(--cpu-n-color);
+  box-shadow: 0px 0px 8px var(--cpu-n-color);
 }
 
 h1, h2, h3 {
