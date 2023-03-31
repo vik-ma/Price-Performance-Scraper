@@ -151,6 +151,15 @@ h4 {
   }
 }
 
+.scrape-title {
+  margin-bottom: 0 !important;
+}
+
+.scrape-timestamp {
+  margin-bottom: 5px !important;
+  color:rgb(104, 170, 255);
+}
+
 .external-link {
   color:rgb(52, 163, 228);
 }
@@ -561,7 +570,7 @@ h4 {
   padding: 3px 15px 6px;
   margin-bottom: 0;
   word-break: normal;
-  margin-bottom: 7px !important;
+  margin-bottom: 8px !important;
   color:#dfdfdf;
   /* border-width: 2px; */
   border-color: #d4d4d4;

@@ -81,9 +81,19 @@ export default async function FetchPage({ params: { fetchId } }: PageProps) {
         {`${gqlCompletedFetchData.benchmarkType} - ${formattedTimestamp}`}
       </title>
       <div className="fetch-content">
-        <h1>{gqlCompletedFetchData.benchmarkType}</h1>
-        <h2>{gqlCompletedFetchData.productList}</h2>
-        <h3>{formattedTimestamp}</h3>
+        <h1
+          className={`scrape-title ${
+            gqlCompletedFetchData.benchmarkType === "GPU"
+              ? "color-text-gpu"
+              : gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
+              ? "color-text-cpu-g"
+              : "color-text-cpu-n"
+          }`}
+        >
+          {gqlCompletedFetchData.benchmarkType}
+        </h1>
+        <h2 className="scrape-title">{gqlCompletedFetchData.productList}</h2>
+        <h3 className="scrape-timestamp">{formattedTimestamp}</h3>
         {gqlCompletedFetchData.benchmarkType === "GPU" ? (
           <GpuListingsTable
             params={{
