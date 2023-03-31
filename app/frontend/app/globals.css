@@ -4,6 +4,9 @@
   --primary-focus: rgba(172, 172, 172, 0.125);
   --table-border-color: rgba(44, 44, 44, 0.226);
   --dark-bg-color: #1e1e1f;
+  --gpu-color: #ac64ff;
+  --cpu-g-color: #ff4870;
+  --cpu-n-color: #485aff;
 }
 
 #error-header {
@@ -112,15 +115,18 @@ p {
 }
 
 .color-border-gpu {
-  border: 2px solid #ac64ff;
+  border: 2px solid var(--gpu-color);
+  box-shadow: 0px 0px 6px var(--gpu-color);
 }
 
 .color-border-cpu-g {
-  border: 2px solid #ff4870;
+  border: 2px solid var(--cpu-g-color);
+  box-shadow: 0px 0px 6px var(--cpu-g-color);
 }
 
 .color-border-cpu-n {
-  border: 2px solid #485aff;
+  border: 2px solid var(--cpu-n-color);
+  box-shadow: 0px 0px 6px var(--cpu-n-color);
 }
 
 h1, h2, h3 {
