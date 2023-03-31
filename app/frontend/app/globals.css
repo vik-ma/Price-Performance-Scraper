@@ -3,10 +3,10 @@
   --primary-hover: #616161;
   --primary-focus: rgba(172, 172, 172, 0.125);
   --table-border-color: rgba(44, 44, 44, 0.226);
-  --dark-bg-color: #1e1e1f;
-  --gpu-color: #4dff82;
-  --cpu-g-color: #ff3471;
-  --cpu-n-color: #d467ff;
+  --dark-bg-color: #1f1f1e;
+  --gpu-color: #2cdd6a;
+  --cpu-g-color: #dfd58e;
+  --cpu-n-color: 	#ff7f50;
 }
 
 #error-header {
@@ -97,11 +97,12 @@ p {
   /* background-color:rgb(44, 44, 44) !important; */
   /* background: linear-gradient(to bottom right, #202020, #3F3F3F); */
   /* background-color: var(--dark-bg-color); */
-  background: linear-gradient(to bottom, #222222, #272727);
+  /* background: linear-gradient(to bottom, #222222, #272727); */
   padding: 1px 10px;
   padding-bottom: 8px;
   border-radius: 10px;
-  border: 1px solid rgba(228, 228, 228, 0.850);
+  /* border: 1px solid rgba(228, 228, 228, 0.850); */
+  border: 2px solid rgb(184, 184, 184);
 }
 
 .color-text-gpu {

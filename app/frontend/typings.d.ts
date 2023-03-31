@@ -95,6 +95,6 @@ export interface FetchTypeProps {
   [key: string]: {
     title: string;
     cssNameText: string;
-    cssNameBorder: string;
+    cssNameBorder?: string;
   };
 }
