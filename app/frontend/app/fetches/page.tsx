@@ -39,7 +39,7 @@ export default async function Fetches() {
                     className="full-fetch-link"
                     href={`/fetches/${fetch.timestampId}`}
                   >
-                    <p>
+                    <p className="full-fetch-list-item-text">
                       <strong className={fetch.benchmarkType}>
                         {fetch.benchmarkType === "CPU-Normal"
                           ? `CPU (Multi-threaded Performance)`
