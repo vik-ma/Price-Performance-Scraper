@@ -59,10 +59,11 @@ p {
   /* background-color:rgb(44, 44, 44) !important; */
   /* background: linear-gradient(to bottom right, #202020, #3F3F3F); */
   /* background: linear-gradient(to bottom right, #1a1a1a, #272727); */
-  background-color: var(--dark-bg-color);
-  padding: 2px 10px;
+  /* background-color: var(--dark-bg-color); */
+  padding: 3px 10px 5px;
   border-radius: 10px;
-  border: 2px solid rgba(228, 228, 228, 0.700);
+  
+  margin-bottom: 15px;
   /* box-shadow: 0px 0px 3px white; */
 }
 
@@ -79,6 +80,14 @@ p {
   color:white;
 }
 
+.full-fetch-list-item-timestamp {
+  color:rgb(170, 170, 170);
+}
+
+.full-fetch-list-title-product {
+  color:rgb(240, 240, 240);
+}
+
 .sidebar-fetch-items {
   /* background-color:rgb(44, 44, 44) !important; */
   /* background: linear-gradient(to bottom right, #202020, #3F3F3F); */
@@ -90,16 +99,28 @@ p {
   border: 1px solid rgba(228, 228, 228, 0.850);
 }
 
-.GPU {
-  color: #00FF7F;
+.color-text-gpu {
+  color: #ac64ff
 }
 
-.CPU-Gaming {
-  color: #F0E68C;
+.color-text-cpu-g {
+  color: #ff4870;
 }
 
-.CPU-Normal {
-  color: #64abed;
+.color-text-cpu-n {
+  color:#485aff;
+}
+
+.color-border-gpu {
+  border: 2px solid #ac64ff;
+}
+
+.color-border-cpu-g {
+  border: 2px solid #ff4870;
+}
+
+.color-border-cpu-n {
+  border: 2px solid #485aff;
 }
 
 h1, h2, h3 {

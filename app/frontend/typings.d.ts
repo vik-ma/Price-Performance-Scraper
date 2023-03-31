@@ -89,3 +89,12 @@ export interface NumberMap {
 export type ScrapeType = {
   name: "GPU" | "CPU-Gaming" | "CPU-Normal";
 }
+
+
+export interface FetchTypeProps {
+  [key: string]: {
+    title: string;
+    cssNameText: string;
+    cssNameBorder: string;
+  };
+}
