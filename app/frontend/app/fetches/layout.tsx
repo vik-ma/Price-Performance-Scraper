@@ -9,7 +9,12 @@ export default function RootLayout({
   return (
     <main className="container">
       <div className="sidebar">
-      <Link href="/fetches"><h4>View Full List</h4></Link>
+        <div className="sidebar-title-container">
+          <h4 className="sidebar-title">Past Scrapes</h4>
+          <Link className="sidebar-link" href="/fetches">
+            <button className="sidebar-full-list-button"><strong>View Full List</strong></button>
+          </Link>
+        </div>
         {/* @ts-ignore */}
         <FetchesList />
       </div>
