@@ -24,7 +24,7 @@ async function getCompletedFetches() {
 export default async function Fetches() {
   const gqlData = await getCompletedFetches();
 
-  const fetchTypeMap: FetchTypeProps = {
+  const scrapeTypeMap: FetchTypeProps = {
     GPU: {
       title: "GPU",
       cssNameText: "color-text-gpu",
@@ -45,36 +45,36 @@ export default async function Fetches() {
   return (
     <>
       <div className="fetch-content">
-        <h1>Completed Fetches</h1>
+        <h1>Completed Scrapes</h1>
         <Suspense fallback={<article aria-busy="true"></article>}>
           <ul>
             {gqlData
               ?.slice(0)
               .reverse()
-              .map((fetch: CompletedFetchProps) => {
-                const fetchType: string = fetch.benchmarkType.replace("-", "");
-                const numProducts: number = fetch.productList.split(",").length;
+              .map((scrape: CompletedFetchProps) => {
+                const scrapeType: string = scrape.benchmarkType.replace("-", "");
+                const numProducts: number = scrape.productList.split(",").length;
                 return (
                   <li
-                    className={`full-fetch-list-item ${fetchTypeMap[fetchType].cssNameBorder}`}
-                    key={fetch.timestampId}
+                    className={`full-fetch-list-item ${scrapeTypeMap[scrapeType].cssNameBorder}`}
+                    key={scrape.timestampId}
                   >
                     <Link
                       className="full-fetch-link"
-                      href={`/fetches/${fetch.timestampId}`}
+                      href={`/scrapes/${scrape.timestampId}`}
                     >
                       <p className="full-fetch-list-item-text">
-                        <strong className={fetchTypeMap[fetchType].cssNameText}>
-                          {fetchTypeMap[fetchType].title}{" "}
+                        <strong className={scrapeTypeMap[scrapeType].cssNameText}>
+                          {scrapeTypeMap[scrapeType].title}{" "}
                         </strong>
                         <strong className="full-fetch-list-title-product">
                           - {numProducts} Product{numProducts > 1 && "s"}
                         </strong>
                         <br />
-                        {fetch.productList}
+                        {scrape.productList}
                         <br />
                         <small className="full-fetch-list-item-timestamp">
-                          {fetch.timestamp.substring(0, 19).replace("T", " ")}
+                          {scrape.timestamp.substring(0, 19).replace("T", " ")}
                         </small>
                       </p>
                     </Link>

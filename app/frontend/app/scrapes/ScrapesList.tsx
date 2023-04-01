@@ -21,10 +21,10 @@ async function getCompletedFetches() {
   return data.allCompletedFetches as CompletedFetchProps[];
 }
 
-export default async function FetchesList() {
+export default async function ScrapesList() {
   const gqlData = await getCompletedFetches();
 
-  const fetchTypeMap: FetchTypeProps = {
+  const scrapeTypeMap: FetchTypeProps = {
     GPU: {
       title: "GPU",
       cssNameText: "color-text-gpu",
@@ -45,19 +45,19 @@ export default async function FetchesList() {
         {gqlData
           ?.slice(0)
           .reverse()
-          .map((fetch: CompletedFetchProps) => {
-            const fetchType: string = fetch.benchmarkType.replace("-", "");
+          .map((scrape: CompletedFetchProps) => {
+            const scrapeType: string = scrape.benchmarkType.replace("-", "");
             return (
-              <li key={fetch.timestampId}>
-                <Link href={`/fetches/${fetch.timestampId}`}>
-                  <strong className={fetchTypeMap[fetchType].cssNameText}>
-                    {fetchTypeMap[fetchType].title}
+              <li key={scrape.timestampId}>
+                <Link href={`/scrapes/${scrape.timestampId}`}>
+                  <strong className={scrapeTypeMap[scrapeType].cssNameText}>
+                    {scrapeTypeMap[scrapeType].title}
                   </strong>
                   <br />
                   <small>
-                    {fetch.timestamp.substring(0, 10)}
+                    {scrape.timestamp.substring(0, 10)}
                     <br />
-                    {fetch.timestamp.substring(11, 19)}
+                    {scrape.timestamp.substring(11, 19)}
                   </small>
                 </Link>
               </li>

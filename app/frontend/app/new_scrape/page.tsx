@@ -55,7 +55,7 @@ export default function NewScrape() {
 
       if (response.hasOwnProperty("success")) {
         if (response.success) {
-          router.push("/fetches");
+          router.push("/scrapes");
         } else {
           setPostReturn(
             `'Success' exists and is false ${JSON.stringify(response)}`
@@ -84,7 +84,7 @@ export default function NewScrape() {
 
       if (response.hasOwnProperty("success")) {
         if (response.success) {
-          router.push(`/fetches/${response.message}`);
+          router.push(`/scrapes/${response.message}`);
         } else {
           setPostReturn(
             `'Success' exists and is false ${JSON.stringify(response)}`

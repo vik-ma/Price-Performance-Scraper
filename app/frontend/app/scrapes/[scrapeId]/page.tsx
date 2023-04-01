@@ -18,15 +18,15 @@ export const dynamic = "auto",
 
 type PageProps = {
   params: {
-    fetchId: string;
+    scrapeId: string;
   };
 };
 
-const getProductListings = async (fetchId: string) => {
+const getProductListings = async (scrapeId: string) => {
   const { data } = await client.query({
     query: gql`
       {
-        productListings(timestampId:"${fetchId}") {
+        productListings(timestampId:"${scrapeId}") {
             productCategory
             storeName
             price
@@ -42,11 +42,11 @@ const getProductListings = async (fetchId: string) => {
   return data.productListings as ProductListingsProps[];
 };
 
-const getCompletedFetch = async (fetchId: string) => {
+const getCompletedFetch = async (scrapeId: string) => {
   const { data } = await client.query({
     query: gql`
       {
-        completedFetchById(timestampId:"${fetchId}") {
+        completedFetchById(timestampId:"${scrapeId}") {
           productList
           benchmarkType
           timestamp
@@ -59,13 +59,13 @@ const getCompletedFetch = async (fetchId: string) => {
   return data.completedFetchById[0] as CompletedFetchProps;
 };
 
-export default async function FetchPage({ params: { fetchId } }: PageProps) {
-  const gqlProductListingData = await getProductListings(fetchId);
-  const gqlCompletedFetchData = await getCompletedFetch(fetchId);
+export default async function FetchPage({ params: { scrapeId: scrapeId } }: PageProps) {
+  const gqlProductListingData = await getProductListings(scrapeId);
+  const gqlCompletedFetchData = await getCompletedFetch(scrapeId);
 
   if (gqlCompletedFetchData === undefined) return notFound();
 
-  const timestamp = fetchId;
+  const timestamp = scrapeId;
   const year = timestamp.substring(0, 4);
   const month = timestamp.substring(4, 6);
   const day = timestamp.substring(6, 8);
@@ -128,9 +128,9 @@ export async function generateStaticParams() {
     `,
   });
 
-  const fetches: CompletedFetchProps[] = await data.allCompletedFetches;
+  const scrapes: CompletedFetchProps[] = await data.allCompletedFetches;
 
-  return fetches.map((fetch) => ({
-    fetchId: fetch.timestampId,
+  return scrapes.map((scrape) => ({
+    scrapeId: scrape.timestampId,
   }));
 }

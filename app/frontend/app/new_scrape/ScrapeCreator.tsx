@@ -120,7 +120,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
         if (response.hasOwnProperty("success")) {
           if (response.success) {
-            router.push(`/fetches/${response.message}`);
+            router.push(`/scrapes/${response.message}`);
           } else {
             setErrorMsg(`An error occurred during price scraping.`);
             setShowErrorMsg(true);

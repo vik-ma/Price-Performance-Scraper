@@ -9,7 +9,7 @@ export default function Navbar() {
       <Link href="/information">Information</Link>
       <Link href="/benchmarks">Current Benchmarks</Link>
       <Link href="/manual_comparison">Manual Comparison Tool</Link>
-      <Link href="/fetches">Completed Price Fetches</Link>
+      <Link href="/scrapes">Completed Price Scrapes</Link>
     </nav>
   );
 }

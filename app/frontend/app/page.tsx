@@ -27,7 +27,7 @@ export default async function Home() {
         <p>API Test: {apiData.message}</p>
 
         <div className="padding-top: 3em">
-          <Link href="/fetches">View Completed Fetches</Link>
+          <Link href="/scrapes">View Completed Scrapes</Link>
         </div>
         <table>
           <tbody>

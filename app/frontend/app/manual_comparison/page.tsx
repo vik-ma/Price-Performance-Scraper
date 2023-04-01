@@ -137,7 +137,7 @@ export default function ManualComparison() {
             proportionate to the Price / Performance Score from the site's{" "}
             <Link
               className="internal-link-color"
-              href="/fetches"
+              href="/scrapes"
               target="_blank"
             >
               Completed Scrapes
