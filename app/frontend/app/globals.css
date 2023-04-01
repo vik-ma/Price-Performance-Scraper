@@ -5,7 +5,7 @@
   --table-border-color: rgba(44, 44, 44, 0.226);
   --dark-bg-color: #1f1f1e;
   --gpu-color: #2cdd6a;
-  --cpu-g-color: #dfd79d;
+  --cpu-g-color: #dad3a5;
   --cpu-n-color: 	#ff7f50;
 }
 
@@ -23,13 +23,12 @@
 .sidebar {
   width: 170px;
   position: absolute;
-  padding-top: 1px;
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
   border-radius: 10px;
   border: 2px solid rgb(226, 226, 226);
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -55,10 +54,10 @@
   height: fit-content;
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   background: none;
   border: 2px solid rgb(255, 255, 255);
-  background-color: rgba(23, 49, 194, 0.4);
+  background-color: rgba(23, 49, 194, 0.5);
 }
 
 .sidebar-full-list-button:hover {
@@ -136,7 +135,7 @@ p {
   /* background: linear-gradient(to bottom right, #202020, #3F3F3F); */
   /* background-color: var(--dark-bg-color); */
   /* background: linear-gradient(to bottom, #222222, #272727); */
-  padding: 1px 8px;
+  padding: 1px 10px;
   padding-bottom: 8px;
   /* border-radius: 10px;
   border: 2px solid rgb(184, 184, 184); */
