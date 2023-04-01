@@ -243,7 +243,7 @@ export default function GpuListingsTable({
               )?.tier;
               return (
                 <tr key={index}>
-                  <td>
+                  <td className="gpu-product-text">
                     <strong>{listing.productName}</strong>
                   </td>
                   {listing.productLink !== "" ? (

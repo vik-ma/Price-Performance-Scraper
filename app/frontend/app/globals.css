@@ -54,7 +54,7 @@
   height: fit-content;
   margin: 0 auto;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 7px;
   background: none;
   border: 2px solid rgb(255, 255, 255);
   background-color: rgba(23, 49, 194, 0.5);
@@ -717,6 +717,10 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .price-cell {
   color:white;
+}
+
+.gpu-product-text {
+  color: rgb(233, 233, 233);
 }
 
 .selected-products-heading {
