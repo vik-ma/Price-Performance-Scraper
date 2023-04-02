@@ -144,9 +144,16 @@ export default function ManualComparison() {
             </Link>{" "}
             <strong>
               unless the performance values entered here are structured in the
-              same way as this site's Benchmark Values are constructed.
+              same way as this site's{" "}
+              <Link
+                className="internal-link-color"
+                href="/information#benchmarks"
+                target="_blank"
+              >
+                Benchmark Values
+              </Link>{" "}
+              are constructed.
             </strong>
-            {/* TODO: ADD LINK */}
           </p>
         </div>
       </div>
