@@ -45,15 +45,18 @@ export default async function Fetches() {
   return (
     <>
       <div className="fetch-content">
-        <h1>Completed Scrapes</h1>
         <Suspense fallback={<article aria-busy="true"></article>}>
           <ul>
             {gqlData
               ?.slice(0)
               .reverse()
               .map((scrape: CompletedFetchProps) => {
-                const scrapeType: string = scrape.benchmarkType.replace("-", "");
-                const numProducts: number = scrape.productList.split(",").length;
+                const scrapeType: string = scrape.benchmarkType.replace(
+                  "-",
+                  ""
+                );
+                const numProducts: number =
+                  scrape.productList.split(",").length;
                 return (
                   <li
                     className={`full-fetch-list-item ${scrapeTypeMap[scrapeType].cssNameBorder}`}
@@ -64,7 +67,9 @@ export default async function Fetches() {
                       href={`/scrapes/${scrape.timestampId}`}
                     >
                       <p className="full-fetch-list-item-text">
-                        <strong className={scrapeTypeMap[scrapeType].cssNameText}>
+                        <strong
+                          className={scrapeTypeMap[scrapeType].cssNameText}
+                        >
                           {scrapeTypeMap[scrapeType].title}{" "}
                         </strong>
                         <strong className="full-fetch-list-title-product">
