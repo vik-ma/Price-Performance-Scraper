@@ -176,6 +176,10 @@ p {
 
 h1 {
   margin-bottom: 15px !important;
+  background: -webkit-linear-gradient(#2751dd, #69d1f3);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 h2, h3 {
