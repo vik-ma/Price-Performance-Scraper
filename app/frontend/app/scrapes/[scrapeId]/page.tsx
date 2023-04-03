@@ -84,15 +84,15 @@ export default async function FetchPage({ params: { scrapeId: scrapeId } }: Page
         <h1
           className={`scrape-title ${
             gqlCompletedFetchData.benchmarkType === "GPU"
-              ? "color-text-gpu"
+              ? "title-text-gpu"
               : gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
-              ? "color-text-cpu-g"
-              : "color-text-cpu-n"
+              ? "title-text-cpu-g"
+              : "title-text-cpu-n"
           }`}
         >
           {gqlCompletedFetchData.benchmarkType}
         </h1>
-        <h2 className="scrape-title">{gqlCompletedFetchData.productList}</h2>
+        <h2 className="scrape-title-h2">{gqlCompletedFetchData.productList}</h2>
         <h3 className="scrape-timestamp">{formattedTimestamp}</h3>
         {gqlCompletedFetchData.benchmarkType === "GPU" ? (
           <GpuListingsTable
