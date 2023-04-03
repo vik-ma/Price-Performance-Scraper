@@ -115,7 +115,7 @@ p {
   text-decoration: none !important;
   border: 2px solid white;
   box-shadow: 0px 0px 10px white;
-  transition: ease-in 0.15s;
+  transition: 0.2s;
 }
 
 .full-fetch-list-item-text:hover {
