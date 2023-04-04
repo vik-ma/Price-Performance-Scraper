@@ -59,7 +59,9 @@ const getCompletedFetch = async (scrapeId: string) => {
   return data.completedFetchById[0] as CompletedFetchProps;
 };
 
-export default async function FetchPage({ params: { scrapeId: scrapeId } }: PageProps) {
+export default async function FetchPage({
+  params: { scrapeId: scrapeId },
+}: PageProps) {
   const gqlProductListingData = await getProductListings(scrapeId);
   const gqlCompletedFetchData = await getCompletedFetch(scrapeId);
 

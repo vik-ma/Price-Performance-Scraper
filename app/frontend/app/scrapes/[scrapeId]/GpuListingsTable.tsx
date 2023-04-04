@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   CompletedFetchProps,
   ProductListingsProps,
@@ -111,6 +111,12 @@ export default function GpuListingsTable({
     }, {} as NumberMap);
 
   const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 0);
+  }, []);
 
   return (
     <>
