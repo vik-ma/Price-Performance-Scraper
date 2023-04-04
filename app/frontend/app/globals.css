@@ -201,10 +201,8 @@ h4 {
 }
 
 .title-text-cpu-n {
-  background: -webkit-linear-gradient(#c73e0c, #ff9b60);
+  background: -webkit-linear-gradient(#db4610, #ff9354);
 }
-
-
 
 @media (max-width: 50em) {
   .sidebar{
