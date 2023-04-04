@@ -1,36 +1,10 @@
 "use client";
 import React from "react";
-import { useState, useContext, createContext } from "react";
+import { useState } from "react";
 import ScrapeCreator from "./ScrapeCreator";
-import {
-  NewScrapeContextProvider,
-  useNewScrapeContext,
-} from "../context/NewScrapeContext";
-
-// interface CreateScrapeContextType {
-//   loadingScrape: boolean;
-//   setLoadingScrape: React.Dispatch<React.SetStateAction<boolean>>;
-//   errorMsg: string;
-//   setErrorMsg: React.Dispatch<React.SetStateAction<string>>;
-//   showErrorMsg: boolean;
-//   setShowErrorMsg: React.Dispatch<React.SetStateAction<boolean>>;
-// }
-
-// export const CreateScrapeContext = createContext<CreateScrapeContextType>({
-//   loadingScrape: false,
-//   setLoadingScrape: () => {},
-//   errorMsg: "",
-//   setErrorMsg: () => {},
-//   showErrorMsg: false,
-//   setShowErrorMsg: () => {},
-// });
+import { useNewScrapeContext } from "../context/NewScrapeContext";
 
 export default function NewScrape() {
-  // const [loadingScrape, setLoadingScrape] = useState<boolean>(false);
-
-  // const [errorMsg, setErrorMsg] = useState<string>("");
-  // const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
-
   const {
     loadingScrape,
     setLoadingScrape,

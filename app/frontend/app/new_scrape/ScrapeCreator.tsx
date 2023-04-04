@@ -1,12 +1,10 @@
 "use client";
 import React from "react";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { ScrapeType } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
 import { GpuInfoProps, CpuInfoProps } from "@/typings";
 import { useRouter } from "next/navigation";
-// import { CreateScrapeContext } from "./page";
-// import CircleCross from "../icons/CircleCross";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 
 import Link from "next/link";
@@ -225,7 +223,6 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   return (
     <>
-      {/* <h2>{scrapeTypeTitle}</h2> */}
       <div className="selected-products-border">
         <div className="selected-products-container">
           <h2 className="selected-products-heading">
