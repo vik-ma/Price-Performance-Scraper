@@ -5,8 +5,10 @@ import { ScrapeType } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
 import { GpuInfoProps, CpuInfoProps } from "@/typings";
 import { useRouter } from "next/navigation";
-import { CreateScrapeContext } from "./page";
-import CircleCross from "../icons/CircleCross";
+// import { CreateScrapeContext } from "./page";
+// import CircleCross from "../icons/CircleCross";
+import { useNewScrapeContext } from "../context/NewScrapeContext";
+
 import Link from "next/link";
 
 async function startPriceFetch(data = {}) {
@@ -104,7 +106,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     setErrorMsg,
     showErrorMsg,
     setShowErrorMsg,
-  } = useContext(CreateScrapeContext);
+  } = useNewScrapeContext();
 
   const handleClickStartPriceFetch = async () => {
     if (selectedProducts.size > 0) {
