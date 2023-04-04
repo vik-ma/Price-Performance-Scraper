@@ -28,7 +28,7 @@
   scrollbar-width: none;
   border-radius: 10px;
   border: 2px solid rgb(226, 226, 226);
-  margin-top: 5px;
+  margin-top: 14px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -216,19 +216,19 @@ h4 {
 }
 
 .completed-scrapes-title {
-  margin-bottom: 10px !important;
+  margin-bottom: 0px !important;
 }
 
 .scrape-title {
-  margin-bottom: 6px !important;
+  margin-bottom: 0 !important;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  line-height: 100%;
+  line-height: 140%;
 }
 
 .scrape-title-h2 {
-  margin-bottom: 8px !important;
+  margin-bottom: 10px !important;
   line-height: 100%;
 }
 
