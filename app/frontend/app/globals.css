@@ -645,6 +645,7 @@ h4 {
   color:#dfdfdf;
   /* border-width: 2px; */
   border-color: #d4d4d4;
+  border-radius: 8px;
 }
 
 .filter-button::after {
