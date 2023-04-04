@@ -642,15 +642,22 @@ h4 {
   margin-top: 15px;
   /* background-color: var(--dark-bg-color); */
   background: linear-gradient(to bottom left, #262626, #181818);
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 .listing-table-head {
-  background: linear-gradient(to bottom, #262626, #181818);
-  border-radius: 8px;
   padding-top: 4px;
   padding-bottom: 14px;
-  padding-left: 15px;
+  padding-right: 15px;
+  background: linear-gradient(to bottom, #262626, #181818);
+}
+
+.listing-table-head-first {
+  border-top-left-radius: 10px;
+}
+
+.listing-table-head-last {
+  border-top-right-radius: 10px;
 }
 
 .filter-button {
