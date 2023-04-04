@@ -46,7 +46,7 @@ export default async function Fetches() {
     <>
       <div className="fetch-content">
         <Suspense fallback={<article aria-busy="true"></article>}>
-          <ul>
+          <ul className="full-fetch-list">
             {gqlData
               ?.slice(0)
               .reverse()
