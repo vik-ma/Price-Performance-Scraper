@@ -28,7 +28,7 @@
   scrollbar-width: none;
   border-radius: 10px;
   border: 2px solid rgb(226, 226, 226);
-  /* margin-top: 15px; */
+  margin-top: 5px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -215,20 +215,27 @@ h4 {
   }
 }
 
+.completed-scrapes-title {
+  margin-bottom: 10px !important;
+}
+
 .scrape-title {
-  margin-bottom: 0 !important;
+  margin-bottom: 6px !important;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  line-height: 100%;
 }
 
 .scrape-title-h2 {
-  margin-bottom: 0 !important;
+  margin-bottom: 8px !important;
+  line-height: 100%;
 }
 
 .scrape-timestamp {
-  margin-bottom: 5px !important;
+  margin-bottom: 12px !important;
   color:rgb(104, 170, 255);
+  line-height: 100%;
 }
 
 .external-link {

@@ -8,7 +8,7 @@ export default function RootLayout({
 }) {
   return (
     <main className="container">
-      <h1>Completed Scrapes</h1>
+      <h1 className="completed-scrapes-title">Completed Scrapes</h1>
       <div className="sidebar">
         <div className="sidebar-title-container">
           <h4 className="sidebar-title">Past Scrapes</h4>
