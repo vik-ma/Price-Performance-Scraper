@@ -74,13 +74,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Model</strong>
                   </th>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Tier</strong>
                   </th>
                 </tr>
@@ -128,13 +128,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Model</strong>
                   </th>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Tier</strong>
                   </th>
                 </tr>
@@ -185,13 +185,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table role="grid">
               <thead>
                 <tr>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Model</strong>
                   </th>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="tableHead">
+                  <th className="table-head">
                     <strong>Tier</strong>
                   </th>
                 </tr>

@@ -47,16 +47,16 @@ export default function ManualComparison() {
           <table role="grid" className="mct-table">
             <thead>
               <tr>
-                <th className="tableHead">
+                <th className="table-head">
                   <strong>Name (Optional)</strong>
                 </th>
-                <th className="tableHead">
+                <th className="table-head">
                   <strong>Performance Value</strong>
                 </th>
-                <th className="tableHead">
+                <th className="table-head">
                   <strong>Price</strong>
                 </th>
-                <th className="tableHead">
+                <th className="table-head">
                   <strong data-tooltip="Higher is better">
                     Price / Performance Score
                   </strong>

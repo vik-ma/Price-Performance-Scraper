@@ -209,11 +209,11 @@ export default function CpuListingsTable({
                 }
                 className={
                   headID === 0 || headID === 1
-                    ? "tableHead"
-                    : "tableHead clickable"
+                    ? "table-head listing-table-head"
+                    : "table-head listing-table-head clickable"
                 }
               >
-                <span
+                <span className="asd"
                   data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}
                 >
                   <strong>{head.Label}</strong>
@@ -227,7 +227,7 @@ export default function CpuListingsTable({
                     <span className="arrow">
                       <Caret />
                     </span>
-                  ))}
+                  ))}{" "}
               </th>
             ))}
           </tr>

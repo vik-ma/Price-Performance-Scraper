@@ -406,7 +406,7 @@ h4 {
   background: linear-gradient(to bottom right, #2b2b2b, #979797);
 }
 
-.tableHead {
+.table-head {
   color:#e1e6eb;
   padding-top: 0px;
 }
@@ -643,6 +643,14 @@ h4 {
   /* background-color: var(--dark-bg-color); */
   background: linear-gradient(to bottom left, #262626, #181818);
   border-radius: 8px;
+}
+
+.listing-table-head {
+  background: linear-gradient(to bottom, #262626, #181818);
+  border-radius: 8px;
+  padding-top: 4px;
+  padding-bottom: 14px;
+  padding-left: 15px;
 }
 
 .filter-button {

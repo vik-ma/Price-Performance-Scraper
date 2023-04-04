@@ -209,8 +209,8 @@ export default function GpuListingsTable({
                 }
                 className={
                   headID === 0 || headID === 1 || headID === 2
-                    ? "tableHead"
-                    : "tableHead clickable"
+                    ? "table-head listing-table-head"
+                    : "table-head listing-table-head clickable"
                 }
               >
                 <span
