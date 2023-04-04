@@ -639,7 +639,10 @@ h4 {
 }
 
 .listing-table {
-  margin-top: 5px;
+  margin-top: 15px;
+  /* background-color: var(--dark-bg-color); */
+  background: linear-gradient(to bottom left, #262626, #181818);
+  border-radius: 8px;
 }
 
 .filter-button {
