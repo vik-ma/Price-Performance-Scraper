@@ -92,7 +92,11 @@ export default async function FetchPage({
               : "title-text-cpu-n"
           }`}
         >
-          {gqlCompletedFetchData.benchmarkType}
+          {gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
+            ? "CPU (Gaming Performance)" :
+            gqlCompletedFetchData.benchmarkType === "CPU-Normal"
+            ? "CPU (Multi-threaded Performance)"
+            : gqlCompletedFetchData.benchmarkType}
         </h1>
         <h2 className="scrape-title-h2">{gqlCompletedFetchData.productList}</h2>
         <h3 className="scrape-timestamp">{formattedTimestamp}</h3>
