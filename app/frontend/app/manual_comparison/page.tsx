@@ -41,7 +41,7 @@ export default function ManualComparison() {
 
   return (
     <>
-      <h1>Manual Comparison Tool</h1>
+      <h1 className="page-title">Manual Comparison Tool</h1>
       <div className="mct-wrapper">
         <form onSubmit={(event) => handleSubmit(event)}>
           <table role="grid" className="mct-table">

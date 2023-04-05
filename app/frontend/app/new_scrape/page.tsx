@@ -26,7 +26,7 @@ export default function NewScrape() {
 
   return (
     <>
-      <h1>NEW</h1>
+      <h1 className="page-title">NEW</h1>
       <h2>Choose Benchmark Type</h2>
       <div className="benchmark-table-container">
         <div className="benchmark-table-tabs-container">

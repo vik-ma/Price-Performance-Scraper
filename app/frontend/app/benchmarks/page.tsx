@@ -23,7 +23,7 @@ export default async function Benchmarks() {
   const benchmarks: BenchmarkData = benchmarkData.benchmarks;
   return (
     <>
-      <h1>Current Benchmarks</h1>
+      <h1 className="page-title">Current Benchmarks</h1>
       {benchmarkData.success ? (
         <BenchmarkTable benchmarks={benchmarks} />
       ) : (

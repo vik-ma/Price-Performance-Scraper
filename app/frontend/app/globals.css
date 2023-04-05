@@ -95,6 +95,9 @@ p {
 
 h1 {
   margin-bottom: 15px !important;
+}
+
+.page-title {
   background: -webkit-linear-gradient(#2751dd, #9be6ff);
   background-clip: text;
   -webkit-background-clip: text;
