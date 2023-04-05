@@ -5,14 +5,7 @@ import ScrapeCreator from "./ScrapeCreator";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 
 export default function NewScrape() {
-  const {
-    loadingScrape,
-    setLoadingScrape,
-    errorMsg,
-    setErrorMsg,
-    showErrorMsg,
-    setShowErrorMsg,
-  } = useNewScrapeContext();
+  const { loadingScrape, setErrorMsg, setShowErrorMsg } = useNewScrapeContext();
 
   const [tabIndex, setTabIndex] = useState(1);
 
@@ -27,6 +20,12 @@ export default function NewScrape() {
   return (
     <>
       <h1 className="page-title">NEW</h1>
+      <details>
+        <summary className="scrape-tutorial-button" role="button">
+          <strong>Show Tutorial</strong>
+        </summary>
+        <p>ASDASDASDSADDSA</p>
+      </details>
       <h2>Choose Benchmark Type</h2>
       <div className="benchmark-table-container">
         <div className="benchmark-table-tabs-container">
