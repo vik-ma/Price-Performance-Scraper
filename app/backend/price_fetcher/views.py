@@ -62,6 +62,7 @@ def start_price_fetching(data):
         return {"success": False, "message": str(fetched_prices)}
 
     current_timestamp = get_current_timestamp()
+    print(current_timestamp)
     timestamp_id = (''.join(i for i in str(current_timestamp) if i.isdigit()))
     product_list = data["product_list"].replace(",", ", ")
 
@@ -94,4 +95,3 @@ def get_benchmarks():
     except:
         success = False
     return {"success": success, "benchmarks": benchmarks}
-
