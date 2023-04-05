@@ -80,7 +80,13 @@ export default async function FetchPage({
   return (
     <>
       <title>
-        {`${gqlCompletedFetchData.benchmarkType} - ${formattedTimestamp}`}
+        {`${
+          gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
+            ? "CPU (Gaming)"
+            : gqlCompletedFetchData.benchmarkType === "CPU-Normal"
+            ? "CPU (Multi-th.)"
+            : "GPU"
+        } - ${formattedTimestamp}`}
       </title>
       <div className="fetch-content">
         <h1
@@ -93,8 +99,8 @@ export default async function FetchPage({
           }`}
         >
           {gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
-            ? "CPU (Gaming Performance)" :
-            gqlCompletedFetchData.benchmarkType === "CPU-Normal"
+            ? "CPU (Gaming Performance)"
+            : gqlCompletedFetchData.benchmarkType === "CPU-Normal"
             ? "CPU (Multi-threaded Performance)"
             : gqlCompletedFetchData.benchmarkType}
         </h1>
