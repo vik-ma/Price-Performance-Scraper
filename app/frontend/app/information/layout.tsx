@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Additional Information",
+  title: "Information",
 };
 
 export default function RootLayout({

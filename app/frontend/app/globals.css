@@ -638,6 +638,34 @@ h4 {
   color: #e74d4d;
 }
 
+.information-tutorial {
+  background: -webkit-linear-gradient(#27dd45, #afff9b);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.information-benchmarks {
+  background: -webkit-linear-gradient(#ad2fdf, #f39bff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.information-benchmarks-disclaimer {
+  background: -webkit-linear-gradient(#df2f78, #ff94bd);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.information-mct {
+  background: -webkit-linear-gradient(#654ee6, #b0a2ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .listing-table {
   margin-top: 15px;
   /* background-color: var(--dark-bg-color); */
