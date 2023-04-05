@@ -1,5 +1,10 @@
 import ScrapesList from "./ScrapesList";
 import Link from "next/link";
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'View Past Price Scrapes',
+};
 
 export default function RootLayout({
   children,

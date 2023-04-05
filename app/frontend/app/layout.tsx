@@ -2,9 +2,10 @@ import Link from "next/link";
 import Navbar from "./Navbar";
 import "@picocss/pico/css/pico.min.css";
 import "./globals.css";
+import { Metadata } from "next";
 
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "GPU & CPU Price Comparer",
   description: "Compare the Price/Performance Score of different GPUs and CPUs",
 };
