@@ -24,7 +24,11 @@ export default function NewScrape() {
         <summary className="scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>
         </summary>
-        <p>ASDASDASDSADDSA</p>
+        <p className="scrape-tutorial-text">
+          <strong>
+            <em>Tutorial</em>
+          </strong>
+        </p>
       </details>
       <h2>Choose Benchmark Type</h2>
       <div className="benchmark-table-container">
