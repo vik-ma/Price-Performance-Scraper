@@ -645,15 +645,22 @@ h4 {
   -webkit-text-fill-color: transparent;
 }
 
-.information-benchmarks {
+.information-scrapes {
   background: -webkit-linear-gradient(#ad2fdf, #f39bff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
+.information-benchmarks {
+  background: -webkit-linear-gradient(#df2f78, #ff8eb9);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .information-benchmarks-disclaimer {
-  background: -webkit-linear-gradient(#df2f78, #ff94bd);
+  background: -webkit-linear-gradient(#dd2932, #ff7272);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
