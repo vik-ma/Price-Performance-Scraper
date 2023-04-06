@@ -6,6 +6,9 @@ export default function Information() {
       <p></p>
       <h2 className="information-scrapes">Scrapes</h2>
       <p></p>
+      <div className="centered-container">
+        <div className="formula-container">asd</div>
+      </div>
       <h2 className="information-benchmarks" id="benchmarks">
         Benchmarks
       </h2>
