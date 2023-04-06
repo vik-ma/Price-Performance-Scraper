@@ -21,7 +21,7 @@ export default function NewScrape() {
     <>
       <h1 className="page-title">NEW</h1>
       <details>
-        <summary className="scrape-tutorial-button" role="button">
+        <summary className="filter-button scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>
         </summary>
         <p className="scrape-tutorial-text">
