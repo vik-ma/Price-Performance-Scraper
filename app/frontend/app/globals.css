@@ -642,7 +642,7 @@ h4 {
   color: #e74d4d;
 }
 
-.information-tutorial {
+.information-intro {
   background: -webkit-linear-gradient(#27dd45, #afff9b);
   background-clip: text;
   -webkit-background-clip: text;
@@ -657,13 +657,6 @@ h4 {
 }
 
 .information-benchmarks {
-  background: -webkit-linear-gradient(#df2f78, #ff8eb9);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.information-benchmarks-disclaimer {
   background: -webkit-linear-gradient(#dd2932, #ff7272);
   background-clip: text;
   -webkit-background-clip: text;
