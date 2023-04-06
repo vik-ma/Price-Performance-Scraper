@@ -24,11 +24,42 @@ export default function NewScrape() {
         <summary className="filter-button scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>
         </summary>
-        <p className="scrape-tutorial-text">
-          <strong>
-            <em>Tutorial</em>
-          </strong>
-        </p>
+        <div className="scrape-tutorial-text">
+          {/* <strong> */}
+          {/* <em> */}
+          <ol className="tutorial-list">
+            <li>
+              <strong>1.</strong> Choose the type of performance benchmark you
+              want to compare.
+            </li>
+            <li>
+              <strong>2.</strong> Add the products you wish to compare by
+              clicking on them in the tiered list below.
+              <br />
+              <em>
+                &emsp;You can only compare 5 GPUs or 10 CPUs at a time, but{" "}
+                <strong>
+                  you do not need to fill the maximum amount of products.
+                </strong>
+              </em>
+            </li>
+            <li>
+              <strong>3.</strong> Click on <strong>'Start Price Scrape'</strong>{" "}
+              and wait for the price scraper to finish. Once finished, you will
+              be redirected to the results.
+              <br />
+              <em>
+                &emsp;GPU scrapes usually take longer to finish than CPU
+                scrapes.
+              </em>
+              <br />
+              <em>&emsp;If the price scraping fails, try again in a moment.</em>
+            </li>
+          </ol>
+
+          {/* </em> */}
+          {/* </strong> */}
+        </div>
       </details>
       <h2 className="new-scrape-benchmark-header">Choose Benchmark Type</h2>
       <div className="benchmark-table-container">
