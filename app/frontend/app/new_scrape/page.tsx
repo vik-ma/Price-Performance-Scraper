@@ -30,7 +30,7 @@ export default function NewScrape() {
           </strong>
         </p>
       </details>
-      <h2>Choose Benchmark Type</h2>
+      <h2 className="new-scrape-benchmark-header">Choose Benchmark Type</h2>
       <div className="benchmark-table-container">
         <div className="benchmark-table-tabs-container">
           <div

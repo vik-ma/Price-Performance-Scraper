@@ -281,11 +281,12 @@ h4 {
 }
 
 .benchmark-table-tabs-container {
+  padding: 0 10px;
   display: flex;
 }
 
 .benchmark-table-tabs {
-  padding: 12px;
+  padding: 5px 12px 8px;
   text-align: center;
   width: 50%;
   background: rgba(90, 90, 90, 0.13);
@@ -787,6 +788,11 @@ input[type="checkbox"]:checked {
 
 table[role=grid] tbody tr:nth-child(odd) {
   background-color: rgba(87, 87, 87, 0.226);
+}
+
+.new-scrape-benchmark-header {
+  padding: 0 10px;
+  margin-bottom: 5px !important; 
 }
 
 .model-background {
