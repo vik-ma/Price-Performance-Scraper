@@ -25,8 +25,6 @@ export default function NewScrape() {
           <strong>Show Tutorial</strong>
         </summary>
         <div className="scrape-tutorial-text">
-          {/* <strong> */}
-          {/* <em> */}
           <ol className="tutorial-list">
             <li>
               <strong>1.</strong> Choose the type of performance benchmark you
@@ -53,12 +51,9 @@ export default function NewScrape() {
                 scrapes.
               </em>
               <br />
-              <em>&emsp;If the price scraping fails, try again in a moment.</em>
+              <em>&emsp;If price scraping fails, try again in a moment.</em>
             </li>
           </ol>
-
-          {/* </em> */}
-          {/* </strong> */}
         </div>
       </details>
       <h2 className="new-scrape-benchmark-header">Choose Benchmark Type</h2>
