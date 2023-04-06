@@ -789,7 +789,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .new-scrape-benchmark-header {
   /* padding: 0 10px; */
-  margin-bottom: 2px !important; 
+  margin-top: 5px;
+  margin-bottom: 3px !important; 
 }
 
 .model-background {
