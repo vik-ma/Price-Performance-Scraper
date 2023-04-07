@@ -43,6 +43,22 @@ export default function ManualComparison() {
     <>
       <h1 className="page-title">Manual Comparison Tool</h1>
       <div className="mct-wrapper">
+        <button
+          type="button"
+          className="dark-button table-mod-button"
+          disabled={rows.length < 2}
+          onClick={() => handleRowModClick("remove")}
+        >
+          <Minus /> Delete Row
+        </button>
+        <button
+          type="button"
+          className="dark-button table-mod-button"
+          disabled={rows.length > 14}
+          onClick={() => handleRowModClick("add")}
+        >
+          <Plus /> Add Row
+        </button>
         <form onSubmit={(event) => handleSubmit(event)}>
           <table role="grid" className="mct-table">
             <thead>
@@ -105,34 +121,18 @@ export default function ManualComparison() {
               ))}
             </tbody>
           </table>
-          <button
-            type="button"
-            className="dark-button table-mod-button"
-            disabled={rows.length < 2}
-            onClick={() => handleRowModClick("remove")}
-          >
-            <Minus /> Delete Row
-          </button>
-          <button
-            type="button"
-            className="dark-button table-mod-button"
-            disabled={rows.length > 14}
-            onClick={() => handleRowModClick("add")}
-          >
-            <Plus /> Add Row
-          </button>
           <button className="dark-button calculate-button" type="submit">
             <strong>Calculate</strong>
           </button>
         </form>
         <div className="mct-text-container">
-          <p>
+          <p className="mct-text">
             This tool can be used to manually enter custom price and performance
             values to calculate and compare the Price / Performance Score of
             different products.
           </p>
           <br />
-          <p>
+          <p className="mct-text">
             The Price / Performance Scores from this tool will not be
             proportionate to the Price / Performance Score from the site's{" "}
             <Link

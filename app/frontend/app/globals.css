@@ -650,7 +650,7 @@ h4 {
 }
 
 .information-scrapes {
-  background: -webkit-linear-gradient(#ad2fdf, #f39bff);
+  background: -webkit-linear-gradient(#d4ac27, #ffefa6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -703,7 +703,7 @@ h4 {
 
 .tutorial-list {
   word-break: normal;
-  padding-left: 5px;
+  padding-left: 0px;
   color:#dfdfdf;
   margin-bottom: 5px;
 }
@@ -1049,10 +1049,14 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .table-mod-button {
-  margin: 10px;
-  /* padding: 0 8px 4px; */
+  margin-left: 2px;
+  margin-top: 0px;
+  margin-bottom: 6px;
+  margin-right: 4px;
   padding-left: 7px;
-  padding-bottom: 4px;
+  padding-bottom: 2px;
+  padding-top: 4px;
+  font-size: large;
 }
 
 .table-mod-button svg {
@@ -1088,24 +1092,18 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .calculate-button {
-  position: absolute;
-  right: 0;
-  margin: 10px;
+  margin-top: 12px;
+  margin-left: 3px;
   background: linear-gradient(to top, #1c249b, #69c7f3);
+  font-size: xx-large;
 }
 
 .mct-text-container {
-  margin: 10px;
+  margin: 5px;
 }
 
-@media (max-width: 50em) {
-  .calculate-button {
-    left: 0;
-    margin-top: 60px;
-  }
-  .mct-text-container {
-    margin-top: 60px;
-  }
+.mct-text {
+  margin: 0;
 }
 
 .model-gradient-0 {
