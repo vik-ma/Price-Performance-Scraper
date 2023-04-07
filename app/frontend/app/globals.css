@@ -1051,12 +1051,13 @@ table[role=grid] tbody tr:nth-child(odd) {
 .table-mod-button {
   margin-left: 2px;
   margin-top: 0px;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   margin-right: 4px;
   padding-left: 7px;
   padding-bottom: 2px;
   padding-top: 4px;
   font-size: large;
+  font-weight: 700;
 }
 
 .table-mod-button svg {
@@ -1092,7 +1093,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .calculate-button {
-  margin-top: 12px;
+  margin-top: 10px;
   margin-left: 3px;
   background: linear-gradient(to top, #1c249b, #69c7f3);
   font-size: xx-large;
