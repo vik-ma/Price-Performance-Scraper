@@ -673,9 +673,11 @@ h4 {
 .formula-container {
   background-color: var(--dark-bg-color);
   width: fit-content;
-  padding: 8px 20px 12px;
+  padding: 6px 18px 11px;
   border-radius: 10px;
   color: rgb(243, 243, 243);
+  font-size: x-large;
+  margin-top: 5px;
   /* box-shadow: 0px 0px 8px 2px var(--dark-bg-color); */
 }
 
