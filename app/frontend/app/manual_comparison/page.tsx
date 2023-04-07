@@ -116,10 +116,10 @@ export default function ManualComparison() {
           <button
             type="button"
             className="dark-button table-mod-button"
-            disabled={rows.length > 9}
+            disabled={rows.length > 14}
             onClick={() => handleRowModClick("add")}
           >
-            <Plus /> New Row
+            <Plus /> Add Row
           </button>
           <button className="dark-button calculate-button" type="submit">
             <strong>Calculate</strong>
