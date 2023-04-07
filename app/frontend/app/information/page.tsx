@@ -1,7 +1,10 @@
+import Link from "next/link";
+
 export default function Information() {
   return (
     <>
       <h1 className="page-title">Information</h1>
+      <p></p>
       <h2 className="information-intro">How It Works</h2>
       <p></p>
       <h2 className="information-scrapes">Scraped Prices</h2>
@@ -17,7 +20,24 @@ export default function Information() {
       <h3 className="information-benchmarks">Benchmark Disclaimer</h3>
       <p></p>
       <h2 className="information-mct">Manual Comparison Tool</h2>
-      <p></p>
+      <p>
+        The{" "}
+        <Link
+          className="internal-link-color"
+          href="/manual_comparison"
+          target="_blank"
+        >
+          <strong>Manual Comparison Tool</strong>
+        </Link>{" "}
+        can be used to calculate the Price / Performance Score of custom price
+        and/or benchmark value inputs instead of just scraped values. Keep in
+        mind that{" "}
+        <strong>
+          these scores will not match the Price / Performance Scores generated
+          by scrapes unless the benchmark values are constructed with the same
+          formula shown in the 'Benchmarks' section on this page.
+        </strong>
+      </p>
     </>
   );
 }
