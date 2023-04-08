@@ -59,6 +59,12 @@ export default function Information() {
         The values are linear, which means that a product with a Benchmark Value
         of <strong>50.00</strong> has half the performance of the best product
         in the list.
+        <br />
+        <br />
+        Products are sorted into different <strong>Tiers</strong> with other
+        products of similar Benchmark Values, in order to make it easier to find
+        comparable product models. These Tiers are also used when selecting
+        products to scrape.
       </p>
       <h3 className="information-benchmarks">Benchmark Disclaimer</h3>
       <p></p>
