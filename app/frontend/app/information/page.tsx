@@ -26,8 +26,10 @@ export default function Information() {
         compared to products with a lower Price/Performance Score.
         <br />
         <br />
-        Products with lower Benchmark Values will often have a much higher
-        Price/Performance Score compared to the flagship models.
+        It does not necessarily mean that a product is better than another
+        product. The Benchmark Value determines that, and products with lower
+        Benchmark Values will often have much higher Price/Performance Scores
+        compared to the flagship models.
       </p>
       <h2 className="information-benchmarks" id="benchmarks">
         Benchmarks
