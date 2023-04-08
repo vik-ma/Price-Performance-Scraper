@@ -45,6 +45,20 @@ export default function Information() {
           <strong>Current Benchmarks</strong>
         </Link>{" "}
         page.
+        <br />
+        <br />
+        There are three different types of Benchmark Values;{" "}
+        <strong>GPU Performance</strong>,{" "}
+        <strong>CPU (Gaming Performance)</strong> and{" "}
+        <strong>CPU (Multi-threaded Performance)</strong>.
+        <br />
+        <br />
+        Benchmark Values range from <strong>100.00</strong> to{" "}
+        <strong>0.01</strong>, where the highest performing product on the
+        market will always have the Benchmark Value of <strong>100.00</strong>.
+        The values are linear, which means that a product with a Benchmark Value
+        of <strong>50.00</strong> has half the performance of the best product
+        in the list.
       </p>
       <h3 className="information-benchmarks">Benchmark Disclaimer</h3>
       <p></p>
