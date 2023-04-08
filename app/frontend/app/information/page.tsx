@@ -34,7 +34,18 @@ export default function Information() {
       <h2 className="information-benchmarks" id="benchmarks">
         Benchmarks
       </h2>
-      <p></p>
+      <p>
+        The Benchmark Value is the performance rating of a specific model, and a
+        full list of all current Benchmark Values in use can be found on the{" "}
+        <Link
+          className="internal-link-color"
+          href="/benchmarks"
+          target="_blank"
+        >
+          <strong>Current Benchmarks</strong>
+        </Link>{" "}
+        page.
+      </p>
       <h3 className="information-benchmarks">Benchmark Disclaimer</h3>
       <p></p>
       <h2 className="information-mct">Manual Comparison Tool</h2>
