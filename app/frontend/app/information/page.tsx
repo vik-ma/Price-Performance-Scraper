@@ -11,10 +11,13 @@ export default function Information() {
       <p></p>
       <h3 className="information-scrapes">Price / Performance Score</h3>
       <p>
-        This is the formula used for calculating the Price / Performance Score:
+        This is the formula that is used to calculate the Price / Performance
+        Score of a product:
       </p>
       <div className="centered-container">
-        <div className="formula-container">( Benchmark Value &divide; Price ) &times; 100</div>
+        <div className="formula-container">
+          ( Benchmark Value &divide; Price ) &times; 100
+        </div>
       </div>
       <h2 className="information-benchmarks" id="benchmarks">
         Benchmarks
@@ -38,7 +41,7 @@ export default function Information() {
         <strong>
           these scores will not match the Price / Performance Scores generated
           by scrapes unless the benchmark values are constructed using the same
-          formula shown in the 'Benchmarks' section of this page.
+          formula shown in the 'Benchmarks' section on this page.
         </strong>
       </p>
     </>
