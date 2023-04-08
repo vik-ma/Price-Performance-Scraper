@@ -642,6 +642,15 @@ h4 {
   color: #e74d4d;
 }
 
+.information-header {
+  margin-bottom: -5px !important;
+  margin-top: 15px;
+}
+
+h3.information-header {
+  margin-top: 5px !important;
+}
+
 .information-intro {
   background: -webkit-linear-gradient(#27dd45, #afff9b);
   background-clip: text;

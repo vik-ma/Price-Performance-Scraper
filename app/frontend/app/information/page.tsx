@@ -3,13 +3,13 @@ import Link from "next/link";
 export default function Information() {
   return (
     <>
-      <h1 className="page-title">Information</h1>
+      <h1 className="page-title information-header">Information</h1>
       <p></p>
-      <h2 className="information-intro">How It Works</h2>
+      <h2 className="information-header information-intro">How It Works</h2>
       <p></p>
-      <h2 className="information-scrapes">Scraped Prices</h2>
+      <h2 className="information-header information-scrapes">Scraped Prices</h2>
       <p></p>
-      <h3 className="information-scrapes">Price/Performance Score</h3>
+      <h3 className="information-header information-scrapes">Price/Performance Score</h3>
       <p>
         This is the formula that is used to calculate the Price/Performance
         Score of a product:
@@ -31,7 +31,7 @@ export default function Information() {
         Benchmark Values will often have much higher Price/Performance Scores
         compared to the flagship models.
       </p>
-      <h2 className="information-benchmarks" id="benchmarks">
+      <h2 className="information-header information-benchmarks" id="benchmarks">
         Benchmarks
       </h2>
       <p>
@@ -59,16 +59,19 @@ export default function Information() {
         The values are linear, which means that a product with a Benchmark Value
         of <strong>50.00</strong> has half the performance of the best product
         in the list.
-        <br />
-        <br />
+      </p>
+      <h3 className="information-header information-benchmarks">Benchmark Tiers</h3>
+      <p>
         Products are sorted into different <strong>Tiers</strong> with other
         products of similar Benchmark Values, in order to make it easier to find
-        comparable product models. These Tiers are also used when selecting
-        products to scrape.
+        comparable product models.
+        <br />
+        <br />
+        These Tiers are also seen when selecting products to scrape.
       </p>
-      <h3 className="information-benchmarks">Benchmark Disclaimer</h3>
+      <h3 className="information-header information-benchmarks">Benchmark Disclaimer</h3>
       <p></p>
-      <h2 className="information-mct">Manual Comparison Tool</h2>
+      <h2 className="information-header information-mct">Manual Comparison Tool</h2>
       <p>
         The{" "}
         <Link
