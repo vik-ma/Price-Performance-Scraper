@@ -22,11 +22,10 @@ export default function Information() {
       <p>
         A higher Price/Performance Score indicates that the product is more
         cost-effective in terms of its performance score, meaning that the
-        product performs better in relation to its price compared to products
-        with a lower Price/Performance Score.
-      </p>
-      <br />
-      <p>
+        product performs better <strong>in relation to its price</strong>{" "}
+        compared to products with a lower Price/Performance Score.
+        <br />
+        <br />
         Products with lower Benchmark Values will often have a much higher
         Price/Performance Score compared to the flagship models.
       </p>
