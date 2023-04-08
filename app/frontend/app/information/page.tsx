@@ -9,9 +9,9 @@ export default function Information() {
       <p></p>
       <h2 className="information-scrapes">Scraped Prices</h2>
       <p></p>
-      <h3 className="information-scrapes">Price / Performance Score</h3>
+      <h3 className="information-scrapes">Price/Performance Score</h3>
       <p>
-        This is the formula that is used to calculate the Price / Performance
+        This is the formula that is used to calculate the Price/Performance
         Score of a product:
       </p>
       <div className="centered-container">
@@ -19,6 +19,17 @@ export default function Information() {
           ( Benchmark Value &divide; Price ) &times; 100
         </div>
       </div>
+      <p>
+        A higher Price/Performance Score indicates that the product is more
+        cost-effective in terms of its performance score, meaning that the
+        product performs better in relation to its price compared to products
+        with a lower Price/Performance Score.
+      </p>
+      <br />
+      <p>
+        Products with lower Benchmark Values will often have a much higher
+        Price/Performance Score compared to the flagship models.
+      </p>
       <h2 className="information-benchmarks" id="benchmarks">
         Benchmarks
       </h2>
