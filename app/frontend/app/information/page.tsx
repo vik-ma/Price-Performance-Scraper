@@ -4,13 +4,15 @@ export default function Information() {
   return (
     <>
       <h1 className="page-title information-header">Information</h1>
-      <p></p>
+      <p className="information-text"></p>
       <h2 className="information-header information-intro">How It Works</h2>
-      <p></p>
+      <p className="information-text"></p>
       <h2 className="information-header information-scrapes">Scraped Prices</h2>
-      <p></p>
-      <h3 className="information-header information-scrapes">Price/Performance Score</h3>
-      <p>
+      <p className="information-text"></p>
+      <h3 className="information-header information-scrapes">
+        Price/Performance Score
+      </h3>
+      <p className="information-text">
         This is the formula that is used to calculate the Price/Performance
         Score of a product:
       </p>
@@ -19,7 +21,8 @@ export default function Information() {
           ( Benchmark Value &divide; Price ) &times; 100
         </div>
       </div>
-      <p>
+      <br />
+      <p className="information-text">
         A higher Price/Performance Score indicates that the product is more
         cost-effective in terms of its performance score, meaning that the
         product performs better <strong>in relation to its price</strong>{" "}
@@ -34,7 +37,7 @@ export default function Information() {
       <h2 className="information-header information-benchmarks" id="benchmarks">
         Benchmarks
       </h2>
-      <p>
+      <p className="information-text">
         The Benchmark Value is the performance rating of a specific model, and a
         full list of all current Benchmark Values in use can be found on the{" "}
         <Link
@@ -60,8 +63,10 @@ export default function Information() {
         of <strong>50.00</strong> has half the performance of the best product
         in the list.
       </p>
-      <h3 className="information-header information-benchmarks">Benchmark Tiers</h3>
-      <p>
+      <h3 className="information-header information-benchmarks">
+        Benchmark Tiers
+      </h3>
+      <p className="information-text">
         Products are sorted into different <strong>Tiers</strong> with other
         products of similar Benchmark Values, in order to make it easier to find
         comparable product models.
@@ -69,10 +74,14 @@ export default function Information() {
         <br />
         These Tiers are also seen when selecting products to scrape.
       </p>
-      <h3 className="information-header information-benchmarks">Benchmark Disclaimer</h3>
-      <p></p>
-      <h2 className="information-header information-mct">Manual Comparison Tool</h2>
-      <p>
+      <h3 className="information-header information-benchmarks">
+        Benchmark Disclaimer
+      </h3>
+      <p className="information-text"></p>
+      <h2 className="information-header information-mct">
+        Manual Comparison Tool
+      </h2>
+      <p className="information-text">
         The{" "}
         <Link
           className="internal-link-color"
