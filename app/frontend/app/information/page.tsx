@@ -77,7 +77,15 @@ export default function Information() {
       <h3 className="information-header information-benchmarks">
         Benchmark Disclaimer
       </h3>
-      <p className="information-text"></p>
+      <p className="information-text">
+        Benchmark Values are not always accurate and in no way definite. The CPU
+        benchmarks are sourced from <strong>PassMark</strong>, while GPU
+        benchmarks are an aggregate of data from <strong>PassMark</strong> and{" "}
+        <strong>Tom's Hardware</strong>. Benchmarks are
+        <strong> automatically updated once every day</strong>.
+        <br />
+        <br />
+      </p>
       <h2 className="information-header information-mct">
         Manual Comparison Tool
       </h2>
