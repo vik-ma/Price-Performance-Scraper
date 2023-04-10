@@ -4,7 +4,7 @@ export default function Information() {
   return (
     <>
       <h1 className="page-title information-header">Information</h1>
-      <p className="information-text">
+      <p className="information-text information-top-text">
         <strong>
           This website is designed to help you find the most value-for-money
           CPUs or GPUs on the market!
