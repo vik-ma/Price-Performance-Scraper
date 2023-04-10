@@ -2,7 +2,7 @@ import { NewScrapeContextProvider } from "../context/NewScrapeContext";
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Create New Price Scrape',
+  title: 'Start New Price Scrape',
 };
 
 export default function RootLayout({
