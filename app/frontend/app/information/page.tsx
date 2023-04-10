@@ -4,9 +4,13 @@ export default function Information() {
   return (
     <>
       <h1 className="page-title information-header">Information</h1>
-      <p className="information-text"></p>
+      <p className="information-text">
+        This website is designed to help you find the most value-for-money CPUs or GPUs on the market.
+      </p>
       <h2 className="information-header information-intro">How It Works</h2>
-      <p className="information-text"></p>
+      <p className="information-text">
+        
+      </p>
       <h2 className="information-header information-scrapes">Scraped Prices</h2>
       <p className="information-text"></p>
       <h3 className="information-header information-scrapes">
