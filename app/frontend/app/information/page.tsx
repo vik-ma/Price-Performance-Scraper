@@ -15,7 +15,7 @@ export default function Information() {
         Over at{" "}
         <Link
           className="internal-link-color"
-          href="/new_scrape"
+          href="/start_scrape"
           target="_blank"
         >
           <strong>Start Price Scrape</strong>
