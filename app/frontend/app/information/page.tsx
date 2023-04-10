@@ -57,11 +57,11 @@ export default function Information() {
         <br />
         <br />
         Benchmark Values range from <strong>100.00</strong> to{" "}
-        <strong>0.01</strong>, where the highest performing product on the
-        market will always have the Benchmark Value of <strong>100.00</strong>.
-        The values are linear, which means that a product with a Benchmark Value
-        of <strong>50.00</strong> has half the performance of the best product
-        in the list.
+        <strong>0.01</strong>, where the highest performing model in the list
+        will always have a Benchmark Value of <strong>100.00</strong>. The
+        values are linear, which means that a product with a Benchmark Value of{" "}
+        <strong>50.00</strong> has half the performance of the best product in
+        the list.
       </p>
       <h3 className="information-header information-benchmarks">
         Benchmark Tiers
@@ -99,8 +99,8 @@ export default function Information() {
         </strong>
         <br />
         <br />
-        Use the <strong>Manual Comparison Tool</strong>{" "}
-        to calculate Price/Performance Score using custom benchmark values.
+        Use the <strong>Manual Comparison Tool</strong> to calculate
+        Price/Performance Score using custom benchmark values.
       </p>
       <h2 className="information-header information-mct">
         Manual Comparison Tool
