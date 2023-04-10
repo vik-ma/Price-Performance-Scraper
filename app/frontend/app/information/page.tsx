@@ -38,6 +38,24 @@ export default function Information() {
           </Link>
           .
         </em>
+        <br />
+        <br />
+        Once the scrape has been completed, every price listing found will be
+        ranked by its <strong>Price/Performance Score</strong>.
+        <br />
+        <br />
+        <em>
+          When scraping GPU prices, only the cheapest 25% of sub-models for
+          every GPU model will get scraped. Use the{" "}
+          <Link
+            className="internal-link-color"
+            href="/manual_comparison"
+            target="_blank"
+          >
+            <strong>Manual Comparison Tool</strong>
+          </Link>{" "}
+          to manually compare listings that may have been missed by the scraper.
+        </em>
       </p>
       <h2 className="information-header information-scrapes">
         Price/Performance Score
@@ -129,8 +147,15 @@ export default function Information() {
         </strong>
         <br />
         <br />
-        Use the <strong>Manual Comparison Tool</strong> to calculate
-        Price/Performance Score using custom benchmark values.
+        Use the{" "}
+        <Link
+          className="internal-link-color"
+          href="/manual_comparison"
+          target="_blank"
+        >
+          <strong>Manual Comparison Tool</strong>
+        </Link>{" "}
+        to calculate Price/Performance Score using custom benchmark values.
       </p>
       <h2 className="information-header information-mct">
         Manual Comparison Tool
