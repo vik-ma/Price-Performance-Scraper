@@ -5,11 +5,28 @@ export default function Information() {
     <>
       <h1 className="page-title information-header">Information</h1>
       <p className="information-text">
-        This website is designed to help you find the most value-for-money CPUs or GPUs on the market.
+        This website is designed to help you find the most value-for-money CPUs
+        or GPUs on the market.
       </p>
       <h2 className="information-header information-intro">How It Works</h2>
       <p className="information-text">
-        
+        Over at{" "}
+        <Link
+          className="internal-link-color"
+          href="/new_scrape"
+          target="_blank"
+        >
+          <strong>Start Price Scrape</strong>
+        </Link>{" "}
+        you can select products that you are interested in comparing and start a
+        real-time price scrape, which will calculate the most price efficient
+        listing currently on the market!
+        <br />
+        <br />
+        <em>
+          As of right now, <strong>only online stores in Sweden</strong> are
+          able to be scraped.
+        </em>
       </p>
       <h2 className="information-header information-scrapes">Scraped Prices</h2>
       <p className="information-text"></p>
