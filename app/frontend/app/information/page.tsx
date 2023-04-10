@@ -5,8 +5,10 @@ export default function Information() {
     <>
       <h1 className="page-title information-header">Information</h1>
       <p className="information-text">
-        This website is designed to help you find the most value-for-money CPUs
-        or GPUs on the market.
+        <strong>
+          This website is designed to help you find the most value-for-money
+          CPUs or GPUs on the market!
+        </strong>
       </p>
       <h2 className="information-header information-intro">How It Works</h2>
       <p className="information-text">
@@ -25,14 +27,21 @@ export default function Information() {
         <br />
         <em>
           As of right now, <strong>only online stores in Sweden</strong> are
-          able to be scraped.
+          able to be scraped. However, you can still manually enter prices and
+          compare different products' price efficiency by using the{" "}
+          <Link
+            className="internal-link-color"
+            href="/manual_comparison"
+            target="_blank"
+          >
+            <strong>Manual Comparison Tool</strong>
+          </Link>
+          .
         </em>
       </p>
-      <h2 className="information-header information-scrapes">Scraped Prices</h2>
-      <p className="information-text"></p>
-      <h3 className="information-header information-scrapes">
+      <h2 className="information-header information-scrapes">
         Price/Performance Score
-      </h3>
+      </h2>
       <p className="information-text">
         This is the formula that is used to calculate the Price/Performance
         Score of a product:
