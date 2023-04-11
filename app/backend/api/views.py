@@ -22,7 +22,7 @@ class ScrapeThrottle():
     def calculate_seconds_left(self):
         current_datetime = datetime.datetime.now()
         time_left = self.next_scrape_time - current_datetime
-        seconds_left = time_left.total_seconds()
+        seconds_left = int(time_left.total_seconds())
         return seconds_left
 
 scrape_throttle = ScrapeThrottle()
@@ -166,20 +166,36 @@ def test_post(request):
     #     "message": f"TEST FROM POST REQUEST {rand}", "success": True
     # })
 
-    success = scrape_throttle.allow_request()
+    allow_request = scrape_throttle.allow_request()
 
-    if not success:
-        seconds_left = int(scrape_throttle.calculate_seconds_left())
+    if not allow_request:
+        seconds_left = scrape_throttle.calculate_seconds_left()
 
         return Response({
-        "message": f"{scrape_throttle.next_scrape_time} = {seconds_left} seconds left", "success": success
+        "message": f"{scrape_throttle.next_scrape_time} = {seconds_left} seconds left", "success": allow_request
     })
 
+    time.sleep(5)
     return Response({
-        "message": scrape_throttle.next_scrape_time, "success": success
+        "message": scrape_throttle.next_scrape_time, "success": allow_request
     })
 
 @api_view(['GET'])
 def get_benchmarks(request):
     benchmarks = pf.get_benchmarks()
     return Response(benchmarks)
+
+@api_view(['GET'])
+def get_scrape_allowed(request):
+    allow_scrape_request = scrape_throttle.allow_request()
+
+    if not allow_scrape_request:
+        seconds_left = scrape_throttle.calculate_seconds_left()
+
+        return Response({
+        "allow": allow_scrape_request, "seconds_left": seconds_left
+    })
+    return Response({
+        "allow": allow_scrape_request
+    })
+

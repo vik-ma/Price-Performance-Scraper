@@ -4,14 +4,18 @@ import { useState } from "react";
 import ScrapeCreator from "./ScrapeCreator";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 
-async function testPostRequest(data = {}) {
-  const response = await fetch(`http://localhost:8000/api/test_post/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+async function getScrapeAllowed() {
+  const response = await fetch(
+    `http://localhost:8000/api/get_scrape_allowed/`,
+    {
+      cache: "no-store",
+    }
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
   return response.json();
 }
 
@@ -32,12 +36,17 @@ export default function NewScrape() {
 
   const handlePostClick = async () => {
     try {
-      const response = await testPostRequest({});
+      const response = await getScrapeAllowed();
 
-      if (response.hasOwnProperty("success")) {
-        setPostReturn(`${JSON.stringify(response)}`);
+      // if (response.hasOwnProperty("success")) {
+      //   setPostReturn(`${JSON.stringify(response)}`);
+      // } else {
+      //   setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
+      // }
+      if (response.allow) {
+        setPostReturn("True")
       } else {
-        setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
+        setPostReturn(`False, ${JSON.stringify(response.seconds_left)} seconds left`)
       }
     } catch {
       setPostReturn(`Failed to communicate with server`);
