@@ -5,6 +5,23 @@ from rest_framework import serializers
 from .serializers import FetchPropertiesSerializer
 import price_fetcher.views as pf
 import time
+import random
+import datetime
+
+class ScrapeThrottle():
+    def __init__(self):
+        self.next_scrape_time = None
+    
+    def allow_request(self):
+        current_datetime = datetime.datetime.now()
+        if (self.next_scrape_time is None) or (current_datetime > self.next_scrape_time):
+            self.next_scrape_time = current_datetime + datetime.timedelta(minutes=3)
+            return True
+        else:
+            return False
+
+
+scrape_throttle = ScrapeThrottle()
 
 valid_fetch_types = frozenset(["GPU", "CPU-Gaming", "CPU-Normal"])
 
@@ -136,11 +153,19 @@ def test_frontend(request):
 
 @api_view(['POST'])
 def test_post(request):
-    time.sleep(1)
+    # rand = random.randint(0, 9)
+    # time.sleep(2)
+
     # if 1 != 0:
     #     raise serializers.ValidationError("asd")
+    # return Response({
+    #     "message": f"TEST FROM POST REQUEST {rand}", "success": True
+    # })
+
+    success = scrape_throttle.allow_request()
+
     return Response({
-        "message": "TEST FROM POST REQUEST", "success": False
+        "message": scrape_throttle.next_scrape_time, "success": success
     })
 
 @api_view(['GET'])

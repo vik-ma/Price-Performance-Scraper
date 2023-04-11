@@ -35,7 +35,7 @@ export default function NewScrape() {
       const response = await testPostRequest({});
 
       if (response.hasOwnProperty("success")) {
-        setPostReturn(`Success Exists`);
+        setPostReturn(`${JSON.stringify(response)}`);
       } else {
         setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
       }
