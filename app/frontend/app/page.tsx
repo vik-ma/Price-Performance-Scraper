@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 type TestApiProps = {
   message: string;
@@ -17,6 +18,8 @@ async function getApiData(): Promise<TestApiProps> {
   return res.json();
 }
 
+
+
 export default async function Home() {
   const apiData = await getApiData();
 
@@ -29,9 +32,10 @@ export default async function Home() {
         <div className="padding-top: 3em">
           <Link href="/scrapes">View Completed Scrapes</Link>
         </div>
+        
         <table>
           <tbody>
-          <tr>
+            <tr>
               <td>
                 <div className="model-background model-gradient-0">
                   <strong>TEST</strong>

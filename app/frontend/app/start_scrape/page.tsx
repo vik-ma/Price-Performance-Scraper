@@ -4,6 +4,17 @@ import { useState } from "react";
 import ScrapeCreator from "./ScrapeCreator";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 
+async function testPostRequest(data = {}) {
+  const response = await fetch(`http://localhost:8000/api/test_post/`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+  return response.json();
+}
+
 export default function NewScrape() {
   const { loadingScrape, setErrorMsg, setShowErrorMsg } = useNewScrapeContext();
 
@@ -17,9 +28,27 @@ export default function NewScrape() {
     }
   };
 
+  const [postReturn, setPostReturn] = useState<string>("");
+
+  const handlePostClick = async () => {
+    try {
+      const response = await testPostRequest({});
+
+      if (response.hasOwnProperty("success")) {
+        setPostReturn(`Success Exists`);
+      } else {
+        setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
+      }
+    } catch {
+      setPostReturn(`Failed to communicate with server`);
+    }
+  };
+
   return (
     <>
       <h1 className="page-title">Start New Price Scrape</h1>
+      <h2>{postReturn}</h2>
+      <button onClick={handlePostClick}>TEST POST</button>
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>
