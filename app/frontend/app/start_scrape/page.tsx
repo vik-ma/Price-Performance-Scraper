@@ -3,8 +3,9 @@ import React from "react";
 import { useState } from "react";
 import ScrapeCreator from "./ScrapeCreator";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
+import { ScrapeAllowedAPIResponse } from "@/typings";
 
-async function getScrapeAllowed() {
+async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
   const response = await fetch(
     `http://localhost:8000/api/get_scrape_allowed/`,
     {
@@ -44,9 +45,11 @@ export default function NewScrape() {
       //   setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
       // }
       if (response.allow) {
-        setPostReturn("True")
+        setPostReturn("True");
       } else {
-        setPostReturn(`False, ${JSON.stringify(response.seconds_left)} seconds left`)
+        setPostReturn(
+          `False, ${JSON.stringify(response.seconds_left)} seconds left`
+        );
       }
     } catch {
       setPostReturn(`Failed to communicate with server`);
