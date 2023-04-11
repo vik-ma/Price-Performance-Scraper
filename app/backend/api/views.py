@@ -17,9 +17,13 @@ class ScrapeThrottle():
         if (self.next_scrape_time is None) or (current_datetime > self.next_scrape_time):
             self.next_scrape_time = current_datetime + datetime.timedelta(minutes=3)
             return True
-        else:
-            return False
+        return False
 
+    def calculate_seconds_left(self):
+        current_datetime = datetime.datetime.now()
+        time_left = self.next_scrape_time - current_datetime
+        seconds_left = time_left.total_seconds()
+        return seconds_left
 
 scrape_throttle = ScrapeThrottle()
 
@@ -163,6 +167,13 @@ def test_post(request):
     # })
 
     success = scrape_throttle.allow_request()
+
+    if not success:
+        seconds_left = int(scrape_throttle.calculate_seconds_left())
+
+        return Response({
+        "message": f"{scrape_throttle.next_scrape_time} = {seconds_left} seconds left", "success": success
+    })
 
     return Response({
         "message": scrape_throttle.next_scrape_time, "success": success
