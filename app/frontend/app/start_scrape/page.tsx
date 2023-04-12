@@ -40,19 +40,20 @@ export default function NewScrape() {
     }
   };
 
-  const handlePostClick = async () => {
-    try {
-      const response = await getScrapeAllowed();
+  const handleGetScrapeAllowed = async () => {
+    const response = await getScrapeAllowed();
 
+    if (response.success) {
       if (response.allow) {
         setIsScrapeAllowed(true);
+        setScrapeAllowedMsg("Allowed");
       } else {
         setIsScrapeAllowed(false);
         setScrapeAllowedMsg(
           `${JSON.stringify(response.seconds_left)} seconds left`
         );
       }
-    } catch {
+    } else {
       setScrapeAllowedMsg(`Failed to communicate with server`);
     }
   };
@@ -61,7 +62,7 @@ export default function NewScrape() {
     <>
       <h1 className="page-title">Start New Price Scrape</h1>
       <h2>{scrapeAllowedMsg}</h2>
-      <button onClick={handlePostClick}>TEST POST</button>
+      <button onClick={handleGetScrapeAllowed}>TEST POST</button>
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>
