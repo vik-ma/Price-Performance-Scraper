@@ -63,9 +63,9 @@ export default function NewScrape() {
     }
   };
 
-  useEffect(() => {
-    handleGetScrapeAllowed();
-  }, []);
+  // useEffect(() => {
+  //   handleGetScrapeAllowed();
+  // }, []);
 
   return (
     <>

@@ -15,9 +15,12 @@ class ScrapeThrottle():
     def allow_request(self):
         current_datetime = datetime.datetime.now()
         if (self.next_scrape_time is None) or (current_datetime > self.next_scrape_time):
-            self.next_scrape_time = current_datetime + datetime.timedelta(minutes=3)
             return True
         return False
+
+    def set_new_time(self):
+        current_datetime = datetime.datetime.now()
+        self.next_scrape_time = current_datetime + datetime.timedelta(minutes=3)
 
     def calculate_seconds_left(self):
         current_datetime = datetime.datetime.now()
@@ -195,6 +198,10 @@ def get_scrape_allowed(request):
         return Response({
         "success": True, "allow": allow_scrape_request, "seconds_left": seconds_left
     })
+
+    #REMOVE LATER
+    scrape_throttle.set_new_time()
+
     return Response({
         "success": True, "allow": allow_scrape_request
     })
