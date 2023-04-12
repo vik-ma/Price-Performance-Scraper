@@ -18,6 +18,8 @@ interface ScrapeContextProps {
   setScrapeAllowedMsg: Dispatch<SetStateAction<string>>;
   isScrapeAllowed: boolean;
   setIsScrapeAllowed: Dispatch<SetStateAction<boolean>>;
+  scrapeAllowedTimer: number;
+  setScrapeAllowedTimer: Dispatch<SetStateAction<number>>;
 }
 
 const NewScrapeContext = createContext<ScrapeContextProps>({
@@ -31,6 +33,8 @@ const NewScrapeContext = createContext<ScrapeContextProps>({
   setScrapeAllowedMsg: () => {},
   isScrapeAllowed: true,
   setIsScrapeAllowed: () => {},
+  scrapeAllowedTimer: 0,
+  setScrapeAllowedTimer: () => {},
 });
 
 /* @ts-ignore */
@@ -40,6 +44,7 @@ export const NewScrapeContextProvider = ({ children }) => {
   const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
   const [scrapeAllowedMsg, setScrapeAllowedMsg] = useState<string>("");
   const [isScrapeAllowed, setIsScrapeAllowed] = useState<boolean>(true);
+  const [scrapeAllowedTimer, setScrapeAllowedTimer] = useState<number>(0);
 
   return (
     <NewScrapeContext.Provider
@@ -54,6 +59,8 @@ export const NewScrapeContextProvider = ({ children }) => {
         setScrapeAllowedMsg,
         isScrapeAllowed,
         setIsScrapeAllowed,
+        scrapeAllowedTimer,
+        setScrapeAllowedTimer
       }}
     >
       {children}

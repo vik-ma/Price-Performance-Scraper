@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ScrapeCreator from "./ScrapeCreator";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 import { ScrapeAllowedAPIResponse } from "@/typings";
@@ -28,6 +28,8 @@ export default function NewScrape() {
     scrapeAllowedMsg,
     setScrapeAllowedMsg,
     setIsScrapeAllowed,
+    scrapeAllowedTimer,
+    setScrapeAllowedTimer,
   } = useNewScrapeContext();
 
   const [tabIndex, setTabIndex] = useState(1);
@@ -48,7 +50,10 @@ export default function NewScrape() {
         setIsScrapeAllowed(true);
         setScrapeAllowedMsg("Allowed");
       } else {
+        const secondsLeft: number =
+          response.seconds_left === undefined ? 0 : response.seconds_left;
         setIsScrapeAllowed(false);
+        setScrapeAllowedTimer(secondsLeft);
         setScrapeAllowedMsg(
           `${JSON.stringify(response.seconds_left)} seconds left`
         );
@@ -57,6 +62,10 @@ export default function NewScrape() {
       setScrapeAllowedMsg(`Failed to communicate with server`);
     }
   };
+
+  useEffect(() => {
+    handleGetScrapeAllowed();
+  }, []);
 
   return (
     <>
