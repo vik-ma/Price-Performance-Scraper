@@ -6,18 +6,18 @@ import { useNewScrapeContext } from "../context/NewScrapeContext";
 import { ScrapeAllowedAPIResponse } from "@/typings";
 
 async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
-  const response = await fetch(
-    `http://localhost:8000/api/get_scrape_allowed/`,
-    {
-      cache: "no-store",
-    }
-  );
+  try {
+    const response = await fetch(
+      `http://localhost:8000/api/get_scrape_allowed/`,
+      {
+        cache: "no-store",
+      }
+    );
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
+    return response.json();
+  } catch {
+    return { success: false };
   }
-
-  return response.json();
 }
 
 export default function NewScrape() {

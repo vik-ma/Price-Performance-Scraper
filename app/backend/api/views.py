@@ -193,9 +193,9 @@ def get_scrape_allowed(request):
         seconds_left = scrape_throttle.calculate_seconds_left()
 
         return Response({
-        "allow": allow_scrape_request, "seconds_left": seconds_left
+        "success": True, "allow": allow_scrape_request, "seconds_left": seconds_left
     })
     return Response({
-        "allow": allow_scrape_request
+        "success": True, "allow": allow_scrape_request
     })
 

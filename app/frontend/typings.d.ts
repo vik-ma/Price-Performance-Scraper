@@ -88,6 +88,7 @@ export interface FetchTypeProps {
 }
 
 export interface ScrapeAllowedAPIResponse {
-  allow: boolean;
+  success: boolean;
+  allow?: boolean;
   seconds_left?: number;
 }
