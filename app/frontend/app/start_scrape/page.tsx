@@ -21,7 +21,14 @@ async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
 }
 
 export default function NewScrape() {
-  const { loadingScrape, setErrorMsg, setShowErrorMsg } = useNewScrapeContext();
+  const {
+    loadingScrape,
+    setErrorMsg,
+    setShowErrorMsg,
+    scrapeAllowedMsg,
+    setScrapeAllowedMsg,
+    setIsScrapeAllowed,
+  } = useNewScrapeContext();
 
   const [tabIndex, setTabIndex] = useState(1);
 
@@ -33,33 +40,27 @@ export default function NewScrape() {
     }
   };
 
-  const [postReturn, setPostReturn] = useState<string>("");
-
   const handlePostClick = async () => {
     try {
       const response = await getScrapeAllowed();
 
-      // if (response.hasOwnProperty("success")) {
-      //   setPostReturn(`${JSON.stringify(response)}`);
-      // } else {
-      //   setPostReturn(`No 'success' exists ${JSON.stringify(response)}`);
-      // }
       if (response.allow) {
-        setPostReturn("True");
+        setIsScrapeAllowed(true);
       } else {
-        setPostReturn(
-          `False, ${JSON.stringify(response.seconds_left)} seconds left`
+        setIsScrapeAllowed(false);
+        setScrapeAllowedMsg(
+          `${JSON.stringify(response.seconds_left)} seconds left`
         );
       }
     } catch {
-      setPostReturn(`Failed to communicate with server`);
+      setScrapeAllowedMsg(`Failed to communicate with server`);
     }
   };
 
   return (
     <>
       <h1 className="page-title">Start New Price Scrape</h1>
-      <h2>{postReturn}</h2>
+      <h2>{scrapeAllowedMsg}</h2>
       <button onClick={handlePostClick}>TEST POST</button>
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">

@@ -14,6 +14,10 @@ interface ScrapeContextProps {
   setErrorMsg: Dispatch<SetStateAction<string>>;
   showErrorMsg: boolean;
   setShowErrorMsg: Dispatch<SetStateAction<boolean>>;
+  scrapeAllowedMsg: string;
+  setScrapeAllowedMsg: Dispatch<SetStateAction<string>>;
+  isScrapeAllowed: boolean;
+  setIsScrapeAllowed: Dispatch<SetStateAction<boolean>>;
 }
 
 const NewScrapeContext = createContext<ScrapeContextProps>({
@@ -23,6 +27,10 @@ const NewScrapeContext = createContext<ScrapeContextProps>({
   setErrorMsg: () => {},
   showErrorMsg: false,
   setShowErrorMsg: () => {},
+  scrapeAllowedMsg: "",
+  setScrapeAllowedMsg: () => {},
+  isScrapeAllowed: true,
+  setIsScrapeAllowed: () => {},
 });
 
 /* @ts-ignore */
@@ -30,6 +38,8 @@ export const NewScrapeContextProvider = ({ children }) => {
   const [loadingScrape, setLoadingScrape] = useState<boolean>(false);
   const [errorMsg, setErrorMsg] = useState<string>("");
   const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
+  const [scrapeAllowedMsg, setScrapeAllowedMsg] = useState<string>("");
+  const [isScrapeAllowed, setIsScrapeAllowed] = useState<boolean>(true);
 
   return (
     <NewScrapeContext.Provider
@@ -40,6 +50,10 @@ export const NewScrapeContextProvider = ({ children }) => {
         setErrorMsg,
         showErrorMsg,
         setShowErrorMsg,
+        scrapeAllowedMsg,
+        setScrapeAllowedMsg,
+        isScrapeAllowed,
+        setIsScrapeAllowed,
       }}
     >
       {children}
