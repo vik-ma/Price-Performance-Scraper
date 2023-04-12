@@ -3,18 +3,18 @@ import { BenchmarkAPIResponse, BenchmarkData } from "@/typings";
 import Link from "next/link";
 
 async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
-  const response = await fetch(
-    `${process.env.DJANGO_API_URL}/get_benchmarks/`,
-    {
-      cache: "no-store",
-    }
-  );
+  try {
+    const response = await fetch(
+      `${process.env.DJANGO_API_URL}/get_benchmarks/`,
+      {
+        cache: "no-store",
+      }
+    );
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
+    return response.json();
+  } catch {
+    return { success: false };
   }
-
-  return response.json();
 }
 
 export default async function Benchmarks() {
@@ -27,10 +27,11 @@ export default async function Benchmarks() {
       {benchmarkData.success ? (
         <BenchmarkTable benchmarks={benchmarks} />
       ) : (
-        <>
-          <br />
-          <h2 className="centered-container">Error fetching benchmarks</h2>
-        </>
+        <div className="centered-container">
+          <div className="error-msg-container">
+            <h3 className="error-msg-heading">Error fetching benchmarks</h3>
+          </div>
+        </div>
       )}
       <div className="benchmark-info-wrapper">
         <h2>Disclaimers</h2>

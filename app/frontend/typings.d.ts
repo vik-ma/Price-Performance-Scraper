@@ -45,7 +45,7 @@ export interface BenchmarkData {
 
 export interface BenchmarkAPIResponse {
   success: boolean;
-  benchmarks: Benchmarks;
+  benchmarks?: Benchmarks;
 }
 
 export interface BenchmarksDataProps {
@@ -89,5 +89,5 @@ export interface FetchTypeProps {
 
 export interface ScrapeAllowedAPIResponse {
   allow: boolean;
-  seconds_left:? number;
+  seconds_left?: number;
 }
