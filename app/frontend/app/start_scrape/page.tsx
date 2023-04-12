@@ -63,14 +63,26 @@ export default function NewScrape() {
     }
   };
 
-  // useEffect(() => {
-  //   handleGetScrapeAllowed();
-  // }, []);
+  useEffect(() => {
+    handleGetScrapeAllowed();
+  }, []);
+
+  useEffect(() => {
+    if (scrapeAllowedTimer > 0) {
+      setTimeout(() => setScrapeAllowedTimer(scrapeAllowedTimer - 1), 1000);
+    } else {
+      setScrapeAllowedMsg("Allowed");
+      setIsScrapeAllowed(true);
+    }
+  }, [scrapeAllowedTimer]);
 
   return (
     <>
       <h1 className="page-title">Start New Price Scrape</h1>
-      <h2>{scrapeAllowedMsg}</h2>
+      <h2>
+        {scrapeAllowedMsg}
+        {scrapeAllowedTimer}
+      </h2>
       <button onClick={handleGetScrapeAllowed}>TEST POST</button>
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">
