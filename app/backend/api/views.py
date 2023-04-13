@@ -63,6 +63,7 @@ valid_gpu_set = frozenset([
 valid_cpu_normal_list = [
     "AMD Ryzen 9 7950X3D",
     "AMD Ryzen 9 7900X3D",
+    "AMD Ryzen 7 7800X3D",
     "AMD Ryzen 9 5950X",
     "AMD Ryzen 9 5900X",
     "AMD Ryzen 7 5800X",
