@@ -104,6 +104,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     setErrorMsg,
     showErrorMsg,
     setShowErrorMsg,
+    isScrapeAllowed,
   } = useNewScrapeContext();
 
   const handleClickStartPriceFetch = async () => {
@@ -269,25 +270,31 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               );
             })}
           </ul>
-          {loadingScrape ? (
-            <div className="horizontally-centered-container">
-              <progress></progress>
-
-              <h2>Scraping prices...</h2>
-
-              <p>This process will take a few seconds.</p>
-            </div>
+          {!isScrapeAllowed ? (
+            <div>asd</div>
           ) : (
-            <button
-              className="start-button"
-              onClick={handleClickStartPriceFetch}
-            >
-              <strong>Start Price Scrape</strong>
-            </button>
-          )}
-          {showErrorMsg && (
-            <div className="horizontally-centered-container error-msg-container">
-              <h2 className="error-msg-heading">{errorMsg}</h2>
+            <div className="start-price-button-container">
+              {loadingScrape ? (
+                <div className="horizontally-centered-container">
+                  <progress></progress>
+
+                  <h2>Scraping prices...</h2>
+
+                  <p>This process will take a few seconds.</p>
+                </div>
+              ) : (
+                <button
+                  className="start-button"
+                  onClick={handleClickStartPriceFetch}
+                >
+                  <strong>Start Price Scrape</strong>
+                </button>
+              )}
+              {showErrorMsg && (
+                <div className="horizontally-centered-container error-msg-container">
+                  <h2 className="error-msg-heading">{errorMsg}</h2>
+                </div>
+              )}
             </div>
           )}
         </div>

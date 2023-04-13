@@ -80,7 +80,7 @@ export default function NewScrape() {
 
   useEffect(() => {
     if (scrapeAllowedTimer > 0) {
-      setTimeout(() => setScrapeAllowedTimer(scrapeAllowedTimer - 1), 1000);
+      setTimeout(() => setScrapeAllowedTimer((time) => time - 1), 1000);
     } else {
       setScrapeAllowedMsg("Allowed");
       setIsScrapeAllowed(true);
