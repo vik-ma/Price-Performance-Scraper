@@ -5,6 +5,7 @@ import re
 import datetime
 import time
 
+#TODO: REMOVE
 gpu_tier_dict = {
     "TIER 1": {
         "GeForce RTX 4090",
@@ -89,6 +90,7 @@ cpu_pj_url_dict = {
     "AMD Ryzen 9 7900X3D": "https://www.prisjakt.nu/produkt.php?p=8053693",
     "AMD Ryzen 9 7900X": "https://www.prisjakt.nu/produkt.php?p=6999757",
     "AMD Ryzen 9 7900": "https://www.prisjakt.nu/produkt.php?p=7328156",
+    "AMD Ryzen 7 7800X3D": "https://www.prisjakt.nu/produkt.php?p=8053700",
     "AMD Ryzen 7 7700X": "https://www.prisjakt.nu/produkt.php?p=6999756",
     "AMD Ryzen 7 7700": "https://www.prisjakt.nu/produkt.php?p=7327472",
     "AMD Ryzen 5 7600X": "https://www.prisjakt.nu/produkt.php?p=6999754",
@@ -123,7 +125,7 @@ cpu_pj_url_dict = {
     "Intel Core i5-12400F": "https://www.prisjakt.nu/produkt.php?p=5948013",
     "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
 }    
-
+#TODO: REMOVE
 cpu_socket_dict = {
     "Socket AM4": {
         "AMD Ryzen 9 5950X",
@@ -178,7 +180,7 @@ cpu_socket_dict = {
         "Intel Core i5-12400",
     }
 }
-
+#TODO: REMOVE
 cpu_gen_dict = {
     "CURRENT GENERATION": {
         "AMD Ryzen 9 7950X3D",
@@ -231,7 +233,7 @@ cpu_gen_dict = {
         "Intel Core i5-12400",
     }
 }
-
+#TODO: REMOVE
 cpu_normal_tier_dict = {
     "TIER 1": {
         "AMD Ryzen 9 7950X3D",
@@ -295,6 +297,7 @@ cpu_normal_tier_dict = {
     },
 }
 
+#TODO: REMOVE
 # MISSING: Intel Core i9-13900
 cpu_gaming_tier_dict = {
     "TIER 1": {
@@ -730,5 +733,6 @@ if __name__ == "__main__":
     #     print(t)
     # print(", ".join(gpu_pj_url_dict["TIER 1"]))
     # test_benchmark_price_score("CPU-Gaming", run_locally=True)
-    # start_price_fetching_cpu("CPU-Normal", ["AMD Ryzen 9 7950X3D","AMD Ryzen 9 7900X3D"], run_locally=True)
+    # asd = start_price_fetching_cpu("CPU-Normal", ["AMD Ryzen 7 7800X3D"], run_locally=True)
+    # print(asd)
     pass
