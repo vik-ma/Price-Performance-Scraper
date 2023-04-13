@@ -17,10 +17,41 @@ async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
   }
 }
 
+function isBenchmarkDataValid(data: any) {
+  if (typeof data !== "object") {
+    return false;
+  }
+
+  const validKeys: string[] = ["GPU", "CPU-Gaming", "CPU-Normal"];
+  const dataKeys: string[] = Object.keys(data);
+
+  if (
+    dataKeys.length !== validKeys.length &&
+    dataKeys.every((key) => validKeys.includes(key))
+  ) {
+    return false;
+  }
+
+  for (const dataValue of Object.values(data)) {
+    for (const [key, value] of Object.entries(dataValue as string[])) {
+      if (typeof key !== "string" || typeof value !== "number") {
+        return false;
+      }
+    }
+  }
+
+  return true;
+}
+
 export default async function Benchmarks() {
   const benchmarkData = await getBenchmarkData();
 
   const benchmarks: BenchmarkData = benchmarkData.benchmarks;
+
+  if (!isBenchmarkDataValid(benchmarks)) {
+    benchmarkData.success = false;
+  }
+
   return (
     <>
       <h1 className="page-title">Current Benchmarks</h1>
