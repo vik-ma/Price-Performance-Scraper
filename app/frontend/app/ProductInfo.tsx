@@ -143,6 +143,14 @@ export const cpuInfo = {
     socket: "Socket AM5",
     cssName: "amd-7900x3d",
   },
+  "AMD Ryzen 7 7800X3D": {
+    gamingTier: "1",
+    normalTier: "4",
+    generation: "Latest Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM5",
+    cssName: "amd-7800x3d",
+  },
   "AMD Ryzen 9 5950X": {
     gamingTier: "6",
     normalTier: "2",
