@@ -343,6 +343,7 @@ h4 {
 
 .benchmark-info-wrapper {
   padding: 10px;
+  padding-top: 0px;
 }
 
 .text-color-tier-1 {
@@ -1045,6 +1046,14 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-top: 10px;
   /* padding-left: 10px; */
   color: rgb(225, 230, 235);
+}
+
+.benchmark-source-text {
+  color: rgb(225, 230, 235);
+}
+
+.benchmark-disclaimer-heading {
+  margin-top: 20px;
 }
 
 .filter-products-container {

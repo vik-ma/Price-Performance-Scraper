@@ -65,7 +65,15 @@ export default async function Benchmarks() {
         </div>
       )}
       <div className="benchmark-info-wrapper">
-        <h2>Disclaimers</h2>
+        <p className="benchmark-source-text">
+          <em>
+            <strong>CPU</strong> benchmarks are sourced from{" "}
+            <strong>PassMark</strong> and <strong>GPU</strong> benchmarks are an
+            aggregate of data from <strong>PassMark</strong> and{" "}
+            <strong>Tom's Hardware</strong>.
+          </em>
+        </p>
+        <h2 className="benchmark-disclaimer-heading">Disclaimers</h2>
         <p>
           <em>
             <strong>CPU Gaming</strong> benchmarks are semi-theoretical and{" "}
