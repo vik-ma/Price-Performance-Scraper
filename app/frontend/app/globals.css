@@ -1020,6 +1020,15 @@ table[role=grid] tbody tr:nth-child(odd) {
   }
 }
 
+.cooldown-container {
+  text-align: center;
+  
+}
+
+.cooldown-heading {
+  color: rgb(231, 231, 231);
+}
+
 .start-button {
   display: inline-block;
   background: linear-gradient(to top, #045DE9, #09C6F9);

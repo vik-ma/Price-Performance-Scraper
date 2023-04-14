@@ -20,6 +20,17 @@ async function startPriceFetch(data = {}) {
   return response.json();
 }
 
+const formatTime = (time: number) => {
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time - minutes * 60);
+
+  if (seconds < 10) {
+    return `0${minutes}:0${seconds}`;
+  } else {
+    return `0${minutes}:${seconds}`;
+  }
+};
+
 export default function ScrapeCreator(scrapeType: ScrapeType) {
   const scrapeTypeTitle: string =
     scrapeType.name === "CPU-Gaming"
@@ -105,6 +116,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     showErrorMsg,
     setShowErrorMsg,
     isScrapeAllowed,
+    scrapeAllowedTimer,
   } = useNewScrapeContext();
 
   const handleClickStartPriceFetch = async () => {
@@ -271,7 +283,13 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             })}
           </ul>
           {!isScrapeAllowed ? (
-            <div>asd</div>
+            <div className="error-msg-container cooldown-container">
+              <h3 className="error-msg-heading cooldown-heading">
+                A scrape was recently started
+                <br />
+                Cooldown ends in {formatTime(scrapeAllowedTimer)}
+              </h3>
+            </div>
           ) : (
             <div className="start-price-button-container">
               {loadingScrape ? (
