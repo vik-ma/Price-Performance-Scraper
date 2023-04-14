@@ -70,7 +70,7 @@ export const gpuInfo = {
     cssName: "rx-6700",
   },
   "Radeon RX 6650 XT": {
-    tier: "4",
+    tier: "5",
     manufacturer: "AMD",
     cssName: "rx-6650-xt",
   },
