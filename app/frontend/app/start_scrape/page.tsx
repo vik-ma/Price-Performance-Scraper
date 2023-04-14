@@ -107,17 +107,22 @@ export default function NewScrape() {
               be redirected to the results.
               <br />
               <div className="tutorial-tab">
-                <strong className="red-text"><em>
-                  Price Scraping have a global cooldown of 3 minutes, which
-                  means that you or anyone else can only do one Price Scrape
-                  every three minutes.</em>
+                <strong className="red-text">
+                  <em>
+                    Price Scraping have a global cooldown of 3 minutes, which
+                    means that you or anyone else can only do one Price Scrape
+                    every three minutes.
+                  </em>
                 </strong>
                 <br />
                 <em>
-                  GPU scrapes usually take longer to finish than CPU scrapes.
+                  <strong>GPU Scrapes</strong> usually take longer to finish than <strong>CPU Scrapes</strong>.
                 </em>
                 <br />
-                <em>If price scraping fails, try again in a moment.</em>
+                <em>
+                  If Price Scraping fails, try again in a moment. Scraping may
+                  also fail if no selected products are in stock anywhere.
+                </em>
               </div>
             </li>
           </ol>
