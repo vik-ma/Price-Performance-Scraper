@@ -146,11 +146,25 @@ def validate_fetch_request(serializer_data):
 
 @api_view(['POST'])
 def start_price_fetch(request):
+    allow_scrape_request = scrape_throttle.allow_request()
+
+    if not allow_scrape_request:
+        seconds_left = scrape_throttle.calculate_seconds_left()
+
+        return Response({
+        "message": f"Scrape request on cooldown, {seconds_left} seconds left", "success": False, "seconds_left": seconds_left
+        })
+
     serializer = FetchPropertiesSerializer(data=request.data)
+
     if serializer.is_valid():
         validate_fetch_request(serializer.data)
+
+        scrape_throttle.set_new_time()
+
         price_fetch = pf.start_price_fetching(serializer.data)
         return Response(price_fetch)
+
     return Response(serializer.errors)
 
 @api_view(['GET'])
@@ -201,7 +215,7 @@ def get_scrape_allowed(request):
     })
 
     #REMOVE LATER
-    scrape_throttle.set_new_time()
+    # scrape_throttle.set_new_time()
 
     return Response({
         "success": True, "allow": allow_scrape_request
