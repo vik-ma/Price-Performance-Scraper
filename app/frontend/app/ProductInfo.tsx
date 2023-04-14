@@ -160,7 +160,7 @@ export const cpuInfo = {
     cssName: "amd-5950x",
   },
   "AMD Ryzen 9 5900X": {
-    gamingTier: "5",
+    gamingTier: "4",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -176,7 +176,7 @@ export const cpuInfo = {
     cssName: "amd-5800x",
   },
   "AMD Ryzen 7 5800X3D": {
-    gamingTier: "1",
+    gamingTier: "2",
     normalTier: "6",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -256,7 +256,7 @@ export const cpuInfo = {
     cssName: "amd-7700",
   },
   "AMD Ryzen 5 7600X": {
-    gamingTier: "2",
+    gamingTier: "3",
     normalTier: "6",
     generation: "Latest Generation",
     manufacturer: "AMD",
@@ -264,7 +264,7 @@ export const cpuInfo = {
     cssName: "amd-7600x",
   },
   "AMD Ryzen 5 7600": {
-    gamingTier: "2",
+    gamingTier: "3",
     normalTier: "6",
     generation: "Latest Generation",
     manufacturer: "AMD",
@@ -456,7 +456,7 @@ export const cpuInfo = {
     cssName: "intel-12600kf",
   },
   "Intel Core i5-13400": {
-    gamingTier: "5",
+    gamingTier: "4",
     normalTier: "6",
     generation: "Latest Generation",
     manufacturer: "Intel",
