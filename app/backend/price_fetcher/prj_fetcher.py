@@ -363,9 +363,9 @@ cpu_gaming_tier_dict = {
 
 def import_benchmark_json(benchmark_type, run_locally = False):
     if run_locally:
-        file_path = f"app/backend/price_fetcher/latest_benchmarks/{benchmark_type}.json"
+        file_path = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
     else:
-        file_path = f"price_fetcher/latest_benchmarks/{benchmark_type}.json"
+        file_path = f"price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
     with open(file_path, "r") as file:
         data = json.load(file)
     return data

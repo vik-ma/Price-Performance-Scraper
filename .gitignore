@@ -1,6 +1,6 @@
 app/backend/benchmarks
 app/backend/test_files
-app/backend/price_fetcher/latest_benchmarks
+app/backend/price_fetcher/benchmarks
 pj*
 app/docker-compose.yaml
 db.sqlite3
