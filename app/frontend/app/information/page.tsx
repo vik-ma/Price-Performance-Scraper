@@ -45,6 +45,16 @@ export default function Information() {
         <br />
         <br />
         <em>
+          <strong>
+            To prevent abuse, a 3 minute global cooldown is placed on Price
+            Scraping.
+          </strong>{" "}
+          This means that you or anyone else using this website can only start
+          one Price Scrape every three minutes.
+        </em>
+        <br />
+        <br />
+        <em>
           When scraping GPU prices, only the cheapest 25% of sub-models for
           every GPU model will get scraped. Use the{" "}
           <Link
