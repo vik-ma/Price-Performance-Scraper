@@ -116,7 +116,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     showErrorMsg,
     setShowErrorMsg,
     isScrapeAllowed,
+    setIsScrapeAllowed,
     scrapeAllowedTimer,
+    setScrapeAllowedTimer,
   } = useNewScrapeContext();
 
   const handleClickStartPriceFetch = async () => {
@@ -134,6 +136,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         if (response.hasOwnProperty("success")) {
           if (response.success) {
             router.push(`/scrapes/${response.message}`);
+          } else if (response.hasOwnProperty("seconds_left")) {
+            setIsScrapeAllowed(false);
+            setScrapeAllowedTimer(response.seconds_left);
           } else {
             setErrorMsg(`An error occurred during price scraping.`);
             setShowErrorMsg(true);

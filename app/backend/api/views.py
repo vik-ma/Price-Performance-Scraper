@@ -214,7 +214,7 @@ def get_scrape_allowed(request):
         "success": True, "allow": allow_scrape_request, "seconds_left": seconds_left
     })
 
-    #REMOVE LATER
+    # REMOVE LATER
     # scrape_throttle.set_new_time()
 
     return Response({
