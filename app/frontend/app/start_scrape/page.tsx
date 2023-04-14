@@ -92,24 +92,33 @@ export default function NewScrape() {
               <strong>2.</strong> Add the products you wish to compare by
               clicking on them in the tiered list below.
               <br />
-              <em>
-                &emsp;You can only compare 5 GPUs or 10 CPUs at a time, but{" "}
-                <strong>
-                  you do not need to fill the maximum amount of products.
-                </strong>
-              </em>
+              <div className="tutorial-tab">
+                <em>
+                  You can only compare 5 GPUs or 10 CPUs at a time, but{" "}
+                  <strong>
+                    you do not need to fill the maximum amount of products.
+                  </strong>
+                </em>
+              </div>
             </li>
             <li>
               <strong>3.</strong> Click on <strong>'Start Price Scrape'</strong>{" "}
               and wait for the price scraper to finish. Once finished, you will
               be redirected to the results.
               <br />
-              <em>
-                &emsp;GPU scrapes usually take longer to finish than CPU
-                scrapes.
-              </em>
-              <br />
-              <em>&emsp;If price scraping fails, try again in a moment.</em>
+              <div className="tutorial-tab">
+                <strong className="red-text"><em>
+                  Price Scraping have a global cooldown of 3 minutes, which
+                  means that you or anyone else can only do one Price Scrape
+                  every three minutes.</em>
+                </strong>
+                <br />
+                <em>
+                  GPU scrapes usually take longer to finish than CPU scrapes.
+                </em>
+                <br />
+                <em>If price scraping fails, try again in a moment.</em>
+              </div>
             </li>
           </ol>
         </div>

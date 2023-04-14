@@ -642,6 +642,16 @@ h4 {
   color: #e74d4d;
 }
 
+.tutorial-tab {
+  margin-left: 24px;
+}
+
+@media (max-width: 62em){
+  .tutorial-tab {
+    margin-left: 0;
+  }
+}
+
 .information-header {
   margin-bottom: 0px !important;
   margin-top: 15px;
