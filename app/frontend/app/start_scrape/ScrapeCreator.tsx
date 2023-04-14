@@ -6,7 +6,6 @@ import { gpuInfo, cpuInfo } from "../ProductInfo";
 import { GpuInfoProps, CpuInfoProps } from "@/typings";
 import { useRouter } from "next/navigation";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
-
 import Link from "next/link";
 
 async function startPriceFetch(data = {}) {

@@ -20,23 +20,11 @@ async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
   }
 }
 
-const formatTime = (time: number) => {
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time - minutes * 60);
-
-  if (seconds < 10) {
-    return `0${minutes}:0${seconds}`;
-  } else {
-    return `0${minutes}:${seconds}`;
-  }
-};
-
 export default function NewScrape() {
   const {
     loadingScrape,
     setErrorMsg,
     setShowErrorMsg,
-    scrapeAllowedMsg,
     setScrapeAllowedMsg,
     setIsScrapeAllowed,
     scrapeAllowedTimer,
@@ -90,11 +78,6 @@ export default function NewScrape() {
   return (
     <>
       <h1 className="page-title">Start New Price Scrape</h1>
-      <h2>
-        {scrapeAllowedMsg}
-        {formatTime(scrapeAllowedTimer)}
-      </h2>
-      <button onClick={handleGetScrapeAllowed}>TEST POST</button>
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>
