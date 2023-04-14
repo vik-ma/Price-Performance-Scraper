@@ -160,7 +160,7 @@ export const cpuInfo = {
     cssName: "amd-5950x",
   },
   "AMD Ryzen 9 5900X": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -257,7 +257,7 @@ export const cpuInfo = {
   },
   "AMD Ryzen 5 7600X": {
     gamingTier: "3",
-    normalTier: "6",
+    normalTier: "5",
     generation: "Latest Generation",
     manufacturer: "AMD",
     socket: "Socket AM5",
@@ -296,8 +296,8 @@ export const cpuInfo = {
     cssName: "intel-13900kf",
   },
   "Intel Core i9-13900F": {
-    gamingTier: "1",
-    normalTier: "1",
+    gamingTier: "2",
+    normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -329,7 +329,7 @@ export const cpuInfo = {
   },
   "Intel Core i9-12900KS": {
     gamingTier: "2",
-    normalTier: "2",
+    normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
