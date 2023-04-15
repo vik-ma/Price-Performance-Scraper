@@ -295,6 +295,8 @@ def fetch_gpu_benchmarks(*, run_locally=False):
 
     save_to_json(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
 
+    return average_benchmark_data
+
 
 def fetch_cpu_gaming_benchmarks(*, run_locally=False):
     # benchmark_list = []
@@ -317,6 +319,8 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False):
 
     save_to_json(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
+    return passmark_data
+
 
 def fetch_cpu_normal_benchmarks(*, run_locally=False):
     # benchmark_list = []
@@ -338,6 +342,8 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False):
     passmark_data["timestamp"] = current_datetime
 
     save_to_json(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
+
+    return passmark_data
     
 
 def test_offline_page(filepath):
@@ -346,18 +352,22 @@ def test_offline_page(filepath):
 
 
 def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=False):
-    if run_locally:
-        filename = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
-    else:
-        filename = f"benchmarks/latest_benchmarks/{benchmark_type}.json"
+    try:
+        if run_locally:
+            filename = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
+        else:
+            filename = f"benchmarks/latest_benchmarks/{benchmark_type}.json"
 
-    with open (filename, "r", encoding="utf-8") as file:
-        old_benchmarks = json.load(file)
+        with open (filename, "r", encoding="utf-8") as file:
+            old_benchmarks = json.load(file)
 
-    #ADD UNITTESTS
+        #ADD UNITTESTS
 
-    with open(filename, "w") as file:
-        json.dump(new_benchmarks, file, indent=4)
+        with open(filename, "w") as file:
+            json.dump(new_benchmarks, file, indent=4)
+
+    except Exception as e:
+        print(f"Error Replacing Benchmark: {e}")
 
 
 
@@ -365,28 +375,34 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
 def update_all_benchmarks(*, run_locally=False):
     print("Scraping GPU Benchmarks")
     try:
-        fetch_gpu_benchmarks(run_locally=run_locally)
+        gpu_benchmarks = fetch_gpu_benchmarks(run_locally=run_locally)
         print("Success")
     except:
         print("Error Scraping GPU Benchmarks")
+    else:
+        replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
 
     time.sleep(0.5)
 
     print("Scraping CPU-Gaming Benchmarks")
     try:
-        fetch_cpu_gaming_benchmarks(run_locally=run_locally)
+        cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
         print("Success")
     except:
         print("Error Scraping CPU-Gaming Benchmarks")
+    else:
+        replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
 
     time.sleep(0.5)
 
     print("Scraping CPU-Normal Benchmarks")
     try:
-        fetch_cpu_normal_benchmarks(run_locally=run_locally)
+        cpu_normal_benchmarks = fetch_cpu_normal_benchmarks(run_locally=run_locally)
         print("Success")
     except:
         print("Error Scraping CPU-Normal Benchmarks")
+    else:
+        replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
 
 
