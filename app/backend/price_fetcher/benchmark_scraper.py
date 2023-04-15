@@ -289,6 +289,10 @@ def fetch_gpu_benchmarks(*, run_locally=False):
 
     average_benchmark_data = get_average_benchmarks(benchmark_list)
 
+    current_datetime = str(datetime.datetime.now())[:-7]
+
+    average_benchmark_data["timestamp"] = current_datetime
+
     save_to_json(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
 
 
@@ -306,6 +310,10 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False):
     # save_to_json(average_benchmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
     passmark_data = scrape_passmark("CPU-Gaming", passmark_cpu_gaming_url, cpu_set_lower_case, run_locally=run_locally)
+
+    current_datetime = str(datetime.datetime.now())[:-7]
+
+    passmark_data["timestamp"] = current_datetime
 
     save_to_json(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
@@ -325,6 +333,10 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False):
 
     passmark_data = scrape_passmark("CPU-Normal", passmark_cpu_normal_url, cpu_set_lower_case, run_locally=run_locally)
 
+    current_datetime = str(datetime.datetime.now())[:-7]
+
+    passmark_data["timestamp"] = current_datetime
+
     save_to_json(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
     
 
@@ -334,9 +346,10 @@ def test_offline_page(filepath):
     
 
 if __name__ == "__main__":
-    # fetch_gpu_benchmarks(run_locally=True)
+    fetch_gpu_benchmarks(run_locally=True)
     # fetch_cpu_gaming_benchmarks(run_locally=True)
-    # time.sleep(0.5)
-    # fetch_cpu_normal_benchmarks(run_locally=True)
+    # print(str(datetime.datetime.now())[:-7])
+    time.sleep(0.5)
+    fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
     pass
