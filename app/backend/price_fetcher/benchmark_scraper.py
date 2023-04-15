@@ -345,11 +345,40 @@ def test_offline_page(filepath):
         soup = BeautifulSoup(file, "html.parser")
     
 
+def update_all_benchmarks(*, run_locally=False):
+    print("Scraping GPU Benchmarks")
+    try:
+        fetch_gpu_benchmarks(run_locally=run_locally)
+        print("Success")
+    except:
+        print("Error Scraping GPU Benchmarks")
+
+    time.sleep(0.5)
+
+    print("Scraping CPU-Gaming Benchmarks")
+    try:
+        fetch_cpu_gaming_benchmarks(run_locally=run_locally)
+        print("Success")
+    except:
+        print("Error Scraping CPU-Gaming Benchmarks")
+
+    time.sleep(0.5)
+
+    print("Scraping CPU-Normal Benchmarks")
+    try:
+        fetch_cpu_normal_benchmarks(run_locally=run_locally)
+        print("Success")
+    except:
+        print("Error Scraping CPU-Normal Benchmarks")
+
+
+
 if __name__ == "__main__":
-    fetch_gpu_benchmarks(run_locally=True)
+    # fetch_gpu_benchmarks(run_locally=True)
     # fetch_cpu_gaming_benchmarks(run_locally=True)
     # print(str(datetime.datetime.now())[:-7])
-    time.sleep(0.5)
-    fetch_cpu_normal_benchmarks(run_locally=True)
+    # time.sleep(0.5)
+    # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
+    update_all_benchmarks(run_locally=True)
     pass
