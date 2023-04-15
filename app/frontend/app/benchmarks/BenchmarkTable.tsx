@@ -86,34 +86,37 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(benchmarks["GPU"]).map(([key, value]) => {
-                  const tier = (gpuProductInfo[key] as { tier: string })?.tier;
-                  return (
-                    <tr key={key}>
-                      <td
-                        className={
-                          colorCodingEnabled ? `text-color-tier-${tier}` : ""
-                        }
-                      >
-                        <strong>{key}</strong>
-                      </td>
-                      <td
-                        className={
-                          colorCodingEnabled ? `text-color-tier-${tier}` : ""
-                        }
-                      >
-                        <strong>{value.toString()}</strong>
-                      </td>
-                      <td
-                        className={
-                          colorCodingEnabled ? `text-color-tier-${tier}` : ""
-                        }
-                      >
-                        <strong>Tier {tier}</strong>
-                      </td>
-                    </tr>
-                  );
-                })}
+                {Object.entries(benchmarks["GPU"])
+                  .filter(([key]) => key !== "timestamp")
+                  .map(([key, value]) => {
+                    const tier = (gpuProductInfo[key] as { tier: string })
+                      ?.tier;
+                    return (
+                      <tr key={key}>
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
+                          <strong>{key}</strong>
+                        </td>
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
+                          <strong>{value.toString()}</strong>
+                        </td>
+                        <td
+                          className={
+                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                          }
+                        >
+                          <strong>Tier {tier}</strong>
+                        </td>
+                      </tr>
+                    );
+                  })}
               </tbody>
             </table>
           </div>
@@ -140,8 +143,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(benchmarks["CPU-Gaming"]).map(
-                  ([key, value]) => {
+                {Object.entries(benchmarks["CPU-Gaming"])
+                  .filter(([key]) => key !== "timestamp")
+                  .map(([key, value]) => {
                     const tier = (cpuProductInfo[key] as { gamingTier: string })
                       ?.gamingTier;
                     return (
@@ -169,8 +173,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                         </td>
                       </tr>
                     );
-                  }
-                )}
+                  })}
               </tbody>
             </table>
           </div>
@@ -197,8 +200,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 </tr>
               </thead>
               <tbody>
-                {Object.entries(benchmarks["CPU-Normal"]).map(
-                  ([key, value]) => {
+                {Object.entries(benchmarks["CPU-Normal"])
+                  .filter(([key]) => key !== "timestamp")
+                  .map(([key, value]) => {
                     const tier = (cpuProductInfo[key] as { normalTier: string })
                       ?.normalTier;
                     return (
@@ -226,8 +230,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                         </td>
                       </tr>
                     );
-                  }
-                )}
+                  })}
               </tbody>
             </table>
           </div>
