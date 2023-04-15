@@ -34,7 +34,7 @@ export type TableHeadingProps = {
 };
 
 export interface BenchmarkProps {
-  [key: string]: { [key: string]: number };
+  [key: string]: { [key: string]: number | string };
 }
 
 export interface BenchmarkData {

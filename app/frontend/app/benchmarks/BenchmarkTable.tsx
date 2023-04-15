@@ -4,6 +4,10 @@ import { useState } from "react";
 import { BenchmarksDataProps, GpuInfoProps, CpuInfoProps } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
 
+interface TimestampMap {
+  [key: string]: string;
+}
+
 export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
   const [tabIndex, setTabIndex] = useState(1);
 
@@ -15,6 +19,12 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
   const cpuProductInfo: CpuInfoProps = cpuInfo;
 
   const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
+
+  const timestampMap: TimestampMap = {
+    gpu: benchmarks["GPU"].timestamp as unknown as string,
+    cpuG: benchmarks["CPU-Gaming"].timestamp as unknown as string,
+    cpuN: benchmarks["CPU-Normal"].timestamp as unknown as string,
+  };
 
   return (
     <div className="benchmark-wrapper">
@@ -119,6 +129,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   })}
               </tbody>
             </table>
+            <p>{timestampMap.gpu}</p>
           </div>
           <div
             className={
@@ -176,6 +187,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   })}
               </tbody>
             </table>
+            <p>{timestampMap.cpuG}</p>
           </div>
           <div
             className={
@@ -233,6 +245,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   })}
               </tbody>
             </table>
+            <p>{timestampMap.cpuN}</p>
           </div>
         </div>
       </div>
