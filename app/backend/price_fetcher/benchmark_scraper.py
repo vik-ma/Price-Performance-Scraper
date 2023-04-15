@@ -343,7 +343,24 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False):
 def test_offline_page(filepath):
     with open(filepath, "r", encoding='utf8') as file:
         soup = BeautifulSoup(file, "html.parser")
-    
+
+
+def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=False):
+    if run_locally:
+        filename = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
+    else:
+        filename = f"benchmarks/latest_benchmarks/{benchmark_type}.json"
+
+    with open (filename, "r", encoding="utf-8") as file:
+        old_benchmarks = json.load(file)
+
+    #ADD UNITTESTS
+
+    with open(filename, "w") as file:
+        json.dump(new_benchmarks, file, indent=4)
+
+
+
 
 def update_all_benchmarks(*, run_locally=False):
     print("Scraping GPU Benchmarks")
@@ -380,5 +397,6 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    update_all_benchmarks(run_locally=True)
+    # update_all_benchmarks(run_locally=True)
+    replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     pass
