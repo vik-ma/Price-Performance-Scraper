@@ -81,7 +81,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
           >
             <h2>GPU Benchmarks</h2>
-            <table role="grid">
+            <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
                   <th className="table-head">
@@ -129,7 +129,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   })}
               </tbody>
             </table>
-            <p>{timestampMap.gpu}</p>
+            <p className="benchmark-timestamp">
+              <em>Benchmarks updated at <strong>{timestampMap.gpu}</strong></em>
+            </p>
           </div>
           <div
             className={
@@ -139,7 +141,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
           >
             <h2>CPU Benchmarks (Gaming Performance)</h2>
-            <table role="grid">
+            <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
                   <th className="table-head">
@@ -187,7 +189,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   })}
               </tbody>
             </table>
-            <p>{timestampMap.cpuG}</p>
+            <p className="benchmark-timestamp">
+              <em>Benchmarks updated at <strong>{timestampMap.cpuG}</strong></em>
+            </p>
           </div>
           <div
             className={
@@ -197,7 +201,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
           >
             <h2>CPU Benchmarks (Multi-threaded Performance)</h2>
-            <table role="grid">
+            <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
                   <th className="table-head">
@@ -245,7 +249,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                   })}
               </tbody>
             </table>
-            <p>{timestampMap.cpuN}</p>
+            <p className="benchmark-timestamp">
+              <em>Benchmarks updated at <strong>{timestampMap.cpuN}</strong></em>
+            </p>
           </div>
         </div>
       </div>

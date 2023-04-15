@@ -1057,6 +1057,15 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: rgb(225, 230, 235);
 }
 
+.benchmark-table {
+  margin: 0;
+}
+
+.benchmark-timestamp {
+  padding: 5px 10px 15px;
+  color: rgb(225, 230, 235);
+}
+
 .benchmark-source-text {
   color: rgb(225, 230, 235);
 }
