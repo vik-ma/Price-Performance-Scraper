@@ -34,6 +34,8 @@ function isBenchmarkDataValid(data: any) {
 
   for (const dataValue of Object.values(data)) {
     for (const [key, value] of Object.entries(dataValue as string[])) {
+      if (key === "timestamp") continue;
+
       if (typeof key !== "string" || typeof value !== "number") {
         return false;
       }
