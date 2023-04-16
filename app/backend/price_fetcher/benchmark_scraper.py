@@ -123,7 +123,7 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False):
 
     percent_dict = convert_dict_numbers_to_percent(benchmarks_dict, max_value)
 
-    save_to_json(percent_dict, f"{benchmark_type}_PASSMARK", run_locally=run_locally)
+    save_to_json_with_timestamp(percent_dict, f"{benchmark_type}_PASSMARK", run_locally=run_locally)
 
     return percent_dict
 
@@ -148,7 +148,7 @@ def scrape_toms_hardware_gpus(*, run_locally=False):
             else:
                 benchmarks_dict[name] = value
 
-    save_to_json(benchmarks_dict, f"GPU_TH", run_locally=run_locally)
+    save_to_json_with_timestamp(benchmarks_dict, f"GPU_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -180,7 +180,7 @@ def scrape_toms_hardware_cpu_gaming(*, run_locally=False):
                 benchmarks_dict["Intel Core i5-13400"] = value 
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
-    save_to_json(benchmarks_dict, f"CPU-Gaming_TH", run_locally=run_locally)
+    save_to_json_with_timestamp(benchmarks_dict, f"CPU-Gaming_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -208,7 +208,7 @@ def scrape_toms_hardware_cpu_normal(*, run_locally=False):
                 benchmarks_dict["Intel Core i5-13400"] = value 
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
-    save_to_json(benchmarks_dict, f"CPU-Normal_TH", run_locally=run_locally)
+    save_to_json_with_timestamp(benchmarks_dict, f"CPU-Normal_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -228,15 +228,14 @@ def save_local_html_page(soup):
         file.write(soup.prettify())
 
 
-def save_to_json(filtered_dict, dict_type, *, run_locally=False):
+def save_to_json_with_timestamp(filtered_dict, dict_type, *, run_locally=False):
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     if run_locally:
         filename = f"app/backend/price_fetcher/benchmarks/completed-scrapes/{dict_type}_{current_time}.json"
     else:
         filename = f"benchmarks/completed-scrapes/{dict_type}_{current_time}.json"
 
-    with open(filename, "w") as file:
-        json.dump(filtered_dict, file, indent=4)
+    write_json_file(filtered_dict, filename)
 
 
 def convert_dict_numbers_to_percent(benchmark_dict, max_value):
@@ -294,7 +293,7 @@ def fetch_gpu_benchmarks(*, run_locally=False):
 
     average_benchmark_data["timestamp"] = current_datetime
 
-    save_to_json(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
+    save_to_json_with_timestamp(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
 
     return average_benchmark_data
 
@@ -318,7 +317,7 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False):
 
     passmark_data["timestamp"] = current_datetime
 
-    save_to_json(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
+    save_to_json_with_timestamp(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
     return passmark_data
 
@@ -342,7 +341,7 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False):
 
     passmark_data["timestamp"] = current_datetime
 
-    save_to_json(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
+    save_to_json_with_timestamp(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
 
     return passmark_data
     
@@ -365,11 +364,9 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
             old_benchmarks = json.load(file)
 
         if validate_new_benchmarks(old_benchmarks, new_benchmarks, run_locally=run_locally):
-            with open(filename, "w") as file:
-                json.dump(new_benchmarks, file, indent=4)
+            write_json_file(new_benchmarks, filename)
             
-            with open(filename_backup, "w") as file:
-                json.dump(old_benchmarks, file, indent=4)
+            write_json_file(old_benchmarks, filename_backup)
 
             print(f"Successfully updated {benchmark_type} benchmarks")
             write_to_log(success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
@@ -451,6 +448,11 @@ def validate_new_benchmarks(old_benchmark_json, new_benchmark_json, *, run_local
     return True
 
 
+def write_json_file(json_data, filename):
+    with open(filename, "w") as file:
+        json.dump(json_data, file, indent=4)
+
+
 def write_to_log(*, success, message, run_locally=False):
     if run_locally:
         filename = f"app/backend/price_fetcher/benchmarks/update_log.log"
@@ -459,7 +461,7 @@ def write_to_log(*, success, message, run_locally=False):
 
     logging.basicConfig(
     filename=filename,
-    filemode="a",
+    filemode="w",
     level=logging.INFO,
     format="%(asctime)s : %(levelname)s : %(message)s",
     datefmt="%Y-%m-%d %I:%M:%S",
@@ -482,5 +484,6 @@ if __name__ == "__main__":
     # run_locally = True
     # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
     # replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
-    # write_to_log(success=False, message="Test Message", run_locally=True)
+    # write_to_log(success=False, message="Test Message2232", run_locally=True)
+    # write_to_log(success=True, message="Test Message25252", run_locally=True)
     pass
