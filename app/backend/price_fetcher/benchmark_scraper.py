@@ -361,15 +361,15 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         with open (filename, "r", encoding="utf-8") as file:
             old_benchmarks = json.load(file)
 
-        #ADD UNITTESTS
-
-        with open(filename, "w") as file:
-            json.dump(new_benchmarks, file, indent=4)
-
+        if validate_new_benchmarks(old_benchmarks, new_benchmarks):
+            with open(filename, "w") as file:
+                json.dump(new_benchmarks, file, indent=4)
+        else:
+            print("Failed to validate new benchmarks")
     except Exception as e:
-        print(f"Error Replacing Benchmark: {e}")
-
-
+        print(f"Error Replacing {benchmark_type} Benchmark: {e}")
+    else:
+        print(f"Successfully updated {benchmark_type} benchmarks")
 
 
 def update_all_benchmarks(*, run_locally=False):
@@ -433,6 +433,6 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    # update_all_benchmarks(run_locally=True)
+    update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     pass
