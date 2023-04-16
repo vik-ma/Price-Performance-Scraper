@@ -405,6 +405,26 @@ def update_all_benchmarks(*, run_locally=False):
         replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
 
+def validate_new_benchmarks(old_benchmark_json, new_benchmark_json):
+    if len(old_benchmark_json) != len(new_benchmark_json):
+        return False
+    
+    if set(old_benchmark_json.keys()) != set(new_benchmark_json.keys()):
+        return False
+    
+    if new_benchmark_json[next(iter(new_benchmark_json))] != 100:
+        return False
+
+    for key, value in new_benchmark_json.items():
+        if not isinstance(key, str):
+            return False
+        if not isinstance(value, float):
+            return False
+        if value > 100 or value < 0.01:
+            return False
+
+    return True
+
 
 if __name__ == "__main__":
     # fetch_gpu_benchmarks(run_locally=True)
@@ -414,5 +434,5 @@ if __name__ == "__main__":
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
     # update_all_benchmarks(run_locally=True)
-    replace_latest_benchmark("test", {"asd":123}, run_locally=True)
+    # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     pass
