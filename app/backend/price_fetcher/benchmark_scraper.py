@@ -364,12 +364,13 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         if validate_new_benchmarks(old_benchmarks, new_benchmarks):
             with open(filename, "w") as file:
                 json.dump(new_benchmarks, file, indent=4)
+
+            print(f"Successfully updated {benchmark_type} benchmarks")
         else:
             print("Failed to validate new benchmarks")
+
     except Exception as e:
-        print(f"Error Replacing {benchmark_type} Benchmark: {e}")
-    else:
-        print(f"Successfully updated {benchmark_type} benchmarks")
+        print(f"Error Replacing {benchmark_type} Benchmark: {e}")        
 
 
 def update_all_benchmarks(*, run_locally=False):
@@ -407,21 +408,28 @@ def update_all_benchmarks(*, run_locally=False):
 
 def validate_new_benchmarks(old_benchmark_json, new_benchmark_json):
     if len(old_benchmark_json) != len(new_benchmark_json):
+        print(f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}")
         return False
     
     if set(old_benchmark_json.keys()) != set(new_benchmark_json.keys()):
+        print(f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}")
         return False
     
     if new_benchmark_json[next(iter(new_benchmark_json))] != 100:
+        print(f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}")
         return False
 
     for key, value in new_benchmark_json.items():
         if not isinstance(key, str):
+            print(f"Key is not String: {key}")
             return False
-        if not isinstance(value, float):
-            return False
-        if value > 100 or value < 0.01:
-            return False
+        if key != "timestamp":
+            if not isinstance(value, float):
+                print(f"Value is not Float: {key}: {value}")
+                return False
+            if value > 100 or value < 0.01:
+                print(f"Value is not within range: {key}: {value}")
+                return False
 
     return True
 
@@ -435,4 +443,7 @@ if __name__ == "__main__":
     # fetch_gpu_benchmarks(run_locally=True)
     update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
+    # run_locally = True
+    # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
+    # replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
     pass
