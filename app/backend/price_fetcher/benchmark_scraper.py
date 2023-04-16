@@ -356,8 +356,10 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
     try:
         if run_locally:
             filename = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
+            filename_backup = f"app/backend/price_fetcher/benchmarks/backup_benchmarks/{benchmark_type}.json"
         else:
             filename = f"benchmarks/latest_benchmarks/{benchmark_type}.json"
+            filename_backup = f"benchmarks/backup_benchmarks/{benchmark_type}.json"
 
         with open (filename, "r", encoding="utf-8") as file:
             old_benchmarks = json.load(file)
@@ -365,6 +367,9 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         if validate_new_benchmarks(old_benchmarks, new_benchmarks, run_locally=run_locally):
             with open(filename, "w") as file:
                 json.dump(new_benchmarks, file, indent=4)
+            
+            with open(filename_backup, "w") as file:
+                json.dump(old_benchmarks, file, indent=4)
 
             print(f"Successfully updated {benchmark_type} benchmarks")
             write_to_log(success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
@@ -472,7 +477,7 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    # update_all_benchmarks(run_locally=True)
+    update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     # run_locally = True
     # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
