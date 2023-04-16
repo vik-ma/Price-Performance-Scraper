@@ -367,11 +367,13 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
                 json.dump(new_benchmarks, file, indent=4)
 
             print(f"Successfully updated {benchmark_type} benchmarks")
+            write_to_log(success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
         else:
-            print("Failed to validate new benchmarks")
-
+            print(f"Failed to validate new {benchmark_type} benchmarks")
+            write_to_log(success=False, message=f"Failed to validate new {benchmark_type} benchmarks", run_locally=run_locally)
     except Exception as e:
-        print(f"Error Replacing {benchmark_type} Benchmark: {e}")        
+        print(f"Error Replacing {benchmark_type} Benchmark: {e}")
+        write_to_log(success=False, message=f"Error Replacing {benchmark_type} Benchmark: {e}", run_locally=run_locally)  
 
 
 def update_all_benchmarks(*, run_locally=False):
@@ -379,8 +381,9 @@ def update_all_benchmarks(*, run_locally=False):
     try:
         gpu_benchmarks = fetch_gpu_benchmarks(run_locally=run_locally)
         print("Success")
-    except:
+    except Exception as e:
         print("Error Scraping GPU Benchmarks")
+        write_to_log(success=False, message=f"Error Scraping GPU Benchmarks: {e}", run_locally=run_locally)
     else:
         replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
 
@@ -390,8 +393,9 @@ def update_all_benchmarks(*, run_locally=False):
     try:
         cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
         print("Success")
-    except:
+    except Exception as e:
         print("Error Scraping CPU-Gaming Benchmarks")
+        write_to_log(success=False, message=f"Error Scraping CPU-Gaming Benchmarks: {e}", run_locally=run_locally)
     else:
         replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
 
@@ -401,8 +405,9 @@ def update_all_benchmarks(*, run_locally=False):
     try:
         cpu_normal_benchmarks = fetch_cpu_normal_benchmarks(run_locally=run_locally)
         print("Success")
-    except:
+    except Exception as e:
         print("Error Scraping CPU-Normal Benchmarks")
+        write_to_log(success=False, message=f"Error Scraping CPU-Normal Benchmarks: {e}", run_locally=run_locally)
     else:
         replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
@@ -435,7 +440,7 @@ def validate_new_benchmarks(old_benchmark_json, new_benchmark_json):
     return True
 
 
-def write_to_log(success, message, *, run_locally=False):
+def write_to_log(*, success, message, run_locally=False):
     if run_locally:
         filename = f"app/backend/price_fetcher/benchmarks/update_log.log"
     else:
@@ -444,7 +449,7 @@ def write_to_log(success, message, *, run_locally=False):
     logging.basicConfig(
     filename=filename,
     filemode="a",
-    level=logging.DEBUG,
+    level=logging.INFO,
     format="%(asctime)s : %(levelname)s : %(message)s",
     datefmt="%Y-%m-%d %I:%M:%S",
     )
@@ -461,10 +466,10 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    # update_all_benchmarks(run_locally=True)
+    update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     # run_locally = True
     # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
     # replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
-    write_to_log(True, "Test Message", run_locally=True)
+    # write_to_log(success=False, message="Test Message", run_locally=True)
     pass
