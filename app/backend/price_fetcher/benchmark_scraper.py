@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import json
 import datetime
 import time
+import logging
 
 # ADDING NEW MODEL TODOLIST:
 #     UPDATE BENCHMARK SCRAPER LIST
@@ -434,6 +435,25 @@ def validate_new_benchmarks(old_benchmark_json, new_benchmark_json):
     return True
 
 
+def write_to_log(success, message, *, run_locally=False):
+    if run_locally:
+        filename = f"app/backend/price_fetcher/benchmarks/update_log.log"
+    else:
+        filename = f"benchmarks/latest_benchmarks/update_log.log"
+
+    logging.basicConfig(
+    filename=filename,
+    filemode="a",
+    level=logging.DEBUG,
+    format="%(asctime)s : %(levelname)s : %(message)s",
+    datefmt="%Y-%m-%d %I:%M:%S",
+    )
+    
+    if success:
+        logging.info(message)
+    else: 
+        logging.error(message)
+
 if __name__ == "__main__":
     # fetch_gpu_benchmarks(run_locally=True)
     # fetch_cpu_gaming_benchmarks(run_locally=True)
@@ -441,9 +461,10 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    update_all_benchmarks(run_locally=True)
+    # update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     # run_locally = True
     # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
     # replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
+    write_to_log(True, "Test Message", run_locally=True)
     pass
