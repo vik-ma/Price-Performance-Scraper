@@ -362,7 +362,7 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         with open (filename, "r", encoding="utf-8") as file:
             old_benchmarks = json.load(file)
 
-        if validate_new_benchmarks(old_benchmarks, new_benchmarks):
+        if validate_new_benchmarks(old_benchmarks, new_benchmarks, run_locally=run_locally):
             with open(filename, "w") as file:
                 json.dump(new_benchmarks, file, indent=4)
 
@@ -412,29 +412,35 @@ def update_all_benchmarks(*, run_locally=False):
         replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
 
-def validate_new_benchmarks(old_benchmark_json, new_benchmark_json):
+def validate_new_benchmarks(old_benchmark_json, new_benchmark_json, *, run_locally=False):
     if len(old_benchmark_json) != len(new_benchmark_json):
         print(f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}")
+        write_to_log(success=False, message=f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}", run_locally=run_locally)
         return False
     
     if set(old_benchmark_json.keys()) != set(new_benchmark_json.keys()):
         print(f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}")
+        write_to_log(success=False, message=f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}", run_locally=run_locally)
         return False
     
     if new_benchmark_json[next(iter(new_benchmark_json))] != 100:
         print(f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}")
+        write_to_log(success=False, message=f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}", run_locally=run_locally)
         return False
 
     for key, value in new_benchmark_json.items():
         if not isinstance(key, str):
             print(f"Key is not String: {key}")
+            write_to_log(success=False, message=f"Key is not String: {key}", run_locally=run_locally)
             return False
         if key != "timestamp":
             if not isinstance(value, float):
                 print(f"Value is not Float: {key}: {value}")
+                write_to_log(success=False, message=f"Value is not Float: {key}: {value}", run_locally=run_locally)
                 return False
             if value > 100 or value < 0.01:
                 print(f"Value is not within range: {key}: {value}")
+                write_to_log(success=False, message=f"Value is not within range: {key}: {value}", run_locally=run_locally)
                 return False
 
     return True
@@ -466,7 +472,7 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    update_all_benchmarks(run_locally=True)
+    # update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     # run_locally = True
     # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
