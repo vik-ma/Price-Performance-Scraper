@@ -486,7 +486,7 @@ def write_to_log(*, success, message, run_locally=False):
     filename=filename,
     filemode="w",
     level=logging.INFO,
-    format="%(asctime)s : %(levelname)s : %(message)s",
+    format="%(asctime)s - %(levelname)s - %(message)s",
     datefmt="%Y-%m-%d %H:%M:%S",
     )
     
