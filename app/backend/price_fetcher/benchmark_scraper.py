@@ -238,7 +238,7 @@ def save_to_json_with_timestamp(filtered_dict, dict_type, *, run_locally=False):
     if run_locally:
         directory = "app/backend/price_fetcher/benchmarks/completed-scrapes"
     else:
-        directory = "benchmarks/completed-scrapes"
+        directory = "price_fetcher/benchmarks/completed-scrapes"
     
     filename = f"{directory}/{dict_type}_{current_time}.json"
 
@@ -367,8 +367,8 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
             directory = "app/backend/price_fetcher/benchmarks/latest_benchmarks"
             directory_backup = f"app/backend/price_fetcher/benchmarks/backup_benchmarks"
         else:
-            directory = "benchmarks/latest_benchmarks"
-            directory_backup = f"benchmarks/backup_benchmarks"
+            directory = "price_fetcher/benchmarks/latest_benchmarks"
+            directory_backup = f"price_fetcher/benchmarks/backup_benchmarks"
 
         filename = f"{directory}/{benchmark_type}.json"
         filename_backup = f"{directory_backup}/{benchmark_type}.json"
@@ -475,9 +475,11 @@ def write_to_log(*, success, message, run_locally=False):
     if run_locally:
         directory = "app/backend/price_fetcher/benchmarks"
     else:
-        directory = "benchmarks"
+        directory = "price_fetcher/benchmarks"
         
     filename = f"{directory}/update_log.log"
+
+    print(filename)
 
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -496,8 +498,10 @@ def write_to_log(*, success, message, run_locally=False):
         logging.error(message)
 
 def test_function():
-    print("TESTING SCHEDULE")
-    # write_to_log(success=True, message="SCHEDULE SUCCESS")
+    print("UPDATING 1")
+    # update_all_benchmarks()
+    print("UPDATE DONE 2")
+    # write_to_log(success=True, message="SCHEDULE SUCCESS 123")
 
 if __name__ == "__main__":
     # fetch_gpu_benchmarks(run_locally=True)
