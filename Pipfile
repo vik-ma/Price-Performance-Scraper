@@ -12,6 +12,7 @@ python-decouple = "*"
 graphene-django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
+apscheduler = "*"
 
 [dev-packages]
 
