@@ -497,12 +497,6 @@ def write_to_log(*, success, message, run_locally=False):
     else: 
         logging.error(message)
 
-def test_function():
-    print("UPDATING 1")
-    # update_all_benchmarks()
-    print("UPDATE DONE 2")
-    # write_to_log(success=True, message="SCHEDULE SUCCESS 123")
-
 if __name__ == "__main__":
     # fetch_gpu_benchmarks(run_locally=True)
     # fetch_cpu_gaming_benchmarks(run_locally=True)

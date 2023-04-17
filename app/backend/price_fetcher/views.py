@@ -99,4 +99,6 @@ def get_benchmarks():
     return {"success": success, "benchmarks": benchmarks}
 
 def update_benchmarks():
-    bm.test_function()
+    print("Benchmark Updater Starting")
+    bm.update_all_benchmarks()
+    print("Benchmark Updater Finished")
