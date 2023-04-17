@@ -365,10 +365,10 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
     try:
         if run_locally:
             directory = "app/backend/price_fetcher/benchmarks/latest_benchmarks"
-            directory_backup = f"{directory}/backup_benchmarks"
+            directory_backup = f"app/backend/price_fetcher/benchmarks/backup_benchmarks"
         else:
             directory = "benchmarks/latest_benchmarks"
-            directory_backup = f"{directory}/backup_benchmarks"
+            directory_backup = f"benchmarks/backup_benchmarks"
 
         filename = f"{directory}/{benchmark_type}.json"
         filename_backup = f"{directory_backup}/{benchmark_type}.json"
