@@ -4,6 +4,7 @@ import json
 import datetime
 import time
 import logging
+import os
 
 # ADDING NEW MODEL TODOLIST:
 #     UPDATE BENCHMARK SCRAPER LIST
@@ -222,7 +223,11 @@ def scrape_page(url):
 
 def save_local_html_page(soup):
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    filename = f"benchmarks/completed-scrapes/output_{current_time}.html"
+    directory = "benchmarks/completed-scrapes"
+    filename = f"{directory}/output_{current_time}.html"
+
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     with open(filename, "w", encoding="utf-8") as file:
         file.write(soup.prettify())
@@ -231,9 +236,14 @@ def save_local_html_page(soup):
 def save_to_json_with_timestamp(filtered_dict, dict_type, *, run_locally=False):
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     if run_locally:
-        filename = f"app/backend/price_fetcher/benchmarks/completed-scrapes/{dict_type}_{current_time}.json"
+        directory = "app/backend/price_fetcher/benchmarks/completed-scrapes"
+        filename = f"{directory}/{dict_type}_{current_time}.json"
     else:
-        filename = f"benchmarks/completed-scrapes/{dict_type}_{current_time}.json"
+        directory = "benchmarks/completed-scrapes"
+        filename = f"{directory}/{dict_type}_{current_time}.json"
+
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     write_json_file(filtered_dict, filename)
 
@@ -354,16 +364,25 @@ def test_offline_page(filepath):
 def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=False):
     try:
         if run_locally:
-            filename = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
-            filename_backup = f"app/backend/price_fetcher/benchmarks/backup_benchmarks/{benchmark_type}.json"
+            directory = "app/backend/price_fetcher/benchmarks/latest_benchmarks"
+            directory_backup = f"{directory}/backup_benchmarks"
+            filename = f"{directory}/{benchmark_type}.json"
+            filename_backup = f"{directory_backup}/{benchmark_type}.json"
         else:
-            filename = f"benchmarks/latest_benchmarks/{benchmark_type}.json"
-            filename_backup = f"benchmarks/backup_benchmarks/{benchmark_type}.json"
+            directory = "benchmarks/latest_benchmarks"
+            directory_backup = f"{directory}/backup_benchmarks"
+            filename = f"{directory}/{benchmark_type}.json"
+            filename_backup = f"{directory_backup}/{benchmark_type}.json"
 
         with open (filename, "r", encoding="utf-8") as file:
             old_benchmarks = json.load(file)
 
         if validate_new_benchmarks(old_benchmarks, new_benchmarks, run_locally=run_locally):
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+            if not os.path.exists(directory_backup):
+                os.makedirs(directory_backup)
+            
             write_json_file(new_benchmarks, filename)
             
             write_json_file(old_benchmarks, filename_backup)
@@ -455,9 +474,13 @@ def write_json_file(json_data, filename):
 
 def write_to_log(*, success, message, run_locally=False):
     if run_locally:
-        filename = f"app/backend/price_fetcher/benchmarks/update_log.log"
+        directory = "app/backend/price_fetcher/benchmarks"
+        filename = f"{directory}/update_log.log"
     else:
-        filename = f"benchmarks/latest_benchmarks/update_log.log"
+        filename = f"{directory}/update_log.log"
+
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
     logging.basicConfig(
     filename=filename,
@@ -479,10 +502,10 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    update_all_benchmarks(run_locally=True)
+    # update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
-    # run_locally = True
-    # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
+    run_locally = True
+    cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
     # replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
     # write_to_log(success=False, message="Test Message2232", run_locally=True)
     # write_to_log(success=True, message="Test Message25252", run_locally=True)
