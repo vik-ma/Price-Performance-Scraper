@@ -495,6 +495,9 @@ def write_to_log(*, success, message, run_locally=False):
     else: 
         logging.error(message)
 
+def test_function():
+    print("TEST TEST TEST")
+
 if __name__ == "__main__":
     # fetch_gpu_benchmarks(run_locally=True)
     # fetch_cpu_gaming_benchmarks(run_locally=True)
