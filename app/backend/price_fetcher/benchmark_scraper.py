@@ -487,7 +487,7 @@ def write_to_log(*, success, message, run_locally=False):
     filemode="w",
     level=logging.INFO,
     format="%(asctime)s : %(levelname)s : %(message)s",
-    datefmt="%Y-%m-%d %I:%M:%S",
+    datefmt="%Y-%m-%d %H:%M:%S",
     )
     
     if success:
@@ -504,8 +504,8 @@ if __name__ == "__main__":
     # fetch_gpu_benchmarks(run_locally=True)
     # update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
-    run_locally = True
-    cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
+    # run_locally = True
+    # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
     # replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
     # write_to_log(success=False, message="Test Message2232", run_locally=True)
     # write_to_log(success=True, message="Test Message25252", run_locally=True)

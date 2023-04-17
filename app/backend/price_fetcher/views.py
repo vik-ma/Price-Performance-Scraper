@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse, HttpRequest
 from .models import Test, ProductListing, CompletedFetch
 from . import prj_fetcher as pf
+from . import benchmark_scraper as bm
 import datetime
 
 # Create your views here.
@@ -34,7 +35,8 @@ def test_button(request:HttpRequest):
     # response = f"<h1>{' '.join(map(str, module_test))}</h1>"
 
     # create_completed_fetch()
-    start_price_fetching()
+    # start_price_fetching()
+    update_benchmarks()
 
     return redirect('/price_fetcher/test_list')
 
@@ -95,3 +97,6 @@ def get_benchmarks():
     except:
         success = False
     return {"success": success, "benchmarks": benchmarks}
+
+def update_benchmarks():
+    pass
