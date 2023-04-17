@@ -237,10 +237,10 @@ def save_to_json_with_timestamp(filtered_dict, dict_type, *, run_locally=False):
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
     if run_locally:
         directory = "app/backend/price_fetcher/benchmarks/completed-scrapes"
-        filename = f"{directory}/{dict_type}_{current_time}.json"
     else:
         directory = "benchmarks/completed-scrapes"
-        filename = f"{directory}/{dict_type}_{current_time}.json"
+    
+    filename = f"{directory}/{dict_type}_{current_time}.json"
 
     if not os.path.exists(directory):
         os.makedirs(directory)
@@ -366,13 +366,12 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         if run_locally:
             directory = "app/backend/price_fetcher/benchmarks/latest_benchmarks"
             directory_backup = f"{directory}/backup_benchmarks"
-            filename = f"{directory}/{benchmark_type}.json"
-            filename_backup = f"{directory_backup}/{benchmark_type}.json"
         else:
             directory = "benchmarks/latest_benchmarks"
             directory_backup = f"{directory}/backup_benchmarks"
-            filename = f"{directory}/{benchmark_type}.json"
-            filename_backup = f"{directory_backup}/{benchmark_type}.json"
+
+        filename = f"{directory}/{benchmark_type}.json"
+        filename_backup = f"{directory_backup}/{benchmark_type}.json"
 
         with open (filename, "r", encoding="utf-8") as file:
             old_benchmarks = json.load(file)
@@ -475,9 +474,10 @@ def write_json_file(json_data, filename):
 def write_to_log(*, success, message, run_locally=False):
     if run_locally:
         directory = "app/backend/price_fetcher/benchmarks"
-        filename = f"{directory}/update_log.log"
     else:
-        filename = f"{directory}/update_log.log"
+        directory = "benchmarks"
+        
+    filename = f"{directory}/update_log.log"
 
     if not os.path.exists(directory):
         os.makedirs(directory)
