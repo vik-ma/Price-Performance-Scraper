@@ -114,6 +114,15 @@ h4 {
   margin-bottom: 20px !important;
 }
 
+.home-title {
+  margin-bottom: 0px !important;
+}
+
+.home-text {
+  font-size: x-large;
+  color: rgb(247, 247, 247);
+}
+
 .full-fetch-list {
   margin-top: 14px;
 }
