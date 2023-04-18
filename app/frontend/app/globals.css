@@ -1054,7 +1054,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .start-button {
   display: inline-block;
-  background: linear-gradient(to top, #045DE9, #09C6F9);
+  background: linear-gradient(to bottom, #045DE9, #09C6F9);
   max-width: 300px;
   padding: 1px 5px 5px;
   font-size: xx-large;
@@ -1066,8 +1066,25 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .start-button-home {
   max-width: fit-content;
-  padding: 1px 16px 6px;
+  padding: 1px 16px 5px;
 }
+
+.mct-button-home {
+  background: linear-gradient(to bottom, rgb(110, 33, 235), #bb87ff);
+}
+
+.benchmarks-button-home {
+  background: linear-gradient(to bottom, #e21721, #ff7663);
+}
+
+.scrapes-button-home {
+  background: linear-gradient(to bottom, #795d04, #fabc49);
+}
+
+.info-button-home {
+  background: linear-gradient(to bottom, #038b03, #8eda2c);
+}
+
 
 .benchmark-color-toggle-container {
   margin-top: 12px;
