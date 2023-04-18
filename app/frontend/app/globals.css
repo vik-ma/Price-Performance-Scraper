@@ -98,7 +98,7 @@ h1 {
 }
 
 .page-title {
-  background: -webkit-linear-gradient(#2751dd, #9be6ff);
+  background: -webkit-linear-gradient(#285aff, #8fd2ff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -662,28 +662,28 @@ h3.information-header {
 }
 
 .information-intro {
-  background: -webkit-linear-gradient(#27dd45, #afff9b);
+  background: -webkit-linear-gradient(#0fc02c, #abff96);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .information-scrapes {
-  background: -webkit-linear-gradient(#d4ac27, #ffefa6);
+  background: -webkit-linear-gradient(#ddb32a, #ffefa6);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .information-benchmarks {
-  background: -webkit-linear-gradient(#dd2932, #ff7272);
+  background: -webkit-linear-gradient(#d31e27, #ff6a6a);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .information-mct {
-  background: -webkit-linear-gradient(#654ee6, #b0a2ff);
+  background: -webkit-linear-gradient(#664df7, #b7aaff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
