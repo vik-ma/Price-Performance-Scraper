@@ -260,7 +260,7 @@ h4 {
 }
 
 .clickable {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .clickable:hover {
@@ -724,6 +724,7 @@ h3.information-header {
   padding-bottom: 14px;
   padding-right: 15px;
   background: linear-gradient(to bottom, #262626, #181818);
+  color: rgb(250, 250, 250);
 }
 
 .listing-table-head-first {
@@ -732,6 +733,7 @@ h3.information-header {
 
 .listing-table-head-last {
   border-top-right-radius: 10px;
+  padding-right: 20px;
 }
 
 .tutorial-list {

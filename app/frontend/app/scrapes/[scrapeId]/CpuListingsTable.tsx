@@ -214,11 +214,10 @@ export default function CpuListingsTable({
                     ? "table-head listing-table-head"
                     : headID === tableHeading.length - 1
                     ? "table-head listing-table-head listing-table-head-last"
-                    : "table-head listing-table-head clickable"
+                    : "table-head listing-table-head"
                 }
               >
-                <span
-                  className="asd"
+                <span className="clickable"
                   data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}
                 >
                   <strong>{head.Label}</strong>
