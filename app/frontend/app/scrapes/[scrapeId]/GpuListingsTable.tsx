@@ -214,10 +214,15 @@ export default function GpuListingsTable({
                     ? "table-head listing-table-head"
                     : headID === tableHeading.length - 1
                     ? "table-head listing-table-head listing-table-head-last"
-                    : "table-head listing-table-head clickable"
+                    : "table-head listing-table-head"
                 }
               >
                 <span
+                  className={
+                    headID === 3 || headID === 4 || headID === 5
+                      ? "clickable"
+                      : ""
+                  }
                   data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}
                 >
                   <strong>{head.Label}</strong>
