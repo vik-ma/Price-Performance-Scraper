@@ -1064,6 +1064,11 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-right: 10px;
 }
 
+.start-button-home {
+  max-width: fit-content;
+  padding: 1px 16px 6px;
+}
+
 .benchmark-color-toggle-container {
   margin-top: 12px;
   /* padding-left: 10px; */
