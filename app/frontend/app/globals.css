@@ -130,7 +130,7 @@ h4 {
   background: linear-gradient(to bottom right, #242424, #181818);
   padding: 3px 10px 5px;
   border-radius: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 17px;
   /* box-shadow: 0px 0px 3px white; */
   /* border: 2px solid rgb(206, 206, 206) !important;
   box-shadow: 0px 0px 6px white !important; */
@@ -186,17 +186,17 @@ h4 {
 
 .color-border-gpu {
   border: 2px solid var(--gpu-color);
-  box-shadow: 0px 0px 8px var(--gpu-color);
+  box-shadow: 0px 0px 6px var(--gpu-color);
 }
 
 .color-border-cpu-g {
   border: 2px solid var(--cpu-g-color);
-  box-shadow: 0px 0px 8px var(--cpu-g-color);
+  box-shadow: 0px 0px 6px var(--cpu-g-color);
 }
 
 .color-border-cpu-n {
   border: 2px solid var(--cpu-n-color);
-  box-shadow: 0px 0px 8px var(--cpu-n-color);
+  box-shadow: 0px 0px 6px var(--cpu-n-color);
 }
 
 .title-text-gpu {
