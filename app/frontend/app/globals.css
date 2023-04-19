@@ -316,7 +316,7 @@ h4 {
   padding: 5px 12px 8px;
   text-align: center;
   width: 50%;
-  background: rgba(90, 90, 90, 0.13);
+  background: rgba(82, 82, 82, 0.35);
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.274);
   box-sizing: content-box;
@@ -328,7 +328,7 @@ h4 {
 }
 
 .benchmark-table-tabs:hover {
-  background: rgba(128, 128, 128, 0.39);
+  background: rgba(128, 128, 128, 0.5);
   color:white;
   transition-duration: 0.3s;
 }
