@@ -5,12 +5,12 @@ export default function Navbar() {
   return (
     <nav className="navbar-container">
       <div className="nav-items-wrapper container">
-        <Link href="/">Home</Link>
-        <Link href="/start_scrape">Start Price Scrape</Link>
-        <Link href="/information">Information</Link>
-        <Link href="/benchmarks">Current Benchmarks</Link>
-        <Link href="/manual_comparison">Manual Comparison Tool</Link>
-        <Link href="/scrapes">Completed Price Scrapes</Link>
+        <Link className="nav-item" href="/">Home</Link>
+        <Link className="nav-item" href="/start_scrape">Start Price Scrape</Link>
+        <Link className="nav-item" href="/information">Information</Link>
+        <Link className="nav-item" href="/benchmarks">Current Benchmarks</Link>
+        <Link className="nav-item" href="/manual_comparison">Manual Comparison Tool</Link>
+        <Link className="nav-item" href="/scrapes">Completed Price Scrapes</Link>
       </div>
     </nav>
   );
