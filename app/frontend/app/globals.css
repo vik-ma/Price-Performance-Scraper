@@ -53,6 +53,12 @@
   padding-bottom: 1px;
 }
 
+@media (max-width: 1200px) {
+  .nav-item-extended {
+    display: none;
+  }
+}
+
 .sidebar {
   width: 170px;
   position: absolute;
