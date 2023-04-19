@@ -22,6 +22,14 @@
 
 .navbar-container {
   background-color: rgb(14, 14, 14);
+  padding: 8px;
+  justify-content: center
+}
+
+.nav-items-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sidebar {
