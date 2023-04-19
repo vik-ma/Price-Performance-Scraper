@@ -2,9 +2,9 @@ export default function HomeIcon() {
   return (
     <svg
       fill="#f2f2f2"
-      width="30px"
-      height="30px"
-      viewBox="0 0 32.00 32.00"
+      width="38px"
+      height="38px"
+      viewBox="0 4 32.00 32.00"
       xmlns="http://www.w3.org/2000/svg"
       stroke="#f2f2f2"
       stroke-width="0.00032"
