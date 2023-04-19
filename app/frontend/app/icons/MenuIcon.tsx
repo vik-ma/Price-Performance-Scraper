@@ -1,9 +1,9 @@
 export default function MenuIcon() {
   return (
     <svg
-      width="64px"
-      height="64px"
-      viewBox="0 0 20 20"
+      width="30px"
+      height="30px"
+      viewBox="0 -1 20 20"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       stroke="#f2f2f2"
