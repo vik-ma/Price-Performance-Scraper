@@ -4,7 +4,6 @@ import "@picocss/pico/css/pico.min.css";
 import "./globals.css";
 import { Metadata } from "next";
 
-
 export const metadata: Metadata = {
   title: "GPU & CPU Price Comparer",
   description: "Compare the Price/Performance Score of different GPUs and CPUs",
@@ -18,10 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme="dark">
       <body>
-        <main className="container">
-          <Navbar />
-          {children}
-        </main>
+        <Navbar />
+        <main className="container">{children}</main>
       </body>
     </html>
   );

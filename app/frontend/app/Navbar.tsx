@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <nav>
+    <nav className="navbar-container">
       <Link href="/">Home</Link>
       <Link href="/start_scrape">Start Price Scrape</Link>
       <Link href="/information">Information</Link>

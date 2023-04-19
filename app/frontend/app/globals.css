@@ -20,6 +20,10 @@
   align-items: center;
 }
 
+.navbar-container {
+  background-color: rgb(14, 14, 14);
+}
+
 .sidebar {
   width: 170px;
   position: absolute;
