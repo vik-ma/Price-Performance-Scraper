@@ -53,9 +53,16 @@
   padding-bottom: 1px;
 }
 
+.nav-item-menu {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   .nav-item-extended {
     display: none;
+  }
+  .nav-item-menu {
+    display: block;
   }
 }
 
