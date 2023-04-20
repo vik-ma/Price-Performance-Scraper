@@ -18,17 +18,21 @@ export default function NavMenu() {
         <div className="nav-full-menu-wrapper">
           <ul className="nav-full-menu">
             <Link className="nav-full-menu-item" href="/information">
-              <li>Information</li>
+              <li className="nav-full-menu-list-item">Information</li>
             </Link>
-            <li className="nav-full-menu-item">
-              <Link href="/benchmarks">Current Benchmarks</Link>
-            </li>
-            <li className="nav-full-menu-item">
-              <Link href="/manual_comparison">Manual Comparison Tool</Link>
-            </li>
-            <li className="nav-full-menu-item">
-              <Link href="/scrapes">Completed Price Scrapes</Link>
-            </li>
+            <Link className="nav-full-menu-item" href="/benchmarks">
+              <li className="nav-full-menu-list-item">Current Benchmarks</li>
+            </Link>
+            <Link className="nav-full-menu-item" href="/manual_comparison">
+              <li className="nav-full-menu-list-item">
+                Manual Comparison Tool
+              </li>
+            </Link>
+            <Link className="nav-full-menu-item" href="/scrapes">
+              <li className="nav-full-menu-list-item">
+                Completed Price Scrapes
+              </li>
+            </Link>
           </ul>
         </div>
       )}
