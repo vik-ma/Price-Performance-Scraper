@@ -10,7 +10,7 @@ export default function Navbar() {
         <Link className="nav-item" id="home-icon" href="/">
           <HomeIcon />
         </Link>
-        <Link className="nav-item nav-item-start" href="/start_scrape">
+        <Link className="nav-item nav-item-extended nav-item-start" href="/start_scrape">
           Start Price Scrape
         </Link>
         <Link className="nav-item nav-item-extended" href="/information">
