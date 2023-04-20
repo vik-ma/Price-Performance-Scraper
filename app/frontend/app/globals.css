@@ -66,6 +66,7 @@
 
 .nav-small-wrapper {
   display: none;
+  padding-right: 0px;
 }
 
 .nav-item-start {
@@ -80,8 +81,9 @@
 .nav-full-menu-wrapper {
   position: absolute;
   background-color: rgb(14, 14, 14);
-  margin-top: 1px;
-  padding: 10px;
+  z-index: 2;
+  border: 1px solid rgba(223, 223, 223, 0.2);
+  right: -1px;
 }
 
 .nav-full-menu {
@@ -90,6 +92,12 @@
 
 .nav-full-menu-item {
   display: list-item;
+  font-size: 28px;
+  font-weight: 500;
+  padding: 12px 25px;
+  word-wrap: normal;
+  white-space: nowrap;
+  color: rgb(242, 242, 242);
 }
 
 @media (max-width: 1200px) {
