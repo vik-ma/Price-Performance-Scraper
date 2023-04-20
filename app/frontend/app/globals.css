@@ -53,9 +53,15 @@
 }
 
 .nav-item-menu {
+  all: initial;
   margin: 0;
   display: none;
   padding: 10px 20px;
+  border-radius: 1px;
+}
+
+.nav-item-menu:focus {
+  background-color: var(--primary-focus);
 }
 
 .nav-small-wrapper {
@@ -90,7 +96,7 @@
   }
   .nav-item-start-small {
     font-size: 24px;
-    padding: 7px 20px;
+    padding: 6px 20px 8px;
   }
   .nav-small-wrapper {
     display: flex;
