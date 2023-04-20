@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import HomeIcon from "./icons/HomeIcon";
-import MenuIcon from "./icons/MenuIcon";
+import NavMenu from "./NavMenu";
 
 export default function Navbar() {
   return (
@@ -25,9 +25,9 @@ export default function Navbar() {
         <Link className="nav-item nav-item-extended" href="/scrapes">
           Completed Price Scrapes
         </Link>
-        <Link className="nav-item nav-item-menu" href="">
-          <MenuIcon />
-        </Link>
+        <div className="nav-item nav-item-menu">
+          <NavMenu />
+        </div>
       </div>
     </nav>
   );
