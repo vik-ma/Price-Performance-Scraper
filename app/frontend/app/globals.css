@@ -59,9 +59,17 @@
   padding: 10px 15px;
 }
 
+.nav-small-wrapper {
+  display: none;
+}
+
 .nav-item-start {
   color:#9dff70;
   font-weight: bold;
+}
+
+.nav-item-start-small {
+  margin-right: 20px;
 }
 
 @media (max-width: 1200px) {
@@ -70,6 +78,8 @@
   }
   .nav-item-menu {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .navbar-container {
     padding: 0;
@@ -78,6 +88,11 @@
     font-size: 20px;
     font-weight: bold;
     padding: 10px;
+  }
+  .nav-small-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 
