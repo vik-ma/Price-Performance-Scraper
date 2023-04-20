@@ -77,6 +77,21 @@
   margin-right: 10px;
 }
 
+.nav-full-menu-wrapper {
+  position: absolute;
+  background-color: rgb(14, 14, 14);
+  margin-top: 1px;
+  padding: 10px;
+}
+
+.nav-full-menu {
+  display: block;
+}
+
+.nav-full-menu-item {
+  display: list-item;
+}
+
 @media (max-width: 1200px) {
   .nav-item-extended {
     display: none;
