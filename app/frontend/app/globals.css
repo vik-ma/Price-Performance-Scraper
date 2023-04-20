@@ -49,14 +49,13 @@
 }
 
 #home-icon {
-  padding-top: 10px;
-  padding-bottom: 1px;
+  padding: 10px 15px 1px;
 }
 
 .nav-item-menu {
   margin: 0;
   display: none;
-  padding: 10px 15px;
+  padding: 10px 20px;
 }
 
 .nav-small-wrapper {
@@ -69,7 +68,7 @@
 }
 
 .nav-item-start-small {
-  margin-right: 30px;
+  margin-right: 10px;
 }
 
 @media (max-width: 1200px) {
@@ -88,6 +87,10 @@
     font-size: 20px;
     font-weight: bold;
     padding: 10px;
+  }
+  .nav-item-start-small {
+    font-size: 24px;
+    padding: 7px 20px;
   }
   .nav-small-wrapper {
     display: flex;
