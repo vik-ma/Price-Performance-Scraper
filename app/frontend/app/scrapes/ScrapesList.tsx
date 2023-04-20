@@ -41,14 +41,14 @@ export default async function ScrapesList() {
 
   return (
     <div className="sidebar-fetch-items">
-      <ul>
+      <ul className="no-dot-list">
         {gqlData
           ?.slice(0)
           .reverse()
           .map((scrape: CompletedFetchProps) => {
             const scrapeType: string = scrape.benchmarkType.replace("-", "");
             return (
-              <li key={scrape.timestampId}>
+              <li className="no-dot-list-item" key={scrape.timestampId}>
                 <Link href={`/scrapes/${scrape.timestampId}`}>
                   <strong className={scrapeTypeMap[scrapeType].cssNameText}>
                     {scrapeTypeMap[scrapeType].title}

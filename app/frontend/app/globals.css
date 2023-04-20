@@ -87,17 +87,23 @@
 }
 
 .nav-full-menu {
-  display: block;
+  display: flow-root;
+  margin: 0 !important;
 }
 
 .nav-full-menu-item {
-  display: list-item;
-  font-size: 28px;
-  font-weight: 500;
+  display: block;
+  margin: 0 !important;
   padding: 12px 25px;
-  word-wrap: normal;
+  font-size: 26px;
+  font-weight: 500;
   white-space: nowrap;
   color: rgb(242, 242, 242);
+  border-radius: none !important;
+}
+
+.nav-full-menu-item:hover {
+  background-color: #1722c0;
 }
 
 @media (max-width: 1200px) {
@@ -186,13 +192,16 @@
   position: relative;
 }
 
-ul, li {
+.no-dot-list {
   list-style-type: none !important;
   margin: 0;
   padding: 0;
 }
 
-li {
+.no-dot-list-item {
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
   margin-top: 6px;
 }
 

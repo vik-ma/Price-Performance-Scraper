@@ -266,7 +266,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               <em>Click on product to remove from list</em>
             </p>
           )}
-          <ul className="selected-products-list">
+          <ul className="selected-products-list no-dot-list">
             {Array.from(selectedProducts).map((name) => {
               const productTier =
                 scrapeType.name === "CPU-Gaming"
@@ -275,7 +275,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                   ? (productInfo[name] as { normalTier: string })?.normalTier
                   : (productInfo[name] as { tier: string })?.tier;
               return (
-                <li className="selected-products-list-item" key={name}>
+                <li className="selected-products-list-item no-dot-list-item" key={name}>
                   <button
                     className={`background-color-tier-${productTier} product-selection`}
                     onClick={() => handleRemoveItemClick(name)}
@@ -400,7 +400,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             <h3 className={`tiers-title text-color-tier-${tier}`}>
               Tier {tier}
             </h3>
-            <ul>
+            <ul className="no-dot-list">
               {Object.entries(filteredProductInfo)
                 .filter(
                   ([name, product]) =>
@@ -411,7 +411,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                       : product.tier === tier) && !selectedProducts.has(name)
                 )
                 .map(([name, product]) => (
-                  <li className="tiers-list-item" key={name}>
+                  <li className="tiers-list-item no-dot-list-item" key={name}>
                     <button
                       className={`background-color-tier-${tier} product-selection`}
                       disabled={selectedProducts.size === productLimit}

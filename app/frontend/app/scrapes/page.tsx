@@ -46,7 +46,7 @@ export default async function Fetches() {
     <>
       <div className="fetch-content">
         <Suspense fallback={<article aria-busy="true"></article>}>
-          <ul className="full-fetch-list">
+          <ul className="full-fetch-list no-dot-list">
             {gqlData
               ?.slice(0)
               .reverse()
@@ -59,7 +59,7 @@ export default async function Fetches() {
                   scrape.productList.split(",").length;
                 return (
                   <li
-                    className={`full-fetch-list-item ${scrapeTypeMap[scrapeType].cssNameBorder}`}
+                    className={`full-fetch-list-item ${scrapeTypeMap[scrapeType].cssNameBorder} no-dot-list-item`}
                     key={scrape.timestampId}
                   >
                     <Link

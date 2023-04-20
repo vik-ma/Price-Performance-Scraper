@@ -83,12 +83,12 @@ export default function NewScrape() {
           <strong>Show Tutorial</strong>
         </summary>
         <div className="scrape-tutorial-text">
-          <ol className="tutorial-list">
-            <li>
+          <ol className="no-dot-list">
+            <li className="no-dot-list-item">
               <strong>1.</strong> Choose the type of performance benchmark you
               want to compare.
             </li>
-            <li>
+            <li className="no-dot-list-item">
               <strong>2.</strong> Add the products you wish to compare by
               clicking on them in the tiered list below.
               <br />
@@ -101,7 +101,7 @@ export default function NewScrape() {
                 </em>
               </div>
             </li>
-            <li>
+            <li className="no-dot-list-item">
               <strong>3.</strong> Click on <strong>'Start Price Scrape'</strong>{" "}
               and wait for the price scraper to finish. Once finished, you will
               be redirected to the results.

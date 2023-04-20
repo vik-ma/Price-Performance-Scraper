@@ -17,9 +17,9 @@ export default function NavMenu() {
       {showFullMenu && (
         <div className="nav-full-menu-wrapper">
           <ul className="nav-full-menu">
-            <li className="nav-full-menu-item">
-              <Link href="/information">Information</Link>
-            </li>
+            <Link className="nav-full-menu-item" href="/information">
+              <li>Information</li>
+            </Link>
             <li className="nav-full-menu-item">
               <Link href="/benchmarks">Current Benchmarks</Link>
             </li>
