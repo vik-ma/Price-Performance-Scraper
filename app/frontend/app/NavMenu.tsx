@@ -17,18 +17,34 @@ export default function NavMenu() {
       {showFullMenu && (
         <div className="nav-full-menu-wrapper">
           <ul className="nav-full-menu">
-            <Link className="nav-full-menu-item" href="/information">
+            <Link
+              className="nav-full-menu-item"
+              href="/information"
+              onClick={() => setShowFullMenu(false)}
+            >
               <li className="nav-full-menu-list-item">Information</li>
             </Link>
-            <Link className="nav-full-menu-item" href="/benchmarks">
+            <Link
+              className="nav-full-menu-item"
+              href="/benchmarks"
+              onClick={() => setShowFullMenu(false)}
+            >
               <li className="nav-full-menu-list-item">Current Benchmarks</li>
             </Link>
-            <Link className="nav-full-menu-item" href="/manual_comparison">
+            <Link
+              className="nav-full-menu-item"
+              href="/manual_comparison"
+              onClick={() => setShowFullMenu(false)}
+            >
               <li className="nav-full-menu-list-item">
                 Manual Comparison Tool
               </li>
             </Link>
-            <Link className="nav-full-menu-item" href="/scrapes">
+            <Link
+              className="nav-full-menu-item"
+              href="/scrapes"
+              onClick={() => setShowFullMenu(false)}
+            >
               <li className="nav-full-menu-list-item">
                 Completed Price Scrapes
               </li>
