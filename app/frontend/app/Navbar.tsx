@@ -28,17 +28,7 @@ export default function Navbar() {
         <Link className="nav-item nav-item-extended" href="/scrapes">
           Completed Price Scrapes
         </Link>
-        <div className="nav-small-wrapper">
-          <Link
-            className="nav-item nav-item-start nav-item-start-small"
-            href="/start_scrape"
-          >
-            Start Price Scrape
-          </Link>
-          <div className="nav-item">
-            <NavMenu />
-          </div>
-        </div>
+        <NavMenu />
       </div>
     </nav>
   );
