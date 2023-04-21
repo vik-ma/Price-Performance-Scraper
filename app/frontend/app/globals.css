@@ -80,11 +80,12 @@
 
 .nav-full-menu-wrapper {
   position: absolute;
-  background-color: rgb(14, 14, 14);
+  background-color: rgb(24, 24, 24);
   z-index: 2;
   border: 1px solid rgb(59, 59, 59);
   border-bottom: none;
   right: -1px;
+  box-shadow: -5px 5px 10px rgba(14, 14, 14, 1);
 }
 
 .nav-full-menu {
@@ -103,10 +104,12 @@
   border-radius: 0;
   border-bottom: 1px solid rgb(59, 59, 59);
   transition-duration: 0.15s;
+  background: linear-gradient(to bottom right, rgba(24,24,24,1) 40%, rgb(41, 41, 41) 100%);
 }
 
 .nav-full-menu-item:hover {
   background-color: rgb(48, 48, 48);
+  background: linear-gradient(to bottom right, rgb(70, 70, 70) 40%, rgb(94, 94, 94) 100%);
 }
 
 .nav-full-menu-list-item {
