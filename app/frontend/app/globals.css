@@ -1335,6 +1335,10 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin: 0;
 }
 
+.listing-table-label {
+  color:rgb(230, 230, 230);
+}
+
 .model-gradient-0 {
   background: linear-gradient(to bottom right, #1722c0, #69bcf3);
   border: 2px solid rgb(36, 131, 255);
@@ -1423,6 +1427,10 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .model-text-color-9 {
   color: rgb(255, 122, 151);
+}
+
+.model-text-color-no-color {
+  color: #dee2e6;
 }
 
 .rtx-4090 {

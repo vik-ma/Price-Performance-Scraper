@@ -125,7 +125,7 @@ export default function CpuListingsTable({
         <div className="filter-listing-container">
           {storeNames.map((storeName, index) => (
             <div key={index}>
-              <label>
+              <label className="listing-table-label">
                 <input
                   type="checkbox"
                   checked={selectedStores.includes(storeName)}
@@ -159,7 +159,7 @@ export default function CpuListingsTable({
               <div key={index}>
                 <label
                   className={
-                    colorCodingEnabled ? `model-text-color-${colorNum}` : ""
+                    colorCodingEnabled ? `model-text-color-${colorNum}` : "model-text-color-no-color"
                   }
                 >
                   <input
