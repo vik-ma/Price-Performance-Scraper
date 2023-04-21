@@ -41,7 +41,7 @@
 }
 
 .nav-item {
-  color: rgb(247, 247, 247);
+  color: rgb(245, 245, 245);
   border-radius: 1px;
   transition-duration: 0.15s;
 }
@@ -98,11 +98,11 @@
 .nav-full-menu-item {
   display: block;
   margin: 0 !important;
-  padding: 10px 12px;
+  padding: 8px 14px;
   font-size: 22px;
   font-weight: 500;
   white-space: nowrap;
-  color: rgb(242, 242, 242);
+  color: rgb(245, 245, 245);
   border-radius: 0;
   border-bottom: 1px solid rgb(59, 59, 59);
   transition-duration: 0.15s;
