@@ -431,10 +431,13 @@ h4 {
 }
 
 .benchmark-table-tabs {
-  padding: 5px 12px 8px;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 12px 8px;
   width: 50%;
-  background: rgba(82, 82, 82, 0.35);
+  background: rgba(65, 65, 65, 0.5);
   cursor: pointer;
   border-bottom: 1px solid rgba(0, 0, 0, 0.275);
   box-sizing: content-box;
@@ -443,10 +446,11 @@ h4 {
   font-size: x-large;
   word-break: normal;
   border-radius: 30px;
+  color:#ebeff3;
 }
 
 .benchmark-table-tabs:hover {
-  background: rgba(128, 128, 128, 0.5);
+  background: rgba(128, 128, 128, 0.6);
   color:white;
   transition-duration: 0.3s;
 }
@@ -456,12 +460,8 @@ h4 {
 }
 
 .benchmark-table-active-tabs {
-  /* color:white; */
-  color:#ebeff3;
-  /* background: rgb(13,163,10) !important;
-  background: linear-gradient(42deg, rgba(13,163,10,1) 0%, rgba(152,241,15,1) 100%) !important; */
-  /* background: linear-gradient(-225deg, #22E1FF 0%, #1D8FE1 48%, #625EB1 100%) !important; */
   background: linear-gradient(to bottom, #045DE9, #09C6F9) !important;
+  color:white;
 }
 
 .benchmark-table-content-tabs {
