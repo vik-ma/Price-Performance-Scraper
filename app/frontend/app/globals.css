@@ -74,6 +74,7 @@
 .nav-item-start {
   color:#9dff70;
   font-weight: bold;
+  white-space: nowrap;
 }
 
 .nav-item-start-small {
