@@ -4,7 +4,7 @@ import Link from "next/link";
 export default async function Home() {
   return (
     <main>
-      <h1 className="page-title home-title">Price/Performance Scraper</h1>
+      <h1 className="home-title">Price/Performance Scraper</h1>
       <p className="home-text">
         <strong></strong>
       </p>

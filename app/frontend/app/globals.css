@@ -232,13 +232,6 @@ h1 {
   margin-bottom: 15px !important;
 }
 
-.page-title {
-  background: -webkit-linear-gradient(#285aff, #8fd2ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 h2, h3 {
   margin-bottom: 10px !important;
   word-break: normal;
@@ -249,7 +242,18 @@ h4 {
   margin-bottom: 20px !important;
 }
 
+.page-title {
+  background: -webkit-linear-gradient(#285aff, #8fd2ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 .home-title {
+  background: linear-gradient(to bottom right, #3978ff, #8ad4ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 0px !important;
 }
 
