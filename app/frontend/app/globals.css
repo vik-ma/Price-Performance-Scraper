@@ -1257,6 +1257,10 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: #ebeff3;
 }
 
+.product-filter-label {
+  color: #e2e6eb;
+}
+
 .product-add-hint {
   word-break: normal;
   margin: 10px 10px 0;

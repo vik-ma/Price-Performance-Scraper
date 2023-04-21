@@ -333,7 +333,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           <div className="product-filter-item">
             <h4 className="product-filter-heading">Manufacturer</h4>
             {manufacturers.map((manufacturer, index) => (
-              <label key={index}>
+              <label className="product-filter-label" key={index}>
                 <input
                   type="checkbox"
                   checked={selectedManufacturers.includes(manufacturer)}
@@ -357,7 +357,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             <div className="product-filter-item">
               <h4 className="product-filter-heading">Socket</h4>
               {sockets.map((sockets, index) => (
-                <label key={index}>
+                <label className="product-filter-label" key={index}>
                   <input
                     type="checkbox"
                     checked={selectedSockets.includes(sockets)}
@@ -374,7 +374,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             <div className="product-filter-item">
               <h4 className="product-filter-heading">Generation</h4>
               {generations.map((generations, index) => (
-                <label key={index}>
+                <label className="product-filter-label" key={index}>
                   <input
                     type="checkbox"
                     checked={selectedGenerations.includes(generations)}
