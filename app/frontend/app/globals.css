@@ -29,8 +29,8 @@
   justify-content: center;
   height: max-content;
   border-bottom: 1px solid rgba(223, 223, 223, 0.2);
-  box-shadow: 0 5px 10px rgba(14, 14, 14, 1);
-  background: linear-gradient(to bottom, rgb(26, 26, 26) 60%, rgb(36, 36, 36) 100%);
+  box-shadow: 0 5px 10px rgb(28, 28, 28);
+  background: linear-gradient(to bottom, rgb(26, 26, 26) 80%, rgb(36, 36, 36) 100%);
 
 }
 
@@ -47,7 +47,7 @@
 }
 
 .nav-item:hover {
-  background-color: rgb(48, 48, 48);
+  background-color: rgb(73, 73, 73);
 }
 
 #home-icon {
