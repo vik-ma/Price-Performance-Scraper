@@ -24,12 +24,14 @@
   position: sticky;
   top: 0;
   z-index: 2;
-  background-color: rgb(14, 14, 14);
+  background-color: rgb(24, 24, 24);
   padding: 10px;
   justify-content: center;
   height: max-content;
   border-bottom: 1px solid rgba(223, 223, 223, 0.2);
   box-shadow: 0 5px 10px rgba(14, 14, 14, 1);
+  background: linear-gradient(to bottom, rgb(26, 26, 26) 60%, rgb(36, 36, 36) 100%);
+
 }
 
 .nav-items-wrapper {
@@ -39,7 +41,7 @@
 }
 
 .nav-item {
-  color: rgb(242, 242, 242);
+  color: rgb(247, 247, 247);
   border-radius: 1px;
   transition-duration: 0.15s;
 }
@@ -104,12 +106,12 @@
   border-radius: 0;
   border-bottom: 1px solid rgb(59, 59, 59);
   transition-duration: 0.15s;
-  background: linear-gradient(to bottom right, rgba(24,24,24,1) 40%, rgb(41, 41, 41) 100%);
+  background: linear-gradient(to bottom right, rgb(26, 26, 26) 40%, rgb(39, 39, 39) 100%);
 }
 
 .nav-full-menu-item:hover {
   background-color: rgb(48, 48, 48);
-  background: linear-gradient(to bottom right, rgb(70, 70, 70) 40%, rgb(94, 94, 94) 100%);
+  background: linear-gradient(to bottom right, rgb(75, 75, 75) 40%, rgb(99, 99, 99) 100%);
 }
 
 .nav-full-menu-list-item {
