@@ -503,7 +503,12 @@ h4 {
 
 .benchmark-table-head {
   padding-top: 4px;
-  padding-bottom: 9px !important;
+  padding-bottom: 7px !important;
+  word-break: normal;
+}
+
+.benchmark-table td {
+  word-break: normal;
 }
 
 .benchmark-wrapper {
