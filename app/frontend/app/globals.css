@@ -177,7 +177,7 @@
   scrollbar-width: none;
   border-radius: 10px;
   border: 2px solid rgb(226, 226, 226);
-  margin-top: 14px;
+  margin-top: 15px;
 }
 
 .sidebar::-webkit-scrollbar {
@@ -223,6 +223,10 @@
   text-decoration: none !important;
 }
 
+.fetch-content-wrapper {
+  margin-top: 15px;
+}
+
 .fetch-content {
   margin-left: 190px;
   position: relative;
@@ -252,7 +256,7 @@ p {
 
 h1 {
   margin-top: 7px;
-  margin-bottom: 20px !important;
+  margin-bottom: 12px !important;
 }
 
 h2, h3 {
@@ -396,6 +400,7 @@ h4 {
 }
 
 .scrape-title {
+  margin-top: -10px;
   margin-bottom: 0 !important;
   background-clip: text;
   -webkit-background-clip: text;
@@ -520,6 +525,7 @@ h4 {
 
 .benchmark-wrapper {
   display: flex;
+  margin-top: 10px;
 }
 
 .benchmark-info-wrapper {
@@ -1372,7 +1378,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .mct-wrapper {
-  margin-top: 15px;
+  margin-top: 18px;
   position: relative;
 }
 
