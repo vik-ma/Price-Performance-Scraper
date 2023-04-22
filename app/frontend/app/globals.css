@@ -234,13 +234,18 @@
   margin-top: 6px;
 }
 
+.tutorial-list {
+  color: rgb(223, 223, 223);
+}
+
 p {
   margin: 2px;
   /* color: white; */
 }
 
 h1 {
-  margin-bottom: 15px !important;
+  margin-top: 7px;
+  margin-bottom: 20px !important;
 }
 
 h2, h3 {
@@ -819,7 +824,6 @@ h4 {
 
 .information-header {
   margin-bottom: 0px !important;
-  margin-top: 15px;
 }
 
 h3.information-header {
@@ -947,7 +951,6 @@ details {
 
 .scrape-tutorial-text {
   margin: 0 5px;
-  color: rgb(223, 223, 223);
 }
 
 .filter-listing-container {

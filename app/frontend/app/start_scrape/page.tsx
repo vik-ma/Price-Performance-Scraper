@@ -83,7 +83,7 @@ export default function NewScrape() {
           <strong>Show Tutorial</strong>
         </summary>
         <div className="scrape-tutorial-text">
-          <ol className="no-dot-list">
+          <ol className="tutorial-list no-dot-list">
             <li className="no-dot-list-item">
               <strong>1.</strong> Choose the type of performance benchmark you
               want to compare.
