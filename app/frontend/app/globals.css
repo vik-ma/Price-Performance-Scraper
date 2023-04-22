@@ -844,6 +844,10 @@ h4 {
   margin-bottom: 0px !important;
 }
 
+h2.information-header {
+  margin-top: 20px;
+}
+
 h3.information-header {
   margin-top: 8px !important;
 }
@@ -870,7 +874,7 @@ h3.information-header {
 }
 
 .information-mct {
-  background: -webkit-linear-gradient(#664df7, #b7aaff);
+  background: -webkit-linear-gradient(#6c53fc, #b7aaff);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
