@@ -496,6 +496,11 @@ h4 {
   display: block;
 }
 
+.benchmark-table-head {
+  padding-top: 4px;
+  padding-bottom: 9px !important;
+}
+
 .benchmark-wrapper {
   display: flex;
 }
@@ -1245,6 +1250,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .benchmark-table {
   margin: 0;
+  background-color: #1b1b1f;
 }
 
 .benchmark-timestamp {
@@ -1317,6 +1323,11 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin: 0;
   margin-top: 5px;
   background-color: #1b1b1f;
+}
+
+.mct-table-head {
+  padding-top: 5px;
+  padding-bottom: 8px;
 }
 
 .mct-table td {

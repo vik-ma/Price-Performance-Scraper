@@ -84,13 +84,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-first">
                     <strong>Model</strong>
                   </th>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-last">
                     <strong>Tier</strong>
                   </th>
                 </tr>
@@ -144,13 +144,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-first">
                     <strong>Model</strong>
                   </th>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-last">
                     <strong>Tier</strong>
                   </th>
                 </tr>
@@ -204,13 +204,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-first">
                     <strong>Model</strong>
                   </th>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head listing-table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="table-head">
+                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-last">
                     <strong>Tier</strong>
                   </th>
                 </tr>
