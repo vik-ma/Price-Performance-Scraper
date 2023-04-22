@@ -1,29 +1,49 @@
 "use client";
 import MenuIcon from "./icons/MenuIcon";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function NavMenu() {
   const [showFullMenu, setShowFullMenu] = useState<boolean>(false);
+  const menuIconRef = useRef<HTMLButtonElement>(null!);
+  const fullMenuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent): void {
+      if (
+        fullMenuRef.current &&
+        !fullMenuRef.current.contains(event.target as Node) &&
+        !menuIconRef.current.contains(event.target as Node)
+      ) {
+        setShowFullMenu(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
 
   return (
     <div className="nav-small-wrapper">
       <Link
         className="nav-item nav-item-start nav-item-start-small"
         href="/start_scrape"
-        onClick={() => setShowFullMenu(false)}
+        // onClick={() => setShowFullMenu(false)}
       >
         Start Price Scrape
       </Link>
       <div className="nav-item">
         <button
+          ref={menuIconRef}
           className="nav-item-menu"
           onClick={() => setShowFullMenu(!showFullMenu)}
         >
           <MenuIcon />
         </button>
         {showFullMenu && (
-          <div className="nav-full-menu-wrapper">
+          <div ref={fullMenuRef} className="nav-full-menu-wrapper">
             <ul className="nav-full-menu">
               <Link
                 className="nav-full-menu-item"
