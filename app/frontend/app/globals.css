@@ -85,6 +85,16 @@
   margin-right: 10px;
 }
 
+@keyframes drop-down {
+  from {
+    transform: translateY(-50%) scaleY(0);
+  }
+
+  to {
+    transform: translateY(0%) scaleY(1);
+  }
+}
+
 .nav-full-menu-wrapper {
   position: absolute;
   background-color: rgb(24, 24, 24);
@@ -93,6 +103,7 @@
   border-bottom: none;
   right: -1px;
   box-shadow: -5px 5px 10px rgba(14, 14, 14, 1);
+  animation: drop-down 0.25s;
 }
 
 .nav-full-menu {
