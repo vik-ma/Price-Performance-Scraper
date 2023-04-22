@@ -875,7 +875,7 @@ h3.information-header {
 
 .listing-table {
   margin-top: 15px;
-  /* background-color: var(--dark-bg-color); */
+  background-color: #1b1b1f;
   background: linear-gradient(to bottom left, #262626, #181818);
   border-radius: 10px;
 }
@@ -1315,6 +1315,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .mct-table {
   margin: 0;
+  margin-top: 5px;
+  background-color: #1b1b1f;
 }
 
 .mct-table td {
@@ -1338,6 +1340,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .mct-wrapper {
+  margin-top: 15px;
   position: relative;
 }
 
