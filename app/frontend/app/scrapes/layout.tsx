@@ -12,7 +12,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="container">
+    <>
       <h1 className="page-title completed-scrapes-title">Completed Scrapes</h1>
       <div className="sidebar">
         <div className="sidebar-title-container">
@@ -27,6 +27,6 @@ export default function RootLayout({
         <ScrapesList />
       </div>
       <div>{children}</div>
-    </main>
+    </>
   );
 }

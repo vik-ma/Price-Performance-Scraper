@@ -18,6 +18,13 @@
   padding-top: 0;
 }
 
+@media (max-width: 576px) {
+  .container {
+    padding-left: 7px;
+    padding-right: 7px;
+  }
+}
+
 .centered-container {
   display: flex;
   justify-content: center;
@@ -375,8 +382,8 @@ h4 {
   background: -webkit-linear-gradient(#db4610, #ff9354);
 }
 
-@media (max-width: 50em) {
-  .sidebar{
+@media (max-width: 992px) {
+  .sidebar {
     display: none;
   }
   .fetch-content {
@@ -910,6 +917,12 @@ h3.information-header {
   border-top-right-radius: 10px;
   padding-right: 25px;
   /* max-width: 200px; */
+}
+
+@media (max-width: 768px) {
+  .listing-table-head-last {
+    padding-right: 12px !important;
+  }
 }
 
 .tutorial-list {
