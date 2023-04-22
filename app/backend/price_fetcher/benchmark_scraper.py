@@ -20,6 +20,7 @@ list_of_gpus_to_scrape = [
     "GeForce RTX 4070 Ti",
     "Radeon RX 6950 XT",
     "Radeon RX 7900 XT",
+    "GeForce RTX 4070",
     "Radeon RX 6800 XT",
     "GeForce RTX 3070 Ti",
     "GeForce RTX 3070",
@@ -504,7 +505,7 @@ if __name__ == "__main__":
     # time.sleep(0.5)
     # fetch_cpu_normal_benchmarks(run_locally=True)
     # fetch_gpu_benchmarks(run_locally=True)
-    # update_all_benchmarks(run_locally=True)
+    update_all_benchmarks(run_locally=True)
     # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
     # run_locally = True
     # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
