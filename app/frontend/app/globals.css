@@ -285,7 +285,8 @@ h4 {
 }
 
 .home-text {
-  font-size: x-large;
+  padding: 2px;
+  font-size: larger;
   color: rgb(247, 247, 247);
 }
 

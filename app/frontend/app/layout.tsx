@@ -5,8 +5,8 @@ import "./globals.css";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "GPU & CPU Price Comparer",
-  description: "Compare the Price/Performance Score of different GPUs and CPUs",
+  title: "Price/Performance Scraper",
+  description: "Compare the Price/Performance Score of different GPUs and CPUs presently on the market",
 };
 
 export default function RootLayout({
