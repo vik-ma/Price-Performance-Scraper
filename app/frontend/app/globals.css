@@ -884,7 +884,7 @@ h3.information-header {
 }
 
 .formula-container {
-  background-color: var(--dark-bg-color);
+  background-color: #252523;
   width: fit-content;
   padding: 2px 15px 7px;
   border-radius: 10px;
