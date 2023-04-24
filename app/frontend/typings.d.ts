@@ -56,7 +56,6 @@ export type GpuInfoProps = {
   [key: string]: {
     tier: string;
     manufacturer: string;
-    cssName: string;
   };
 };
 
@@ -67,7 +66,6 @@ export type CpuInfoProps = {
     generation: string;
     manufacturer: string;
     socket: string;
-    cssName: string;
   };
 };
 
