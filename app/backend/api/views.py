@@ -1,11 +1,8 @@
-from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import serializers
 from .serializers import FetchPropertiesSerializer
 import price_fetcher.views as pf
-import time
-import random
 import datetime
 
 class ScrapeThrottle():
@@ -169,35 +166,12 @@ def start_price_fetch(request):
     return Response(serializer.errors)
 
 @api_view(['GET'])
-def test_frontend(request):
-    return Response({
-        "message": "TEST FROM API"
-    })
+def test_get(request):
+    pass
 
 @api_view(['POST'])
 def test_post(request):
-    # rand = random.randint(0, 9)
-    # time.sleep(2)
-
-    # if 1 != 0:
-    #     raise serializers.ValidationError("asd")
-    # return Response({
-    #     "message": f"TEST FROM POST REQUEST {rand}", "success": True
-    # })
-
-    allow_request = scrape_throttle.allow_request()
-
-    if not allow_request:
-        seconds_left = scrape_throttle.calculate_seconds_left()
-
-        return Response({
-        "message": f"{scrape_throttle.next_scrape_time} = {seconds_left} seconds left", "success": allow_request
-    })
-
-    time.sleep(5)
-    return Response({
-        "message": scrape_throttle.next_scrape_time, "success": allow_request
-    })
+    pass
 
 @api_view(['GET'])
 def get_benchmarks(request):
@@ -214,9 +188,6 @@ def get_scrape_allowed(request):
         return Response({
         "success": True, "allow": allow_scrape_request, "seconds_left": seconds_left
     })
-
-    # REMOVE LATER
-    # scrape_throttle.set_new_time()
 
     return Response({
         "success": True, "allow": allow_scrape_request
