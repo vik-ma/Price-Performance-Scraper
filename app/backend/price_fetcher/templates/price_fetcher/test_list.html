@@ -4,41 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test List</title>
+    <title>Test</title>
 </head>
 <body>
     <div style="margin:auto;width:50%;">
-        <div style="display:inline-block;">
-            <form action="{% url 'insert_test_item' %}" method="post">
-                {% csrf_token %}
-                <label for="name">Name:</label>
-                <input type="text" id="test_name" name="test_name"><br/><br/>
-                <label for="lname">Num:</label>
-                <input type="text" id="test_num" name="test_num"><br/><br/>
-                <input type="submit" value="Submit">
-            </form>
-        </div>
-        <div style="display:inline-block;margin-left:50px;">
-            <ul>
-                {% for test in test_list %}
-                <li style="margin-top:5px;">
-                    {{test.test_name}} 
-                    {{test.test_num}}
-                    {{test.test_date}}
-                    <form action="{% url 'delete_test_item' test.id %}" method="post" style="display:inline-block;">
-                        {% csrf_token %}
-                        <input type="submit" value="Delete">
-                    </form>
-                </li>
-                {% empty %}
-                <li>
-                    <span>
-                        Empty List
-                    </span>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
         <div style="display:inline-block;margin-left:50px;">
             <form action="{% url 'test_button' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
