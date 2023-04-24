@@ -83,8 +83,6 @@ cpu_pj_url_dict = {
     "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
 }    
 
-# MISSING: Intel Core i9-13900
-
 def import_benchmark_json(benchmark_type, run_locally = False):
     if run_locally:
         file_path = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"

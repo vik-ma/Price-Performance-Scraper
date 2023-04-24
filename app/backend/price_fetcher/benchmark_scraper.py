@@ -6,12 +6,16 @@ import time
 import logging
 import os
 
-# ADDING NEW MODEL TODOLIST:
-#     UPDATE BENCHMARK SCRAPER LIST
-#     UPDATE PJ URL SET
-#     UPDATE API VIEWS.PY ALLOWED LIST
-#     UPDATE PRODUCTLIST (FRONT END)
-#         UPDATE TIERS PRODUCTLIST
+"""
+ADDING NEW MODEL TODOLIST:
+    - UPDATE BENCHMARK SCRAPER LIST
+    - UPDATE PJ URL SET
+    - UPDATE API VIEWS.PY ALLOWED LIST
+    - UPDATE PRODUCTLIST.TSX (FRONT END)
+    - UPDATE/VALIDATE TIERS FOR ALL ENTRIES IN PRODUCTLIST.TSX
+
+Intel Core i9-13900 CURRENTLY MISSING ANY CPU-GAMING BENCHMARKS
+"""
 
 list_of_gpus_to_scrape = [
     "GeForce RTX 4090",
@@ -263,13 +267,6 @@ def test_local_json_file(filepath):
     with open(filepath, "r") as file:
         json_data = json.load(file)
 
-    max_value = json_data.keys()[0]
-
-    print(max_value)
-    for item in json_data.keys()[0]:
-        # print(item)
-        pass
-
 
 def get_average_benchmarks(benchmark_list):
     benchmark_sums = {}
@@ -499,17 +496,4 @@ def write_to_log(*, success, message, run_locally=False):
         logging.error(message)
 
 if __name__ == "__main__":
-    # fetch_gpu_benchmarks(run_locally=True)
-    # fetch_cpu_gaming_benchmarks(run_locally=True)
-    # print(str(datetime.datetime.now())[:-7])
-    # time.sleep(0.5)
-    # fetch_cpu_normal_benchmarks(run_locally=True)
-    # fetch_gpu_benchmarks(run_locally=True)
-    # update_all_benchmarks(run_locally=True)
-    # replace_latest_benchmark("test", {"asd":123}, run_locally=True)
-    # run_locally = True
-    # cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
-    # replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
-    # write_to_log(success=False, message="Test Message2232", run_locally=True)
-    # write_to_log(success=True, message="Test Message25252", run_locally=True)
     pass
