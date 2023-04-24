@@ -5,49 +5,6 @@ import re
 import datetime
 import time
 
-#TODO: REMOVE
-gpu_tier_dict = {
-    "TIER 1": {
-        "GeForce RTX 4090",
-        "GeForce RTX 4080",
-        "Radeon RX 7900 XTX",
-        },
-    "TIER 2": {
-        "GeForce RTX 4070 Ti",
-        "Radeon RX 6950 XT",
-        "Radeon RX 7900 XT",
-        "Radeon RX 6800 XT",
-        },
-    "TIER 3": {
-        "Radeon RX 6800",
-        "GeForce RTX 3070 Ti",
-        "GeForce RTX 3070",
-        "Radeon RX 6750 XT",
-        },
-    "TIER 4": {
-        "Radeon RX 6700 XT",
-        "GeForce RTX 3060 Ti",
-        "Radeon RX 6700",
-        "Radeon RX 6650 XT",
-        },
-    "TIER 5": {
-        "Radeon RX 6600 XT",
-        "Radeon RX 6600",
-        "GeForce RTX 3060",
-        },
-    "TIER 6": {
-        "GeForce RTX 3050",
-        "GeForce RTX 2060",
-        "GeForce GTX 1660 Ti",
-        "GeForce GTX 1660 SUPER",
-        },
-    "TIER 7": {
-        "GeForce GTX 1660",
-        "Radeon RX 6500 XT",
-        "Radeon RX 6400"
-    }
-}
-
 gpu_pj_url_dict = {
     "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
     "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
@@ -125,241 +82,8 @@ cpu_pj_url_dict = {
     "Intel Core i5-12400F": "https://www.prisjakt.nu/produkt.php?p=5948013",
     "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
 }    
-#TODO: REMOVE
-cpu_socket_dict = {
-    "Socket AM4": {
-        "AMD Ryzen 9 5950X",
-        "AMD Ryzen 9 5900X",
-        "AMD Ryzen 7 5800X",
-        "AMD Ryzen 7 5800X3D",
-        "AMD Ryzen 7 5700X",
-        "AMD Ryzen 5 5600X",
-        "AMD Ryzen 5 5600",
-        "AMD Ryzen 5 5500",
-    },
-    "Socket AM5": {
-        "AMD Ryzen 9 7950X3D",
-        "AMD Ryzen 9 7900X3D",
-        "AMD Ryzen 9 7950X",
-        "AMD Ryzen 9 7900X",
-        "AMD Ryzen 9 7900",
-        "AMD Ryzen 7 7700X",
-        "AMD Ryzen 7 7700",
-        "AMD Ryzen 5 7600X",
-        "AMD Ryzen 5 7600",
-    },
-    "Socket LGA 1700": {
-        "Intel Core i9-13900KS",
-        "Intel Core i9-13900K",
-        "Intel Core i9-13900KF",
-        "Intel Core i9-13900F",
-        "Intel Core i9-13900",
-        "Intel Core i7-13700K",
-        "Intel Core i7-13700KF",
-        "Intel Core i9-12900KS",
-        "Intel Core i9-12900K",
-        "Intel Core i9-12900KF",
-        "Intel Core i7-13700",
-        "Intel Core i7-13700F",
-        "Intel Core i5-13600K",
-        "Intel Core i5-13600KF",
-        "Intel Core i9-12900F",
-        "Intel Core i9-12900",
-        "Intel Core i7-12700K",
-        "Intel Core i7-12700KF",
-        "Intel Core i5-13500",
-        "Intel Core i7-12700F",
-        "Intel Core i7-12700",
-        "Intel Core i5-12600K",
-        "Intel Core i5-12600KF",
-        "Intel Core i5-13400",
-        "Intel Core i5-13400F",
-        "Intel Core i5-12600",
-        "Intel Core i5-12500", 
-        "Intel Core i5-12400F",
-        "Intel Core i5-12400",
-    }
-}
-#TODO: REMOVE
-cpu_gen_dict = {
-    "CURRENT GENERATION": {
-        "AMD Ryzen 9 7950X3D",
-        "AMD Ryzen 9 7900X3D",
-        "AMD Ryzen 9 7950X",
-        "AMD Ryzen 9 7900X",
-        "AMD Ryzen 9 7900",
-        "AMD Ryzen 7 7700X",
-        "AMD Ryzen 7 7700",
-        "AMD Ryzen 5 7600X",
-        "AMD Ryzen 5 7600",
-        "Intel Core i9-13900KS",
-        "Intel Core i9-13900K",
-        "Intel Core i9-13900KF",
-        "Intel Core i9-13900F",
-        "Intel Core i9-13900",
-        "Intel Core i7-13700K",
-        "Intel Core i7-13700KF",
-        "Intel Core i7-13700",
-        "Intel Core i7-13700F",
-        "Intel Core i5-13600K",
-        "Intel Core i5-13600KF",
-        "Intel Core i5-13500",
-        "Intel Core i5-13400",
-        "Intel Core i5-13400F",
-    },
-    "PREVIOUS GENERATION": {
-        "AMD Ryzen 9 5950X",
-        "AMD Ryzen 9 5900X",
-        "AMD Ryzen 7 5800X",
-        "AMD Ryzen 7 5800X3D",
-        "AMD Ryzen 7 5700X",
-        "AMD Ryzen 5 5600X",
-        "AMD Ryzen 5 5600",
-        "AMD Ryzen 5 5500",
-        "Intel Core i9-12900KS",
-        "Intel Core i9-12900K",
-        "Intel Core i9-12900KF",
-        "Intel Core i9-12900F",
-        "Intel Core i9-12900",
-        "Intel Core i7-12700K",
-        "Intel Core i7-12700KF",
-        "Intel Core i7-12700F",
-        "Intel Core i7-12700",
-        "Intel Core i5-12600K",
-        "Intel Core i5-12600KF",
-        "Intel Core i5-12600",
-        "Intel Core i5-12500",
-        "Intel Core i5-12400F",
-        "Intel Core i5-12400",
-    }
-}
-#TODO: REMOVE
-cpu_normal_tier_dict = {
-    "TIER 1": {
-        "AMD Ryzen 9 7950X3D",
-        "AMD Ryzen 9 7950X",
-        "Intel Core i9-13900KS",
-        "Intel Core i9-13900K",
-        "Intel Core i9-13900KF",
-        "Intel Core i9-13900F",
-    },
-    "TIER 2": {
-        "AMD Ryzen 9 7900X3D",
-        "AMD Ryzen 9 7900X",
-        "Intel Core i9-13900",
-        "AMD Ryzen 9 7900",
-        "Intel Core i7-13700K",
-        "Intel Core i7-13700KF",
-        "AMD Ryzen 9 5950X",
-        "Intel Core i9-12900KS",
-    },
-    "TIER 3": {
-        "Intel Core i9-12900K",
-        "Intel Core i7-13700F",
-        "Intel Core i9-12900KF",
-        "Intel Core i7-13700",
-        "AMD Ryzen 9 5900X",
-        "Intel Core i5-13600K",
-        "Intel Core i5-13600KF",
-    },
-    "TIER 4": {
-        "Intel Core i9-12900F",
-        "AMD Ryzen 7 7700X",
-        "AMD Ryzen 7 7700",
-        "Intel Core i9-12900",
-        "Intel Core i7-12700K",
-        "Intel Core i7-12700KF",
-    },
-    "TIER 5": {
-        "Intel Core i5-13500",
-        "Intel Core i7-12700F",
-        "Intel Core i7-12700",
-    },
-    "TIER 6": {
-        "AMD Ryzen 5 7600X",
-        "AMD Ryzen 7 5800X",
-        "AMD Ryzen 7 5800X3D",
-        "Intel Core i5-12600K",
-        "AMD Ryzen 5 7600",
-        "Intel Core i5-12600KF",
-        "AMD Ryzen 7 5700X",
-        "Intel Core i5-13400", 
-        "Intel Core i5-13400F",
-    },
-    "TIER 7": {
-        "AMD Ryzen 5 5600X",
-        "AMD Ryzen 5 5600",
-        "Intel Core i5-12600",
-        "Intel Core i5-12500",
-        "Intel Core i5-12400F",
-        "Intel Core i5-12400"
-        "AMD Ryzen 5 5500",
-    },
-}
 
-#TODO: REMOVE
 # MISSING: Intel Core i9-13900
-cpu_gaming_tier_dict = {
-    "TIER 1": {
-        "AMD Ryzen 9 7900X3D",
-        "Intel Core i9-13900KS",
-        "AMD Ryzen 9 7950X3D",
-        "Intel Core i9-13900K",
-        "Intel Core i9-13900KF",
-        "Intel Core i9-13900F",
-        "AMD Ryzen 7 5800X3D",
-    },
-    "TIER 2": {
-        "AMD Ryzen 9 7900X",
-        "Intel Core i7-13700K",
-        "Intel Core i5-13600K",
-        "Intel Core i5-13600KF",
-        "Intel Core i7-13700KF",
-        "Intel Core i9-12900KS",
-        "AMD Ryzen 5 7600",
-        "AMD Ryzen 5 7600X",
-    },
-    "TIER 3": {
-        "AMD Ryzen 9 7950X",
-        "Intel Core i7-13700F",
-        "Intel Core i7-13700",
-        "Intel Core i9-12900K",
-        "AMD Ryzen 7 7700X",
-        "Intel Core i9-12900KF",
-    },
-    "TIER 4": {
-        "Intel Core i9-12900F",
-        "Intel Core i9-12900",
-        "Intel Core i5-13500",
-        "Intel Core i5-12600K",
-        "Intel Core i7-12700K",
-        "Intel Core i5-12600KF",
-        "Intel Core i7-12700KF",
-    },
-    "TIER 5": {
-        "Intel Core i5-13400",
-        "AMD Ryzen 9 5900X",
-        "Intel Core i5-13400F",
-        "AMD Ryzen 5 5600X",
-        "AMD Ryzen 5 5600",
-        "Intel Core i5-12600",
-        "Intel Core i7-12700",
-        "Intel Core i7-12700F",
-    },
-    "TIER 6": {
-        "AMD Ryzen 7 5800X",
-        "AMD Ryzen 9 5950X",
-        "Intel Core i5-12500",
-        "AMD Ryzen 7 5700X",
-        "Intel Core i5-12400F",
-        "Intel Core i5-12400",
-    },
-    "TIER 7": {
-        "AMD Ryzen 5 5500",
-        "AMD Ryzen 9 7900",
-        "AMD Ryzen 7 7700"
-    }
-}
 
 def import_benchmark_json(benchmark_type, run_locally = False):
     if run_locally:
@@ -411,17 +135,12 @@ def fetch_product_page(url):
     # save_local_html_page(soup, "pjproductpagecpu.html")
 
 
-def test_local_html_page():
-    with open("pjtest_2023-02-20_02-11-06.html", "r", encoding="utf-8") as file:
+def test_local_html_page(filename):
+    with open(filename, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
-    # with open("pjtest_2023-02-20_02-20-09.html", "r", encoding="utf-8") as file:
-    #     soup = BeautifulSoup(file, "html.parser")   
-    # with open("pjproductpagecpu.html", "r", encoding="utf-8") as file:
-    #     soup = BeautifulSoup(file, "html.parser") 
 
-    json_data = get_product_json(soup)
-
-    write_local_json_files([json_data])
+    # json_data = get_product_json(soup)
+    # write_local_json_files([json_data])
 
 
 def test_local_json_file():
@@ -434,7 +153,6 @@ def test_local_json_file():
         print(product)
 
 
-
 def get_product_json(soup):
     page_json = soup.find_all("script")[7].text
 
@@ -443,7 +161,7 @@ def get_product_json(soup):
     price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
     price_data = f"{{{price_data}}}"
-    # price_data = price_data.replace("\\", "")
+
     reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
 
     json_data = json.loads(reencoded_price_data)
@@ -497,7 +215,6 @@ def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
         end_text = r',{"__typename":"DescriptionSlice"'
         price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
-        # price_data = price_data.replace("\\", "")
         reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
 
         json_data = json.loads(reencoded_price_data)
@@ -619,9 +336,6 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally = False):
             
         sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
-        # for entry in sorted_benchmark_price_list:
-        #     print(entry)
-
         return sorted_benchmark_price_list
     except:
         return Exception("Unexpected Error")
@@ -673,66 +387,10 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
 
         sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
-        # for entry in sorted_benchmark_price_list:
-        #     print(entry)
-
         return sorted_benchmark_price_list
     except:
         return Exception("Unexpected Error")
 
 
-def test_benchmark_price_score(fetch_type, *, run_locally = False):
-    benchmarks = import_benchmark_json(fetch_type, run_locally)
-
-    product_item_1 = [
-        ("GeForce RTX 4090", "Gigabyte GeForce RTX 4090 Gaming OC HDMI 3x DP 24GB", 21990),
-        ("GeForce RTX 4090", "Asus GeForce RTX 4090 TUF Gaming OC 2xHDMI 3xDP 24GB", 23287),
-        ("GeForce RTX 4090", "MSI GeForce RTX 4090 SUPRIM X HDMI 3xDP 24GB", 24990),
-        ("GeForce RTX 4090", "Palit GeForce RTX 4090 GameRock HDMI 3xDP 24GB", 20959),
-    ]
-    product_item_2 = [
-        ("GeForce RTX 4080", "MSI GeForce RTX 4080 Gaming X Trio HDMI 3xDP 16GB", 16960),
-        ("GeForce RTX 4080", "Asus GeForce RTX 4080 TUF Gaming OC 2xHDMI 3xDP 16GB", 17699),
-        ("GeForce RTX 4080", "PNY GeForce RTX 4080 Verto Triple Fan HDMI 3xDP 16GB", 15316),
-        ("GeForce RTX 4080", "Expensive Test 4080", 20959)
-    ]
-    product_item_3 = [
-        ("GeForce GTX 1660 Super", "MSI GeForce GTX 1660 Super Ventus XS OC HDMI 3xDP 6GB", 3169)
-    ]
-
-    if product_list == []:
-        product_list = [product_item_1, product_item_2, product_item_3]
-
-    benchmark_price_list = []
-
-    for product in product_list:
-        benchmark_score = get_price_benchmark_score(product, benchmarks)
-        benchmark_price_list.extend(benchmark_score)
-
-    sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[4], reverse=True)
-
-    for item in sorted_benchmark_price_list:
-        print(item)
-
-
-def test_django():
-    return import_benchmark_json("GPU")
-
-
-def test_function():
-    try:
-        asd = 5/0
-    except:
-        return Exception("assadsds")
-
 if __name__ == "__main__":
-    # start_price_fetching_gpu(gpu_pj_url_dict["TOP TIER"])
-    # print(import_benchmark_json("GPU", run_locally=True))
-    # test = start_price_fetching_cpu("CPU-Normal", ["Intel Core i9-13900KS","AMD Ryzen 9 7900X3D"], run_locally=True)
-    # for t in test:
-    #     print(t)
-    # print(", ".join(gpu_pj_url_dict["TIER 1"]))
-    # test_benchmark_price_score("CPU-Gaming", run_locally=True)
-    # asd = start_price_fetching_cpu("CPU-Normal", ["AMD Ryzen 7 7800X3D"], run_locally=True)
-    # print(asd)
     pass
