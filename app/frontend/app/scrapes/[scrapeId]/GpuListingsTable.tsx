@@ -221,9 +221,19 @@ export default function GpuListingsTable({
                         )
                 }
                 className={
-                  headID === 0
+                  windowWidth > 800
+                    ? headID === 0
+                      ? "table-head listing-table-head listing-table-head-first"
+                      : headID === 1 || headID === 2
+                      ? "table-head listing-table-head"
+                      : headID === tableHeading.length - 1
+                      ? "table-head listing-table-head listing-table-head-last"
+                      : "table-head listing-table-head"
+                    : headID === 0
+                    ? "display-none"
+                    : headID === 1
                     ? "table-head listing-table-head listing-table-head-first"
-                    : headID === 1 || headID === 2
+                    : headID === 2
                     ? "table-head listing-table-head"
                     : headID === tableHeading.length - 1
                     ? "table-head listing-table-head listing-table-head-last"
@@ -271,9 +281,11 @@ export default function GpuListingsTable({
               )?.tier;
               return (
                 <tr key={index}>
-                  <td className="gpu-product-text">
-                    <strong>{listing.productName}</strong>
-                  </td>
+                  {windowWidth > 800 && (
+                    <td className="gpu-product-text">
+                      <strong>{listing.productName}</strong>
+                    </td>
+                  )}
                   {listing.productLink !== "" ? (
                     <td className="word-break">
                       <strong>
