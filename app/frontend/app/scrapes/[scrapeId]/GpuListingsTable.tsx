@@ -16,6 +16,8 @@ import { gpuInfo } from "@/app/ProductInfo";
 export default function GpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
   const tableHeading: TableHeadingProps[] = [
     {
       Label: "Product",
@@ -29,7 +31,7 @@ export default function GpuListingsTable({
     },
     { Label: "Model", Key: "productCategory", Tooltip: "" },
     {
-      Label: "Benchmark Score",
+      Label: windowWidth <= 800 ? "Bench." : "Benchmark Score",
       Key: "benchmarkValue",
       Tooltip: "Average benchmark score for GPU model at the time of scrape",
     },
@@ -115,7 +117,16 @@ export default function GpuListingsTable({
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
+      setWindowWidth(window.innerWidth);
     }, 0);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    return () =>
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
   }, []);
 
   return (
@@ -159,7 +170,9 @@ export default function GpuListingsTable({
               <div key={index}>
                 <label
                   className={
-                    colorCodingEnabled ? `model-text-color-${colorNum}` : "model-text-color-no-color"
+                    colorCodingEnabled
+                      ? `model-text-color-${colorNum}`
+                      : "model-text-color-no-color"
                   }
                 >
                   <input

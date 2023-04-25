@@ -16,6 +16,8 @@ import { cpuInfo } from "@/app/ProductInfo";
 export default function CpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
   const tableHeading: TableHeadingProps[] = [
     { Label: "Product", Key: "productName", Tooltip: "" },
     {
@@ -24,7 +26,7 @@ export default function CpuListingsTable({
       Tooltip: "Link to product may not work for older scrapes",
     },
     {
-      Label: "Benchmark Score",
+      Label: windowWidth <= 800 ? "Bench." : "Benchmark Score",
       Key: "benchmarkValue",
       Tooltip: "Average benchmark score for CPU model at the time of scrape",
     },
@@ -113,7 +115,16 @@ export default function CpuListingsTable({
   useEffect(() => {
     setTimeout(() => {
       window.scrollTo(0, 0);
+      setWindowWidth(window.innerWidth);
     }, 0);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    return () =>
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
   }, []);
 
   return (
@@ -159,7 +170,9 @@ export default function CpuListingsTable({
               <div key={index}>
                 <label
                   className={
-                    colorCodingEnabled ? `model-text-color-${colorNum}` : "model-text-color-no-color"
+                    colorCodingEnabled
+                      ? `model-text-color-${colorNum}`
+                      : "model-text-color-no-color"
                   }
                 >
                   <input
