@@ -371,7 +371,7 @@ h4 {
   background: -webkit-linear-gradient(#db4610, #ff9354);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
   .sidebar {
     display: none;
   }

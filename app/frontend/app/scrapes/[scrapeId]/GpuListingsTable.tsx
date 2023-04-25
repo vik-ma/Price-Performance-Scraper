@@ -31,15 +31,18 @@ export default function GpuListingsTable({
     },
     { Label: "Model", Key: "productCategory", Tooltip: "" },
     {
-      Label: windowWidth <= 800 ? "Bench." : "Benchmark Score",
+      Label: windowWidth <= 1200 ? "Bench." : "Benchmark Score",
       Key: "benchmarkValue",
       Tooltip: "Average benchmark score for GPU model at the time of scrape",
     },
     { Label: "Price", Key: "price", Tooltip: "Price excluding shipping" },
     {
-      Label: "Price / Performance Score",
+      Label: windowWidth <= 800 ? "PPS" : "Price / Performance Score",
       Key: "pricePerformanceRatio",
-      Tooltip: "Higher is better",
+      Tooltip:
+        windowWidth <= 800
+          ? "Price / Performance Score. Higher is better"
+          : "Higher is better",
     },
   ];
 
@@ -131,6 +134,7 @@ export default function GpuListingsTable({
 
   return (
     <>
+      <h1>{windowWidth}</h1>
       <details>
         <summary className="filter-button" role="button">
           <strong>Filter Stores</strong>
@@ -221,7 +225,7 @@ export default function GpuListingsTable({
                         )
                 }
                 className={
-                  windowWidth > 800
+                  windowWidth > 1000
                     ? headID === 0
                       ? "table-head listing-table-head listing-table-head-first"
                       : headID === 1 || headID === 2
@@ -281,7 +285,7 @@ export default function GpuListingsTable({
               )?.tier;
               return (
                 <tr key={index}>
-                  {windowWidth > 800 && (
+                  {windowWidth > 1000 && (
                     <td className="gpu-product-text">
                       <strong>{listing.productName}</strong>
                     </td>
