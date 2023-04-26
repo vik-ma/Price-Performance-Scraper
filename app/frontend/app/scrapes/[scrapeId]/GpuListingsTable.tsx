@@ -29,13 +29,19 @@ export default function GpuListingsTable({
       Label: "Store",
       Key: "storeName",
       TooltipText: "Link to product may not work for older scrapes",
+      TooltipPlacement: windowWidth <= 800 ? "right" : "",
+    },
+    {
+      Label: "Model",
+      Key: "productCategory",
+      TooltipText: "",
       TooltipPlacement: "",
     },
-    { Label: "Model", Key: "productCategory", TooltipText: "", TooltipPlacement: "" },
     {
       Label: windowWidth <= 1200 ? "Bench." : "Benchmark Score",
       Key: "benchmarkValue",
-      TooltipText: "Average benchmark score for GPU model at the time of scrape",
+      TooltipText:
+        "Average benchmark score for GPU model at the time of scrape",
       TooltipPlacement: "",
     },
     {
@@ -45,13 +51,13 @@ export default function GpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: windowWidth <= 800 ? "PPS" : "Price / Performance Score",
+      Label: windowWidth <= 800 ? "P.P.S." : "Price / Performance Score",
       Key: "pricePerformanceRatio",
       TooltipText:
         windowWidth <= 800
-          ? "Price / Performance Score. Higher is better"
+          ? "Price / Performance Score (Higher is better)"
           : "Higher is better",
-      TooltipPlacement: "",
+      TooltipPlacement: windowWidth <= 800 ? "left" : "",
     },
   ];
 
@@ -259,8 +265,12 @@ export default function GpuListingsTable({
                       ? "clickable"
                       : ""
                   }
-                  data-tooltip={head.TooltipText !== "" ? head.TooltipText : undefined}
-
+                  data-tooltip={
+                    head.TooltipText !== "" ? head.TooltipText : undefined
+                  }
+                  data-placement={
+                    head.TooltipPlacement !== "" ? head.TooltipPlacement : ""
+                  }
                 >
                   <strong>{head.Label}</strong>
                 </span>

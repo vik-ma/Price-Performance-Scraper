@@ -19,7 +19,12 @@ export default function CpuListingsTable({
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
   const tableHeading: TableHeadingProps[] = [
-    { Label: "Product", Key: "productName", TooltipText: "", TooltipPlacement: "" },
+    {
+      Label: "Product",
+      Key: "productName",
+      TooltipText: "",
+      TooltipPlacement: "",
+    },
     {
       Label: "Store",
       Key: "storeName",
@@ -40,10 +45,13 @@ export default function CpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: "Price / Performance Score",
+      Label: windowWidth <= 800 ? "P.P.S." : "Price / Performance Score",
       Key: "pricePerformanceRatio",
-      TooltipText: "Higher is better",
-      TooltipPlacement: "",
+      TooltipText:
+        windowWidth <= 800
+          ? "Price / Performance Score (Higher is better)"
+          : "Higher is better",
+      TooltipPlacement: windowWidth <= 800 ? "left" : "",
     },
   ];
 
@@ -245,7 +253,12 @@ export default function CpuListingsTable({
                       ? "clickable"
                       : ""
                   }
-                  data-tooltip={head.TooltipText !== "" ? head.TooltipText : undefined}
+                  data-tooltip={
+                    head.TooltipText !== "" ? head.TooltipText : undefined
+                  }
+                  data-placement={
+                    head.TooltipPlacement !== "" ? head.TooltipPlacement : ""
+                  }
                 >
                   <strong>{head.Label}</strong>
                 </span>
