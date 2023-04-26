@@ -262,7 +262,7 @@ def get_lowest_prices_in_gpu_category(json_list, *, read_local_json_list=False):
     else:
         slice_num = 4
         list_slicer = len(sorted_price_list) / slice_num
-        rounded_list_slicer = Decimal(list_slicer).quantize(0, ROUND_HALF_UP)
+        rounded_list_slicer = int(Decimal(list_slicer).quantize(0, ROUND_HALF_UP))
 
         lowest_price_list = sorted_price_list[:rounded_list_slicer]
         
