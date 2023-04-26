@@ -4,6 +4,7 @@ import requests
 import re
 import datetime
 import time
+from decimal import Decimal, ROUND_HALF_UP
 
 gpu_pj_url_dict = {
     "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
@@ -100,7 +101,6 @@ def fetch_gpu_category_page(url):
 
     soup_list = []
     soup_list.append(soup)
-    # save_local_html_page(soup)
 
     next_page_tag = soup.find("a", {"aria-label": "Visa nästa"})
     if next_page_tag:
@@ -119,7 +119,6 @@ def fetch_gpu_category_page(url):
             print(next_page_link)
 
             soup_list.append(soup)
-            # save_local_html_page(soup)
     else:
         print("Only one page in category")
 
@@ -131,12 +130,17 @@ def fetch_product_page(url):
     soup = BeautifulSoup(response.text, "html.parser")
 
     return soup
-    # save_local_html_page(soup, "pjproductpagecpu.html")
 
 
 def test_local_html_page(filename):
     with open(filename, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
+    
+    json_list = create_json_list_from_gpu_category([soup])
+
+    low = get_lowest_prices_in_gpu_category(json_list)
+
+
 
 
 def test_local_json_file():
@@ -213,7 +217,6 @@ def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
 
         reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
 
-
         json_data = json.loads(reencoded_price_data)
 
         json_list.append(json_data)
@@ -251,14 +254,18 @@ def get_lowest_prices_in_gpu_category(json_list, *, read_local_json_list=False):
                 price_list.append((product_link, product_price))
 
     sorted_price_list = sorted(price_list, key = lambda x: x[1])
-    slice_num = 4
-    list_slicer = int(len(sorted_price_list) / slice_num)
 
-    if list_slicer > 0:
-        lowest_price_list = sorted_price_list[:list_slicer]
+    if len(sorted_price_list) <= 16:
+        lowest_price_list = sorted_price_list[:4]
+    elif len(sorted_price_list) > 40:
+        lowest_price_list = sorted_price_list[:10]
     else:
-        lowest_price_list = sorted_price_list
-    
+        slice_num = 4
+        list_slicer = len(sorted_price_list) / slice_num
+        rounded_list_slicer = Decimal(list_slicer).quantize(0, ROUND_HALF_UP)
+
+        lowest_price_list = sorted_price_list[:rounded_list_slicer]
+        
     return lowest_price_list
 
 
@@ -393,4 +400,10 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
 
 
 if __name__ == "__main__":
+    # soup = fetch_gpu_category_page("https://www.prisjakt.nu/c/grafikkort?532=40332")
+    # save_local_html_page(soup[0])
+    # test_local_html_page("pjtest_2023-04-26_20-14-23.html")
+    # test_local_html_page("pjtest_2023-04-26_20-25-17.html")
+    # test_local_html_page("pjtest_2023-04-26_20-53-29.html")
+    test_local_html_page("pjtest_2023-04-26_21-23-30.html")
     pass
