@@ -138,9 +138,6 @@ def test_local_html_page(filename):
     with open(filename, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
 
-    # json_data = get_product_json(soup)
-    # write_local_json_files([json_data])
-
 
 def test_local_json_file():
     with open("pj_json_2023-02-15_08-38-43_1.json", "r") as file:
@@ -153,7 +150,7 @@ def test_local_json_file():
 
 
 def get_product_json(soup):
-    page_json = soup.find_all("script")[7].text
+    page_json = soup.find_all("script")[6].text
 
     start_text = r'"prices":'
     end_text = r',"popularProducts"'
@@ -208,13 +205,14 @@ def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
 
     json_list = []
     for soup in soup_list:
-        page_json = soup.find_all("script")[5].text
+        page_json = soup.find_all("script")[4].text
 
         start_text = r'{"__typename":"ProductsSlice"'
         end_text = r',{"__typename":"DescriptionSlice"'
         price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
         reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
+
 
         json_data = json.loads(reencoded_price_data)
 
@@ -256,7 +254,10 @@ def get_lowest_prices_in_gpu_category(json_list, *, read_local_json_list=False):
     slice_num = 4
     list_slicer = int(len(sorted_price_list) / slice_num)
 
-    lowest_price_list = sorted_price_list[:list_slicer]
+    if list_slicer > 0:
+        lowest_price_list = sorted_price_list[:list_slicer]
+    else:
+        lowest_price_list = sorted_price_list
     
     return lowest_price_list
 
