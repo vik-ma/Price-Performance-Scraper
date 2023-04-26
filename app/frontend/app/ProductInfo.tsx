@@ -27,6 +27,10 @@ export const gpuInfo = {
     tier: "2",
     manufacturer: "AMD",
   },
+  "GeForce RTX 4070": {
+    tier: "2",
+    manufacturer: "Nvidia",
+  },
   "GeForce RTX 3070 Ti": {
     tier: "3",
     manufacturer: "Nvidia",
