@@ -51,7 +51,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const productInfo = getProductInfo();
 
-  const productLimit: number = scrapeType.name === "GPU" ? 5 : 10;
+  const productLimit: number = scrapeType.name === "GPU" ? 4 : 10;
 
   const tiers: Set<string> = new Set();
   Object.values(productInfo).forEach((product) => {
