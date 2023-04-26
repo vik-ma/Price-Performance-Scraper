@@ -30,7 +30,8 @@ export type ProductTableSortProps = {
 export type TableHeadingProps = {
   Label: string;
   Key: keyof ProductListingsProps;
-  Tooltip: string;
+  TooltipText: string;
+  TooltipPlacement: string;
 };
 
 export interface BenchmarkProps {

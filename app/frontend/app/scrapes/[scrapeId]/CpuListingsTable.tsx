@@ -19,22 +19,31 @@ export default function CpuListingsTable({
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
   const tableHeading: TableHeadingProps[] = [
-    { Label: "Product", Key: "productName", Tooltip: "" },
+    { Label: "Product", Key: "productName", TooltipText: "", TooltipPlacement: "" },
     {
       Label: "Store",
       Key: "storeName",
-      Tooltip: "Link to product may not work for older scrapes",
+      TooltipText: "Link to product may not work for older scrapes",
+      TooltipPlacement: "",
     },
     {
       Label: windowWidth <= 800 ? "Bench." : "Benchmark Score",
       Key: "benchmarkValue",
-      Tooltip: "Average benchmark score for CPU model at the time of scrape",
+      TooltipText:
+        "Average benchmark score for CPU model at the time of scrape",
+      TooltipPlacement: "",
     },
-    { Label: "Price", Key: "price", Tooltip: "Price excluding shipping" },
+    {
+      Label: "Price",
+      Key: "price",
+      TooltipText: "Price excluding shipping",
+      TooltipPlacement: "",
+    },
     {
       Label: "Price / Performance Score",
       Key: "pricePerformanceRatio",
-      Tooltip: "Higher is better",
+      TooltipText: "Higher is better",
+      TooltipPlacement: "",
     },
   ];
 
@@ -236,7 +245,7 @@ export default function CpuListingsTable({
                       ? "clickable"
                       : ""
                   }
-                  data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}
+                  data-tooltip={head.TooltipText !== "" ? head.TooltipText : undefined}
                 >
                   <strong>{head.Label}</strong>
                 </span>

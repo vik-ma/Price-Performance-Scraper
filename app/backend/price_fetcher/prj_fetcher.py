@@ -400,10 +400,4 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
 
 
 if __name__ == "__main__":
-    # soup = fetch_gpu_category_page("https://www.prisjakt.nu/c/grafikkort?532=40332")
-    # save_local_html_page(soup[0])
-    # test_local_html_page("pjtest_2023-04-26_20-14-23.html")
-    # test_local_html_page("pjtest_2023-04-26_20-25-17.html")
-    # test_local_html_page("pjtest_2023-04-26_20-53-29.html")
-    test_local_html_page("pjtest_2023-04-26_21-23-30.html")
     pass

@@ -22,27 +22,36 @@ export default function GpuListingsTable({
     {
       Label: "Product",
       Key: "productName",
-      Tooltip: "",
+      TooltipText: "",
+      TooltipPlacement: "",
     },
     {
       Label: "Store",
       Key: "storeName",
-      Tooltip: "Link to product may not work for older scrapes",
+      TooltipText: "Link to product may not work for older scrapes",
+      TooltipPlacement: "",
     },
-    { Label: "Model", Key: "productCategory", Tooltip: "" },
+    { Label: "Model", Key: "productCategory", TooltipText: "", TooltipPlacement: "" },
     {
       Label: windowWidth <= 1200 ? "Bench." : "Benchmark Score",
       Key: "benchmarkValue",
-      Tooltip: "Average benchmark score for GPU model at the time of scrape",
+      TooltipText: "Average benchmark score for GPU model at the time of scrape",
+      TooltipPlacement: "",
     },
-    { Label: "Price", Key: "price", Tooltip: "Price excluding shipping" },
+    {
+      Label: "Price",
+      Key: "price",
+      TooltipText: "Price excluding shipping",
+      TooltipPlacement: "",
+    },
     {
       Label: windowWidth <= 800 ? "PPS" : "Price / Performance Score",
       Key: "pricePerformanceRatio",
-      Tooltip:
+      TooltipText:
         windowWidth <= 800
           ? "Price / Performance Score. Higher is better"
           : "Higher is better",
+      TooltipPlacement: "",
     },
   ];
 
@@ -250,7 +259,8 @@ export default function GpuListingsTable({
                       ? "clickable"
                       : ""
                   }
-                  data-tooltip={head.Tooltip !== "" ? head.Tooltip : undefined}
+                  data-tooltip={head.TooltipText !== "" ? head.TooltipText : undefined}
+
                 >
                   <strong>{head.Label}</strong>
                 </span>
