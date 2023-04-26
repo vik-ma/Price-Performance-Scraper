@@ -13,6 +13,7 @@ gpu_pj_url_dict = {
     "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
     "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
     "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
+    "GeForce RTX 4070": "https://www.prisjakt.nu/c/grafikkort?532=40332",
     "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
     "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
     "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
