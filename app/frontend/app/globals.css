@@ -42,7 +42,6 @@
   border-bottom: 1px solid rgba(223, 223, 223, 0.2);
   box-shadow: 0 5px 10px rgb(28, 28, 28);
   background: linear-gradient(to bottom, rgb(26, 26, 26) 80%, rgb(36, 36, 36) 100%);
-
 }
 
 .nav-items-wrapper {
@@ -548,6 +547,14 @@ h4 {
 
 .text-color-tier-7 {
   color: #7B7D7D;
+}
+
+.view-all-scrapes-button {
+  position: absolute;
+  top: -47px;
+  right: 0;
+  background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
+  padding-top: 1px !important;
 }
 
 .background-color-tier-1 {

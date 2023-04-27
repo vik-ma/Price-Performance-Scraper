@@ -154,6 +154,11 @@ export default function GpuListingsTable({
 
   return (
     <>
+      {windowWidth > 767 && windowWidth < 1315 && (
+        <button className="dark-button view-all-scrapes-button">
+          <strong>View All Scrapes</strong>
+        </button>
+      )}
       <details>
         <summary className="filter-button" role="button">
           <strong>Filter Stores</strong>
