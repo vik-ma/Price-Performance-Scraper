@@ -6,7 +6,7 @@ export default async function Home() {
     <main>
       <h1 className="home-title">Price/Performance Scraper</h1>
       <p className="home-text">
-        <strong></strong>
+        <strong>Price/Performance Scraper</strong> is a tool to calculate the
       </p>
       <div className="centered-container">
         <Link href="/start_scrape">

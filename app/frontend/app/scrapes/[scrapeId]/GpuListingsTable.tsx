@@ -318,6 +318,7 @@ export default function GpuListingsTable({
                           target="_blank"
                           className="external-link"
                           data-tooltip="Go to product page on store 🡕"
+                          data-placement={windowWidth < 900 ? "right" : ""}
                         >
                           {listing.storeName}
                         </a>
@@ -341,7 +342,7 @@ export default function GpuListingsTable({
                             : ""
                         }
                       >
-                        {listing.productCategory}
+                        {windowWidth < 500 ? listing.productCategory.split(' ').slice(2).join(' ') : listing.productCategory}
                       </div>
                     </strong>
                   </td>
