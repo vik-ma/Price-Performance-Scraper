@@ -12,6 +12,7 @@ import {
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
 import { gpuInfo } from "@/app/ProductInfo";
+import Link from "next/link";
 
 export default function GpuListingsTable({
   params: { fetchInfo, productListings },
@@ -155,9 +156,11 @@ export default function GpuListingsTable({
   return (
     <>
       {windowWidth > 767 && windowWidth < 1315 && (
-        <button className="dark-button view-all-scrapes-button">
-          <strong>View All Scrapes</strong>
-        </button>
+        <Link href="/scrapes">
+          <button className="dark-button view-all-scrapes-button">
+            <strong>View All Scrapes</strong>
+          </button>
+        </Link>
       )}
       <details>
         <summary className="filter-button" role="button">
