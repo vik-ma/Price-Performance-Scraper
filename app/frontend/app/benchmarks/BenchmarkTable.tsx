@@ -122,7 +122,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                             colorCodingEnabled ? `text-color-tier-${tier}` : ""
                           }
                         >
-                          <strong>Tier {tier}</strong>
+                          <strong className="no-wrap-constant">Tier {tier}</strong>
                         </td>
                       </tr>
                     );
@@ -182,7 +182,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                             colorCodingEnabled ? `text-color-tier-${tier}` : ""
                           }
                         >
-                          <strong>Tier {tier}</strong>
+                          <strong className="no-wrap-constant">Tier {tier}</strong>
                         </td>
                       </tr>
                     );
@@ -242,7 +242,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                             colorCodingEnabled ? `text-color-tier-${tier}` : ""
                           }
                         >
-                          <strong>Tier {tier}</strong>
+                          <strong className="no-wrap-constant">Tier {tier}</strong>
                         </td>
                       </tr>
                     );

@@ -1,10 +1,12 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Plus from "../icons/Plus";
 import Minus from "../icons/Minus";
 import Link from "next/link";
 
 export default function ManualComparison() {
+  const [windowWidth, setWindowWidth] = useState<number>(1920);
+
   const [numRows, setNumRows] = useState<number>(1);
 
   const rows: number[] = Array.from({ length: numRows });
@@ -18,6 +20,20 @@ export default function ManualComparison() {
       setNumRows((prev) => prev - 1);
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setWindowWidth(window.innerWidth);
+    }, 0);
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
+    return () =>
+      window.removeEventListener("resize", () =>
+        setWindowWidth(window.innerWidth)
+      );
+  }, []);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -67,14 +83,29 @@ export default function ManualComparison() {
                   <strong>Name (Optional)</strong>
                 </th>
                 <th className="table-head mct-table-head listing-table-head ">
-                  <strong>Performance Value</strong>
+                  {windowWidth >= 650 ? (
+                    <strong>Performance Value</strong>
+                  ) : (
+                    <strong data-tooltip="Performance Value">
+                      Perf. Value
+                    </strong>
+                  )}
                 </th>
                 <th className="table-head mct-table-head listing-table-head ">
                   <strong>Price</strong>
                 </th>
                 <th className="table-head listing-table-head listing-table-head-last">
-                  <strong data-tooltip="Higher is better">
-                    Price / Performance Score
+                  <strong
+                    data-tooltip={
+                      windowWidth >= 650
+                        ? "Higher is better"
+                        : "Price/Performance Score (Higher is better)"
+                    }
+                    data-placement={windowWidth >= 650 ? "" : "left"}
+                  >
+                    {windowWidth >= 650
+                      ? "Price / Performance Score"
+                      : "P. P. S."}
                   </strong>
                 </th>
               </tr>
@@ -85,16 +116,17 @@ export default function ManualComparison() {
                   <td>
                     <label>
                       <input
+                        className="mct-input"
                         type="text"
                         name={`name-${index}`}
                         id={`name-${index}`}
-                        // placeholder="Name (Optional)"
                       />
                     </label>
                   </td>
                   <td>
                     <label>
                       <input
+                        className="mct-input"
                         type="text"
                         name={`perf-${index}`}
                         id={`perf-${index}`}
@@ -106,6 +138,7 @@ export default function ManualComparison() {
                   <td>
                     <label>
                       <input
+                        className="mct-input"
                         type="text"
                         name={`price-${index}`}
                         id={`price-${index}`}
