@@ -50,7 +50,7 @@ export default function CpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: windowWidth <= 767 ? "Score" : "Price / Performance Score",
+      Label: windowWidth <= 767 ? "P. P. S." : "Price / Performance Score",
       Key: "pricePerformanceRatio",
       TooltipText:
         windowWidth <= 767

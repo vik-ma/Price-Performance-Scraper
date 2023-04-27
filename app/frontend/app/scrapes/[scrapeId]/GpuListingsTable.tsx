@@ -56,11 +56,11 @@ export default function GpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: windowWidth <= 767 ? "P.P.S." : "Price / Performance Score",
+      Label: windowWidth <= 767 ? "P. P. S." : "Price / Performance Score",
       Key: "pricePerformanceRatio",
       TooltipText:
         windowWidth <= 767
-          ? "Price / Performance Score (Higher is better)"
+          ? "Price/Performance Score (Higher is better)"
           : "Higher is better",
       TooltipPlacement: windowWidth <= 767 ? "left" : "",
     },
@@ -154,7 +154,6 @@ export default function GpuListingsTable({
 
   return (
     <>
-      <h1>{windowWidth}</h1>
       <details>
         <summary className="filter-button" role="button">
           <strong>Filter Stores</strong>

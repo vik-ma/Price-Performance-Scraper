@@ -803,6 +803,12 @@ h3.information-header {
   }
 }
 
+@media (max-width: 767px) {
+  .listing-table-head-last {
+    white-space: nowrap;
+  }
+}
+
 @media (max-width: 500px) {
   .listing-table td {
     padding: 8px;
