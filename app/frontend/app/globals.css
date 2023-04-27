@@ -406,6 +406,7 @@ h4 {
 
 .external-link {
   color:rgb(52, 163, 228);
+  word-break: normal;
 }
 
 .external-link:hover {
@@ -416,8 +417,13 @@ h4 {
   color:rgb(144, 53, 230);
 }
 
-.arrow {
+.arrow-right-side {
   margin-left: -4px;
+  position: absolute;
+}
+
+.arrow-left-side {
+  margin-left: -28px;
   position: absolute;
 }
 
@@ -793,6 +799,12 @@ h3.information-header {
   }
 }
 
+@media (max-width: 500px) {
+  .listing-table td {
+    padding: 8px;
+  }
+}
+
 .tutorial-list {
   word-break: normal;
   padding-left: 0px;
@@ -889,8 +901,16 @@ table[role=grid] tbody tr:nth-child(odd) {
        1px 1px 1px rgb(26, 26, 26);
 }
 
+.model-centered {
+  text-align: center;
+}
+
 .model-checkbox-label {
   display: inline-block;
+}
+
+.benchmark-value-shortened {
+  margin-top: 4px;
 }
 
 .tiers-container {

@@ -38,7 +38,12 @@ export default function GpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: windowWidth <= 1200 ? "Bench." : "Benchmark Score",
+      Label:
+        windowWidth <= 500
+          ? "Model"
+          : windowWidth > 500 && windowWidth <= 1200
+          ? "Bench."
+          : "Benchmark Score",
       Key: "benchmarkValue",
       TooltipText:
         "Average benchmark score for GPU model at the time of scrape",
@@ -51,13 +56,13 @@ export default function GpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: windowWidth <= 800 ? "P.P.S." : "Price / Performance Score",
+      Label: windowWidth <= 767 ? "P.P.S." : "Price / Performance Score",
       Key: "pricePerformanceRatio",
       TooltipText:
-        windowWidth <= 800
+        windowWidth <= 767
           ? "Price / Performance Score (Higher is better)"
           : "Higher is better",
-      TooltipPlacement: windowWidth <= 800 ? "left" : "",
+      TooltipPlacement: windowWidth <= 767 ? "left" : "",
     },
   ];
 
@@ -240,7 +245,7 @@ export default function GpuListingsTable({
                         )
                 }
                 className={
-                  windowWidth > 1000
+                  windowWidth > 991
                     ? headID === 0
                       ? "table-head listing-table-head listing-table-head-first"
                       : headID === 1 || headID === 2
@@ -252,6 +257,8 @@ export default function GpuListingsTable({
                     ? "display-none"
                     : headID === 1
                     ? "table-head listing-table-head listing-table-head-first"
+                    : headID === 2 && windowWidth <= 500
+                    ? "display-none"
                     : headID === 2
                     ? "table-head listing-table-head"
                     : headID === tableHeading.length - 1
@@ -272,15 +279,27 @@ export default function GpuListingsTable({
                     head.TooltipPlacement !== "" ? head.TooltipPlacement : ""
                   }
                 >
+                  {sortTable.SortKey === head.Key &&
+                    windowWidth <= 767 &&
+                    (sortTable.SortDirection === "asc" ? (
+                      <span className="arrow-left-side">
+                        <Caret rotate={180} />
+                      </span>
+                    ) : (
+                      <span className="arrow-left-side">
+                        <Caret />
+                      </span>
+                    ))}
                   <strong>{head.Label}</strong>
                 </span>
                 {sortTable.SortKey === head.Key &&
+                  windowWidth > 767 &&
                   (sortTable.SortDirection === "asc" ? (
-                    <span className="arrow">
+                    <span className="arrow-right-side">
                       <Caret rotate={180} />
                     </span>
                   ) : (
-                    <span className="arrow">
+                    <span className="arrow-right-side">
                       <Caret />
                     </span>
                   ))}
@@ -305,7 +324,7 @@ export default function GpuListingsTable({
               )?.tier;
               return (
                 <tr key={index}>
-                  {windowWidth > 1000 && (
+                  {windowWidth > 991 && (
                     <td className="gpu-product-text">
                       <strong>{listing.productName}</strong>
                     </td>
@@ -339,18 +358,35 @@ export default function GpuListingsTable({
                         className={
                           colorCodingEnabled
                             ? `model-background model-gradient-${colorNum}`
-                            : ""
+                            : "model-centered"
                         }
                       >
-                        {windowWidth < 500 ? listing.productCategory.split(' ').slice(2).join(' ') : listing.productCategory}
+                        {windowWidth <= 500
+                          ? listing.productCategory
+                              .split(" ")
+                              .slice(2)
+                              .join(" ")
+                          : listing.productCategory}
                       </div>
                     </strong>
+                    {windowWidth <= 500 && (
+                      <div className="model-centered benchmark-value-shortened">
+                        <strong
+                          className={`text-color-tier-${tierNum}`}
+                          data-tooltip={`Tier ${tierNum}`}
+                        >
+                          {listing.benchmarkValue}
+                        </strong>
+                      </div>
+                    )}
                   </td>
-                  <td className={`text-color-tier-${tierNum}`}>
-                    <strong data-tooltip={`Tier ${tierNum}`}>
-                      {listing.benchmarkValue}
-                    </strong>
-                  </td>
+                  {windowWidth > 500 && (
+                    <td className={`text-color-tier-${tierNum}`}>
+                      <strong data-tooltip={`Tier ${tierNum}`}>
+                        {listing.benchmarkValue}
+                      </strong>
+                    </td>
+                  )}
                   <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
                   </td>
