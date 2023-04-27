@@ -549,12 +549,24 @@ h4 {
   color: #7B7D7D;
 }
 
+.scrapes-header-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .view-all-scrapes-button {
-  position: absolute;
-  top: -47px;
-  right: 0;
+  display: flex;
+  margin-left: auto;
+  margin-top: 15px;
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   padding-top: 1px !important;
+}
+
+@media (max-width:576px) or (min-width: 1316px) {
+  .view-all-scrapes-button {
+    display: none !important;
+  }
 }
 
 .background-color-tier-1 {

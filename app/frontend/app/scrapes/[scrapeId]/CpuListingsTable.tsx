@@ -152,13 +152,6 @@ export default function CpuListingsTable({
 
   return (
     <>
-      {windowWidth > 767 && windowWidth < 1315 && (
-        <Link href="/scrapes">
-          <button className="dark-button view-all-scrapes-button">
-            <strong>View All Scrapes</strong>
-          </button>
-        </Link>
-      )}
       <details>
         <summary className="filter-button" role="button">
           <strong>Filter Stores</strong>

@@ -1,9 +1,9 @@
 import ScrapesList from "./ScrapesList";
 import Link from "next/link";
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'View Past Price Scrapes',
+  title: "View Past Price Scrapes",
 };
 
 export default function RootLayout({
@@ -13,7 +13,16 @@ export default function RootLayout({
 }) {
   return (
     <>
-      <h1 className="page-title completed-scrapes-title">Completed Scrapes</h1>
+      <div className="scrapes-header-wrapper">
+        <h1 className="page-title completed-scrapes-title">
+          Completed Scrapes
+        </h1>
+        <Link href="/scrapes">
+          <button className="dark-button view-all-scrapes-button">
+            <strong>View All Scrapes</strong>
+          </button>
+        </Link>
+      </div>
       <div className="sidebar">
         <div className="sidebar-title-container">
           <h4 className="sidebar-title">Past Scrapes</h4>
