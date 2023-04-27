@@ -16,7 +16,7 @@ import { cpuInfo } from "@/app/ProductInfo";
 export default function CpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
-  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const [windowWidth, setWindowWidth] = useState<number>(1920);
 
   const tableHeading: TableHeadingProps[] = [
     {
@@ -32,7 +32,12 @@ export default function CpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: windowWidth <= 800 ? "Bench." : "Benchmark Score",
+      Label:
+        windowWidth <= 500
+          ? "Model"
+          : windowWidth > 500 && windowWidth <= 800
+          ? "Bench."
+          : "Benchmark Score",
       Key: "benchmarkValue",
       TooltipText:
         "Average benchmark score for CPU model at the time of scrape",
@@ -238,10 +243,18 @@ export default function CpuListingsTable({
                         )
                 }
                 className={
-                  headID === 0
+                  windowWidth > 500
+                    ? headID === 0
+                      ? "table-head listing-table-head listing-table-head-first"
+                      : headID === 1 || headID === 2
+                      ? "table-head listing-table-head"
+                      : headID === tableHeading.length - 1
+                      ? "table-head listing-table-head listing-table-head-last"
+                      : "table-head listing-table-head"
+                    : headID === 0
+                    ? "display-none"
+                    : headID === 1
                     ? "table-head listing-table-head listing-table-head-first"
-                    : headID === 1 || headID === 2
-                    ? "table-head listing-table-head"
                     : headID === tableHeading.length - 1
                     ? "table-head listing-table-head listing-table-head-last"
                     : "table-head listing-table-head"
@@ -305,19 +318,21 @@ export default function CpuListingsTable({
               )?.[benchmarkType];
               return (
                 <tr key={index}>
-                  <td className="nowrap">
-                    <strong>
-                      <div
-                        className={
-                          colorCodingEnabled
-                            ? `model-background model-gradient-${colorNum}`
-                            : ""
-                        }
-                      >
-                        {listing.productCategory}
-                      </div>
-                    </strong>
-                  </td>
+                  {windowWidth > 500 && (
+                    <td className="nowrap">
+                      <strong>
+                        <div
+                          className={
+                            colorCodingEnabled
+                              ? `model-background model-gradient-${colorNum}`
+                              : "text-centered"
+                          }
+                        >
+                          {listing.productCategory}
+                        </div>
+                      </strong>
+                    </td>
+                  )}
                   {listing.productLink !== "" ? (
                     <td className="word-break">
                       <strong>
@@ -340,15 +355,45 @@ export default function CpuListingsTable({
                       </strong>
                     </td>
                   )}
-                  <td className={`text-color-tier-${tierNum}`}>
-                    <strong data-tooltip={`Tier ${tierNum}`}>
-                      {listing.benchmarkValue}
-                    </strong>
+                  <td>
+                    {windowWidth <= 500 && (
+                      <strong>
+                        <div
+                          className={
+                            colorCodingEnabled
+                              ? `model-background model-gradient-${colorNum} model-shortened-cpu`
+                              : "model-shortened-cpu"
+                          }
+                        >
+                          {listing.productCategory
+                            .split(" ")
+                            .slice(2)
+                            .join(" ")}
+                        </div>
+                      </strong>
+                    )}
+                    <div
+                      className={
+                        windowWidth <= 500
+                          ? `text-color-tier-${tierNum} benchmark-value-shortened-cpu text-centered`
+                          : `text-color-tier-${tierNum}`
+                      }
+                    >
+                      <strong data-tooltip={`Tier ${tierNum}`}>
+                        {listing.benchmarkValue}
+                      </strong>
+                    </div>
                   </td>
                   <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
                   </td>
-                  <td className={`ppr-color-${pprTextColor}`}>
+                  <td
+                    className={
+                      windowWidth <= 500
+                        ? `ppr-color-${pprTextColor} text-centered`
+                        : `ppr-color-${pprTextColor}`
+                    }
+                  >
                     <strong>{listing.pricePerformanceRatio}</strong>
                   </td>
                 </tr>

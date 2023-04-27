@@ -16,7 +16,7 @@ import { gpuInfo } from "@/app/ProductInfo";
 export default function GpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
-  const [windowWidth, setWindowWidth] = useState<number>(0);
+  const [windowWidth, setWindowWidth] = useState<number>(1920);
 
   const tableHeading: TableHeadingProps[] = [
     {
@@ -358,7 +358,7 @@ export default function GpuListingsTable({
                         className={
                           colorCodingEnabled
                             ? `model-background model-gradient-${colorNum}`
-                            : "model-centered"
+                            : "text-centered"
                         }
                       >
                         {windowWidth <= 500
@@ -370,7 +370,7 @@ export default function GpuListingsTable({
                       </div>
                     </strong>
                     {windowWidth <= 500 && (
-                      <div className="model-centered benchmark-value-shortened">
+                      <div className="text-centered benchmark-value-shortened-gpu">
                         <strong
                           className={`text-color-tier-${tierNum}`}
                           data-tooltip={`Tier ${tierNum}`}
@@ -390,7 +390,13 @@ export default function GpuListingsTable({
                   <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>
                   </td>
-                  <td className={`ppr-color-${pprTextColor}`}>
+                  <td
+                    className={
+                      windowWidth <= 500
+                        ? `ppr-color-${pprTextColor} text-centered`
+                        : `ppr-color-${pprTextColor}`
+                    }
+                  >
                     <strong>{listing.pricePerformanceRatio}</strong>
                   </td>
                 </tr>

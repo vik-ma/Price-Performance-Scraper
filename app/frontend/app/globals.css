@@ -379,7 +379,7 @@ h4 {
     margin-left: 0;
   }
   .listing-table-head {
-    padding-top: 7px !important;
+    padding-top: 8px !important;
   }
 }
 
@@ -904,7 +904,7 @@ table[role=grid] tbody tr:nth-child(odd) {
        1px 1px 1px rgb(26, 26, 26);
 }
 
-.model-centered {
+.text-centered {
   text-align: center;
 }
 
@@ -912,8 +912,14 @@ table[role=grid] tbody tr:nth-child(odd) {
   display: inline-block;
 }
 
-.benchmark-value-shortened {
+.benchmark-value-shortened-gpu {
   margin-top: 4px;
+}
+
+.model-shortened-cpu {
+  margin-bottom: 1px;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .tiers-container {
@@ -943,6 +949,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .price-cell {
   color:white;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .gpu-product-text {
