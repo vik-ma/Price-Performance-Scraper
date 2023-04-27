@@ -29,7 +29,7 @@ export default function CpuListingsTable({
       Label: "Store",
       Key: "storeName",
       TooltipText: "Link to product may not work for older scrapes",
-      TooltipPlacement: "",
+      TooltipPlacement: windowWidth <= 500 ? "right" : "",
     },
     {
       Label:
@@ -341,6 +341,7 @@ export default function CpuListingsTable({
                           target="_blank"
                           className="external-link"
                           data-tooltip="Go to product page on store 🡕"
+                          data-placement={windowWidth <= 500 ? "right" : ""}
                         >
                           {listing.storeName}
                         </a>

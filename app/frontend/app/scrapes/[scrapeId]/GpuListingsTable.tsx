@@ -29,7 +29,7 @@ export default function GpuListingsTable({
       Label: "Store",
       Key: "storeName",
       TooltipText: "Link to product may not work for older scrapes",
-      TooltipPlacement: windowWidth <= 800 ? "right" : "",
+      TooltipPlacement: windowWidth <= 991 ? "right" : "",
     },
     {
       Label: "Model",
