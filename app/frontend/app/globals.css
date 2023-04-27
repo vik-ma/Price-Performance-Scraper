@@ -849,6 +849,18 @@ h3.information-header {
   margin-top: 4px;
 }
 
+@media (max-width: 1200px) {
+  .filter-button::after {
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 767px) {
+  .filter-button::after {
+    margin-top: 7px;
+  }
+}
+
 .filter-button-products {
   margin: 5px 0 2px !important;
 }
