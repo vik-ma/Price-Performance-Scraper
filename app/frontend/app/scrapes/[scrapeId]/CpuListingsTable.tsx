@@ -260,18 +260,30 @@ export default function CpuListingsTable({
                     head.TooltipPlacement !== "" ? head.TooltipPlacement : ""
                   }
                 >
+                  {sortTable.SortKey === head.Key &&
+                    windowWidth <= 767 &&
+                    (sortTable.SortDirection === "asc" ? (
+                      <span className="arrow-left-side">
+                        <Caret rotate={180} />
+                      </span>
+                    ) : (
+                      <span className="arrow-left-side">
+                        <Caret />
+                      </span>
+                    ))}
                   <strong>{head.Label}</strong>
                 </span>
                 {sortTable.SortKey === head.Key &&
+                  windowWidth > 767 &&
                   (sortTable.SortDirection === "asc" ? (
-                    <span className="arrow">
+                    <span className="arrow-right-side">
                       <Caret rotate={180} />
                     </span>
                   ) : (
-                    <span className="arrow">
+                    <span className="arrow-right-side">
                       <Caret />
                     </span>
-                  ))}{" "}
+                  ))}
               </th>
             ))}
           </tr>

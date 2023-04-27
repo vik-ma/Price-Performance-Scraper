@@ -371,12 +371,15 @@ h4 {
   background: -webkit-linear-gradient(#db4610, #ff9354);
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1315px) {
   .sidebar {
     display: none;
   }
   .fetch-content {
     margin-left: 0;
+  }
+  .listing-table-head {
+    padding-top: 7px !important;
   }
 }
 
@@ -423,7 +426,7 @@ h4 {
 }
 
 .arrow-left-side {
-  margin-left: -28px;
+  margin-left: -29px;
   position: absolute;
 }
 
