@@ -35,7 +35,7 @@ export default function CpuListingsTable({
       Label:
         windowWidth <= 500
           ? "Model"
-          : windowWidth > 500 && windowWidth <= 800
+          : windowWidth > 500 && windowWidth <= 767
           ? "Bench."
           : "Benchmark Score",
       Key: "benchmarkValue",
@@ -50,13 +50,13 @@ export default function CpuListingsTable({
       TooltipPlacement: "",
     },
     {
-      Label: windowWidth <= 800 ? "P.P.S." : "Price / Performance Score",
+      Label: windowWidth <= 767 ? "Score" : "Price / Performance Score",
       Key: "pricePerformanceRatio",
       TooltipText:
-        windowWidth <= 800
-          ? "Price / Performance Score (Higher is better)"
+        windowWidth <= 767
+          ? "Price/Performance Score (Higher is better)"
           : "Higher is better",
-      TooltipPlacement: windowWidth <= 800 ? "left" : "",
+      TooltipPlacement: windowWidth <= 767 ? "left" : "",
     },
   ];
 
@@ -249,14 +249,14 @@ export default function CpuListingsTable({
                       : headID === 1 || headID === 2
                       ? "table-head listing-table-head"
                       : headID === tableHeading.length - 1
-                      ? "table-head listing-table-head listing-table-head-last"
+                      ? "table-head listing-table-head listing-table-head-last listing-table-head-last-cpu"
                       : "table-head listing-table-head"
                     : headID === 0
                     ? "display-none"
                     : headID === 1
                     ? "table-head listing-table-head listing-table-head-first"
                     : headID === tableHeading.length - 1
-                    ? "table-head listing-table-head listing-table-head-last"
+                    ? "table-head listing-table-head listing-table-head-last listing-table-head-last-cpu"
                     : "table-head listing-table-head"
                 }
               >

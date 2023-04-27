@@ -422,11 +422,13 @@ h4 {
 
 .arrow-right-side {
   margin-left: -4px;
+  margin-top: -2px;
   position: absolute;
 }
 
 .arrow-left-side {
   margin-left: -29px;
+  margin-top: -2px;
   position: absolute;
 }
 
@@ -793,12 +795,11 @@ h3.information-header {
 
 .listing-table-head-last {
   border-top-right-radius: 10px;
-  padding-right: 25px;
 }
 
-@media (max-width: 768px) {
-  .listing-table-head-last {
-    padding-right: 12px !important;
+@media (min-width: 1316px) {
+  .listing-table-head-last-cpu {
+    padding-right: 25px !important;
   }
 }
 
