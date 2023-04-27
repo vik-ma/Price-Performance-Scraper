@@ -246,8 +246,6 @@ export default function CpuListingsTable({
                   windowWidth > 500
                     ? headID === 0
                       ? "table-head listing-table-head listing-table-head-first"
-                      : headID === 1 || headID === 2
-                      ? "table-head listing-table-head"
                       : headID === tableHeading.length - 1
                       ? "table-head listing-table-head listing-table-head-last listing-table-head-last-cpu"
                       : "table-head listing-table-head"
@@ -357,8 +355,8 @@ export default function CpuListingsTable({
                     </td>
                   )}
                   <td>
-                    {windowWidth <= 500 && (
-                      <strong>
+                    {windowWidth <= 500 ? (
+                      <>
                         <div
                           className={
                             colorCodingEnabled
@@ -366,24 +364,28 @@ export default function CpuListingsTable({
                               : "model-shortened-cpu"
                           }
                         >
-                          {listing.productCategory
-                            .split(" ")
-                            .slice(2)
-                            .join(" ")}
+                          <strong
+                            className="model-tooltip"
+                            data-tooltip={listing.productCategory}
+                          >
+                            {listing.productCategory.split(" ").slice(-1)}
+                          </strong>
                         </div>
-                      </strong>
+                        <div
+                          className={`text-color-tier-${tierNum} benchmark-value-shortened-cpu text-centered`}
+                        >
+                          <strong data-tooltip={`Tier ${tierNum}`}>
+                            {listing.benchmarkValue}
+                          </strong>
+                        </div>
+                      </>
+                    ) : (
+                      <div className={`text-color-tier-${tierNum}`}>
+                        <strong data-tooltip={`Tier ${tierNum}`}>
+                          {listing.benchmarkValue}
+                        </strong>
+                      </div>
                     )}
-                    <div
-                      className={
-                        windowWidth <= 500
-                          ? `text-color-tier-${tierNum} benchmark-value-shortened-cpu text-centered`
-                          : `text-color-tier-${tierNum}`
-                      }
-                    >
-                      <strong data-tooltip={`Tier ${tierNum}`}>
-                        {listing.benchmarkValue}
-                      </strong>
-                    </div>
                   </td>
                   <td className="nowrap price-cell">
                     <strong>{listing.price} kr</strong>

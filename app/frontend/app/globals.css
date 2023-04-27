@@ -937,7 +937,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .model-shortened-cpu {
-  margin-bottom: 1px;
+  margin-bottom: 0px;
   white-space: nowrap;
   text-align: center;
 }
@@ -1406,4 +1406,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .display-none {
   display: none;
+}
+
+.model-tooltip:hover:before {
+  text-shadow: none;
 }

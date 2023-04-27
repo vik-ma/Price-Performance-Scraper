@@ -247,7 +247,7 @@ export default function GpuListingsTable({
                   windowWidth > 991
                     ? headID === 0
                       ? "table-head listing-table-head listing-table-head-first"
-                      : headID === 1 || headID === 2
+                      : headID === 3 || headID === 4 || headID === 5
                       ? "table-head listing-table-head"
                       : headID === tableHeading.length - 1
                       ? "table-head listing-table-head listing-table-head-last"
@@ -258,8 +258,6 @@ export default function GpuListingsTable({
                     ? "table-head listing-table-head listing-table-head-first"
                     : headID === 2 && windowWidth <= 500
                     ? "display-none"
-                    : headID === 2
-                    ? "table-head listing-table-head"
                     : headID === tableHeading.length - 1
                     ? "table-head listing-table-head listing-table-head-last"
                     : "table-head listing-table-head"
@@ -352,22 +350,27 @@ export default function GpuListingsTable({
                     </td>
                   )}
                   <td className="nowrap">
-                    <strong>
-                      <div
-                        className={
-                          colorCodingEnabled
-                            ? `model-background model-gradient-${colorNum}`
-                            : "text-centered"
-                        }
-                      >
-                        {windowWidth <= 500
-                          ? listing.productCategory
-                              .split(" ")
-                              .slice(2)
-                              .join(" ")
-                          : listing.productCategory}
-                      </div>
-                    </strong>
+                    <div
+                      className={
+                        colorCodingEnabled
+                          ? `model-background model-gradient-${colorNum}`
+                          : "text-centered"
+                      }
+                    >
+                      {windowWidth <= 500 ? (
+                        <strong
+                          className="model-tooltip"
+                          data-tooltip={listing.productCategory}
+                        >
+                          {listing.productCategory
+                            .split(" ")
+                            .slice(2)
+                            .join(" ")}
+                        </strong>
+                      ) : (
+                        <strong>{listing.productCategory}</strong>
+                      )}
+                    </div>
                     {windowWidth <= 500 && (
                       <div className="text-centered benchmark-value-shortened-gpu">
                         <strong
