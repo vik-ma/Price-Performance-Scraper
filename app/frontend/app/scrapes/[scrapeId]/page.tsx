@@ -104,7 +104,9 @@ export default async function FetchPage({
             ? "CPU (Multi-threaded Performance)"
             : gqlCompletedFetchData.benchmarkType}
         </h1>
-        <h2 className="scrape-title-h2">{gqlCompletedFetchData.productList}</h2>
+        <h2 className="scrape-title-product-list">
+          {gqlCompletedFetchData.productList}
+        </h2>
         <h3 className="scrape-timestamp">{formattedTimestamp}</h3>
         {gqlCompletedFetchData.benchmarkType === "GPU" ? (
           <GpuListingsTable

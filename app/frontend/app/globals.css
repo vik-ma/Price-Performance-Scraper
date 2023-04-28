@@ -207,6 +207,45 @@ h4 {
   }
 }
 
+/* Generic styling for list with no dots for unordered lists */
+.no-dot-list {
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Generic styling for individual item in list with no dots */
+.no-dot-list-item {
+  list-style-type: none !important;
+  margin: 0;
+  padding: 0;
+  margin-top: 6px;
+}
+
+/* H1 title for every page except Home */
+.page-title {
+  background: -webkit-linear-gradient(#285aff, #8fd2ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* H1 title for Home page */
+.home-title {
+  background: linear-gradient(to bottom right, #3978ff, #8ad4ff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0px !important;
+}
+
+/* Text for Home page <p> tags */
+.home-text {
+  padding: 2px;
+  font-size: larger;
+  color: rgb(247, 247, 247);
+}
+
 /* Container for sidebar to show past scrapes for Completed Scrapes pages for larger screens */
 .sidebar {
   width: 170px;
@@ -264,6 +303,13 @@ h4 {
   text-decoration: none !important;
 }
 
+/* Container for list of all Completed Scrapes in sidebar */
+.sidebar-fetch-items {
+  padding: 1px 10px;
+  padding-bottom: 8px;
+  background: linear-gradient(to right, #262626, #181818);
+}
+
 /* Wrapper for all content in Completed Scrapes pages except for h1 title */
 .scrape-content-wrapper {
   margin-top: 15px;
@@ -275,58 +321,17 @@ h4 {
   position: relative;
 }
 
-/* Generic styling for list with no dots for unordered lists */
-.no-dot-list {
-  list-style-type: none !important;
-  margin: 0;
-  padding: 0;
-}
-
-/* Generic styling for individual item in list with no dots */
-.no-dot-list-item {
-  list-style-type: none !important;
-  margin: 0;
-  padding: 0;
-  margin-top: 6px;
-}
-
-/* List for Tutorial on Start New Price Scrape page */
-.tutorial-list {
-  color: rgb(223, 223, 223);
-}
-
-/* H1 title for every page except Home */
-.page-title {
-  background: -webkit-linear-gradient(#285aff, #8fd2ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* H1 title for Home page */
-.home-title {
-  background: linear-gradient(to bottom right, #3978ff, #8ad4ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 0px !important;
-}
-
-/* Text for Home page <p> tags */
-.home-text {
-  padding: 2px;
-  font-size: larger;
-  color: rgb(247, 247, 247);
-}
-
+/* List of all Completed Scrapes in /scrapes page root*/
 .full-scrape-list {
   margin-top: 14px;
 }
 
+/* Link container for item in full-scrape-list */
 .full-scrape-link {
   text-decoration: none !important;
 }
 
+/* Individual item in full-scrape-list */
 .full-scrape-list-item {
   background-color: var(--dark-bg-color);
   background: linear-gradient(to bottom right, #242424, #181818);
@@ -343,6 +348,7 @@ h4 {
   transition: 0.2s;
 }
 
+/* Text for item in full-scrape-list */
 .full-scrape-list-item-text {
   padding: 3px 10px 5px;
 }
@@ -351,59 +357,65 @@ h4 {
   color:white;
 }
 
+/* Timestamp text for item in full-scrape-list */
 .full-scrape-list-item-timestamp {
   color:rgb(170, 170, 170);
 }
 
+/* Text to show amount of products for item in full-scrape-list */
 .full-scrape-list-title-product {
   color:rgb(240, 240, 240);
 }
 
-.sidebar-fetch-items {
-  padding: 1px 10px;
-  padding-bottom: 8px;
-  background: linear-gradient(to right, #262626, #181818);
-}
-
+/* Text color for GPU scrapes */
 .color-text-gpu {
   color: var(--gpu-color);
 }
 
+/* Text color for CPU-Gaming scrapes */
 .color-text-cpu-g {
   color: var(--cpu-g-color);
 }
 
+/* Text color for CPU-Normal (Multithread) scrapes */
 .color-text-cpu-n {
   color:var(--cpu-n-color);
 }
 
+/* Border color for GPU scrape full-scrape-list-item */
 .color-border-gpu {
   border: 2px solid var(--gpu-color);
   box-shadow: 0px 0px 4px var(--gpu-color);
 }
 
+/* Border color for CPU-Gaming scrape full-scrape-list-item */
 .color-border-cpu-g {
   border: 2px solid var(--cpu-g-color);
   box-shadow: 0px 0px 4px var(--cpu-g-color);
 }
 
+/* Border color for CPU-Normal (Multithread) scrape full-scrape-list-item */
 .color-border-cpu-n {
   border: 2px solid var(--cpu-n-color);
   box-shadow: 0px 0px 4px var(--cpu-n-color);
 }
 
+/* Color for GPU scrape type titles in Completed Scrapes */
 .title-text-gpu {
   background: -webkit-linear-gradient(#04c41d, #d0ffb0);
 }
 
+/* Color for CPU-Gaming scrape type titles in Completed Scrapes */
 .title-text-cpu-g {
   background: -webkit-linear-gradient(#b4b650, #f6ffc1);
 }
 
+/* Color for CPU-Normal (Multithread) scrape type titles in Completed Scrapes */
 .title-text-cpu-n {
   background: -webkit-linear-gradient(#db4610, #ff9354);
 }
 
+/* Media query to remove sidebar for smaller screens */
 @media (max-width: 1315px) {
   .sidebar {
     display: none;
@@ -416,10 +428,12 @@ h4 {
   }
 }
 
+/* H1 title at the top of Completed Scrapes pages */
 .completed-scrapes-title {
   margin-bottom: 0px !important;
 }
 
+/* Title for Completed Scrape type */
 .scrape-title {
   margin-top: -10px;
   margin-bottom: 0 !important;
@@ -429,15 +443,22 @@ h4 {
   line-height: 140%;
 }
 
-.scrape-title-h2 {
+/* Title showing list of products in Completed Scrape */
+.scrape-title-product-list {
   margin-bottom: 10px !important;
   line-height: 100%;
 }
 
+/* Title showing timestamp of when Completed Scrape was made */
 .scrape-timestamp {
   margin-bottom: 13px !important;
   color:rgb(104, 170, 255);
   line-height: 100%;
+}
+
+/* List for Tutorial on Start New Price Scrape page */
+.tutorial-list {
+  color: rgb(223, 223, 223);
 }
 
 .external-link {
