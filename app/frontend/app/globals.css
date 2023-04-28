@@ -246,11 +246,11 @@
 }
 
 
-.fetch-content-wrapper {
+.scrape-content-wrapper {
   margin-top: 15px;
 }
 
-.fetch-content {
+.scrape-content {
   margin-left: 190px;
   position: relative;
 }
@@ -401,7 +401,7 @@ h4 {
   .sidebar {
     display: none;
   }
-  .fetch-content {
+  .scrape-content {
     margin-left: 0;
   }
   .listing-table-head {
@@ -852,7 +852,7 @@ h3.information-header {
   border-top-right-radius: 10px;
 }
 
-@media (min-width: 1316px) {
+@media (min-width: 992px) {
   .listing-table-head-last-cpu {
     padding-right: 25px !important;
   }

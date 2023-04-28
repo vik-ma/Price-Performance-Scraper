@@ -88,7 +88,7 @@ export default async function FetchPage({
             : "GPU"
         } - ${formattedTimestamp}`}
       </title>
-      <div className="fetch-content">
+      <div className="scrape-content">
         <h1
           className={`scrape-title ${
             gqlCompletedFetchData.benchmarkType === "GPU"

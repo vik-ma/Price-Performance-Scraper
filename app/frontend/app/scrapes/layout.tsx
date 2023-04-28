@@ -35,7 +35,7 @@ export default function RootLayout({
         {/* @ts-ignore */}
         <ScrapesList />
       </div>
-      <div className="fetch-content-wrapper">{children}</div>
+      <div className="scrape-content-wrapper">{children}</div>
     </>
   );
 }

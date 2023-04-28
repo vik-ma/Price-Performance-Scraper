@@ -44,7 +44,7 @@ export default async function Fetches() {
 
   return (
     <>
-      <div className="fetch-content">
+      <div className="scrape-content">
         <Suspense fallback={<article aria-busy="true"></article>}>
           <ul className="full-fetch-list no-dot-list">
             {gqlData
