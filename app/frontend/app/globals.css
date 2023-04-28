@@ -725,7 +725,7 @@ h4 {
   margin-left: 24px;
 }
 
-@media (max-width: 62em){
+@media (max-width: 991px){
   .tutorial-tab {
     margin-left: 0;
   }
@@ -918,7 +918,7 @@ input[type="checkbox"]:checked {
   word-break: normal;
 }
 
-@media (max-width: 50em){
+@media (max-width: 800px){
   .nowrap {
     white-space: normal;
   }
