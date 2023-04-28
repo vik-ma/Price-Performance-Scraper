@@ -9,11 +9,13 @@
   --cpu-n-color: 	#ff7f50;
 }
 
+/* Header for not-found page errors */
 #error-header {
   position: absolute;
   top: 20%;
 }
 
+/* Main website container */
 .container {
   padding-top: 0;
 }
@@ -25,12 +27,14 @@
   }
 }
 
+/* Horizontally centered container */
 .centered-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+/* Container for Navigation Bar */
 .navbar-container {
   position: sticky;
   top: 0;
@@ -44,12 +48,14 @@
   background: linear-gradient(to bottom, rgb(26, 26, 26) 80%, rgb(36, 36, 36) 100%);
 }
 
+/* Wrapper for items in Navigation Bar */
 .nav-items-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
+/* Individual item in Navigation Bar */
 .nav-item {
   color: rgb(245, 245, 245);
   border-radius: 1px;
@@ -60,10 +66,12 @@
   background-color: rgb(73, 73, 73);
 }
 
+/* SVG Home Icon in Navigation Bar */
 #home-icon {
   padding: 10px 15px 1px;
 }
 
+/* Hamburger menu button (SVG) in Navigation Bar for smaller screens */
 .nav-item-menu {
   all: initial;
   margin: 0;
@@ -76,21 +84,25 @@
   background-color: var(--primary-focus);
 }
 
+/* Wrapper for all items in Navigation Bar only visible for smaller screens */
 .nav-small-wrapper {
   display: none;
   padding-right: 0px;
 }
 
+/* Start Price Scrape text in Navigation Bar */
 .nav-item-start {
   color:#9dff70;
   font-weight: bold;
   white-space: nowrap;
 }
 
+/* Start Price Scrape text in Navigation Bar for smaller screens */
 .nav-item-start-small {
   margin-right: 10px;
 }
 
+/* Drop down animation for hamburger menu in Navigation Bar */
 @keyframes drop-down {
   from {
     transform: translateY(-50%) scaleY(0);
@@ -101,6 +113,7 @@
   }
 }
 
+/* Wrapper for hamburger menu content in Navigation Bar */
 .nav-full-menu-wrapper {
   position: absolute;
   background-color: rgb(24, 24, 24);
@@ -112,11 +125,13 @@
   animation: drop-down 0.25s;
 }
 
+/* List for all items in Navigation Bar hamburger menu */
 .nav-full-menu {
   display: flow-root;
   margin: 0 !important;
 }
 
+/* Container for individual item in Navigation Bar hamburger menu */
 .nav-full-menu-item {
   display: block;
   margin: 0 !important;
@@ -136,14 +151,19 @@
   background: linear-gradient(to bottom right, rgb(75, 75, 75) 40%, rgb(99, 99, 99) 100%);
 }
 
+/* Text for individual item in Navigation Bar hamburger menu */
 .nav-full-menu-list-item {
   padding: 0;
 }
 
+/* Media query to change which items are shown in Navigation Bar for smaller screens */
 @media (max-width: 1200px) {
+  /* Hides the items in Navigation Bar seen on larger screens */
   .nav-item-extended {
     display: none;
   }
+
+  /* Shows the hamburger menu instead */
   .nav-item-menu {
     display: flex;
     justify-content: space-between;
@@ -168,6 +188,7 @@
   }
 }
 
+/* Container for sidebar to show past scrapes for Completed Scrapes pages for larger screens */
 .sidebar {
   width: 170px;
   position: absolute;
@@ -179,10 +200,12 @@
   margin-top: 15px;
 }
 
+/* Disable scrollbar for sidebar */
 .sidebar::-webkit-scrollbar {
   display: none;
 }
 
+/* Title for Past Scrapes text in sidebar container */
 .sidebar-title {
   margin: 0 auto;
   text-align: center;
@@ -191,11 +214,13 @@
   font-size: 24px;
 }
 
+/* Container for Past Scrapes title and button in sidebar container */
 .sidebar-title-container {
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   border-bottom: 2px solid rgb(226, 226, 226);
 }
 
+/* Button to show full list of Completed Scrapes in sidebar container */
 .sidebar-full-list-button {
   margin: 10px;
   padding: 2px 10px 4px;
@@ -215,9 +240,11 @@
   box-shadow: 0px 0px 8px 2px #2b2b2b;
 }
 
+/* Link container for sidebar-full-list-button */
 .sidebar-link {
   text-decoration: none !important;
 }
+
 
 .fetch-content-wrapper {
   margin-top: 15px;
