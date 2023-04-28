@@ -46,7 +46,7 @@ export default async function Fetches() {
     <>
       <div className="scrape-content">
         <Suspense fallback={<article aria-busy="true"></article>}>
-          <ul className="full-fetch-list no-dot-list">
+          <ul className="full-scrape-list no-dot-list">
             {gqlData
               ?.slice(0)
               .reverse()
@@ -59,26 +59,26 @@ export default async function Fetches() {
                   scrape.productList.split(",").length;
                 return (
                   <li
-                    className={`full-fetch-list-item ${scrapeTypeMap[scrapeType].cssNameBorder} no-dot-list-item`}
+                    className={`full-scrape-list-item ${scrapeTypeMap[scrapeType].cssNameBorder} no-dot-list-item`}
                     key={scrape.timestampId}
                   >
                     <Link
-                      className="full-fetch-link"
+                      className="full-scrape-link"
                       href={`/scrapes/${scrape.timestampId}`}
                     >
-                      <p className="full-fetch-list-item-text">
+                      <p className="full-scrape-list-item-text">
                         <strong
                           className={scrapeTypeMap[scrapeType].cssNameText}
                         >
                           {scrapeTypeMap[scrapeType].title}{" "}
                         </strong>
-                        <strong className="full-fetch-list-title-product">
+                        <strong className="full-scrape-list-title-product">
                           - {numProducts} Product{numProducts > 1 && "s"}
                         </strong>
                         <br />
                         {scrape.productList}
                         <br />
-                        <small className="full-fetch-list-item-timestamp">
+                        <small className="full-scrape-list-item-timestamp">
                           {scrape.timestamp.substring(0, 19).replace("T", " ")}
                         </small>
                       </p>

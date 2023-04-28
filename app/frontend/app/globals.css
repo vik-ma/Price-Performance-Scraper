@@ -319,23 +319,22 @@ h4 {
   color: rgb(247, 247, 247);
 }
 
-
-.full-fetch-list {
+.full-scrape-list {
   margin-top: 14px;
 }
 
-.full-fetch-link {
+.full-scrape-link {
   text-decoration: none !important;
 }
 
-.full-fetch-list-item {
+.full-scrape-list-item {
   background-color: var(--dark-bg-color);
   background: linear-gradient(to bottom right, #242424, #181818);
   border-radius: 10px;
   margin-bottom: 11px;
 }
 
-.full-fetch-list-item:hover {
+.full-scrape-list-item:hover {
   background: none;
   background-color: rgb(54, 54, 54);
   text-decoration: none !important;
@@ -344,19 +343,19 @@ h4 {
   transition: 0.2s;
 }
 
-.full-fetch-list-item-text {
+.full-scrape-list-item-text {
   padding: 3px 10px 5px;
 }
 
-.full-fetch-list-item-text:hover {
+.full-scrape-list-item-text:hover {
   color:white;
 }
 
-.full-fetch-list-item-timestamp {
+.full-scrape-list-item-timestamp {
   color:rgb(170, 170, 170);
 }
 
-.full-fetch-list-title-product {
+.full-scrape-list-title-product {
   color:rgb(240, 240, 240);
 }
 
