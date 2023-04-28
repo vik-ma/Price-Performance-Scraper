@@ -139,9 +139,9 @@ export default function GpuListingsTable({
   const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
 
   useEffect(() => {
+    setWindowWidth(window.innerWidth);
     setTimeout(() => {
       window.scrollTo(0, 0);
-      setWindowWidth(window.innerWidth);
     }, 0);
   }, []);
 
