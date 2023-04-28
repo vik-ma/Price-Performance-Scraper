@@ -1018,7 +1018,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   display: inline-block;
   width: fit-content;
   height: fit-content;
-  padding: 0px 17px 4px;
+  padding: 0px 17px 3px;
   border: 2px solid rgba(233, 233, 233, 0.781);
   border-radius: 12px;
   font-size: larger;
@@ -1150,9 +1150,9 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-left: 3px;
 }
 
-@media (max-width: 33.5em) {
+@media (max-width: 512px) {
   .selected-products-type {
-    margin-top: 0px;
+    margin-top: 2px;
   }
 }
 
