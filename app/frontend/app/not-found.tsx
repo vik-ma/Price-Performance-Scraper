@@ -1,5 +1,6 @@
 import React from "react";
 
+// Needs the page.tsx in app/[...not_found] to function correctly
 export default function NotFound() {
   return (
     <>

@@ -7,6 +7,8 @@ import {
   useState,
 } from "react";
 
+// useContext for start_scrape/page.tsx and start_scrape/ScrapeCreator.tsx components
+
 interface ScrapeContextProps {
   loadingScrape: boolean;
   setLoadingScrape: Dispatch<SetStateAction<boolean>>;

@@ -588,13 +588,13 @@ table[role=grid] tbody tr:nth-child(odd) {
 @media (max-width: 1200px) {
   .arrow-right-side {
     margin-top: -1px;
+    margin-left: -5px;
   }
 }
 
 @media (max-width: 991px) {
   .arrow-right-side {
     margin-top: -2px;
-    margin-left: -5px;
   }
 }
 
