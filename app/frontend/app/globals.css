@@ -69,12 +69,12 @@ input[type="checkbox"]:checked {
   position: sticky;
   top: 0;
   z-index: 2;
-  background-color: rgb(24, 24, 24);
   padding: 10px;
   justify-content: center;
   height: max-content;
   border-bottom: 1px solid rgba(223, 223, 223, 0.2);
   box-shadow: 0 5px 10px rgb(28, 28, 28);
+  background-color: rgb(26, 26, 26);
   background: linear-gradient(to bottom, rgb(26, 26, 26) 80%, rgb(36, 36, 36) 100%);
 }
 
@@ -173,6 +173,7 @@ input[type="checkbox"]:checked {
   border-radius: 0;
   border-bottom: 1px solid rgb(59, 59, 59);
   transition-duration: 0.15s;
+  background-color: rgb(26, 26, 26);
   background: linear-gradient(to bottom right, rgb(26, 26, 26) 40%, rgb(39, 39, 39) 100%);
 }
 
@@ -235,6 +236,7 @@ input[type="checkbox"]:checked {
 
 /* <h1> title for every page except Home */
 .page-title {
+  background-color: #3978ff;
   background: -webkit-linear-gradient(#285aff, #8fd2ff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -243,6 +245,7 @@ input[type="checkbox"]:checked {
 
 /* <h1> title for Home page */
 .home-title {
+  background-color: #3978ff;
   background: linear-gradient(to bottom right, #3978ff, #8ad4ff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -285,6 +288,7 @@ input[type="checkbox"]:checked {
 
 /* Container for Past Scrapes title and button in sidebar container */
 .sidebar-title-container {
+  background-color: rgb(3, 151, 232);
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   border-bottom: 2px solid rgb(226, 226, 226);
 }
@@ -318,6 +322,7 @@ input[type="checkbox"]:checked {
 .sidebar-fetch-items {
   padding: 1px 10px;
   padding-bottom: 8px;
+  background-color: var(--dark-bg-color);
   background: linear-gradient(to right, #262626, #181818);
 }
 
@@ -413,16 +418,19 @@ input[type="checkbox"]:checked {
 
 /* Color for GPU scrape type titles in Completed Scrapes */
 .title-text-gpu {
+  background-color: var(--gpu-color);
   background: -webkit-linear-gradient(#04c41d, #d0ffb0);
 }
 
 /* Color for CPU-Gaming scrape type titles in Completed Scrapes */
 .title-text-cpu-g {
+  background-color: var(--cpu-g-color);
   background: -webkit-linear-gradient(#b4b650, #f6ffc1);
 }
 
 /* Color for CPU-Normal (Multithread) scrape type titles in Completed Scrapes */
 .title-text-cpu-n {
+  background-color: var(--cpu-n-color);
   background: -webkit-linear-gradient(#db4610, #ff9354);
 }
 
@@ -444,6 +452,7 @@ input[type="checkbox"]:checked {
   display: flex;
   margin-left: auto;
   margin-top: 15px;
+  background-color: rgb(3, 151, 232);
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   padding-top: 1px !important;
 }
@@ -508,6 +517,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   padding-top: 4px;
   padding-bottom: 14px;
   padding-right: 15px;
+  background-color: #1b1b1f;
   background: linear-gradient(to bottom, #262626, #181818);
   color: rgb(250, 250, 250);
 }
@@ -766,51 +776,61 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 /* Color gradient backgrounds for different models in Completed Scrape Product List */
 .model-gradient-0 {
+  background-color: rgb(82, 157, 255);;
   background: linear-gradient(to bottom right, #1722c0, #69bcf3);
   border: 2px solid rgb(36, 131, 255);
 }
 
 .model-gradient-1 {
+  background-color: rgb(175, 104, 255);
   background: linear-gradient(to bottom right, #300888, #7f35c4);
   border: 2px solid rgb(147, 52, 255);
 }
 
 .model-gradient-2 {
+  background-color: rgb(223, 62, 62);
   background: linear-gradient(to bottom right, #7c011a, #f23a43);
   border: 2px solid rgb(250, 22, 22);
 }
 
 .model-gradient-3 {
+  background-color: rgb(160, 136, 100);
   background: linear-gradient(to bottom right, #3f220a, #fcdba9);
   border: 2px solid rgb(146, 102, 36);
 }
 
 .model-gradient-4 {
+  background-color: rgb(88, 216, 84);
   background: linear-gradient(to bottom right, #1a5c06, #3abb3e);
   border: 2px solid rgb(79, 230, 112);
 }
 
 .model-gradient-5 {
+  background-color: rgb(255, 149, 28);
   background: linear-gradient(to bottom right, #a03b00, #ffb108);
   border: 2px solid rgb(255, 136, 0);
 }
 
 .model-gradient-6 {
+  background-color: rgb(255, 253, 140);
   background: linear-gradient(to bottom right, #7c792a, #F7F477);
   border: 2px solid rgb(255, 253, 109);
 }
 
 .model-gradient-7 {
+  background-color: rgb(124, 232, 247);
   background: linear-gradient(to bottom right, #1aabee, #dcfdff);
   border: 2px solid rgb(96, 231, 255);
 }
 
 .model-gradient-8 {
+  background-color: rgb(228, 124, 238);
   background: linear-gradient(to bottom right, #942cc4, #d89af1);
   border: 2px solid rgb(246, 142, 255);
 }
 
 .model-gradient-9 {
+  background-color: rgb(255, 122, 151);
   background: linear-gradient(to bottom right, #e71968, #ffa9ad);
   border: 2px solid rgb(255, 124, 153);
 }
@@ -1011,6 +1031,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 /* Currently active tab for Benchmark Table */
 .benchmark-table-active-tabs {
+  background-color: #045DE9;
   background: linear-gradient(to bottom, #045DE9, #09C6F9) !important;
   color:white;
 }
@@ -1148,6 +1169,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   position: sticky;
   margin-top: 18px;
   top: 56px;
+  background-color: #045DE9;
   background: linear-gradient(to bottom right, #70c6ff, #1a43b4);
   padding: 2px;
   box-shadow: 0px 0px 10px 2px rgba(91, 167, 255, 0.600);
@@ -1197,6 +1219,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 /* Button inside selected-products-container to Start Price Scraping */
 .start-button {
   display: inline-block;
+  background-color: #045DE9;
   background: linear-gradient(to bottom, #045DE9, #09C6F9);
   max-width: 300px;
   padding: 1px 5px 5px;
@@ -1430,6 +1453,7 @@ h3.information-header {
 
 /* Color gradients for different sections on Information page */
 .information-intro {
+  background-color: #0fc02c;
   background: -webkit-linear-gradient(#0fc02c, #abff96);
   background-clip: text;
   -webkit-background-clip: text;
@@ -1437,6 +1461,7 @@ h3.information-header {
 }
 
 .information-scrapes {
+  background-color: #ddb32a;
   background: -webkit-linear-gradient(#ddb32a, #ffefa6);
   background-clip: text;
   -webkit-background-clip: text;
@@ -1444,6 +1469,7 @@ h3.information-header {
 }
 
 .information-benchmarks {
+  background-color: #d31e27;
   background: -webkit-linear-gradient(#d31e27, #ff6a6a);
   background-clip: text;
   -webkit-background-clip: text;
@@ -1451,6 +1477,7 @@ h3.information-header {
 }
 
 .information-mct {
+  background-color: #6c53fc;
   background: -webkit-linear-gradient(#6c53fc, #b7aaff);
   background-clip: text;
   -webkit-background-clip: text;
@@ -1566,6 +1593,7 @@ h3.information-header {
 .calculate-button {
   margin-top: 10px;
   margin-left: 3px;
+  background-color: #1d29cc;
   background: linear-gradient(to top, #1c249b, #69c7f3);
   font-size: xx-large;
 }
@@ -1591,17 +1619,21 @@ h3.information-header {
 }
 
 .mct-button-home {
+  background-color: rgb(110, 33, 235);
   background: linear-gradient(to bottom, rgb(110, 33, 235), #bb87ff);
 }
 
 .benchmarks-button-home {
+  background-color: #e21721;
   background: linear-gradient(to bottom, #e21721, #ff7663);
 }
 
 .scrapes-button-home {
+  background-color: #a37e06;
   background: linear-gradient(to bottom, #795d04, #fabc49);
 }
 
 .info-button-home {
+  background-color: #00af00;
   background: linear-gradient(to bottom, #038b03, #8eda2c);
 }
