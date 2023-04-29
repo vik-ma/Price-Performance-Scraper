@@ -219,6 +219,10 @@ input[type="checkbox"]:checked {
   }
 }
 
+.asd {
+  color:#00df6f;
+}
+
 /* Generic styling for list with no dots for unordered lists */
 .no-dot-list {
   list-style-type: none !important;
@@ -569,15 +573,29 @@ table[role=grid] tbody tr:nth-child(odd) {
 /* Arrow (SVG) on the right side of column heading in listing-table to indicate which column is sorted */
 .arrow-right-side {
   margin-left: -4px;
-  margin-top: -2px;
+  margin-top: 0px;
   position: absolute;
 }
 
 /* Arrow (SVG) on the left side of column heading in listing-table to indicate which column is sorted */
 .arrow-left-side {
   margin-left: -29px;
-  margin-top: -2px;
+  margin-top: -3px;
   position: absolute;
+}
+
+/* Media queries to adjust positioning of arrow-right-side on smaller screens */
+@media (max-width: 1200px) {
+  .arrow-right-side {
+    margin-top: -1px;
+  }
+}
+
+@media (max-width: 991px) {
+  .arrow-right-side {
+    margin-top: -2px;
+    margin-left: -5px;
+  }
 }
 
 /* Accordion button for <details> tag, mainly to toggle filters */
