@@ -13,7 +13,7 @@ export default function NavMenu() {
   const fullMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Hide hamburger menu items if mouse is clicked anywhere on the screen, 
+    // Hide hamburger menu items if mouse is clicked anywhere on the screen,
     // except for on the menu icon or on an item in the hamburger menu
     function handleClickOutside(event: MouseEvent): void {
       if (
@@ -32,6 +32,7 @@ export default function NavMenu() {
   });
 
   return (
+    // nav-small-wrapper and entire NavMenu component will only be shown on screens below 1200px width
     <div className="nav-small-wrapper">
       <Link
         className="nav-item nav-item-start nav-item-start-small"

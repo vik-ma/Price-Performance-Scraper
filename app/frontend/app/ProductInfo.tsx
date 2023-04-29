@@ -1,3 +1,4 @@
+// Information about every GPU and CPU model available in this app
 export const gpuInfo = {
   "GeForce RTX 4090": {
     tier: "1",
