@@ -233,7 +233,7 @@ input[type="checkbox"]:checked {
   margin-top: 6px;
 }
 
-/* H1 title for every page except Home */
+/* <h1> title for every page except Home */
 .page-title {
   background: -webkit-linear-gradient(#285aff, #8fd2ff);
   background-clip: text;
@@ -241,7 +241,7 @@ input[type="checkbox"]:checked {
   -webkit-text-fill-color: transparent;
 }
 
-/* H1 title for Home page */
+/* <h1> title for Home page */
 .home-title {
   background: linear-gradient(to bottom right, #3978ff, #8ad4ff);
   background-clip: text;
@@ -321,7 +321,7 @@ input[type="checkbox"]:checked {
   background: linear-gradient(to right, #262626, #181818);
 }
 
-/* Wrapper for all content in Completed Scrapes pages except for h1 title */
+/* Wrapper for all content in Completed Scrapes pages except for <h1> title */
 .scrape-content-wrapper {
   margin-top: 15px;
 }
@@ -462,7 +462,7 @@ input[type="checkbox"]:checked {
   align-items: center;
 }
 
-/* H1 title at the top of Completed Scrapes pages */
+/* <h1> title at the top of Completed Scrapes pages */
 .completed-scrapes-title {
   margin-bottom: 0px !important;
 }
@@ -544,6 +544,18 @@ table[role=grid] tbody tr:nth-child(odd) {
   }
 }
 
+/* Cells in the Price column for Completed Scrapes */
+.price-cell {
+  color:white;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Detailed Product Name for GPU Completed Scrapes */
+.gpu-product-text {
+  color: rgb(233, 233, 233);
+}
+
 /* Arrow (SVG) on the right side of column heading in listing-table to indicate which column is sorted */
 .arrow-right-side {
   margin-left: -4px;
@@ -604,9 +616,14 @@ table[role=grid] tbody tr:nth-child(odd) {
   color:rgb(230, 230, 230);
 }
 
-/* Text for checkbox labels inside Filter Products accirdion for Completed Scrapes */
+/* Text for checkbox labels inside Filter Products Models accordion for Completed Scrapes */
 .model-checkbox-label {
   display: inline-block;
+}
+
+/* Container for checkbox and label to toggle color coding in Benchmarks and Completed Scrapes pages */
+.color-toggle-container {
+  color: white;
 }
 
 /* Different colors to represent how good the Price/Performance Score (Ratio) is,
@@ -720,11 +737,34 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: rgb(100, 80, 89);
 }
 
-.model-tooltip:hover:before {
-  text-shadow: none;
+/* Base container for GPU and CPU models in Completed Scrapes without gradient or color added */
+.model-background {
+  border-radius: 20px;
+  padding: 2px 9px;
+  margin: -5px;
+  text-align: center;
+  color: white;
+  text-shadow:
+       0px 0px 1px rgb(26, 26, 26),
+     -1px -1px 1px rgb(26, 26, 26),  
+      1px -1px 1px rgb(26, 26, 26),
+      -1px 1px 1px rgb(26, 26, 26),
+       1px 1px 1px rgb(26, 26, 26);
 }
 
-/* Different  */
+/* Adjustment for shortened GPU names in model-background for smaller screens */
+.benchmark-value-shortened-gpu {
+  margin-top: 4px;
+}
+
+/* Adjustment for shortened CPU names in model-background for smaller screens */
+.model-shortened-cpu {
+  margin-bottom: 0px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Color gradient backgrounds for different models in Completed Scrape Product List */
 .model-gradient-0 {
   background: linear-gradient(to bottom right, #1722c0, #69bcf3);
   border: 2px solid rgb(36, 131, 255);
@@ -775,6 +815,8 @@ table[role=grid] tbody tr:nth-child(odd) {
   border: 2px solid rgb(255, 124, 153);
 }
 
+/* Text color for different models in Completed Scrape Product List,
+   used in Filter Product Models accordion */
 .model-text-color-0 {
   color: rgb(82, 157, 255);
 }
@@ -815,8 +857,13 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: rgb(255, 122, 151);
 }
 
+/* Model color for when color coding is disabled */
 .model-text-color-no-color {
   color: #dee2e6;
+}
+
+.model-tooltip:hover:before {
+  text-shadow: none;
 }
 
 /* Generic class to add nowrap */
@@ -842,6 +889,16 @@ table[role=grid] tbody tr:nth-child(odd) {
 /* Generic class to always add nowrap */
 .no-wrap-constant {
   white-space: nowrap;
+}
+
+/* Generic class to align text in center */
+.text-centered {
+  text-align: center;
+}
+
+/* Generic class for links to other pages on site */
+.internal-link-color {
+  color:rgb(47, 161, 255);
 }
 
 /* Generic class for links to external sites */
@@ -876,6 +933,28 @@ table[role=grid] tbody tr:nth-child(odd) {
 .table-head {
   color:#e1e6eb;
   padding-top: 0px;
+}
+
+/* Generic class for dark grey button with white border */
+.dark-button {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  padding: 0px 17px 3px;
+  border: 2px solid rgba(233, 233, 233, 0.781);
+  border-radius: 12px;
+  font-size: larger;
+  background-color: var(--dark-bg-color);
+  color:#ececec;
+  word-break: normal;
+  margin-bottom: 0;
+}
+
+.dark-button:hover {
+  background: rgba(128, 128, 128, 0.623);
+  background-color: rgba(160, 160, 170, 0.384);
+  color: white;
+  border: 2px solid white;
 }
 
 /* Wrapper for all tables on Benchmarks page */
@@ -961,14 +1040,42 @@ table[role=grid] tbody tr:nth-child(odd) {
   word-break: normal;
 }
 
+/* Table for Benchmark data */
+.benchmark-table {
+  margin: 0;
+  background-color: #1b1b1f;
+}
+
 .benchmark-table td {
   word-break: normal;
+}
+
+/* Text to show when benchmarks were last updated */
+.benchmark-timestamp {
+  padding: 5px 10px 15px;
+  color: rgb(225, 230, 235);
 }
 
 /* Wrapper for text below Benchmark Table on Benchmarks page */
 .benchmark-info-wrapper {
   padding: 10px;
   padding-top: 0px;
+}
+
+/* Text that lists the source of the Benchmark data */
+.benchmark-source-text {
+  color: rgb(225, 230, 235);
+}
+
+/* Heading for Disclaimers section on Benchmarks page */
+.benchmark-disclaimer-heading {
+  margin-top: 20px;
+}
+
+/* Container for checkbox and label to toggle color coding in Benchmarks Table */
+.benchmark-color-toggle-container {
+  margin-top: 12px;
+  color: rgb(225, 230, 235);
 }
 
 /* Colors for respective Benchmark Performance Tiers */
@@ -1000,110 +1107,156 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: #7B7D7D;
 }
 
-
-.tutorial-list {
-  word-break: normal;
-  padding-left: 0px;
-  color:#dfdfdf;
-  margin-bottom: 5px;
-}
-
+/* Accordion button for Show Tutorial on New Scrape page */
 .scrape-tutorial-button {
   margin-bottom: 0px !important;
 }
 
+/* Container for text inside Show Tutorial Accordion on New Scrape Page */
 .scrape-tutorial-text {
   margin: 0 5px;
 }
 
-
-/* List for Tutorial on Start New Price Scrape page */
+/* List inside Show Tutorial Accordion on Start New Price Scrape page */
 .tutorial-list {
+  word-break: normal;
+  padding-left: 0px;
   color: rgb(223, 223, 223);
+  margin-bottom: 5px;
 }
 
+/* Container for text with indented space inside inside Show Tutorial Accordion on Start New Price Scrape page  */
 .tutorial-tab {
   margin-left: 24px;
 }
 
+/* Media query to remove indented space for smaller screens */
 @media (max-width: 991px){
   .tutorial-tab {
     margin-left: 0;
   }
 }
 
-.information-header {
-  margin-bottom: 0px !important;
+/* Header for selecting Benchmark Type on New Scrape page */
+.new-scrape-benchmark-header {
+  margin-top: 5px;
+  margin-bottom: 3px !important; 
 }
 
-h2.information-header {
-  margin-top: 20px;
-}
-
-h3.information-header {
-  margin-top: 8px !important;
-}
-
-.information-intro {
-  background: -webkit-linear-gradient(#0fc02c, #abff96);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.information-scrapes {
-  background: -webkit-linear-gradient(#ddb32a, #ffefa6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.information-benchmarks {
-  background: -webkit-linear-gradient(#d31e27, #ff6a6a);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.information-mct {
-  background: -webkit-linear-gradient(#6c53fc, #b7aaff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.formula-container {
-  background-color: #252523;
-  width: fit-content;
-  padding: 2px 15px 7px;
+/* Multi-colored border around selected-products-container */
+.selected-products-border {
+  position: sticky;
+  margin-top: 18px;
+  top: 56px;
+  background: linear-gradient(to bottom right, #70c6ff, #1a43b4);
+  padding: 2px;
+  box-shadow: 0px 0px 10px 2px rgba(91, 167, 255, 0.600);
   border-radius: 10px;
-  color: rgb(243, 243, 243);
-  font-size: x-large;
-  margin-top: 7px;
-  margin-bottom: -7px;
+  margin-bottom: 15px;
+  z-index: 1;
 }
 
-@media (max-width: 420px) {
-  .formula-container {
-    font-size: large;
-    font-weight: 500;
-    padding-top: 3px;
-    padding-bottom: 4px;
+/* Container to show list of products selected for Price Scraping */
+.selected-products-container {
+  padding: 2px 15px 11px;
+  border-radius: 10px;
+  background: var(--dark-bg-color);
+}
+
+/* Main heading for selected-products-container */
+.selected-products-heading {
+  display: inline-block;
+  margin-bottom: 0 !important;
+  margin-right: 10px;
+}
+
+/* Text to show which Benchmark Type is selected inside selected-products-container */
+.selected-products-type {
+  margin-top: -7px;
+  font-size: medium;
+  color:rgb(74, 153, 255);
+  margin-bottom: 0px;
+}
+
+/* Media query to adjust selected-products-type positioning for smaller screens */
+@media (max-width: 512px) {
+  .selected-products-type {
+    margin-top: 2px;
   }
 }
 
-.information-text {
+/* Hint text inside selected-products-container for removing product from Selected Products list */
+.remove-product-hint {
+  font-size: small;
+  color:#cccccc;
+  margin-top: 0;
+  margin-bottom: 1px;
+  margin-left: 3px;
+}
+
+/* Button inside selected-products-container to Start Price Scraping */
+.start-button {
+  display: inline-block;
+  background: linear-gradient(to bottom, #045DE9, #09C6F9);
+  max-width: 300px;
+  padding: 1px 5px 5px;
+  font-size: xx-large;
+  word-break: normal;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  margin-right: 10px;
+}
+
+/* Button inside selected-products-container to clear all items in Selected Products list */
+.clear-items-button {
+  margin-bottom: 0px;
+}
+
+/* Base container for GPU and CPU models on New Scrape page without color gradients added */
+.product-selection {
+  border-radius: 25px;
+  height: fit-content;
+  padding: 3px 15px 4px;
   margin: 0;
-  padding-left: 2px;
-  color: rgb(220, 220, 220);
+  width: fit-content;
+  color: white;
+  text-shadow:
+      0px 0px 1px rgb(26, 26, 26),
+    -1px -1px 1px rgb(26, 26, 26),  
+    1px -1px 1px rgb(26, 26, 26),
+    -1px 1px 1px rgb(26, 26, 26),
+      1px 1px 1px rgb(26, 26, 26);
+  border: 2px solid white;
+  word-break: normal;
+  transition-duration: 0.1s;
 }
 
-.information-top-text {
-  font-size: x-large;
-  color: rgb(245, 245, 245);
+.product-selection:hover {
+  outline: 2px solid white;
+  box-shadow: 0px 0px 10px 4px white;
 }
 
+.product-selection:disabled {
+  opacity: 40%;
+}
 
+/* Container inside selected-products-container for items which has been selected */
+.selected-products-list {
+  display: flex;
+  flex-wrap: wrap;
+} 
+
+/* Individual item inside selected-products-list */
+.selected-products-list-item {
+  margin: 3px;
+  opacity: 100%;
+}
+
+.selected-products-list-item:hover {
+  opacity: 40%;
+}
+
+/* Different background colors for product-selection item's respective Benchmark Tier */
 .background-color-tier-1 {
   background-color: #2ECC71;
   background: linear-gradient(to bottom right, #005e00, #1dff3b);
@@ -1139,115 +1292,77 @@ h3.information-header {
   background: linear-gradient(to bottom right, #2b2b2b, #979797);
 }
 
-.filter-button-products {
-  margin: 5px 0 2px !important;
-}
-
-.new-scrape-benchmark-header {
-  margin-top: 5px;
-  margin-bottom: 3px !important; 
-}
-
-.model-background {
-  border-radius: 20px;
-  padding: 2px 9px;
-  margin: -5px;
-  text-align: center;
-  color: white;
-  text-shadow:
-       0px 0px 1px rgb(26, 26, 26),
-     -1px -1px 1px rgb(26, 26, 26),  
-      1px -1px 1px rgb(26, 26, 26),
-      -1px 1px 1px rgb(26, 26, 26),
-       1px 1px 1px rgb(26, 26, 26);
-}
-
-.text-centered {
-  text-align: center;
-}
-
-.benchmark-value-shortened-gpu {
-  margin-top: 4px;
-}
-
-.model-shortened-cpu {
-  margin-bottom: 0px;
-  white-space: nowrap;
-  text-align: center;
-}
-
+/* Container to list all available products to be selected for Benchmark Type in New Scrape page */
 .tiers-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, auto);
   grid-auto-rows: auto;
-
 }
 
+/* Container for specific Benchmark Tier in tiers-container */
 .tiers-item {
   padding: 0 10px 10px;
 }
 
+/* Heading for tiers-item container */
 .tiers-title {
   margin-bottom: -5px !important;
   margin-left: 5px;
 }
 
+/* Individual item in list of products in tiers-item container */
 .tiers-list-item {
   margin-top: 5px;
 }
 
-.color-toggle-container {
-  color: white;
-}
-
-.price-cell {
-  color:white;
-  white-space: nowrap;
-  text-align: center;
-}
-
-.gpu-product-text {
-  color: rgb(233, 233, 233);
-}
-
-.selected-products-heading {
-  display: inline-block;
-  margin-bottom: 0 !important;
-  margin-right: 10px;
-}
-
-.dark-button {
-  display: inline-block;
-  width: fit-content;
-  height: fit-content;
-  padding: 0px 17px 3px;
-  border: 2px solid rgba(233, 233, 233, 0.781);
-  border-radius: 12px;
-  font-size: larger;
-  background-color: var(--dark-bg-color);
-  color:#ececec;
+/* Hint text above tiers-container for how to select products */
+.product-add-hint {
   word-break: normal;
-  margin-bottom: 0;
+  margin: 10px 10px 0;
+  color:#dfdfdf;
 }
 
-.dark-button:hover {
-  background: rgba(128, 128, 128, 0.623);
-  background-color: rgba(160, 160, 170, 0.384);
-  color: white;
-  border: 2px solid white;
+/* Accordion button for Filter Products on New Scrape page */
+.filter-button-products {
+  margin: 5px 0 2px !important;
 }
 
-.clear-items-button {
-  margin-bottom: 0px;
+/* Container for content inside Filter Products accordion on New Scrape Page */
+.filter-products-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
 }
 
+/* Container for specific Filter type inside filter-products-container */
+.product-filter-item {
+  margin: 0 10px;
+  word-break: normal;
+}
+
+/* Heading for specific product-filter-item */
+.product-filter-heading {
+  margin-left: -1px;
+  margin-bottom: 0px !important;
+  margin-top: 1px;
+  color: #ebeff3;
+}
+
+/* Label for checkboxes inside filter-products-container */
+.product-filter-label {
+  color: #e2e6eb;
+}
+
+/* Button inside filter-products-container to toggle all Filters on or off */
 .toggle-all-filters-button {
   position: absolute;
   margin-top: 5px;
   left: 5px;
 }
 
+/* Container for message and progress bar that appears when Price Scraping is in progress */
 .horizontally-centered-container {
   padding-top: 10px;
   text-align: center;
@@ -1256,10 +1371,13 @@ h3.information-header {
   margin: auto;
 }
 
-.error-msg-heading {
-  margin-bottom: 0px !important;
+/* Hint at the bottom of New Scrape page to learn more about Benchmarks */
+.benchmarks-hint {
+  padding: 10px;
+  color:#dfdfdf;
 }
 
+/* Container for error messages that are mostly shown after API errors */
 .error-msg-container {
   display: inline-block;
   background-color: #e73c4a;
@@ -1270,6 +1388,22 @@ h3.information-header {
   margin-top: 5px;
 }
 
+/* Text for error-msg-container */
+.error-msg-heading {
+  margin-bottom: 0px !important;
+}
+
+/* Class for error messages shown when Scrape cooldown is active */
+.cooldown-container {
+  text-align: center;
+}
+
+/* Text for cooldown-container */
+.cooldown-heading {
+  color: rgb(231, 231, 231);
+}
+
+/* Animation to fade in element */
 @keyframes fade-in {
   from {
       opacity: 0;
@@ -1279,105 +1413,176 @@ h3.information-header {
   }
 }
 
-.product-selection {
-  border-radius: 25px;
-  height: fit-content;
-  padding: 3px 15px 4px;
+/* <h1> title for Information page */
+.information-header {
+  margin-bottom: 0px !important;
+}
+
+/* <h2> titles for Information page */
+h2.information-header {
+  margin-top: 20px;
+}
+
+/* <h3> titles for Information page */
+h3.information-header {
+  margin-top: 8px !important;
+}
+
+/* Color gradients for different sections on Information page */
+.information-intro {
+  background: -webkit-linear-gradient(#0fc02c, #abff96);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.information-scrapes {
+  background: -webkit-linear-gradient(#ddb32a, #ffefa6);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.information-benchmarks {
+  background: -webkit-linear-gradient(#d31e27, #ff6a6a);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.information-mct {
+  background: -webkit-linear-gradient(#6c53fc, #b7aaff);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Text for <p> tags on Information page */
+.information-text {
   margin: 0;
+  padding-left: 2px;
+  color: rgb(220, 220, 220);
+}
+
+/* Text just below <h1> tag on Information page */
+.information-top-text {
+  font-size: x-large;
+  color: rgb(245, 245, 245);
+}
+
+/* Container to show Price/Performance Score formula on Information Page */
+.formula-container {
+  background-color: #252523;
   width: fit-content;
-  color: white;
-  text-shadow:
-      0px 0px 1px rgb(26, 26, 26),
-    -1px -1px 1px rgb(26, 26, 26),  
-    1px -1px 1px rgb(26, 26, 26),
-    -1px 1px 1px rgb(26, 26, 26),
-      1px 1px 1px rgb(26, 26, 26);
-  border: 2px solid white;
-  word-break: normal;
-  transition-duration: 0.1s;
-}
-
-.product-selection:hover {
-  outline: 2px solid white;
-  box-shadow: 0px 0px 10px 4px white;
-}
-
-.product-selection:disabled {
-  opacity: 40%;
-}
-
-.selected-products-list {
-  display: flex;
-  flex-wrap: wrap;
-} 
-
-.selected-products-list-item {
-  margin: 3px;
-  opacity: 100%;
-}
-
-.selected-products-list-item:hover {
-  opacity: 40%;
-}
-
-.selected-products-container {
-  padding: 2px 15px 11px;
+  padding: 2px 15px 7px;
   border-radius: 10px;
-  background: var(--dark-bg-color);
+  color: rgb(243, 243, 243);
+  font-size: x-large;
+  margin-top: 7px;
+  margin-bottom: -7px;
 }
 
-.selected-products-border {
-  position: sticky;
-  margin-top: 18px;
-  top: 56px;
-  background: linear-gradient(to bottom right, #70c6ff, #1a43b4);
-  padding: 2px;
-  box-shadow: 0px 0px 10px 2px rgba(91, 167, 255, 0.600);
-  border-radius: 10px;
-  margin-bottom: 15px;
-  z-index: 1;
-}
-
-.selected-products-type {
-  margin-top: -7px;
-  font-size: medium;
-  color:rgb(74, 153, 255);
-  margin-bottom: 0px;
-}
-
-.hint-text {
-  font-size: small;
-  color:#cccccc;
-  margin-top: 0;
-  margin-bottom: 1px;
-  margin-left: 3px;
-}
-
-@media (max-width: 512px) {
-  .selected-products-type {
-    margin-top: 2px;
+/* Adjust formula-container for very small screens */
+@media (max-width: 420px) {
+  .formula-container {
+    font-size: large;
+    font-weight: 500;
+    padding-top: 3px;
+    padding-bottom: 4px;
   }
 }
 
-.cooldown-container {
-  text-align: center;
-  
+/* Wrapper for content on Manual Comparison Tool page */
+.mct-wrapper {
+  margin-top: 18px;
+  position: relative;
 }
 
-.cooldown-heading {
-  color: rgb(231, 231, 231);
+/* Buttons to Add or Delete Row for the Manual Comparison Tool Table */
+.table-mod-button {
+  margin-left: 2px;
+  margin-top: 0px;
+  margin-bottom: 8px;
+  margin-right: 4px;
+  padding-left: 7px;
+  padding-bottom: 2px;
+  padding-top: 4px;
+  font-size: large;
+  font-weight: 700;
 }
 
-.start-button {
-  display: inline-block;
-  background: linear-gradient(to bottom, #045DE9, #09C6F9);
-  max-width: 300px;
-  padding: 1px 5px 5px;
+/* SVG Icons for table-mod-buttons */
+.table-mod-button svg {
+  margin-top: -4px;
+}
+
+/* Table for values to be calculated in Manual Comparison Tool */
+.mct-table {
+  margin: 0;
+  margin-top: 5px;
+  background-color: #1b1b1f;
+}
+
+/* Styling for <th> tags in mct-table */
+.mct-table-head {
+  padding-top: 5px;
+  padding-bottom: 8px;
+}
+
+/* Styling for <td> tags in mct-table */
+.mct-table td {
+  padding: 0 10px;
+}
+
+/* Container for text input fields in mct-table */
+.mct-table label {
+  margin: 0;
+}
+
+/* Styling for text input fields in mct-table */
+.mct-table input {
+  margin: 10px;
+  padding: 5px;
+  max-height: 40px;
+  margin-left: 2px !important;
+}
+
+/* Styling for text in Price/Performance Score <td> column */
+.mct-pps {
+  font-size: x-large;
+  margin-left: 10px;
+  color: #1fbbf8;
+}
+
+/* Adjust mct-pps text for smaller screens */
+@media (max-width: 649px) {
+  .mct-pps {
+    font-size: larger;
+    margin-left: 4px;
+  }
+}
+
+/* Button to calculate inputted values in Manual Comparison Tool Table */
+.calculate-button {
+  margin-top: 10px;
+  margin-left: 3px;
+  background: linear-gradient(to top, #1c249b, #69c7f3);
   font-size: xx-large;
-  word-break: normal;
-  margin-top: 6px;
-  margin-bottom: 2px;
-  margin-right: 10px;
+}
+
+/* Container for text below Manual Comparison Tool Table */
+.mct-text-container {
+  margin: 5px;
+}
+
+/* Text in <p> tag in mct-text-container */
+.mct-text {
+  margin: 0;
+}
+
+/* Generic class to not display element */
+.display-none {
+  display: none;
 }
 
 .start-button-home {
@@ -1400,152 +1605,3 @@ h3.information-header {
 .info-button-home {
   background: linear-gradient(to bottom, #038b03, #8eda2c);
 }
-
-
-.benchmark-color-toggle-container {
-  margin-top: 12px;
-  color: rgb(225, 230, 235);
-}
-
-.benchmark-table {
-  margin: 0;
-  background-color: #1b1b1f;
-}
-
-.benchmark-timestamp {
-  padding: 5px 10px 15px;
-  color: rgb(225, 230, 235);
-}
-
-.benchmark-source-text {
-  color: rgb(225, 230, 235);
-}
-
-.benchmark-disclaimer-heading {
-  margin-top: 20px;
-}
-
-.filter-products-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
-}
-
-.product-filter-item {
-  margin: 0 10px;
-  word-break: normal;
-}
-
-.product-filter-heading {
-  margin-left: -1px;
-  margin-bottom: 0px !important;
-  color: #ebeff3;
-}
-
-.product-filter-label {
-  color: #e2e6eb;
-}
-
-.product-add-hint {
-  word-break: normal;
-  margin: 10px 10px 0;
-  color:#dfdfdf;
-}
-
-.benchmarks-hint {
-  padding: 10px;
-  color:#dfdfdf;
-}
-
-.internal-link-color {
-  color:rgb(47, 161, 255);
-}
-
-.table-mod-button {
-  margin-left: 2px;
-  margin-top: 0px;
-  margin-bottom: 8px;
-  margin-right: 4px;
-  padding-left: 7px;
-  padding-bottom: 2px;
-  padding-top: 4px;
-  font-size: large;
-  font-weight: 700;
-}
-
-.table-mod-button svg {
-  margin-top: -4px;
-}
-
-.mct-table {
-  margin: 0;
-  margin-top: 5px;
-  background-color: #1b1b1f;
-}
-
-.mct-table-head {
-  padding-top: 5px;
-  padding-bottom: 8px;
-}
-
-.mct-table td {
-  padding: 0 10px;
-}
-
-.mct-table label {
-  margin: 0;
-}
-
-.mct-table input {
-  margin: 10px;
-  padding: 5px;
-  max-height: 40px;
-}
-
-.mct-pps {
-  font-size: x-large;
-  margin-left: 10px;
-  color: #1fbbf8;
-}
-
-@media (max-width: 649px) {
-  .mct-pps {
-    font-size: larger;
-    margin-left: 4px;
-  }
-}
-
-.mct-wrapper {
-  margin-top: 18px;
-  position: relative;
-}
-
-.calculate-button {
-  margin-top: 10px;
-  margin-left: 3px;
-  background: linear-gradient(to top, #1c249b, #69c7f3);
-  font-size: xx-large;
-}
-
-.mct-text-container {
-  margin: 5px;
-}
-
-.mct-text {
-  margin: 0;
-}
-
-.mct-input {
-  margin-left: 2px !important;
-}
-
-
-
-
-
-/* Generic class to not display element */
-.display-none {
-  display: none;
-}
-

@@ -262,7 +262,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             <strong>{scrapeTypeTitle}</strong>
           </p>
           {selectedProducts.size > 0 && (
-            <p className="hint-text">
+            <p className="remove-product-hint">
               <em>Click on product to remove from list</em>
             </p>
           )}
@@ -275,7 +275,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                   ? (productInfo[name] as { normalTier: string })?.normalTier
                   : (productInfo[name] as { tier: string })?.tier;
               return (
-                <li className="selected-products-list-item no-dot-list-item" key={name}>
+                <li
+                  className="selected-products-list-item no-dot-list-item"
+                  key={name}
+                >
                   <button
                     className={`background-color-tier-${productTier} product-selection`}
                     onClick={() => handleRemoveItemClick(name)}
