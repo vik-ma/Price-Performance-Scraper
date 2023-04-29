@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Navbar from "./Navbar";
 import "@picocss/pico/css/pico.min.css";
 import "./globals.css";

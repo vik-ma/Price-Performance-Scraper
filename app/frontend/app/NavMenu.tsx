@@ -4,11 +4,17 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function NavMenu() {
+  // Boolean useState to show list of items in hamburger menu if true
   const [showFullMenu, setShowFullMenu] = useState<boolean>(false);
+
+  // useRef for hamburger menu button
   const menuIconRef = useRef<HTMLButtonElement>(null!);
+  // useRef for list of items in hamburger menu
   const fullMenuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Hide hamburger menu items if mouse is clicked anywhere on the screen, 
+    // except for on the menu icon or on an item in the hamburger menu
     function handleClickOutside(event: MouseEvent): void {
       if (
         fullMenuRef.current &&
@@ -30,7 +36,6 @@ export default function NavMenu() {
       <Link
         className="nav-item nav-item-start nav-item-start-small"
         href="/start_scrape"
-        // onClick={() => setShowFullMenu(false)}
       >
         Start Price Scrape
       </Link>
@@ -48,6 +53,7 @@ export default function NavMenu() {
               <Link
                 className="nav-full-menu-item"
                 href="/information"
+                // Hide menu if an item is clicked on
                 onClick={() => setShowFullMenu(false)}
               >
                 <li className="nav-full-menu-list-item">Information</li>
