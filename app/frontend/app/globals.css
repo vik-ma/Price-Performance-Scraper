@@ -1160,12 +1160,12 @@ table[role=grid] tbody tr:nth-child(odd) {
   color: #7B7D7D;
 }
 
-/* Accordion button for Show Tutorial on New Scrape page */
+/* Accordion button for Show Tutorial on Start Scrape page */
 .scrape-tutorial-button {
   margin-bottom: 0px !important;
 }
 
-/* Container for text inside Show Tutorial Accordion on New Scrape Page */
+/* Container for text inside Show Tutorial Accordion on Start Scrape Page */
 .scrape-tutorial-text {
   margin: 0 5px;
 }
@@ -1190,7 +1190,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   }
 }
 
-/* Header for selecting Benchmark Type on New Scrape page */
+/* Header for selecting Benchmark Type on Start Scrape page */
 .new-scrape-benchmark-header {
   margin-top: 5px;
   margin-bottom: 3px !important; 
@@ -1268,7 +1268,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-bottom: 0px;
 }
 
-/* Base container for GPU and CPU models on New Scrape page without color gradients added */
+/* Base container for GPU and CPU models on Start Scrape page without color gradients added */
 .product-selection {
   border-radius: 25px;
   height: fit-content;
@@ -1348,7 +1348,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   background: linear-gradient(to bottom right, #2b2b2b, #979797);
 }
 
-/* Container to list all available products to be selected for Benchmark Type in New Scrape page */
+/* Container to list all available products to be selected for Benchmark Type in Start Scrape page */
 .tiers-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1379,12 +1379,12 @@ table[role=grid] tbody tr:nth-child(odd) {
   color:#dfdfdf;
 }
 
-/* Accordion button for Filter Products on New Scrape page */
+/* Accordion button for Filter Products on Start Scrape page */
 .filter-button-products {
   margin: 5px 0 2px !important;
 }
 
-/* Container for content inside Filter Products accordion on New Scrape Page */
+/* Container for content inside Filter Products accordion on Start Scrape Page */
 .filter-products-container {
   display: flex;
   flex-direction: row;
@@ -1427,7 +1427,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin: auto;
 }
 
-/* Hint at the bottom of New Scrape page to learn more about Benchmarks */
+/* Hint at the bottom of Start Scrape page to learn more about Benchmarks */
 .benchmarks-hint {
   padding: 10px;
   color:#dfdfdf;
@@ -1651,28 +1651,9 @@ h3.information-header {
   display: none;
 }
 
+/* Button to take you to Start Scrape page from Home page */
 .start-button-home {
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   max-width: fit-content;
   padding: 1px 16px 5px;
-}
-
-.mct-button-home {
-  background-color: rgb(110, 33, 235);
-  background: linear-gradient(to bottom, rgb(110, 33, 235), #bb87ff);
-}
-
-.benchmarks-button-home {
-  background-color: #e21721;
-  background: linear-gradient(to bottom, #e21721, #ff7663);
-}
-
-.scrapes-button-home {
-  background-color: #a37e06;
-  background: linear-gradient(to bottom, #795d04, #fabc49);
-}
-
-.info-button-home {
-  background-color: #00af00;
-  background: linear-gradient(to bottom, #038b03, #8eda2c);
 }
