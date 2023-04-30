@@ -2,7 +2,7 @@
   --primary: #dedfe4;
   --primary-hover: #616161;
   --primary-focus: rgba(172, 172, 172, 0.125);
-  --table-border-color: rgba(44, 44, 44, 0.226);
+  --table-border-color: rgba(44, 44, 44, 0.225);
   --dark-bg-color: #1f1f1e;
   --gpu-color: #2cdd6a;
   --cpu-g-color: #dad3a5;
@@ -260,7 +260,7 @@ input[type="checkbox"]:checked {
 /* Text for Home page <p> tags */
 .home-text {
   padding: 2px;
-  font-size: larger;
+  font-size: large;
   color: rgb(247, 247, 247);
 }
 
@@ -505,7 +505,7 @@ input[type="checkbox"]:checked {
 
 /* Change background color of every other row in tables with "role=grid" */
 table[role=grid] tbody tr:nth-child(odd) {
-  background-color: rgba(87, 87, 87, 0.226);
+  background-color: rgba(87, 87, 87, 0.225);
 }
 
 /* Table for Completed Scrape and Benchmark data */
@@ -979,7 +979,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   width: fit-content;
   height: fit-content;
   padding: 0px 17px 3px;
-  border: 2px solid rgba(233, 233, 233, 0.781);
+  border: 2px solid rgba(233, 233, 233, 0.780);
   border-radius: 12px;
   font-size: larger;
   background-color: var(--dark-bg-color);
@@ -989,8 +989,8 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .dark-button:hover {
-  background: rgba(128, 128, 128, 0.623);
-  background-color: rgba(160, 160, 170, 0.384);
+  background: rgba(128, 128, 128, 0.625);
+  background-color: rgba(160, 160, 170, 0.380);
   color: white;
   border: 2px solid white;
 }

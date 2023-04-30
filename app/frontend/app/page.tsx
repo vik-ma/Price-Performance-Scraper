@@ -6,7 +6,13 @@ export default async function Home() {
     <main>
       <h1 className="home-title">Price/Performance Scraper</h1>
       <p className="home-text">
-        <strong>Price/Performance Scraper</strong> is a tool to calculate the
+        <strong>Price/Performance Scraper</strong> is a tool to compare the
+        price efficiency of different GPU and CPU models. You can select
+        specific products and it will scrape the currently available prices for
+        the products and calculate their{" "}
+        <strong>Price/Performance Score</strong>. The Price/Performance Score is
+        a value determined by a product's price compared to its performance
+        benchmark relative to other models.
       </p>
       <div className="centered-container">
         <Link href="/start_scrape">
