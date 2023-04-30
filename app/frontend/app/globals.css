@@ -264,6 +264,13 @@ input[type="checkbox"]:checked {
   color: rgb(247, 247, 247);
 }
 
+/* Text above Start Price Scrape button on Home page */
+.home-text-start-scrape {
+  text-align: center;
+  font-size: larger;
+  color: #9dff70;
+}
+
 /* Container for sidebar to show past scrapes for Completed Scrapes pages for larger screens */
 .sidebar {
   width: 170px;
@@ -1646,6 +1653,7 @@ h3.information-header {
 }
 
 .start-button-home {
+  background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   max-width: fit-content;
   padding: 1px 16px 5px;
 }

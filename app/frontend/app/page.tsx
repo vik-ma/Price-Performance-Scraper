@@ -13,15 +13,24 @@ export default async function Home() {
         <strong>Price/Performance Score</strong>. The Price/Performance Score is
         a value determined by a product's price compared to its performance
         benchmark relative to other models.
+        <br />
+        <br />
+        Currently, <strong>only online stores in Sweden</strong> are available
+        for price scraping.
+        <br />
+        <br />
+      </p>
+      <p className="home-text home-text-start-scrape">
+        <strong>Click the button below to start a price scrape!</strong>
       </p>
       <div className="centered-container">
         <Link href="/start_scrape">
           <button className="start-button start-button-home">
-            <strong>Click Here To Start A Price Scrape</strong>
+            <strong>Start Price Scrape</strong>
           </button>
         </Link>
       </div>
-      <div className="centered-container">
+      {/* <div className="centered-container">
         <Link href="/manual_comparison">
           <button className="start-button start-button-home mct-button-home">
             <strong>Manual Comparison Tool</strong>
@@ -48,7 +57,7 @@ export default async function Home() {
             <strong>Learn More</strong>
           </button>
         </Link>
-      </div>
+      </div> */}
     </main>
   );
 }
