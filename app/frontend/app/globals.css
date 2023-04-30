@@ -260,7 +260,6 @@ input[type="checkbox"]:checked {
 /* Text for Home page <p> tags */
 .home-text {
   padding: 2px;
-  font-size: large;
   color: rgb(247, 247, 247);
 }
 

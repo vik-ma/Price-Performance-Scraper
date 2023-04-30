@@ -30,6 +30,36 @@ export default async function Home() {
           </button>
         </Link>
       </div>
+      <br />
+      <p className="home-text">
+        You can also use the{" "}
+        <Link className="internal-link-color" href="/manual_comparison">
+          <strong>Manual Comparison Tool</strong>
+        </Link>{" "}
+        to calculate the Price/Performance Score using custom prices and/or
+        performance values.
+        <br />
+        <br />
+        View all past price scrapes in the{" "}
+        <Link className="internal-link-color" href="/scrapes">
+          <strong>Completed Scrapes</strong>
+        </Link>{" "}
+        section.
+        <br />
+        <br />
+        Current performance benchmark values in use can be found on the{" "}
+        <Link className="internal-link-color" href="/benchmarks">
+          <strong>Benchmarks</strong>
+        </Link>{" "}
+        page.
+        <br />
+        <br />
+        To learn more, head over to the{" "}
+        <Link className="internal-link-color" href="/information">
+          <strong>Information</strong>
+        </Link>{" "}
+        page.
+      </p>
       {/* <div className="centered-container">
         <Link href="/manual_comparison">
           <button className="start-button start-button-home mct-button-home">
