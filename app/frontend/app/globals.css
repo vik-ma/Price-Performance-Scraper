@@ -1073,9 +1073,17 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 /* Title text for benchmark-table-tabs */
 .benchmark-table-head {
-  padding-top: 4px;
-  padding-bottom: 7px !important;
+  padding-top: 5px !important;
+  padding-bottom: 8px !important;
   word-break: normal;
+  color:rgb(238, 238, 238);
+}
+
+/* Media query to adjust positioning of text inside benchmark-table-head for smaller screens */
+@media (max-width: 991px) {
+  .benchmark-table-head {
+    padding-bottom: 6px !important;
+  }
 }
 
 /* Table for Benchmark data */
