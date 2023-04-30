@@ -248,8 +248,6 @@ export default function GpuListingsTable({
                   windowWidth > 991
                     ? headID === 0
                       ? "table-head listing-table-head listing-table-head-first"
-                      : headID === 3 || headID === 4 || headID === 5
-                      ? "table-head listing-table-head"
                       : headID === tableHeading.length - 1
                       ? "table-head listing-table-head listing-table-head-last"
                       : "table-head listing-table-head"
