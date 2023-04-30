@@ -94,7 +94,7 @@ export default function ManualComparison() {
                 <th className="table-head mct-table-head listing-table-head ">
                   <strong>Price</strong>
                 </th>
-                <th className="table-head listing-table-head listing-table-head-last">
+                <th className="table-head mct-table-head-last listing-table-head listing-table-head-last">
                   <strong
                     data-tooltip={
                       windowWidth >= 650

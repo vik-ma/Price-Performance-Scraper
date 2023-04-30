@@ -1577,8 +1577,13 @@ h3.information-header {
 
 /* Styling for <th> tags in mct-table */
 .mct-table-head {
-  padding-top: 5px;
-  padding-bottom: 8px;
+  padding-top: 5px !important;
+  padding-bottom: 8px !important;
+}
+
+.mct-table-head-last {
+  padding-top: 3px !important;
+  padding-bottom: 10px !important;
 }
 
 /* Styling for <td> tags in mct-table */
