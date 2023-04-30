@@ -327,7 +327,7 @@ input[type="checkbox"]:checked {
   padding: 1px 10px;
   padding-bottom: 8px;
   background-color: var(--dark-bg-color);
-  background: linear-gradient(to right, #262626, #181818);
+  background: linear-gradient(to right, #262626 20%, #181818 100%);
 }
 
 /* Wrapper for all content in Completed Scrapes pages except for <h1> title */
@@ -603,6 +603,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   font-size: x-large;
   background: none;
   background-color: var(--dark-bg-color);
+  background: linear-gradient(to bottom right, rgb(27, 27, 27) 20%, rgb(39, 39, 39) 100%);
   padding: 3px 15px 6px;
   word-break: normal;
   margin-bottom: 8px !important;
@@ -1200,7 +1201,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   box-shadow: 0px 0px 10px 2px rgba(91, 167, 255, 0.600);
   border-radius: 10px;
   margin-bottom: 15px;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* Container to show list of products selected for Price Scraping */
@@ -1208,6 +1209,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   padding: 2px 15px 11px;
   border-radius: 10px;
   background: var(--dark-bg-color);
+  background: linear-gradient(to top left, rgb(24, 24, 24) 40%, rgb(39, 39, 39) 100%);
 }
 
 /* Main heading for selected-products-container */
@@ -1226,7 +1228,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 /* Media query to adjust selected-products-type positioning for smaller screens */
-@media (max-width: 512px) {
+@media (max-width: 496px) {
   .selected-products-type {
     margin-top: 2px;
   }
