@@ -14,7 +14,7 @@ p {
 }
 
 h1 {
-  margin-top: 7px;
+  margin-top: 8px;
   margin-bottom: 12px !important;
 }
 
@@ -256,7 +256,7 @@ input[type="checkbox"]:checked {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0px !important;
+  margin-bottom: 8px !important;
 }
 
 /* Text for Home page <p> tags */
