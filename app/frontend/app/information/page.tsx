@@ -202,7 +202,7 @@ export default function Information() {
         </a>
       </div>
       <div className="centered-container">
-        <p className="home-text">
+        <p className="github-text">
           <strong>Visit the project's GitHub repo</strong>
         </p>
       </div>
