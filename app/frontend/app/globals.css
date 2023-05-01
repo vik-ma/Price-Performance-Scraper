@@ -270,6 +270,18 @@ input[type="checkbox"]:checked {
   color: #9dff70;
 }
 
+/* Container for GitHub logo link */
+.gh-logo-link {
+  background-color: var(--dark-bg-color);
+  padding: 0 9px;
+  border: 2px solid rgba(233, 233, 233, 0.780);
+  border-radius: 14px;
+}
+
+.gh-logo-link:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
 /* Container for sidebar to show past scrapes for Completed Scrapes pages for larger screens */
 .sidebar {
   width: 170px;

@@ -61,12 +61,19 @@ export default async function Home() {
         </Link>{" "}
         page.
       </p>
-      <div>
-        <Image
-          src={GitHubLogo}
-          alt="GitHub Logo"
-          width={150}
-        />
+      <br />
+      <div className="centered-container">
+        <a className="gh-logo-link"
+          href="https://github.com/vik-ma/GPU-CPU-price-comparer"
+          target="_blank"
+        >
+          <Image src={GitHubLogo} alt="GitHub Logo" width={125} />
+        </a>
+      </div>
+      <div className="centered-container">
+        <p className="home-text">
+          <strong>Visit the project's GitHub repo</strong>
+        </p>
       </div>
     </main>
   );
