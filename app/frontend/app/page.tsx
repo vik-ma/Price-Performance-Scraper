@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import GitHubLogo from "/public/GitHub_Logo_White.png";
 
 export default async function Home() {
   return (
@@ -60,6 +61,13 @@ export default async function Home() {
         </Link>{" "}
         page.
       </p>
+      <div>
+        <Image
+          src={GitHubLogo}
+          alt="GitHub Logo"
+          width={150}
+        />
+      </div>
     </main>
   );
 }
