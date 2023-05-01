@@ -260,7 +260,7 @@ input[type="checkbox"]:checked {
 /* Text for Home page <p> tags */
 .home-text {
   padding: 2px;
-  color: rgb(247, 247, 247);
+  color: rgb(230, 230, 230);
 }
 
 /* Text above Start Price Scrape button on Home page */
