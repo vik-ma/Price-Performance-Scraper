@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import GitHubLogo from "/public/GitHub_Logo_White.png";
+import GitHubMark from "/public/github-mark-white.png";
 
 export default async function Home() {
   return (
@@ -67,6 +68,7 @@ export default async function Home() {
           href="https://github.com/vik-ma/GPU-CPU-price-comparer"
           target="_blank"
         >
+          <Image src={GitHubMark} alt="GitHub Mark" width={30} />
           <Image src={GitHubLogo} alt="GitHub Logo" width={100} />
         </a>
       </div>

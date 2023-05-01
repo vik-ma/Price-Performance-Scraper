@@ -275,9 +275,10 @@ input[type="checkbox"]:checked {
 /* Container for GitHub logo link */
 .gh-logo-link {
   background-color: var(--dark-bg-color);
-  padding: 0 9px;
+  padding: 2px 4px 3px 10px;
   border: 2px solid rgba(233, 233, 233, 0.780);
   border-radius: 14px;
+  white-space: nowrap;
 }
 
 .gh-logo-link:hover {
