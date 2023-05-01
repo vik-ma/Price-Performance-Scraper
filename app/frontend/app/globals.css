@@ -48,6 +48,7 @@ input[type="checkbox"]:checked {
 /* Main website container */
 .container {
   padding-top: 0;
+  padding-bottom: 10px;
 }
 
 @media (max-width: 576px) {
@@ -83,6 +84,7 @@ input[type="checkbox"]:checked {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-bottom: 0 !important;
 }
 
 /* Individual item in Navigation Bar */
