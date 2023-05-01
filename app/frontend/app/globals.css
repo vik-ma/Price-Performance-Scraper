@@ -358,7 +358,7 @@ input[type="checkbox"]:checked {
 
 /* Wrapper for all content in Completed Scrapes pages except for <h1> title */
 .scrape-content-wrapper {
-  margin-top: 15px;
+  margin-top: 18px;
 }
 
 /* Container for all content in Completed Scrapes excluding sidebar */
@@ -1024,7 +1024,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 /* Wrapper for all tables on Benchmarks page */
 .benchmark-wrapper {
   display: flex;
-  margin-top: 10px;
+  margin-top: 18px;
 }
 
 /* Container for all tables on Benchmarks page */
@@ -1182,6 +1182,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 /* Accordion button for Show Tutorial on Start Scrape page */
 .scrape-tutorial-button {
+  margin-top: 3px;
   margin-bottom: 0px !important;
 }
 
@@ -1540,6 +1541,7 @@ h3.information-header {
 /* Text for <p> tags on Information page */
 .information-text {
   margin: 0;
+  margin-top: 8px;
   padding-left: 2px;
   color: rgb(220, 220, 220);
 }
