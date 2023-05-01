@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import GitHubLogo from "/public/GitHub_Logo_White.png";
 
 export default function Information() {
   return (
@@ -188,6 +190,22 @@ export default function Information() {
           formula shown in the 'Benchmarks' section on this page.
         </strong>
       </p>
+      <br />
+      <br />
+      <div className="centered-container">
+        <a
+          className="gh-logo-link"
+          href="https://github.com/vik-ma/GPU-CPU-price-comparer"
+          target="_blank"
+        >
+          <Image src={GitHubLogo} alt="GitHub Logo" width={100} />
+        </a>
+      </div>
+      <div className="centered-container">
+        <p className="home-text">
+          <strong>Visit the project's GitHub repo</strong>
+        </p>
+      </div>
     </>
   );
 }
