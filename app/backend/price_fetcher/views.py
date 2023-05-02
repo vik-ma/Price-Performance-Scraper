@@ -3,7 +3,7 @@ from django.http import HttpRequest
 from .models import ProductListing, CompletedFetch
 from . import prj_fetcher as pf
 from . import benchmark_scraper as bm
-import datetime
+from django.utils import timezone
 
 # Create your views here.
 def test_button(request:HttpRequest):
@@ -12,7 +12,7 @@ def test_button(request:HttpRequest):
     return redirect('/price_fetcher/test_list')
 
 def get_current_timestamp():
-    return datetime.datetime.now()
+    return timezone.localtime()
 
 def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id):
     completed_fetch = CompletedFetch()
