@@ -47,6 +47,9 @@ export default async function ScrapesList() {
           .reverse()
           .map((scrape: CompletedFetchProps) => {
             const scrapeType: string = scrape.benchmarkType.replace("-", "");
+            const timestamp: string = scrape.timestampId
+            const formattedDate: string = `${timestamp.substring(0, 4)}-${timestamp.substring(4, 6)}-${timestamp.substring(6, 8)}`;
+            const formattedTime: string = `${timestamp.substring(8, 10)}:${timestamp.substring(10, 12)}:${timestamp.substring(12, 14)}`;
             return (
               <li className="no-dot-list-item" key={scrape.timestampId}>
                 <Link href={`/scrapes/${scrape.timestampId}`}>
@@ -55,9 +58,9 @@ export default async function ScrapesList() {
                   </strong>
                   <br />
                   <small>
-                    {scrape.timestamp.substring(0, 10)}
+                    {formattedDate}
                     <br />
-                    {scrape.timestamp.substring(11, 19)}
+                    {formattedTime}
                   </small>
                 </Link>
               </li>

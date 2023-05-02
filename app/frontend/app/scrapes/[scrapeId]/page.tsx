@@ -67,15 +67,15 @@ export default async function FetchPage({
 
   if (gqlCompletedFetchData === undefined) return notFound();
 
-  const timestamp = scrapeId;
-  const year = timestamp.substring(0, 4);
-  const month = timestamp.substring(4, 6);
-  const day = timestamp.substring(6, 8);
-  const hour = timestamp.substring(8, 10);
-  const minute = timestamp.substring(10, 12);
-  const second = timestamp.substring(12, 14);
+  const timestamp: string = scrapeId;
+  const year: string = timestamp.substring(0, 4);
+  const month: string = timestamp.substring(4, 6);
+  const day: string = timestamp.substring(6, 8);
+  const hour: string = timestamp.substring(8, 10);
+  const minute: string = timestamp.substring(10, 12);
+  const second: string = timestamp.substring(12, 14);
 
-  const formattedTimestamp = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
+  const formattedTimestamp: string = `${year}-${month}-${day} ${hour}:${minute}:${second}`;
 
   return (
     <>

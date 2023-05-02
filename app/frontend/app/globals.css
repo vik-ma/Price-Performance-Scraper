@@ -221,10 +221,6 @@ input[type="checkbox"]:checked {
   }
 }
 
-.asd {
-  color:#00df6f;
-}
-
 /* Generic styling for list with no dots for unordered lists */
 .no-dot-list {
   list-style-type: none !important;
