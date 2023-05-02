@@ -1116,8 +1116,16 @@ table[role=grid] tbody tr:nth-child(odd) {
   word-break: normal;
 }
 
+/* SVG Icon next to Benchmark Type text in benchmark-table-head */
 .benchmark-header-icon {
   margin-right: 6px;
+}
+
+/* Media query to not display benchmark-header-icon on very small screens */
+@media (max-width: 500px) {
+  .benchmark-header-icon {
+    display: none;
+  }
 }
 
 /* Text to show when benchmarks were last updated */
