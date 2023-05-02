@@ -301,7 +301,7 @@ input[type="checkbox"]:checked {
   scrollbar-width: none;
   border-radius: 10px;
   border: 2px solid rgb(226, 226, 226);
-  margin-top: 15px;
+  margin-top: 18px;
 }
 
 /* Disable scrollbar for sidebar */
