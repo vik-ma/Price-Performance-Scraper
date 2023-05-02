@@ -297,7 +297,7 @@ def fetch_gpu_benchmarks(*, run_locally=False):
 
     average_benchmark_data = get_average_benchmarks(benchmark_list)
 
-    current_datetime = str(datetime.datetime.now().isoformat())[:-7]
+    current_datetime = str(datetime.datetime.now())[:-7]
 
     average_benchmark_data["timestamp"] = current_datetime
 

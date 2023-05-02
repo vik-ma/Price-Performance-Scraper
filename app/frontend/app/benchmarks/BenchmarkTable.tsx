@@ -145,7 +145,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             </table>
             <p className="benchmark-timestamp">
               <em>
-                Benchmarks updated at <strong>{timestampMap.gpu.replace("T", " ")}</strong>
+                Benchmarks updated at <strong>{timestampMap.gpu}</strong>
               </em>
             </p>
           </div>

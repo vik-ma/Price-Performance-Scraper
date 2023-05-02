@@ -57,6 +57,18 @@ export default async function Fetches() {
                 );
                 const numProducts: number =
                   scrape.productList.split(",").length;
+                const timestamp: string = scrape.timestampId;
+                const formattedDate: string = `${timestamp.substring(
+                  0,
+                  4
+                )}-${timestamp.substring(4, 6)}-${timestamp.substring(6, 8)}`;
+                const formattedTime: string = `${timestamp.substring(
+                  8,
+                  10
+                )}:${timestamp.substring(10, 12)}:${timestamp.substring(
+                  12,
+                  14
+                )}`;
                 return (
                   <li
                     className={`full-scrape-list-item ${scrapeTypeMap[scrapeType].cssNameBorder} no-dot-list-item`}
@@ -79,7 +91,7 @@ export default async function Fetches() {
                         {scrape.productList}
                         <br />
                         <small className="full-scrape-list-item-timestamp">
-                          {scrape.timestamp.substring(0, 19).replace("T", " ")}
+                          {`${formattedDate} ${formattedTime}`}
                         </small>
                       </p>
                     </Link>
