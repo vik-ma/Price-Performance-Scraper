@@ -1439,9 +1439,10 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 /* Button inside filter-products-container to toggle all Filters on or off */
 .toggle-all-filters-button {
-  position: absolute;
   margin-top: 5px;
   left: 5px;
+  bottom: 5px;
+  white-space: nowrap;
 }
 
 /* Container for message and progress bar that appears when Price Scraping is in progress */
