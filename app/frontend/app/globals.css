@@ -236,7 +236,7 @@ input[type="checkbox"]:checked {
   margin-top: 6px;
 }
 
-/* <h1> title for every page except Home */
+/* <h1> title for the top of every page */
 .page-title {
   background-color: #3978ff;
   background: -webkit-linear-gradient(#285aff, #8fd2ff);
@@ -247,11 +247,6 @@ input[type="checkbox"]:checked {
 
 /* <h1> title for Home page */
 .home-title {
-  background-color: #3978ff;
-  background: linear-gradient(to bottom right, #3978ff, #8ad4ff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   margin-bottom: 8px !important;
 }
 

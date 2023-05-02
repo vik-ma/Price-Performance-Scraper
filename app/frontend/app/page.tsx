@@ -6,7 +6,9 @@ import GitHubMark from "/public/github-mark-white.png";
 export default async function Home() {
   return (
     <main>
-      <h1 className="home-title">Price/Performance Scraper</h1>
+      <h1 className="home-title">
+        <span className="page-title">Price/Performance Scraper</span>
+      </h1>
       <p className="home-text">
         <strong>Price/Performance Scraper</strong> is a tool to compare the
         price efficiency of different GPU and CPU models. You can select
@@ -64,7 +66,8 @@ export default async function Home() {
       </p>
       <br />
       <div className="centered-container">
-        <a className="gh-logo-link"
+        <a
+          className="gh-logo-link"
           href="https://github.com/vik-ma/GPU-CPU-price-comparer"
           target="_blank"
         >
