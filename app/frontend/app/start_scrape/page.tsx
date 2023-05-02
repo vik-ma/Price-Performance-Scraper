@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import ScrapeCreator from "./ScrapeCreator";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 import { ScrapeAllowedAPIResponse } from "@/typings";
+import GPUIcon from "../icons/GPUIcon";
+import CPUGIcon from "../icons/CPUGIcon";
+import CPUNIcon from "../icons/CPUNIcon";
 
 async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
   try {
@@ -116,7 +119,8 @@ export default function NewScrape() {
                 </strong>
                 <br />
                 <em>
-                  <strong>GPU Scrapes</strong> usually take longer to finish than <strong>CPU Scrapes</strong>.
+                  <strong>GPU Scrapes</strong> usually take longer to finish
+                  than <strong>CPU Scrapes</strong>.
                 </em>
                 <br />
                 <em>
@@ -139,6 +143,9 @@ export default function NewScrape() {
             }
             onClick={() => toggleTab(1)}
           >
+            <span className="benchmark-header-icon">
+              <GPUIcon />
+            </span>
             <strong>GPU</strong>
           </div>
           <div
@@ -149,6 +156,9 @@ export default function NewScrape() {
             }
             onClick={() => toggleTab(2)}
           >
+            <span className="benchmark-header-icon">
+              <CPUGIcon />
+            </span>
             <strong>CPU (Gaming)</strong>
           </div>
           <div
@@ -159,6 +169,9 @@ export default function NewScrape() {
             }
             onClick={() => toggleTab(3)}
           >
+            <span className="benchmark-header-icon">
+              <CPUNIcon />
+            </span>
             <strong>CPU (Multi-threading)</strong>
           </div>
         </div>

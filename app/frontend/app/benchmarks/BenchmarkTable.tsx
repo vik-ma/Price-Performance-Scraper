@@ -3,6 +3,9 @@ import React from "react";
 import { useState } from "react";
 import { BenchmarksDataProps, GpuInfoProps, CpuInfoProps } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
+import GPUIcon from "../icons/GPUIcon";
+import CPUGIcon from "../icons/CPUGIcon";
+import CPUNIcon from "../icons/CPUNIcon";
 
 interface TimestampMap {
   [key: string]: string;
@@ -38,6 +41,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
             onClick={() => toggleTab(1)}
           >
+            <span className="benchmark-header-icon">
+              <GPUIcon />
+            </span>
             <strong>GPU</strong>
           </div>
           <div
@@ -48,6 +54,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
             onClick={() => toggleTab(2)}
           >
+            <span className="benchmark-header-icon">
+              <CPUGIcon />
+            </span>
             <strong>CPU (Gaming)</strong>
           </div>
           <div
@@ -58,6 +67,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             }
             onClick={() => toggleTab(3)}
           >
+            <span className="benchmark-header-icon">
+              <CPUNIcon />
+            </span>
             <strong>CPU (Multi-threading)</strong>
           </div>
         </div>
@@ -122,7 +134,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                             colorCodingEnabled ? `text-color-tier-${tier}` : ""
                           }
                         >
-                          <strong className="no-wrap-constant">Tier {tier}</strong>
+                          <strong className="no-wrap-constant">
+                            Tier {tier}
+                          </strong>
                         </td>
                       </tr>
                     );
@@ -130,7 +144,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               </tbody>
             </table>
             <p className="benchmark-timestamp">
-              <em>Benchmarks updated at <strong>{timestampMap.gpu}</strong></em>
+              <em>
+                Benchmarks updated at <strong>{timestampMap.gpu}</strong>
+              </em>
             </p>
           </div>
           <div
@@ -182,7 +198,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                             colorCodingEnabled ? `text-color-tier-${tier}` : ""
                           }
                         >
-                          <strong className="no-wrap-constant">Tier {tier}</strong>
+                          <strong className="no-wrap-constant">
+                            Tier {tier}
+                          </strong>
                         </td>
                       </tr>
                     );
@@ -190,7 +208,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               </tbody>
             </table>
             <p className="benchmark-timestamp">
-              <em>Benchmarks updated at <strong>{timestampMap.cpuG}</strong></em>
+              <em>
+                Benchmarks updated at <strong>{timestampMap.cpuG}</strong>
+              </em>
             </p>
           </div>
           <div
@@ -242,7 +262,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                             colorCodingEnabled ? `text-color-tier-${tier}` : ""
                           }
                         >
-                          <strong className="no-wrap-constant">Tier {tier}</strong>
+                          <strong className="no-wrap-constant">
+                            Tier {tier}
+                          </strong>
                         </td>
                       </tr>
                     );
@@ -250,7 +272,9 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               </tbody>
             </table>
             <p className="benchmark-timestamp">
-              <em>Benchmarks updated at <strong>{timestampMap.cpuN}</strong></em>
+              <em>
+                Benchmarks updated at <strong>{timestampMap.cpuN}</strong>
+              </em>
             </p>
           </div>
         </div>

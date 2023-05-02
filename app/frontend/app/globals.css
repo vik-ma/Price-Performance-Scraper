@@ -279,6 +279,7 @@ input[type="checkbox"]:checked {
   border: 2px solid rgba(233, 233, 233, 0.780);
   border-radius: 14px;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .gh-logo-link:hover {
@@ -1065,7 +1066,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .benchmark-table-tabs:hover {
   background: rgba(128, 128, 128, 0.6);
-  color:white;
+  color:rgb(245, 245, 245);
   transition-duration: 0.3s;
 }
 
@@ -1122,6 +1123,10 @@ table[role=grid] tbody tr:nth-child(odd) {
 
 .benchmark-table td {
   word-break: normal;
+}
+
+.benchmark-header-icon {
+  margin-right: 6px;
 }
 
 /* Text to show when benchmarks were last updated */
