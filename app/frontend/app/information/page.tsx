@@ -100,7 +100,8 @@ export default function Information() {
       </h2>
       <p className="information-text">
         The Benchmark Value is the performance rating of a specific model, and a
-        full list of all current Benchmark Values in use can be found on the{" "}
+        full list of all products available for Price Scraping with their
+        respective Benchmark Values can be found on the{" "}
         <Link
           className="internal-link-color"
           href="/benchmarks"
