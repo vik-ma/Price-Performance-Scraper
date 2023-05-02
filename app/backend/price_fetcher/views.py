@@ -12,7 +12,7 @@ def test_button(request:HttpRequest):
     return redirect('/price_fetcher/test_list')
 
 def get_current_timestamp():
-    return timezone.localtime()
+    return timezone.now()
 
 def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id):
     completed_fetch = CompletedFetch()

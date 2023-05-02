@@ -12,7 +12,7 @@ import { notFound } from "next/navigation";
 
 export const dynamic = "auto",
   dynamicParams = true,
-  revalidate = 60,
+  // revalidate = 60,
   fetchCache = "auto",
   runtime = "nodejs";
 
