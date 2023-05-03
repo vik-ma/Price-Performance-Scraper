@@ -1,6 +1,6 @@
-import React from "react";
-
 export default function Caret({ rotate = 0 }) {
+  // SVG Icon depicting a triangular Arrow
+  // At 0 (default) the arrow is pointing down
   return (
     <svg
       fill="#00df6f"

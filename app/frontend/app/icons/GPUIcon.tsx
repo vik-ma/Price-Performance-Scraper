@@ -1,4 +1,5 @@
 export default function GPUIcon() {
+  // SVG Icon depicting a Graphics Card (GPU)
   return (
     <svg
       fill="#ffffff"

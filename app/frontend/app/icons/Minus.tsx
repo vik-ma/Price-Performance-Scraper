@@ -1,4 +1,5 @@
 export default function Minus() {
+  // SVG Icon depicting a Minus sign
   return (
     <svg
       width="32px"

@@ -1,4 +1,5 @@
 export default function HomeIcon() {
+  // SVG Icon depicting a House for Home
   return (
     <svg
       fill="#f2f2f2"

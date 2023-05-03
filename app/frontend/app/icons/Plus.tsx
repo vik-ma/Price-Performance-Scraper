@@ -1,4 +1,5 @@
 export default function Plus() {
+  // SVG Icon depicting a Plus sign
   return (
     <svg
       width="32px"

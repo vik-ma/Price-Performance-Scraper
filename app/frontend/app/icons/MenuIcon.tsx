@@ -1,4 +1,5 @@
 export default function MenuIcon() {
+  // SVG Icon depicting a Hamburger Menu
   return (
     <svg
       width="30px"

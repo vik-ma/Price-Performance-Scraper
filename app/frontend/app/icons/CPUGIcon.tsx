@@ -1,4 +1,5 @@
 export default function CPUGIcon() {
+  // SVG Icon depicting a CPU
   return (
     <svg
       width="32px"
