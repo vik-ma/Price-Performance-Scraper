@@ -5,14 +5,19 @@ import Minus from "../icons/Minus";
 import Link from "next/link";
 
 export default function ManualComparison() {
+  // Width of user window
   const [windowWidth, setWindowWidth] = useState<number>(1920);
 
+  // Active number of rows in MCT Table
   const [numRows, setNumRows] = useState<number>(1);
 
+  // Rows converted to an Array to be mapped
   const rows: number[] = Array.from({ length: numRows });
 
+  // Array for all calculated Price/Performance Score values
   const [ppsArray, setPpsArray] = useState<string[]>([]);
 
+  // Function to increase or decrease amount of rows in MCT Table
   const handleRowModClick = (modification: string) => {
     if (modification === "add") {
       setNumRows((prev) => prev + 1);
@@ -21,12 +26,14 @@ export default function ManualComparison() {
     }
   };
 
+  // Set windowWith to user window width on page load
   useEffect(() => {
     setTimeout(() => {
       setWindowWidth(window.innerWidth);
     }, 0);
   }, []);
 
+  // Change windowWidth when user window changes
   useEffect(() => {
     window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
     return () =>
@@ -35,6 +42,7 @@ export default function ManualComparison() {
       );
   }, []);
 
+  // Calculate Price/Performance Score for every row in MCT Table
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const newPpsArray: string[] = [];
@@ -62,6 +70,7 @@ export default function ManualComparison() {
         <button
           type="button"
           className="dark-button table-mod-button"
+          // Disable button at 1 row
           disabled={rows.length < 2}
           onClick={() => handleRowModClick("remove")}
         >
@@ -70,7 +79,8 @@ export default function ManualComparison() {
         <button
           type="button"
           className="dark-button table-mod-button"
-          disabled={rows.length > 14}
+          // Disable button at 10 rows
+          disabled={rows.length > 9}
           onClick={() => handleRowModClick("add")}
         >
           <Plus /> Add Row
@@ -83,6 +93,7 @@ export default function ManualComparison() {
                   <strong>Name (Optional)</strong>
                 </th>
                 <th className="table-head mct-table-head listing-table-head ">
+                  {/* Shorten text at low widths and add full text as tooltip */}
                   {windowWidth >= 650 ? (
                     <strong>Performance Value</strong>
                   ) : (
@@ -95,6 +106,7 @@ export default function ManualComparison() {
                   <strong>Price</strong>
                 </th>
                 <th className="table-head mct-table-head-last listing-table-head listing-table-head-last">
+                  {/* Shorten text at low widths and change the side which tooltip appears from */}
                   <strong
                     data-tooltip={
                       windowWidth >= 650
@@ -111,6 +123,7 @@ export default function ManualComparison() {
               </tr>
             </thead>
             <tbody>
+              {/* Create a table row with three input fields and a text cell for every item in rows Array */}
               {rows.map((_, index) => (
                 <tr key={index}>
                   <td>
