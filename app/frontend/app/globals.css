@@ -39,6 +39,24 @@ input[type="checkbox"]:checked {
   border-color: #6cbdff;
 }
 
+/* Button to refresh page on error pages */
+.error-button {
+  max-width: fit-content;
+  margin: auto;
+  background-color: var(--dark-bg-color);
+  font-size: larger;
+  color:#ececec;
+  padding: 5px 20px 10px;
+  border: 2px solid rgba(233, 233, 233, 0.780);
+  border-radius: 12px;
+}
+
+.error-button:hover {
+  background-color: rgba(160, 160, 170, 0.380);
+  color: white;
+  border: 2px solid white;
+}
+
 /* Header for not-found page errors */
 #error-header {
   position: absolute;
@@ -1008,7 +1026,6 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .dark-button:hover {
-  background: rgba(128, 128, 128, 0.625);
   background-color: rgba(160, 160, 170, 0.380);
   color: white;
   border: 2px solid white;

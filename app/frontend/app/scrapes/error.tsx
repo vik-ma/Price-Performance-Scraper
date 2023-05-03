@@ -8,14 +8,18 @@ export default function Error({
   error: Error;
   reset: () => void;
 }) {
-  useEffect(() => {
-    console.error(error);
-  }, [error]);
+  // Don't console log error in prod
+  // useEffect(() => {
+  //   console.error(error);
+  // }, [error]);
 
   return (
     <div className="scrape-content">
       <h1>Something went wrong!</h1>
-      <button onClick={() => reset()}>Try again</button>
+      {/* Button to refresh page */}
+      <button className="error-button" onClick={() => reset()}>
+        <strong>Try again</strong>
+      </button>
     </div>
   );
 }
