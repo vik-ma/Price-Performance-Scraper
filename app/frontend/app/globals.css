@@ -1287,6 +1287,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-top: 6px;
   margin-bottom: 2px;
   margin-right: 10px;
+  border-width: 2px;
 }
 
 /* Button inside selected-products-container to clear all items in Selected Products list */
@@ -1684,4 +1685,6 @@ h3.information-header {
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   max-width: fit-content;
   padding: 1px 16px 5px;
+  border-width: 2px;
+  border-radius: 10px;
 }
