@@ -1,9 +1,10 @@
 import React, { Suspense } from "react";
 import { gql } from "@apollo/client";
 import client from "../../apollo-client";
-import { CompletedFetchProps, ScrapeType, FetchTypeProps } from "@/typings";
+import { CompletedFetchProps, FetchTypeProps } from "@/typings";
 import Link from "next/link";
 
+// Function to retrieve all completed Price Scrapes via GraphQL
 async function getCompletedFetches() {
   const { data } = await client.query({
     query: gql`
@@ -24,6 +25,7 @@ async function getCompletedFetches() {
 export default async function Fetches() {
   const gqlData = await getCompletedFetches();
 
+  // HashMap to assign different text, text colors and border colors to the different Benchmark Types
   const scrapeTypeMap: FetchTypeProps = {
     GPU: {
       title: "GPU",
@@ -45,19 +47,26 @@ export default async function Fetches() {
   return (
     <>
       <div className="scrape-content">
+        {/* Show loading icon if data is loading */}
         <Suspense fallback={<article aria-busy="true"></article>}>
           <ul className="full-scrape-list no-dot-list">
+            {/* Show every completed Price Scrape with the most recent ones on top */}
             {gqlData
               ?.slice(0)
               .reverse()
               .map((scrape: CompletedFetchProps) => {
+                // Remove the "-" from scrapeType value to make it compatible with scrapeTypeMap
                 const scrapeType: string = scrape.benchmarkType.replace(
                   "-",
                   ""
                 );
+
+                // Get the number of products in Price Scrape
                 const numProducts: number =
                   scrape.productList.split(",").length;
+
                 const timestamp: string = scrape.timestampId;
+                // Format the date and timestamp of Price Scrape
                 const formattedDate: string = `${timestamp.substring(
                   0,
                   4
@@ -70,6 +79,7 @@ export default async function Fetches() {
                   14
                 )}`;
                 return (
+                  // Display every item in the color of their respective Benchmark Type
                   <li
                     className={`full-scrape-list-item ${scrapeTypeMap[scrapeType].cssNameBorder} no-dot-list-item`}
                     key={scrape.timestampId}
