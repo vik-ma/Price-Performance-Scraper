@@ -8,6 +8,7 @@ import GPUIcon from "../icons/GPUIcon";
 import CPUGIcon from "../icons/CPUGIcon";
 import CPUNIcon from "../icons/CPUNIcon";
 
+// Function to call Django API and see if Price Scrape is on cooldown
 async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
   try {
     const response = await fetch(
@@ -24,6 +25,7 @@ async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
 }
 
 export default function NewScrape() {
+  // useContext for variables shared between this component and ScrapeCreator.tsx
   const {
     loadingScrape,
     setErrorMsg,
@@ -34,8 +36,10 @@ export default function NewScrape() {
     setScrapeAllowedTimer,
   } = useNewScrapeContext();
 
+  // Tabs for different Benchmark Types (1 = GPU, 2 = CPU-Gaming, 3 = CPU-Normal/Multithread)
   const [tabIndex, setTabIndex] = useState(1);
 
+  // Arrow function to change Benchmark Type tab and clear any existing error message
   const toggleTab = (index: number) => {
     if (!loadingScrape) {
       setTabIndex(index);
@@ -44,14 +48,18 @@ export default function NewScrape() {
     }
   };
 
+  // Arrow function to handle the response of getScrapeAllowed API call
   const handleGetScrapeAllowed = async () => {
     const response = await getScrapeAllowed();
 
     if (response.success) {
+      // If API call was successful
       if (response.allow) {
+        // If scrape is allowed
         setIsScrapeAllowed(true);
         setScrapeAllowedMsg("Allowed");
       } else {
+        // If scrape is on cooldown, display the number of seconds until it's not
         const secondsLeft: number =
           response.seconds_left === undefined ? 0 : response.seconds_left;
         setIsScrapeAllowed(false);
@@ -61,14 +69,17 @@ export default function NewScrape() {
         );
       }
     } else {
+      // If API call was not successful
       setScrapeAllowedMsg(`Failed to communicate with server`);
     }
   };
 
+  // Get the response of getScrapeAllowed on page load
   useEffect(() => {
     handleGetScrapeAllowed();
   }, []);
 
+  // Decrement the timer of scrapeAllowedTimer by one second every second
   useEffect(() => {
     if (scrapeAllowedTimer > 0) {
       setTimeout(() => setScrapeAllowedTimer((time) => time - 1), 1000);
@@ -134,6 +145,7 @@ export default function NewScrape() {
       </details>
       <h2 className="new-scrape-benchmark-header">Choose Benchmark Type</h2>
       <div className="benchmark-table-container">
+        {/* Tabs to select Benchmark Type */}
         <div className="benchmark-table-tabs-container">
           <div
             className={

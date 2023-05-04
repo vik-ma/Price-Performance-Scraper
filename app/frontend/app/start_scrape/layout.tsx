@@ -1,8 +1,8 @@
 import { NewScrapeContextProvider } from "../context/NewScrapeContext";
-import { Metadata } from 'next';
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Start New Price Scrape',
+  title: "Start New Price Scrape",
 };
 
 export default function RootLayout({
@@ -12,6 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <>
+      {/* Add NewScrapeContext useContext for start_scrape/page.tsx and ScrapeCreator.tsx */}
       <NewScrapeContextProvider>{children}</NewScrapeContextProvider>
     </>
   );
