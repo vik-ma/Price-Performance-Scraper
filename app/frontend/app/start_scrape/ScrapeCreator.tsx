@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 import Link from "next/link";
 
+// POST Request to start Price Scraping in Django application
 async function startPriceFetch(data = {}) {
   const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
     method: "POST",
@@ -19,6 +20,7 @@ async function startPriceFetch(data = {}) {
   return response.json();
 }
 
+// Arrow function to convert time in seconds to a string in minutes and seconds
 const formatTime = (time: number) => {
   const minutes = Math.floor(time / 60);
   const seconds = Math.floor(time - minutes * 60);
@@ -31,6 +33,8 @@ const formatTime = (time: number) => {
 };
 
 export default function ScrapeCreator(scrapeType: ScrapeType) {
+  // scrapeType is the Benchmark Type of the Price Scrape
+
   const scrapeTypeTitle: string =
     scrapeType.name === "CPU-Gaming"
       ? "CPU (Gaming Performance)"
@@ -38,23 +42,32 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       ? "CPU (Multi-threaded Performance)"
       : "GPU";
 
+  // Arrow function to assign the corresponding ProductInfo section to the respective Benchmark Types
   const getProductInfo = () => {
     if (scrapeType.name === "GPU") {
+      // Return gpuInfo if Benchmark Type is GPU
       return gpuInfo as GpuInfoProps;
     } else if (scrapeType.name === "CPU-Gaming") {
+      // Return cpuInfo without Intel Core i9-13900 if Benchmark Type is CPU-Gaming
+      // (Intel Core i9-13900 has no gaming benchmarks)
       const cpuInfoGaming = { ...cpuInfo };
       delete cpuInfoGaming["Intel Core i9-13900" as keyof typeof cpuInfoGaming];
       return cpuInfoGaming as CpuInfoProps;
     }
+    // Return cpuInfo if Benchmark Type is CPU-Normal/Multithreading
     return cpuInfo as CpuInfoProps;
   };
 
   const productInfo = getProductInfo();
 
+  // Limit of how many products can be added to a Price Scrape
+  // GPU = 4, Either CPU = 10
   const productLimit: number = scrapeType.name === "GPU" ? 4 : 10;
 
+  // Set for every different Tier in productInfo
   const tiers: Set<string> = new Set();
   Object.values(productInfo).forEach((product) => {
+    // Loop over all values in productInfo
     const tier =
       scrapeType.name === "CPU-Gaming"
         ? product.gamingTier
@@ -62,24 +75,30 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         ? product.normalTier
         : product.tier;
     if (
+      // Clause to stop empty CPU-Gaming values from being added
       (scrapeType.name === "CPU-Gaming" && product.gamingTier !== "") ||
       scrapeType.name !== "CPU-Gaming"
     ) {
+      // Add unique tier to Set
       tiers.add(tier);
     }
   });
 
+  // Array of tiers Set to map over
   const tiersArray: string[] = Array.from(tiers);
   tiersArray.sort();
 
+  // Set of products the user has selected for Price Scraping
   const [selectedProducts, setSelectedProducts] = useState(new Set<string>([]));
 
+  // Handle function for when user adds a product to selectedProducts
   const handleAddItemClick = (name: string) => {
     if (selectedProducts.size < productLimit) {
       setSelectedProducts((prev) => new Set(prev.add(name)));
     }
   };
 
+  // Handle function for when user removes a product from selectedProducts
   const handleRemoveItemClick = (name: string) => {
     setSelectedProducts((prev) => {
       const newSelectedItems = new Set(prev);
@@ -88,12 +107,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     });
   };
 
+  // Handle function to remove all products user has added to selectedProducts
   const handleClickClearItems = () => {
     if (selectedProducts.size > 0) {
       setSelectedProducts(new Set<string>([]));
     }
   };
 
+  // Arrow function to convert the set of selectedProducts to a string to be sent in POST request
   const createScrapePostBody = () => {
     const productList = Array.from(selectedProducts).join(",");
 
@@ -107,6 +128,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const router = useRouter();
 
+  // useContext for variables shared between this component and start_scrape/page.tsx
   const {
     loadingScrape,
     setLoadingScrape,
@@ -120,47 +142,63 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     setScrapeAllowedTimer,
   } = useNewScrapeContext();
 
+  // Handle function for starting a Price Scrape
   const handleClickStartPriceFetch = async () => {
     if (selectedProducts.size > 0) {
+      // Create POST body
       const data = createScrapePostBody();
 
+      // Clear any error messages
       setShowErrorMsg(false);
       setErrorMsg("");
+
+      // State that shows a loading bar instead of Start Price Scrape button
       setLoadingScrape(true);
+
       try {
         const response = await startPriceFetch(data);
 
+        // Remove loading bar
         setLoadingScrape(false);
 
         if (response.hasOwnProperty("success")) {
+          // If API call has any response
           if (response.success) {
+            // Send user to the page of the result if Price Scrape was successful
             router.push(`/scrapes/${response.message}`);
           } else if (response.hasOwnProperty("seconds_left")) {
+            // Show cooldown until scrape is allowed if Price Scraping was rejected due to a cooldown
             setIsScrapeAllowed(false);
             setScrapeAllowedTimer(response.seconds_left);
           } else {
+            // Show error message if POST request was successful but the actual Price Scraping in Django app ran into an error
             setErrorMsg(`An error occurred during price scraping.`);
             setShowErrorMsg(true);
           }
         } else {
+          // Show error message if POST request body was faulty
           setErrorMsg(`An error occurred when communicating with the API.`);
           setShowErrorMsg(true);
         }
       } catch {
+        // Show error message if API call has no response
         setLoadingScrape(false);
         setErrorMsg(`Failed to communicate with server.`);
         setShowErrorMsg(true);
       }
     } else {
+      // Show error message if no products were selected when pressing button
       setErrorMsg("No product(s) selected");
       setShowErrorMsg(true);
     }
   };
 
+  // Arrays for different filters
   const manufacturers: string[] = [];
   const generations: string[] = [];
   const sockets: string[] = [];
 
+  // Populate every filter with each unique value for specific key in productInfo
   Object.values(productInfo).forEach((product) => {
     if (!manufacturers.includes(product.manufacturer)) {
       manufacturers.push(product.manufacturer);
@@ -173,6 +211,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   });
 
+  // useStates for every different filter
   const [selectedManufacturers, setSelectedManufacturers] =
     useState<string[]>(manufacturers);
 
@@ -181,6 +220,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const [selectedGenerations, setSelectedGenerations] =
     useState<string[]>(generations);
 
+  // List of products for selection excluding the ones selected in filter(s)
   const filteredProductInfo = Object.fromEntries(
     Object.entries(productInfo).filter(([key, product]) => {
       return (
@@ -191,6 +231,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     })
   );
 
+  // Handle function for when user checks or unchecks a checkbox for a filter
   const handleFilterChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     filterKey: string,
@@ -210,6 +251,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   };
 
+  // Arrow function to add or remove selected filter value
   const changeFilter = (
     isChecked: boolean,
     prev: string[],
@@ -222,16 +264,21 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   };
 
+  // Total number of available product to select
   const totalNumProducts: number = Object.keys(productInfo).length;
 
+  // Number of available products to select after filter has been applied
   const filteredNumProducts: number = Object.keys(filteredProductInfo).length;
 
+  // Handle function for when Toggle All button in Filter section is pressed 
   const handleToggleAllClick = () => {
     if (filteredNumProducts < totalNumProducts) {
+      // Filter all products if any filters are active
       setSelectedManufacturers(manufacturers);
       setSelectedSockets(sockets);
       setSelectedGenerations(generations);
     } else {
+      // Remove all filters if all products are filtered
       setSelectedManufacturers([]);
       setSelectedSockets([]);
       setSelectedGenerations([]);
@@ -244,6 +291,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         <div className="selected-products-container">
           <h2 className="selected-products-heading">
             Selected Products{" "}
+            {/* Show number of selected products and the maximum allowed number of products to be selected.
+                Display these numbers as red if the number of selected products is at limit. */}
             <span
               className={
                 selectedProducts.size === productLimit ? "red-text" : ""
@@ -261,12 +310,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           <p className="selected-products-type">
             <strong>{scrapeTypeTitle}</strong>
           </p>
+          {/* Show hint to remove selected product only if an item has already been added */}
           {selectedProducts.size > 0 && (
             <p className="remove-product-hint">
               <em>Click on product to remove from list</em>
             </p>
           )}
           <ul className="selected-products-list no-dot-list">
+            {/* Show all selected products */}
             {Array.from(selectedProducts).map((name) => {
               const productTier =
                 scrapeType.name === "CPU-Gaming"
@@ -289,6 +340,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               );
             })}
           </ul>
+          {/* Show message of when Price Scraping will be allowed again if there is a cooldown */}
           {!isScrapeAllowed ? (
             <div className="error-msg-container cooldown-container">
               <h3 className="error-msg-heading cooldown-heading">
@@ -299,6 +351,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             </div>
           ) : (
             <div className="start-price-button-container">
+              {/* Show a loading bar if Price Scraping is ongoing */}
               {loadingScrape ? (
                 <div className="horizontally-centered-container">
                   <progress></progress>
@@ -308,6 +361,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                   <p>This process will take a few seconds.</p>
                 </div>
               ) : (
+                // Show Start Price Scrape button if price scraping is allowed and not ongoing
                 <button
                   className="start-button"
                   onClick={handleClickStartPriceFetch}
@@ -315,6 +369,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                   <strong>Start Price Scrape</strong>
                 </button>
               )}
+              {/* Show any error messages related to Price Scraping */}
               {showErrorMsg && (
                 <div className="horizontally-centered-container error-msg-container">
                   <h2 className="error-msg-heading">{errorMsg}</h2>
@@ -327,6 +382,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       <details>
         <summary className="filter-button filter-button-products" role="button">
           <strong>
+            {/* Show number of filtered out products if any products has been filtered */}
             Filter Products{" "}
             {filteredNumProducts < totalNumProducts &&
               `(Showing ${filteredNumProducts} out of ${totalNumProducts} products)`}
@@ -335,6 +391,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         <div className="filter-products-container">
           <div className="product-filter-item">
             <h4 className="product-filter-heading">Manufacturer</h4>
+            {/* Create checkboxes for all different manufacturers */}
             {manufacturers.map((manufacturer, index) => (
               <label className="product-filter-label" key={index}>
                 <input
@@ -356,6 +413,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               </button>
             )}
           </div>
+          {/* Create checkboxes for all different sockets for CPU products */}
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
               <h4 className="product-filter-heading">Socket</h4>
@@ -373,6 +431,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               ))}
             </div>
           )}
+          {/* Create checkboxes for all different generations for CPU products */}
           {scrapeType.name !== "GPU" && (
             <div className="product-filter-item">
               <h4 className="product-filter-heading">Generation</h4>
@@ -398,12 +457,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </em>
       </h6>
       <div className="tiers-container">
+        {/* Show every available product under their corresponding Benchmark Tier */}
         {tiersArray.map((tier) => (
           <div className="tiers-item" key={tier}>
             <h3 className={`tiers-title text-color-tier-${tier}`}>
               Tier {tier}
             </h3>
             <ul className="no-dot-list">
+              {/* Show only the products which has passed the filters */}
               {Object.entries(filteredProductInfo)
                 .filter(
                   ([name, product]) =>
