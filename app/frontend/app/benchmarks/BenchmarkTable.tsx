@@ -12,17 +12,22 @@ interface TimestampMap {
 }
 
 export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
+  // Tabs for different Benchmark Types (1 = GPU, 2 = CPU-Gaming, 3 = CPU-Normal/Multithread)
   const [tabIndex, setTabIndex] = useState(1);
 
+  // Arrow function to change Benchmark Type tab and clear any existing error message
   const toggleTab = (index: number) => {
     setTabIndex(index);
   };
 
+  // Information of Benchmark Tier for every product
   const gpuProductInfo: GpuInfoProps = gpuInfo;
   const cpuProductInfo: CpuInfoProps = cpuInfo;
 
+  // Setting to display different Benchmark Tiers in different colors
   const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
 
+  // HashMap for every Benchmark Type's timestamp value
   const timestampMap: TimestampMap = {
     gpu: benchmarks["GPU"].timestamp as unknown as string,
     cpuG: benchmarks["CPU-Gaming"].timestamp as unknown as string,
@@ -32,6 +37,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
   return (
     <div className="benchmark-wrapper">
       <div className="benchmark-table-container">
+        {/* Tabs to select Benchmark Type */}
         <div className="benchmark-table-tabs-container">
           <div
             className={
@@ -108,6 +114,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                 </tr>
               </thead>
               <tbody>
+                {/* Populate table with every product and their Benchmark Value */}
                 {Object.entries(benchmarks["GPU"])
                   .filter(([key]) => key !== "timestamp")
                   .map(([key, value]) => {
@@ -115,6 +122,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                       ?.tier;
                     return (
                       <tr key={key}>
+                        {/* Display every product and their values in specific color of their Benchmark Tier. 
+                            Show all entries in the same color if color coding is disabled */}
                         <td
                           className={
                             colorCodingEnabled ? `text-color-tier-${tier}` : ""

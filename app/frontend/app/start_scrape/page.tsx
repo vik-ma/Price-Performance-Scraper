@@ -14,6 +14,7 @@ async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
     const response = await fetch(
       `http://localhost:8000/api/get_scrape_allowed/`,
       {
+        // Don't cache response
         cache: "no-store",
       }
     );

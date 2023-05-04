@@ -2,11 +2,13 @@ import BenchmarkTable from "./BenchmarkTable";
 import { BenchmarkAPIResponse, BenchmarkData } from "@/typings";
 import Link from "next/link";
 
+// Function to fetch Benchmarks from Django API
 async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
   try {
     const response = await fetch(
       `${process.env.DJANGO_API_URL}/get_benchmarks/`,
       {
+        // Don't cache response
         cache: "no-store",
       }
     );
@@ -17,14 +19,20 @@ async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
   }
 }
 
+// Function to validate if the fetched Benchmark Data is valid
 function isBenchmarkDataValid(data: any) {
+  // Benchmark Data has to be a JavaScript Object
   if (typeof data !== "object") {
     return false;
   }
 
+  // Allowed keys in data
   const validKeys: string[] = ["GPU", "CPU-Gaming", "CPU-Normal"];
+
+  // Current keys in data
   const dataKeys: string[] = Object.keys(data);
 
+  // All keys has to match validKeys
   if (
     dataKeys.length !== validKeys.length &&
     dataKeys.every((key) => validKeys.includes(key))
@@ -33,15 +41,21 @@ function isBenchmarkDataValid(data: any) {
   }
 
   for (const dataValue of Object.values(data)) {
+    // Loop through all Benchmark Types
     for (const [key, value] of Object.entries(dataValue as string[])) {
+      // Loop through every key in Benchmark Type
+
+      // Ignore timestamp key at bottom of Benchmark Type
       if (key === "timestamp") continue;
 
+      // All keys have to be strings and their values a number
       if (typeof key !== "string" || typeof value !== "number") {
         return false;
       }
     }
   }
 
+  // Return true if everything passed
   return true;
 }
 
@@ -50,6 +64,7 @@ export default async function Benchmarks() {
 
   const benchmarks: BenchmarkData = benchmarkData.benchmarks;
 
+  // Check if benchmarkData is valid
   if (!isBenchmarkDataValid(benchmarks)) {
     benchmarkData.success = false;
   }
@@ -60,6 +75,7 @@ export default async function Benchmarks() {
       {benchmarkData.success ? (
         <BenchmarkTable benchmarks={benchmarks} />
       ) : (
+        // Show error message if API call failed or benchmarkData is invalid
         <div className="centered-container">
           <div className="error-msg-container">
             <h3 className="error-msg-heading">Error fetching benchmarks</h3>
