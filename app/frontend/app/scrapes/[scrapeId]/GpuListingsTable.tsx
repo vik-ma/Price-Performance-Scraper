@@ -1,8 +1,6 @@
 "use client";
-import React from "react";
 import { useState, useEffect } from "react";
 import {
-  CompletedFetchProps,
   ProductListingsProps,
   FetchPageProps,
   ProductTableSortProps,
@@ -12,7 +10,6 @@ import {
 } from "@/typings";
 import Caret from "@/app/icons/Caret";
 import { gpuInfo } from "@/app/ProductInfo";
-import Link from "next/link";
 
 export default function GpuListingsTable({
   params: { fetchInfo, productListings },
