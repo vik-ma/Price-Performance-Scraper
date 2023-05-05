@@ -1,6 +1,5 @@
-import React from "react";
-
 export default function NotFound() {
+  // Display this page if user types in Price Scrape ID that does not exist
   return (
     <>
       <title>Scrape ID Not Found</title>

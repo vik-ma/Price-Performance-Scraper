@@ -1,15 +1,12 @@
 import React from "react";
 import { gql } from "@apollo/client";
 import client from "../../../apollo-client";
-import {
-  ProductListingsProps,
-  CompletedFetchProps,
-  FetchPageProps,
-} from "@/typings";
+import { ProductListingsProps, CompletedFetchProps } from "@/typings";
 import CpuListingsTable from "./CpuListingsTable";
 import GpuListingsTable from "./GpuListingsTable";
 import { notFound } from "next/navigation";
 
+// All default values if no revalidate
 export const dynamic = "auto",
   dynamicParams = true,
   // revalidate = 60,
@@ -22,6 +19,7 @@ type PageProps = {
   };
 };
 
+// Arrow function to retrieve all Product Listings in completed Price Scrape ID via GraphQL
 const getProductListings = async (scrapeId: string) => {
   const { data } = await client.query({
     query: gql`
@@ -42,6 +40,7 @@ const getProductListings = async (scrapeId: string) => {
   return data.productListings as ProductListingsProps[];
 };
 
+// Arrow function to retrieve completed Price Scrape ID information via GraphQL
 const getCompletedFetch = async (scrapeId: string) => {
   const { data } = await client.query({
     query: gql`
@@ -65,6 +64,7 @@ export default async function FetchPage({
   const gqlProductListingData = await getProductListings(scrapeId);
   const gqlCompletedFetchData = await getCompletedFetch(scrapeId);
 
+  // Display scrapes/not-found.tsx if user types in a Scrape ID that doesn't exist
   if (gqlCompletedFetchData === undefined) return notFound();
 
   const timestamp: string = scrapeId;
@@ -79,6 +79,7 @@ export default async function FetchPage({
 
   return (
     <>
+      {/* Change Title of webpage to show the Benchmark Type and Date+Time of Price Scrape */}
       <title>
         {`${
           gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
@@ -89,6 +90,7 @@ export default async function FetchPage({
         } - ${formattedTimestamp}`}
       </title>
       <div className="scrape-content">
+        {/* Display the Price Scrape's Benchmark Type in its respective color */}
         <h1
           className={`scrape-title ${
             gqlCompletedFetchData.benchmarkType === "GPU"
@@ -104,10 +106,13 @@ export default async function FetchPage({
             ? "CPU (Multi-threaded Performance)"
             : gqlCompletedFetchData.benchmarkType}
         </h1>
+        {/* Display list of products in Price Scrape */}
         <h2 className="scrape-title-product-list">
           {gqlCompletedFetchData.productList}
         </h2>
+        {/* Display date and time of Price Scrape */}
         <h3 className="scrape-timestamp">{formattedTimestamp}</h3>
+        {/* Display GPUListingsTable.tsx if Price Scrape Benchmark Type was GPU */}
         {gqlCompletedFetchData.benchmarkType === "GPU" ? (
           <GpuListingsTable
             params={{
@@ -116,6 +121,7 @@ export default async function FetchPage({
             }}
           />
         ) : (
+          // Display CPUListingsTable.tsx if Price Scrape Benchmark Type was CPU-Gaming or CPU-Normal(Multi-threading)
           <CpuListingsTable
             params={{
               fetchInfo: gqlCompletedFetchData,
@@ -128,6 +134,7 @@ export default async function FetchPage({
   );
 }
 
+// Function to statically generate all completed Price Scrape pages
 export async function generateStaticParams() {
   const { data } = await client.query({
     query: gql`
