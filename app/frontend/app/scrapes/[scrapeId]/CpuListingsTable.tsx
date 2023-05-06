@@ -124,7 +124,7 @@ export default function CpuListingsTable({
     }
   });
 
-  // Sort filters alphabetically
+  // Sort filter options alphabetically
   storeNames.sort();
   productModels.sort();
 
@@ -178,7 +178,7 @@ export default function CpuListingsTable({
       );
   }, []);
 
-  // Handle function for when user checks or unchecks a checkbox to filter stores
+  // Handle function for when user checks or unchecks a checkbox to filter out stores
   const handleStoreFilterChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     storeName: string
@@ -193,7 +193,7 @@ export default function CpuListingsTable({
     });
   };
 
-  // Handle function for when user checks or unchecks a checkbox to filter product models
+  // Handle function for when user checks or unchecks a checkbox to filter out product models
   const handleModelFilterChange = (
     event: React.ChangeEvent<HTMLInputElement>,
     model: string
@@ -281,8 +281,8 @@ export default function CpuListingsTable({
                 key={headID}
                 onClick={
                   headID === 0 || headID === 1
-                  // Every head except index 0 and 1 is clickable
-                    ? undefined
+                    ? // Every head except index 0 and 1 is clickable
+                      undefined
                     : () =>
                         handleHeaderClick(
                           // Clicking these headers will sort the Product Listing table based on this column
@@ -291,15 +291,15 @@ export default function CpuListingsTable({
                 }
                 className={
                   windowWidth > 500
-                  // Display all table heads on screens over 500 px wide
-                    ? headID === 0
+                    ? // Display all table heads on screens over 500 px wide
+                      headID === 0
                       ? "table-head listing-table-head listing-table-head-first"
                       : headID === tableHeading.length - 1
                       ? "table-head listing-table-head listing-table-head-last listing-table-head-last-cpu"
                       : "table-head listing-table-head"
                     : headID === 0
-                    // Don't display first column for screens below 500 px wide
-                    ? "display-none"
+                    ? // Don't display first column for screens below 500 px wide
+                      "display-none"
                     : headID === 1
                     ? "table-head listing-table-head listing-table-head-first"
                     : headID === tableHeading.length - 1
@@ -310,8 +310,8 @@ export default function CpuListingsTable({
                 <span
                   className={
                     headID === 2 || headID === 3 || headID === 4
-                      // Add pointer cursor to clickable headings
-                      ? "clickable"
+                      ? // Add pointer cursor to clickable headings
+                        "clickable"
                       : ""
                   }
                   data-tooltip={
@@ -389,9 +389,9 @@ export default function CpuListingsTable({
                         <div
                           className={
                             colorCodingEnabled
-                              // Assign the specific color of the Product Model as a background
-                              // if color-coding is enabled
-                              ? `model-background model-gradient-${colorNum}`
+                              ? // Assign the specific color of the Product Model as a background
+                                // if color-coding is enabled
+                                `model-background model-gradient-${colorNum}`
                               : "text-centered"
                           }
                         >
@@ -432,9 +432,9 @@ export default function CpuListingsTable({
                         <div
                           className={
                             colorCodingEnabled
-                            // Assign the specific color of the Product Model as a background
-                            // if color-coding is enabled
-                              ? `model-background model-gradient-${colorNum} model-shortened-cpu`
+                              ? // Assign the specific color of the Product Model as a background
+                                // if color-coding is enabled
+                                `model-background model-gradient-${colorNum} model-shortened-cpu`
                               : "model-shortened-cpu"
                           }
                         >
@@ -447,7 +447,7 @@ export default function CpuListingsTable({
                           </strong>
                         </div>
                         <div
-                          // Display the product's Benchmark Value in the color of the Product Model's Benchmark Tier 
+                          // Display the product's Benchmark Value in the color of the Product Model's Benchmark Tier
                           className={`text-color-tier-${tierNum} benchmark-value-shortened-cpu text-centered`}
                         >
                           <strong data-tooltip={`Tier ${tierNum}`}>
@@ -469,6 +469,7 @@ export default function CpuListingsTable({
                   </td>
                   <td
                     className={
+                      // Assign the Price/Performance Score the specific text color based on how good it is
                       windowWidth <= 500
                         ? `ppr-color-${pprTextColor} text-centered`
                         : `ppr-color-${pprTextColor}`
