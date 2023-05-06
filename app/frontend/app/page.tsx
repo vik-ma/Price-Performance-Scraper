@@ -68,7 +68,7 @@ export default async function Home() {
       <div className="centered-container">
         <a
           className="gh-logo-link"
-          href="https://github.com/vik-ma/GPU-CPU-price-comparer"
+          href="https://github.com/vik-ma/Price-Performance-Scraper"
           target="_blank"
         >
           <Image src={GitHubMark} alt="GitHub Mark" width={30} />
