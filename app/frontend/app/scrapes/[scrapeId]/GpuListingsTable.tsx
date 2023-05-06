@@ -150,6 +150,34 @@ export default function GpuListingsTable({
       );
   }, []);
 
+  const handleStoreFilterChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    storeName: string
+  ) => {
+    const isChecked = event.target.checked;
+    setSelectedStores((prev) => {
+      if (isChecked) {
+        return [...prev, storeName];
+      } else {
+        return prev.filter((name) => name !== storeName);
+      }
+    });
+  };
+
+  const handleModelFilterChange = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    model: string
+  ) => {
+    const isChecked = event.target.checked;
+    setSelectedProductModels((prev) => {
+      if (isChecked) {
+        return [...prev, model];
+      } else {
+        return prev.filter((name) => name !== model);
+      }
+    });
+  };
+
   return (
     <>
       <details>
@@ -163,16 +191,9 @@ export default function GpuListingsTable({
                 <input
                   type="checkbox"
                   checked={selectedStores.includes(storeName)}
-                  onChange={(event) => {
-                    const isChecked = event.target.checked;
-                    setSelectedStores((prev) => {
-                      if (isChecked) {
-                        return [...prev, storeName];
-                      } else {
-                        return prev.filter((name) => name !== storeName);
-                      }
-                    });
-                  }}
+                  onChange={(event) =>
+                    handleStoreFilterChange(event, storeName)
+                  }
                 />
                 {storeName}
               </label>
@@ -199,16 +220,7 @@ export default function GpuListingsTable({
                   <input
                     type="checkbox"
                     checked={selectedProductModels.includes(model)}
-                    onChange={(event) => {
-                      const isChecked = event.target.checked;
-                      setSelectedProductModels((prev) => {
-                        if (isChecked) {
-                          return [...prev, model];
-                        } else {
-                          return prev.filter((name) => name !== model);
-                        }
-                      });
-                    }}
+                    onChange={(event) => handleModelFilterChange(event, model)}
                   />
                   <strong>{model}</strong>
                 </label>

@@ -184,11 +184,11 @@ export default function CpuListingsTable({
     storeName: string
   ) => {
     const isChecked = event.target.checked;
-    setSelectedStores((prevSelectedStores) => {
+    setSelectedStores((prev) => {
       if (isChecked) {
-        return [...prevSelectedStores, storeName];
+        return [...prev, storeName];
       } else {
-        return prevSelectedStores.filter((name) => name !== storeName);
+        return prev.filter((name) => name !== storeName);
       }
     });
   };
