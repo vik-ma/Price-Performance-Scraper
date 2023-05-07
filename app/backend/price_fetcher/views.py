@@ -7,9 +7,12 @@ import datetime
 
 # Create your views here.
 def test_button(request:HttpRequest):
+    """
+    Test button in test template for debugging purposes.
+    """
     pass
 
-    return redirect('/price_fetcher/test_list')
+    return redirect('/price_fetcher/test_template')
 
 def get_current_timestamp():
     return datetime.datetime.now()
