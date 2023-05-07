@@ -5,6 +5,6 @@ from price_fetcher.schema import schema
 from django.views.decorators.csrf import csrf_exempt
 
 urlpatterns = [
-    # path('test_button/', views.test_button, name='test_button'),
+    # path('test_button/', views.test_button, name='test_button'),  # Test button for debugging purposes
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False, schema=schema))),
 ]
