@@ -610,90 +610,149 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
 
 
 def update_all_benchmarks(*, run_locally=False):
+    """
+    Scrape benchmark data for all benchmark types and update existing benchmark data .json files.
+    
+        Parameters:
+            run_locally (bool): Must be True if module is ran outside of Django
+    """
+
     print("Scraping GPU Benchmarks")
     try:
+        # Attempt to scrape new GPU benchmark data
         gpu_benchmarks = fetch_gpu_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
+        # Log error if scraping fails
         print("Error Scraping GPU Benchmarks")
         write_to_log(success=False, message=f"Error Scraping GPU Benchmarks: {e}", run_locally=run_locally)
     else:
+        # Replace old benchmark data with new benchmark data if scrape was successful
         replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
 
+    # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
 
     print("Scraping CPU-Gaming Benchmarks")
     try:
+        # Attempt to scrape new CPU-Gaming benchmark data
         cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
+        # Log error if scraping fails
         print("Error Scraping CPU-Gaming Benchmarks")
         write_to_log(success=False, message=f"Error Scraping CPU-Gaming Benchmarks: {e}", run_locally=run_locally)
     else:
+        # Replace old benchmark data with new benchmark data if scrape was successful
         replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
 
+    # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
 
     print("Scraping CPU-Normal Benchmarks")
     try:
+        # Attempt to scrape new CPU-Normal (Multithreading) benchmark data
         cpu_normal_benchmarks = fetch_cpu_normal_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
+        # Log error if scraping fails
         print("Error Scraping CPU-Normal Benchmarks")
         write_to_log(success=False, message=f"Error Scraping CPU-Normal Benchmarks: {e}", run_locally=run_locally)
     else:
+        # Replace old benchmark data with new benchmark data if scrape was successful
         replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
 
-def validate_new_benchmarks(old_benchmark_json, new_benchmark_json, *, run_locally=False):
+def validate_new_benchmarks(old_benchmark_json, new_benchmark_json, *, run_locally=False) -> bool:
+    """
+    Compare new benchmark data with existing benchmark data to see if the data is correctly structured.
+
+        Parameters:
+            old_benchmark_json (dict): Dictionary of benchmark data currently in use
+
+            new_benchmark_json (dict): Dictionary of newly scraped benchmark data
+
+            run_locally (bool): Must be True if module is ran outside of Django
+        
+        Returns:
+            True if validation passed, False otherwise
+
+    """
+    # Check if the number of products are the same
     if len(old_benchmark_json) != len(new_benchmark_json):
         print(f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}")
         write_to_log(success=False, message=f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}", run_locally=run_locally)
         return False
     
+    # Check if every single product is the same
     if set(old_benchmark_json.keys()) != set(new_benchmark_json.keys()):
         print(f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}")
         write_to_log(success=False, message=f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}", run_locally=run_locally)
         return False
     
+    # Check if the first key of the benchmark data has a value of 100
     if new_benchmark_json[next(iter(new_benchmark_json))] != 100:
         print(f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}")
         write_to_log(success=False, message=f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}", run_locally=run_locally)
         return False
 
     for key, value in new_benchmark_json.items():
+        # Check if every key is of type str
         if not isinstance(key, str):
             print(f"Key is not String: {key}")
             write_to_log(success=False, message=f"Key is not String: {key}", run_locally=run_locally)
             return False
+        
         if key != "timestamp":
+            # Check if every key except for "timestamp" has a value of type float
             if not isinstance(value, float):
                 print(f"Value is not Float: {key}: {value}")
                 write_to_log(success=False, message=f"Value is not Float: {key}: {value}", run_locally=run_locally)
                 return False
+            # Check if every key except for "timestamp" has a value between 100 and 0.01
             if value > 100 or value < 0.01:
                 print(f"Value is not within range: {key}: {value}")
                 write_to_log(success=False, message=f"Value is not within range: {key}: {value}", run_locally=run_locally)
                 return False
 
+    # If no issues found, return True
     return True
 
 
 def write_json_file(json_data, filename):
+    """
+    Save provided dictionary as .json file with provided filename.
+
+        Parameters:
+            json_data (dict): Dictionary to be written as .json file
+
+            filename (dict): Full path of filename of .json file to be saved
+    """
     with open(filename, "w") as file:
         json.dump(json_data, file, indent=4)
 
 
 def write_to_log(*, success, message, run_locally=False):
+    """
+    Write a message to update_log.log file.
+
+        Parameters:
+            success (bool): Result of whatever operation was attempted
+
+            message (str): Message to be printed in log
+
+            run_locally (bool): Must be True if module is ran outside of Django
+    """
+    # Set the folder of the log file
     if run_locally:
         directory = "app/backend/price_fetcher/benchmarks"
     else:
         directory = "price_fetcher/benchmarks"
-        
+    
+    # Name of log file
     filename = f"{directory}/update_log.log"
 
-    print(filename)
-
+    # Create folder if it doesn't exist
     if not os.path.exists(directory):
         os.makedirs(directory)
 
@@ -706,8 +765,10 @@ def write_to_log(*, success, message, run_locally=False):
     )
     
     if success:
+        # Log message at INFO level if attempted operation was successful
         logging.info(message)
     else: 
+        # Log message at ERROR level if attempted operation was unsuccessful
         logging.error(message)
 
 if __name__ == "__main__":
