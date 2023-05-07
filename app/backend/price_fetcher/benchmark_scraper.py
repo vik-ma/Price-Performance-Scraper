@@ -547,7 +547,19 @@ def test_offline_page(filepath):
 
 
 def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=False):
+    """
+    Replace existing Benchmark .json files with new data, after backing up existing ones.
+
+        Parameters:
+            benchmark_type (str): Type of benchmark data to replace 
+                                  (Must be either "GPU", "CPU-Gaming" or "CPU-Normal")
+                                  
+            new_benchmarks (dict): Dictionary of new benchmark data to replace existing one
+
+            run_locally (bool): Must be True if module is ran outside of Django
+    """
     try:
+        # Set folders where current benchmarks and backup benchmarks resides
         if run_locally:
             directory = "app/backend/price_fetcher/benchmarks/latest_benchmarks"
             directory_backup = f"app/backend/price_fetcher/benchmarks/backup_benchmarks"
@@ -558,17 +570,32 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         filename = f"{directory}/{benchmark_type}.json"
         filename_backup = f"{directory_backup}/{benchmark_type}.json"
 
+        # Create folders if they don't exist
+        if not os.path.exists(directory):
+            os.makedirs(directory)
+        if not os.path.exists(directory_backup):
+            os.makedirs(directory_backup)
+
+        if not os.path.exists(filename_backup):
+            # If no backup benchmarks exist, write new benchmarks to both
+            write_json_file(new_benchmarks, filename)
+            write_json_file(new_benchmarks, filename_backup)
+
+            print(f"Successfully updated {benchmark_type} benchmarks")
+            write_to_log(success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
+
+            # Exit rest of function
+            return
+
+        # Load old benchmarks
         with open (filename, "r", encoding="utf-8") as file:
             old_benchmarks = json.load(file)
 
+        # Compare new benchmark data to old one to see if it's valid
         if validate_new_benchmarks(old_benchmarks, new_benchmarks, run_locally=run_locally):
-            if not os.path.exists(directory):
-                os.makedirs(directory)
-            if not os.path.exists(directory_backup):
-                os.makedirs(directory_backup)
-            
+            # Write new benchmarks to latest_benchmarks folder
             write_json_file(new_benchmarks, filename)
-            
+            # Write old benchmarks to backup_benchmarks folder
             write_json_file(old_benchmarks, filename_backup)
 
             print(f"Successfully updated {benchmark_type} benchmarks")
@@ -577,6 +604,7 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
             print(f"Failed to validate new {benchmark_type} benchmarks")
             write_to_log(success=False, message=f"Failed to validate new {benchmark_type} benchmarks", run_locally=run_locally)
     except Exception as e:
+        # Log error if one occurs
         print(f"Error Replacing {benchmark_type} Benchmark: {e}")
         write_to_log(success=False, message=f"Error Replacing {benchmark_type} Benchmark: {e}", run_locally=run_locally)  
 
