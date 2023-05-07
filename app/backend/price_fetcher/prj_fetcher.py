@@ -246,7 +246,7 @@ def get_product_price_list(json_data, product_category) -> list:
             product_category (str): Name of product model
         
         Returns:
-            product_list (list): List containing tuples which stores various information about
+            product_list (list): List of tuples containing various information about
                                  listed prices for a product
     """
     product_list = []
@@ -281,6 +281,7 @@ def get_current_time() -> str:
 def save_local_html_page(soup, filename=None):
     """
     Save provided BeautifulSoup object as local .html file.
+    (For debugging purposes)
 
         Parameters:
             soup (BeautifulSoup object): Website content scraped with BeautifulSoup
@@ -302,7 +303,8 @@ def save_local_html_page(soup, filename=None):
 def create_soup_of_local_html_files(file_list):
     """
     Create list of BeautifulSoup objects from provided local .html files.
-
+    (For debugging purposes)
+    
         Parameters:
             file_list (list): List of strings containing the filepath of local .html files
         
@@ -322,6 +324,7 @@ def create_soup_of_local_html_files(file_list):
 def create_json_list_of_local_json_files(file_list):
     """
     Create list of dictionaries from provided local .json files.
+    (For debugging purposes)
 
         Parameters:
             file_list (list): List of strings containing the filepath of local .json files
@@ -344,54 +347,99 @@ def create_json_list_from_gpu_category(soup_list) -> dict:
     Extract JSON data regarding listed sub-models of a GPU model from a list of scraped webpages
 
         Parameters:
-            soup_list (list): List of BeautifulSoup objects 
-    """
+            soup_list (list): List of BeautifulSoup objects
         
+        Returns:
+            json_list (list): List of dictionaries containing everything inside the key
+                              "ProductsSlice" from scraped webpages
+    """
+
+    # JSON data for all pages in category    
     json_list = []
+
+    # Loop through all pages
     for soup in soup_list:
+        # Script tag which contains JSON data (formatted as plain text)
         page_json = soup.find_all("script")[4].text
 
+        ## Parse JSON using regex
+
+        # Key to extract data from
         start_text = r'{"__typename":"ProductsSlice"'
+        # Continue until this key
         end_text = r',{"__typename":"DescriptionSlice"'
+        # Extract all text from start_text to end_text, including start_text but exluding end_text
         price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
+        # Remove escape characters and ensure unicode characters stays
         reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
 
+        # Load string as a dictionary
         json_data = json.loads(reencoded_price_data)
 
+        # Add page to list of extracted JSON data
         json_list.append(json_data)
 
+    # Return extracted data as list of dictionaries
     return json_list
 
 
 def write_local_json_files(json_list):
+    """
+    Save a list of dictionaries as .json files.
+    (For debugging purposes)
+
+        Parameters:
+            json_list (list): List of dictionaries to be saved as .json files
+    """
+
     current_time = get_current_time()
 
     for i, json_file in enumerate(json_list, start=1):
+        # Create generic filename using current datetime and list index
         with open(f"pj_json_{current_time}_{i}.json", "w") as file:
             json.dump(json_file, file, indent=4)
 
 
+def get_lowest_prices_in_gpu_category(json_list) -> list:
+    """
+    Return the cheapest product listings for GPU category.
 
-
-def get_lowest_prices_in_gpu_category(json_list):
+        Parameters:
+            json_list (list): List of dictionaries containing everything inside the key
+                              "ProductsSlice" from scraped webpages
+        
+        Returns:
+            lowest_price_list (list): List of tuples containing a link to the product page
+                                      of the specific model and its lowest price
+    """
     price_list = []
 
     for products_json in json_list:
         for product in products_json["products"]:
+            # Store information about every product listing which is in stock
             if product["priceSummary"]["regular"] != None and product["stockStatus"] == "in_stock":
                 product_id = product["id"]
+                # Link to the product page
                 product_link = f"https://www.prisjakt.nu/produkt.php?p={product_id}"
+                # Price of the product
                 product_price = int(product["priceSummary"]["regular"])
+                # Append product to list of prices
                 price_list.append((product_link, product_price))
 
+    # Sort list of prices by lowest price
     sorted_price_list = sorted(price_list, key = lambda x: x[1])
 
     if len(sorted_price_list) <= 16:
+        # If there are less than 16 products in category,
+        # return only the 4 cheapest products
         lowest_price_list = sorted_price_list[:4]
     elif len(sorted_price_list) > 40:
+        # If there are more than 40 products in category,
+        # return the 10 cheapest products
         lowest_price_list = sorted_price_list[:10]
     else:
+        # Return the 25% (rounded up) cheapest products in category
         slice_num = 4
         list_slicer = len(sorted_price_list) / slice_num
         rounded_list_slicer = int(Decimal(list_slicer).quantize(0, ROUND_HALF_UP))
@@ -401,133 +449,246 @@ def get_lowest_prices_in_gpu_category(json_list):
     return lowest_price_list
 
 
-def get_store_price_for_products_from_category(product_link_list, product_category):
+def get_store_price_for_products_from_category(product_link_list, product_category) -> list:
+    """
+    Scrape page of cheapest products from category page and return specific information 
+    about listed products.
+
+        Parameters:
+            product_link_list (link): List of tuples containing strings of url:s of products
+                                      to be scraped and lowest listed price of said product
+
+            product_category (str): Name of product model
+        
+        Returns:
+            store_price_list (list): List of tuples containing various information about
+                                     listed prices for all products in product_link_list
+    """
     store_price_list = []
 
+    # Scrape all products in provided list
     for product in product_link_list:
+        # Get url of product page
         product_link = product[0]
 
+        # Scrape product page
         soup = fetch_product_page(product_link)
         print(f"Fetched {product_link}")
 
+        # Extract price JSON data
         json_data = get_product_json(soup)
 
+        # Extract list of tuples containing information of product listing
         product_price_list = get_product_price_list(json_data, product_category)
+
+        # Append list of tuples containing information of product listing to main list
         store_price_list.extend(product_price_list)
+
+        # Wait half a second before scraping next page in list (except for last item in list)
         if product != product_link_list[-1]:
             time.sleep(0.5)
 
     return store_price_list
 
 
-def get_price_benchmark_score(product_price_list, benchmark_json):
+def get_price_benchmark_score(product_price_list, benchmark_json) -> list:
+    """
+    Calculate Price/Performance Score of every product listing in provided list and
+    return new list with appended Price/Performance Score to product listing.
+
+        Parameters:
+            product_price_list (list): List of tuples containing various information about
+                                       listed prices for a product
+            
+            benchmark_json (dict): Dictionary where every key is a product and
+                                   their value is their benchmark score
+        Returns:
+            price_score_list (list): List of tuples containing appended information about
+                                     the benchmark value and Price/Performance Score of
+                                     a product listing
+    """
+
+    # Get product name
     benchmark_category = product_price_list[0][0]
+    # Get benchmark value of product from product name key
     benchmark_value = benchmark_json[benchmark_category]
 
     price_score_list = []
+
     for product in product_price_list:
+        # Calculate Price/Performance Score of product listing
         price_score = round(benchmark_value / product[2] * 100, 2)
+        # Append benchmark value of product and Price/Performance Score 
+        # of product listing to tuple containing information about product listing
         new_product_info = product + (benchmark_value, price_score)
+        # Append new tuple to new list
         price_score_list.append(new_product_info)
     
     return price_score_list
 
 
-def start_price_fetching_gpu(product_choice_list, *, run_locally = False):
+def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
+    """
+    Scrape prices and calculate Price/Performance Score of product listings for all
+    GPU models in provided list.
+
+        Parameters:
+            product_choice_list (list): List containing strings of the names of 
+                                        GPU models to be scraped
+            
+            run_locally (bool): Must be True if module is ran outside of Django
+
+        Returns:
+            sorted_benchmark_price_list (list): List of tuples containing various
+                                                information about every product listing
+                                                scraped, including the Price/Performance
+                                                Score of every product listing
+            Exception if an error occured during price scraping 
+    """
     try:
         try:
+            # Load benchmark data for GPUs
             benchmark_json = import_benchmark_json("GPU", run_locally)
         except:
             return Exception("Error importing benchmarks")
 
+        # List of product listing information for all GPU models in provided list
         benchmark_price_list = []
+
+        # Scrape every model of GPU in provided list of GPUs
         for product_category in product_choice_list:
+            # Get the link to GPU model category page
             product_category_url = gpu_pj_url_dict[product_category]
 
             try:
+                # Scrape GPU model category page
                 soup_list = fetch_gpu_category_page(product_category_url)
             except:
                 return Exception(f"Error fetching GPU category page: {product_category_url}")
 
             try:
+                # Extract JSON data from GPU model category page
                 json_list = create_json_list_from_gpu_category(soup_list)
             except:
                 return Exception(f"Error creating json for GPU category page: {product_category_url}")
 
             try:
+                # Get the cheapest product listing for GPU model category
                 lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
             except:
                 return Exception(f"Error parsing json for GPU category page: {product_category_url}")
 
             try:
+                # Scrape product pages of cheapest product listings for GPU model
                 product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
             except:
                 return Exception(f"Error getting store price for product for GPU category page: {product_category_url}")
             
+            # Go to the next GPU model in list if no products in stock were found for this GPU model
             if len(product_price_list) < 1:
                 continue
 
+            # Calculate Price/Performance Score for all product listings for GPU model
             benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
+            
+            # Append product listings for GPU model to main list
             benchmark_price_list.extend(benchmark_score_list)
         
+        # If no GPU models in list had any products in store
         if len(benchmark_price_list) < 1:
             return Exception("No products in store for any products in list")
-            
+        
+        # Sort list of product listings for all GPU models by the highest Price/Performance Score
         sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
         return sorted_benchmark_price_list
     except:
+        # Catch-all Exception so API doesn't break
         return Exception("Unexpected Error")
 
 
-def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally = False):
+def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally = False) -> list:
+    """
+    Scrape prices and calculate Price/Performance Score of products listings for all
+    CPU models in provided list.
+
+        Parameters:
+            benchmark_type (str): Type of benchmark data to be compared.
+                                  (Must be either "CPU-Gaming" or "CPU-Normal")
+            
+            product_choice_list (list): List containing strings of the names of
+                                        CPU models to be scraped
+
+            run_locally (bool): Must be True if module is ran outside of Django  
+
+        Returns:
+            sorted_benchmark_price_list (list): List of tuples containing various
+                                                information about every product listing
+                                                scraped, including the Price/Performance
+                                                Score of every product listing
+            Exception if an error occured during price scraping
+    """
     try:
         try:
+            # Load benchmark data for either CPU-Gaming or CPU-Normal
             benchmark_json = import_benchmark_json(benchmark_type, run_locally)
         except:
             return Exception("Error importing benchmarks")
-
+        
         cpu_url_dict = cpu_pj_url_dict
 
+        # List of product listing information for all CPU models in provided list
         benchmark_price_list = []
 
+        # Scrape every model of CPU in provided list of CPUs
         for product in product_choice_list:
+            # Get the link to CPU model product page
             product_link = cpu_url_dict[product]
 
             print(f"Trying to fetch {product}")
             try:
+                # Scrape CPU model product page
                 soup = fetch_product_page(product_link)
                 print(f"Fetched {product_link}")
             except:
                 return Exception(f"Error fetching URL: {product_link}")
 
             try:
+                # Extract JSON data from CPU model product page
                 json_data = get_product_json(soup)
             except:
                 return Exception(f"Error creating json for {product_link}")
 
             try:
+                # Calculate Price/Performance Score for all product listings for CPU model
                 product_price_list = get_product_price_list(json_data, product)
             except:
                 return Exception(f"Error parsing json for {product_link}")
 
+            # Go to the next CPU model in list of no products in stock were found for this CPU model
             if len(product_price_list) < 1:
                 continue
 
+            # Calculate Price/Performance Score for all product listings for CPU model
             product_benchmark_price_list = get_price_benchmark_score(product_price_list, benchmark_json)
 
+            # Append product listings for CPU model to main list
             benchmark_price_list.extend(product_benchmark_price_list)
 
+            # Wait half a second before scraping CPU model in list (except for last item in list)
             if product != product_choice_list[-1]:
                 time.sleep(0.5)
 
+        # If no CPU models in list had any products in store
         if len(benchmark_price_list) < 1:
             return Exception("No products in store for any products in list")
 
+        # Sort list of product listings for all CPU models by the highest Price/Performance Score
         sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
 
         return sorted_benchmark_price_list
     except:
+        # Catch-all Exception so API doesn't break
         return Exception("Unexpected Error")
 
 
