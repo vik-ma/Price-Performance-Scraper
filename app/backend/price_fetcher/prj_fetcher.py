@@ -6,6 +6,7 @@ import datetime
 import time
 from decimal import Decimal, ROUND_HALF_UP
 
+# Product page for each GPU model to scrape prices from
 gpu_pj_url_dict = {
     "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
     "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
@@ -35,6 +36,7 @@ gpu_pj_url_dict = {
     "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",  
 }
 
+# Product page for each CPU model to scrape prices from
 cpu_pj_url_dict = {
     "AMD Ryzen 9 5950X": "https://www.prisjakt.nu/produkt.php?p=5588372",
     "AMD Ryzen 9 5900X": "https://www.prisjakt.nu/produkt.php?p=5588367",
@@ -85,39 +87,73 @@ cpu_pj_url_dict = {
     "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
 }    
 
-def import_benchmark_json(benchmark_type, run_locally = False):
+
+def import_benchmark_json(benchmark_type, run_locally=False) -> dict:
+    """
+    Import benchmark data from .json file.
+
+        Parameters:
+            benchmark_type (str): Type of benchmark to import
+                                  (Must be either "GPU", "CPU-Gaming" or "CPU-Normal")
+
+            run_locally (bool): Must be True if module is ran outside of Django
+        
+        Returns:
+            data (dict): Dictionary of benchmark data where every key is a product model
+                         and their value is the model's corresponding benchmark score
+    """
     if run_locally:
         file_path = f"app/backend/price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
     else:
         file_path = f"price_fetcher/benchmarks/latest_benchmarks/{benchmark_type}.json"
+
     with open(file_path, "r") as file:
         data = json.load(file)
+
     return data
 
 
-def fetch_gpu_category_page(url):
+def fetch_gpu_category_page(url) -> list:
+    """
+    Scrape all pages for GPU category of provided url.
+
+        Parameters:
+            url (str): Link to the website to be scraped
+        Returns:
+            soup_list (list): List of BeautifulSoup objects containing scraped webpages
+
+    """
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
+    # Create list of pages
     soup_list = []
+
+    # Append first page
     soup_list.append(soup)
 
+    # Check if there is a "Next Page"
     next_page_tag = soup.find("a", {"aria-label": "Visa nästa"})
     if next_page_tag:
         num_pages_tag = soup.find("ul", {"data-test": "Pagination"})
         num_pages = int(num_pages_tag.find_all("li")[-2].text.strip())
 
         for i in range(1, num_pages):
+            # Get the url for next page
+            # Default offset is 44 per page
             offset_num = i * 44
             next_page_link = f"{url}&offset={offset_num}"
 
+            # Wait half a second before scraping next page
             print("Sleeping until next page")
             time.sleep(0.5)
 
+            # Scrape next page
             response = requests.get(next_page_link)
             soup = BeautifulSoup(response.text, "html.parser")
             print(next_page_link)
 
+            # Append next page
             soup_list.append(soup)
     else:
         print("Only one page in category")
@@ -125,7 +161,15 @@ def fetch_gpu_category_page(url):
     return soup_list
 
 
-def fetch_product_page(url):
+def fetch_product_page(url) -> BeautifulSoup:
+    """
+    Scrape product page of provided url.
+
+        Parameters:
+            url (str): Link to the website to be scraped
+        Returns:
+            soup_list (list): BeautifulSoup object containing scraped webpage
+    """
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -133,62 +177,121 @@ def fetch_product_page(url):
 
 
 def test_local_html_page(filename):
+    """
+    Parse a local .html file with BeautifulSoup.
+    (For debugging purposes)
+
+        Parameters:
+            filename (str): Full filepath to the .html file
+    """
     with open(filename, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
     
-    json_list = create_json_list_from_gpu_category([soup])
 
-    low = get_lowest_prices_in_gpu_category(json_list)
+def test_local_json_file(filename):
+    """
+    Import a local .json file.
+    (For debugging purposes)
 
-
-
-
-def test_local_json_file():
-    with open("pj_json_2023-02-15_08-38-43_1.json", "r") as file:
+        Parameters:
+            filename (str): Full filepath to the .json file
+    """
+    with open(filename, "r") as file:
         json_data = json.load(file)
+
+
+def get_product_json(soup) -> dict:
+    """
+    Extract JSON data regarding listed prices of a product from scraped webpage.
+
+        Parameters:
+            soup (BeautifulSoup object): Website content scraped with BeautifulSoup
     
-    product_price_list = get_product_price_list(json_data, "ASD")
-
-    for product in product_price_list:
-        print(product)
-
-
-def get_product_json(soup):
+        Returns:
+            json_data (dict): Dictionary containing everything inside the key "prices"
+                              from scraped webpage
+    """
+    # Script tag which contains JSON data (formatted as plain text)
     page_json = soup.find_all("script")[6].text
 
+    ## Parse JSON using regex
+
+    # Key to extract data from
     start_text = r'"prices":'
+    # Continue until this key
     end_text = r',"popularProducts"'
+    # Extract all text from start_text to end_text, including start_text but exluding end_text
     price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
+    # Wrap string in dictionary brackets to convert to dictionary via json module
     price_data = f"{{{price_data}}}"
 
+    # Remove escape characters and ensure unicode characters stays
     reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
 
+    # Load string as a dictionary
     json_data = json.loads(reencoded_price_data)
 
+    # Return extracted data as dictionary
     return json_data
 
 
-def get_product_price_list(json_data, product_category):
+def get_product_price_list(json_data, product_category) -> list:
+    """
+    Extract specific information from products listed in a product page via provided JSON data.
+
+        Parameters:
+            json_data (dict): Dictionary containing information about listed prices for product
+
+            product_category (str): Name of product model
+        
+        Returns:
+            product_list (list): List containing tuples which stores various information about
+                                 listed prices for a product
+    """
     product_list = []
+
     for product in json_data["prices"]["nodes"]:
+        # Store information about every product listing which is in stock and sold by Swedish stores
         if product["stock"]["status"] == "in_stock" and product["store"]["currency"] == "SEK":
+            # Name of store for product listing
             store_name = product["store"]["name"]
+            # Price (excluding shipping) of the product listing
             store_price = int(product["price"]["exclShipping"])
+            # Name of product
             product_name = product["name"]
+            # Link to product listing on store
             product_link = product["externalUri"]
+            # Append tuple containing information of product listing to list
             product_list.append((product_category, store_name, store_price, product_link, product_name))
+    
     return product_list
 
 
-def get_current_time():
+def get_current_time() -> str:
+    """
+    Return the current date and time in the format "YYYY-MM-DD_HH-MM-SS".
+
+        Returns:
+            A string representing the current date and time in the format "YYYY-MM-DD_HH-MM-SS".
+    """
     return datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 
 
 def save_local_html_page(soup, filename=None):
+    """
+    Save provided BeautifulSoup object as local .html file.
+
+        Parameters:
+            soup (BeautifulSoup object): Website content scraped with BeautifulSoup
+        
+            filename (str): Optional name of .html file
+    """
     if filename:
+        # Save file as filename if filename has been provided
         target_filename = filename
     else:
+        # Create generic filename using current datetime if no filename has been provided
         current_time = get_current_time()
         target_filename = f"pjtest_{current_time}.html"
 
@@ -196,17 +299,54 @@ def save_local_html_page(soup, filename=None):
         file.write(soup.prettify())
 
 
-def create_json_list_from_gpu_category(soup_list, *, read_local_files=False):
-    # FROM LOCAL HTML FILES 
-    # soup_list is list of strings of file paths
-    if read_local_files:
-        local_html_list = soup_list
-        soup_list = []
-        for html_file in local_html_list:
-            with open(html_file, "r", encoding="utf-8") as file:
-                soup = BeautifulSoup(file, "html.parser")
-                soup_list.append(soup)
+def create_soup_of_local_html_files(file_list):
+    """
+    Create list of BeautifulSoup objects from provided local .html files.
 
+        Parameters:
+            file_list (list): List of strings containing the filepath of local .html files
+        
+        Returns:
+            soup_list (list): List of local .html files parsed as BeautifulSoup objects
+    """
+    soup_list = []
+
+    for html_file in file_list:
+        with open(html_file, "r", encoding="utf-8") as file:
+            soup = BeautifulSoup(file, "html.parser")
+            soup_list.append(soup)
+    
+    return soup_list
+
+
+def create_json_list_of_local_json_files(file_list):
+    """
+    Create list of dictionaries from provided local .json files.
+
+        Parameters:
+            file_list (list): List of strings containing the filepath of local .json files
+
+        Returns:
+            json_list (list): List of local .json files parsed as dictionaries
+    """
+    json_list = []
+
+    for json_file in file_list:
+        with open(json_file) as file:
+            products_json = json.load(file)
+            json_list.append(products_json)
+    
+    return json_list
+
+
+def create_json_list_from_gpu_category(soup_list) -> dict:
+    """
+    Extract JSON data regarding listed sub-models of a GPU model from a list of scraped webpages
+
+        Parameters:
+            soup_list (list): List of BeautifulSoup objects 
+    """
+        
     json_list = []
     for soup in soup_list:
         page_json = soup.find_all("script")[4].text
@@ -232,17 +372,9 @@ def write_local_json_files(json_list):
             json.dump(json_file, file, indent=4)
 
 
-def get_lowest_prices_in_gpu_category(json_list, *, read_local_json_list=False):
-    # FROM LOCAL JSON FILES 
-    # json_list is list of strings of file paths
-    if read_local_json_list:
-        local_json_list = json_list
-        json_list = []
-        for json_file in local_json_list:
-            with open(json_file) as file:
-                products_json = json.load(file)
-                json_list.append(products_json)
 
+
+def get_lowest_prices_in_gpu_category(json_list):
     price_list = []
 
     for products_json in json_list:
