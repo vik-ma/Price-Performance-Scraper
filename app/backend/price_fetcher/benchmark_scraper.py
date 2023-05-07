@@ -7,14 +7,15 @@ import logging
 import os
 
 """
-ADDING NEW MODEL TODOLIST:
-    - UPDATE BENCHMARK SCRAPER LIST
-    - UPDATE PJ URL SET
-    - UPDATE API VIEWS.PY ALLOWED LIST
+TODOLIST FOR ADDING A NEW MODEL:
+    - UPDATE BENCHMARK SCRAPER LIST (list_of_gpus_to_scrape or list_of_cpus_to_scrape)
+    - UPDATE PJ URL SET (gpu_pj_url_dict or cpu_pj_url_dict)
+    - UPDATE API VIEWS.PY ALLOWED LIST (valid_gpu_set or valid_cpu_normal_list)
     - UPDATE PRODUCTLIST.TSX (FRONT END)
-    - UPDATE/VALIDATE TIERS FOR ALL ENTRIES IN PRODUCTLIST.TSX
+    - UPDATE/VALIDATE TIERS FOR ALL ENTRIES IN PRODUCTLIST.TSX (FRONT END)
 
-Intel Core i9-13900 CURRENTLY MISSING ANY CPU-GAMING BENCHMARKS
+CURRENTLY MISSING BENCHMARKS:
+    Intel Core i9-13900 - GAMING BENCHMARKS
 """
 
 list_of_gpus_to_scrape = [
@@ -107,7 +108,25 @@ passmark_cpu_normal_url = "https://www.cpubenchmark.net/high_end_cpus.html"
 passmark_cpu_gaming_url = "https://www.cpubenchmark.net/top-gaming-cpus.html"
 
 
-def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False):
+def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> dict:
+    """
+    Scrape Benchmarks from Passmark sites and return data.
+
+        Parameters:
+            benchmark_type (str): Type of benchmark to scrape 
+                                  (Must be either "GPU", "CPU-Gaming" or "CPU-Normal")
+
+            url (str): Link to the website to be scraped
+
+            product_set (set): Set of products to collect Benchmark data from
+                               (Use either gpu_set_lower_case or cpu_set_lower_case variables)
+
+            run_locally (bool): Must be True if module is ran outside of Django
+
+        Returns:
+            percent_dict (dict): Dictionary where every product from product_set is paired
+                                 with their benchmark value in percentage form
+    """
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -121,20 +140,35 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False):
             count = li.find("span", {"class": "count"}).text.strip()
             count_num = int(count.replace(",", ""))
             if len(benchmarks_dict) == 0:
+                # Adds the product in product_set which appears at the top of 
+                # the site list's benchmark value as max_value
                 max_value = count_num
             if prdname == "GeForce GTX 1660 SUPER":
                 benchmarks_dict["GeForce GTX 1660 Super"] = count_num
             else:
                 benchmarks_dict[prdname] = count_num
 
+    # Get the benchmark values for every product in percentage form,
+    # where the best product in product_set gets the value 100
     percent_dict = convert_dict_numbers_to_percent(benchmarks_dict, max_value)
 
+    # Save the data to a .json file
     save_to_json_with_timestamp(percent_dict, f"{benchmark_type}_PASSMARK", run_locally=run_locally)
 
     return percent_dict
 
 
-def scrape_toms_hardware_gpus(*, run_locally=False):
+def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
+    """
+    Scrape Benchmarks from Tom's Hardware's GPU Hierarchy and return data.
+
+        Parameters:
+            run_locally (bool): Must be True if module is ran outside of Django
+
+        Returns:
+            benchmarks_dict (dict): Dictionary where every product from gpu_set_lower_case 
+                                    is paired with their benchmark value
+    """
     response = requests.get("https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html")
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -148,23 +182,36 @@ def scrape_toms_hardware_gpus(*, run_locally=False):
             value_1080p = tr.find_all("td")[1].text.strip().split("%")[0]
             value_1440p = tr.find_all("td")[3].text.strip().split("%")[0]
             if value_1440p != "":
+                # Get the average value of 1080p and 1440p benchmark scores
                 value = round(((float(value_1080p) + float(value_1440p)) / 2), 2)
             if name == "Radeon RX 6700 10GB":
                 benchmarks_dict["Radeon RX 6700"] = value
             else:
                 benchmarks_dict[name] = value
 
+    # Save the data to a .json file
     save_to_json_with_timestamp(benchmarks_dict, f"GPU_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
 
-def scrape_toms_hardware_cpu_gaming(*, run_locally=False):
+def scrape_toms_hardware_cpu_gaming(*, run_locally=False) -> dict:
+    """
+    Scrape Benchmarks from Tom's Hardware's CPU Hierarchy (Gaming Scores) and return data.
+
+        Parameters:
+            run_locally (bool): Must be True if module is ran outside of Django
+
+        Returns:
+            benchmarks_dict (dict): Dictionary where every product from cpu_set_lower_case 
+                                    is paired with their benchmark value
+    """
     response = requests.get("https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
 
+    # Remove first word from each entry in cpu_set_lower_case
     cpu_set_lower_case_th = {' '.join(full_cpu_name.split()[1:]).lower():full_cpu_name for full_cpu_name in cpu_set}
 
     table = soup.find("div", {"id": "slice-container-table-7"})
@@ -177,26 +224,40 @@ def scrape_toms_hardware_cpu_gaming(*, run_locally=False):
             if name.lower() in cpu_set_lower_case_th:
                 value_1080p = columns[1].text.strip().split("%")[0]
                 value_1440p = columns[2].text.strip().split("%")[0]
+                # Get the average value of 1080p and 1440p benchmark scores
                 value = round(((float(value_1080p) + float(value_1440p)) / 2), 2)
                 benchmarks_dict[cpu_set_lower_case_th[name.lower()]] = value
             elif name == "Core i5-13400 / F":
                 value_1080p = columns[1].text.strip().split("%")[0]
                 value_1440p = columns[2].text.strip().split("%")[0]
+                # Get the average value of 1080p and 1440p benchmark scores
                 value = round(((float(value_1080p) + float(value_1440p)) / 2), 2)
                 benchmarks_dict["Intel Core i5-13400"] = value 
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
+    # Save the data to a .json file
     save_to_json_with_timestamp(benchmarks_dict, f"CPU-Gaming_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
 
-def scrape_toms_hardware_cpu_normal(*, run_locally=False):
+def scrape_toms_hardware_cpu_normal(*, run_locally=False) -> dict:
+    """
+    Scrape Benchmarks from Tom's Hardware's CPU Hierarchy (Multithreading Scores) and return data.
+
+        Parameters:
+            run_locally (bool): Must be True if module is ran outside of Django
+
+        Returns:
+            benchmarks_dict (dict): Dictionary where every product from cpu_set_lower_case 
+                                    is paired with their benchmark value
+    """
     response = requests.get("https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
 
+    # Remove first word from each entry in cpu_set_lower_case
     cpu_set_lower_case_th = {' '.join(full_cpu_name.split()[1:]).lower():full_cpu_name for full_cpu_name in cpu_set}
 
     table = soup.find("div", {"id": "slice-container-table-17"})
@@ -214,12 +275,19 @@ def scrape_toms_hardware_cpu_normal(*, run_locally=False):
                 benchmarks_dict["Intel Core i5-13400"] = value 
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
+    # Save the data to a .json file
     save_to_json_with_timestamp(benchmarks_dict, f"CPU-Normal_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
 
 def scrape_page(url):
+    """
+    Scrapes the page of provided url and locally saves the page as a .html file.
+
+        Parameters:
+            url (str): Link to the website to be scraped
+    """
     response = requests.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
@@ -227,33 +295,72 @@ def scrape_page(url):
 
 
 def save_local_html_page(soup):
+    """
+    Saves the provided BeautifulSoup object as a .html file.
+
+        Parameters:
+            soup (BeautifulSoup object): Website content scraped with BeautifulSoup 
+    """
+    # Get the current date and timestamp
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    # Folder to save scraped websites to
     directory = "benchmarks/completed-scrapes"
+    # Name the local file to be saved with current date and timestamp
     filename = f"{directory}/output_{current_time}.html"
 
+    # Create directory if it does not exist
     if not os.path.exists(directory):
         os.makedirs(directory)
 
+    # Save the file
     with open(filename, "w", encoding="utf-8") as file:
         file.write(soup.prettify())
 
 
-def save_to_json_with_timestamp(filtered_dict, dict_type, *, run_locally=False):
+def save_to_json_with_timestamp(benchmarks_dict, dict_type, *, run_locally=False):
+    """
+    Saves the provided dictionary as a .json file with the current datetime as its filename.
+
+        Parameters:
+            benchmarks_dict (dict): Dictionary where every key is a product and
+                                    their value is their benchmark score
+    """
+    # Get the current date and timestamp
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    # Set folder to save JSON file to
     if run_locally:
+        # If module is run on its own
         directory = "app/backend/price_fetcher/benchmarks/completed-scrapes"
     else:
+        # If function is run from Django
         directory = "price_fetcher/benchmarks/completed-scrapes"
     
     filename = f"{directory}/{dict_type}_{current_time}.json"
 
+    # Create directory if it does not exist
     if not os.path.exists(directory):
         os.makedirs(directory)
 
-    write_json_file(filtered_dict, filename)
+    # Save the file
+    write_json_file(benchmarks_dict, filename)
 
 
-def convert_dict_numbers_to_percent(benchmark_dict, max_value):
+def convert_dict_numbers_to_percent(benchmark_dict, max_value) -> dict:
+    """
+    Convert a dictionary where every key has a number as its value to a new value,
+    which is the number's ratio to the maximum value in the dictionary, in percentage form.
+
+        Parameters:
+            benchmarks_dict (dict): Dictionary where every key is a product and
+                                    their value is their benchmark score
+            
+            max_value (int): The maximum value of any key in the benchmarks_dict
+        
+        Returns:
+            percent_dict (dict): Dictionary where every key is a product and their value
+                                 is the equivalent percentage value compared to the maximum
+                                 value of any key in the dictionary
+    """
     percent_dict = {}
 
     for k, v in benchmark_dict.items():
@@ -264,49 +371,100 @@ def convert_dict_numbers_to_percent(benchmark_dict, max_value):
 
 
 def test_local_json_file(filepath):
+    """
+    Read the JSON data of a local .json file.
+    (For debugging purposes)
+
+        Parameters:
+            filepath (str): Full filepath to the .json file
+    """
     with open(filepath, "r") as file:
         json_data = json.load(file)
 
 
-def get_average_benchmarks(benchmark_list):
+def get_average_benchmarks(benchmark_list) -> dict:
+    """
+    Get the average scores of a list of Benchmark dictionaries.
+
+        Parameters:
+            benchmark_list (list): List of Benchmark dictionaries which contains
+                                   the same keys but have different number values
+        
+        Returns:
+            sorted_average_benchmarks (dict): Dictionary where every value has been
+                                              replaced by the average value of all
+                                              dictionaries in the input list
+    """
     benchmark_sums = {}
 
+    # Get the sum of all Benchmark values for every key
     for benchmark in benchmark_list:
         for key, value in benchmark.items():
             benchmark_sums[key] = benchmark_sums.get(key, ()) + (value,)
 
     average_benchmarks = {}
 
+    # Calculate the average Benchmark value for every key
     for key, value_tuple in benchmark_sums.items():
         average_value = round((sum(value_tuple) / len(value_tuple)), 2)
         average_benchmarks[key] = average_value
 
+    # Sort Benchmark keys from highest value to lowest
     sorted_average_benchmarks = dict(sorted(average_benchmarks.items(), key=lambda x: x[1], reverse=True))
 
     return sorted_average_benchmarks
     
 
-def fetch_gpu_benchmarks(*, run_locally=False):
+def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
+    """    
+    Scrape GPU benchmark scores from multiple websites and return the average data.
+
+        Parameters:
+            run_locally (bool): Must be True if module is ran outside of Django
+        
+        Returns:
+            average_benchmark_data (dict): Dictionary where every key is a product
+                                           and their value is the average scraped
+                                           benchmark score for the product
+    """
     benchmark_list = []
 
+    # Benchmark Data from Passmark
     passmark_data = scrape_passmark("GPU", passmark_gpu_url, gpu_set_lower_case, run_locally=run_locally)
     benchmark_list.append(passmark_data)
 
+    # Benchmark Data from Tom's Hardware
     th_data = scrape_toms_hardware_gpus(run_locally=run_locally)
     benchmark_list.append(th_data)
 
+    # Average Benchmark Data from all sites
     average_benchmark_data = get_average_benchmarks(benchmark_list)
 
+    # Get time of scrape in readable format
     current_datetime = str(datetime.datetime.now())[:-7]
 
+    # Add time of scrape to JSON
     average_benchmark_data["timestamp"] = current_datetime
 
+    # Save the data to a .json file
     save_to_json_with_timestamp(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
 
     return average_benchmark_data
 
 
-def fetch_cpu_gaming_benchmarks(*, run_locally=False):
+def fetch_cpu_gaming_benchmarks(*, run_locally=False) -> dict:
+    """    
+    Scrape CPU Gaming benchmark scores from multiple websites and return the average data.
+
+        Parameters:
+            run_locally (bool): Must be True if module is ran outside of Django
+        
+        Returns:
+            average_benchmark_data (dict): Dictionary where every key is a product
+                                           and their value is the average scraped
+                                           benchmark score for the product
+    """
+    ### Average of multiple sites (Currently not in use)
     # benchmark_list = []
 
     # passmark_data = scrape_passmark("CPU-Gaming", passmark_cpu_gaming_url, cpu_set_lower_case, run_locally=run_locally)
@@ -319,18 +477,35 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False):
 
     # save_to_json(average_benchmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
+
+    # Currently only scraping Passmark data
     passmark_data = scrape_passmark("CPU-Gaming", passmark_cpu_gaming_url, cpu_set_lower_case, run_locally=run_locally)
 
+    # Get time of scrape in readable format
     current_datetime = str(datetime.datetime.now())[:-7]
 
+    # Add time of scrape to JSON
     passmark_data["timestamp"] = current_datetime
 
+    # Save the data to a .json file
     save_to_json_with_timestamp(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
     return passmark_data
 
 
-def fetch_cpu_normal_benchmarks(*, run_locally=False):
+def fetch_cpu_normal_benchmarks(*, run_locally=False) -> dict:
+    """    
+    Scrape CPU Multithreading benchmark scores from multiple websites and return the average data.
+
+        Parameters:
+            run_locally (bool): Must be True if module is ran outside of Django
+        
+        Returns:
+            average_benchmark_data (dict): Dictionary where every key is a product
+                                           and their value is the average scraped
+                                           benchmark score for the product
+    """
+    ### Average of multiple sites (Currently not in use)
     # benchmark_list = []
 
     # passmark_data = scrape_passmark("CPU-Normal", passmark_cpu_normal_url, cpu_set_lower_case, run_locally=run_locally)
@@ -343,18 +518,30 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False):
 
     # save_to_json(average_benchmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
 
+
+    # Currently only scraping Passmark data
     passmark_data = scrape_passmark("CPU-Normal", passmark_cpu_normal_url, cpu_set_lower_case, run_locally=run_locally)
 
+    # Get time of scrape in readable format
     current_datetime = str(datetime.datetime.now())[:-7]
 
+    # Add time of scrape to JSON
     passmark_data["timestamp"] = current_datetime
 
+    # Save the data to a .json file
     save_to_json_with_timestamp(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
 
     return passmark_data
     
 
 def test_offline_page(filepath):
+    """
+    Parse a local .html file with BeautifulSoup.
+    (For debugging purposes)
+
+        Parameters:
+            filepath (str): Full filepath to the .html file
+    """
     with open(filepath, "r", encoding='utf8') as file:
         soup = BeautifulSoup(file, "html.parser")
 
