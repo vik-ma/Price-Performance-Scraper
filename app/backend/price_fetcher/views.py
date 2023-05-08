@@ -5,7 +5,7 @@ from . import prj_fetcher as pf
 from . import benchmark_scraper as bm
 import datetime
 
-# Create your views here.
+
 def test_button(request:HttpRequest):
     """
     Test button in test template for debugging purposes.

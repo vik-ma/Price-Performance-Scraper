@@ -1,6 +1,6 @@
 from django.db import models
 
-# Create your models here.
+
 class ProductListing(models.Model):
     """
     Stores information about one specific Product Listing from a Price Scrape.
