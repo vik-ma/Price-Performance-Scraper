@@ -626,7 +626,7 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
                                                 information about every product listing
                                                 scraped, including the Price/Performance
                                                 Score of every product listing
-            Exception if an error occured during price scraping
+            Exception if an error occurred during price scraping
     """
     try:
         try:
