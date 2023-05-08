@@ -220,7 +220,7 @@ def get_product_json(soup) -> dict:
     start_text = r'"prices":'
     # Continue until this key
     end_text = r',"popularProducts"'
-    # Extract all text from start_text to end_text, including start_text but exluding end_text
+    # Extract all text from start_text to end_text, including start_text but excluding end_text
     price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
     # Wrap string in dictionary brackets to convert to dictionary via json module
@@ -294,7 +294,7 @@ def save_local_html_page(soup, filename=None):
     else:
         # Create generic filename using current datetime if no filename has been provided
         current_time = get_current_time()
-        target_filename = f"pjtest_{current_time}.html"
+        target_filename = f"scrape_{current_time}.html"
 
     with open(target_filename, "w", encoding="utf-8") as file:
         file.write(soup.prettify())
@@ -368,7 +368,7 @@ def create_json_list_from_gpu_category(soup_list) -> dict:
         start_text = r'{"__typename":"ProductsSlice"'
         # Continue until this key
         end_text = r',{"__typename":"DescriptionSlice"'
-        # Extract all text from start_text to end_text, including start_text but exluding end_text
+        # Extract all text from start_text to end_text, including start_text but excluding end_text
         price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
 
         # Remove escape characters and ensure unicode characters stays
@@ -543,7 +543,7 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
                                                 information about every product listing
                                                 scraped, including the Price/Performance
                                                 Score of every product listing
-            Exception if an error occured during price scraping 
+            Exception if an error occurred during price scraping 
     """
     try:
         try:

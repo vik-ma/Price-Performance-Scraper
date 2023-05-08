@@ -4,7 +4,7 @@ import price_fetcher.views as pf
 
 def start():
     """
-        Start a job that will attempt toupdate and replace existing benchmarks 
+        Start a job that will attempt to update and replace existing benchmarks 
         every day at 07:00 Swedish time.
     """
     # Stop job from running twice
