@@ -1,6 +1,5 @@
 from django.shortcuts import redirect, render
 from django.http import HttpRequest
-from django.core.files.base import ContentFile
 from .models import ProductListing, CompletedFetch, BenchmarkData
 from . import prj_fetcher as pf
 from . import benchmark_scraper as bm
@@ -15,7 +14,8 @@ def test_button(request:HttpRequest):
     """Test button in test_template for debugging purposes."""
     benchmarks = get_benchmarks()
 
-    save_benchmark_data(benchmarks["benchmarks"])
+    print(benchmarks)
+    # save_benchmark_data(benchmarks["benchmarks"])
     # pass
 
     return redirect('/price_fetcher/test_template')
@@ -129,9 +129,13 @@ def get_benchmarks() -> dict:
     """
     benchmarks = {}
     try:
-        benchmarks["GPU"] = pf.import_benchmark_json("GPU")
-        benchmarks["CPU-Gaming"] = pf.import_benchmark_json("CPU-Gaming")
-        benchmarks["CPU-Normal"] = pf.import_benchmark_json("CPU-Normal")
+        benchmarks_data = BenchmarkData.objects.latest('id')
+        benchmarks["GPU"] = json.loads(benchmarks_data.gpu_benchmarks)
+        benchmarks["CPU-Gaming"] = json.loads(benchmarks_data.cpu_g_benchmarks)
+        benchmarks["CPU-Normal"] = json.loads(benchmarks_data.cpu_n_benchmarks)
+        # benchmarks["GPU"] = pf.import_benchmark_json("GPU")
+        # benchmarks["CPU-Gaming"] = pf.import_benchmark_json("CPU-Gaming")
+        # benchmarks["CPU-Normal"] = pf.import_benchmark_json("CPU-Normal")
         success = True
     except:
         success = False
