@@ -12,11 +12,8 @@ def test_template(request:HttpRequest):
 
 def test_button(request:HttpRequest):
     """Test button in test_template for debugging purposes."""
-    benchmarks = get_benchmarks()
 
-    print(benchmarks)
-    # save_benchmark_data(benchmarks["benchmarks"])
-    # pass
+    pass
 
     return redirect('/price_fetcher/test_template')
 
@@ -133,9 +130,6 @@ def get_benchmarks() -> dict:
         benchmarks["GPU"] = json.loads(benchmarks_data.gpu_benchmarks)
         benchmarks["CPU-Gaming"] = json.loads(benchmarks_data.cpu_g_benchmarks)
         benchmarks["CPU-Normal"] = json.loads(benchmarks_data.cpu_n_benchmarks)
-        # benchmarks["GPU"] = pf.import_benchmark_json("GPU")
-        # benchmarks["CPU-Gaming"] = pf.import_benchmark_json("CPU-Gaming")
-        # benchmarks["CPU-Normal"] = pf.import_benchmark_json("CPU-Normal")
         success = True
     except:
         success = False
@@ -150,14 +144,28 @@ def update_benchmarks():
     print("Benchmark Updater Finished")
 
 def save_benchmark_data(benchmark_data):
+    """
+    Save a BenchmarkData entry to PostgreSQL database.
+
+        Parameters:
+            benchmark_data (dict): Dictionary consisting of three keys:
+                                   "GPU", "CPU-Gaming" and "CPU-Normal".
+
+                                   Each key contains Benchmark Data about
+                                   every available Product Model, represented
+                                   as a string key, with its Benchmark Value
+                                   stored in its value, as a float.
+    """
     gpu_benchmarks_dict = benchmark_data["GPU"]
     cpu_g_benchmarks_dict = benchmark_data["CPU-Gaming"]
     cpu_n_benchmarks_dict = benchmark_data["CPU-Normal"]
 
+    # Convert dictionaries to strings
     gpu_benchmarks_str = json.dumps(gpu_benchmarks_dict)
     cpu_g_benchmarks_str = json.dumps(cpu_g_benchmarks_dict)
     cpu_n_benchmarks_str = json.dumps(cpu_n_benchmarks_dict)
 
+    # Save JSON data as strings
     benchmark_data = BenchmarkData()
     benchmark_data.gpu_benchmarks = gpu_benchmarks_str
     benchmark_data.cpu_g_benchmarks = cpu_g_benchmarks_str
