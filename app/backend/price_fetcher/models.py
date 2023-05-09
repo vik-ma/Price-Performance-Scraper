@@ -54,3 +54,8 @@ class CompletedFetch(models.Model):
     benchmark_type = models.CharField(max_length=10)
     timestamp = models.DateTimeField()
     timestamp_id = models.CharField(max_length=26)
+
+class BenchmarkData(models.Model):
+    gpu_benchmarks = models.TextField()
+    cpu_g_benchmarks = models.TextField()
+    cpu_n_benchmarks = models.TextField()

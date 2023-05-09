@@ -1,16 +1,34 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.http import HttpRequest
-from .models import ProductListing, CompletedFetch
+from django.core.files.base import ContentFile
+from .models import ProductListing, CompletedFetch, BenchmarkData
 from . import prj_fetcher as pf
 from . import benchmark_scraper as bm
 import datetime
+import json
 
+def test_template(request:HttpRequest):
+    return render(request, 'price_fetcher/test_template.html')
 
 def test_button(request:HttpRequest):
     """
-    Test button in test template for debugging purposes.
+    Test button in test_template for debugging purposes.
     """
-    pass
+    benchmarks = get_benchmarks()
+    gpu_benchmarks_dict = benchmarks["benchmarks"]["GPU"]
+    cpu_g_benchmarks_dict = benchmarks["benchmarks"]["CPU-Gaming"]
+    cpu_n_benchmarks_dict = benchmarks["benchmarks"]["CPU-Normal"]
+    
+    gpu_benchmarks_str = json.dumps(gpu_benchmarks_dict)
+    cpu_g_benchmarks_str = json.dumps(cpu_g_benchmarks_dict)
+    cpu_n_benchmarks_str = json.dumps(cpu_n_benchmarks_dict)
+
+    benchmark_data = BenchmarkData()
+    benchmark_data.gpu_benchmarks = gpu_benchmarks_str
+    benchmark_data.cpu_g_benchmarks = cpu_g_benchmarks_str
+    benchmark_data.cpu_n_benchmarks = cpu_n_benchmarks_str
+    benchmark_data.save()
+    # pass
 
     return redirect('/price_fetcher/test_template')
 
