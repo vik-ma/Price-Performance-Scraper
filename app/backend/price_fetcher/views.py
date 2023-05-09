@@ -8,26 +8,14 @@ import datetime
 import json
 
 def test_template(request:HttpRequest):
+    """Test html template for debugging purposes."""
     return render(request, 'price_fetcher/test_template.html')
 
 def test_button(request:HttpRequest):
-    """
-    Test button in test_template for debugging purposes.
-    """
+    """Test button in test_template for debugging purposes."""
     benchmarks = get_benchmarks()
-    gpu_benchmarks_dict = benchmarks["benchmarks"]["GPU"]
-    cpu_g_benchmarks_dict = benchmarks["benchmarks"]["CPU-Gaming"]
-    cpu_n_benchmarks_dict = benchmarks["benchmarks"]["CPU-Normal"]
-    
-    gpu_benchmarks_str = json.dumps(gpu_benchmarks_dict)
-    cpu_g_benchmarks_str = json.dumps(cpu_g_benchmarks_dict)
-    cpu_n_benchmarks_str = json.dumps(cpu_n_benchmarks_dict)
 
-    benchmark_data = BenchmarkData()
-    benchmark_data.gpu_benchmarks = gpu_benchmarks_str
-    benchmark_data.cpu_g_benchmarks = cpu_g_benchmarks_str
-    benchmark_data.cpu_n_benchmarks = cpu_n_benchmarks_str
-    benchmark_data.save()
+    save_benchmark_data(benchmarks["benchmarks"])
     # pass
 
     return redirect('/price_fetcher/test_template')
@@ -156,3 +144,18 @@ def update_benchmarks():
     print("Benchmark Updater Starting")
     bm.update_all_benchmarks()
     print("Benchmark Updater Finished")
+
+def save_benchmark_data(benchmark_data):
+    gpu_benchmarks_dict = benchmark_data["GPU"]
+    cpu_g_benchmarks_dict = benchmark_data["CPU-Gaming"]
+    cpu_n_benchmarks_dict = benchmark_data["CPU-Normal"]
+
+    gpu_benchmarks_str = json.dumps(gpu_benchmarks_dict)
+    cpu_g_benchmarks_str = json.dumps(cpu_g_benchmarks_dict)
+    cpu_n_benchmarks_str = json.dumps(cpu_n_benchmarks_dict)
+
+    benchmark_data = BenchmarkData()
+    benchmark_data.gpu_benchmarks = gpu_benchmarks_str
+    benchmark_data.cpu_g_benchmarks = cpu_g_benchmarks_str
+    benchmark_data.cpu_n_benchmarks = cpu_n_benchmarks_str
+    benchmark_data.save()

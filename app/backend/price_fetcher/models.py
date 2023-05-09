@@ -56,6 +56,15 @@ class CompletedFetch(models.Model):
     timestamp_id = models.CharField(max_length=26)
 
 class BenchmarkData(models.Model):
+    """
+    Stores Benchmark Data for every product model as a string representation of a JSON object.
+
+        gpu_benchmarks: Benchmark Data for every GPU model in app.
+
+        cpu_g_benchmarks: Gaming Performance Benchmark Data for the CPU models in app that has those.
+
+        cpu_n_benchmarks: Multithreaded Performance Benchmark Data for every CPU model in app.
+    """
     gpu_benchmarks = models.TextField()
     cpu_g_benchmarks = models.TextField()
     cpu_n_benchmarks = models.TextField()
