@@ -8,14 +8,16 @@ import json
 
 def test_template(request:HttpRequest):
     """Test html template for debugging purposes."""
-    return render(request, 'price_fetcher/test_template.html')
+
+    benchmark_data_list = BenchmarkData.objects.all()
+    context = {'benchmark_data_list' : benchmark_data_list}
+    
+    return render(request, 'price_fetcher/test_template.html', context)
 
 def test_button(request:HttpRequest):
     """Test button in test_template for debugging purposes."""
 
-    pass
-
-    return redirect('/price_fetcher/test_template')
+    return redirect('test_template')
 
 def get_current_timestamp() -> datetime:
     """Return the current date and time as a datetime object."""
