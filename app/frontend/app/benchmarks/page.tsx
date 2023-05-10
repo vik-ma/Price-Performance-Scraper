@@ -9,7 +9,7 @@ async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
       `${process.env.DJANGO_API_URL}/get_benchmarks/`,
       {
         // Don't cache response
-        cache: "no-store",
+        // cache: "no-store",
       }
     );
 
