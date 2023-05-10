@@ -9,6 +9,7 @@ import json
 def test_template(request:HttpRequest):
     """Test html template for debugging purposes."""
 
+    # List of all objects in Benchmark Data
     benchmark_data_list = BenchmarkData.objects.all()
     context = {'benchmark_data_list' : benchmark_data_list}
     

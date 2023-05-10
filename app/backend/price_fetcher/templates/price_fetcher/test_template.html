@@ -15,9 +15,8 @@
                 <input type="submit" value="Test Module"><br />       
             </form>
         </div>
-        {% csrf_token %}
         <div style="display:inline-block;margin-left:50px;">
-
+            <!-- List all objects in BenchmarkData model -->
             <ul>
                 {% for benchmark in benchmark_data_list %}
                 <li>
