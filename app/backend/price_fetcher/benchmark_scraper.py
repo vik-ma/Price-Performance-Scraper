@@ -609,7 +609,7 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         write_to_log(success=False, message=f"Error Replacing {benchmark_type} Benchmark: {e}", run_locally=run_locally)  
 
 
-def update_all_benchmarks(*, run_locally=False):
+def update_all_benchmarks(*, run_locally=False) -> dict:
     """
     Scrape benchmark data for all benchmark types and update existing benchmark data .json files.
     
@@ -623,12 +623,14 @@ def update_all_benchmarks(*, run_locally=False):
         gpu_benchmarks = fetch_gpu_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
-        # Log error if scraping fails
-        print("Error Scraping GPU Benchmarks")
-        write_to_log(success=False, message=f"Error Scraping GPU Benchmarks: {e}", run_locally=run_locally)
-    else:
-        # Replace old benchmark data with new benchmark data if scrape was successful
-        replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
+        return Exception(f"Error scraping GPU Benchmarks: {e}")
+    # except Exception as e:
+    #     # Log error if scraping fails
+    #     print("Error Scraping GPU Benchmarks")
+    #     write_to_log(success=False, message=f"Error Scraping GPU Benchmarks: {e}", run_locally=run_locally)
+    # else:
+    #     # Replace old benchmark data with new benchmark data if scrape was successful
+    #     replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
 
     # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
@@ -639,12 +641,14 @@ def update_all_benchmarks(*, run_locally=False):
         cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
-        # Log error if scraping fails
-        print("Error Scraping CPU-Gaming Benchmarks")
-        write_to_log(success=False, message=f"Error Scraping CPU-Gaming Benchmarks: {e}", run_locally=run_locally)
-    else:
-        # Replace old benchmark data with new benchmark data if scrape was successful
-        replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
+        return Exception(f"Error scraping CPU-Gaming Benchmarks: {e}")
+    # except Exception as e:
+    #     # Log error if scraping fails
+    #     print("Error Scraping CPU-Gaming Benchmarks")
+    #     write_to_log(success=False, message=f"Error Scraping CPU-Gaming Benchmarks: {e}", run_locally=run_locally)
+    # else:
+    #     # Replace old benchmark data with new benchmark data if scrape was successful
+    #     replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
 
     # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
@@ -655,13 +659,21 @@ def update_all_benchmarks(*, run_locally=False):
         cpu_normal_benchmarks = fetch_cpu_normal_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
-        # Log error if scraping fails
-        print("Error Scraping CPU-Normal Benchmarks")
-        write_to_log(success=False, message=f"Error Scraping CPU-Normal Benchmarks: {e}", run_locally=run_locally)
-    else:
+        return Exception(f"Error scraping CPU-Normal Benchmarks: {e}")
+    # except Exception as e:
+    #     # Log error if scraping fails
+    #     print("Error Scraping CPU-Normal Benchmarks")
+    #     write_to_log(success=False, message=f"Error Scraping CPU-Normal Benchmarks: {e}", run_locally=run_locally)
+    # else:
         # Replace old benchmark data with new benchmark data if scrape was successful
-        replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
+        # replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
+    new_benchmarks_dict = {}
+    new_benchmarks_dict["GPU"] = gpu_benchmarks
+    new_benchmarks_dict["CPU-Gaming"] = cpu_gaming_benchmarks
+    new_benchmarks_dict["CPU-Normal"] = cpu_normal_benchmarks
+
+    return new_benchmarks_dict
 
 def validate_new_benchmarks(old_benchmark_json, new_benchmark_json, *, run_locally=False) -> bool:
     """

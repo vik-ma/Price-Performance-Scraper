@@ -17,16 +17,15 @@ def test_template(request:HttpRequest):
 
 def test_button(request:HttpRequest):
     """Test button in test_template for debugging purposes."""
-    data = {
-        "product_list": 
-        "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D", 
-        "fetch_type": "CPU-Gaming" 
-        }
+    # data = {
+    #     "product_list": 
+    #     "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D", 
+    #     "fetch_type": "CPU-Gaming" 
+    #     }
+    # pf_return = start_price_fetching(data)
+    # print(pf_return)
 
-    pf_return = start_price_fetching(data)
-
-    print(pf_return)
-
+    update_benchmarks()
     return redirect('/')
 
 def get_current_timestamp() -> datetime:
@@ -152,8 +151,18 @@ def update_benchmarks():
     Scrapes new Benchmark Data and updates locally stored Benchmark .json files.
     """
     print("Benchmark Updater Starting")
-    bm.update_all_benchmarks()
+    new_benchmarks = bm.update_all_benchmarks()
     print("Benchmark Updater Finished")
+
+    if type(new_benchmarks) is dict:
+        try:
+            save_benchmark_data(new_benchmarks)
+            print("Benchmarks Saved")
+        except:
+            print("Error saving benchmarks")
+    
+    if type(new_benchmarks) is Exception:
+        print(str(new_benchmarks))
 
 def save_benchmark_data(benchmark_data):
     """
