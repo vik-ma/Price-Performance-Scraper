@@ -153,7 +153,7 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> d
     percent_dict = convert_dict_numbers_to_percent(benchmarks_dict, max_value)
 
     # Save the data to a .json file
-    save_to_json_with_timestamp(percent_dict, f"{benchmark_type}_PASSMARK", run_locally=run_locally)
+    # save_to_json_with_timestamp(percent_dict, f"{benchmark_type}_PASSMARK", run_locally=run_locally)
 
     return percent_dict
 
@@ -190,7 +190,7 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
                 benchmarks_dict[name] = value
 
     # Save the data to a .json file
-    save_to_json_with_timestamp(benchmarks_dict, f"GPU_TH", run_locally=run_locally)
+    # save_to_json_with_timestamp(benchmarks_dict, f"GPU_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -236,7 +236,7 @@ def scrape_toms_hardware_cpu_gaming(*, run_locally=False) -> dict:
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
     # Save the data to a .json file
-    save_to_json_with_timestamp(benchmarks_dict, f"CPU-Gaming_TH", run_locally=run_locally)
+    # save_to_json_with_timestamp(benchmarks_dict, f"CPU-Gaming_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -276,7 +276,7 @@ def scrape_toms_hardware_cpu_normal(*, run_locally=False) -> dict:
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
     # Save the data to a .json file
-    save_to_json_with_timestamp(benchmarks_dict, f"CPU-Normal_TH", run_locally=run_locally)
+    # save_to_json_with_timestamp(benchmarks_dict, f"CPU-Normal_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -447,7 +447,7 @@ def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
     average_benchmark_data["timestamp"] = current_datetime
 
     # Save the data to a .json file
-    save_to_json_with_timestamp(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
+    # save_to_json_with_timestamp(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
 
     return average_benchmark_data
 
@@ -488,7 +488,7 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False) -> dict:
     passmark_data["timestamp"] = current_datetime
 
     # Save the data to a .json file
-    save_to_json_with_timestamp(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
+    # save_to_json_with_timestamp(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
     return passmark_data
 
@@ -529,7 +529,7 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False) -> dict:
     passmark_data["timestamp"] = current_datetime
 
     # Save the data to a .json file
-    save_to_json_with_timestamp(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
+    # save_to_json_with_timestamp(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
 
     return passmark_data
     
