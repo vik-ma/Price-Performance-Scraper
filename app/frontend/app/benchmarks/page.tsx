@@ -8,7 +8,7 @@ async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
     const response = await fetch(
       `${process.env.DJANGO_API_URL}/get_benchmarks/`,
       {
-        // Cache response and revalidate on request, at most once per 60 seconds
+        // Cache response and revalidate on new request, at most once per 60 seconds
         next: {
           revalidate: 60,
         },

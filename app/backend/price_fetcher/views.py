@@ -17,8 +17,17 @@ def test_template(request:HttpRequest):
 
 def test_button(request:HttpRequest):
     """Test button in test_template for debugging purposes."""
+    data = {
+        "product_list": 
+        "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D", 
+        "fetch_type": "CPU-Gaming" 
+        }
 
-    return redirect('test_template')
+    pf_return = start_price_fetching(data)
+
+    print(pf_return)
+
+    return redirect('/')
 
 def get_current_timestamp() -> datetime:
     """Return the current date and time as a datetime object."""
