@@ -611,10 +611,18 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
 
 def update_all_benchmarks(*, run_locally=False) -> dict:
     """
-    Scrape benchmark data for all benchmark types and update existing benchmark data .json files.
+    Scrape benchmark data for all benchmark types and return dictionary of Benchmark Data.
     
         Parameters:
             run_locally (bool): Must be True if module is ran outside of Django
+        
+        Returns:
+            If benchmark scraping was successful:
+                new_benchmarks_dict (dict): Contains dictionary with keys "GPU", "CPU-Gaming"
+                                            and "CPU-Normal" which all contains their own 
+                                            dictionary of Benchmark Values for all products.
+            If benchmark scraping failed:
+                Exception class containing error message. 
     """
 
     print("Scraping GPU Benchmarks")
@@ -624,6 +632,7 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         print("Success")
     except Exception as e:
         return Exception(f"Error scraping GPU Benchmarks: {e}")
+    # # For local .json files as Benchmark Data
     # except Exception as e:
     #     # Log error if scraping fails
     #     print("Error Scraping GPU Benchmarks")
@@ -642,6 +651,7 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         print("Success")
     except Exception as e:
         return Exception(f"Error scraping CPU-Gaming Benchmarks: {e}")
+    # # For local .json files as Benchmark Data
     # except Exception as e:
     #     # Log error if scraping fails
     #     print("Error Scraping CPU-Gaming Benchmarks")
@@ -660,6 +670,7 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         print("Success")
     except Exception as e:
         return Exception(f"Error scraping CPU-Normal Benchmarks: {e}")
+    # # For local .json files as Benchmark Data
     # except Exception as e:
     #     # Log error if scraping fails
     #     print("Error Scraping CPU-Normal Benchmarks")
@@ -668,10 +679,9 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         # Replace old benchmark data with new benchmark data if scrape was successful
         # replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
-    new_benchmarks_dict = {}
-    new_benchmarks_dict["GPU"] = gpu_benchmarks
-    new_benchmarks_dict["CPU-Gaming"] = cpu_gaming_benchmarks
-    new_benchmarks_dict["CPU-Normal"] = cpu_normal_benchmarks
+    new_benchmarks_dict = {"GPU": gpu_benchmarks, 
+                            "CPU-Gaming": cpu_gaming_benchmarks, 
+                            "CPU-Normal": cpu_normal_benchmarks}
 
     return new_benchmarks_dict
 

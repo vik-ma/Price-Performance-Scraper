@@ -148,12 +148,13 @@ def get_benchmarks() -> dict:
 
 def update_benchmarks():
     """
-    Scrapes new Benchmark Data and updates locally stored Benchmark .json files.
+    Scrapes new Benchmark Data and stores new Benchmark Data to PostgreSQL database.
     """
     print("Benchmark Updater Starting")
     new_benchmarks = bm.update_all_benchmarks()
     print("Benchmark Updater Finished")
 
+    # If Benchmark scraping was successful
     if type(new_benchmarks) is dict:
         try:
             save_benchmark_data(new_benchmarks)
@@ -161,6 +162,7 @@ def update_benchmarks():
         except:
             print("Error saving benchmarks")
     
+    # If Benchmark scraping failed
     if type(new_benchmarks) is Exception:
         print(str(new_benchmarks))
 
