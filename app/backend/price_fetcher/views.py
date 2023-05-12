@@ -17,18 +17,51 @@ def test_template(request:HttpRequest):
     
     return render(request, 'price_fetcher/test_template.html', context)
 
-def test_button(request:HttpRequest):
-    """Test button in test_template for debugging purposes."""
-    # data = {
-    #     "product_list": 
-    #     "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D", 
-    #     "fetch_type": "CPU-Gaming" 
-    #     }
-    # pf_return = start_price_fetching(data)
-    # print(pf_return)
+def test_button_cpu_g(request:HttpRequest):
+    """Button to test CPU-Gaming Price Scrape in test_template for debugging purposes."""
+    data = {
+        "product_list": 
+        "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D", 
+        "fetch_type": "CPU-Gaming" 
+        }
+    pf_return = start_price_fetching(data)
+    print(pf_return)
 
-    update_benchmarks()
     return redirect('/')
+
+
+def test_button_cpu_n(request:HttpRequest):
+    """Button to test CPU-Normal Price Scrape in test_template for debugging purposes."""
+    data = {
+        "product_list": 
+        "AMD Ryzen 9 7950X,Intel Core i9-13900KS,Intel Core i9-13900K", 
+        "fetch_type": "CPU-Normal" 
+        }
+    pf_return = start_price_fetching(data)
+    print(pf_return)
+
+    return redirect('/')
+
+
+def test_button_gpu(request:HttpRequest):
+    """Button to test GPU Price Scrape in test_template for debugging purposes."""
+    data = {
+        "product_list": 
+        "GeForce RTX 4080,Radeon RX 7900 XTX", 
+        "fetch_type": "GPU" 
+        }
+    pf_return = start_price_fetching(data)
+    print(pf_return)
+
+    return redirect('/')
+
+
+def test_button_benchmarks(request:HttpRequest):
+    """Button to test Benchmark Updater in test_template for debugging purposes."""
+    update_benchmarks()
+
+    return redirect('/')
+
 
 def get_current_timestamp() -> datetime:
     """Return the current date and time as a datetime object."""

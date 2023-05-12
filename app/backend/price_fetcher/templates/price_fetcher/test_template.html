@@ -15,7 +15,7 @@
             <ul>
                 {% for fetch in completed_fetch_list %}
                 <li>
-                {{ fetch.timestamp_id }}
+                {{ fetch.benchmark_type }} - {{ fetch.timestamp_id }}
                 </li>
                 {% empty %}
                 <li>
@@ -25,15 +25,15 @@
                 </li>
                 {% endfor %}
             </ul>
-            <form action="{% url 'test_button' %}" method="post" style="display:inline-block;">
+            <form action="{% url 'test_button_cpu_g' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
                 <input type="submit" value="Test CPU-G"><br />       
             </form>
-            <form action="{% url 'test_button' %}" method="post" style="display:inline-block;">
+            <form action="{% url 'test_button_cpu_n' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
                 <input type="submit" value="Test CPU-N"><br />       
             </form>
-            <form action="{% url 'test_button' %}" method="post" style="display:inline-block;">
+            <form action="{% url 'test_button_gpu' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
                 <input type="submit" value="Test GPU"><br />       
             </form>
@@ -54,7 +54,7 @@
                 </li>
                 {% endfor %}
             </ul>
-            <form action="{% url 'test_button' %}" method="post" style="display:inline-block;">
+            <form action="{% url 'test_button_benchmarks' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
                 <input type="submit" value="Test Benchmarks"><br />       
             </form>
