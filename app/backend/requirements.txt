@@ -24,9 +24,11 @@ cryptography==39.0.1 ; python_version >= '3.6'
 
 cssselect==1.2.0 ; python_version >= '3.7'
 
+dj-database-url==2.0.0
+
 django==4.2.1
 
-django-cors-headers==3.14.0
+django-cors-headers==4.0.0
 
 djangorestframework==3.14.0
 
@@ -39,6 +41,8 @@ graphene-django==3.0.2
 graphql-core==3.2.3 ; python_version >= '3.6' and python_version < '4'
 
 graphql-relay==3.2.0 ; python_version >= '3.6' and python_version < '4'
+
+gunicorn==20.1.0
 
 hyperlink==21.0.0
 
@@ -104,7 +108,7 @@ twisted==22.10.0 ; python_full_version >= '3.7.1'
 
 twisted-iocpsupport==1.0.2 ; platform_system == 'Windows'
 
-typing-extensions==4.4.0 ; python_version >= '3.7'
+typing-extensions==4.5.0 ; python_version >= '3.7'
 
 tzdata==2023.3 ; sys_platform == 'win32'
 
