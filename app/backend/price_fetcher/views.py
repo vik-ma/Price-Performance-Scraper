@@ -9,11 +9,12 @@ import json
 def test_template(request:HttpRequest):
     """Test html template for debugging purposes."""
 
-    # List of all objects in Benchmark Data
     benchmark_data_list = BenchmarkData.objects.all()
     completed_fetch_list = CompletedFetch.objects.all()
+    current_datetime = get_current_timestamp()
     context = {'benchmark_data_list' : benchmark_data_list, 
-               'completed_fetch_list' : completed_fetch_list}
+               'completed_fetch_list' : completed_fetch_list,
+               'current_datetime' : current_datetime}
     
     return render(request, 'price_fetcher/test_template.html', context)
 
