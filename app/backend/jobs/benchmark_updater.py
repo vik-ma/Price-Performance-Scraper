@@ -12,6 +12,7 @@ def start():
         scheduler = BackgroundScheduler(timezone="Europe/Stockholm")
         scheduler.add_job(pf.update_benchmarks, 'cron', hour=22, minute=00)
         scheduler.start()
+        return
     else:
         scheduler = BackgroundScheduler(timezone="Europe/Stockholm")
         scheduler.add_job(pf.update_benchmarks, 'cron', hour=22, minute=00)
