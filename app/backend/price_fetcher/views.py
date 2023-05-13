@@ -22,7 +22,7 @@ def test_button_cpu_g(request:HttpRequest):
     """Button to test CPU-Gaming Price Scrape in test_template for debugging purposes."""
     data = {
         "product_list": 
-        "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,Intel Core i9-13900KS,Intel Core i9-13900K,Intel Core i9-13900KF,AMD Ryzen 7 5800X3D,AMD Ryzen 9 7900X,Intel Core i7-13700K,Intel Core i5-13600K", 
+        "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,Intel Core i9-13900KS,Intel Core i9-13900K,Intel Core i9-13900KF,AMD Ryzen 7 5800X3D", 
         "fetch_type": "CPU-Gaming" 
         }
     pf_return = start_price_fetching(data)
@@ -48,7 +48,7 @@ def test_button_gpu(request:HttpRequest):
     """Button to test GPU Price Scrape in test_template for debugging purposes."""
     data = {
         "product_list": 
-        "GeForce RTX 4080,Radeon RX 7900 XTX", 
+        "GeForce RTX 4090,GeForce RTX 4080,Radeon RX 7900 XTX", 
         "fetch_type": "GPU" 
         }
     pf_return = start_price_fetching(data)
@@ -160,27 +160,6 @@ def start_price_fetching(data) -> dict:
     
     # Return the database id of completed Price Scrape
     return {"success": True, "message": str(timestamp_id)}
-
-def get_benchmarks() -> dict:
-    """
-    Load and return stored Benchmark Data saved as a JSON string from database.
-
-        Returns:
-            Dictionary containing a "success" key and a "benchmarks" key.
-                "success" will be True if import worked, otherwise False.
-                "benchmarks" will be a dictionary of three dictionaries if
-                import worked, otherwise an empty dictionary.
-    """
-    benchmarks = {}
-    try:
-        benchmarks_data = BenchmarkData.objects.latest('id')
-        benchmarks["GPU"] = json.loads(benchmarks_data.gpu_benchmarks)
-        benchmarks["CPU-Gaming"] = json.loads(benchmarks_data.cpu_g_benchmarks)
-        benchmarks["CPU-Normal"] = json.loads(benchmarks_data.cpu_n_benchmarks)
-        success = True
-    except:
-        success = False
-    return {"success": success, "benchmarks": benchmarks}
 
 def update_benchmarks():
     """

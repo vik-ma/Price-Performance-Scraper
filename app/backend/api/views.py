@@ -2,8 +2,10 @@ from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import serializers
 from .serializers import FetchPropertiesSerializer
+from price_fetcher.models import BenchmarkData
 import price_fetcher.views as pf
 import datetime
+import json
 
 class ScrapeThrottle():
     """
@@ -247,9 +249,32 @@ def test_post(request):
 
 @api_view(['GET'])
 def get_benchmarks(request) -> Response:
-    """Returns Benchmark Data from locally stored .json files."""
-    benchmarks = pf.get_benchmarks()
-    return Response(benchmarks)
+    """
+    Load and return stored Benchmark Data saved as a JSON string from database.
+
+        Returns:
+            Dictionary containing a "success" key and a "benchmarks" key.
+                "success" will be True if import worked, otherwise False.
+                "benchmarks" will be a dictionary of three dictionaries if
+                import worked, otherwise an empty dictionary.
+    """
+    response = {}
+    benchmarks = {}
+
+    try:
+        benchmarks_data = BenchmarkData.objects.latest('id')
+        benchmarks["GPU"] = json.loads(benchmarks_data.gpu_benchmarks)
+        benchmarks["CPU-Gaming"] = json.loads(benchmarks_data.cpu_g_benchmarks)
+        benchmarks["CPU-Normal"] = json.loads(benchmarks_data.cpu_n_benchmarks)
+        success = True
+    except:
+        success = False
+
+    response["success"] = success
+    response["benchmarks"] = benchmarks
+    # return {"success": success, "benchmarks": benchmarks}
+    # benchmarks = pf.get_benchmarks()
+    return Response(response)
 
 @api_view(['GET'])
 def get_scrape_allowed(request) -> Response:
