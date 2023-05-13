@@ -10,5 +10,5 @@ def start():
     # Stop job from running twice
     if os.environ.get('RUN_MAIN'):
         scheduler = BackgroundScheduler(timezone="Europe/Stockholm")
-        scheduler.add_job(pf.update_benchmarks, 'cron', hour=7, minute=0)
+        scheduler.add_job(pf.update_benchmarks, 'cron', hour=21, minute=14)
         scheduler.start()
