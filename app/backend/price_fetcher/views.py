@@ -115,7 +115,7 @@ def start_price_fetching(data) -> dict:
     fetch_type = data["fetch_type"]
     # Create list of products models to be Price Scraped
     # Every model is separated by a comma
-    products_to_fetch = data["product_list"].split(",")
+    products_to_fetch = list(set(data["product_list"].split(",")))
 
     # Start Price Scrape
     if fetch_type == "GPU":
