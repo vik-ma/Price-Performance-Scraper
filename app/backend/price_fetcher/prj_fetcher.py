@@ -167,9 +167,9 @@ def fetch_gpu_category_page(url) -> list:
             offset_num = i * 44
             next_page_link = f"{url}&offset={offset_num}"
 
-            # Wait half a second before scraping next page
+            # Wait one second before scraping next page
             print("Sleeping until next page")
-            time.sleep(0.5)
+            time.sleep(1)
 
             # Scrape next page
             response = requests.get(next_page_link)
@@ -507,9 +507,9 @@ def get_store_price_for_products_from_category(product_link_list, product_catego
         # Append list of tuples containing information of product listing to main list
         store_price_list.extend(product_price_list)
 
-        # Wait half a second before scraping next page in list (except for last item in list)
+        # Wait one second before scraping next page in list (except for last item in list)
         if product != product_link_list[-1]:
-            time.sleep(0.5)
+            time.sleep(1)
 
     return store_price_list
 
@@ -602,12 +602,19 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
             except:
                 return Exception(f"Error parsing json for GPU category page: {product_category_url}")
 
+            # Wait one second before scraping product pages
+            time.sleep(1)
+
             try:
                 # Scrape product pages of cheapest product listings for GPU model
                 product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
             except:
                 return Exception(f"Error getting store price for product for GPU category page: {product_category_url}")
             
+            # Wait one second before scraping next GPU category in list (except for last item in list)
+            if product_category != product_choice_list[-1]:
+                time.sleep(1)
+
             # Go to the next GPU model in list if no products in stock were found for this GPU model
             if len(product_price_list) < 1:
                 continue
@@ -700,9 +707,9 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
             # Append product listings for CPU model to main list
             benchmark_price_list.extend(product_benchmark_price_list)
 
-            # Wait half a second before scraping CPU model in list (except for last item in list)
+            # Wait one second before scraping next CPU model in list (except for last item in list)
             if product != product_choice_list[-1]:
-                time.sleep(0.5)
+                time.sleep(1)
 
         # If no CPU models in list had any products in store
         if len(benchmark_price_list) < 1:
