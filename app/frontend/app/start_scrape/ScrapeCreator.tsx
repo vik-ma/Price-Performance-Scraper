@@ -10,7 +10,7 @@ import Link from "next/link";
 
 // POST Request to start Price Scraping in Django application
 async function startPriceFetch(data = {}) {
-  const response = await fetch(`http://localhost:8000/api/start_price_fetch/`, {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_DJANGO_API_URL}/start_price_fetch/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

@@ -12,7 +12,7 @@ import CPUNIcon from "../icons/CPUNIcon";
 async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
   try {
     const response = await fetch(
-      `http://localhost:8000/api/get_scrape_allowed/`,
+      `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_scrape_allowed/`,
       {
         // Don't cache response
         cache: "no-store",

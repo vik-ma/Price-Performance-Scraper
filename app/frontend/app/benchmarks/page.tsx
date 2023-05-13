@@ -6,7 +6,7 @@ import Link from "next/link";
 async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
   try {
     const response = await fetch(
-      `${process.env.DJANGO_API_URL}/get_benchmarks/`,
+      `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_benchmarks/`,
       {
         // Cache response and revalidate on new request, at most once per 60 seconds
         next: {
