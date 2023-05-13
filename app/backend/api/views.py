@@ -156,12 +156,12 @@ def validate_fetch_request(serializer_data):
     except:
         raise serializers.ValidationError("Not a valid product_list string")
 
-    # Check if there are no more than 4 products for a Price Scrape of GPUs
-    if fetch_type == "GPU" and len(product_list) > 4:
+    # Check if there are no more than 3 products for a Price Scrape of GPUs
+    if fetch_type == "GPU" and len(product_list) > 3:
         raise serializers.ValidationError("product_list too long")
 
-    # Check if there are no more than 10 products for a Price Scrape of CPUs
-    if (fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal") and len(product_list) > 10:
+    # Check if there are no more than 7 products for a Price Scrape of CPUs
+    if (fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal") and len(product_list) > 7:
         raise serializers.ValidationError("product_list too long")
 
     # Set list of allowed products for benchmark type
