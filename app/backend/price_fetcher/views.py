@@ -22,7 +22,7 @@ def test_button_cpu_g(request:HttpRequest):
     """Button to test CPU-Gaming Price Scrape in test_template for debugging purposes."""
     data = {
         "product_list": 
-        "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D", 
+        "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,Intel Core i9-13900KS,Intel Core i9-13900K,Intel Core i9-13900KF,AMD Ryzen 7 5800X3D,AMD Ryzen 9 7900X,Intel Core i7-13700K,Intel Core i5-13600K", 
         "fetch_type": "CPU-Gaming" 
         }
     pf_return = start_price_fetching(data)
