@@ -163,7 +163,7 @@ def start_price_fetching(data) -> dict:
 
 def get_benchmarks() -> dict:
     """
-    Load and return stored Benchmark Data from .json files.
+    Load and return stored Benchmark Data saved as a JSON string from database.
 
         Returns:
             Dictionary containing a "success" key and a "benchmarks" key.

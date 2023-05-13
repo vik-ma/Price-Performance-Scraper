@@ -5,6 +5,7 @@ import re
 import datetime
 import time
 from decimal import Decimal, ROUND_HALF_UP
+from .models import BenchmarkData
 
 # Product page for each GPU model to scrape prices from
 gpu_pj_url_dict = {
@@ -90,7 +91,7 @@ cpu_pj_url_dict = {
 
 def import_benchmark_json(benchmark_type, run_locally=False) -> dict:
     """
-    Import benchmark data from .json file.
+    Import and return benchmark data from .json file.
 
         Parameters:
             benchmark_type (str): Type of benchmark to import
@@ -111,6 +112,28 @@ def import_benchmark_json(benchmark_type, run_locally=False) -> dict:
         data = json.load(file)
 
     return data
+
+
+def import_benchmark_from_db(benchmark_type) -> dict:
+    """
+    Import and return benchmark data from database.
+
+        Parameters:
+            benchmark_type (str): Type of benchmark to import
+                                  (Must be either "GPU", "CPU-Gaming" or "CPU-Normal")
+
+        Returns:
+            data (dict): Dictionary of benchmark data where every key is a product model
+                         and their value is the model's corresponding benchmark score
+    """
+    benchmarks_data = BenchmarkData.objects.latest('id')
+
+    if benchmark_type == "GPU":
+        return json.loads(benchmarks_data.gpu_benchmarks)
+    if benchmark_type == "CPU-Gaming":
+        return json.loads(benchmarks_data.cpu_g_benchmarks)
+    if benchmark_type == "CPU-Normal":
+        return json.loads(benchmarks_data.cpu_n_benchmarks)
 
 
 def fetch_gpu_category_page(url) -> list:
@@ -548,7 +571,8 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
     try:
         try:
             # Load benchmark data for GPUs
-            benchmark_json = import_benchmark_json("GPU", run_locally)
+            benchmark_json = import_benchmark_from_db("GPU")
+            # benchmark_json = import_benchmark_json("GPU", run_locally)
         except:
             return Exception("Error importing benchmarks")
 
@@ -631,7 +655,8 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
     try:
         try:
             # Load benchmark data for either CPU-Gaming or CPU-Normal
-            benchmark_json = import_benchmark_json(benchmark_type, run_locally)
+            benchmark_json = import_benchmark_from_db(benchmark_type)
+            # benchmark_json = import_benchmark_json(benchmark_type, run_locally)
         except:
             return Exception("Error importing benchmarks")
         
