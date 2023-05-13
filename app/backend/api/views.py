@@ -272,8 +272,7 @@ def get_benchmarks(request) -> Response:
 
     response["success"] = success
     response["benchmarks"] = benchmarks
-    # return {"success": success, "benchmarks": benchmarks}
-    # benchmarks = pf.get_benchmarks()
+
     return Response(response)
 
 @api_view(['GET'])

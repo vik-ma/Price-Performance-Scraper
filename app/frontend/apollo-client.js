@@ -1,7 +1,7 @@
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 
 const client = new ApolloClient({
-  uri: "http://localhost:8000/price_fetcher/graphql/",
+  uri: `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/graphql/`,
   cache: new InMemoryCache(),
 });
 

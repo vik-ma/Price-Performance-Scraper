@@ -1,6 +1,6 @@
 import graphene
 from graphene_django.types import DjangoObjectType
-from .models import ProductListing, CompletedFetch
+from price_fetcher.models import ProductListing, CompletedFetch
 
 
 class CompletedFetchType(DjangoObjectType):
