@@ -3,7 +3,25 @@ import Image from "next/image";
 import GitHubLogo from "/public/GitHub_Logo_White.png";
 import GitHubMark from "/public/github-mark-white.png";
 
+async function wakeApi()  {
+  // Function to call a simple GET request to backend in order to wake up sleeping web service
+  try {
+    const response = await fetch(
+      `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/wake_api/`,
+      {
+        // Cache response and revalidate on new request, at most once per 15 minutes
+        next: {
+          revalidate: 900,
+        },
+      }
+    );
+  } catch {}
+}
+
 export default async function Home() {
+  // Call GET request to wake backend web service
+  await wakeApi();
+
   return (
     <main>
       <h1 className="home-title">
