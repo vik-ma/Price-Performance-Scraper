@@ -237,15 +237,24 @@ def start_price_fetch(request) -> Response:
     # Return serializer error message if Request did not pass serializer
     return Response(serializer.errors)
 
+
 @api_view(['GET'])
 def test_get(request):
     """Test GET request for debugging purposes."""
     pass
 
+
 @api_view(['POST'])
 def test_post(request):
     """Test POST request for debugging purposes."""
     pass
+
+
+@api_view(['GET'])
+def wake_api(request) -> Response:
+    """GET request to wake sleeping web service."""
+    return Response({"message": "awake"})
+
 
 @api_view(['GET'])
 def get_benchmarks(request) -> Response:
@@ -274,6 +283,7 @@ def get_benchmarks(request) -> Response:
     response["benchmarks"] = benchmarks
 
     return Response(response)
+
 
 @api_view(['GET'])
 def get_scrape_allowed(request) -> Response:
