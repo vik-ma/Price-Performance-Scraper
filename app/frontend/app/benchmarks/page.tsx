@@ -94,7 +94,7 @@ export default async function Benchmarks() {
           </em>
         </p>
         <h2 className="benchmark-disclaimer-heading">Disclaimers</h2>
-        <p>
+        <p className="benchmark-disclaimer-text">
           <em>
             <strong>CPU Gaming</strong> benchmarks are semi-theoretical and{" "}
             <strong>
@@ -104,7 +104,7 @@ export default async function Benchmarks() {
           </em>
         </p>
         <br />
-        <p>
+        <p className="benchmark-disclaimer-text">
           <em>
             <strong>GPUs</strong> of the same model come in different
             'sub-models' made by various third party manufacturers which may
@@ -116,7 +116,7 @@ export default async function Benchmarks() {
           </em>
         </p>
         <br />
-        <p>
+        <p className="benchmark-disclaimer-text">
           <em>
             <strong>
               Use the{" "}

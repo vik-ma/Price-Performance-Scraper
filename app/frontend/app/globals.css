@@ -298,7 +298,7 @@ input[type="checkbox"]:checked {
 
 /* Text that appears under GitHub logo link */
 .github-text {
-  color: rgb(220, 220, 220);
+  color: rgb(230, 230, 230);
   margin-top: 0px;
 }
 
@@ -1169,6 +1169,11 @@ table[role=grid] tbody tr:nth-child(odd) {
   margin-top: 20px;
 }
 
+/* Text in Disclaimers section on Benchmarks page */
+.benchmark-disclaimer-text {
+  color: rgb(225, 230, 235);
+}
+
 /* Container for checkbox and label to toggle color coding in Benchmarks Table */
 .benchmark-color-toggle-container {
   margin-top: 12px;
@@ -1693,6 +1698,7 @@ h3.information-header {
 /* Text in <p> tag in mct-text-container */
 .mct-text {
   margin: 0;
+  color: rgb(230, 230, 230);
 }
 
 /* Generic class to not display element */
