@@ -695,6 +695,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 /* Container for checkbox and label to toggle color coding in Benchmarks and Completed Scrapes pages */
 .color-toggle-container {
   color: white;
+  word-break: normal;
 }
 
 /* Different colors to represent how good the Price/Performance Score (Ratio) is,
