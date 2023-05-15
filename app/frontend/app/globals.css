@@ -8,6 +8,10 @@
   --cpu-g-color: #dad3a5;
   --cpu-n-color: 	#ff7f50;
   --background-color: #1c1c1d;
+  --form-element-background-color: #18191a;
+  --form-element-border-color: #474b4e;
+  --form-element-color: rgb(222, 222, 222);
+  --form-element-placeholder-color: hsl(204, 2%, 50%);
 }
 
 p {
@@ -1670,7 +1674,7 @@ h3.information-header {
 .mct-pps {
   font-size: x-large;
   margin-left: 10px;
-  color: #1fbbf8;
+  color: #00b7ff;
 }
 
 /* Adjust mct-pps text for smaller screens */
