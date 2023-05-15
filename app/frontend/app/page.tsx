@@ -3,7 +3,7 @@ import Image from "next/image";
 import GitHubLogo from "/public/GitHub_Logo_White.png";
 import GitHubMark from "/public/github-mark-white.png";
 
-async function wakeApi()  {
+async function wakeApi() {
   // Function to call a simple GET request to backend in order to wake up sleeping web service
   try {
     const response = await fetch(
@@ -23,7 +23,7 @@ export default async function Home() {
   await wakeApi();
 
   return (
-    <main>
+    <>
       <h1 className="home-title">
         <span className="page-title">Price/Performance Scraper</span>
       </h1>
@@ -98,6 +98,6 @@ export default async function Home() {
           <strong>Visit the project's GitHub repo</strong>
         </p>
       </div>
-    </main>
+    </>
   );
 }
