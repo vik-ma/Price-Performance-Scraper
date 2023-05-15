@@ -7,6 +7,7 @@
   --gpu-color: #2cdd6a;
   --cpu-g-color: #dad3a5;
   --cpu-n-color: 	#ff7f50;
+  --background-color: #1c1c1d;
 }
 
 p {
@@ -1065,7 +1066,7 @@ table[role=grid] tbody tr:nth-child(odd) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.275);
   box-sizing: content-box;
   position: relative;
-  outline: 1px solid rgb(0, 0, 0);
+  outline: 1px solid rgba(0, 0, 0, 0.5);
   font-size: x-large;
   word-break: normal;
   border-radius: 30px;
