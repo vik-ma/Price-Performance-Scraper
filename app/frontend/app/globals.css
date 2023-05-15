@@ -1026,7 +1026,7 @@ td {
   display: inline-block;
   width: fit-content;
   height: fit-content;
-  padding: 0px 17px 3px;
+  padding: 0px 17px 4px;
   border: 2px solid rgba(233, 233, 233, 0.780);
   border-radius: 12px;
   font-size: larger;
