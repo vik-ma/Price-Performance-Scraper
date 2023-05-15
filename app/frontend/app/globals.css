@@ -1132,7 +1132,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 /* Table for Benchmark data */
 .benchmark-table {
   margin: 0;
-  background-color: #1b1b1f;
+  background-color: #1e1e1f;
   border-radius: 10px;
 }
 
@@ -1207,11 +1207,11 @@ table[role=grid] tbody tr:nth-child(odd) {
 }
 
 .text-color-tier-6 {
-  color: #943126;
+  color: #991809;
 }
 
 .text-color-tier-7 {
-  color: #7B7D7D;
+  color: #818585;
 }
 
 /* Accordion button for Show Tutorial on Start Scrape page */
@@ -1638,7 +1638,7 @@ h3.information-header {
 .mct-table {
   margin: 0;
   margin-top: 5px;
-  background-color: #1b1b1f;
+  background-color: #1e1e1f;
   border-radius: 10px;
 }
 
