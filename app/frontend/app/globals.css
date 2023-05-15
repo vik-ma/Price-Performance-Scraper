@@ -293,12 +293,12 @@ input[type="checkbox"]:checked {
 }
 
 .gh-logo-link:hover {
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Text that appears under GitHub logo link */
 .github-text {
-  color: rgb(230, 230, 230);
+  color: rgb(229, 229, 229);
   margin-top: 0px;
 }
 
