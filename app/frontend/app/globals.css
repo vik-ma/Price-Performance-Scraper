@@ -1127,6 +1127,7 @@ table[role=grid] tbody tr:nth-child(odd) {
 .benchmark-table {
   margin: 0;
   background-color: #1b1b1f;
+  border-radius: 10px;
 }
 
 .benchmark-table td {
@@ -1627,6 +1628,7 @@ h3.information-header {
   margin: 0;
   margin-top: 5px;
   background-color: #1b1b1f;
+  border-radius: 10px;
 }
 
 /* Styling for <th> tags in mct-table */
