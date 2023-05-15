@@ -550,6 +550,11 @@ table[role=grid] tbody tr:nth-child(odd) {
   background-color: rgba(87, 87, 87, 0.225);
 }
 
+/* Change color of border-bottom for every table row */
+td {
+  border-bottom-color: rgba(35, 35, 35, 0.2);
+}
+
 /* Table for Completed Scrape and Benchmark data */
 .listing-table {
   margin-top: 15px;
