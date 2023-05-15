@@ -1590,7 +1590,7 @@ h3.information-header {
 
 /* Container to show Price/Performance Score formula on Information Page */
 .formula-container {
-  background-color: #252523;
+  background-color: #2e2e2d;
   width: fit-content;
   padding: 3px 15px 7px;
   border-radius: 10px;
