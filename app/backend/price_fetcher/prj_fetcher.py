@@ -430,6 +430,7 @@ def get_lowest_prices_in_gpu_category(json_list, num_gpu_categories) -> list:
         Parameters:
             json_list (list): List of dictionaries containing everything inside the key
                               "ProductsSlice" from scraped webpages
+                              
             num_gpu_categories (int): The number of GPU models selected in Price Scrape
         
         Returns:

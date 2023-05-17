@@ -3,7 +3,7 @@ import Image from "next/image";
 import GitHubLogo from "/public/GitHub_Logo_White.png";
 import GitHubMark from "/public/github-mark-white.png";
 
-async function wakeApi()  {
+async function wakeApi() {
   // Function to call a simple GET request to backend in order to wake up sleeping web service
   try {
     const response = await fetch(
@@ -76,8 +76,8 @@ export default async function Information() {
         <br />
         <br />
         <em>
-          When scraping GPU prices, only the cheapest 25% of sub-models for
-          every GPU model will get scraped. Use the{" "}
+          When scraping GPU prices, only the cheapest sub-models for every GPU
+          model will get scraped. Use the{" "}
           <Link
             className="internal-link-color"
             href="/manual_comparison"
