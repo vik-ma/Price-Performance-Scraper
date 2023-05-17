@@ -4,7 +4,6 @@ import requests
 import re
 import datetime
 import time
-from decimal import Decimal, ROUND_HALF_UP
 from .models import BenchmarkData
 
 # Product page for each GPU model to scrape prices from
@@ -424,13 +423,14 @@ def write_local_json_files(json_list):
             json.dump(json_file, file, indent=4)
 
 
-def get_lowest_prices_in_gpu_category(json_list) -> list:
+def get_lowest_prices_in_gpu_category(json_list, num_gpu_categories) -> list:
     """
     Return the cheapest product listings for GPU category.
 
         Parameters:
             json_list (list): List of dictionaries containing everything inside the key
                               "ProductsSlice" from scraped webpages
+            num_gpu_categories (int): The number of GPU models selected in Price Scrape
         
         Returns:
             lowest_price_list (list): List of tuples containing a link to the product page
@@ -453,21 +453,15 @@ def get_lowest_prices_in_gpu_category(json_list) -> list:
     # Sort list of prices by lowest price
     sorted_price_list = sorted(price_list, key = lambda x: x[1])
 
-    if len(sorted_price_list) <= 16:
-        # If there are less than 16 products in category,
-        # return only the 4 cheapest products
-        lowest_price_list = sorted_price_list[:4]
-    elif len(sorted_price_list) > 40:
-        # If there are more than 40 products in category,
-        # return the 10 cheapest products
-        lowest_price_list = sorted_price_list[:10]
-    else:
-        # Return the 25% (rounded up) cheapest products in category
-        slice_num = 4
-        list_slicer = len(sorted_price_list) / slice_num
-        rounded_list_slicer = int(Decimal(list_slicer).quantize(0, ROUND_HALF_UP))
-
-        lowest_price_list = sorted_price_list[:rounded_list_slicer]
+    if num_gpu_categories < 2:
+        # Return only the 8 cheapest products if there is only 1 total GPU Model in Price Scrape
+        lowest_price_list = sorted_price_list[:8]
+    elif num_gpu_categories == 2:
+        # Return only the 6 cheapest products if there is 2 total GPU Models in Price Scrape
+        lowest_price_list = sorted_price_list[:6]
+    elif num_gpu_categories > 2:
+        # Return only the 5 cheapest products if there are more than 2 total GPU Models in Price Scrape
+        lowest_price_list = sorted_price_list[:5]
         
     return lowest_price_list
 
@@ -598,7 +592,7 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
 
             try:
                 # Get the cheapest product listing for GPU model category
-                lowest_category_prices = get_lowest_prices_in_gpu_category(json_list)
+                lowest_category_prices = get_lowest_prices_in_gpu_category(json_list, len(product_choice_list))
             except:
                 return Exception(f"Error parsing json for GPU category page: {product_category_url}")
 
