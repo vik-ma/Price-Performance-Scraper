@@ -254,6 +254,19 @@ def get_completed_fetch_by_timestamp_id(request, timestamp_id):
     serializer = CompletedFetchSerializer(completed_fetch)
     return Response(serializer.data)
 
+@api_view(['GET'])
+def get_product_listings_from_timestamp_id(request, timestamp_id):
+    try:
+        product_listings = ProductListing.objects.filter(timestamp_id = timestamp_id).order_by('id')
+    except:
+        return Response(status=status.HTTP_400_BAD_REQUEST)
+    
+    if len(product_listings) == 0:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    serializer = ProductListingSerializer(product_listings, many=True)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def test_get(request):
