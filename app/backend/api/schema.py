@@ -2,6 +2,7 @@ import graphene
 from graphene_django.types import DjangoObjectType
 from price_fetcher.models import ProductListing, CompletedFetch
 
+# Schema for GraphQL endpoint, not currently in use
 
 class CompletedFetchType(DjangoObjectType):
     class Meta:
