@@ -239,7 +239,7 @@ def start_price_fetch(request) -> Response:
 
 
 @api_view(['GET'])
-def get_all_completed_fetch(request):
+def get_all_completed_fetches(request):
     completed_fetches = CompletedFetch.objects.all()
     serializer = CompletedFetchSerializer(completed_fetches, many=True)
     return Response(serializer.data)
