@@ -10,6 +10,7 @@ urlpatterns = [
     path('start_price_fetch/', views.start_price_fetch),
     path('get_benchmarks/', views.get_benchmarks),
     path('get_scrape_allowed/', views.get_scrape_allowed),
+    path('get_all_completed_fetch', views.get_all_completed_fetch),
     path('wake_api/', views.wake_api),
     path('graphql/', csrf_exempt(GraphQLView.as_view(graphiql=False, schema=schema))),
 ]

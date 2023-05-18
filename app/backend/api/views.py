@@ -1,8 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from rest_framework import serializers
-from .serializers import FetchPropertiesSerializer
-from price_fetcher.models import BenchmarkData
+from .serializers import FetchPropertiesSerializer, CompletedFetchSerializer, ProductListingSerializer
+from price_fetcher.models import BenchmarkData, CompletedFetch, ProductListing
 import price_fetcher.views as pf
 import datetime
 import json
@@ -237,6 +237,12 @@ def start_price_fetch(request) -> Response:
     # Return serializer error message if Request did not pass serializer
     return Response(serializer.errors)
 
+
+@api_view(['GET'])
+def get_all_completed_fetch(request):
+    completed_fetches = CompletedFetch.objects.all()
+    serializer = CompletedFetchSerializer(completed_fetches, many=True)
+    return Response(serializer.data)
 
 @api_view(['GET'])
 def test_get(request):
