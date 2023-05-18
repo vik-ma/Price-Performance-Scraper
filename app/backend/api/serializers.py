@@ -10,9 +10,16 @@ class FetchPropertiesSerializer(serializers.ModelSerializer):
 class CompletedFetchSerializer(serializers.ModelSerializer):
     class Meta:
         model = CompletedFetch
-        fields = '__all__'
+        fields = ("product_list", "benchmark_type", "timestamp", "timestamp_id")
 
 class ProductListingSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductListing
-        fields = '__all__'
+        fields = ("product_category", 
+                  "store_name", 
+                  "price", 
+                  "product_link", 
+                  "product_name", 
+                  "price_performance_ratio", 
+                  "benchmark_value", 
+                  "timestamp_id")
