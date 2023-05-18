@@ -83,16 +83,16 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     # For Prod
-    'default': dj_database_url.parse(config('DATABASE_URL'))
+    # 'default': dj_database_url.parse(config('DATABASE_URL'))
     # For Dev
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.postgresql_psycopg2',
-    #     'NAME': config('DB_NAME'),
-    #     'USER': config('DB_USER'),
-    #     'PASSWORD': config('DB_PASSWORD'),
-    #     'HOST': config('DB_HOST'),
-    #     'PORT': config('DB_PORT'),
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
 
 
@@ -137,4 +137,4 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_ALLOW_ALL = config('CORS_ORIGIN_ALLOW_ALL')
+CORS_ALLOWED_ORIGINS = [config('CORS_ALLOWED_ORIGINS')]
