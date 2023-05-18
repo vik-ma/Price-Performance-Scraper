@@ -36,7 +36,7 @@ class Query(graphene.ObjectType):
         return CompletedFetch.objects.filter(timestamp_id = timestamp_id)
     
     def resolve_product_listings(self, info, timestamp_id):
-        """Return list of all Product Listings with specific timestamp_id"""
+        """Return list of all Product Listings with specific timestamp_id."""
         return ProductListing.objects.filter(timestamp_id = timestamp_id).order_by('id')
 
 schema = graphene.Schema(query=Query)

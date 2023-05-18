@@ -240,12 +240,14 @@ def start_price_fetch(request) -> Response:
 
 @api_view(['GET'])
 def get_all_completed_fetches(request):
+    """Return list of meta info for all Completed Price Scrapes."""
     completed_fetches = CompletedFetch.objects.all()
     serializer = CompletedFetchSerializer(completed_fetches, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])
 def get_completed_fetch_by_timestamp_id(request, timestamp_id):
+    """Return meta info for Completed Price Scrape with specific timestamp_id."""
     try:
         completed_fetch = CompletedFetch.objects.get(timestamp_id = timestamp_id)
     except CompletedFetch.DoesNotExist:
@@ -256,12 +258,19 @@ def get_completed_fetch_by_timestamp_id(request, timestamp_id):
 
 @api_view(['GET'])
 def get_product_listings_from_timestamp_id(request, timestamp_id):
+    """
+    Return list of all Product Listings with specific timestamp_id 
+    ordered by their Price/Performance Score.
+    """
     try:
+        # Order by id, which is the order that ProductListings was entered into database.
+        # The list of ProductListings for a specific timestamp_id is always pre-sorted by their PPS
         product_listings = ProductListing.objects.filter(timestamp_id = timestamp_id).order_by('id')
     except:
         return Response(status=status.HTTP_400_BAD_REQUEST)
     
     if len(product_listings) == 0:
+        # If no product_listings has timestamp_id
         return Response(status=status.HTTP_404_NOT_FOUND)
 
     serializer = ProductListingSerializer(product_listings, many=True)
