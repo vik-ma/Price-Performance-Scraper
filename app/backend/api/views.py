@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework import serializers
+from rest_framework import serializers, status
 from .serializers import FetchPropertiesSerializer, CompletedFetchSerializer, ProductListingSerializer
 from price_fetcher.models import BenchmarkData, CompletedFetch, ProductListing
 import price_fetcher.views as pf
@@ -243,6 +243,17 @@ def get_all_completed_fetch(request):
     completed_fetches = CompletedFetch.objects.all()
     serializer = CompletedFetchSerializer(completed_fetches, many=True)
     return Response(serializer.data)
+
+@api_view(['GET'])
+def get_completed_fetch_by_timestamp_id(request, timestamp_id):
+    try:
+        completed_fetch = CompletedFetch.objects.get(timestamp_id = timestamp_id)
+    except CompletedFetch.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+    
+    serializer = CompletedFetchSerializer(completed_fetch)
+    return Response(serializer.data)
+
 
 @api_view(['GET'])
 def test_get(request):
