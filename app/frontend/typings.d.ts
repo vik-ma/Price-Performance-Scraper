@@ -1,18 +1,18 @@
 export type CompletedFetchProps = {
-    productList: string;
-    benchmarkType: string;
+    product_list: string;
+    benchmark_type: string;
     timestamp: string;
-    timestampId: string;
+    timestamp_id: string;
   };
 
 export type ProductListingsProps = {
-    productCategory: string;
-    storeName: string;
+    product_category: string;
+    store_name: string;
     price: number;
-    productLink: string;
-    productName: string;
-    pricePerformanceRatio: number;
-    benchmarkValue: number;
+    product_link: string;
+    product_name: string;
+    price_performance_ratio: number;
+    benchmark_value: number;
   };
 
 export type FetchPageProps = {

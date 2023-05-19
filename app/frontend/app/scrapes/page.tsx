@@ -10,10 +10,10 @@ async function getCompletedFetches() {
   //   query: gql`
   //     {
   //       allCompletedFetches {
-  //         productList
-  //         benchmarkType
+  //         product_list
+  //         benchmark_type
   //         timestamp
-  //         timestampId
+  //         timestamp_id
   //       }
   //     }
   //   `,
@@ -62,16 +62,16 @@ export default async function Fetches() {
               .reverse()
               .map((scrape: CompletedFetchProps) => {
                 // Remove the "-" from scrapeType value to make it compatible with scrapeTypeMap
-                const scrapeType: string = scrape.benchmarkType.replace(
+                const scrapeType: string = scrape.benchmark_type.replace(
                   "-",
                   ""
                 );
 
                 // Get the number of products in Price Scrape
                 const numProducts: number =
-                  scrape.productList.split(",").length;
+                  scrape.product_list.split(",").length;
 
-                const timestamp: string = scrape.timestampId;
+                const timestamp: string = scrape.timestamp_id;
                 // Format the date and timestamp of Price Scrape
                 const formattedDate: string = `${timestamp.substring(
                   0,
@@ -88,11 +88,11 @@ export default async function Fetches() {
                   // Display every item in the color of their respective Benchmark Type
                   <li
                     className={`full-scrape-list-item ${scrapeTypeMap[scrapeType].cssNameBorder} no-dot-list-item`}
-                    key={scrape.timestampId}
+                    key={scrape.timestamp_id}
                   >
                     <Link
                       className="full-scrape-link"
-                      href={`/scrapes/${scrape.timestampId}`}
+                      href={`/scrapes/${scrape.timestamp_id}`}
                     >
                       <p className="full-scrape-list-item-text">
                         <strong
@@ -104,7 +104,7 @@ export default async function Fetches() {
                           - {numProducts} Product{numProducts > 1 && "s"}
                         </strong>
                         <br />
-                        {scrape.productList}
+                        {scrape.product_list}
                         <br />
                         <small className="full-scrape-list-item-timestamp">
                           {`${formattedDate} ${formattedTime}`}

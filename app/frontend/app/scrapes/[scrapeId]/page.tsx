@@ -24,14 +24,14 @@ const getProductListings = async (scrapeId: string) => {
   // const { data } = await client.query({
   //   query: gql`
   //     {
-  //       productListings(timestampId:"${scrapeId}") {
-  //           productCategory
-  //           storeName
+  //       productListings(timestamp_id:"${scrapeId}") {
+  //           product_category
+  //           store_name
   //           price
-  //           productLink
-  //           productName
-  //           pricePerformanceRatio
-  //           benchmarkValue
+  //           product_link
+  //           product_name
+  //           price_performance_ratio
+  //           benchmark_value
   //       }
   //     }
   //   `,
@@ -51,11 +51,11 @@ const getCompletedFetch = async (scrapeId: string) => {
   // const { data } = await client.query({
   //   query: gql`
   //     {
-  //       completedFetchById(timestampId:"${scrapeId}") {
-  //         productList
-  //         benchmarkType
+  //       completedFetchById(timestamp_id:"${scrapeId}") {
+  //         product_list
+  //         benchmark_type
   //         timestamp
-  //         timestampId
+  //         timestamp_id
   //       }
   //     }
   //   `,
@@ -95,9 +95,9 @@ export default async function FetchPage({
       {/* Change Title of webpage to show the Benchmark Type and Date+Time of Price Scrape */}
       <title>
         {`${
-          completedFetchData.benchmarkType === "CPU-Gaming"
+          completedFetchData.benchmark_type === "CPU-Gaming"
             ? "CPU (Gaming)"
-            : completedFetchData.benchmarkType === "CPU-Normal"
+            : completedFetchData.benchmark_type === "CPU-Normal"
             ? "CPU (Multi-th.)"
             : "GPU"
         } - ${formattedTimestamp}`}
@@ -106,27 +106,27 @@ export default async function FetchPage({
         {/* Display the Price Scrape's Benchmark Type in its respective color */}
         <h1
           className={`scrape-title ${
-            completedFetchData.benchmarkType === "GPU"
+            completedFetchData.benchmark_type === "GPU"
               ? "title-text-gpu"
-              : completedFetchData.benchmarkType === "CPU-Gaming"
+              : completedFetchData.benchmark_type === "CPU-Gaming"
               ? "title-text-cpu-g"
               : "title-text-cpu-n"
           }`}
         >
-          {completedFetchData.benchmarkType === "CPU-Gaming"
+          {completedFetchData.benchmark_type === "CPU-Gaming"
             ? "CPU (Gaming Performance)"
-            : completedFetchData.benchmarkType === "CPU-Normal"
+            : completedFetchData.benchmark_type === "CPU-Normal"
             ? "CPU (Multi-threaded Performance)"
-            : completedFetchData.benchmarkType}
+            : completedFetchData.benchmark_type}
         </h1>
         {/* Display list of products in Price Scrape */}
         <h2 className="scrape-title-product-list">
-          {completedFetchData.productList}
+          {completedFetchData.product_list}
         </h2>
         {/* Display date and time of Price Scrape */}
         <h3 className="scrape-timestamp">{formattedTimestamp}</h3>
         {/* Display GPUListingsTable.tsx if Price Scrape Benchmark Type was GPU */}
-        {completedFetchData.benchmarkType === "GPU" ? (
+        {completedFetchData.benchmark_type === "GPU" ? (
           <GpuListingsTable
             params={{
               fetchInfo: completedFetchData,
@@ -153,10 +153,10 @@ export async function generateStaticParams() {
   //   query: gql`
   //     {
   //       allCompletedFetches {
-  //         productList
-  //         benchmarkType
+  //         product_list
+  //         benchmark_type
   //         timestamp
-  //         timestampId
+  //         timestamp_id
   //       }
   //     }
   //   `,
@@ -170,6 +170,6 @@ export async function generateStaticParams() {
   const scrapes: CompletedFetchProps[] = await res.json();
 
   return scrapes.map((scrape) => ({
-    scrapeId: scrape.timestampId,
+    scrapeId: scrape.timestamp_id,
   }));
 }

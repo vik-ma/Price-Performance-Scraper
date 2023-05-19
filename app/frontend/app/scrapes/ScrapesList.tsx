@@ -10,10 +10,10 @@ async function getCompletedFetches() {
   //   query: gql`
   //     {
   //       allCompletedFetches {
-  //         productList
-  //         benchmarkType
+  //         product_list
+  //         benchmark_type
   //         timestamp
-  //         timestampId
+  //         timestamp_id
   //       }
   //     }
   //   `,
@@ -57,9 +57,9 @@ export default async function ScrapesList() {
             .reverse()
             .map((scrape: CompletedFetchProps) => {
               // Remove the "-" from scrapeType value to make it compatible with scrapeTypeMap
-              const scrapeType: string = scrape.benchmarkType.replace("-", "");
+              const scrapeType: string = scrape.benchmark_type.replace("-", "");
 
-              const timestamp: string = scrape.timestampId;
+              const timestamp: string = scrape.timestamp_id;
               // Format the date and timestamp of Price Scrape
               const formattedDate: string = `${timestamp.substring(
                 0,
@@ -70,8 +70,8 @@ export default async function ScrapesList() {
                 10
               )}:${timestamp.substring(10, 12)}:${timestamp.substring(12, 14)}`;
               return (
-                <li className="no-dot-list-item" key={scrape.timestampId}>
-                  <Link href={`/scrapes/${scrape.timestampId}`}>
+                <li className="no-dot-list-item" key={scrape.timestamp_id}>
+                  <Link href={`/scrapes/${scrape.timestamp_id}`}>
                     {/* Display every item in the color of their respective Benchmark Type */}
                     <strong className={scrapeTypeMap[scrapeType].cssNameText}>
                       {scrapeTypeMap[scrapeType].title}

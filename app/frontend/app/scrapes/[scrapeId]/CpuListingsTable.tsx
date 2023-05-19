@@ -21,13 +21,13 @@ export default function CpuListingsTable({
   const tableHeading: TableHeadingProps[] = [
     {
       Label: "Product",
-      Key: "productName",
+      Key: "product_name",
       TooltipText: "",
       TooltipPlacement: "",
     },
     {
       Label: "Store",
-      Key: "storeName",
+      Key: "store_name",
       TooltipText: "Link to product may not work for older scrapes",
       // Place tooltip text to the right of text on very small screens
       TooltipPlacement: windowWidth <= 500 ? "right" : "",
@@ -41,7 +41,7 @@ export default function CpuListingsTable({
           ? // Shorten the label text between 501 and 767 pixel widths
             "Bench."
           : "Benchmark Score",
-      Key: "benchmarkValue",
+      Key: "benchmark_value",
       TooltipText:
         "Average benchmark score for CPU model at the time of scrape",
       TooltipPlacement: "",
@@ -55,7 +55,7 @@ export default function CpuListingsTable({
     {
       // Abbreviate the label text to initials below 767 pixel widths
       Label: windowWidth <= 767 ? "P. P. S." : "Price / Performance Score",
-      Key: "pricePerformanceRatio",
+      Key: "price_performance_ratio",
       TooltipText:
         // Show the full term of abbreviated label in tooltip
         windowWidth <= 767
@@ -67,7 +67,7 @@ export default function CpuListingsTable({
 
   // useState for which column the Product Listing table should sort by, and in what direction ("asc" or "desc")
   const [sortTable, setSortTable] = useState<ProductTableSortProps>({
-    SortKey: "pricePerformanceRatio",
+    SortKey: "price_performance_ratio",
     SortDirection: "desc",
   });
 
@@ -97,10 +97,10 @@ export default function CpuListingsTable({
   });
 
   // Highest Price/Performance Score (Ratio) of any Product Listing in Price Scrape
-  const pprMaxValue: number = productListings[0].pricePerformanceRatio;
+  const pprMaxValue: number = productListings[0].price_performance_ratio;
   // Lowest Price/Performance Score (Ratio) of any Product Listing in Price Scrape
   const pprMinValue: number =
-    productListings[productListings.length - 1].pricePerformanceRatio;
+    productListings[productListings.length - 1].price_performance_ratio;
 
   // Difference in highest PPS to lowest PPS, used to calculate relative value between them later
   const pprDiffValue: number = pprMaxValue - pprMinValue;
@@ -116,11 +116,11 @@ export default function CpuListingsTable({
   // Add all different stores and product models gathered from Price Scrape to a list where
   // Product Listings featuring these can be filtered out
   Object.values(sortedListings).forEach((listing) => {
-    if (!storeNames.includes(listing.storeName)) {
-      storeNames.push(listing.storeName);
+    if (!storeNames.includes(listing.store_name)) {
+      storeNames.push(listing.store_name);
     }
-    if (!productModels.includes(listing.productCategory)) {
-      productModels.push(listing.productCategory);
+    if (!productModels.includes(listing.product_category)) {
+      productModels.push(listing.product_category);
     }
   });
 
@@ -140,18 +140,18 @@ export default function CpuListingsTable({
   // selectedStores or selectedProductModels will be filtered out.)
   const filteredListings = sortedListings.filter(
     (listing) =>
-      selectedStores.includes(listing.storeName) &&
-      selectedProductModels.includes(listing.productCategory)
+      selectedStores.includes(listing.store_name) &&
+      selectedProductModels.includes(listing.product_category)
   );
 
   const cpuProductInfo: CpuInfoProps = cpuInfo;
 
   // Benchmark Type property as it is named in ProductInfo.tsx
-  const benchmarkType: string =
-    fetchInfo.benchmarkType === "CPU-Gaming" ? "gamingTier" : "normalTier";
+  const benchmark_type: string =
+    fetchInfo.benchmark_type === "CPU-Gaming" ? "gamingTier" : "normalTier";
 
   // Assign specific colors to the different product models in Price Scrape
-  const modelColor: NumberMap = fetchInfo.productList
+  const modelColor: NumberMap = fetchInfo.product_list
     .split(", ")
     .reduce((acc, cur, idx) => {
       acc[cur] = idx;
@@ -181,14 +181,14 @@ export default function CpuListingsTable({
   // Handle function for when user checks or unchecks a checkbox to filter out stores
   const handleStoreFilterChange = (
     event: React.ChangeEvent<HTMLInputElement>,
-    storeName: string
+    store_name: string
   ) => {
     const isChecked = event.target.checked;
     setSelectedStores((prev) => {
       if (isChecked) {
-        return [...prev, storeName];
+        return [...prev, store_name];
       } else {
-        return prev.filter((name) => name !== storeName);
+        return prev.filter((name) => name !== store_name);
       }
     });
   };
@@ -216,17 +216,17 @@ export default function CpuListingsTable({
         </summary>
         <div className="filter-listing-container">
           {/* Create checkboxes for every different store in Price Scrape */}
-          {storeNames.map((storeName, index) => (
+          {storeNames.map((store_name, index) => (
             <div key={index}>
               <label className="listing-table-label">
                 <input
                   type="checkbox"
-                  checked={selectedStores.includes(storeName)}
+                  checked={selectedStores.includes(store_name)}
                   onChange={(event) =>
-                    handleStoreFilterChange(event, storeName)
+                    handleStoreFilterChange(event, store_name)
                   }
                 />
-                {storeName}
+                {store_name}
               </label>
             </div>
           ))}
@@ -367,19 +367,20 @@ export default function CpuListingsTable({
               // Calculate how good the PPS is compared to the best and worst PPS
               // in the Price Scrape, and assign a color based on the value
               const pprTextColor: number = Math.round(
-                ((listing.pricePerformanceRatio - pprMinValue) / pprDiffValue) *
+                ((listing.price_performance_ratio - pprMinValue) /
+                  pprDiffValue) *
                   pprNumColors
               );
               // Color of the specific Product Model
               const colorNum: number = modelColor[
-                listing.productCategory
+                listing.product_category
               ] as number;
               // Benchmark Tier of the specific Product Model
               const tierNum = (
-                cpuProductInfo[listing.productCategory] as {
+                cpuProductInfo[listing.product_category] as {
                   [key: string]: string;
                 }
-              )?.[benchmarkType];
+              )?.[benchmark_type];
               return (
                 <tr key={index}>
                   {windowWidth > 500 && (
@@ -395,23 +396,23 @@ export default function CpuListingsTable({
                               : "text-centered"
                           }
                         >
-                          {listing.productCategory}
+                          {listing.product_category}
                         </div>
                       </strong>
                     </td>
                   )}
-                  {listing.productLink !== "" ? (
+                  {listing.product_link !== "" ? (
                     // Create a link to the actual Product Listing
                     <td className="word-break">
                       <strong>
                         <a
-                          href={listing.productLink}
+                          href={listing.product_link}
                           target="_blank"
                           className="external-link"
                           data-tooltip="Go to product page on store 🡕"
                           data-placement={windowWidth <= 500 ? "right" : ""}
                         >
-                          {listing.storeName}
+                          {listing.store_name}
                         </a>
                       </strong>
                     </td>
@@ -420,7 +421,7 @@ export default function CpuListingsTable({
                     <td className="word-break">
                       <strong>
                         <em data-tooltip="No link available">
-                          {listing.storeName}
+                          {listing.store_name}
                         </em>
                       </strong>
                     </td>
@@ -440,10 +441,10 @@ export default function CpuListingsTable({
                         >
                           <strong
                             className="model-tooltip"
-                            data-tooltip={listing.productCategory}
+                            data-tooltip={listing.product_category}
                           >
                             {/* Shorten the Product Model name */}
-                            {listing.productCategory.split(" ").slice(-1)}
+                            {listing.product_category.split(" ").slice(-1)}
                           </strong>
                         </div>
                         <div
@@ -451,7 +452,7 @@ export default function CpuListingsTable({
                           className={`text-color-tier-${tierNum} benchmark-value-shortened-cpu text-centered`}
                         >
                           <strong data-tooltip={`Tier ${tierNum}`}>
-                            {listing.benchmarkValue}
+                            {listing.benchmark_value}
                           </strong>
                         </div>
                       </>
@@ -459,7 +460,7 @@ export default function CpuListingsTable({
                       //  Display the product's Benchmark Value in the color of the Product Model's Benchmark Tier
                       <div className={`text-color-tier-${tierNum}`}>
                         <strong data-tooltip={`Tier ${tierNum}`}>
-                          {listing.benchmarkValue}
+                          {listing.benchmark_value}
                         </strong>
                       </div>
                     )}
@@ -475,7 +476,7 @@ export default function CpuListingsTable({
                         : `ppr-color-${pprTextColor}`
                     }
                   >
-                    <strong>{listing.pricePerformanceRatio}</strong>
+                    <strong>{listing.price_performance_ratio}</strong>
                   </td>
                 </tr>
               );
