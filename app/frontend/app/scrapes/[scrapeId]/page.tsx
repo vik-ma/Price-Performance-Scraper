@@ -65,9 +65,11 @@ const getCompletedFetch = async (scrapeId: string) => {
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_completed_fetch_by_timestamp_id/${scrapeId}/`,
     { cache: "force-cache" }
   );
+
   const data: CompletedFetchProps = await res.json();
 
   return data;
+
   // return data.completedFetchById[0] as CompletedFetchProps;
 };
 
@@ -78,7 +80,7 @@ export default async function FetchPage({
   const completedFetchData = await getCompletedFetch(scrapeId);
 
   // Display scrapes/not-found.tsx if user types in a Scrape ID that doesn't exist
-  if (completedFetchData === undefined) return notFound();
+  if (completedFetchData.hasOwnProperty("error")) return notFound();
 
   const timestamp: string = scrapeId;
   const year: string = timestamp.substring(0, 4);
