@@ -2,7 +2,7 @@ import React, { Suspense } from "react";
 import { CompletedFetchProps, FetchTypeProps } from "@/typings";
 import Link from "next/link";
 
-
+// Function to retrieve all completed Price Scrapes from Django API
 async function getCompletedFetches() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`,

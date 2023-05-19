@@ -10,7 +10,7 @@ type PageProps = {
   };
 };
 
-// Arrow function to retrieve all Product Listings in completed Price Scrape ID via GraphQL
+// Arrow function to retrieve all Product Listings with completed Price Scrape ID from Django API
 const getProductListings = async (scrapeId: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_product_listings_from_timestamp_id/${scrapeId}/`,
@@ -21,7 +21,7 @@ const getProductListings = async (scrapeId: string) => {
   return data;
 };
 
-// Arrow function to retrieve completed Price Scrape ID information via GraphQL
+// Arrow function to retrieve completed Price Scrape ID information from Django API
 const getCompletedFetch = async (scrapeId: string) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_completed_fetch_by_timestamp_id/${scrapeId}/`,
