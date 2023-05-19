@@ -1,6 +1,4 @@
 import React from "react";
-import { gql } from "@apollo/client";
-import client from "../../../apollo-client";
 import { ProductListingsProps, CompletedFetchProps } from "@/typings";
 import CpuListingsTable from "./CpuListingsTable";
 import GpuListingsTable from "./GpuListingsTable";

@@ -1,6 +1,4 @@
 import React, { Suspense } from "react";
-import { gql } from "@apollo/client";
-import client from "../../apollo-client";
 import Link from "next/link";
 import { CompletedFetchProps, FetchTypeProps } from "@/typings";
 
