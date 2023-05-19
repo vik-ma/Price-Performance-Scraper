@@ -6,13 +6,6 @@ import CpuListingsTable from "./CpuListingsTable";
 import GpuListingsTable from "./GpuListingsTable";
 import { notFound } from "next/navigation";
 
-// All default values if no revalidate
-// export const dynamic = "auto",
-//   dynamicParams = true,
-//   // revalidate = 60,
-//   fetchCache = "auto",
-//   runtime = "nodejs";
-
 type PageProps = {
   params: {
     scrapeId: string;
@@ -21,21 +14,6 @@ type PageProps = {
 
 // Arrow function to retrieve all Product Listings in completed Price Scrape ID via GraphQL
 const getProductListings = async (scrapeId: string) => {
-  // const { data } = await client.query({
-  //   query: gql`
-  //     {
-  //       productListings(timestamp_id:"${scrapeId}") {
-  //           product_category
-  //           store_name
-  //           price
-  //           product_link
-  //           product_name
-  //           price_performance_ratio
-  //           benchmark_value
-  //       }
-  //     }
-  //   `,
-  // });
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_product_listings_from_timestamp_id/${scrapeId}/`,
     { cache: "force-cache" }
@@ -43,24 +21,10 @@ const getProductListings = async (scrapeId: string) => {
   const data: ProductListingsProps[] = await res.json();
 
   return data;
-  // return data.productListings as ProductListingsProps[];
 };
 
 // Arrow function to retrieve completed Price Scrape ID information via GraphQL
 const getCompletedFetch = async (scrapeId: string) => {
-  // const { data } = await client.query({
-  //   query: gql`
-  //     {
-  //       completedFetchById(timestamp_id:"${scrapeId}") {
-  //         product_list
-  //         benchmark_type
-  //         timestamp
-  //         timestamp_id
-  //       }
-  //     }
-  //   `,
-  // });
-
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_completed_fetch_by_timestamp_id/${scrapeId}/`,
     { cache: "force-cache" }
@@ -69,8 +33,6 @@ const getCompletedFetch = async (scrapeId: string) => {
   const data: CompletedFetchProps = await res.json();
 
   return data;
-
-  // return data.completedFetchById[0] as CompletedFetchProps;
 };
 
 export default async function FetchPage({
@@ -151,21 +113,6 @@ export default async function FetchPage({
 
 // Function to statically generate all completed Price Scrape pages
 export async function generateStaticParams() {
-  // const { data } = await client.query({
-  //   query: gql`
-  //     {
-  //       allCompletedFetches {
-  //         product_list
-  //         benchmark_type
-  //         timestamp
-  //         timestamp_id
-  //       }
-  //     }
-  //   `,
-  // });
-
-  // const scrapes: CompletedFetchProps[] = await data.allCompletedFetches;
-
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`
   );

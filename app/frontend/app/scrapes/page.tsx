@@ -4,22 +4,8 @@ import client from "../../apollo-client";
 import { CompletedFetchProps, FetchTypeProps } from "@/typings";
 import Link from "next/link";
 
-// Function to retrieve all completed Price Scrapes via GraphQL
-async function getCompletedFetches() {
-  // const { data } = await client.query({
-  //   query: gql`
-  //     {
-  //       allCompletedFetches {
-  //         product_list
-  //         benchmark_type
-  //         timestamp
-  //         timestamp_id
-  //       }
-  //     }
-  //   `,
-  // });
 
-  // return data.allCompletedFetches as CompletedFetchProps[];
+async function getCompletedFetches() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`,
     { next: { revalidate: 0 } }
