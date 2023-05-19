@@ -7,11 +7,11 @@ import GpuListingsTable from "./GpuListingsTable";
 import { notFound } from "next/navigation";
 
 // All default values if no revalidate
-export const dynamic = "auto",
-  dynamicParams = true,
-  // revalidate = 60,
-  fetchCache = "auto",
-  runtime = "nodejs";
+// export const dynamic = "auto",
+//   dynamicParams = true,
+//   // revalidate = 60,
+//   fetchCache = "auto",
+//   runtime = "nodejs";
 
 type PageProps = {
   params: {
@@ -21,51 +21,64 @@ type PageProps = {
 
 // Arrow function to retrieve all Product Listings in completed Price Scrape ID via GraphQL
 const getProductListings = async (scrapeId: string) => {
-  const { data } = await client.query({
-    query: gql`
-      {
-        productListings(timestampId:"${scrapeId}") {
-            productCategory
-            storeName
-            price
-            productLink
-            productName
-            pricePerformanceRatio
-            benchmarkValue
-        }
-      }
-    `,
-  });
+  // const { data } = await client.query({
+  //   query: gql`
+  //     {
+  //       productListings(timestampId:"${scrapeId}") {
+  //           productCategory
+  //           storeName
+  //           price
+  //           productLink
+  //           productName
+  //           pricePerformanceRatio
+  //           benchmarkValue
+  //       }
+  //     }
+  //   `,
+  // });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_product_listings_from_timestamp_id/${scrapeId}/`,
+    { cache: "force-cache" }
+  );
+  const data: ProductListingsProps[] = await res.json();
 
-  return data.productListings as ProductListingsProps[];
+  return data;
+  // return data.productListings as ProductListingsProps[];
 };
 
 // Arrow function to retrieve completed Price Scrape ID information via GraphQL
 const getCompletedFetch = async (scrapeId: string) => {
-  const { data } = await client.query({
-    query: gql`
-      {
-        completedFetchById(timestampId:"${scrapeId}") {
-          productList
-          benchmarkType
-          timestamp
-          timestampId
-        }
-      }
-    `,
-  });
+  // const { data } = await client.query({
+  //   query: gql`
+  //     {
+  //       completedFetchById(timestampId:"${scrapeId}") {
+  //         productList
+  //         benchmarkType
+  //         timestamp
+  //         timestampId
+  //       }
+  //     }
+  //   `,
+  // });
 
-  return data.completedFetchById[0] as CompletedFetchProps;
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_completed_fetch_by_timestamp_id/${scrapeId}/`,
+    { cache: "force-cache" }
+  );
+  const data: CompletedFetchProps = await res.json();
+
+  return data;
+  // return data.completedFetchById[0] as CompletedFetchProps;
 };
 
 export default async function FetchPage({
   params: { scrapeId: scrapeId },
 }: PageProps) {
-  const gqlProductListingData = await getProductListings(scrapeId);
-  const gqlCompletedFetchData = await getCompletedFetch(scrapeId);
+  const productListingData = await getProductListings(scrapeId);
+  const completedFetchData = await getCompletedFetch(scrapeId);
 
   // Display scrapes/not-found.tsx if user types in a Scrape ID that doesn't exist
-  if (gqlCompletedFetchData === undefined) return notFound();
+  if (completedFetchData === undefined) return notFound();
 
   const timestamp: string = scrapeId;
   const year: string = timestamp.substring(0, 4);
@@ -82,9 +95,9 @@ export default async function FetchPage({
       {/* Change Title of webpage to show the Benchmark Type and Date+Time of Price Scrape */}
       <title>
         {`${
-          gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
+          completedFetchData.benchmarkType === "CPU-Gaming"
             ? "CPU (Gaming)"
-            : gqlCompletedFetchData.benchmarkType === "CPU-Normal"
+            : completedFetchData.benchmarkType === "CPU-Normal"
             ? "CPU (Multi-th.)"
             : "GPU"
         } - ${formattedTimestamp}`}
@@ -93,39 +106,39 @@ export default async function FetchPage({
         {/* Display the Price Scrape's Benchmark Type in its respective color */}
         <h1
           className={`scrape-title ${
-            gqlCompletedFetchData.benchmarkType === "GPU"
+            completedFetchData.benchmarkType === "GPU"
               ? "title-text-gpu"
-              : gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
+              : completedFetchData.benchmarkType === "CPU-Gaming"
               ? "title-text-cpu-g"
               : "title-text-cpu-n"
           }`}
         >
-          {gqlCompletedFetchData.benchmarkType === "CPU-Gaming"
+          {completedFetchData.benchmarkType === "CPU-Gaming"
             ? "CPU (Gaming Performance)"
-            : gqlCompletedFetchData.benchmarkType === "CPU-Normal"
+            : completedFetchData.benchmarkType === "CPU-Normal"
             ? "CPU (Multi-threaded Performance)"
-            : gqlCompletedFetchData.benchmarkType}
+            : completedFetchData.benchmarkType}
         </h1>
         {/* Display list of products in Price Scrape */}
         <h2 className="scrape-title-product-list">
-          {gqlCompletedFetchData.productList}
+          {completedFetchData.productList}
         </h2>
         {/* Display date and time of Price Scrape */}
         <h3 className="scrape-timestamp">{formattedTimestamp}</h3>
         {/* Display GPUListingsTable.tsx if Price Scrape Benchmark Type was GPU */}
-        {gqlCompletedFetchData.benchmarkType === "GPU" ? (
+        {completedFetchData.benchmarkType === "GPU" ? (
           <GpuListingsTable
             params={{
-              fetchInfo: gqlCompletedFetchData,
-              productListings: gqlProductListingData,
+              fetchInfo: completedFetchData,
+              productListings: productListingData,
             }}
           />
         ) : (
           // Display CPUListingsTable.tsx if Price Scrape Benchmark Type was CPU-Gaming or CPU-Normal(Multi-threading)
           <CpuListingsTable
             params={{
-              fetchInfo: gqlCompletedFetchData,
-              productListings: gqlProductListingData,
+              fetchInfo: completedFetchData,
+              productListings: productListingData,
             }}
           />
         )}
@@ -136,20 +149,25 @@ export default async function FetchPage({
 
 // Function to statically generate all completed Price Scrape pages
 export async function generateStaticParams() {
-  const { data } = await client.query({
-    query: gql`
-      {
-        allCompletedFetches {
-          productList
-          benchmarkType
-          timestamp
-          timestampId
-        }
-      }
-    `,
-  });
+  // const { data } = await client.query({
+  //   query: gql`
+  //     {
+  //       allCompletedFetches {
+  //         productList
+  //         benchmarkType
+  //         timestamp
+  //         timestampId
+  //       }
+  //     }
+  //   `,
+  // });
 
-  const scrapes: CompletedFetchProps[] = await data.allCompletedFetches;
+  // const scrapes: CompletedFetchProps[] = await data.allCompletedFetches;
+
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`
+  );
+  const scrapes: CompletedFetchProps[] = await res.json();
 
   return scrapes.map((scrape) => ({
     scrapeId: scrape.timestampId,

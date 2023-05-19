@@ -6,24 +6,29 @@ import { CompletedFetchProps, FetchTypeProps } from "@/typings";
 
 // Function to retrieve all completed Price Scrapes via GraphQL
 async function getCompletedFetches() {
-  const { data } = await client.query({
-    query: gql`
-      {
-        allCompletedFetches {
-          productList
-          benchmarkType
-          timestamp
-          timestampId
-        }
-      }
-    `,
-  });
+  // const { data } = await client.query({
+  //   query: gql`
+  //     {
+  //       allCompletedFetches {
+  //         productList
+  //         benchmarkType
+  //         timestamp
+  //         timestampId
+  //       }
+  //     }
+  //   `,
+  // });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`
+  );
+  const data: CompletedFetchProps[] = await res.json();
 
-  return data.allCompletedFetches as CompletedFetchProps[];
+  return data;
+  // return data.allCompletedFetches as CompletedFetchProps[];
 }
 
 export default async function ScrapesList() {
-  const gqlData = await getCompletedFetches();
+  const completedFetchData = await getCompletedFetches();
 
   // HashMap to assign different text and text colors to the different Benchmark Types
   const scrapeTypeMap: FetchTypeProps = {
@@ -47,7 +52,7 @@ export default async function ScrapesList() {
       <Suspense fallback={<article aria-busy="true"></article>}>
         <ul className="no-dot-list">
           {/* Show every completed Price Scrape with the most recent ones on top */}
-          {gqlData
+          {completedFetchData
             ?.slice(0)
             .reverse()
             .map((scrape: CompletedFetchProps) => {
