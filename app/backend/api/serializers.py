@@ -21,5 +21,4 @@ class ProductListingSerializer(serializers.ModelSerializer):
                   "product_link", 
                   "product_name", 
                   "price_performance_ratio", 
-                  "benchmark_value", 
-                  "timestamp_id")
+                  "benchmark_value")
