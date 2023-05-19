@@ -21,7 +21,8 @@ async function getCompletedFetches() {
 
   // return data.allCompletedFetches as CompletedFetchProps[];
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`
+    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`,
+    { next: { revalidate: 0 } }
   );
   const data: CompletedFetchProps[] = await res.json();
 
