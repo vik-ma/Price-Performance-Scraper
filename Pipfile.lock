@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "627b33969d9ad67ceb7b4cd5ada64893328999c9c63b4de2108ce8f34892a0b4"
+            "sha256": "1aaf10972f17d089c88ce9a8d1c442cc90728fe003e23aa9a40b24776e0ce35e"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -261,14 +261,6 @@
             ],
             "markers": "python_version >= '3.7'",
             "version": "==1.2.0"
-        },
-        "dj-database-url": {
-            "hashes": [
-                "sha256:9c9e5f7224f62635a787e9cc3c6762c9be2b19541a21e3c08fa573bd01609b4b",
-                "sha256:a35a9f0f43775ca6f90d819dc456233ef7bcc76b47377d5d908b75c7eb320624"
-            ],
-            "index": "pypi",
-            "version": "==2.0.0"
         },
         "django": {
             "hashes": [
@@ -681,11 +673,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:23aaf86b85ca52ceb801d32703f12d77517b2556af839621c641fca11287952b",
-                "sha256:f104fa03692a2602fa0fec6c6a9e63b6c8a968de13e17c026957dd1f53d80990"
+                "sha256:5df61bf30bb10c6f756eb19e7c9f3b473051f48db77fddbe06ff2ca307df9a6f",
+                "sha256:62642358adc77ffa87233bc4d2354c4b2682d214048f500964dbe760ccedf102"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==67.7.2"
+            "version": "==67.8.0"
         },
         "six": {
             "hashes": [
@@ -770,11 +762,11 @@
         },
         "tzlocal": {
             "hashes": [
-                "sha256:3f21d09e1b2aa9f2dacca12da240ca37de3ba5237a93addfd6d593afe9073355",
-                "sha256:b44c4388f3d34f25862cfbb387578a4d70fec417649da694a132f628a23367e2"
+                "sha256:46eb99ad4bdb71f3f72b7d24f4267753e240944ecfc16f25d2719ba89827a803",
+                "sha256:f3596e180296aaf2dbd97d124fe76ae3a0e3d32b258447de7b939b3fd4be992f"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==4.3"
+            "version": "==5.0.1"
         },
         "urllib3": {
             "hashes": [

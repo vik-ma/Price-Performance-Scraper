@@ -13,7 +13,6 @@ graphene-django = "*"
 djangorestframework = "*"
 django-cors-headers = "*"
 apscheduler = "*"
-dj-database-url = "*"
 gunicorn = "*"
 
 [dev-packages]
