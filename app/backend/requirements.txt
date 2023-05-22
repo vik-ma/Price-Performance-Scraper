@@ -84,7 +84,7 @@ pytz-deprecation-shim==0.1.0.post0 ; python_version >= '2.7' and python_version 
 
 queuelib==1.6.2 ; python_version >= '3.5'
 
-requests==2.30.0
+requests==2.31.0
 
 requests-file==1.5.1
 
