@@ -121,7 +121,7 @@ export default async function Benchmarks() {
             <strong>
               Use the{" "}
               <Link
-                href="/manual_comparison"
+                href="/manual-comparison"
                 className="internal-link-color"
                 target="_blank"
               >

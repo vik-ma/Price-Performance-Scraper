@@ -12,7 +12,7 @@ export default function RootLayout({
 }) {
   return (
     <>
-      {/* Add NewScrapeContext useContext for start_scrape/page.tsx and ScrapeCreator.tsx */}
+      {/* Add NewScrapeContext useContext for start-scrape/page.tsx and ScrapeCreator.tsx */}
       <NewScrapeContextProvider>{children}</NewScrapeContextProvider>
     </>
   );

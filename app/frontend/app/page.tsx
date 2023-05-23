@@ -46,7 +46,7 @@ export default async function Home() {
         <strong>Click the button below to start a price scrape!</strong>
       </p>
       <div className="centered-container">
-        <Link href="/start_scrape">
+        <Link href="/start-scrape">
           <button className="start-button start-button-home">
             <strong>Start Price Scrape</strong>
           </button>
@@ -55,7 +55,7 @@ export default async function Home() {
       <br />
       <p className="home-text">
         You can also use the{" "}
-        <Link className="internal-link-color" href="/manual_comparison">
+        <Link className="internal-link-color" href="/manual-comparison">
           <strong>Manual Comparison Tool</strong>
         </Link>{" "}
         to calculate the Price/Performance Score using custom prices and/or

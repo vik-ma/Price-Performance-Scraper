@@ -36,7 +36,7 @@ export default function NavMenu() {
     <div className="nav-small-wrapper">
       <Link
         className="nav-item nav-item-start nav-item-start-small"
-        href="/start_scrape"
+        href="/start-scrape"
       >
         Start Price Scrape
       </Link>
@@ -68,7 +68,7 @@ export default function NavMenu() {
               </Link>
               <Link
                 className="nav-full-menu-item"
-                href="/manual_comparison"
+                href="/manual-comparison"
                 onClick={() => setShowFullMenu(false)}
               >
                 <li className="nav-full-menu-list-item">

@@ -36,7 +36,7 @@ export default async function Information() {
         Over at{" "}
         <Link
           className="internal-link-color"
-          href="/start_scrape"
+          href="/start-scrape"
           target="_blank"
         >
           <strong>Start Price Scrape</strong>
@@ -52,7 +52,7 @@ export default async function Information() {
           compare different products' price efficiency by using the{" "}
           <Link
             className="internal-link-color"
-            href="/manual_comparison"
+            href="/manual-comparison"
             target="_blank"
           >
             <strong>Manual Comparison Tool</strong>
@@ -80,7 +80,7 @@ export default async function Information() {
           model will get scraped. Use the{" "}
           <Link
             className="internal-link-color"
-            href="/manual_comparison"
+            href="/manual-comparison"
             target="_blank"
           >
             <strong>Manual Comparison Tool</strong>
@@ -182,7 +182,7 @@ export default async function Information() {
         Use the{" "}
         <Link
           className="internal-link-color"
-          href="/manual_comparison"
+          href="/manual-comparison"
           target="_blank"
         >
           <strong>Manual Comparison Tool</strong>
@@ -196,7 +196,7 @@ export default async function Information() {
         The{" "}
         <Link
           className="internal-link-color"
-          href="/manual_comparison"
+          href="/manual-comparison"
           target="_blank"
         >
           <strong>Manual Comparison Tool</strong>

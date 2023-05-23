@@ -10,13 +10,16 @@ import Link from "next/link";
 
 // POST Request to start Price Scraping in Django application
 async function startPriceFetch(data = {}) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_DJANGO_API_URL}/start_price_fetch/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/start_price_fetch/`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
   return response.json();
 }
 
@@ -128,7 +131,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
   const router = useRouter();
 
-  // useContext for variables shared between this component and start_scrape/page.tsx
+  // useContext for variables shared between this component and start-scrape/page.tsx
   const {
     loadingScrape,
     setLoadingScrape,
@@ -270,7 +273,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   // Number of available products to select after filter has been applied
   const filteredNumProducts: number = Object.keys(filteredProductInfo).length;
 
-  // Handle function for when Toggle All button in Filter section is pressed 
+  // Handle function for when Toggle All button in Filter section is pressed
   const handleToggleAllClick = () => {
     if (filteredNumProducts < totalNumProducts) {
       // Filter all products if any filters are active

@@ -7,7 +7,7 @@ import {
   useState,
 } from "react";
 
-// useContext for start_scrape/page.tsx and start_scrape/ScrapeCreator.tsx components
+// useContext for start-scrape/page.tsx and start-scrape/ScrapeCreator.tsx components
 
 interface ScrapeContextProps {
   loadingScrape: boolean;
@@ -62,7 +62,7 @@ export const NewScrapeContextProvider = ({ children }) => {
         isScrapeAllowed,
         setIsScrapeAllowed,
         scrapeAllowedTimer,
-        setScrapeAllowedTimer
+        setScrapeAllowedTimer,
       }}
     >
       {children}

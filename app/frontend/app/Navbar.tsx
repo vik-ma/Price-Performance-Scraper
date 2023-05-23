@@ -8,12 +8,12 @@ export default function Navbar() {
     <nav className="navbar-container">
       <div className="nav-items-wrapper container">
         <Link className="nav-item" id="home-icon" href="/">
-          <HomeIcon /> 
+          <HomeIcon />
         </Link>
         {/* nav-item-extended elements are only shown on screens wider than 1200px*/}
         <Link
           className="nav-item nav-item-extended nav-item-start"
-          href="/start_scrape"
+          href="/start-scrape"
         >
           Start Price Scrape
         </Link>
@@ -23,7 +23,7 @@ export default function Navbar() {
         <Link className="nav-item nav-item-extended" href="/benchmarks">
           Current Benchmarks
         </Link>
-        <Link className="nav-item nav-item-extended" href="/manual_comparison">
+        <Link className="nav-item nav-item-extended" href="/manual-comparison">
           Manual Comparison Tool
         </Link>
         <Link className="nav-item nav-item-extended" href="/scrapes">
