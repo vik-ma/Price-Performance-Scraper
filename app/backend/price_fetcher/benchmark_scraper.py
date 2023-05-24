@@ -28,6 +28,7 @@ list_of_gpus_to_scrape = [
     "Radeon RX 7900 XT",
     "GeForce RTX 4070",
     "Radeon RX 6800 XT",
+    "GeForce RTX 4060 Ti",
     "GeForce RTX 3070 Ti",
     "GeForce RTX 3070",
     "Radeon RX 6800",
