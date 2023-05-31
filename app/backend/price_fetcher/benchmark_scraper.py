@@ -36,6 +36,7 @@ list_of_gpus_to_scrape = [
     "GeForce RTX 3060 Ti",
     "Radeon RX 6700 XT",
     "Radeon RX 6700",
+    "Radeon RX 7600",
     "Radeon RX 6650 XT",
     "GeForce RTX 3060",
     "Radeon RX 6600 XT",
