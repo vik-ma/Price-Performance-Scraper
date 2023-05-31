@@ -15,6 +15,7 @@ django-cors-headers = "*"
 apscheduler = "*"
 gunicorn = "*"
 awsebcli = "*"
+cloudscraper = "*"
 
 [dev-packages]
 
