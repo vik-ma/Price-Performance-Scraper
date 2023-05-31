@@ -408,7 +408,7 @@ input[type="checkbox"]:checked {
   background-color: rgb(54, 54, 54);
   text-decoration: none !important;
   border: 2px solid white;
-  box-shadow: 0px 0px 4px white;
+  box-shadow: 0px 0px 5px white;
   transition: 0.2s;
 }
 
@@ -449,19 +449,19 @@ input[type="checkbox"]:checked {
 /* Border color for GPU scrape full-scrape-list-item */
 .color-border-gpu {
   border: 2px solid var(--gpu-color);
-  box-shadow: 0px 0px 4px var(--gpu-color);
+  box-shadow: 0px 0px 5px var(--gpu-color);
 }
 
 /* Border color for CPU-Gaming scrape full-scrape-list-item */
 .color-border-cpu-g {
   border: 2px solid var(--cpu-g-color);
-  box-shadow: 0px 0px 4px var(--cpu-g-color);
+  box-shadow: 0px 0px 5px var(--cpu-g-color);
 }
 
 /* Border color for CPU-Normal (Multithread) scrape full-scrape-list-item */
 .color-border-cpu-n {
   border: 2px solid var(--cpu-n-color);
-  box-shadow: 0px 0px 4px var(--cpu-n-color);
+  box-shadow: 0px 0px 5px var(--cpu-n-color);
 }
 
 /* Color for GPU scrape type titles in Completed Scrapes */
