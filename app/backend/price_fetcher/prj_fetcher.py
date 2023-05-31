@@ -1,9 +1,9 @@
 import json
 from bs4 import BeautifulSoup
-import requests
 import re
 import datetime
 import time
+import cloudscraper
 from .models import BenchmarkData
 
 # Product page for each GPU model to scrape prices from
@@ -146,7 +146,9 @@ def fetch_gpu_category_page(url) -> list:
             soup_list (list): List of BeautifulSoup objects containing scraped webpages
 
     """
-    response = requests.get(url)
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(url)
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     # Create list of pages
@@ -172,7 +174,10 @@ def fetch_gpu_category_page(url) -> list:
             time.sleep(1)
 
             # Scrape next page
-            response = requests.get(next_page_link)
+
+            scraper = cloudscraper.create_scraper()
+            response = scraper.get(url)
+
             soup = BeautifulSoup(response.text, "html.parser")
             print(next_page_link)
 
@@ -193,7 +198,9 @@ def fetch_product_page(url) -> BeautifulSoup:
         Returns:
             soup_list (list): BeautifulSoup object containing scraped webpage
     """
-    response = requests.get(url)
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(url)
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     return soup
