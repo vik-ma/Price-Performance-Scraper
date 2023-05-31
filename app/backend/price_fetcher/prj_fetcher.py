@@ -174,8 +174,6 @@ def fetch_gpu_category_page(url) -> list:
             time.sleep(1)
 
             # Scrape next page
-
-            scraper = cloudscraper.create_scraper()
             response = scraper.get(url)
 
             soup = BeautifulSoup(response.text, "html.parser")
