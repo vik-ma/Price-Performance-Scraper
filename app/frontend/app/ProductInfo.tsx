@@ -44,6 +44,10 @@ export const gpuInfo = {
     tier: "3",
     manufacturer: "AMD",
   },
+  "GeForce RTX 4060 Ti": {
+    tier: "3",
+    manufacturer: "Nvidia",
+  },
   "Radeon RX 6750 XT": {
     tier: "3",
     manufacturer: "AMD",
@@ -57,6 +61,10 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "Radeon RX 6700": {
+    tier: "4",
+    manufacturer: "AMD",
+  },
+  "Radeon RX 7600": {
     tier: "4",
     manufacturer: "AMD",
   },
