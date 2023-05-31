@@ -371,7 +371,7 @@ input[type="checkbox"]:checked {
   padding: 1px 10px;
   padding-bottom: 8px;
   background-color: var(--dark-bg-color);
-  background: linear-gradient(to right, #262626 20%, #181818 100%);
+  background: linear-gradient(to right, #252525 40%, #181818 100%);
 }
 
 /* Wrapper for all content in Completed Scrapes pages except for <h1> title */
