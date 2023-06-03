@@ -24,6 +24,7 @@ gpu_pj_url_dict = {
     "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
     "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
     "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
+    "Radeon RX 7600": "https://www.prisjakt.nu/c/grafikkort?532=40890",
     "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
     "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
     "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
