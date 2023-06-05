@@ -24,7 +24,9 @@ export default async function Information() {
 
   return (
     <>
-      <h1 className="page-title information-header">Information</h1>
+      <h1 className="information-header">
+        <span className="page-title">Information</span>
+      </h1>
       <p className="information-text information-top-text">
         <strong>
           This website is designed to help you find the most value-for-money

@@ -73,7 +73,9 @@ export default async function Benchmarks() {
 
   return (
     <>
-      <h1 className="page-title">Current Benchmarks</h1>
+      <h1>
+        <span className="page-title">Current Benchmarks</span>
+      </h1>
       {benchmarkData.success ? (
         <BenchmarkTable benchmarks={benchmarks} />
       ) : (
