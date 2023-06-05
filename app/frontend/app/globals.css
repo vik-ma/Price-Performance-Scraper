@@ -4,9 +4,9 @@
   --primary-focus: rgba(172, 172, 172, 0.125);
   --table-border-color: rgba(44, 44, 44, 0.225);
   --dark-bg-color: #1f1f1e;
-  --gpu-color: #2cdd6a;
-  --cpu-g-color: #dad3a5;
-  --cpu-n-color: 	#ff7f50;
+  --gpu-color: #52e068;
+  --cpu-g-color: rgb(231, 220, 170);
+  --cpu-n-color: 	rgb(247, 64, 88);
   --background-color: #1c1c1d;
   --form-element-background-color: #18191a;
   --form-element-border-color: #474b4e;
