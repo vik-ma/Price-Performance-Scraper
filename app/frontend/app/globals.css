@@ -213,7 +213,7 @@ input[type="checkbox"]:checked {
 }
 
 /* Media query to change which items are shown in Navigation Bar for smaller screens */
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   /* Hides the items in Navigation Bar seen on larger screens */
   .nav-item-extended {
     display: none;
@@ -640,7 +640,7 @@ td {
 }
 
 /* Media queries to adjust positioning of arrow-right-side on smaller screens */
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   .arrow-right-side {
     margin-top: -1px;
     margin-left: -5px;
@@ -675,7 +675,7 @@ td {
 }
 
 /* Media queries to adjust positioning of filter-button arrow */
-@media (max-width: 1200px) {
+@media (max-width: 1199px) {
   .filter-button::after {
     margin-top: 6px;
   }
