@@ -556,6 +556,7 @@ input[type="checkbox"]:checked {
 .scrape-title-product-list {
   margin-bottom: 10px !important;
   line-height: 100%;
+  color: #e1e6eb;
 }
 
 /* Title showing timestamp of when Completed Scrape was made */
