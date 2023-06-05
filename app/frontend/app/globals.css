@@ -518,6 +518,18 @@ input[type="checkbox"]:checked {
   }
 }
 
+@media (max-width: 1199px) {
+  .view-all-scrapes-button {
+    padding: 2px 17px 4px !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .view-all-scrapes-button {
+    padding: 2px 13px 4px !important;
+  }
+}
+
 /* Container for completed-scrapes-title */
 .scrapes-header-wrapper {
   display: flex;
@@ -1035,7 +1047,7 @@ td {
   width: fit-content;
   height: fit-content;
   padding: 0px 17px 4px;
-  border: 2px solid rgba(233, 233, 233, 0.780);
+  border: 2px solid rgba(233, 233, 233, 0.8);
   border-radius: 12px;
   font-size: larger;
   background-color: var(--dark-bg-color);
