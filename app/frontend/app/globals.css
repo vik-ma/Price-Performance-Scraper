@@ -97,7 +97,7 @@ input[type="checkbox"]:checked {
   justify-content: center;
   height: max-content;
   border-bottom: 1px solid rgba(223, 223, 223, 0.2);
-  box-shadow: 0 5px 10px rgb(28, 28, 28);
+  /* box-shadow: 0 5px 10px rgb(28, 28, 28); */
   background-color: rgb(26, 26, 26);
   background: linear-gradient(to bottom, rgb(26, 26, 26) 80%, rgb(36, 36, 36) 100%);
 }
@@ -172,7 +172,6 @@ input[type="checkbox"]:checked {
 .nav-full-menu-wrapper {
   position: absolute;
   background-color: rgb(24, 24, 24);
-  z-index: 2;
   border: 1px solid rgb(59, 59, 59);
   border-bottom: none;
   right: -1px;
@@ -200,6 +199,7 @@ input[type="checkbox"]:checked {
   transition-duration: 0.15s;
   background-color: rgb(26, 26, 26);
   background: linear-gradient(to bottom right, rgb(26, 26, 26) 40%, rgb(39, 39, 39) 100%);
+
 }
 
 .nav-full-menu-item:hover {
@@ -1288,7 +1288,7 @@ td {
   box-shadow: 0px 0px 10px 2px rgba(91, 167, 255, 0.600);
   border-radius: 10px;
   margin-bottom: 15px;
-  z-index: 3;
+  z-index: 1;
 }
 
 /* Container to show list of products selected for Price Scraping */
