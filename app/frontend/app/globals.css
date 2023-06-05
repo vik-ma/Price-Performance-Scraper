@@ -431,6 +431,12 @@ input[type="checkbox"]:checked {
   color:rgb(240, 240, 240);
 }
 
+/* Span class to make sure number of products and "Product(s)" remain on the same line */
+.full-scrape-list-title-product-span {
+  display: inline;
+  white-space: nowrap;
+}
+
 /* Text color for GPU scrapes */
 .color-text-gpu {
   color: var(--gpu-color);

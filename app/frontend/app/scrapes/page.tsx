@@ -86,7 +86,10 @@ export default async function Fetches() {
                           {scrapeTypeMap[scrapeType].title}{" "}
                         </strong>
                         <strong className="full-scrape-list-title-product">
-                          - {numProducts} Product{numProducts > 1 && "s"}
+                          -{" "}
+                          <span className="full-scrape-list-title-product-span">
+                            {numProducts} Product{numProducts > 1 && "s"}
+                          </span>
                         </strong>
                         <br />
                         {scrape.product_list}
