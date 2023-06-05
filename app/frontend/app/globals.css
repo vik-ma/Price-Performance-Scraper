@@ -474,18 +474,27 @@ input[type="checkbox"]:checked {
 .title-text-gpu {
   background-color: var(--gpu-color);
   background: -webkit-linear-gradient(#0d9c00, #c7ffa1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Color for CPU-Gaming scrape type titles in Completed Scrapes */
 .title-text-cpu-g {
   background-color: var(--cpu-g-color);
   background: -webkit-linear-gradient(#b6a750, #fffec1);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Color for CPU-Normal (Multithread) scrape type titles in Completed Scrapes */
 .title-text-cpu-n {
   background-color: var(--cpu-n-color);
   background: -webkit-linear-gradient(#be0029, #ff6060);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Media query to remove sidebar for smaller screens */
@@ -546,9 +555,6 @@ input[type="checkbox"]:checked {
 .scrape-title {
   margin-top: -10px;
   margin-bottom: 0 !important;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   line-height: 140%;
 }
 

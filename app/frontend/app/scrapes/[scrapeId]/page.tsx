@@ -66,20 +66,22 @@ export default async function FetchPage({
       </title>
       <div className="scrape-content">
         {/* Display the Price Scrape's Benchmark Type in its respective color */}
-        <h1
-          className={`scrape-title ${
-            completedFetchData.benchmark_type === "GPU"
-              ? "title-text-gpu"
-              : completedFetchData.benchmark_type === "CPU-Gaming"
-              ? "title-text-cpu-g"
-              : "title-text-cpu-n"
-          }`}
-        >
-          {completedFetchData.benchmark_type === "CPU-Gaming"
-            ? "CPU (Gaming Performance)"
-            : completedFetchData.benchmark_type === "CPU-Normal"
-            ? "CPU (Multi-threaded Performance)"
-            : completedFetchData.benchmark_type}
+        <h1 className="scrape-title">
+          <span
+            className={`${
+              completedFetchData.benchmark_type === "GPU"
+                ? "title-text-gpu"
+                : completedFetchData.benchmark_type === "CPU-Gaming"
+                ? "title-text-cpu-g"
+                : "title-text-cpu-n"
+            }`}
+          >
+            {completedFetchData.benchmark_type === "CPU-Gaming"
+              ? "CPU (Gaming Performance)"
+              : completedFetchData.benchmark_type === "CPU-Normal"
+              ? "CPU (Multi-threaded Performance)"
+              : completedFetchData.benchmark_type}
+          </span>
         </h1>
         {/* Display list of products in Price Scrape */}
         <h2 className="scrape-title-product-list">
