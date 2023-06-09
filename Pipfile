@@ -14,10 +14,10 @@ djangorestframework = "*"
 django-cors-headers = "*"
 apscheduler = "*"
 gunicorn = "*"
-awsebcli = "*"
 cloudscraper = "*"
 
 [dev-packages]
+awsebcli = "*"
 
 [requires]
 python_version = "3.10"
