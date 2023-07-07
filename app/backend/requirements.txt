@@ -6,7 +6,7 @@ beautifulsoup4==4.12.2
 certifi==2023.5.7 ; python_version >= '3.6'
 charset-normalizer==3.1.0 ; python_full_version >= '3.7.0'
 cloudscraper==1.2.71
-django==4.2.2
+django==4.2.3
 django-cors-headers==4.0.0
 djangorestframework==3.14.0
 graphene==3.2.2
