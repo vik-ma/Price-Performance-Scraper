@@ -62,6 +62,7 @@ valid_gpu_set = frozenset([
     "Radeon RX 6750 XT",
     "GeForce RTX 3060 Ti",
     "Radeon RX 6700 XT",
+    "GeForce RTX 4060",
     "Radeon RX 6700",
     "Radeon RX 7600",
     "Radeon RX 6650 XT",
