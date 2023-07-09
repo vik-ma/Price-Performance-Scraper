@@ -60,6 +60,10 @@ export const gpuInfo = {
     tier: "4",
     manufacturer: "AMD",
   },
+  "GeForce RTX 4060": {
+    tier: "4",
+    manufacturer: "Nvidia",
+  },
   "Radeon RX 6700": {
     tier: "4",
     manufacturer: "AMD",
