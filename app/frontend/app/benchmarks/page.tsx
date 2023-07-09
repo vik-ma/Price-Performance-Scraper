@@ -64,7 +64,7 @@ function isBenchmarkDataValid(data: any) {
 export default async function Benchmarks() {
   const benchmarkData = await getBenchmarkData();
 
-  const benchmarks: BenchmarkData = benchmarkData.benchmarks;
+  const benchmarks: BenchmarkData = benchmarkData.benchmarks!;
 
   // Check if benchmarkData is valid
   if (!isBenchmarkDataValid(benchmarks)) {

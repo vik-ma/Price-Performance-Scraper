@@ -46,7 +46,7 @@ export interface BenchmarkData {
 
 export interface BenchmarkAPIResponse {
   success: boolean;
-  benchmarks?: Benchmarks;
+  benchmarks?: BenchmarkData;
 }
 
 export interface BenchmarksDataProps {
