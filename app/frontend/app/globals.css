@@ -12,14 +12,21 @@
   --form-element-border-color: #474b4e;
   --form-element-color: rgb(222, 222, 222);
   --form-element-placeholder-color: hsl(204, 2%, 50%);
+  --normal-text-color: #e5e5e5;
+  --bold-normal-text: #ffffff;
 }
 
 p {
   margin: 2px;
+  color: var(--normal-text-color)
+}
+
+.bold-white-text {
+  color: var(--bold-normal-text);
 }
 
 h1 {
-  margin-top: 8px;
+  margin-top: 10px;
   margin-bottom: 12px !important;
 }
 
@@ -71,7 +78,7 @@ input[type="checkbox"]:checked {
 /* Main website container */
 .container {
   padding-top: 0;
-  padding-bottom: 15px;
+  padding-bottom: 20px;
 }
 
 @media (max-width: 576px) {
@@ -276,14 +283,13 @@ input[type="checkbox"]:checked {
 /* Text for Home page <p> tags */
 .home-text {
   padding: 2px;
-  color: rgb(230, 230, 230);
 }
 
 /* Text above Start Price Scrape button on Home page */
 .home-text-start-scrape {
   text-align: center;
   font-size: larger;
-  color: #9dff70;
+  color: #9dff70 !important;
 }
 
 /* Container for GitHub logo link */
@@ -304,7 +310,6 @@ input[type="checkbox"]:checked {
 
 /* Text that appears under GitHub logo link */
 .github-text {
-  color: rgb(229, 229, 229);
   margin-top: 0px;
 }
 
@@ -1187,7 +1192,6 @@ td {
 /* Text to show when benchmarks were last updated */
 .benchmark-timestamp {
   padding: 5px 10px 15px;
-  color: rgb(225, 230, 235);
 }
 
 /* Wrapper for text below Benchmark Table on Benchmarks page */
@@ -1196,25 +1200,15 @@ td {
   padding-top: 0px;
 }
 
-/* Text that lists the source of the Benchmark data */
-.benchmark-source-text {
-  color: rgb(225, 230, 235);
-}
-
 /* Heading for Disclaimers section on Benchmarks page */
 .benchmark-disclaimer-heading {
   margin-top: 20px;
 }
 
-/* Text in Disclaimers section on Benchmarks page */
-.benchmark-disclaimer-text {
-  color: rgb(225, 230, 235);
-}
-
 /* Container for checkbox and label to toggle color coding in Benchmarks Table */
 .benchmark-color-toggle-container {
   margin-top: 12px;
-  color: rgb(225, 230, 235);
+  color: var(--bold-normal-text);
 }
 
 /* Colors for respective Benchmark Performance Tiers */
@@ -1261,7 +1255,7 @@ td {
 .tutorial-list {
   word-break: normal;
   padding-left: 0px;
-  color: rgb(223, 223, 223);
+  color: var(--normal-text-color);
   margin-bottom: 5px;
 }
 
@@ -1464,7 +1458,6 @@ td {
 .product-add-hint {
   word-break: normal;
   margin: 10px 10px 0;
-  color:#dfdfdf;
 }
 
 /* Accordion button for Filter Products on Start Scrape page */
@@ -1519,7 +1512,6 @@ td {
 /* Hint at the bottom of Start Scrape page to learn more about Benchmarks */
 .benchmarks-hint {
   padding: 10px;
-  color:#dfdfdf;
 }
 
 /* Container for error messages that are mostly shown after API errors */
@@ -1611,13 +1603,11 @@ h3.information-header {
   margin: 0;
   margin-top: 8px;
   padding-left: 2px;
-  color: rgb(220, 220, 220);
 }
 
 /* Text just below <h1> tag on Information page */
 .information-top-text {
   font-size: x-large;
-  color: rgb(245, 245, 245);
 }
 
 /* Container to show Price/Performance Score formula on Information Page */
@@ -1735,7 +1725,6 @@ h3.information-header {
 /* Text in <p> tag in mct-text-container */
 .mct-text {
   margin: 0;
-  color: rgb(230, 230, 230);
 }
 
 /* Generic class to not display element */

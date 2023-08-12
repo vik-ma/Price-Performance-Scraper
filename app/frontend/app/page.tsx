@@ -28,17 +28,20 @@ export default async function Home() {
         <span className="page-title">Price/Performance Scraper</span>
       </h1>
       <p className="home-text">
-        <strong>Price/Performance Scraper</strong> is a tool to compare the
-        price efficiency of different GPU and CPU models. You can select
-        specific products and it will scrape the currently available prices for
-        the products and calculate their{" "}
-        <strong>Price/Performance Score</strong>. The Price/Performance Score is
-        a value determined by a product's price compared to its performance
-        benchmark relative to other models.
+        <strong className="bold-white-text">Price/Performance Scraper</strong>{" "}
+        is a tool to compare the price efficiency of different GPU and CPU
+        models. You can select specific products and it will scrape the
+        currently available prices for the products and calculate their{" "}
+        <strong className="bold-white-text">Price/Performance Score</strong>.
+        The Price/Performance Score is a value determined by a product's price
+        compared to its performance benchmark relative to other models.
         <br />
         <br />
-        Currently, <strong>only online stores in Sweden</strong> are available
-        for price scraping.
+        Currently,{" "}
+        <strong className="bold-white-text">
+          only online stores in Sweden
+        </strong>{" "}
+        are available for price scraping.
         <br />
         <br />
       </p>
@@ -95,7 +98,9 @@ export default async function Home() {
       </div>
       <div className="centered-container">
         <p className="github-text">
-          <strong>Visit the project's GitHub repo</strong>
+          <strong className="bold-white-text">
+            Visit the project's GitHub repo
+          </strong>
         </p>
       </div>
     </>

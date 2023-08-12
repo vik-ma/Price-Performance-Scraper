@@ -28,7 +28,7 @@ export default async function Information() {
         <span className="page-title">Information</span>
       </h1>
       <p className="information-text information-top-text">
-        <strong>
+        <strong className="bold-white-text">
           This website is designed to help you find the most value-for-money
           CPUs or GPUs on the market!
         </strong>
@@ -41,7 +41,7 @@ export default async function Information() {
           href="/start-scrape"
           target="_blank"
         >
-          <strong>Start Price Scrape</strong>
+          <strong className="bold-white-text">Start Price Scrape</strong>
         </Link>{" "}
         you can select products that you are interested in comparing and start a
         real-time price scrape, which will calculate the most price efficient
@@ -49,9 +49,12 @@ export default async function Information() {
         <br />
         <br />
         <em>
-          As of right now, <strong>only online stores in Sweden</strong> are
-          able to be scraped. However, you can still manually enter prices and
-          compare different products' price efficiency by using the{" "}
+          As of right now,{" "}
+          <strong className="bold-white-text">
+            only online stores in Sweden
+          </strong>{" "}
+          are able to be scraped. However, you can still manually enter prices
+          and compare different products' price efficiency by using the{" "}
           <Link
             className="internal-link-color"
             href="/manual-comparison"
@@ -64,11 +67,12 @@ export default async function Information() {
         <br />
         <br />
         Once the scrape has been completed, every price listing found will be
-        ranked by its <strong>Price/Performance Score</strong>.
+        ranked by its{" "}
+        <strong className="bold-white-text">Price/Performance Score</strong>.
         <br />
         <br />
         <em>
-          <strong>
+          <strong className="bold-white-text">
             To prevent abuse, a 3 minute global cooldown is placed on Price
             Scraping.
           </strong>{" "}
@@ -106,7 +110,8 @@ export default async function Information() {
       <p className="information-text">
         A higher Price/Performance Score indicates that the product is more
         cost-effective in terms of its performance score, meaning that the
-        product performs better <strong>in relation to its price</strong>{" "}
+        product performs better{" "}
+        <strong className="bold-white-text">in relation to its price</strong>{" "}
         compared to products with a lower Price/Performance Score.
         <br />
         <br />
@@ -133,24 +138,31 @@ export default async function Information() {
         <br />
         <br />
         There are three different types of Benchmark Values;{" "}
-        <strong>GPU Performance</strong>,{" "}
-        <strong>CPU (Gaming Performance)</strong> and{" "}
-        <strong>CPU (Multi-threaded Performance)</strong>.
+        <strong className="bold-white-text">GPU Performance</strong>,{" "}
+        <strong className="bold-white-text">CPU (Gaming Performance)</strong>{" "}
+        and{" "}
+        <strong className="bold-white-text">
+          CPU (Multi-threaded Performance)
+        </strong>
+        .
         <br />
         <br />
-        Benchmark Values range from <strong>100.00</strong> to{" "}
-        <strong>0.01</strong>, where the highest performing model in the list
-        will always have a Benchmark Value of <strong>100.00</strong>. The
-        values are linear, which means that a product with a Benchmark Value of{" "}
-        <strong>50.00</strong> has half the performance of the best product in
-        the list.
+        Benchmark Values range from{" "}
+        <strong className="bold-white-text">100.00</strong> to{" "}
+        <strong className="bold-white-text">0.01</strong>, where the highest
+        performing model in the list will always have a Benchmark Value of{" "}
+        <strong className="bold-white-text">100.00</strong>. The values are
+        linear, which means that a product with a Benchmark Value of{" "}
+        <strong className="bold-white-text">50.00</strong> has half the
+        performance of the best product in the list.
       </p>
       <h3 className="information-header information-benchmarks">
         Benchmark Tiers
       </h3>
       <p className="information-text">
-        Products are sorted into different <strong>Tiers</strong> with other
-        products of similar Benchmark Values, in order to make it easier to find
+        Products are sorted into different{" "}
+        <strong className="bold-white-text">Tiers</strong> with other products
+        of similar Benchmark Values, in order to make it easier to find
         comparable product models.
         <br />
         <br />
@@ -161,21 +173,31 @@ export default async function Information() {
       </h3>
       <p className="information-text">
         Benchmark Values are not always accurate and in no way definite. The CPU
-        benchmarks are sourced from <strong>PassMark</strong>, while GPU
-        benchmarks are an aggregate of data from <strong>PassMark</strong> and{" "}
-        <strong>Tom's Hardware</strong>. Benchmarks are
-        <strong> automatically updated once every day</strong>.
+        benchmarks are sourced from{" "}
+        <strong className="bold-white-text">PassMark</strong>, while GPU
+        benchmarks are an aggregate of data from{" "}
+        <strong className="bold-white-text">PassMark</strong> and{" "}
+        <strong className="bold-white-text">Tom's Hardware</strong>. Benchmarks
+        are
+        <strong className="bold-white-text">
+          {" "}
+          automatically updated once every day
+        </strong>
+        .
         <br />
         <br />
-        <strong>CPU Gaming</strong> benchmarks are semi-theoretical and{" "}
-        <strong>not necessarily indicative of actual gaming performance</strong>
+        <strong className="bold-white-text">CPU Gaming</strong> benchmarks are
+        semi-theoretical and{" "}
+        <strong className="bold-white-text">
+          not necessarily indicative of actual gaming performance
+        </strong>
         , and should be taken with a grain of salt.
         <br />
         <br />
-        <strong>GPUs</strong> of the same model come in different 'sub-models'
-        made by various third party manufacturers which may differ in
-        performance from each other.{" "}
-        <strong>
+        <strong className="bold-white-text">GPUs</strong> of the same model come
+        in different 'sub-models' made by various third party manufacturers
+        which may differ in performance from each other.{" "}
+        <strong className="bold-white-text">
           No comparisons are made between individual sub-models in these
           benchmarks.
         </strong>
@@ -206,7 +228,7 @@ export default async function Information() {
         can be used to calculate the Price/Performance Score of custom price
         and/or benchmark value inputs instead of just scraped values. Keep in
         mind that{" "}
-        <strong>
+        <strong className="bold-white-text">
           these scores will not match the Price/Performance Scores generated by
           scrapes unless the benchmark values are constructed using the same
           formula shown in the 'Benchmarks' section on this page.
@@ -226,7 +248,9 @@ export default async function Information() {
       </div>
       <div className="centered-container">
         <p className="github-text">
-          <strong>Visit the project's GitHub repo</strong>
+          <strong className="bold-white-text">
+            Visit the project's GitHub repo
+          </strong>
         </p>
       </div>
     </>

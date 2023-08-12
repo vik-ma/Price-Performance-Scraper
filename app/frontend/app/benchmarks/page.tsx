@@ -89,17 +89,17 @@ export default async function Benchmarks() {
       <div className="benchmark-info-wrapper">
         <p className="benchmark-source-text">
           <em>
-            <strong>CPU</strong> benchmarks are sourced from{" "}
-            <strong>PassMark</strong> and <strong>GPU</strong> benchmarks are an
-            aggregate of data from <strong>PassMark</strong> and{" "}
-            <strong>Tom's Hardware</strong>.
+            <strong className="bold-white-text">CPU</strong> benchmarks are sourced from{" "}
+            <strong className="bold-white-text">PassMark</strong> and <strong className="bold-white-text">GPU</strong> benchmarks are an
+            aggregate of data from <strong className="bold-white-text">PassMark</strong> and{" "}
+            <strong className="bold-white-text">Tom's Hardware</strong>.
           </em>
         </p>
         <h2 className="benchmark-disclaimer-heading">Disclaimers</h2>
         <p className="benchmark-disclaimer-text">
           <em>
-            <strong>CPU Gaming</strong> benchmarks are semi-theoretical and{" "}
-            <strong>
+            <strong className="bold-white-text">CPU Gaming</strong> benchmarks are semi-theoretical and{" "}
+            <strong className="bold-white-text">
               not necessarily indicative of actual gaming performance
             </strong>
             , and should be taken with a grain of salt.
@@ -108,10 +108,10 @@ export default async function Benchmarks() {
         <br />
         <p className="benchmark-disclaimer-text">
           <em>
-            <strong>GPUs</strong> of the same model come in different
+            <strong className="bold-white-text">GPUs</strong> of the same model come in different
             'sub-models' made by various third party manufacturers which may
             differ in performance from each other.{" "}
-            <strong>
+            <strong className="bold-white-text">
               No comparisons are made between individual sub-models in these
               benchmarks.
             </strong>
@@ -120,7 +120,7 @@ export default async function Benchmarks() {
         <br />
         <p className="benchmark-disclaimer-text">
           <em>
-            <strong>
+            <strong className="bold-white-text">
               Use the{" "}
               <Link
                 href="/manual-comparison"

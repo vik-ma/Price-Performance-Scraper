@@ -102,24 +102,25 @@ export default function NewScrape() {
         <div className="scrape-tutorial-text">
           <ol className="tutorial-list no-dot-list">
             <li className="no-dot-list-item">
-              <strong>1.</strong> Choose the type of performance benchmark you
-              want to compare.
+              <strong className="bold-white-text">1.</strong> Choose the type of
+              performance benchmark you want to compare.
             </li>
             <li className="no-dot-list-item">
-              <strong>2.</strong> Add the products you wish to compare by
-              clicking on them in the tiered list below.
+              <strong className="bold-white-text">2.</strong> Add the products
+              you wish to compare by clicking on them in the tiered list below.
               <br />
               <div className="tutorial-tab">
                 <em>
                   You can only compare 3 GPUs or 7 CPUs at a time, but{" "}
-                  <strong>
+                  <strong className="bold-white-text">
                     you do not need to fill the maximum amount of products.
                   </strong>
                 </em>
               </div>
             </li>
             <li className="no-dot-list-item">
-              <strong>3.</strong> Click on <strong>'Start Price Scrape'</strong>{" "}
+              <strong className="bold-white-text">3.</strong> Click on{" "}
+              <strong className="bold-white-text">'Start Price Scrape'</strong>{" "}
               and wait for the price scraper to finish. Once finished, you will
               be redirected to the results.
               <br />
@@ -133,8 +134,9 @@ export default function NewScrape() {
                 </strong>
                 <br />
                 <em>
-                  <strong>GPU Scrapes</strong> usually take longer to finish
-                  than <strong>CPU Scrapes</strong>.
+                  <strong className="bold-white-text">GPU Scrapes</strong>{" "}
+                  usually take longer to finish than{" "}
+                  <strong className="bold-white-text">CPU Scrapes</strong>.
                 </em>
                 <br />
                 <em>

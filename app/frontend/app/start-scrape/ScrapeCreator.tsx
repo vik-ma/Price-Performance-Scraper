@@ -449,7 +449,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
         </div>
       </details>
       <h6 className="product-add-hint">
-        <em>
+        <em className="bold-white-text">
           Click on a product below to add to the list of products to be scraped
         </em>
       </h6>
@@ -488,7 +488,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       </div>
       <p className="benchmarks-hint">
         <em>
-          <strong>
+          <strong className="bold-white-text">
             Tiers are derived from the different models' average benchmark
             score.
             <br />

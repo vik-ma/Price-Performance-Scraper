@@ -154,7 +154,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             </table>
             <p className="benchmark-timestamp">
               <em>
-                Benchmarks updated at <strong>{timestampMap.gpu}</strong>
+                Benchmarks updated at <strong className="bold-white-text">{timestampMap.gpu}</strong>
               </em>
             </p>
           </div>
@@ -218,7 +218,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             </table>
             <p className="benchmark-timestamp">
               <em>
-                Benchmarks updated at <strong>{timestampMap.cpuG}</strong>
+                Benchmarks updated at <strong className="bold-white-text">{timestampMap.cpuG}</strong>
               </em>
             </p>
           </div>
@@ -282,7 +282,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             </table>
             <p className="benchmark-timestamp">
               <em>
-                Benchmarks updated at <strong>{timestampMap.cpuN}</strong>
+                Benchmarks updated at <strong className="bold-white-text">{timestampMap.cpuN}</strong>
               </em>
             </p>
           </div>

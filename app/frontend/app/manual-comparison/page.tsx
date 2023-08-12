@@ -190,7 +190,7 @@ export default function ManualComparison() {
             >
               Completed Scrapes
             </Link>{" "}
-            <strong>
+            <strong className="bold-white-text">
               unless the performance values entered here are structured in the
               same way as this site's{" "}
               <Link
