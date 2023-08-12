@@ -69,7 +69,7 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "Radeon RX 7600": {
-    tier: "4",
+    tier: "5",
     manufacturer: "AMD",
   },
   "Radeon RX 6650 XT": {
@@ -225,7 +225,7 @@ export const cpuInfo = {
     socket: "Socket AM5",
   },
   "AMD Ryzen 7 7700": {
-    gamingTier: "7",
+    gamingTier: "3",
     normalTier: "4",
     generation: "Latest Generation",
     manufacturer: "AMD",
@@ -295,7 +295,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-12900KS": {
-    gamingTier: "2",
+    gamingTier: "3",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -407,7 +407,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-13400": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "6",
     generation: "Latest Generation",
     manufacturer: "Intel",
