@@ -50,14 +50,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     if (scrapeType.name === "GPU") {
       // Return gpuInfo if Benchmark Type is GPU
       return gpuInfo as GpuInfoProps;
-    } else if (scrapeType.name === "CPU-Gaming") {
-      // Return cpuInfo without Intel Core i9-13900 if Benchmark Type is CPU-Gaming
-      // (Intel Core i9-13900 has no gaming benchmarks)
-      const cpuInfoGaming = { ...cpuInfo };
-      delete cpuInfoGaming["Intel Core i9-13900" as keyof typeof cpuInfoGaming];
-      return cpuInfoGaming as CpuInfoProps;
-    }
-    // Return cpuInfo if Benchmark Type is CPU-Normal/Multithreading
+    } 
+    // Return cpuInfo if Benchmark Type is CPU-Gaming or CPU-Normal/Multithreading
     return cpuInfo as CpuInfoProps;
   };
 

@@ -103,9 +103,6 @@ NOTES ABOUT CPU MODELS:
 
     - Only sockets AM5, AM4 and LGA 1700 CPUs are included.
 
-    - Intel Core i9-13900 has currently no gaming benchmarks,
-      and is thus not able to be Price Scraped for gaming performance.
-
     - CPU-Gaming benchmarks are not entirely accurate.
       (Notably 7900X3D being over-rated)
     

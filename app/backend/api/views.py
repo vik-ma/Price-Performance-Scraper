@@ -79,7 +79,7 @@ valid_gpu_set = frozenset([
 ])
 
 # List of allowed CPU models to Price Scrape
-valid_cpu_normal_list = [
+valid_cpu_set = frozenset([
     "AMD Ryzen 9 7950X3D",
     "AMD Ryzen 9 7900X3D",
     "AMD Ryzen 7 7800X3D",
@@ -127,22 +127,14 @@ valid_cpu_normal_list = [
     "Intel Core i5-12500",
     "Intel Core i5-12400F",
     "Intel Core i5-12400",
-]
-
-valid_cpu_normal_set = frozenset(valid_cpu_normal_list)
-
-valid_cpu_gaming_list = valid_cpu_normal_list.copy()
-# Remove Intel Core i9-13900 because it has no Gaming Benchmarks
-valid_cpu_gaming_list.remove("Intel Core i9-13900")
-valid_cpu_gaming_set = frozenset(valid_cpu_gaming_list)
-
+])
 
 def validate_fetch_request(serializer_data):
     """
     Validates data sent to start_price_fetch and raises ValidationError if data is invalid.
     
     "product_list" must be a string of listed of product models, with a comma separating them.
-    All products must be in either "valid_gpu_set", "valid_cpu_normal_set" or "valid_cpu_gaming_set",
+    All products must be in either "valid_gpu_set" or "valid_cpu_set",
     depending on the "fetch_type".
 
     "fetch_type" must be an allowed benchmark type contained in "valid_fetch_types".
@@ -173,9 +165,9 @@ def validate_fetch_request(serializer_data):
     if fetch_type == "GPU":
         valid_product_set = valid_gpu_set     
     elif fetch_type == "CPU-Gaming":
-        valid_product_set = valid_cpu_gaming_set
+        valid_product_set = valid_cpu_set
     elif fetch_type == "CPU-Normal":
-        valid_product_set = valid_cpu_normal_set
+        valid_product_set = valid_cpu_set
 
     # Check if all items in product_list are allowed
     if not product_list.issubset(valid_product_set):
