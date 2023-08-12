@@ -84,8 +84,8 @@ input[type="checkbox"]:checked {
 
 @media (max-width: 576px) {
   .container {
-    padding-left: 7px;
-    padding-right: 7px;
+    padding-left: 6px;
+    padding-right: 6px;
   }
 }
 
@@ -631,12 +631,23 @@ td {
   .listing-table-head-last {
     white-space: nowrap;
   }
+  .listing-table-head {
+    padding-left: 15px !important;
+    padding-bottom: 9px !important;
+  }
 }
 
 /* Media query to further reduce padding for listing-table cells on very small screens */
 @media (max-width: 500px) {
   .listing-table td {
-    padding: 8px;
+    padding: 7px 10px;
+  }
+  .listing-table-head {
+    padding-left: 10px !important;
+    padding-bottom: 9px !important;
+  }
+  .model-background {
+    padding: 1px 6px !important;
   }
 }
 
@@ -644,7 +655,6 @@ td {
 .price-cell {
   color:white;
   white-space: nowrap;
-  text-align: center;
 }
 
 /* Detailed Product Name for GPU Completed Scrapes */
