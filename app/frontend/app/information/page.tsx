@@ -235,7 +235,6 @@ export default async function Information() {
         </strong>
       </p>
       <br />
-      <br />
       <div className="centered-container">
         <a
           className="gh-logo-link"

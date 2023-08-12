@@ -43,7 +43,6 @@ export default async function Home() {
         </strong>{" "}
         are available for price scraping.
         <br />
-        <br />
       </p>
       <p className="home-text home-text-start-scrape">
         <strong>Click the button below to start a price scrape!</strong>

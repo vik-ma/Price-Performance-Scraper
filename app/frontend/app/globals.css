@@ -287,6 +287,7 @@ input[type="checkbox"]:checked {
 
 /* Text above Start Price Scrape button on Home page */
 .home-text-start-scrape {
+  margin-top: 18px;
   text-align: center;
   font-size: larger;
   color: #9dff70 !important;
@@ -306,6 +307,7 @@ input[type="checkbox"]:checked {
 .gh-logo-link:hover {
   background-color: #2b80ff48;
   border: 2px solid #2b80ff;
+  box-shadow: 0px 0px 5px 1px #2b80ff;
 }
 
 /* Text that appears under GitHub logo link */
@@ -1557,12 +1559,12 @@ td {
 
 /* <h2> titles for Information page */
 h2.information-header {
-  margin-top: 20px;
+  margin-top: 22px;
 }
 
 /* <h3> titles for Information page */
 h3.information-header {
-  margin-top: 8px !important;
+  margin-top: 12px !important;
 }
 
 /* Color gradients for different sections on Information page */
@@ -1601,7 +1603,7 @@ h3.information-header {
 /* Text for <p> tags on Information page */
 .information-text {
   margin: 0;
-  margin-top: 8px;
+  margin-top: 2px;
   padding-left: 2px;
 }
 
@@ -1612,14 +1614,14 @@ h3.information-header {
 
 /* Container to show Price/Performance Score formula on Information Page */
 .formula-container {
-  background-color: #2e2e2d;
+  background-color: #31312f;
   width: fit-content;
   padding: 3px 15px 7px;
   border-radius: 10px;
   color: rgb(243, 243, 243);
   font-size: x-large;
   margin-top: 7px;
-  margin-bottom: -7px;
+  box-shadow: inset 0 0px 3px rgb(243, 243, 243);
 }
 
 /* Adjust formula-container for very small screens */
@@ -1740,8 +1742,11 @@ h3.information-header {
   border-width: 2px;
   border-radius: 12px;
   border-color: #3787ff;
+  margin: 0;
+  margin-top: 2px;
 }
 
 .start-button-home:hover {
-  border-color: #e9f2ff;
+  border-color: #ffffff;
+  box-shadow: 0px 0px 5px 1px white;
 }
