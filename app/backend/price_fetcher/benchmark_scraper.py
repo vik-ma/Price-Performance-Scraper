@@ -451,7 +451,8 @@ def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
     average_benchmark_data["timestamp"] = current_datetime
 
     # Save the data to a .json file
-    # save_to_json_with_timestamp(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
+    if run_locally:
+        save_to_json_with_timestamp(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
 
     return average_benchmark_data
 
@@ -492,7 +493,8 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False) -> dict:
     passmark_data["timestamp"] = current_datetime
 
     # Save the data to a .json file
-    # save_to_json_with_timestamp(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
+    if run_locally:
+        save_to_json_with_timestamp(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
     return passmark_data
 
@@ -533,7 +535,8 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False) -> dict:
     passmark_data["timestamp"] = current_datetime
 
     # Save the data to a .json file
-    # save_to_json_with_timestamp(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
+    if run_locally:
+        save_to_json_with_timestamp(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
 
     return passmark_data
     
@@ -635,15 +638,14 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         gpu_benchmarks = fetch_gpu_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
-        return Exception(f"Error scraping GPU Benchmarks: {e}")
-    # # For local .json files as Benchmark Data
-    # except Exception as e:
-    #     # Log error if scraping fails
-    #     print("Error Scraping GPU Benchmarks")
-    #     write_to_log(success=False, message=f"Error Scraping GPU Benchmarks: {e}", run_locally=run_locally)
-    # else:
-    #     # Replace old benchmark data with new benchmark data if scrape was successful
-    #     replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
+        error_msg = f"Error scraping GPU Benchmarks: {e}"
+        print(error_msg)
+        return Exception(error_msg)
+    else:
+        # Replace json old benchmark data with new benchmark data 
+        # if scrape was successful and benchmark scrape was ran locally 
+        if run_locally:
+            replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
 
     # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
@@ -654,15 +656,14 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
-        return Exception(f"Error scraping CPU-Gaming Benchmarks: {e}")
-    # # For local .json files as Benchmark Data
-    # except Exception as e:
-    #     # Log error if scraping fails
-    #     print("Error Scraping CPU-Gaming Benchmarks")
-    #     write_to_log(success=False, message=f"Error Scraping CPU-Gaming Benchmarks: {e}", run_locally=run_locally)
-    # else:
-    #     # Replace old benchmark data with new benchmark data if scrape was successful
-    #     replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
+        error_msg = f"Error scraping GPU Benchmarks: {e}"
+        print(error_msg)
+        return Exception(error_msg)
+    else:
+        # Replace json old benchmark data with new benchmark data 
+        # if scrape was successful and benchmark scrape was ran locally 
+        if run_locally:
+             replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
 
     # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
@@ -673,15 +674,14 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         cpu_normal_benchmarks = fetch_cpu_normal_benchmarks(run_locally=run_locally)
         print("Success")
     except Exception as e:
-        return Exception(f"Error scraping CPU-Normal Benchmarks: {e}")
-    # # For local .json files as Benchmark Data
-    # except Exception as e:
-    #     # Log error if scraping fails
-    #     print("Error Scraping CPU-Normal Benchmarks")
-    #     write_to_log(success=False, message=f"Error Scraping CPU-Normal Benchmarks: {e}", run_locally=run_locally)
-    # else:
-        # Replace old benchmark data with new benchmark data if scrape was successful
-        # replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
+        error_msg = f"Error scraping GPU Benchmarks: {e}"
+        print(error_msg)
+        return Exception(error_msg)
+    else:
+        # Replace json old benchmark data with new benchmark data 
+        # if scrape was successful and benchmark scrape was ran locally 
+        if run_locally:
+            replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
     new_benchmarks_dict = {"GPU": gpu_benchmarks, 
                             "CPU-Gaming": cpu_gaming_benchmarks, 
