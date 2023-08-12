@@ -216,8 +216,8 @@ def test_local_html_page(filename):
     """
     with open(filename, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
-    
 
+    
 def test_local_json_file(filename):
     """
     Import a local .json file.
@@ -242,7 +242,7 @@ def get_product_json(soup) -> dict:
                               from scraped webpage
     """
     # Script tag which contains JSON data (formatted as plain text)
-    page_json = soup.find_all("script")[6].text
+    page_json = soup.find_all("script")[5].text
 
     ## Parse JSON using regex
 
@@ -729,3 +729,4 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
 
 if __name__ == "__main__":
     pass
+
