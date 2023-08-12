@@ -600,12 +600,12 @@ td {
 
 /* Table Heading for Completed Scrape and Benchmark data */
 .listing-table-head {
-  padding-top: 4px;
-  padding-bottom: 14px;
-  padding-right: 15px;
+  padding-top: 4px !important;
+  padding-bottom: 14px !important;
+  padding-right: 15px !important;
   background-color: #1b1b1f;
   background: linear-gradient(to bottom, #262626, #181818);
-  color: rgb(248, 248, 248);
+  color: #fcfcfc;
 }
 
 /* Left-most Table Heading in listing-table-head */
@@ -1158,7 +1158,7 @@ td {
   padding-top: 5px !important;
   padding-bottom: 8px !important;
   word-break: normal;
-  color:rgb(238, 238, 238);
+  color:#fcfcfc;
 }
 
 /* Media query to adjust positioning of text inside benchmark-table-head for smaller screens */
@@ -1678,6 +1678,7 @@ h3.information-header {
 .mct-table-head {
   padding-top: 5px !important;
   padding-bottom: 8px !important;
+  padding-left: 18px !important;
 }
 
 .mct-table-head-last {
@@ -1687,7 +1688,7 @@ h3.information-header {
 
 /* Styling for <td> tags in mct-table */
 .mct-table td {
-  padding: 0 10px;
+  padding: 0 6px 0 12px;
 }
 
 /* Container for text input fields in mct-table */
