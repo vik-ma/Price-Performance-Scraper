@@ -14,6 +14,7 @@
   --form-element-placeholder-color: hsl(204, 2%, 50%);
   --normal-text-color: #e5e5e5;
   --bold-normal-text: #ffffff;
+  --h2-color: #fafafa;
 }
 
 p {
@@ -688,8 +689,8 @@ td {
   padding: 3px 15px 6px;
   word-break: normal;
   margin-bottom: 8px !important;
-  color:#dfdfdf;
-  border-color: #d4d4d4;
+  color:#f1f1f1;
+  border-color: rgba(190, 190, 190, 0.5);
   border-radius: 8px;
 }
 
@@ -1060,12 +1061,12 @@ td {
   display: inline-block;
   width: fit-content;
   height: fit-content;
-  padding: 0px 17px 4px;
-  border: 2px solid rgba(233, 233, 233, 0.8);
+  padding: 0px 15px 3px;
+  border: 2px solid rgba(241, 241, 241, 0.8);
   border-radius: 12px;
   font-size: larger;
   background-color: var(--dark-bg-color);
-  color:#ececec;
+  color:#f1f1f1;
   word-break: normal;
   margin-bottom: 0;
 }
@@ -1107,19 +1108,18 @@ td {
   width: 50%;
   background: rgba(65, 65, 65, 0.5);
   cursor: pointer;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.275);
   box-sizing: content-box;
   position: relative;
-  outline: 1px solid rgba(0, 0, 0, 0.5);
+  outline: 1px solid rgba(27, 27, 27, 0.5);
   font-size: x-large;
   word-break: normal;
   border-radius: 30px;
-  color:#ebeff3;
+  color:#fafafa;
 }
 
 .benchmark-table-tabs:hover {
   background: rgba(128, 128, 128, 0.6);
-  color:rgb(245, 245, 245);
+  color:white;
   transition-duration: 0.3s;
 }
 
@@ -1345,6 +1345,13 @@ td {
   margin-bottom: 2px;
   margin-right: 10px;
   border-width: 2px;
+  color: white;
+  border-color: #f1f1f1;
+}
+
+.start-button:hover {
+  border-color: #ffffff;
+  box-shadow: 0px 0px 12px 1px #ffffff;
 }
 
 /* Button inside selected-products-container to clear all items in Selected Products list */
@@ -1486,12 +1493,12 @@ td {
   margin-left: -1px;
   margin-bottom: 0px !important;
   margin-top: 1px;
-  color: #ebeff3;
+  color: #fafafa;
 }
 
 /* Label for checkboxes inside filter-products-container */
 .product-filter-label {
-  color: #e2e6eb;
+  color: var(--normal-text-color);
 }
 
 /* Button inside filter-products-container to toggle all Filters on or off */
@@ -1614,14 +1621,15 @@ h3.information-header {
 
 /* Container to show Price/Performance Score formula on Information Page */
 .formula-container {
-  background-color: #31312f;
+  background-color: var(--dark-bg-color);
+  background: linear-gradient(to bottom right, rgb(27, 27, 27) 15%, rgb(39, 39, 39) 100%);
   width: fit-content;
   padding: 3px 15px 7px;
   border-radius: 10px;
-  color: rgb(243, 243, 243);
+  color: #fafafa;
   font-size: x-large;
   margin-top: 7px;
-  box-shadow: inset 0 0px 3px rgb(243, 243, 243);
+  border: 1px solid rgba(200, 200, 200, 0.5);
 }
 
 /* Adjust formula-container for very small screens */
@@ -1714,9 +1722,16 @@ h3.information-header {
 .calculate-button {
   margin-top: 10px;
   margin-left: 3px;
-  background-color: #1d29cc;
-  background: linear-gradient(to top, #1c249b, #69c7f3);
+  background-color: rgb(3, 151, 232);
+  background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   font-size: xx-large;
+  color: white;
+  border-color: #f1f1f1;
+}
+
+.calculate-button:hover {
+  border-color: #ffffff;
+  box-shadow: 0px 0px 10px 1px #ffffff;
 }
 
 /* Container for text below Manual Comparison Tool Table */
