@@ -102,13 +102,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
-                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-first">
+                  <th className="benchmark-table-head listing-table-head listing-table-head-first">
                     <strong>Model</strong>
                   </th>
-                  <th className="table-head benchmark-table-head listing-table-head">
+                  <th className="benchmark-table-head listing-table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-last">
+                  <th className="benchmark-table-head listing-table-head listing-table-head-last">
                     <strong>Tier</strong>
                   </th>
                 </tr>
@@ -154,7 +154,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             </table>
             <p className="benchmark-timestamp">
               <em>
-                Benchmarks updated at <strong className="bold-white-text">{timestampMap.gpu}</strong>
+                Benchmarks updated at{" "}
+                <strong className="bold-white-text">{timestampMap.gpu}</strong>
               </em>
             </p>
           </div>
@@ -169,13 +170,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
-                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-first">
+                  <th className="benchmark-table-head listing-table-head listing-table-head-first">
                     <strong>Model</strong>
                   </th>
-                  <th className="table-head benchmark-table-head listing-table-head">
+                  <th className="benchmark-table-head listing-table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-last">
+                  <th className="benchmark-table-head listing-table-head listing-table-head-last">
                     <strong>Tier</strong>
                   </th>
                 </tr>
@@ -218,7 +219,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             </table>
             <p className="benchmark-timestamp">
               <em>
-                Benchmarks updated at <strong className="bold-white-text">{timestampMap.cpuG}</strong>
+                Benchmarks updated at{" "}
+                <strong className="bold-white-text">{timestampMap.cpuG}</strong>
               </em>
             </p>
           </div>
@@ -233,13 +235,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <table className="benchmark-table" role="grid">
               <thead>
                 <tr>
-                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-first">
+                  <th className="benchmark-table-head listing-table-head listing-table-head-first">
                     <strong>Model</strong>
                   </th>
-                  <th className="table-head benchmark-table-head listing-table-head listing-table-head">
+                  <th className="benchmark-table-head listing-table-head listing-table-head">
                     <strong>Benchmark Score</strong>
                   </th>
-                  <th className="table-head benchmark-table-head listing-table-head listing-table-head-last">
+                  <th className="benchmark-table-head listing-table-head listing-table-head-last">
                     <strong>Tier</strong>
                   </th>
                 </tr>
@@ -282,7 +284,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             </table>
             <p className="benchmark-timestamp">
               <em>
-                Benchmarks updated at <strong className="bold-white-text">{timestampMap.cpuN}</strong>
+                Benchmarks updated at{" "}
+                <strong className="bold-white-text">{timestampMap.cpuN}</strong>
               </em>
             </p>
           </div>

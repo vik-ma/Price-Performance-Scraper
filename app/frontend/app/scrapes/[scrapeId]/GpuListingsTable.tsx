@@ -295,21 +295,21 @@ export default function GpuListingsTable({
                   windowWidth > 991
                     ? // Display all table heads on screens over 991 px wide
                       headID === 0
-                      ? "table-head listing-table-head listing-table-head-first"
+                      ? "listing-table-head listing-table-head-first"
                       : headID === tableHeading.length - 1
-                      ? "table-head listing-table-head listing-table-head-last"
-                      : "table-head listing-table-head"
+                      ? "listing-table-head listing-table-head-last"
+                      : "listing-table-head"
                     : headID === 0
                     ? // Don't display first column for screens below 991 px wide
                       "display-none"
                     : headID === 1
-                    ? "table-head listing-table-head listing-table-head-first"
+                    ? "listing-table-head listing-table-head-first"
                     : headID === 2 && windowWidth <= 500
                     ? // Don't display third column for screens below 500 px wide
                       "display-none"
                     : headID === tableHeading.length - 1
-                    ? "table-head listing-table-head listing-table-head-last"
-                    : "table-head listing-table-head"
+                    ? "listing-table-head listing-table-head-last"
+                    : "listing-table-head"
                 }
               >
                 <span

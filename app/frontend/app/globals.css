@@ -1152,7 +1152,7 @@ td {
   transition-duration: 0.3s;
 }
 
-/* Remove border on the right of right-most tab */
+/* Add border on the right to first and second tab */
 .benchmark-table-tabs:not(:last-child) {
   border-right: 1px solid rgba(0, 0, 0, 0.275);
 }

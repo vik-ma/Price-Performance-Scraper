@@ -293,18 +293,18 @@ export default function CpuListingsTable({
                   windowWidth > 500
                     ? // Display all table heads on screens over 500 px wide
                       headID === 0
-                      ? "table-head listing-table-head listing-table-head-first"
+                      ? "listing-table-head listing-table-head-first"
                       : headID === tableHeading.length - 1
-                      ? "table-head listing-table-head listing-table-head-last listing-table-head-last-cpu"
-                      : "table-head listing-table-head"
+                      ? "listing-table-head listing-table-head-last listing-table-head-last-cpu"
+                      : "listing-table-head"
                     : headID === 0
                     ? // Don't display first column for screens below 500 px wide
                       "display-none"
                     : headID === 1
-                    ? "table-head listing-table-head listing-table-head-first"
+                    ? "listing-table-head listing-table-head-first"
                     : headID === tableHeading.length - 1
-                    ? "table-head listing-table-head listing-table-head-last listing-table-head-last-cpu"
-                    : "table-head listing-table-head"
+                    ? "listing-table-head listing-table-head-last listing-table-head-last-cpu"
+                    : "listing-table-head"
                 }
               >
                 <span

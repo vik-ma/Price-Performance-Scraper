@@ -91,10 +91,10 @@ export default function ManualComparison() {
           <table role="grid" className="mct-table">
             <thead>
               <tr>
-                <th className="table-head mct-table-head listing-table-head listing-table-head-first">
+                <th className="mct-table-head listing-table-head listing-table-head-first">
                   <strong>Name (Optional)</strong>
                 </th>
-                <th className="table-head mct-table-head listing-table-head ">
+                <th className="mct-table-head listing-table-head ">
                   {/* Shorten text at low widths and add full text as tooltip */}
                   {windowWidth >= 650 ? (
                     <strong>Performance Value</strong>
@@ -104,10 +104,10 @@ export default function ManualComparison() {
                     </strong>
                   )}
                 </th>
-                <th className="table-head mct-table-head listing-table-head ">
+                <th className="mct-table-head listing-table-head ">
                   <strong>Price</strong>
                 </th>
-                <th className="table-head mct-table-head-last listing-table-head listing-table-head-last">
+                <th className="mct-table-head-last listing-table-head listing-table-head-last">
                   {/* Shorten text at low widths and change the side which tooltip appears from */}
                   <strong
                     data-tooltip={
