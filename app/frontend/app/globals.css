@@ -1608,18 +1608,14 @@ td {
   }
 }
 
-/* <h1> title for Information page */
-.information-header {
+/* <h2> titles for Information page */
+.information-sub-header {
+  margin-top: 22px;
   margin-bottom: 0px !important;
 }
 
-/* <h2> titles for Information page */
-h2.information-header {
-  margin-top: 22px;
-}
-
 /* <h3> titles for Information page */
-h3.information-header {
+h3.information-sub-header {
   margin-top: 12px !important;
 }
 

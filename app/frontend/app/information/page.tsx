@@ -24,7 +24,7 @@ export default async function Information() {
 
   return (
     <>
-      <h1 className="information-header">
+      <h1>
         <span className="page-title">Information</span>
       </h1>
       <p className="information-text information-top-text">
@@ -33,7 +33,7 @@ export default async function Information() {
           CPUs or GPUs on the market!
         </strong>
       </p>
-      <h2 className="information-header information-intro">How It Works</h2>
+      <h2 className="information-sub-header information-intro">How It Works</h2>
       <p className="information-text">
         Over at{" "}
         <Link
@@ -94,7 +94,7 @@ export default async function Information() {
           to manually compare listings that may have been missed by the scraper.
         </em>
       </p>
-      <h2 className="information-header information-scrapes">
+      <h2 className="information-sub-header information-scrapes">
         Price/Performance Score
       </h2>
       <p className="information-text">
@@ -120,7 +120,7 @@ export default async function Information() {
         Benchmark Values will often have much higher Price/Performance Scores
         compared to the flagship models.
       </p>
-      <h2 className="information-header information-benchmarks" id="benchmarks">
+      <h2 className="information-sub-header information-benchmarks" id="benchmarks">
         Benchmarks
       </h2>
       <p className="information-text">
@@ -156,7 +156,7 @@ export default async function Information() {
         <strong className="bold-white-text">50.00</strong> has half the
         performance of the best product in the list.
       </p>
-      <h3 className="information-header information-benchmarks">
+      <h3 className="information-sub-header information-benchmarks">
         Benchmark Tiers
       </h3>
       <p className="information-text">
@@ -168,7 +168,7 @@ export default async function Information() {
         <br />
         These Tiers are also seen when selecting products to scrape.
       </p>
-      <h3 className="information-header information-benchmarks">
+      <h3 className="information-sub-header information-benchmarks">
         Benchmark Disclaimers
       </h3>
       <p className="information-text">
@@ -213,7 +213,7 @@ export default async function Information() {
         </Link>{" "}
         to calculate Price/Performance Score using custom benchmark values.
       </p>
-      <h2 className="information-header information-mct">
+      <h2 className="information-sub-header information-mct">
         Manual Comparison Tool
       </h2>
       <p className="information-text">
