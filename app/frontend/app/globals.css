@@ -22,6 +22,13 @@ p {
   color: var(--normal-text-color)
 }
 
+/* Center content regardless if scrollbar appears or not */
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  margin-right: calc(100vw - 100%);
+}
+
 .bold-white-text {
   color: var(--bold-normal-text);
 }
