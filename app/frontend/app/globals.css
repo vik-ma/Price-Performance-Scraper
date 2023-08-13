@@ -609,9 +609,6 @@ input[type="checkbox"]:checked {
   .scrape-content {
     margin-left: 0;
   }
-  .listing-table-head {
-    padding-top: 8px !important;
-  }
 }
 
 /* Button to show all Completed Scrapes that appears when sidebar gets hidden */
@@ -708,12 +705,20 @@ td {
 
 /* Table Heading for Completed Scrape and Benchmark data */
 .listing-table-head {
-  padding-top: 4px !important;
-  padding-bottom: 14px !important;
-  padding-right: 15px !important;
+  padding-top: 4px;
+  padding-bottom: 14px;
+  padding-right: 15px;
   background-color: #1b1b1f;
   background: linear-gradient(to bottom, #262626, #181818);
   color: #fcfcfc;
+}
+
+
+@media (min-width: 1199px) and (max-width: 1316px) {
+  .listing-table-head {
+    padding-top: 5px;
+    padding-bottom: 13px;
+  }
 }
 
 /* Left-most Table Heading in listing-table-head */
@@ -740,8 +745,9 @@ td {
     white-space: nowrap;
   }
   .listing-table-head {
-    padding-left: 15px !important;
-    padding-bottom: 9px !important;
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 8px;
   }
 }
 
