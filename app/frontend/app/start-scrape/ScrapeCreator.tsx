@@ -446,11 +446,14 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           )}
         </div>
       </details>
-      <h6 className="product-add-hint">
-        <em className="bold-white-text">
-          Click on a product below to add to the list of products to be scraped
+      <p className="product-add-hint">
+        <em>
+          <strong className="bold-white-text">
+            Click on a product below to add to the list of products to be
+            scraped
+          </strong>
         </em>
-      </h6>
+      </p>
       <div className="tiers-container">
         {/* Show every available product under their corresponding Benchmark Tier */}
         {tiersArray.map((tier) => (
