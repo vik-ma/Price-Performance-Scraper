@@ -89,13 +89,6 @@ input[type="checkbox"]:checked {
   padding-bottom: 20px;
 }
 
-@media (max-width: 576px) {
-  .container {
-    padding-left: 6px;
-    padding-right: 6px;
-  }
-}
-
 /* Horizontally centered container */
 .centered-container {
   display: flex;
@@ -1808,4 +1801,15 @@ h3.information-sub-header {
 .start-button-home:hover {
   border-color: #ffffff;
   box-shadow: 0px 0px 10px 1px #ffffff;
+}
+
+@media (max-width: 575px) {
+  body {
+    width: 100%;
+    margin-right: 0;
+  }
+  .container {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
 }
