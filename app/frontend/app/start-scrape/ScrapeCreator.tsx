@@ -50,7 +50,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     if (scrapeType.name === "GPU") {
       // Return gpuInfo if Benchmark Type is GPU
       return gpuInfo as GpuInfoProps;
-    } 
+    }
     // Return cpuInfo if Benchmark Type is CPU-Gaming or CPU-Normal/Multithreading
     return cpuInfo as CpuInfoProps;
   };
@@ -340,11 +340,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           {/* Show message of when Price Scraping will be allowed again if there is a cooldown */}
           {!isScrapeAllowed ? (
             <div className="error-msg-container cooldown-container">
-              <h3 className="error-msg-heading cooldown-heading">
-                A scrape was recently started
-                <br />
-                Cooldown ends in {formatTime(scrapeAllowedTimer)}
-              </h3>
+              A scrape was recently started
+              <br />
+              Cooldown ends in {formatTime(scrapeAllowedTimer)}
             </div>
           ) : (
             <div className="start-price-button-container">
@@ -369,7 +367,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               {/* Show any error messages related to Price Scraping */}
               {showErrorMsg && (
                 <div className="horizontally-centered-container error-msg-container">
-                  <h2 className="error-msg-heading">{errorMsg}</h2>
+                  {errorMsg}
                 </div>
               )}
             </div>

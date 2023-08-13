@@ -1543,27 +1543,20 @@ td {
 /* Container for error messages that are mostly shown after API errors */
 .error-msg-container {
   display: inline-block;
-  background-color: #e73c4a;
+  background-color: #ef4444;
   border-radius: 20px;
   width: fit-content;
-  padding: 1px 15px 4px;
+  padding: 0px 15px 4px;
   animation: fade-in 0.2s;
   margin-top: 5px;
-}
-
-/* Text for error-msg-container */
-.error-msg-heading {
-  margin-bottom: 0px !important;
+  font-size: xx-large;
+  font-weight: 700;
+  color:#fafafa;
 }
 
 /* Class for error messages shown when Scrape cooldown is active */
 .cooldown-container {
   text-align: center;
-}
-
-/* Text for cooldown-container */
-.cooldown-heading {
-  color: rgb(231, 231, 231);
 }
 
 /* Animation to fade in element */

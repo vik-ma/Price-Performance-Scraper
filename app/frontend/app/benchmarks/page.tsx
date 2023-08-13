@@ -12,6 +12,8 @@ async function getBenchmarkData(): Promise<BenchmarkAPIResponse> {
         next: {
           revalidate: 60,
         },
+        // Force no caching (For debugging)
+        // cache: "no-store",
       }
     );
 
@@ -80,25 +82,29 @@ export default async function Benchmarks() {
         <BenchmarkTable benchmarks={benchmarks} />
       ) : (
         // Show error message if API call failed or benchmarkData is invalid
-        <div className="centered-container">
-          <div className="error-msg-container">
-            <h3 className="error-msg-heading">Error fetching benchmarks</h3>
+        <>
+          <div className="centered-container">
+            <div className="error-msg-container">Error fetching benchmarks</div>
           </div>
-        </div>
+          <br />
+        </>
       )}
       <div className="benchmark-info-wrapper">
         <p className="benchmark-source-text">
           <em>
-            <strong className="bold-white-text">CPU</strong> benchmarks are sourced from{" "}
-            <strong className="bold-white-text">PassMark</strong> and <strong className="bold-white-text">GPU</strong> benchmarks are an
-            aggregate of data from <strong className="bold-white-text">PassMark</strong> and{" "}
+            <strong className="bold-white-text">CPU</strong> benchmarks are
+            sourced from <strong className="bold-white-text">PassMark</strong>{" "}
+            and <strong className="bold-white-text">GPU</strong> benchmarks are
+            an aggregate of data from{" "}
+            <strong className="bold-white-text">PassMark</strong> and{" "}
             <strong className="bold-white-text">Tom's Hardware</strong>.
           </em>
         </p>
         <h2 className="benchmark-disclaimer-heading">Disclaimers</h2>
         <p className="benchmark-disclaimer-text">
           <em>
-            <strong className="bold-white-text">CPU Gaming</strong> benchmarks are semi-theoretical and{" "}
+            <strong className="bold-white-text">CPU Gaming</strong> benchmarks
+            are semi-theoretical and{" "}
             <strong className="bold-white-text">
               not necessarily indicative of actual gaming performance
             </strong>
@@ -108,9 +114,9 @@ export default async function Benchmarks() {
         <br />
         <p className="benchmark-disclaimer-text">
           <em>
-            <strong className="bold-white-text">GPUs</strong> of the same model come in different
-            'sub-models' made by various third party manufacturers which may
-            differ in performance from each other.{" "}
+            <strong className="bold-white-text">GPUs</strong> of the same model
+            come in different 'sub-models' made by various third party
+            manufacturers which may differ in performance from each other.{" "}
             <strong className="bold-white-text">
               No comparisons are made between individual sub-models in these
               benchmarks.
