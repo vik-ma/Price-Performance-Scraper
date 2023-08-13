@@ -17,7 +17,7 @@ export default function RootLayout({
         <h1 className="completed-scrapes-title">
           <span className="page-title">Completed Scrapes</span>
         </h1>
-        <Link href="/scrapes">
+        <Link className="sidebar-link" href="/scrapes">
           <button className="dark-button view-all-scrapes-button">
             <strong>View All Scrapes</strong>
           </button>

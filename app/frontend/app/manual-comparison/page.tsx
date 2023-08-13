@@ -169,7 +169,7 @@ export default function ManualComparison() {
               ))}
             </tbody>
           </table>
-          <button className="dark-button calculate-button" type="submit">
+          <button className="dark-button mct-calculate-button" type="submit">
             <strong>Calculate</strong>
           </button>
         </form>

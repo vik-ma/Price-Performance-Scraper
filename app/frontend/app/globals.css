@@ -283,6 +283,95 @@ input[type="checkbox"]:checked {
   -webkit-text-fill-color: transparent;
 }
 
+/* Generic class to not display element */
+.display-none {
+  display: none;
+}
+
+/* Generic class to add nowrap */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* Generic class to add normal word-break */
+.word-break {
+  word-break: normal;
+}
+
+/* Media query to disable nowrap and word-break classes for smaller screens */
+@media (max-width: 800px){
+  .nowrap {
+    white-space: normal;
+  }
+  .word-break {
+    word-break: break-all;
+  }
+}
+
+/* Generic class to always add nowrap */
+.no-wrap-constant {
+  white-space: nowrap;
+}
+
+/* Generic class to align text in center */
+.text-centered {
+  text-align: center;
+}
+
+/* Generic class for dark grey button with white border */
+.dark-button {
+  display: inline-block;
+  width: fit-content;
+  height: fit-content;
+  padding: 0px 15px 3px;
+  border: 2px solid rgba(241, 241, 241, 0.8);
+  border-radius: 12px;
+  font-size: larger;
+  background-color: var(--dark-bg-color);
+  color:#f1f1f1;
+  word-break: normal;
+  margin-bottom: 0;
+}
+
+.dark-button:hover {
+  background-color: rgba(160, 160, 170, 0.380);
+  color: white;
+  border: 2px solid white;
+}
+
+/* Generic class for links to other pages on site */
+.internal-link-color {
+  color:rgb(47, 161, 255);
+}
+
+/* Generic class for links to external sites */
+.external-link {
+  color:rgb(52, 163, 228);
+  word-break: normal;
+}
+
+.external-link:hover {
+  color:rgb(144, 197, 228);
+}
+
+.external-link:visited {
+  color:rgb(144, 53, 230);
+}
+
+/* Generic class to indicate element is clickable */
+.clickable {
+  cursor: pointer !important;
+}
+
+.clickable:hover {
+  color: var(--primary-hover);
+}
+
+/* Generic class to make text red */
+.red-text {
+  color: #ef4444;
+}
+
 /* <h1> title for Home page */
 .home-title {
   margin-bottom: 8px !important;
@@ -533,6 +622,13 @@ input[type="checkbox"]:checked {
   background-color: rgb(3, 151, 232);
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   padding-top: 1px !important;
+  color: #ffffff;
+  border-color: #f1f1f1;
+}
+
+.view-all-scrapes-button:hover {
+  border-color: #ffffff;
+  box-shadow: 0px 0px 12px 1px #ffffff;
 }
 
 /* Remove button on very small screens or when the sidebar is active */
@@ -1005,95 +1101,6 @@ td {
   text-shadow: none;
 }
 
-/* Generic class to add nowrap */
-.nowrap {
-  white-space: nowrap;
-}
-
-/* Generic class to add normal word-break */
-.word-break {
-  word-break: normal;
-}
-
-/* Media query to disable nowrap and word-break classes for smaller screens */
-@media (max-width: 800px){
-  .nowrap {
-    white-space: normal;
-  }
-  .word-break {
-    word-break: break-all;
-  }
-}
-
-/* Generic class to always add nowrap */
-.no-wrap-constant {
-  white-space: nowrap;
-}
-
-/* Generic class to align text in center */
-.text-centered {
-  text-align: center;
-}
-
-/* Generic class for links to other pages on site */
-.internal-link-color {
-  color:rgb(47, 161, 255);
-}
-
-/* Generic class for links to external sites */
-.external-link {
-  color:rgb(52, 163, 228);
-  word-break: normal;
-}
-
-.external-link:hover {
-  color:rgb(144, 197, 228);
-}
-
-.external-link:visited {
-  color:rgb(144, 53, 230);
-}
-
-/* Generic class to indicate element is clickable */
-.clickable {
-  cursor: pointer !important;
-}
-
-.clickable:hover {
-  color: var(--primary-hover);
-}
-
-/* Generic class to make text red */
-.red-text {
-  color: #ef4444;
-}
-
-/* Generic class to style <th> tags */
-.table-head {
-  padding-top: 0px;
-}
-
-/* Generic class for dark grey button with white border */
-.dark-button {
-  display: inline-block;
-  width: fit-content;
-  height: fit-content;
-  padding: 0px 15px 3px;
-  border: 2px solid rgba(241, 241, 241, 0.8);
-  border-radius: 12px;
-  font-size: larger;
-  background-color: var(--dark-bg-color);
-  color:#f1f1f1;
-  word-break: normal;
-  margin-bottom: 0;
-}
-
-.dark-button:hover {
-  background-color: rgba(160, 160, 170, 0.380);
-  color: white;
-  border: 2px solid white;
-}
-
 /* Wrapper for all tables on Benchmarks page */
 .benchmark-wrapper {
   display: flex;
@@ -1349,7 +1356,7 @@ td {
   margin-left: 3px;
 }
 
-/* General class for Start Price Scrape buttons */
+/* Generic class for Start Price Scrape buttons */
 .start-button {
   display: inline-block;
   font-size: xx-large;
@@ -1735,17 +1742,17 @@ h3.information-header {
 }
 
 /* Button to calculate inputted values in Manual Comparison Tool Table */
-.calculate-button {
+.mct-calculate-button {
   margin-top: 10px;
   margin-left: 3px;
   background-color: rgb(3, 151, 232);
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   font-size: xx-large;
-  color: white;
+  color: #ffffff;
   border-color: #f1f1f1;
 }
 
-.calculate-button:hover {
+.mct-calculate-button:hover {
   border-color: #ffffff;
   box-shadow: 0px 0px 10px 1px #ffffff;
 }
@@ -1758,11 +1765,6 @@ h3.information-header {
 /* Text in <p> tag in mct-text-container */
 .mct-text {
   margin: 0;
-}
-
-/* Generic class to not display element */
-.display-none {
-  display: none;
 }
 
 /* Button to take you to Start Scrape page from Home page */
