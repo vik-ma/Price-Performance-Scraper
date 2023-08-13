@@ -358,6 +358,11 @@ input[type="checkbox"]:checked {
   color:rgb(144, 53, 230);
 }
 
+/* Generic class to remove underscores */
+.no-underscore {
+  text-decoration: none !important;
+}
+
 /* Generic class to indicate element is clickable */
 .clickable {
   cursor: pointer !important;
@@ -463,11 +468,6 @@ input[type="checkbox"]:checked {
   color: #2b2b2b;
   border: 2px solid #2b2b2b;
   box-shadow: 0px 0px 8px 2px #2b2b2b;
-}
-
-/* Link container for sidebar-full-list-button */
-.sidebar-link {
-  text-decoration: none !important;
 }
 
 /* Container for list of all Completed Scrapes in sidebar */

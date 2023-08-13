@@ -17,7 +17,7 @@ export default function RootLayout({
         <h1 className="completed-scrapes-title">
           <span className="page-title">Completed Scrapes</span>
         </h1>
-        <Link className="sidebar-link" href="/scrapes">
+        <Link className="no-underscore" href="/scrapes">
           <button className="dark-button view-all-scrapes-button">
             <strong>View All Scrapes</strong>
           </button>
@@ -26,7 +26,7 @@ export default function RootLayout({
       <div className="sidebar">
         <div className="sidebar-title-container">
           <h4 className="sidebar-title">Past Scrapes</h4>
-          <Link className="sidebar-link" href="/scrapes">
+          <Link className="no-underscore" href="/scrapes">
             <button className="sidebar-full-list-button">
               <strong>View Full List</strong>
             </button>
