@@ -862,6 +862,18 @@ td {
   word-break: normal;
 }
 
+/* Label for color-toggle-container in GPU/CPUListingsTable */
+.color-toggle-label-listings {
+  font-weight: 400;
+  margin-bottom: 0px;
+}
+
+/* Label for color-toggle-container in BenchmarkTable */
+.color-toggle-label-benchmarks {
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
 /* Different colors to represent how good the Price/Performance Score (Ratio) is,
   where 24 is the best value in the Scrape and 0 the worst */
 .ppr-color-25 {
@@ -1244,7 +1256,7 @@ td {
 
 /* Container for checkbox and label to toggle color coding in Benchmarks Table */
 .benchmark-color-toggle-container {
-  margin-top: 12px;
+  margin-top: 10px;
   color: var(--bold-normal-text);
 }
 

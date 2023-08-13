@@ -80,14 +80,13 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
           </div>
         </div>
         <div className="color-toggle-container benchmark-color-toggle-container">
-          <label>
+          <label className="color-toggle-label-benchmarks">
             <input
               type="checkbox"
               checked={colorCodingEnabled}
               onChange={() => setColorCodingEnabled(!colorCodingEnabled)}
             />
-
-            <strong>Enable color coding for different benchmark tiers</strong>
+            Enable color coding for different benchmark tiers
           </label>
         </div>
         <div className="benchmark-table-content-tabs">

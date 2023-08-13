@@ -265,7 +265,7 @@ export default function GpuListingsTable({
         </div>
       </details>
       <div className="color-toggle-container">
-        <label>
+        <label className="color-toggle-label-listings">
           <input
             type="checkbox"
             checked={colorCodingEnabled}
