@@ -358,7 +358,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
               ) : (
                 // Show Start Price Scrape button if price scraping is allowed and not ongoing
                 <button
-                  className="start-button"
+                  className="start-button start-scrape-button"
                   onClick={handleClickStartPriceFetch}
                 >
                   <strong>Start Price Scrape</strong>
