@@ -24,7 +24,7 @@ p {
 
 /* Center content regardless if scrollbar appears or not */
 body {
-  overflow-x: hidden;
+  overflow-x: hidden !important;
   width: 100vw;
   margin-right: calc(100vw - 100%);
 }
@@ -98,6 +98,7 @@ input[type="checkbox"]:checked {
 
 /* Container for Navigation Bar */
 .navbar-container {
+  width: 100%;
   position: sticky;
   top: 0;
   z-index: 2;
@@ -335,6 +336,7 @@ input[type="checkbox"]:checked {
 /* Generic class for links to other pages on site */
 .internal-link-color {
   color:rgb(47, 161, 255);
+  word-break: normal;
 }
 
 /* Generic class for links to external sites */
@@ -1155,6 +1157,7 @@ td {
   word-break: normal;
   border-radius: 30px;
   color:#fafafa;
+  font-weight: 700;
 }
 
 .benchmark-table-tabs:hover {
@@ -1251,6 +1254,10 @@ td {
 .benchmark-color-toggle-container {
   margin-top: 10px;
   color: var(--bold-normal-text);
+}
+
+.benchmark-table-data {
+  font-weight: 700;
 }
 
 /* Colors for respective Benchmark Performance Tiers */
@@ -1809,7 +1816,21 @@ h3.information-sub-header {
     margin-right: 0;
   }
   .container {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .benchmark-table-tabs {
+    padding: 4px 10px;
+    font-size: medium;
+  }
+  .benchmark-table-head {
+    padding-right: 8px !important;
+    padding-left: 8px !important;
+  }
+  .benchmark-table td {
+    padding: 4px 6px;
+  }
+  .benchmark-table-data {
+    font-weight: 600;
   }
 }

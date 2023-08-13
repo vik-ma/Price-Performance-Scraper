@@ -163,7 +163,7 @@ export default function NewScrape() {
             <span className="benchmark-header-icon">
               <GPUIcon />
             </span>
-            <strong>GPU</strong>
+            GPU
           </div>
           <div
             className={
@@ -176,7 +176,7 @@ export default function NewScrape() {
             <span className="benchmark-header-icon">
               <CPUGIcon />
             </span>
-            <strong>CPU (Gaming)</strong>
+            CPU (Gaming)
           </div>
           <div
             className={
@@ -189,7 +189,7 @@ export default function NewScrape() {
             <span className="benchmark-header-icon">
               <CPUNIcon />
             </span>
-            <strong>CPU (Multi-threading)</strong>
+            CPU (Multi-threading)
           </div>
         </div>
         <div className="benchmark-table-content-tabs">

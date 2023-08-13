@@ -50,7 +50,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <span className="benchmark-header-icon">
               <GPUIcon />
             </span>
-            <strong>GPU</strong>
+            GPU
           </div>
           <div
             className={
@@ -63,7 +63,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <span className="benchmark-header-icon">
               <CPUGIcon />
             </span>
-            <strong>CPU (Gaming)</strong>
+            CPU (Gaming)
           </div>
           <div
             className={
@@ -76,7 +76,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <span className="benchmark-header-icon">
               <CPUNIcon />
             </span>
-            <strong>CPU (Multi-threading)</strong>
+            CPU (Multi-threading)
           </div>
         </div>
         <div className="color-toggle-container benchmark-color-toggle-container">
@@ -125,26 +125,30 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                             Show all entries in the same color if color coding is disabled */}
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data`
+                              : "benchmark-table-data"
                           }
                         >
-                          <strong>{key}</strong>
+                          {key}
                         </td>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data`
+                              : "benchmark-table-data"
                           }
                         >
-                          <strong>{value.toString()}</strong>
+                          {value.toString()}
                         </td>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data no-wrap-constant`
+                              : "benchmark-table-data no-wrap-constant"
                           }
                         >
-                          <strong className="no-wrap-constant">
-                            Tier {tier}
-                          </strong>
+                          Tier {tier}
                         </td>
                       </tr>
                     );
@@ -190,26 +194,30 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                       <tr key={key}>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data`
+                              : "benchmark-table-data"
                           }
                         >
-                          <strong>{key}</strong>
+                          {key}
                         </td>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data`
+                              : "benchmark-table-data"
                           }
                         >
-                          <strong>{value.toString()}</strong>
+                          {value.toString()}
                         </td>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data no-wrap-constant`
+                              : "benchmark-table-data no-wrap-constant"
                           }
                         >
-                          <strong className="no-wrap-constant">
-                            Tier {tier}
-                          </strong>
+                          Tier {tier}
                         </td>
                       </tr>
                     );
@@ -255,26 +263,30 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
                       <tr key={key}>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data`
+                              : "benchmark-table-data"
                           }
                         >
-                          <strong>{key}</strong>
+                          {key}
                         </td>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data`
+                              : "benchmark-table-data"
                           }
                         >
-                          <strong>{value.toString()}</strong>
+                          {value.toString()}
                         </td>
                         <td
                           className={
-                            colorCodingEnabled ? `text-color-tier-${tier}` : ""
+                            colorCodingEnabled
+                              ? `text-color-tier-${tier} benchmark-table-data no-wrap-constant`
+                              : "benchmark-table-data no-wrap-constant"
                           }
                         >
-                          <strong className="no-wrap-constant">
-                            Tier {tier}
-                          </strong>
+                          Tier {tier}
                         </td>
                       </tr>
                     );
