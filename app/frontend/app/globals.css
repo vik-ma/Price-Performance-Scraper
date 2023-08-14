@@ -1223,6 +1223,7 @@ td {
 .benchmark-table-head {
   padding-top: 5px !important;
   padding-bottom: 8px !important;
+  padding-left: 20px !important;
   word-break: normal;
   color:#fcfcfc;
 }
@@ -1276,6 +1277,7 @@ td {
 
 .benchmark-table-data {
   font-weight: 700;
+  padding-left: 20px;
 }
 
 /* Colors for respective Benchmark Performance Tiers */
@@ -1841,6 +1843,9 @@ h3.information-sub-header {
   .benchmark-table-tab-cpu-n {
     width: 45%;
   }
+  .benchmark-table td {
+    padding: 7px 19px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1849,6 +1854,13 @@ h3.information-sub-header {
   }
   .benchmark-table-tab-cpu-n {
     width: 55%;
+  }
+  .benchmark-table-head {
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+  .benchmark-table td {
+    padding: 6px 15px;
   }
 }
 
@@ -1860,6 +1872,12 @@ h3.information-sub-header {
   }
   .benchmark-table-tab-cpu-n {
     width: 60%;
+  }
+  .benchmark-table td {
+    padding: 5px 15px;
+  }
+  .benchmark-table-data {
+    font-weight: 600;
   }
 }
 
@@ -1884,9 +1902,6 @@ h3.information-sub-header {
   }
   .benchmark-table td {
     padding: 4px 8px;
-  }
-  .benchmark-table-data {
-    font-weight: 600;
   }
 }
 
