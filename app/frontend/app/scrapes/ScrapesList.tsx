@@ -57,7 +57,7 @@ export default async function ScrapesList() {
                 10
               )}:${timestamp.substring(10, 12)}:${timestamp.substring(12, 14)}`;
               return (
-                <li className="no-dot-list-item" key={scrape.timestamp_id}>
+                <li className="no-dot-list-item sidebar-list-item" key={scrape.timestamp_id}>
                   <Link href={`/scrapes/${scrape.timestamp_id}`}>
                     {/* Display every item in the color of their respective Benchmark Type */}
                     <strong className={scrapeTypeMap[scrapeType].cssNameText}>

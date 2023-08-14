@@ -14,7 +14,7 @@ export default function RootLayout({
   return (
     <>
       <div className="scrapes-header-wrapper">
-        <h1 className="completed-scrapes-title">
+        <h1>
           <span className="page-title">Completed Scrapes</span>
         </h1>
         <Link className="no-underscore" href="/scrapes">
@@ -23,19 +23,21 @@ export default function RootLayout({
           </button>
         </Link>
       </div>
-      <div className="sidebar">
-        <div className="sidebar-title-container">
-          <h4 className="sidebar-title">Latest Scrapes</h4>
-          <Link className="no-underscore" href="/scrapes">
-            <button className="sidebar-full-list-button">
-              View Full List
-            </button>
-          </Link>
+      <div className="scrape-content-wrapper">
+        <div className="sidebar">
+          <div className="sidebar-title-container">
+            <h4 className="sidebar-title">Latest Scrapes</h4>
+            <Link className="no-underscore" href="/scrapes">
+              <button className="sidebar-full-list-button">
+                View Full List
+              </button>
+            </Link>
+          </div>
+          {/* @ts-ignore */}
+          <ScrapesList />
         </div>
-        {/* @ts-ignore */}
-        <ScrapesList />
+        {children}
       </div>
-      <div className="scrape-content-wrapper">{children}</div>
     </>
   );
 }

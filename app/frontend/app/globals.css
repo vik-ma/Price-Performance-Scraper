@@ -34,8 +34,8 @@ body {
 }
 
 h1 {
-  margin-top: 10px;
-  margin-bottom: 12px !important;
+  margin-top: 12px;
+  margin-bottom: 22px !important;
 }
 
 h2, h3 {
@@ -265,7 +265,6 @@ input[type="checkbox"]:checked {
   list-style-type: none !important;
   margin: 0;
   padding: 0;
-  margin-top: 6px;
 }
 
 /* <h1> title for the top of every page */
@@ -372,11 +371,6 @@ input[type="checkbox"]:checked {
   color: #ef4444;
 }
 
-/* <h1> title for Home page */
-.home-title {
-  margin-bottom: 8px !important;
-}
-
 /* Text for Home page <p> tags */
 .home-text {
   padding: 2px;
@@ -419,7 +413,6 @@ input[type="checkbox"]:checked {
   overflow: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  margin-top: 18px;
 }
 
 /* Disable scrollbar for sidebar */
@@ -459,7 +452,7 @@ input[type="checkbox"]:checked {
   background: none;
   font-size: 18px;
   font-weight: 600;
-  border: 1px solid #dbdbdb;
+  border: 2px solid #dbdbdb;
   background-color: rgb(3, 151, 232);
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   border-radius: 6px;
@@ -468,12 +461,12 @@ input[type="checkbox"]:checked {
 
 .sidebar-full-list-button:hover {
   border-color: #ffffff;
-  box-shadow: 0px 0px 6px 2px #ffffff;
+  box-shadow: 0px 0px 6px 1px #ffffff;
 }
 
 .sidebar-full-list-button:active {
   color: rgb(50, 50, 50);
-  border: 1px solid rgb(50, 50, 50);
+  border: 2px solid rgb(50, 50, 50);
   box-shadow: none;
 }
 
@@ -489,20 +482,24 @@ input[type="checkbox"]:checked {
   /* background: linear-gradient(to right, #252525 20%, #181818 100%); */
 }
 
-/* Wrapper for all content in Completed Scrapes pages except for <h1> title */
+.sidebar-list-item {
+  margin-top: 5px;
+}
+
+/* Wrapper for all content in Completed Scrapes pages except for scrapes-header-wrapper */
 .scrape-content-wrapper {
-  margin-top: 18px;
+  margin-top: 6px;
 }
 
 /* Container for all content in Completed Scrapes excluding sidebar */
 .scrape-content {
   margin-left: 184px;
+  padding-top: 2px;
   position: relative;
 }
 
-/* List of all Completed Scrapes in /scrapes page root*/
+/* List of all Completed Scrapes in /scrapes page root */
 .full-scrape-list {
-  margin-top: 14px;
 }
 
 /* Link container for item in full-scrape-list */
@@ -626,7 +623,7 @@ input[type="checkbox"]:checked {
 .view-all-scrapes-button {
   display: flex;
   margin-left: auto;
-  margin-top: 15px;
+  margin-top: 5px;
   background-color: rgb(3, 151, 232);
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   padding-top: 1px !important;
@@ -663,16 +660,11 @@ input[type="checkbox"]:checked {
   }
 }
 
-/* Container for completed-scrapes-title */
+/* Container for Completed Scrapes <h1> tag and View All Scrapes button */
 .scrapes-header-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-/* <h1> title at the top of Completed Scrapes pages */
-.completed-scrapes-title {
-  margin-bottom: 0px !important;
 }
 
 /* Title for Completed Scrape type */
@@ -876,7 +868,7 @@ td {
 
 /* Container for checkbox and label to toggle color coding in Benchmarks and Completed Scrapes pages */
 .color-toggle-container {
-  color: white;
+  color: var(--normal-text-color);
   word-break: normal;
 }
 
@@ -1272,7 +1264,7 @@ td {
 /* Container for checkbox and label to toggle color coding in Benchmarks Table */
 .benchmark-color-toggle-container {
   margin-top: 10px;
-  color: var(--bold-normal-text);
+  color: var(--normal-text-color);
 }
 
 .benchmark-table-data {
@@ -1326,6 +1318,10 @@ td {
   padding-left: 0px;
   color: var(--normal-text-color);
   margin-bottom: 5px;
+}
+
+.tutorial-list-item {
+  margin-top: 4px;
 }
 
 /* Container for text with indented space inside inside Show Tutorial Accordion on Start New Price Scrape page  */
