@@ -76,7 +76,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <span className="benchmark-header-icon">
               <CPUNIcon />
             </span>
-            CPU (Multi-threading)
+            <span className="benchmark-table-tab-cpu-n">CPU (Multi-threading)</span>
+            
           </div>
         </div>
         <div className="color-toggle-container benchmark-color-toggle-container">

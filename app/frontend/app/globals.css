@@ -440,7 +440,7 @@ input[type="checkbox"]:checked {
 
 /* Container for Past Scrapes title and button in sidebar container */
 .sidebar-title-container {
-  padding: 1px 0 11px;
+  padding: 1px 0 10px;
   border: 1px solid rgba(190, 190, 190, 0.5);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -1176,7 +1176,7 @@ td {
   box-sizing: content-box;
   position: relative;
   outline: 1px solid rgba(27, 27, 27, 0.5);
-  font-size: x-large;
+  font-size: 24px;
   word-break: normal;
   border-radius: 30px;
   color:#fafafa;
@@ -1250,12 +1250,7 @@ td {
   margin-right: 6px;
 }
 
-/* Media query to not display benchmark-header-icon on very small screens */
-@media (max-width: 500px) {
-  .benchmark-header-icon {
-    display: none;
-  }
-}
+
 
 /* Text to show when benchmarks were last updated */
 .benchmark-timestamp {
@@ -1691,8 +1686,8 @@ h3.information-sub-header {
 
 /* Container to show Price/Performance Score formula on Information Page */
 .formula-container {
-  background-color: var(--dark-bg-color);
-  background: linear-gradient(to bottom right, rgb(27, 27, 27) 15%, rgb(39, 39, 39) 100%);
+  background-color: #353535;
+  background: linear-gradient(to top left, rgb(32, 32, 32) 30%, rgb(51, 51, 51) 100%);
   width: fit-content;
   padding: 3px 15px 7px;
   border-radius: 10px;
@@ -1838,6 +1833,36 @@ h3.information-sub-header {
   box-shadow: 0px 0px 10px 1px #ffffff;
 }
 
+@media (max-width: 1199px) {
+  .benchmark-table-tabs {
+    padding: 2px 10px;
+    font-size: 22px;
+  }
+  .benchmark-table-tab-cpu-n {
+    width: 45%;
+  }
+}
+
+@media (max-width: 991px) {
+  .benchmark-table-tabs {
+    font-size: 20px;
+  }
+  .benchmark-table-tab-cpu-n {
+    width: 55%;
+  }
+}
+
+@media (max-width: 767px) {
+  .benchmark-table-tabs {
+    padding: 4px 10px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .benchmark-table-tab-cpu-n {
+    width: 60%;
+  }
+}
+
 @media (max-width: 575px) {
   body {
     width: 100%;
@@ -1847,18 +1872,30 @@ h3.information-sub-header {
     padding-left: 10px;
     padding-right: 10px;
   }
+  .benchmark-table-tab-cpu-n {
+    width: 80px;
+  }
   .benchmark-table-tabs {
-    padding: 4px 10px;
-    font-size: medium;
+    font-size: 14px;
   }
   .benchmark-table-head {
     padding-right: 8px !important;
     padding-left: 8px !important;
   }
   .benchmark-table td {
-    padding: 4px 6px;
+    padding: 4px 8px;
   }
   .benchmark-table-data {
     font-weight: 600;
+  }
+}
+
+/* Media query to not display benchmark-header-icon on very small screens */
+@media (max-width: 500px) {
+  .benchmark-header-icon {
+    display: none;
+  }
+  .benchmark-table-tab-cpu-n {
+    width: 100%;
   }
 }
