@@ -316,7 +316,7 @@ input[type="checkbox"]:checked {
   display: inline-block;
   width: fit-content;
   height: fit-content;
-  padding: 0px 15px 3px;
+  padding: 0px 15px 4px;
   border: 2px solid rgba(241, 241, 241, 0.8);
   border-radius: 12px;
   font-size: larger;
@@ -324,6 +324,7 @@ input[type="checkbox"]:checked {
   color:#f1f1f1;
   word-break: normal;
   margin-bottom: 0;
+  font-size: 24px;
 }
 
 .dark-button:hover {
@@ -1848,6 +1849,10 @@ h3.information-sub-header {
   .view-all-scrapes-button {
     font-size: 20px;
   }
+  .clear-items-button {
+    padding-bottom: 2px;
+    font-size: 22px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1866,6 +1871,9 @@ h3.information-sub-header {
   }
   .view-all-scrapes-button {
     font-size: 18px;
+  }
+  .clear-items-button {
+    font-size: 20px;
   }
 }
 
@@ -1886,6 +1894,11 @@ h3.information-sub-header {
   }
   .view-all-scrapes-button {
     font-size: 16px;
+  }
+  .clear-items-button {
+    font-size: 18px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 
