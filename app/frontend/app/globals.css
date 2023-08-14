@@ -623,7 +623,7 @@ input[type="checkbox"]:checked {
 .view-all-scrapes-button {
   display: flex;
   margin-left: auto;
-  margin-top: 5px;
+  font-size: 22px;
   background-color: rgb(3, 151, 232);
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
   padding-top: 1px !important;
@@ -1842,6 +1842,9 @@ h3.information-sub-header {
   .benchmark-table td {
     padding: 7px 19px;
   }
+  .view-all-scrapes-button {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1857,6 +1860,9 @@ h3.information-sub-header {
   }
   .benchmark-table td {
     padding: 6px 15px;
+  }
+  .view-all-scrapes-button {
+    font-size: 18px;
   }
 }
 
@@ -1874,6 +1880,9 @@ h3.information-sub-header {
   }
   .benchmark-table-data {
     font-weight: 600;
+  }
+  .view-all-scrapes-button {
+    font-size: 16px;
   }
 }
 
