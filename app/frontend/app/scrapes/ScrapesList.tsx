@@ -2,7 +2,6 @@ import React, { Suspense } from "react";
 import Link from "next/link";
 import { CompletedFetchProps, FetchTypeProps } from "@/typings";
 
-
 // Function to retrieve all completed Price Scrapes from Django API
 async function getCompletedFetches() {
   const res = await fetch(
@@ -40,8 +39,8 @@ export default async function ScrapesList() {
         <ul className="no-dot-list">
           {/* Show every completed Price Scrape with the most recent ones on top */}
           {completedFetchData
-            ?.slice(0)
-            .reverse()
+            ?.reverse()
+            .slice(0, 10)
             .map((scrape: CompletedFetchProps) => {
               // Remove the "-" from scrapeType value to make it compatible with scrapeTypeMap
               const scrapeType: string = scrape.benchmark_type.replace("-", "");
@@ -57,7 +56,10 @@ export default async function ScrapesList() {
                 10
               )}:${timestamp.substring(10, 12)}:${timestamp.substring(12, 14)}`;
               return (
-                <li className="no-dot-list-item sidebar-list-item" key={scrape.timestamp_id}>
+                <li
+                  className="no-dot-list-item sidebar-list-item"
+                  key={scrape.timestamp_id}
+                >
                   <Link href={`/scrapes/${scrape.timestamp_id}`}>
                     {/* Display every item in the color of their respective Benchmark Type */}
                     <strong className={scrapeTypeMap[scrapeType].cssNameText}>

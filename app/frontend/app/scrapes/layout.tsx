@@ -23,21 +23,17 @@ export default function RootLayout({
           </button>
         </Link>
       </div>
-      <div className="scrape-content-wrapper">
-        <div className="sidebar">
-          <div className="sidebar-title-container">
-            <h4 className="sidebar-title">Latest Scrapes</h4>
-            <Link className="no-underscore" href="/scrapes">
-              <button className="sidebar-full-list-button">
-                View Full List
-              </button>
-            </Link>
-          </div>
-          {/* @ts-ignore */}
-          <ScrapesList />
+      <div className="sidebar">
+        <div className="sidebar-title-container">
+          <h4 className="sidebar-title">Last 10 Scrapes</h4>
+          <Link className="no-underscore" href="/scrapes">
+            <button className="sidebar-full-list-button">View Full List</button>
+          </Link>
         </div>
-        {children}
+        {/* @ts-ignore */}
+        <ScrapesList />
       </div>
+      <div className="scrape-content-wrapper">{children}</div>
     </>
   );
 }

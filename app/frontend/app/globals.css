@@ -479,6 +479,7 @@ input[type="checkbox"]:checked {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-top: none;
+  margin-bottom: 20px;
   /* background: linear-gradient(to right, #252525 20%, #181818 100%); */
 }
 
@@ -488,7 +489,7 @@ input[type="checkbox"]:checked {
 
 /* Wrapper for all content in Completed Scrapes pages except for scrapes-header-wrapper */
 .scrape-content-wrapper {
-  margin-top: 2px;
+
 }
 
 /* Container for all content in Completed Scrapes excluding sidebar */
@@ -666,6 +667,7 @@ input[type="checkbox"]:checked {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 0 !important;
 }
 
 /* Title for Completed Scrape type */
