@@ -1415,6 +1415,8 @@ td {
 
 .start-button:active {
   color: rgb(50, 50, 50);
+  border-color: rgb(50, 50, 50) !important;
+  box-shadow: none !important;
 }
 
 /* Button inside selected-products-container to Start Price Scraping */
@@ -1796,6 +1798,7 @@ h3.information-sub-header {
   font-size: xx-large;
   color: #ffffff;
   border-color: #f1f1f1;
+  transition: ease 0.15;
 }
 
 .mct-calculate-button:hover {
@@ -1805,6 +1808,8 @@ h3.information-sub-header {
 
 .mct-calculate-button:active {
   color: rgb(50, 50, 50);
+  border-color: rgb(50, 50, 50);
+  box-shadow: none;
 }
 
 /* Container for text below Manual Comparison Tool Table */
