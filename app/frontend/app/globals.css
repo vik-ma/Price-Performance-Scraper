@@ -488,6 +488,10 @@ input[type="checkbox"]:checked {
   margin-top: 5px;
 }
 
+.sidebar-list-link {
+  transition: ease 0.15s;
+}
+
 /* Wrapper for all content in Completed Scrapes pages except for scrapes-header-wrapper */
 .scrape-content-wrapper {
 
