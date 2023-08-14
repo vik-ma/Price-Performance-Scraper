@@ -517,7 +517,7 @@ input[type="checkbox"]:checked {
   background-color: var(--dark-bg-color);
   background: linear-gradient(to bottom right, #242424, #181818);
   border-radius: 10px;
-  margin-bottom: 11px;
+  margin-bottom: 8px;
   border: 1px solid rgba(190, 190, 190, 0.5);
   /* box-shadow: 0px 0px 5px rgba(190, 190, 190, 0.5); */
 }
@@ -1698,8 +1698,9 @@ h3.information-sub-header {
   padding: 3px 15px 7px;
   border-radius: 10px;
   color: #fafafa;
-  font-size: x-large;
+  font-size: 24px;
   margin-top: 7px;
+  font-weight: 600;
   border: 1px solid rgba(200, 200, 200, 0.5);
 }
 
@@ -1857,6 +1858,10 @@ h3.information-sub-header {
     padding-bottom: 2px;
     font-size: 22px;
   }
+  .formula-container {
+    font-size: 22px;
+    padding: 2px 14px 5px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1878,6 +1883,10 @@ h3.information-sub-header {
   }
   .clear-items-button {
     font-size: 20px;
+  }
+  .formula-container {
+    font-size: 20px;
+    padding: 2px 12px 5px;
   }
 }
 
@@ -1904,6 +1913,10 @@ h3.information-sub-header {
     padding-left: 12px;
     padding-right: 12px;
   }
+  .formula-container {
+    font-size: 18px;
+    padding: 2px 11px 4px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -1927,6 +1940,9 @@ h3.information-sub-header {
   }
   .benchmark-table td {
     padding: 4px 8px;
+  }
+  .formula-container {
+    font-size: 16px;
   }
 }
 
