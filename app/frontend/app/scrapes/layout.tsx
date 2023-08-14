@@ -25,10 +25,10 @@ export default function RootLayout({
       </div>
       <div className="sidebar">
         <div className="sidebar-title-container">
-          <h4 className="sidebar-title">Past Scrapes</h4>
+          <h4 className="sidebar-title">Latest Scrapes</h4>
           <Link className="no-underscore" href="/scrapes">
             <button className="sidebar-full-list-button">
-              <strong>View Full List</strong>
+              View Full List
             </button>
           </Link>
         </div>
