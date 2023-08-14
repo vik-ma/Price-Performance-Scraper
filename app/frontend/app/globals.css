@@ -5,8 +5,8 @@
   --table-border-color: rgba(44, 44, 44, 0.225);
   --dark-bg-color: #1f1f1e;
   --gpu-color: #52e068;
-  --cpu-g-color: rgb(231, 220, 170);
-  --cpu-n-color: 	rgb(247, 64, 88);
+  --cpu-g-color: #e4e68d;
+  --cpu-n-color: #e74c4c;
   --background-color: #1c1c1d;
   --form-element-background-color: #18191a;
   --form-element-border-color: #474b4e;
@@ -488,13 +488,12 @@ input[type="checkbox"]:checked {
 
 /* Wrapper for all content in Completed Scrapes pages except for scrapes-header-wrapper */
 .scrape-content-wrapper {
-  margin-top: 6px;
+  margin-top: 2px;
 }
 
 /* Container for all content in Completed Scrapes excluding sidebar */
 .scrape-content {
   margin-left: 184px;
-  padding-top: 2px;
   position: relative;
 }
 
@@ -513,13 +512,15 @@ input[type="checkbox"]:checked {
   background: linear-gradient(to bottom right, #242424, #181818);
   border-radius: 10px;
   margin-bottom: 11px;
+  border: 1px solid rgba(190, 190, 190, 0.5);
+  /* box-shadow: 0px 0px 5px rgba(190, 190, 190, 0.5); */
 }
 
 .full-scrape-list-item:hover {
   background: none;
   background-color: rgb(54, 54, 54);
   text-decoration: none !important;
-  border: 2px solid white;
+  border: 1px solid white;
   box-shadow: 0px 0px 5px white;
   transition: 0.2s;
 }
@@ -566,20 +567,20 @@ input[type="checkbox"]:checked {
 
 /* Border color for GPU scrape full-scrape-list-item */
 .color-border-gpu {
-  border: 2px solid var(--gpu-color);
-  box-shadow: 0px 0px 5px var(--gpu-color);
+  /* border: 2px solid var(--gpu-color);
+  box-shadow: 0px 0px 5px var(--gpu-color); */
 }
 
 /* Border color for CPU-Gaming scrape full-scrape-list-item */
 .color-border-cpu-g {
-  border: 2px solid var(--cpu-g-color);
-  box-shadow: 0px 0px 5px var(--cpu-g-color);
+  /* border: 2px solid var(--cpu-g-color);
+  box-shadow: 0px 0px 5px var(--cpu-g-color); */
 }
 
 /* Border color for CPU-Normal (Multithread) scrape full-scrape-list-item */
 .color-border-cpu-n {
-  border: 2px solid var(--cpu-n-color);
-  box-shadow: 0px 0px 5px var(--cpu-n-color);
+  /* border: 2px solid var(--cpu-n-color);
+  box-shadow: 0px 0px 5px var(--cpu-n-color); */
 }
 
 /* Color for GPU scrape type titles in Completed Scrapes */
