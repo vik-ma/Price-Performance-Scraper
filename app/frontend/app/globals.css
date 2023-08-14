@@ -480,7 +480,7 @@ input[type="checkbox"]:checked {
 
 /* Container for all content in Completed Scrapes excluding sidebar */
 .scrape-content {
-  margin-left: 190px;
+  margin-left: 184px;
   position: relative;
 }
 
@@ -698,11 +698,17 @@ td {
   border-radius: 10px;
 }
 
+.listing-table td {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
 /* Table Heading for Completed Scrape and Benchmark data */
 .listing-table-head {
   padding-top: 4px;
   padding-bottom: 14px;
   padding-right: 15px;
+  padding-left: 15px;
   background-color: #1b1b1f;
   background: linear-gradient(to bottom, #262626, #181818);
   color: #fcfcfc;
@@ -719,6 +725,7 @@ td {
 /* Left-most Table Heading in listing-table-head */
 .listing-table-head-first {
   border-top-left-radius: 10px;
+  padding-left: 20px;
 }
 
 /* Right-most Table Heading in listing-table-head */
