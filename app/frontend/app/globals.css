@@ -1906,6 +1906,18 @@ h3.information-sub-header {
   .start-button {
     font-size: 28px;
   }
+  .github-text {
+    font-size: medium;
+  }
+  .gh-logo-link {
+    padding: 1px 3px 2px 8px;
+  }
+  #gh-img-mark {
+    width: 23px;
+  }
+  #gh-img-text {
+    width: 75px;
+  }
 }
 
 @media (max-width: 767px) {

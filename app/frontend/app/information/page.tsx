@@ -120,7 +120,10 @@ export default async function Information() {
         Benchmark Values will often have much higher Price/Performance Scores
         compared to the flagship models.
       </p>
-      <h2 className="information-sub-header information-benchmarks" id="benchmarks">
+      <h2
+        className="information-sub-header information-benchmarks"
+        id="benchmarks"
+      >
         Benchmarks
       </h2>
       <p className="information-text">
@@ -241,8 +244,18 @@ export default async function Information() {
           href="https://github.com/vik-ma/Price-Performance-Scraper"
           target="_blank"
         >
-          <Image src={GitHubMark} alt="GitHub Mark" width={30} />
-          <Image src={GitHubLogo} alt="GitHub Logo" width={100} />
+          <Image
+            src={GitHubMark}
+            alt="GitHub Mark"
+            width={30}
+            id="gh-img-mark"
+          />
+          <Image
+            src={GitHubLogo}
+            alt="GitHub Logo"
+            width={100}
+            id="gh-img-text"
+          />
         </a>
       </div>
       <div className="centered-container">
