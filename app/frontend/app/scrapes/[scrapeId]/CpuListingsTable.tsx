@@ -212,7 +212,12 @@ export default function CpuListingsTable({
     <>
       <details>
         <summary className="filter-button" role="button">
-          <strong>Filter Stores</strong>
+          {/* Show number of filtered out stores if any stores has been filtered */}
+          <strong>Filter Stores</strong>{" "}
+          <span className="filter-button-products-text">
+            {selectedStores.length < storeNames.length &&
+              `(Showing ${selectedStores.length} out of ${storeNames.length} stores)`}
+          </span>
         </summary>
         <div className="filter-listing-container">
           {/* Create checkboxes for every different store in Price Scrape */}
@@ -234,7 +239,12 @@ export default function CpuListingsTable({
       </details>
       <details>
         <summary className="filter-button" role="button">
-          <strong>Filter Product Models</strong>
+          {/* Show number of filtered out products if any products has been filtered */}
+          <strong>Filter Product Models</strong>{" "}
+          <span className="filter-button-products-text">
+            {selectedProductModels.length < productModels.length &&
+              `(Showing ${selectedProductModels.length} out of ${productModels.length} products)`}
+          </span>
         </summary>
         <div className="filter-listing-container">
           {/* Create checkboxes for every different product model in Price Scrape
