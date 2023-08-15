@@ -42,7 +42,7 @@ export default function ManualComparison() {
     }, 0);
   }, []);
 
-  // Change windowWidth when user window changes
+  // Change setIsScreenSmall when user window changes past the breakpoint
   useEffect(() => {
     // Function to make useEffect only trigger when an actual breakpoint is passed
     const handleResize = () => {

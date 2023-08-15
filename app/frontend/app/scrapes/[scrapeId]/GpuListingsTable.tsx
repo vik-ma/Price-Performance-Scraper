@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   ProductListingsProps,
   FetchPageProps,
@@ -14,8 +14,21 @@ import { gpuInfo } from "@/app/ProductInfo";
 export default function GpuListingsTable({
   params: { fetchInfo, productListings },
 }: FetchPageProps) {
-  // Width of user window
-  const [windowWidth, setWindowWidth] = useState<number>(1920);
+  // Number that represents which window resize breakpoint has been passed
+  // 0 is above resizeBp1
+  // 1 is between resizeBp1 (including) and resizeBp2 (excluding)
+  // 2 is resizeBp2 and below
+  const [windowResizeStage, setWindowResizeStage] = useState<number>(0);
+
+  // Value that stores the last width of the window before hitting a breakpoint
+  const previousWindowWidthRef = useRef<number>(0);
+
+  // Breakpoints that represent the window width in pixels
+  // When these are passed, the windowResizeStage changes
+  const resizeBp1: number = 1199;
+  const resizeBp2: number = 991;
+  const resizeBp3: number = 767;
+  const resizeBp4: number = 500;
 
   // Array of all headings for the Price Scrape listing table, along with each heading's properties
   const tableHeading: TableHeadingProps[] = [
@@ -30,7 +43,7 @@ export default function GpuListingsTable({
       Key: "store_name",
       TooltipText: "Link to product may not work for older scrapes",
       // Place tooltip text to the right of text on smaller screens
-      TooltipPlacement: windowWidth <= 991 ? "right" : "",
+      TooltipPlacement: windowResizeStage >= 2 ? "right" : "",
     },
     {
       Label: "Model",
@@ -40,11 +53,11 @@ export default function GpuListingsTable({
     },
     {
       Label:
-        windowWidth <= 500
+        windowResizeStage === 4
           ? // Combine Model and Benchmark Score into one column on screens below 500 pixel widths
             "Model"
-          : windowWidth > 500 && windowWidth <= 1200
-          ? // Shorten the label text between 501 and 1200 pixel widths
+          : windowResizeStage < 4 && windowResizeStage > 1
+          ? // Shorten the label text between 501 and 1199 pixel widths
             "Bench."
           : "Benchmark Score",
       Key: "benchmark_value",
@@ -60,14 +73,14 @@ export default function GpuListingsTable({
     },
     {
       // Abbreviate the label text to initials below 767 pixel widths
-      Label: windowWidth <= 767 ? "P. P. S." : "Price / Performance Score",
+      Label: windowResizeStage >= 3 ? "P. P. S." : "Price / Performance Score",
       Key: "price_performance_ratio",
       TooltipText:
         // Show the full term of abbreviated label in tooltip
-        windowWidth <= 767
+        windowResizeStage >= 3
           ? "Price/Performance Score (Higher is better)"
           : "Higher is better",
-      TooltipPlacement: windowWidth <= 767 ? "left" : "",
+      TooltipPlacement: windowResizeStage >= 3 ? "left" : "",
     },
   ];
 
@@ -163,21 +176,57 @@ export default function GpuListingsTable({
   // Setting to display different product models in different colors
   const [colorCodingEnabled, setColorCodingEnabled] = useState<boolean>(true);
 
-  // Get the user window width and scroll to top of page on page load
+  // Scroll to top of page on page load
+  // Also get user width and set windowResizeStage based on which resize breakpoint has been passed
   useEffect(() => {
-    setWindowWidth(window.innerWidth);
     setTimeout(() => {
       window.scrollTo(0, 0);
+
+      const currWidth = window.innerWidth;
+
+      if (currWidth > resizeBp1) {
+        setWindowResizeStage(0);
+      } else if (currWidth <= resizeBp1 && currWidth > resizeBp2) {
+        setWindowResizeStage(1);
+      } else if (currWidth <= resizeBp2) {
+        setWindowResizeStage(2);
+      }
     }, 0);
   }, []);
 
-  // Change windowWidth when user window changes
+  // Change windowResizeStage when user window changes past a breakpoint
   useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
-    return () =>
-      window.removeEventListener("resize", () =>
-        setWindowWidth(window.innerWidth)
-      );
+    // Function to make useEffect only trigger when an actual breakpoint is passed
+    const handleResize = () => {
+      const currWidth = window.innerWidth;
+      if (currWidth > resizeBp1) {
+        if (previousWindowWidthRef.current <= resizeBp1)
+          setWindowResizeStage(0);
+      } else if (currWidth <= resizeBp1 && currWidth > resizeBp2) {
+        if (
+          previousWindowWidthRef.current > resizeBp1 ||
+          previousWindowWidthRef.current <= resizeBp2
+        )
+          setWindowResizeStage(1);
+      } else if (currWidth <= resizeBp2 && currWidth > resizeBp3) {
+        if (
+          previousWindowWidthRef.current > resizeBp2 ||
+          previousWindowWidthRef.current <= resizeBp3
+        )
+          setWindowResizeStage(2);
+      } else if (currWidth <= resizeBp3 && currWidth > resizeBp4) {
+        if (
+          previousWindowWidthRef.current > resizeBp3 ||
+          previousWindowWidthRef.current <= resizeBp4
+        )
+          setWindowResizeStage(3);
+      } else if (currWidth <= resizeBp3) {
+        if (previousWindowWidthRef.current > resizeBp4) setWindowResizeStage(4);
+      }
+      previousWindowWidthRef.current = currWidth;
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Handle function for when user checks or unchecks a checkbox to filter out stores
@@ -302,7 +351,7 @@ export default function GpuListingsTable({
                         )
                 }
                 className={
-                  windowWidth > 991
+                  windowResizeStage < 2
                     ? // Display all table heads on screens over 991 px wide
                       headID === 0
                       ? "listing-table-head listing-table-head-first"
@@ -314,7 +363,7 @@ export default function GpuListingsTable({
                       "display-none"
                     : headID === 1
                     ? "listing-table-head listing-table-head-first"
-                    : headID === 2 && windowWidth <= 500
+                    : headID === 2 && windowResizeStage === 4
                     ? // Don't display third column for screens below 500 px wide
                       "display-none"
                     : headID === tableHeading.length - 1
@@ -341,7 +390,7 @@ export default function GpuListingsTable({
                   {/* Show the arrow indicating which direction the column is sorted to the
                       left of the table heading text on screens smaller than 767 px width */}
                   {sortTable.SortKey === head.Key &&
-                    windowWidth <= 767 &&
+                    windowResizeStage >= 3 &&
                     (sortTable.SortDirection === "asc" ? (
                       <span className="arrow-left-side">
                         {/* 180 = Arrow pointing up */}
@@ -358,7 +407,7 @@ export default function GpuListingsTable({
                 {/* Show the arrow indicating which direction the column is sorted to the
                     right of the table heading text on screens wider than 767 px width */}
                 {sortTable.SortKey === head.Key &&
-                  windowWidth > 767 &&
+                  windowResizeStage < 3 &&
                   (sortTable.SortDirection === "asc" ? (
                     <span className="arrow-right-side">
                       {/* 180 = Arrow pointing up */}
@@ -398,7 +447,7 @@ export default function GpuListingsTable({
               )?.tier;
               return (
                 <tr key={index}>
-                  {windowWidth > 991 && (
+                  {windowResizeStage < 2 && (
                     // Only display first column on screens wider than 991 px
                     <td className="gpu-product-text">
                       <strong>{listing.product_name}</strong>
@@ -413,7 +462,7 @@ export default function GpuListingsTable({
                           target="_blank"
                           className="external-link"
                           data-tooltip="Go to product page on store 🡕"
-                          data-placement={windowWidth < 900 ? "right" : ""}
+                          data-placement={windowResizeStage >= 2 ? "right" : ""}
                         >
                           {listing.store_name}
                         </a>
@@ -440,7 +489,7 @@ export default function GpuListingsTable({
                       }
                     >
                       {/* Shorten the Product Model name for screens smaller than 500 px width */}
-                      {windowWidth <= 500 ? (
+                      {windowResizeStage > 3 ? (
                         <strong
                           className="model-tooltip"
                           data-tooltip={listing.product_category}
@@ -457,7 +506,7 @@ export default function GpuListingsTable({
                     </div>
                     {/* Display the Benchmark Value in this column, below the Product Model,
                         for screns smaller than 500px width */}
-                    {windowWidth <= 500 && (
+                    {windowResizeStage > 3 && (
                       // Display the product's Benchmark Value in the color of the Product Model's Benchmark Tier
                       <div className="text-centered benchmark-value-shortened-gpu">
                         <strong
@@ -470,7 +519,7 @@ export default function GpuListingsTable({
                     )}
                   </td>
                   {/* Display this column only for screens wider than 500 px */}
-                  {windowWidth > 500 && (
+                  {windowResizeStage <= 3 && (
                     // Display the product's Benchmark Value in the color of the Product Model's Benchmark Tier
                     <td className={`text-color-tier-${tierNum}`}>
                       <strong data-tooltip={`Tier ${tierNum}`}>
@@ -484,7 +533,7 @@ export default function GpuListingsTable({
                   <td
                     className={
                       // Assign the Price/Performance Score the specific text color based on how good it is
-                      windowWidth <= 500
+                      windowResizeStage > 3
                         ? `ppr-color-${pprTextColor} text-centered`
                         : `ppr-color-${pprTextColor}`
                     }
