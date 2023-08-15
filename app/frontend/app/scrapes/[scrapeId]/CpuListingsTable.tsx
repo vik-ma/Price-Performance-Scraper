@@ -239,11 +239,11 @@ export default function CpuListingsTable({
       </details>
       <details>
         <summary className="filter-button" role="button">
-          {/* Show number of filtered out products if any products has been filtered */}
-          <strong>Filter Product Models</strong>{" "}
+          {/* Show number of filtered out product models if any product models has been filtered */}
+          <strong>Filter Models</strong>{" "}
           <span className="filter-button-products-text">
             {selectedProductModels.length < productModels.length &&
-              `(Showing ${selectedProductModels.length} out of ${productModels.length} products)`}
+              `(Showing ${selectedProductModels.length} out of ${productModels.length} models)`}
           </span>
         </summary>
         <div className="filter-listing-container">
