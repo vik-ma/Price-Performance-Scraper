@@ -1406,7 +1406,8 @@ td {
 /* Generic class for Start Price Scrape buttons */
 .start-button {
   display: inline-block;
-  font-size: xx-large;
+  width: fit-content;
+  font-size: 32px;
   word-break: normal;
   border-width: 2px;
   color: #ffffff;
@@ -1424,8 +1425,7 @@ td {
 .start-scrape-button {
   background-color: #045DE9;
   background: linear-gradient(to bottom, #045DE9, #09C6F9);
-  max-width: 300px;
-  padding: 1px 5px 5px;
+  padding: 1px 16px 5px;
   margin-top: 6px;
   margin-bottom: 2px;
   margin-right: 10px;
@@ -1828,7 +1828,6 @@ h3.information-sub-header {
 /* Button to take you to Start Scrape page from Home page */
 .start-button-home {
   background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
-  max-width: fit-content;
   padding: 1px 16px 5px;
   border-radius: 12px;
   border-color: #3787ff;
@@ -1898,6 +1897,9 @@ h3.information-sub-header {
     border-radius: 16px;
     padding: 0px 12px 4px;
   }
+  .start-button {
+    font-size: 28px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -1930,8 +1932,11 @@ h3.information-sub-header {
   }
   .error-msg-container {
     font-size: 20px;
-    border-radius: 14px;
+    border-radius: 12px;
     padding: 0px 10px 3px;
+  }
+  .start-button {
+    font-size: 24px;
   }
 }
 
