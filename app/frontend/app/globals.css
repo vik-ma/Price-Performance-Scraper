@@ -105,10 +105,10 @@ input[type="checkbox"]:checked {
   padding: 10px;
   justify-content: center;
   height: max-content;
-  border-bottom: 1px solid rgba(223, 223, 223, 0.2);
+  border-bottom: 1px solid rgba(202, 202, 202, 0.2);
   /* box-shadow: 0 5px 10px rgb(28, 28, 28); */
   background-color: rgb(26, 26, 26);
-  background: linear-gradient(to bottom, rgb(26, 26, 26) 80%, rgb(36, 36, 36) 100%);
+  background: linear-gradient(to bottom, rgb(27, 27, 27) 20%, rgb(37, 37, 37) 100%);
 }
 
 /* Wrapper for items in Navigation Bar */
