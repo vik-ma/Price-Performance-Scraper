@@ -379,8 +379,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
           <strong>
             {/* Show number of filtered out products if any products has been filtered */}
             Filter Products{" "}
-            {filteredNumProducts < totalNumProducts &&
-              `(Showing ${filteredNumProducts} out of ${totalNumProducts} products)`}
+            <span className="filter-button-products-text">
+              {filteredNumProducts < totalNumProducts &&
+                `(Showing ${filteredNumProducts} out of ${totalNumProducts} products)`}
+            </span>
           </strong>
         </summary>
         <div className="filter-products-container">

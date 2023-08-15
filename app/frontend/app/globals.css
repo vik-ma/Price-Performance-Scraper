@@ -824,7 +824,7 @@ td {
 
 /* Accordion button for <details> tag, mainly to toggle filters */
 .filter-button {
-  font-size: x-large;
+  font-size: 24px;
   background: none;
   background-color: var(--dark-bg-color);
   background: linear-gradient(to bottom right, rgb(27, 27, 27) 20%, rgb(39, 39, 39) 100%);
@@ -1840,6 +1840,12 @@ h3.information-sub-header {
   box-shadow: 0px 0px 10px 1px #ffffff;
 }
 
+.filter-button-products-text {
+    color:#aaaaaa;
+    font-size: smaller;
+    font-weight: 600;
+  }
+
 @media (max-width: 1199px) {
   body {
     width: 100%;
@@ -1858,7 +1864,7 @@ h3.information-sub-header {
   .view-all-scrapes-button {
     font-size: 20px;
   }
-  .clear-items-button {
+  .clear-items-button, .toggle-all-filters-button {
     padding-bottom: 2px;
     font-size: 22px;
   }
@@ -1885,7 +1891,7 @@ h3.information-sub-header {
   .view-all-scrapes-button {
     font-size: 18px;
   }
-  .clear-items-button {
+  .clear-items-button, .toggle-all-filters-button {
     font-size: 20px;
   }
   .formula-container {
@@ -1920,7 +1926,7 @@ h3.information-sub-header {
   .view-all-scrapes-button {
     font-size: 16px;
   }
-  .clear-items-button {
+  .clear-items-button, .toggle-all-filters-button {
     font-size: 18px;
     padding-left: 12px;
     padding-right: 12px;
@@ -1937,6 +1943,17 @@ h3.information-sub-header {
   }
   .start-button {
     font-size: 24px;
+  }
+  .filter-button {
+    font-size: 20px;
+    padding: 2px 15px 4px;
+  }
+  .filter-button::after {
+    margin-top: 4px;
+  }
+  .filter-button-products-text {
+    font-size: small;
+    font-weight: 600;
   }
 }
 
@@ -1964,6 +1981,14 @@ h3.information-sub-header {
   }
   .formula-container {
     font-size: 16px;
+  }
+  .filter-button-products-text {
+    font-size: x-small;
+    font-weight: 400;
+  }
+  .filter-button {
+    font-size: 20px;
+    padding: 1px 10px 4px;
   }
 }
 
