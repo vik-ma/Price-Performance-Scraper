@@ -1,12 +1,15 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Plus from "../icons/Plus";
 import Minus from "../icons/Minus";
 import Link from "next/link";
 
 export default function ManualComparison() {
-  // Width of user window
-  const [windowWidth, setWindowWidth] = useState<number>(1920);
+  // Boolean that is true when the width of the user window is 650px or less
+  const [isScreenSmall, setIsScreenSmall] = useState<boolean>(false);
+
+  // Value that stores the last width of the window before hitting a breakpoint
+  const previousWindowWidthRef = useRef<number>(0);
 
   // Active number of rows in MCT Table
   const [numRows, setNumRows] = useState<number>(1);
@@ -26,20 +29,33 @@ export default function ManualComparison() {
     }
   };
 
-  // Set windowWith to user window width on page load
+  // Set setIsScreenSmall to true if user window width is 650px or below on page load
   useEffect(() => {
     setTimeout(() => {
-      setWindowWidth(window.innerWidth);
+      const currWidth = window.innerWidth;
+
+      if (currWidth > 650) {
+        setIsScreenSmall(false);
+      } else {
+        setIsScreenSmall(true);
+      }
     }, 0);
   }, []);
 
   // Change windowWidth when user window changes
   useEffect(() => {
-    window.addEventListener("resize", () => setWindowWidth(window.innerWidth));
-    return () =>
-      window.removeEventListener("resize", () =>
-        setWindowWidth(window.innerWidth)
-      );
+    // Function to make useEffect only trigger when an actual breakpoint is passed
+    const handleResize = () => {
+      const currWidth = window.innerWidth;
+      if (currWidth <= 650 && previousWindowWidthRef.current > 650) {
+        setIsScreenSmall(true);
+      } else if (currWidth > 650 && previousWindowWidthRef.current <= 650) {
+        setIsScreenSmall(false);
+      }
+      previousWindowWidthRef.current = currWidth;
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // Calculate Price/Performance Score for every row in MCT Table
@@ -96,7 +112,7 @@ export default function ManualComparison() {
                 </th>
                 <th className="mct-table-head listing-table-head ">
                   {/* Shorten text at low widths and add full text as tooltip */}
-                  {windowWidth >= 650 ? (
+                  {!isScreenSmall ? (
                     <strong>Performance Value</strong>
                   ) : (
                     <strong data-tooltip="Performance Value">
@@ -111,15 +127,13 @@ export default function ManualComparison() {
                   {/* Shorten text at low widths and change the side which tooltip appears from */}
                   <strong
                     data-tooltip={
-                      windowWidth >= 650
+                      !isScreenSmall
                         ? "Higher is better"
                         : "Price/Performance Score (Higher is better)"
                     }
-                    data-placement={windowWidth >= 650 ? "" : "left"}
+                    data-placement={!isScreenSmall ? "" : "left"}
                   >
-                    {windowWidth >= 650
-                      ? "Price / Performance Score"
-                      : "P. P. S."}
+                    {!isScreenSmall ? "Price / Performance Score" : "P. P. S."}
                   </strong>
                 </th>
               </tr>
