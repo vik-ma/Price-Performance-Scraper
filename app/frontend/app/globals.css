@@ -648,7 +648,7 @@ input[type="checkbox"]:checked {
 }
 
 /* Remove button on very small screens or when the sidebar is active */
-@media (max-width:576px) or (min-width: 1316px) {
+@media (min-width: 1316px) {
   .view-all-scrapes-button {
     display: none !important;
   }
@@ -2016,6 +2016,15 @@ h3.information-sub-header {
   .product-selection {
     font-size: 14px;
     padding: 3px 8px 4px;
+  }
+  .completed-scrapes-title {
+    display: none !important;
+  }
+  .scrapes-header-wrapper {
+    margin-top: 12px;
+  }
+  .scrape-content-wrapper {
+    margin-top: 12px;
   }
 }
 
