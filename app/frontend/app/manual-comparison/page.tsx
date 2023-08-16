@@ -82,7 +82,7 @@ export default function ManualComparison() {
   return (
     <>
       <h1>
-        <span className="page-title">Manual Comparison Tool</span>
+        <span className="title-gradient">Manual Comparison Tool</span>
       </h1>
       <div className="mct-wrapper">
         <button

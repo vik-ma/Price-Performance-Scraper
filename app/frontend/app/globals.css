@@ -34,8 +34,8 @@ body {
 }
 
 h1 {
-  margin-top: 12px;
-  margin-bottom: 22px !important;
+  margin-top: 8px;
+  margin-bottom: 10px !important;
 }
 
 h2, h3 {
@@ -267,10 +267,10 @@ input[type="checkbox"]:checked {
   padding: 0;
 }
 
-/* <h1> title for the top of every page */
-.page-title {
-  background-color: #3978ff;
-  background: -webkit-linear-gradient(#285aff, #8fd2ff);
+/* Gradient for every >h1> title and all sub-headers on Information page */
+.title-gradient {
+  background-color: #fffd7f;
+  background: -webkit-linear-gradient(#fffeec, #fffd7f);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -405,6 +405,10 @@ input[type="checkbox"]:checked {
 /* Text that appears under GitHub logo link */
 .github-text {
   margin-top: 0px;
+}
+
+.completed-scrapes-title {
+  margin-bottom: 16px !important;
 }
 
 /* Container for sidebar to show past scrapes for Completed Scrapes pages for larger screens */
@@ -1132,7 +1136,7 @@ td {
 /* Wrapper for all tables on Benchmarks page */
 .benchmark-wrapper {
   display: flex;
-  margin-top: 18px;
+  margin-top: 16px;
 }
 
 /* Container for all tables on Benchmarks page */
@@ -1298,7 +1302,7 @@ td {
 
 /* Accordion button for Show Tutorial on Start Scrape page */
 .scrape-tutorial-button {
-  margin-top: 3px;
+  margin-top: 6px;
   margin-bottom: 0px !important;
 }
 
@@ -1633,39 +1637,6 @@ h3.information-sub-header {
   margin-top: 12px !important;
 }
 
-/* Color gradients for different sections on Information page */
-.information-intro {
-  background-color: #0fc02c;
-  background: -webkit-linear-gradient(#0fc02c, #abff96);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.information-scrapes {
-  background-color: #ddb32a;
-  background: -webkit-linear-gradient(#ddb32a, #ffefa6);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.information-benchmarks {
-  background-color: #d31e27;
-  background: -webkit-linear-gradient(#d31e27, #ff6a6a);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.information-mct {
-  background-color: #6c53fc;
-  background: -webkit-linear-gradient(#6c53fc, #b7aaff);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
 /* Text for <p> tags on Information page */
 .information-text {
   margin: 0;
@@ -1704,7 +1675,7 @@ h3.information-sub-header {
 
 /* Wrapper for content on Manual Comparison Tool page */
 .mct-wrapper {
-  margin-top: 18px;
+  margin-top: 16px;
   position: relative;
 }
 

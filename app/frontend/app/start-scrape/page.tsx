@@ -93,7 +93,7 @@ export default function NewScrape() {
   return (
     <>
       <h1>
-        <span className="page-title">Start New Price Scrape</span>
+        <span className="title-gradient">Start New Price Scrape</span>
       </h1>
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">

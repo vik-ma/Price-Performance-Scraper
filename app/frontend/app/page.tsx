@@ -25,7 +25,7 @@ export default async function Home() {
   return (
     <>
       <h1>
-        <span className="page-title">Price/Performance Scraper</span>
+        <span className="title-gradient">Price/Performance Scraper</span>
       </h1>
       <p className="home-text">
         <strong className="bold-white-text">Price/Performance Scraper</strong>{" "}

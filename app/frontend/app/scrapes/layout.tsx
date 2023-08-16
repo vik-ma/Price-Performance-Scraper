@@ -15,7 +15,7 @@ export default function RootLayout({
     <>
       <div className="scrapes-header-wrapper">
         <h1 className="completed-scrapes-title">
-          <span className="page-title">Completed Scrapes</span>
+          <span className="title-gradient">Completed Scrapes</span>
         </h1>
         <Link className="no-underscore" href="/scrapes">
           <button className="dark-button view-all-scrapes-button">
