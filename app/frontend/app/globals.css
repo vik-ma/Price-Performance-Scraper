@@ -221,38 +221,6 @@ input[type="checkbox"]:checked {
   padding: 0;
 }
 
-/* Media query to change which items are shown in Navigation Bar for smaller screens */
-@media (max-width: 1199px) {
-  /* Hides the items in Navigation Bar seen on larger screens */
-  .nav-item-extended {
-    display: none;
-  }
-
-  /* Shows the hamburger menu instead */
-  .nav-item-menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  .navbar-container {
-    padding: 0;
-  }
-  .nav-item-start {
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
-  }
-  .nav-item-start-small {
-    font-size: 24px;
-    padding: 6px 20px 8px;
-  }
-  .nav-small-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-}
-
 /* Generic styling for list with no dots for unordered lists */
 .no-dot-list {
   list-style-type: none !important;
@@ -289,16 +257,6 @@ input[type="checkbox"]:checked {
 /* Generic class to add normal word-break */
 .word-break {
   word-break: normal;
-}
-
-/* Media query to disable nowrap and word-break classes for smaller screens */
-@media (max-width: 800px){
-  .nowrap {
-    white-space: normal;
-  }
-  .word-break {
-    word-break: break-all;
-  }
 }
 
 /* Generic class to always add nowrap */
@@ -620,16 +578,6 @@ input[type="checkbox"]:checked {
   -webkit-text-fill-color: transparent;
 }
 
-/* Media query to remove sidebar for smaller screens */
-@media (max-width: 1315px) {
-  .sidebar {
-    display: none;
-  }
-  .scrape-content {
-    margin-left: 0;
-  }
-}
-
 /* Button to show all Completed Scrapes that appears when sidebar gets hidden */
 .view-all-scrapes-button {
   display: flex;
@@ -651,14 +599,7 @@ input[type="checkbox"]:checked {
   color: rgb(50, 50, 50);
 }
 
-/* Remove button on very small screens or when the sidebar is active */
-@media (min-width: 1316px) {
-  .view-all-scrapes-button {
-    display: none !important;
-  }
-}
-
-/* Container for Completed Scrapes <h1> tag and View All Scrapes button */
+/* Container for Completed Scrapes h1 tag and View All Scrapes button */
 .scrapes-header-wrapper {
   display: flex;
   justify-content: space-between;
@@ -721,14 +662,6 @@ td {
   color: #fcfcfc;
 }
 
-
-@media (min-width: 1199px) and (max-width: 1316px) {
-  .listing-table-head {
-    padding-top: 5px;
-    padding-bottom: 13px;
-  }
-}
-
 /* Left-most Table Heading in listing-table-head */
 .listing-table-head-first {
   border-top-left-radius: 10px;
@@ -738,40 +671,6 @@ td {
 /* Right-most Table Heading in listing-table-head */
 .listing-table-head-last {
   border-top-right-radius: 10px;
-}
-
-/* Media query to stop arrow-right-side SVG from going off listing-table boundary 
-  when arrow is on last heading for CPUListingTable */
-@media (min-width: 992px) {
-  .listing-table-head-last-cpu {
-    padding-right: 25px !important;
-  }
-}
-
-/* Media query to stop "P. P. S." from appearing on different lines */
-@media (max-width: 767px) {
-  .listing-table-head-last {
-    white-space: nowrap;
-  }
-  .listing-table-head {
-    padding-left: 15px;
-    padding-top: 5px;
-    padding-bottom: 8px;
-  }
-}
-
-/* Media query to further reduce padding for listing-table cells on very small screens */
-@media (max-width: 500px) {
-  .listing-table td {
-    padding: 7px 10px;
-  }
-  .listing-table-head {
-    padding-left: 10px !important;
-    padding-bottom: 9px !important;
-  }
-  .model-background {
-    padding: 1px 6px !important;
-  }
 }
 
 /* Cells in the Price column for Completed Scrapes */
@@ -799,20 +698,6 @@ td {
   position: absolute;
 }
 
-/* Media queries to adjust positioning of arrow-right-side on smaller screens */
-@media (max-width: 1199px) {
-  .arrow-right-side {
-    margin-top: -1px;
-    margin-left: -5px;
-  }
-}
-
-@media (max-width: 991px) {
-  .arrow-right-side {
-    margin-top: -2px;
-  }
-}
-
 /* Accordion button for <details> tag, mainly to toggle filters */
 .filter-button {
   font-size: 24px;
@@ -832,19 +717,6 @@ td {
   background-size: 1.5rem auto;
   width: 1.5rem;
   margin-top: 4px;
-}
-
-/* Media queries to adjust positioning of filter-button arrow */
-@media (max-width: 1199px) {
-  .filter-button::after {
-    margin-top: 6px;
-  }
-}
-
-@media (max-width: 767px) {
-  .filter-button::after {
-    margin-top: 7px;
-  }
 }
 
 /* Container for content inside Filter accordions for Completed Scrapes */
@@ -1219,13 +1091,6 @@ td {
   color:#fcfcfc;
 }
 
-/* Media query to adjust positioning of text inside benchmark-table-head for smaller screens */
-@media (max-width: 991px) {
-  .benchmark-table-head {
-    padding-bottom: 6px !important;
-  }
-}
-
 /* Table for Benchmark data */
 .benchmark-table {
   margin: 0;
@@ -1241,8 +1106,6 @@ td {
 .benchmark-header-icon {
   margin-right: 6px;
 }
-
-
 
 /* Text to show when benchmarks were last updated */
 .benchmark-timestamp {
@@ -1328,13 +1191,6 @@ td {
   margin-left: 24px;
 }
 
-/* Media query to remove indented space for smaller screens */
-@media (max-width: 991px){
-  .tutorial-tab {
-    margin-left: 0;
-  }
-}
-
 /* Header for selecting Benchmark Type on Start Scrape page */
 .new-scrape-benchmark-header {
   margin-top: 5px;
@@ -1376,13 +1232,6 @@ td {
   font-size: medium;
   color:rgb(74, 153, 255);
   margin-bottom: 0px;
-}
-
-/* Media query to adjust selected-products-type positioning for smaller screens */
-@media (max-width: 496px) {
-  .selected-products-type {
-    margin-top: 2px;
-  }
 }
 
 /* Hint text inside selected-products-container for removing product from Selected Products list */
@@ -1626,13 +1475,13 @@ td {
   }
 }
 
-/* <h2> titles for Information page */
+/* h2 titles for Information page */
 .information-sub-header {
   margin-top: 22px;
   margin-bottom: 0px !important;
 }
 
-/* <h3> titles for Information page */
+/* h3 titles for Information page */
 h3.information-sub-header {
   margin-top: 12px !important;
 }
@@ -1644,7 +1493,7 @@ h3.information-sub-header {
   padding-left: 2px;
 }
 
-/* Text just below <h1> tag on Information page */
+/* Text just below h1 tag on Information page */
 .information-top-text {
   font-size: x-large;
 }
@@ -1661,16 +1510,6 @@ h3.information-sub-header {
   margin-top: 7px;
   font-weight: 600;
   border: 1px solid rgba(200, 200, 200, 0.5);
-}
-
-/* Adjust formula-container for very small screens */
-@media (max-width: 420px) {
-  .formula-container {
-    font-size: large;
-    font-weight: 500;
-    padding-top: 3px;
-    padding-bottom: 4px;
-  }
 }
 
 /* Wrapper for content on Manual Comparison Tool page */
@@ -1742,14 +1581,6 @@ h3.information-sub-header {
   color: #00b7ff;
 }
 
-/* Adjust mct-pps text for smaller screens */
-@media (max-width: 649px) {
-  .mct-pps {
-    font-size: larger;
-    margin-left: 4px;
-  }
-}
-
 /* Button to calculate inputted values in Manual Comparison Tool Table */
 .mct-calculate-button {
   margin-top: 10px;
@@ -1809,10 +1640,70 @@ h3.information-sub-header {
   text-align: center;
 }
 
+@media (max-width: 1315px) {
+  /* Remove sidebar in /scrapes page */
+  .sidebar {
+    display: none;
+  }
+  .scrape-content {
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 1316px) {
+  /* Remove view-all-scrapes-button when the sidebar is active */
+  .view-all-scrapes-button {
+    display: none !important;
+  }
+}
+
+/* Listing table tweak between 1200px and 1316px widths */
+@media (min-width: 1199px) and (max-width: 1316px) {
+  .listing-table-head {
+    padding-top: 5px;
+    padding-bottom: 13px;
+  }
+}
+
+@media (min-width: 992px) {
+  /* Stop arrow-right-side SVG from going off listing-table boundary 
+  when arrow is on last heading for CPUListingTable */
+  .listing-table-head-last-cpu {
+    padding-right: 25px !important;
+  }
+}
+
 @media (max-width: 1199px) {
   body {
     width: 100%;
     margin-right: 0;
+  }  
+  /* Hides the items in Navigation Bar seen on larger screens */
+  .nav-item-extended {
+    display: none;
+  }
+  /* Shows the hamburger menu */
+  .nav-item-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .navbar-container {
+    padding: 0;
+  }
+  .nav-item-start {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+  }
+  .nav-item-start-small {
+    font-size: 24px;
+    padding: 6px 20px 8px;
+  }
+  .nav-small-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
   .benchmark-table-tabs {
     padding: 2px 10px;
@@ -1838,9 +1729,22 @@ h3.information-sub-header {
   .view-all-scrapes-button {
     padding: 2px 17px 4px;
   }
+  .arrow-right-side {
+    margin-top: -1px;
+    margin-left: -5px;
+  }
+  .filter-button::after {
+    margin-top: 6px;
+  }
 }
 
 @media (max-width: 991px) {
+  .nowrap {
+    white-space: normal;
+  }
+  .word-break {
+    word-break: break-all;
+  }
   .benchmark-table-tabs {
     font-size: 20px;
   }
@@ -1850,9 +1754,13 @@ h3.information-sub-header {
   .benchmark-table-head {
     padding-right: 15px !important;
     padding-left: 15px !important;
+    padding-bottom: 6px !important;
   }
   .benchmark-table td {
     padding: 7px 15px;
+  }
+  .tutorial-tab {
+    margin-left: 0;
   }
   .view-all-scrapes-button {
     font-size: 18px;
@@ -1879,11 +1787,15 @@ h3.information-sub-header {
   .gh-logo-link {
     padding: 1px 3px 2px 8px;
   }
+  /* Adjust size of images in GitHub link button to 75% */
   #gh-img-mark {
     width: 23px;
   }
   #gh-img-text {
     width: 75px;
+  }
+  .arrow-right-side {
+    margin-top: -2px;
   }
 }
 
@@ -1942,9 +1854,29 @@ h3.information-sub-header {
   .product-selection {
     font-size: 16px;
   }
+  .listing-table-head-last {
+    white-space: nowrap;
+  }
+  .listing-table-head {
+    padding-left: 15px;
+    padding-top: 5px;
+    padding-bottom: 8px;
+  }
+  .filter-button::after {
+    margin-top: 7px;
+  }
+}
+
+@media (max-width: 650px) {
+  /* Reduce PPS text in MCT at same breakpoint as in MCT page */
+  .mct-pps {
+    font-size: larger;
+    margin-left: 4px;
+  }
 }
 
 @media (max-width: 575px) {
+  /* Remove scrollbar centering adjustment*/
   body {
     width: 100%;
     margin-right: 0;
@@ -1981,6 +1913,7 @@ h3.information-sub-header {
     font-size: 14px;
     padding: 3px 8px 4px;
   }
+  /* Remove Completed Scrapes h1 title to make room for view-all-scrapes-button */
   .completed-scrapes-title {
     display: none !important;
   }
@@ -1992,7 +1925,6 @@ h3.information-sub-header {
   }
 }
 
-/* Media query to not display benchmark-header-icon on very small screens */
 @media (max-width: 500px) {
   .benchmark-header-icon {
     display: none;
@@ -2003,6 +1935,23 @@ h3.information-sub-header {
   .nav-item-menu, .nav-item-start {
     padding-left: 15px;
     padding-right: 15px;
+  }
+  .listing-table td {
+    padding: 7px 10px;
+  }
+  .listing-table-head {
+    padding-left: 10px !important;
+    padding-bottom: 9px !important;
+  }
+  .model-background {
+    padding: 1px 6px !important;
+  }
+}
+
+@media (max-width: 487px) {
+  /* Add margin when Clear All button pops down */
+  .selected-products-type {
+    margin-top: 2px;
   }
 }
 
