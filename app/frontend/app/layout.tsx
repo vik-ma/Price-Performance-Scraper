@@ -5,7 +5,8 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Price/Performance Scraper",
-  description: "Compare the Price/Performance Score of different GPUs and CPUs presently on the market",
+  description:
+    "Compare the Price/Performance Score of different GPUs and CPUs presently on the market",
 };
 
 export default function RootLayout({
@@ -17,7 +18,16 @@ export default function RootLayout({
     <html lang="en" data-theme="dark">
       <body>
         <Navbar />
-        <main className="container">{children}</main>
+        <main className="container">
+          <noscript>
+            <div className="centered-container noscript-container">
+              <div className="error-msg-container">
+                Enable JavaScript to unlock full functionality of the site
+              </div>
+            </div>
+          </noscript>
+          {children}
+        </main>
       </body>
     </html>
   );
