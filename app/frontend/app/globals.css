@@ -1864,7 +1864,7 @@ h3.information-sub-header {
     width: 45%;
   }
   .benchmark-table td {
-    padding: 7px 19px;
+    padding: 9px 19px;
   }
   .view-all-scrapes-button {
     font-size: 20px;
@@ -1891,7 +1891,7 @@ h3.information-sub-header {
     padding-left: 15px !important;
   }
   .benchmark-table td {
-    padding: 6px 15px;
+    padding: 7px 15px;
   }
   .view-all-scrapes-button {
     font-size: 18px;
