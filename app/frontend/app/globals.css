@@ -636,7 +636,6 @@ input[type="checkbox"]:checked {
   padding-top: 1px !important;
   color: #ffffff;
   border-color: #f1f1f1;
-  transition: ease 0.15s;
 }
 
 .view-all-scrapes-button:hover {
@@ -2027,5 +2026,15 @@ h3.information-sub-header {
   }
   .benchmark-table-tab-cpu-n {
     width: 100%;
+  }
+  .nav-item-menu, .nav-item-start {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+@media (max-width: 400px) {
+  .nav-item-start-small {
+    margin-right: 0;
   }
 }
