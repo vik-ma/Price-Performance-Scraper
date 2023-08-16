@@ -1972,6 +1972,10 @@ h3.information-sub-header {
     font-size: small;
     font-weight: 600;
   }
+  .table-mod-button {
+    font-size: medium;
+    padding-bottom: 1px;
+  }
 }
 
 @media (max-width: 575px) {
