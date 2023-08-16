@@ -208,7 +208,6 @@ input[type="checkbox"]:checked {
   transition-duration: 0.15s;
   background-color: rgb(26, 26, 26);
   background: linear-gradient(to bottom right, rgb(26, 26, 26) 40%, rgb(39, 39, 39) 100%);
-
 }
 
 .nav-full-menu-item:hover {
@@ -235,7 +234,7 @@ input[type="checkbox"]:checked {
   padding: 0;
 }
 
-/* Gradient for every >h1> title and all sub-headers on Information page */
+/* Gradient for every h1 title and all sub-headers on Information page */
 .title-gradient {
   background-color: #fffd7f;
   background: -webkit-linear-gradient(#fffeec, #fffd7f);
@@ -365,6 +364,7 @@ input[type="checkbox"]:checked {
   margin-top: 0px;
 }
 
+/* Completed Scrapes h1 tag */
 .completed-scrapes-title {
   margin-bottom: 16px !important;
 }
@@ -446,27 +446,20 @@ input[type="checkbox"]:checked {
   /* background: linear-gradient(to right, #252525 20%, #181818 100%); */
 }
 
+/* <li> element inside sidebar list */
 .sidebar-list-item {
   margin-top: 5px;
 }
 
+/* Link/<a> element inside sidebar-list-item */
 .sidebar-list-link {
   transition: ease 0.15s;
-}
-
-/* Wrapper for all content in Completed Scrapes pages except for scrapes-header-wrapper */
-.scrape-content-wrapper {
-
 }
 
 /* Container for all content in Completed Scrapes excluding sidebar */
 .scrape-content {
   margin-left: 184px;
   position: relative;
-}
-
-/* List of all Completed Scrapes in /scrapes page root */
-.full-scrape-list {
 }
 
 /* Link container for item in full-scrape-list */
@@ -533,23 +526,24 @@ input[type="checkbox"]:checked {
   color:var(--cpu-n-color);
 }
 
+/* Currently unused border colors representing the scrape type */
 /* Border color for GPU scrape full-scrape-list-item */
-.color-border-gpu {
-  /* border: 2px solid var(--gpu-color);
-  box-shadow: 0px 0px 5px var(--gpu-color); */
-}
+/* .color-border-gpu {
+  border: 2px solid var(--gpu-color);
+  box-shadow: 0px 0px 5px var(--gpu-color);
+} */
 
 /* Border color for CPU-Gaming scrape full-scrape-list-item */
-.color-border-cpu-g {
-  /* border: 2px solid var(--cpu-g-color);
-  box-shadow: 0px 0px 5px var(--cpu-g-color); */
-}
+/* .color-border-cpu-g {
+  border: 2px solid var(--cpu-g-color);
+  box-shadow: 0px 0px 5px var(--cpu-g-color);
+} */
 
 /* Border color for CPU-Normal (Multithread) scrape full-scrape-list-item */
-.color-border-cpu-n {
-  /* border: 2px solid var(--cpu-n-color);
-  box-shadow: 0px 0px 5px var(--cpu-n-color); */
-}
+/* .color-border-cpu-n {
+  border: 2px solid var(--cpu-n-color);
+  box-shadow: 0px 0px 5px var(--cpu-n-color);
+} */
 
 /* Color for GPU scrape type titles in Completed Scrapes */
 .title-text-gpu {
@@ -1629,12 +1623,14 @@ h3.information-sub-header {
   box-shadow: 0px 0px 10px 1px #ffffff;
 }
 
+/* Text inside filter-button that shows if any products has been filtered out */
 .filter-button-products-text {
   color:#aaaaaa;
   font-size: smaller;
   font-weight: 600;
 }
 
+/* Container for error message that gets shown if JavaScript is disabled */
 .noscript-container {
   margin-top: 15px;
   text-align: center;
