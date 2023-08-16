@@ -1976,6 +1976,9 @@ h3.information-sub-header {
     font-size: medium;
     padding-bottom: 1px;
   }
+  .product-selection {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 575px) {
@@ -2010,6 +2013,10 @@ h3.information-sub-header {
   .filter-button {
     font-size: 20px;
     padding: 1px 10px 4px;
+  }
+  .product-selection {
+    font-size: 14px;
+    padding: 3px 8px 4px;
   }
 }
 
