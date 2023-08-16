@@ -178,7 +178,7 @@ export default function CpuListingsTable({
     setTimeout(() => {
       window.scrollTo(0, 0);
 
-      const currWidth = window.innerWidth;
+      const currWidth = window.visualViewport?.width as number;
 
       if (currWidth > resizeBp1) {
         setWindowResizeStage(0);
@@ -187,7 +187,7 @@ export default function CpuListingsTable({
       } else if (currWidth <= resizeBp2) {
         setWindowResizeStage(2);
       }
-    }, 0);
+    }, 5);
   }, []);
 
   // Change windowResizeStage when user window changes past a breakpoint

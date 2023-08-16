@@ -182,16 +182,20 @@ export default function GpuListingsTable({
     setTimeout(() => {
       window.scrollTo(0, 0);
 
-      const currWidth = window.innerWidth;
+      const currWidth = window.visualViewport?.width as number;
 
       if (currWidth > resizeBp1) {
         setWindowResizeStage(0);
       } else if (currWidth <= resizeBp1 && currWidth > resizeBp2) {
         setWindowResizeStage(1);
-      } else if (currWidth <= resizeBp2) {
+      } else if (currWidth <= resizeBp2 && currWidth > resizeBp3) {
         setWindowResizeStage(2);
+      } else if (currWidth <= resizeBp3 && currWidth > resizeBp4) {
+        setWindowResizeStage(3);
+      } else if (currWidth <= resizeBp4) {
+        setWindowResizeStage(4);
       }
-    }, 0);
+    }, 5);
   }, []);
 
   // Change windowResizeStage when user window changes past a breakpoint
