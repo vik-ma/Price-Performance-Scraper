@@ -654,18 +654,6 @@ input[type="checkbox"]:checked {
   }
 }
 
-@media (max-width: 1199px) {
-  .view-all-scrapes-button {
-    padding: 2px 17px 4px !important;
-  }
-}
-
-@media (max-width: 767px) {
-  .view-all-scrapes-button {
-    padding: 2px 13px 4px !important;
-  }
-}
-
 /* Container for Completed Scrapes <h1> tag and View All Scrapes button */
 .scrapes-header-wrapper {
   display: flex;
@@ -1876,6 +1864,9 @@ h3.information-sub-header {
     font-size: 22px;
     padding: 2px 14px 5px;
   }
+  .view-all-scrapes-button {
+    padding: 2px 17px 4px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1894,6 +1885,7 @@ h3.information-sub-header {
   }
   .view-all-scrapes-button {
     font-size: 18px;
+    padding: 3px 15px 4px !important;
   }
   .clear-items-button, .toggle-all-filters-button {
     font-size: 20px;
@@ -1941,6 +1933,7 @@ h3.information-sub-header {
   }
   .view-all-scrapes-button {
     font-size: 16px;
+    padding: 3px 13px 4px !important;
   }
   .clear-items-button, .toggle-all-filters-button {
     font-size: 18px;
