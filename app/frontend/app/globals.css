@@ -1948,6 +1948,9 @@ h3.information-sub-header {
   .model-background {
     padding: 1px 6px !important;
   }
+  .product-filter-item {
+    margin: 0 5px;
+  }
 }
 
 @media (max-width: 487px) {
