@@ -721,6 +721,12 @@ td {
   margin-bottom: 10px;
 }
 
+/* Container for individual checkboxes inside Filter Stores accordion for Completed Scrapes */
+.listing-table-label-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 /* Text for checkbox labels inside Filter Stores accordion for Completed Scrapes */
 .listing-table-label {
   color:rgb(230, 230, 230);

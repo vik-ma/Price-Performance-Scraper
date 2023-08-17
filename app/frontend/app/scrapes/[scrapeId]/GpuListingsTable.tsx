@@ -277,7 +277,7 @@ export default function GpuListingsTable({
         <div className="filter-listing-container">
           {/* Create checkboxes for every different store in Price Scrape */}
           {storeNames.map((store_name, index) => (
-            <div key={index}>
+            <div key={index} className="listing-table-label-container">
               <label className="listing-table-label">
                 <input
                   type="checkbox"
