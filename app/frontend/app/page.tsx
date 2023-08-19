@@ -94,13 +94,13 @@ export default async function Home() {
           <Image
             src={GitHubMark}
             alt="GitHub Mark"
-            width={30}
+            width={24}
             id="gh-img-mark"
           />
           <Image
             src={GitHubLogo}
             alt="GitHub Logo"
-            width={100}
+            width={80}
             id="gh-img-text"
           />
         </a>

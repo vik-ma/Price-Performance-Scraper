@@ -345,9 +345,9 @@ input[type="checkbox"]:checked {
 /* Container for GitHub logo link */
 .gh-logo-link {
   background-color: var(--dark-bg-color);
-  padding: 2px 4px 3px 10px;
+  padding: 1px 4px 3px 9px;
   border: 2px solid rgba(233, 233, 233, 0.780);
-  border-radius: 14px;
+  border-radius: 12px;
   white-space: nowrap;
   overflow: hidden;
   transition: 0.2s ease-in-out;
@@ -361,6 +361,7 @@ input[type="checkbox"]:checked {
 
 /* Text that appears under GitHub logo link */
 .github-text {
+  font-size: smaller;
   margin-top: 0px;
 }
 
@@ -1787,7 +1788,7 @@ h3.information-sub-header {
     font-size: medium;
   }
   .gh-logo-link {
-    padding: 1px 3px 2px 8px;
+    padding: 1px 4px 2px 9px;
   }
   /* Adjust size of images in GitHub link button to 75% */
   #gh-img-mark {
