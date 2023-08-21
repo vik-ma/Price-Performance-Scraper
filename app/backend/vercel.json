@@ -23,5 +23,6 @@
         "src": "/(.*)",
         "dest": "backend/wsgi.py"
       }
-    ]
+    ],
+    "regions": ["arn1"]
   }
