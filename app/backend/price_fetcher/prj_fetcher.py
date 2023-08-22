@@ -727,6 +727,35 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
         return Exception("Unexpected Error")
 
 
+def test_fetch_product_page(url, product_category) -> str:
+    """
+    Test if the contents of a product page is fetchable.
+
+        Parameters:
+            url (str): URL of the product page
+
+            product_category (str): Category for the product
+                                    (Must be either "CPU-Gaming" or "CPU-Normal")
+
+        Returns:
+            content (str): Returns the product price list of the page if content 
+                           was fetchable, otherwise returns the text of everything
+                           inside the body tag of the page.
+    """
+    soup = fetch_product_page(url)
+
+    content = ""
+    try:
+        json_data = get_product_json(soup)
+    except:
+        content = soup.body.text
+    else: 
+        product_price_list = get_product_price_list(json_data, product_category)
+        content = " ".join(map(str, product_price_list))
+
+    return content
+
+    
 if __name__ == "__main__":
     pass
 
