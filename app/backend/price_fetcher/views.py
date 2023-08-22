@@ -1,5 +1,5 @@
 from django.shortcuts import redirect, render
-from django.http import HttpRequest
+from django.http import HttpRequest, JsonResponse
 from .models import ProductListing, CompletedFetch, BenchmarkData
 from . import prj_fetcher as pf
 from . import benchmark_scraper as bm
@@ -12,9 +12,11 @@ def test_template(request:HttpRequest):
     benchmark_data_list = BenchmarkData.objects.all()
     completed_fetch_list = CompletedFetch.objects.all()
     current_datetime = get_current_timestamp()
-    context = {'benchmark_data_list' : benchmark_data_list, 
-               'completed_fetch_list' : completed_fetch_list,
-               'current_datetime' : current_datetime}
+    context = {
+        'benchmark_data_list' : benchmark_data_list, 
+        'completed_fetch_list' : completed_fetch_list,
+        'current_datetime' : current_datetime,
+        }
     
     return render(request, 'price_fetcher/test_template.html', context)
 
@@ -67,6 +69,17 @@ def test_button_benchmarks(request:HttpRequest):
 def get_current_timestamp() -> datetime:
     """Return the current date and time as a datetime object."""
     return datetime.datetime.now()
+
+
+def test_button_fetch(request:HttpRequest):
+    """Button to test if if product pages are fetchable, for debugging purposes."""
+    product_name = "AMD Ryzen 9 7900X3D"
+    product_category = "CPU-Gaming"
+
+    content = pf.test_fetch_product_page(product_name, product_category)
+
+    return JsonResponse({"content": content})
+
 
 def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id):
     """

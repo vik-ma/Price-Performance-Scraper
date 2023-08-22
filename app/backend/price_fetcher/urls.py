@@ -9,6 +9,7 @@ urlpatterns = [
     path('test_button_cpu_n/', views.test_button_cpu_n, name='test_button_cpu_n'),
     path('test_button_gpu/', views.test_button_gpu, name='test_button_gpu'),
     path('test_button_benchmarks/', views.test_button_benchmarks, name='test_button_benchmarks'),
+    path('test_button_fetch/', views.test_button_fetch, name='test_button_fetch'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

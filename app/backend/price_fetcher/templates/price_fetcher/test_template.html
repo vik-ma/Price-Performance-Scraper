@@ -63,5 +63,34 @@
             <h2>{{ current_datetime }}</h2>
         </div>
     </div>
+    <br />
+    <div style="margin:20px auto 50px;width:50%;">
+        <div style="display:inline-block;margin-left:50px;">
+            <form id="test-fetch-button" style="display:inline-block;">
+                {% csrf_token %}
+                <input type="submit" value="Test Fetch">      
+            </form>
+            <div id="fetch-content" style="display:inline-block;margin-left:50px;">
+                Fetching not tested
+            </div>
+        </div>
+    </div>
+    <script>
+        const testFetchButton = document.getElementById("test-fetch-button");
+        const fetchContentDiv = document.getElementById("fetch-content");
+    
+        testFetchButton.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        fetch("{% url 'test_button_fetch' %}")
+            .then(response => response.json())
+            .then(data => {
+                fetchContentDiv.textContent = data.content;
+            })
+            .catch(error => {
+                console.error("An error occurred:", error);
+            });
+    });
+    </script>
 </body>
 </html>
