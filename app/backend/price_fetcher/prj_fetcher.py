@@ -738,16 +738,24 @@ def test_fetch_product_page(product_name, product_category) -> str:
                                     (Must be either "CPU-Gaming" or "CPU-Normal")
 
         Returns:
-            content (str): Returns the product price list of the page if content 
-                           was fetchable, otherwise returns the text of everything
-                           inside the body tag of the page.
+            status_code_and_content_str (str): Returns the status code of the request
+                                               and either the product price list of 
+                                               the page if content was fetchable, 
+                                               or the text of everything inside the body tag
+                                               of the page if page was not fetchable.
     """
-
+    product_url = ""
+    status_code = ""
     try:
         product_url = cpu_pj_url_dict[product_name]
-        soup = fetch_product_page(product_url)
     except:
         return "Invalid product"
+    
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(product_url)
+
+    status_code = str(response.status_code)
+    soup = BeautifulSoup(response.text, "html.parser")
 
     content = ""
     try:
@@ -758,7 +766,9 @@ def test_fetch_product_page(product_name, product_category) -> str:
         product_price_list = get_product_price_list(json_data, product_category)
         content = " ".join(map(str, product_price_list))
 
-    return content
+    status_code_and_content_str = f"{status_code} - {content}"
+
+    return status_code_and_content_str
 
     
 if __name__ == "__main__":
