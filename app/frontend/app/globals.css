@@ -1279,6 +1279,8 @@ td {
 
 /* Button inside selected-products-container to clear all items in Selected Products list */
 .clear-items-button {
+  font-size: 22px;
+  padding: 0 13px 2px;
   margin-bottom: 0px;
 }
 
@@ -1426,6 +1428,8 @@ td {
 
 /* Button inside filter-products-container to toggle all Filters on or off */
 .toggle-all-filters-button {
+  font-size: 22px;
+  padding: 0 13px 3px;
   margin-top: 5px;
   left: 5px;
   bottom: 5px;
@@ -1721,10 +1725,6 @@ h3.information-sub-header {
   .view-all-scrapes-button {
     font-size: 20px;
   }
-  .clear-items-button, .toggle-all-filters-button {
-    padding-bottom: 2px;
-    font-size: 22px;
-  }
   .formula-container {
     font-size: 22px;
     padding: 2px 14px 5px;
@@ -1769,7 +1769,11 @@ h3.information-sub-header {
     font-size: 18px;
     padding: 3px 15px 4px !important;
   }
-  .clear-items-button, .toggle-all-filters-button {
+  .clear-items-button {
+    font-size: 20px;
+    padding: 0 12px 2px;
+  }
+  .toggle-all-filters-button {
     font-size: 20px;
   }
   .formula-container {
@@ -1821,11 +1825,13 @@ h3.information-sub-header {
     font-size: 16px;
     padding: 3px 13px 4px !important;
   }
-  .clear-items-button, .toggle-all-filters-button {
+  .clear-items-button {
     font-size: 18px;
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 1px;
+    padding: 0 12px 1px;
+  }
+  .toggle-all-filters-button {
+    font-size: 18px;
+    padding: 0 12px 1px;
   }
   .formula-container {
     font-size: 18px;
