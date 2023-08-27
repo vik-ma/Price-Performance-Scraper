@@ -46,6 +46,8 @@ TERRIBLE PRICE/PERFORMANCE RATING AT RETAIL PRICES:
     Intel Arc A770
     Intel Arc A750
 
+NOTES ABOUT GPU MODELS:
+    - 4060 Ti 8GB and 16GB do not have separate categories.
 
 ---CPU---
 
@@ -101,9 +103,7 @@ CPU MODELS INCLUDED:
 NOTES ABOUT CPU MODELS:
     - No workstation CPUs are included.
 
-    - Only sockets AM5, AM4 and LGA 1700 CPUs are included.
-
-    - 4060 Ti 8GB and 16GB do not have separate categories.
+    - Only socket AM5, AM4 and LGA 1700 CPUs are included.
 
     - CPU-Gaming benchmarks are not entirely accurate.
       (Notably 7900X3D being over-rated)
