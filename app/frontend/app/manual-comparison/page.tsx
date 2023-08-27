@@ -202,7 +202,7 @@ export default function ManualComparison() {
               href="/scrapes"
               target="_blank"
             >
-              Completed Scrapes
+              <strong>Completed Scrapes</strong>
             </Link>{" "}
             <strong className="bold-white-text">
               unless the performance values entered here are structured in the
