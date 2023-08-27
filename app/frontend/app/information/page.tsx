@@ -41,7 +41,7 @@ export default async function Information() {
           href="/start-scrape"
           target="_blank"
         >
-          <strong className="bold-white-text">Start Price Scrape</strong>
+          <strong>Start Price Scrape</strong>
         </Link>{" "}
         you can select products that you are interested in comparing and start a
         real-time price scrape, which will calculate the most price efficient
