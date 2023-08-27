@@ -27,6 +27,7 @@ body {
   overflow-x: hidden !important;
   width: 100vw;
   margin-right: calc(100vw - 100%);
+  cursor: auto;
 }
 
 .bold-white-text {
@@ -57,6 +58,14 @@ details {
 input[type="checkbox"]:checked {
   background-color: #3279ec;
   border-color: #6cbdff;
+}
+
+label {
+  cursor: pointer;
+}
+
+label:hover {
+  color: white;
 }
 
 /* Button to refresh page on error pages */
@@ -1569,6 +1578,7 @@ h3.information-sub-header {
 /* Container for text input fields in mct-table */
 .mct-table label {
   margin: 0;
+  cursor: default !important;
 }
 
 /* Styling for text input fields in mct-table */
