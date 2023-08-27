@@ -351,8 +351,14 @@ label:hover {
   color: #9dff70 !important;
 }
 
+/* Container for github-logo-link and github-text */
+.github-container {
+  display: flex;
+  flex-direction: column;
+}
+
 /* Container for GitHub logo link */
-.gh-logo-link {
+.github-logo-link {
   background-color: var(--dark-bg-color);
   padding: 1px 4px 3px 9px;
   border: 2px solid rgba(233, 233, 233, 0.780);
@@ -362,7 +368,7 @@ label:hover {
   transition: 0.2s ease-in-out;
 }
 
-.gh-logo-link:hover {
+.github-logo-link:hover {
   background-color: #2b80ff48;
   border: 2px solid #2b80ff;
   box-shadow: 0px 0px 10px 1px #2b80ff;
@@ -371,7 +377,15 @@ label:hover {
 /* Text that appears under GitHub logo link */
 .github-text {
   font-size: smaller;
+  color: white;
   margin-top: 0px;
+  font-weight: 700;
+  transition: 0.2s ease-in-out;
+}
+
+/* Change github-text color when hovering over github-logo-link */
+.github-logo-link:hover + .github-text {
+  color: #2b80ff;
 }
 
 /* Completed Scrapes h1 tag */
@@ -1801,7 +1815,7 @@ h3.information-sub-header {
   .github-text {
     font-size: medium;
   }
-  .gh-logo-link {
+  .github-logo-link {
     padding: 1px 4px 2px 9px;
   }
   /* Adjust size of images in GitHub link button to 75% */

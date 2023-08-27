@@ -120,10 +120,7 @@ export default async function Information() {
         Benchmark Values will often have much higher Price/Performance Scores
         compared to the flagship models.
       </p>
-      <h2
-        className="information-sub-header title-gradient"
-        id="benchmarks"
-      >
+      <h2 className="information-sub-header title-gradient" id="benchmarks">
         Benchmarks
       </h2>
       <p className="information-text">
@@ -159,9 +156,7 @@ export default async function Information() {
         <strong className="bold-white-text">50.00</strong> has half the
         performance of the best product in the list.
       </p>
-      <h3 className="information-sub-header title-gradient">
-        Benchmark Tiers
-      </h3>
+      <h3 className="information-sub-header title-gradient">Benchmark Tiers</h3>
       <p className="information-text">
         Products are sorted into different{" "}
         <strong className="bold-white-text">Tiers</strong> with other products
@@ -238,9 +233,9 @@ export default async function Information() {
         </strong>
       </p>
       <br />
-      <div className="centered-container">
+      <div className="centered-container github-container">
         <a
-          className="gh-logo-link"
+          className="github-logo-link"
           href="https://github.com/vik-ma/Price-Performance-Scraper"
           target="_blank"
         >
@@ -257,13 +252,7 @@ export default async function Information() {
             id="gh-img-text"
           />
         </a>
-      </div>
-      <div className="centered-container">
-        <p className="github-text">
-          <strong className="bold-white-text">
-            Visit the project's GitHub repo
-          </strong>
-        </p>
+        <p className="github-text">Visit the project's GitHub repo</p>
       </div>
     </>
   );

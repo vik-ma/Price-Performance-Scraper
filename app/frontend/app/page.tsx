@@ -85,9 +85,9 @@ export default async function Home() {
         page.
       </p>
       <br />
-      <div className="centered-container">
+      <div className="centered-container github-container">
         <a
-          className="gh-logo-link"
+          className="github-logo-link"
           href="https://github.com/vik-ma/Price-Performance-Scraper"
           target="_blank"
         >
@@ -104,13 +104,7 @@ export default async function Home() {
             id="gh-img-text"
           />
         </a>
-      </div>
-      <div className="centered-container">
-        <p className="github-text">
-          <strong className="bold-white-text">
-            Visit the project's GitHub repo
-          </strong>
-        </p>
+        <p className="github-text">Visit the project's GitHub repo</p>
       </div>
     </>
   );
