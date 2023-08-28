@@ -1,5 +1,18 @@
-# Price-Performance-Scraper
+# Price-Performance Scraper
+Price-Performance Scraper is a full-stack web application that can scrape online price listings of GPU and CPU models in real-time, compare the prices to up-to-date performance benchmarks of said models, and then finally rank every listed product found by its **Price/Performance Score**. It is designed to make it really easy for a user to find out which product has the best value for money, and where to buy it.
 
+***As of now, only online stores in Sweden are available for scraping.***
+
+The application consists of a back-end made in **Python** and **Django**, with a **PostgreSQL** database, and a front-end made with **TypeScript**, **React**, **Next.js 13** and **PicoCSS**. **Docker** is also being used to host the back-end in development.
+
+The front-end is a website where the user can select which GPU or CPU models they want to compare. With just the click of a button, Python will start web-scraping on the back-end. Once the scrape is finished and the Price/Performance Scores calculated on the back-end, the user is presented with a table consisting of all product listings found, ranked by their Price/Performance Scores. The user is able to interact with the table, like filter out specific stores or products, or just sort the table by a different column.
+
+All completed price scrapes are viewable from the website, and thanks to Next.js' **Static Site Generation**, each completed scrape page will load incredibly quickly.
+
+### Things To Note
+*A global **3 minute cooldown** is placed on price scraping. This means that only one person can start a price scrape every three minutes.*
+
+*When scraping **GPU** models, only the 5 to 8 cheapest sub-models for every GPU model will get scraped.*
 
 ## Price-Performance Score
 
