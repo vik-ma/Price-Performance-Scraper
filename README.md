@@ -1,5 +1,5 @@
-# Price-Performance Scraper
-Price-Performance Scraper is a full-stack web application that can scrape online price listings of GPU and CPU models in real-time, compare the prices to up-to-date performance benchmarks of said models, and then finally rank every listed product found by its **Price/Performance Score**. It is designed to make it really easy for a user to find out which product has the best value for money, and where to buy it.
+# Price/Performance Scraper
+Price/Performance Scraper is a full-stack web application that can scrape online price listings of GPU and CPU models in real-time, compare the prices to up-to-date performance benchmarks of said models, and then finally rank every listed product found by its **Price/Performance Score**. It is designed to make it really easy for a user to find out which product has the best value for money, and where to buy it.
 
 ***As of now, only online stores in Sweden are available for scraping.***
 
@@ -14,13 +14,16 @@ All completed price scrapes are viewable from the website, and thanks to Next.js
 
 *When scraping **GPU** models, only the 5 to 8 cheapest sub-models for every GPU model will get scraped.*
 
-## Price-Performance Score
+## Price/Performance Score
+The Price/Performance Score given to every scraped product listing is calculated like this: <br>
+**( Benchmark Value ÷ Price ) × 100**
 
+**A higher Price/Performance Score indicates better value for money.** However, it does **not** indicate better performance, as flagship models usually has worse Price/Performance Score than their cheaper counterparts. It is up to the consumer to decide which they value more.
 
+Also note that **GPU** models always come in various sub-models, made by third-party manufacturers. These sub-models often have differing performance benchmarks. This application does not have access to performance benchmark data of individual GPU sub-models, and can thus not differentiate between them.
+
+The website does feature a **Manual Comparison Tool**, partly to deal with this problem. This tool allows the user to manually enter price and performance values for multiple products, in order to compare Price/Performance Scores.
 ## Benchmarks
-
-
-## Benchmark Tiers
 
 ### Benchmark Disclaimer
 
