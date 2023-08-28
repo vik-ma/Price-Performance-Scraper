@@ -154,7 +154,7 @@ export default async function Information() {
         <strong className="bold-white-text">100.00</strong>. The values are
         linear, which means that a product with a Benchmark Value of{" "}
         <strong className="bold-white-text">50.00</strong> has half the
-        performance of the best product in the list.
+        performance of the best product in the same category.
       </p>
       <h3 className="information-sub-header title-gradient">Benchmark Tiers</h3>
       <p className="information-text">
@@ -187,9 +187,10 @@ export default async function Information() {
         <strong className="bold-white-text">CPU Gaming</strong> benchmarks are
         semi-theoretical and{" "}
         <strong className="bold-white-text">
-          not necessarily indicative of actual gaming performance
+          not based on performance benchmarks from actual games
         </strong>
-        , and should be taken with a grain of salt.
+        . They are not necessarily indicative of actual gaming performance and
+        should be taken with a grain of salt.
         <br />
         <br />
         <strong className="bold-white-text">GPUs</strong> of the same model come

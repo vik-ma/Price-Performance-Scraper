@@ -25,8 +25,20 @@ Also note that **GPU** models always come in various sub-models, made by third-p
 The website does feature a **Manual Comparison Tool**, partly to deal with this problem. This tool allows the user to manually enter price and performance values for multiple products, in order to compare Price/Performance Scores.
 ## Benchmarks
 
-### Benchmark Disclaimer
+There are three different types of benchmark values in this app; **GPU Performance**, **CPU (Gaming Performance)** and **CPU (Multi-threaded Performance)**. Benchmark values are automatically scraped and updated once every day. CPU benchmarks are sourced from PassMark and GPU benchmarks are an aggregate of data from PassMark and Tom's Hardware.
 
+The current benchmark values in use are displayed on the website.
+
+Benchmark Values range from **100.00** to **0.01**, where the highest performing model in the list will always have a Benchmark Value of 100.00. The values are linear, which means that a product with a Benchmark Value of 50.00 has half the performance of the best product in the same category.
+
+Products are sorted into **Benchmark Tiers** based on having similar performance levels. This makes it easier to find products of comparable performance.
+
+### Benchmark Disclaimers
+Benchmark values are not always accurate and in no way definite.
+
+CPU Gaming benchmark values are semi-theoretical and not based on performance benchmarks from actual games. Thus, they should be taken with a grain of salt.
+
+No comparisons are made between individual third-party sub-models when it comes to GPU Benchmarks.
 ## Manual Comparison Tool
 
 ## Included Models
