@@ -210,7 +210,7 @@ def start_price_fetch(request) -> Response:
         # Return a Response that says that Price Scraping is on cooldown
         return Response({
         "message": f"Scrape request on cooldown, {seconds_left} seconds left", "success": False, "seconds_left": seconds_left
-        })
+        }, status=status.HTTP_503_SERVICE_UNAVAILABLE)
 
     serializer = FetchPropertiesSerializer(data=request.data)
 
@@ -227,10 +227,10 @@ def start_price_fetch(request) -> Response:
         price_fetch = pf.start_price_fetching(serializer.data)
 
         # Send back Response once Price Scraping is finished
-        return Response(price_fetch)
+        return Response(price_fetch, status=status.HTTP_200_OK)
 
     # Return serializer error message if Request did not pass serializer
-    return Response(serializer.errors)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['GET'])
@@ -238,7 +238,7 @@ def get_all_completed_fetches(request):
     """Return list of meta info for all Completed Price Scrapes."""
     completed_fetches = CompletedFetch.objects.all()
     serializer = CompletedFetchSerializer(completed_fetches, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 def get_completed_fetch_by_timestamp_id(request, timestamp_id):
@@ -246,10 +246,10 @@ def get_completed_fetch_by_timestamp_id(request, timestamp_id):
     try:
         completed_fetch = CompletedFetch.objects.get(timestamp_id = timestamp_id)
     except CompletedFetch.DoesNotExist:
-        return Response({"error": "Timestamp ID not found"})
+        return Response({"error": "Timestamp ID not found"}, status=status.HTTP_404_NOT_FOUND)
     
     serializer = CompletedFetchSerializer(completed_fetch)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['GET'])
 def get_product_listings_from_timestamp_id(request, timestamp_id):
@@ -262,14 +262,14 @@ def get_product_listings_from_timestamp_id(request, timestamp_id):
         # The list of ProductListings for a specific timestamp_id is always pre-sorted by their PPS
         product_listings = ProductListing.objects.filter(timestamp_id = timestamp_id).order_by('id')
     except:
-        return Response({"error": "Timestamp ID not found"})
+        return Response({"error": "Timestamp ID not found"}, status=status.HTTP_404_NOT_FOUND)
     
     if len(product_listings) == 0:
         # If no product_listings has timestamp_id
-        return Response({"error": "Timestamp ID not found"})
+        return Response({"error": "Timestamp ID not found"}, status=status.HTTP_404_NOT_FOUND)
 
     serializer = ProductListingSerializer(product_listings, many=True)
-    return Response(serializer.data)
+    return Response(serializer.data, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -287,7 +287,7 @@ def test_post(request):
 @api_view(['GET'])
 def wake_api(request) -> Response:
     """GET request to wake sleeping web service."""
-    return Response({"message": "awake"})
+    return Response({"message": "awake"}, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -316,7 +316,12 @@ def get_benchmarks(request) -> Response:
     response["success"] = success
     response["benchmarks"] = benchmarks
 
-    return Response(response)
+    if success:
+        status_code = status.HTTP_200_OK
+    else:
+        status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
+
+    return Response(response, status=status_code)
 
 
 @api_view(['GET'])
@@ -345,9 +350,9 @@ def get_scrape_allowed(request) -> Response:
         # Return time left until Price Scraping is allowed again
         return Response({
         "success": True, "allow": allow_scrape_request, "seconds_left": seconds_left
-    })
+    }, status=status.HTTP_503_SERVICE_UNAVAILABLE)
 
     return Response({
         "success": True, "allow": allow_scrape_request
-    })
+    }, status=status.HTTP_200_OK)
 
