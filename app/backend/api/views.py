@@ -129,7 +129,7 @@ valid_cpu_set = frozenset([
     "Intel Core i5-12400",
 ])
 
-def validate_fetch_request(serializer_data):
+def validate_price_fetch_request(serializer_data):
     """
     Validates data sent to start_price_fetch and raises ValidationError if data is invalid.
     
@@ -218,7 +218,7 @@ def start_price_fetch(request) -> Response:
     if serializer.is_valid():
         # Validate the contents of Request
         # If data is not valid, an error will be raised here and function returned
-        validate_fetch_request(serializer.data)
+        validate_price_fetch_request(serializer.data)
 
         # Set cooldown until next Price Scrape can be started
         scrape_throttle.set_new_time()
@@ -227,7 +227,7 @@ def start_price_fetch(request) -> Response:
         price_fetch = pf.start_price_fetching(serializer.data)
 
         # Send back Response once Price Scraping is finished
-        return Response(price_fetch, status=status.HTTP_200_OK)
+        return Response(price_fetch, status=status.HTTP_201_CREATED)
 
     # Return serializer error message if Request did not pass serializer
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
