@@ -12,7 +12,7 @@ The front-end is a website where the user can select which GPU or CPU models the
 All completed price scrapes are viewable from the website, and thanks to Next.js' **Static Site Generation**, each completed scrape page will load incredibly quickly.
 
 ### Things To Note
-*A global **3 minute cooldown** is placed on price scraping. This means that only one person can start a price scrape every three minutes.*
+*A global **5 minute cooldown** is placed on price scraping. This means that only one person can start a price scrape every three minutes.*
 
 *When scraping **GPU** models, only the 5 to 8 cheapest sub-models for every GPU model will get scraped.*
 
