@@ -746,6 +746,10 @@ def test_fetch_product_page(product_name, product_category) -> str:
     """
     product_url = ""
     status_code = ""
+
+    if product_category != "CPU-Gaming" and product_category != "CPU-Normal":
+        return "Invalid category"
+
     try:
         product_url = cpu_pj_url_dict[product_name]
     except:
@@ -770,6 +774,37 @@ def test_fetch_product_page(product_name, product_category) -> str:
 
     return status_code_and_content_str
 
+
+def test_number_of_fetches_possible(product_list, product_category):
+    if product_category != "CPU-Gaming" and product_category != "CPU-Normal":
+        return "Invalid category"
+    
+    if not isinstance(product_list, list):
+        return "Invalid product list"
+    
+    product_url_list = []
+    for product in product_list:
+        try:
+            product_url = cpu_pj_url_dict[product]
+            product_url_list.append(product_url)
+        except:
+            return f"{product}: Invalid product"
+
+
+    scraper = cloudscraper.create_scraper()
+
+    status_code_str = ""
+    for i, product_url in enumerate(product_url_list, 1):
+        response = scraper.get(product_url)
+
+        status_code = str(response.status_code)
+
+        status_code_str = f"{status_code_str} {i}: {status_code}"
+
+        if product != product_url_list[-1]:
+            time.sleep(2.5)
+
+    return status_code_str
     
 if __name__ == "__main__":
     pass

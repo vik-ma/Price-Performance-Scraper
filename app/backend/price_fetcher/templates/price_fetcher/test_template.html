@@ -75,9 +75,44 @@
             </div>
         </div>
     </div>
+    <div style="margin:20px auto 50px;width:50%;">
+        <div style="display:inline-block;margin-left:50px;">
+            <form id="test-fetch-button-4" style="display:inline-block;">
+                {% csrf_token %}
+                <input type="submit" value="Test Fetch 4">      
+            </form>
+            <div id="fetch-content-4" style="display:inline-block;margin-left:20px;">
+                Fetching 4 not tested
+            </div>
+        </div>
+        <div style="display:inline-block;margin-left:20px;">
+            <form id="test-fetch-button-7" style="display:inline-block;">
+                {% csrf_token %}
+                <input type="submit" value="Test Fetch 7">      
+            </form>
+            <div id="fetch-content-7" style="display:inline-block;margin-left:20px;">
+                Fetching 7 not tested
+            </div>
+        </div>
+        <div style="display:inline-block;margin-left:20px;">
+            <form id="test-fetch-button-10" style="display:inline-block;">
+                {% csrf_token %}
+                <input type="submit" value="Test Fetch 10">      
+            </form>
+            <div id="fetch-content-10" style="display:inline-block;margin-left:20px;">
+                Fetching 10 not tested
+            </div>
+        </div>
+    </div>
     <script>
         const testFetchButton = document.getElementById("test-fetch-button");
+        const testFetchButton4 = document.getElementById("test-fetch-button-4");
+        const testFetchButton7 = document.getElementById("test-fetch-button-7");
+        const testFetchButton10 = document.getElementById("test-fetch-button-10");
         const fetchContentDiv = document.getElementById("fetch-content");
+        const fetchContentDiv4 = document.getElementById("fetch-content-4");
+        const fetchContentDiv7 = document.getElementById("fetch-content-7");
+        const fetchContentDiv10 = document.getElementById("fetch-content-10");
     
         testFetchButton.addEventListener("click", function(event) {
         event.preventDefault();
@@ -90,7 +125,47 @@
             .catch(error => {
                 console.error("An error occurred:", error);
             });
-    });
+        });
+
+        testFetchButton4.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        fetch("{% url 'test_button_fetch_number_4' %}")
+            .then(response => response.json())
+            .then(data => {
+                fetchContentDiv4.textContent = data.content;
+            })
+            .catch(error => {
+                console.error("An error occurred:", error);
+            });
+        });
+
+        testFetchButton7.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        fetch("{% url 'test_button_fetch_number_7' %}")
+            .then(response => response.json())
+            .then(data => {
+                fetchContentDiv7.textContent = data.content;
+            })
+            .catch(error => {
+                console.error("An error occurred:", error);
+            });
+        });
+
+        testFetchButton10.addEventListener("click", function(event) {
+        event.preventDefault();
+
+        fetch("{% url 'test_button_fetch_number_10' %}")
+            .then(response => response.json())
+            .then(data => {
+                fetchContentDiv10.textContent = data.content;
+            })
+            .catch(error => {
+                console.error("An error occurred:", error);
+            });
+        });
+
     </script>
 </body>
 </html>

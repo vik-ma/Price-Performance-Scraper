@@ -81,6 +81,43 @@ def test_button_fetch(request:HttpRequest):
     return JsonResponse({"content": content})
 
 
+def test_button_fetch_number_4(request:HttpRequest):
+    content = test_fetch_number(4)
+
+    return JsonResponse({"content": content})
+
+def test_button_fetch_number_7(request:HttpRequest):
+    content = test_fetch_number(7)
+    
+    return JsonResponse({"content": content})
+
+def test_button_fetch_number_10(request:HttpRequest):
+    content = test_fetch_number(10)
+    
+    return JsonResponse({"content": content})
+
+def test_fetch_number(number):
+    product_list = [
+        "Intel Core i9-13900KS",
+        "Intel Core i9-13900K",
+        "Intel Core i9-13900KF",
+        "Intel Core i9-13900F",
+        "AMD Ryzen 9 7950X3D",
+        "AMD Ryzen 9 7950X",
+        "AMD Ryzen 9 7900X3D",
+        "AMD Ryzen 9 7900X",
+        "AMD Ryzen 9 7900",
+        "AMD Ryzen 7 7800X3D"
+    ]
+    product_category = "CPU-Gaming"
+
+    sliced_product_list = product_list[:number]
+
+    content = pf.test_number_of_fetches_possible(sliced_product_list, product_category)
+
+    return content
+
+
 def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id):
     """
     Save a CompletedFetch entry to PostgreSQL database.
