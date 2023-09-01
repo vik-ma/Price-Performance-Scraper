@@ -1,53 +1,46 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
 interface PaginationControlsProps {
   hasNextPage: boolean;
   hasPrevPage: boolean;
-  numScrapes: number;
   maxPages: number;
 }
 
 export default function PaginationControls({
   hasNextPage,
   hasPrevPage,
-  numScrapes,
   maxPages,
 }: PaginationControlsProps) {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const page = searchParams.get("page") ?? "1";
-  const scrapes_per_page: number = 18;
 
   return (
-    <div className="flex gap-2">
-      {/* <button
-        className="bg-blue-500 text-white p-1"
+    <div className="scrape-pagination-container">
+      <button
+        className="pagination-button"
         disabled={!hasPrevPage}
         onClick={() => {
           router.push(`/scrapes/?page=${Number(page) - 1}`);
         }}
       >
-        prev page
-      </button> */}
-      <Link href={`/scrapes/?page=${Number(page) - 1}`}>Prev</Link>
-
-      <div>
-        {page} / {Math.ceil(numScrapes / scrapes_per_page)}
+        Prev
+      </button>
+      <div className="pagination-page-display">
+        {page} / {maxPages}
       </div>
-
-      {/* <button
-        className="bg-blue-500 text-white p-1"
+      <button
+        className="pagination-button"
         disabled={!hasNextPage}
         onClick={() => {
           router.push(`/scrapes/?page=${Number(page) + 1}`);
         }}
       >
-        next page
-      </button> */}
-      <Link href={`/scrapes/?page=${Number(page) + 1}`}>Next</Link>
+        Next
+      </button>
     </div>
   );
 }

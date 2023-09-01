@@ -102,7 +102,7 @@ label:hover {
 .centered-container {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
 }
 
 /* Container for Navigation Bar */
@@ -484,6 +484,41 @@ label:hover {
 .scrape-content {
   margin-left: 184px;
   position: relative;
+}
+
+/* Container for PaginationControls component */
+.scrape-pagination-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin-top: 13px;
+}
+
+/* Prev and Next scrape page pagination buttons */
+.pagination-button {
+  width: fit-content;
+  height: fit-content;
+  padding: 1px 14px 4px;
+  background-color: var(--dark-bg-color);
+  font-size: 22px;
+  background: linear-gradient(to bottom right, #242424, #181818);
+  border-radius: 10px;
+  color:#f1f1f1;
+  border: 1px solid rgba(190, 190, 190, 0.5);
+  margin: 0;
+}
+
+.pagination-button:hover {
+  color: white;
+  border: 1px solid white;
+}
+
+/* Div that displays the current pagination page on scrape page */
+.pagination-page-display {
+  color:white;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 
 /* Link container for item in full-scrape-list */

@@ -122,12 +122,13 @@ export default async function Fetches({
               );
             })}
           </ul>
-          <PaginationControls
-            hasNextPage={end < numScrapes}
-            hasPrevPage={start > 0}
-            numScrapes={numScrapes}
-            maxPages={maxPages}
-          />
+          <div className="scrape-pagination-container-bottom">
+            <PaginationControls
+              hasNextPage={end < numScrapes}
+              hasPrevPage={start > 0}
+              maxPages={maxPages}
+            />
+          </div>
         </Suspense>
       </div>
     </>
