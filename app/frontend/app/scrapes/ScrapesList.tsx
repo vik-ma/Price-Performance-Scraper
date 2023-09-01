@@ -40,7 +40,7 @@ export default async function ScrapesList() {
           {/* Show every completed Price Scrape with the most recent ones on top */}
           {completedFetchData
             ?.reverse()
-            .slice(0, 10)
+            .slice(0, 20)
             .map((scrape: CompletedFetchProps) => {
               // Remove the "-" from scrapeType value to make it compatible with scrapeTypeMap
               const scrapeType: string = scrape.benchmark_type.replace("-", "");

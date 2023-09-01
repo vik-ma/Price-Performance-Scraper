@@ -25,7 +25,7 @@ export default function RootLayout({
       </div>
       <div className="sidebar">
         <div className="sidebar-title-container">
-          <h4 className="sidebar-title">Last 10 Scrapes</h4>
+          <h4 className="sidebar-title">Last 20 Scrapes</h4>
           <Link className="no-underscore" href="/scrapes">
             <button className="sidebar-full-list-button">View Full List</button>
           </Link>
