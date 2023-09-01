@@ -28,10 +28,10 @@ class ScrapeThrottle():
 
     def set_new_time(self):
         """
-        Sets the time of next allowed Price Scrape to 5 minutes from current time.
+        Sets the time of next allowed Price Scrape to 3 minutes from current time.
         """
         current_datetime = datetime.datetime.now()
-        self.next_scrape_time = current_datetime + datetime.timedelta(minutes=5)
+        self.next_scrape_time = current_datetime + datetime.timedelta(minutes=3)
 
     def calculate_seconds_left(self) -> int:
         """Returns the time left until next Price Scrape is allowed in seconds."""

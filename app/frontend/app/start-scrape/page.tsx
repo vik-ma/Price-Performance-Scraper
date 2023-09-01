@@ -127,7 +127,7 @@ export default function NewScrape() {
               <div className="tutorial-tab">
                 <strong className="red-text">
                   <em>
-                    Price Scraping has a global cooldown of 5 minutes, which
+                    Price Scraping has a global cooldown of 3 minutes, which
                     means that you or anyone else can only do one Price Scrape
                     every three minutes.
                   </em>

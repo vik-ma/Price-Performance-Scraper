@@ -73,7 +73,7 @@ export default async function Information() {
         <br />
         <em>
           <strong className="bold-white-text">
-            To prevent abuse, a 5 minute global cooldown is placed on Price
+            To prevent abuse, a 3 minute global cooldown is placed on Price
             Scraping.
           </strong>{" "}
           This means that you or anyone else using this website can only start
