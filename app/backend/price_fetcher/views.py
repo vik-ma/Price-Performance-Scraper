@@ -7,13 +7,20 @@ import datetime
 import json
 
 def pps_dashboard(request:HttpRequest):
-    """Test html template for debugging purposes."""
+    """HTML Template for PPS Backend Dashboard."""
 
     benchmark_data_list = BenchmarkData.objects.all()
+    # Extract GPU Benchmark dict from JSON string in all BenchmarkData objects
+    benchmark_dict_list = [json.loads(benchmark_data.gpu_benchmarks) for benchmark_data in benchmark_data_list]
+    # Create list of timestamps for every BenchmarkData object
+    benchmark_timestamp_list = [benchmark_dict["timestamp"] for benchmark_dict in benchmark_dict_list]
+    
     completed_fetch_list = CompletedFetch.objects.all()
+    
     current_datetime = get_current_timestamp()
+    
     context = {
-        'benchmark_data_list' : benchmark_data_list, 
+        'benchmark_data_list' : benchmark_timestamp_list, 
         'completed_fetch_list' : completed_fetch_list,
         'current_datetime' : current_datetime,
         }
