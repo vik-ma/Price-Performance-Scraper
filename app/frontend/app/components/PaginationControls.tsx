@@ -1,19 +1,21 @@
 "use client";
 
+import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 
 interface PaginationControlsProps {
   hasNextPage: boolean;
   hasPrevPage: boolean;
   numScrapes: number;
+  maxPages: number;
 }
 
 export default function PaginationControls({
   hasNextPage,
   hasPrevPage,
   numScrapes,
+  maxPages,
 }: PaginationControlsProps) {
-  const router = useRouter();
   const searchParams = useSearchParams();
 
   const page = searchParams.get("page") ?? "1";
@@ -21,7 +23,7 @@ export default function PaginationControls({
 
   return (
     <div className="flex gap-2">
-      <button
+      {/* <button
         className="bg-blue-500 text-white p-1"
         disabled={!hasPrevPage}
         onClick={() => {
@@ -29,13 +31,14 @@ export default function PaginationControls({
         }}
       >
         prev page
-      </button>
+      </button> */}
+      <Link href={`/scrapes/?page=${Number(page) - 1}`}>Prev</Link>
 
       <div>
         {page} / {Math.ceil(numScrapes / scrapes_per_page)}
       </div>
 
-      <button
+      {/* <button
         className="bg-blue-500 text-white p-1"
         disabled={!hasNextPage}
         onClick={() => {
@@ -43,7 +46,8 @@ export default function PaginationControls({
         }}
       >
         next page
-      </button>
+      </button> */}
+      <Link href={`/scrapes/?page=${Number(page) + 1}`}>Next</Link>
     </div>
   );
 }

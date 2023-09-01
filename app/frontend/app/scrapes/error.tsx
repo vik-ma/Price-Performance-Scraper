@@ -14,12 +14,14 @@ export default function Error({
   // }, [error]);
 
   return (
-    <div className="scrape-content">
-      <h1>Something went wrong!</h1>
-      {/* Button to refresh page */}
-      <button className="error-button" onClick={() => reset()}>
-        <strong>Try again</strong>
-      </button>
+    <div className="scrape-content centered-container">
+      <div className="">
+        <h1>Something went wrong!</h1>
+        {/* Button to refresh page */}
+        <button className="error-button" onClick={() => reset()}>
+          <strong>Try again</strong>
+        </button>
+      </div>
     </div>
   );
 }

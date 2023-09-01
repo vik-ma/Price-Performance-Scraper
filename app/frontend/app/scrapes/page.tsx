@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { CompletedFetchProps, FetchTypeProps } from "@/typings";
 import Link from "next/link";
 import PaginationControls from "../components/PaginationControls";
+import { notFound } from "next/navigation";
 
 // Function to retrieve all completed Price Scrapes from Django API
 async function getCompletedFetches() {
@@ -21,16 +22,30 @@ export default async function Fetches({
 }) {
   const completedFetchData = await getCompletedFetches();
 
-  const page = searchParams["page"] ?? "1";
-
   const scrapes_per_page: number = 18;
+
+  const numScrapes: number = completedFetchData?.length;
+
+  const maxPages: number = Math.ceil(numScrapes / scrapes_per_page);
+
+  if (
+    Object.keys(searchParams).length !== 0 &&
+    isNaN(Number(searchParams["page"]))
+  )
+    return notFound();
+
+  if (
+    Number(searchParams["page"]) < 1 ||
+    Number(searchParams["page"]) > maxPages
+  )
+    return notFound();
+
+  const page = searchParams["page"] ?? "1";
 
   const start = (Number(page) - 1) * scrapes_per_page;
   const end = start + scrapes_per_page;
 
   const paginatedScrapes = completedFetchData?.reverse().slice(start, end);
-
-  const numScrapes: number = completedFetchData?.length;
 
   // HashMap to assign different text, text colors and border colors to the different Benchmark Types
   const scrapeTypeMap: FetchTypeProps = {
@@ -111,6 +126,7 @@ export default async function Fetches({
             hasNextPage={end < numScrapes}
             hasPrevPage={start > 0}
             numScrapes={numScrapes}
+            maxPages={maxPages}
           />
         </Suspense>
       </div>
