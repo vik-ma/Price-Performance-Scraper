@@ -6,7 +6,7 @@ from . import benchmark_scraper as bm
 import datetime
 import json
 
-def test_template(request:HttpRequest):
+def pps_dashboard(request:HttpRequest):
     """Test html template for debugging purposes."""
 
     benchmark_data_list = BenchmarkData.objects.all()
@@ -18,10 +18,10 @@ def test_template(request:HttpRequest):
         'current_datetime' : current_datetime,
         }
     
-    return render(request, 'price_fetcher/test_template.html', context)
+    return render(request, 'price_fetcher/pps_dashboard.html', context)
 
 def test_button_cpu_g(request:HttpRequest):
-    """Button to test CPU-Gaming Price Scrape in test_template for debugging purposes."""
+    """Button to test CPU-Gaming Price Scrape in pps_dashboard for debugging purposes."""
     data = {
         "product_list": 
         "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D",
@@ -34,7 +34,7 @@ def test_button_cpu_g(request:HttpRequest):
 
 
 def test_button_cpu_n(request:HttpRequest):
-    """Button to test CPU-Normal Price Scrape in test_template for debugging purposes."""
+    """Button to test CPU-Normal Price Scrape in pps_dashboard for debugging purposes."""
     data = {
         "product_list": 
         "AMD Ryzen 9 7950X,Intel Core i9-13900KS,Intel Core i9-13900K", 
@@ -47,7 +47,7 @@ def test_button_cpu_n(request:HttpRequest):
 
 
 def test_button_gpu(request:HttpRequest):
-    """Button to test GPU Price Scrape in test_template for debugging purposes."""
+    """Button to test GPU Price Scrape in pps_dashboard for debugging purposes."""
     data = {
         "product_list": 
         "GeForce RTX 4090,GeForce RTX 4080,Radeon RX 7900 XTX", 
@@ -60,7 +60,7 @@ def test_button_gpu(request:HttpRequest):
 
 
 def test_button_benchmarks(request:HttpRequest):
-    """Button to test Benchmark Updater in test_template for debugging purposes."""
+    """Button to test Benchmark Updater in pps_dashboard for debugging purposes."""
     update_benchmarks()
 
     return redirect('/')

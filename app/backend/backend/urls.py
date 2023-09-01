@@ -20,7 +20,7 @@ from price_fetcher import views
 
 urlpatterns = [
     # Test Template html page for debugging purposes
-    path('', views.test_template), 
+    path('', views.pps_dashboard), 
     path('price_fetcher/', include('price_fetcher.urls')),
     path('api/', include('api.urls')),
 ]
