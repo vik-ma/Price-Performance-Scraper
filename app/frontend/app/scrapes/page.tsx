@@ -70,7 +70,13 @@ export default async function Fetches({
     <>
       <div className="scrape-content">
         {/* Show loading icon if data is loading */}
-        <Suspense fallback={<article aria-busy="true"></article>}>
+        <Suspense
+          fallback={
+            <div className="centered-container">
+              <article aria-busy="true"></article>
+            </div>
+          }
+        >
           <ul className="full-scrape-list no-dot-list">
             {/* Show every completed Price Scrape with the most recent ones on top */}
             {paginatedScrapes.map((scrape: CompletedFetchProps) => {
@@ -122,13 +128,11 @@ export default async function Fetches({
               );
             })}
           </ul>
-          <div className="scrape-pagination-container-bottom">
-            <PaginationControls
-              hasNextPage={end < numScrapes}
-              hasPrevPage={start > 0}
-              maxPages={maxPages}
-            />
-          </div>
+          <PaginationControls
+            hasNextPage={end < numScrapes}
+            hasPrevPage={start > 0}
+            maxPages={maxPages}
+          />
         </Suspense>
       </div>
     </>
