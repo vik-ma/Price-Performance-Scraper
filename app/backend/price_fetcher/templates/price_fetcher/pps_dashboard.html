@@ -28,15 +28,15 @@
             </ul>
             <form action="{% url 'test_button_cpu_g' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
-                <input type="submit" value="Test CPU-G"><br />       
+                <input type="submit" value="Scrape CPU-G"><br />       
             </form>
             <form action="{% url 'test_button_cpu_n' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
-                <input type="submit" value="Test CPU-N"><br />       
+                <input type="submit" value="Scrape CPU-N"><br />       
             </form>
             <form action="{% url 'test_button_gpu' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
-                <input type="submit" value="Test GPU"><br />       
+                <input type="submit" value="Scrape GPU"><br />       
             </form>
         </div>
         <div style="display:inline-block;margin-left:50px;">
@@ -58,11 +58,11 @@
             </ul>
             <form action="{% url 'test_button_benchmarks' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
-                <input type="submit" value="Test Benchmarks"><br />       
+                <input type="submit" value="Scrape Benchmarks"><br />       
             </form>
         </div>
         <div style="display:inline-block;margin-left:50px;">
-            <h2>{{ current_datetime }}</h2>
+            <h3>{{ current_datetime }}</h3>
         </div>
     </div>
     <br />
@@ -90,7 +90,7 @@
         testScrapeButton.addEventListener("click", function(event) {
         event.preventDefault();
 
-        fetch("{% url 'test_button_fetch' %}")
+        fetch("{% url 'test_button_scrape' %}")
             .then(response => response.json())
             .then(data => {
                 testScrapeResult.textContent = data.content;
