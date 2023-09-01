@@ -1,5 +1,5 @@
 "use client";
-import MenuIcon from "./icons/MenuIcon";
+import MenuIcon from "../icons/MenuIcon";
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 

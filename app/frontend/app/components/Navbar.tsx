@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import HomeIcon from "./icons/HomeIcon";
+import HomeIcon from "../icons/HomeIcon";
 import NavMenu from "./NavMenu";
 
 export default function Navbar() {
