@@ -15,12 +15,13 @@ Including another URLconf
 """
 # from django.contrib import admin
 from django.urls import path, include
-# Import views for Test Template page at root
 from price_fetcher import views
 
 urlpatterns = [
-    # Test Template html page for debugging purposes
+    # PPS Backend Dashboard HTML template page
+    # Comment this specific path out if deploying (After scraping initial Benchmark Data)
     path('', views.pps_dashboard), 
+
     path('price_fetcher/', include('price_fetcher.urls')),
     path('api/', include('api.urls')),
 ]

@@ -9,7 +9,17 @@
 </head>
 <body>
     <div style="margin:auto;width:50%;">
-        <div style="display:inline-block;margin-left:50px;">
+        <h1>PPS Backend Dashboard</h1>
+        <p>
+            Price Scraping will not work without any Benchmark Data in the database.
+            <br />
+            Click the <strong>Scrape Benchmarks</strong> to scrape Benchmark Data.
+            <br />
+            <br />
+            Comment out the <strong>path('', views.pps_dashboard), </strong> line in <i><strong>app\backend\backend\urls.py</strong></i> after gathering Benchmark Data if you're deploying this backend.
+            This will remove any access to this dashboard.
+        </p>
+        <div style="display:inline-block;">
             <h1>Price Scrapes</h1>
             <p><strong>All Completed Price Scrapes In Database</strong></p>
             <!-- List all objects in CompletedFetch model -->
@@ -26,6 +36,12 @@
                 </li>
                 {% endfor %}
             </ul>
+            <p>Click on a button below to perform a test scrape
+                <br />
+                for a specific benchmark type.
+                <br />
+                <strong>Requires Benchmark Data to already be in database</strong>
+            </p>
             <form action="{% url 'test_button_cpu_g' %}" method="post" style="display:inline-block;">
                 {% csrf_token %}
                 <input type="submit" value="Scrape CPU-G"><br />       
@@ -39,9 +55,9 @@
                 <input type="submit" value="Scrape GPU"><br />       
             </form>
         </div>
-        <div style="display:inline-block;margin-left:50px;">
+        <div style="display:inline-block;margin-left:20px;">
             <h1>Benchmarks</h1>
-            <p><strong>All Benchmark Scrapes In Database</strong></p>
+            <p><strong>All Benchmark Data Scrapes In Database</strong></p>
             <!-- List all objects in BenchmarkData model by their timestamps -->
             <ul>
                 {% for benchmark in benchmark_data_list %}
@@ -61,15 +77,15 @@
                 <input type="submit" value="Scrape Benchmarks"><br />       
             </form>
         </div>
-        <div style="display:inline-block;margin-left:50px;">
+        <div style="display:inline-block;margin-left:20px;">
             <h3>{{ current_datetime }}</h3>
         </div>
     </div>
     <br />
     <div style="margin:20px auto 50px;width:50%;">
-        <div style="display:inline-block;margin-left:50px;">
-            <h1>Test If Scraping Works</h1>
-            <p>Click on the button below to do a test scrape.
+        <div style="display:inline-block;">
+            <h1>Test If Price Scraping Works</h1>
+            <p>Click on the button below to do a test Price Scrape.
                 <br />
                 The status code and result of the request will then be displayed. (Requires JavaScript)
                 <br />
@@ -80,7 +96,7 @@
                 <input type="submit" value="Test Scrape">      
             </form>
             <div id="test-scrape-result" style="display:inline-block;margin-left:50px;">
-                <strong>Scraping not tested</strong>
+                <strong>Price Scraping Not Tested</strong>
             </div>
     </div>
     <script>
