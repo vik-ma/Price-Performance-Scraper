@@ -240,6 +240,7 @@ def get_all_completed_fetches(request):
     serializer = CompletedFetchSerializer(completed_fetches, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 @api_view(['GET'])
 def get_completed_fetch_by_timestamp_id(request, timestamp_id):
     """Return meta info for Completed Price Scrape with specific timestamp_id."""
@@ -250,6 +251,7 @@ def get_completed_fetch_by_timestamp_id(request, timestamp_id):
     
     serializer = CompletedFetchSerializer(completed_fetch)
     return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 @api_view(['GET'])
 def get_product_listings_from_timestamp_id(request, timestamp_id):
@@ -270,24 +272,6 @@ def get_product_listings_from_timestamp_id(request, timestamp_id):
 
     serializer = ProductListingSerializer(product_listings, many=True)
     return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-@api_view(['GET'])
-def test_get(request):
-    """Test GET request for debugging purposes."""
-    pass
-
-
-@api_view(['POST'])
-def test_post(request):
-    """Test POST request for debugging purposes."""
-    pass
-
-
-@api_view(['GET'])
-def wake_api(request) -> Response:
-    """GET request to wake sleeping web service."""
-    return Response({"message": "awake"}, status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -356,3 +340,20 @@ def get_scrape_allowed(request) -> Response:
         "success": True, "allow": allow_scrape_request
     }, status=status.HTTP_200_OK)
 
+
+# @api_view(['GET'])
+# def test_get(request):
+#     """Test GET request for debugging purposes."""
+#     pass
+
+
+# @api_view(['POST'])
+# def test_post(request):
+#     """Test POST request for debugging purposes."""
+#     pass
+
+
+# @api_view(['GET'])
+# def wake_api(request) -> Response:
+#     """GET request to wake sleeping serverless web service."""
+#     return Response({"message": "awake"}, status=status.HTTP_200_OK)
