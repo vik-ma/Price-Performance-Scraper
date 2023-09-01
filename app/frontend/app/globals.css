@@ -102,7 +102,7 @@ label:hover {
 .centered-container {
   display: flex;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
 }
 
 /* Container for Navigation Bar */
@@ -1798,6 +1798,13 @@ h3.information-sub-header {
   .filter-button::after {
     margin-top: 6px;
   }
+  .pagination-button {
+    font-size: 20px;
+    padding: 1px 13px 4px;
+  }
+  .scrape-pagination-container {
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 991px) {
@@ -1862,6 +1869,13 @@ h3.information-sub-header {
   }
   .arrow-right-side {
     margin-top: -2px;
+  }
+  .pagination-button {
+    font-size: 18px;
+    padding: 1px 12px 3px;
+  }
+  .scrape-pagination-container {
+    font-size: 18px;
   }
 }
 
