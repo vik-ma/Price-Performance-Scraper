@@ -26,13 +26,22 @@ export default function PaginationControls({
   return (
     <div className="scrape-pagination-container">
       <button
+        className="pagination-button pagination-page-display-small"
+        disabled={Number(page) === 1}
+        onClick={() => {
+          router.push(`/scrapes/?page=${1}`);
+        }}
+      >
+        &laquo;
+      </button>
+      <button
         className="pagination-button"
         disabled={!hasPrevPage}
         onClick={() => {
           router.push(`/scrapes/?page=${Number(page) - 1}`);
         }}
       >
-        Prev
+        &lt;
       </button>
       <div className="pagination-page-display">
         {pagesArray.map((index) => {
@@ -62,7 +71,16 @@ export default function PaginationControls({
           router.push(`/scrapes/?page=${Number(page) + 1}`);
         }}
       >
-        Next
+        &gt;
+      </button>
+      <button
+        className="pagination-button pagination-page-display-small"
+        disabled={Number(page) === maxPages}
+        onClick={() => {
+          router.push(`/scrapes/?page=${maxPages}`);
+        }}
+      >
+        &raquo;
       </button>
     </div>
   );

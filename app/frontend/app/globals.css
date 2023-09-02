@@ -523,7 +523,7 @@ label:hover {
 /* Div for scrape pagination page display on small screens */
 .pagination-page-display-small {
   display: none;
-  margin: 0 11px;
+  margin: 0 9px;
   font-weight: 600;
   color:#f1f1f1;
 }
@@ -532,7 +532,7 @@ label:hover {
 .pagination-page-display {
   display: flex;
   color:white;
-  margin: 0 3px;
+  margin: 0 4px;
 }
 
 /* Link container for item in full-scrape-list */
