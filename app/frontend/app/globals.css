@@ -517,7 +517,7 @@ label:hover {
 
 /* Scrape pagination page number that is currently displayed */
 .pagination-button-current {
-  background: rgba(115, 115, 115, 0.8);
+  background: rgba(150, 150, 150, 0.4);
 }
 
 /* Div for scrape pagination page display on small screens */
@@ -532,6 +532,7 @@ label:hover {
 .pagination-page-display {
   display: flex;
   color:white;
+  margin: 0 3px;
 }
 
 /* Link container for item in full-scrape-list */
