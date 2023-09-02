@@ -11,7 +11,6 @@ class PriceFetcherConfig(AppConfig):
         a job that updates benchmarks once per day.
         """
         from jobs import benchmark_updater
-        # Stop benchmark_updater job from running twice in dev
-        if os.environ.get('RUN_MAIN'):
-            benchmark_updater.start()
+        # This will run twice in dev mode
+        benchmark_updater.start()
         
