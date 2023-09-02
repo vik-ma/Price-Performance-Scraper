@@ -517,7 +517,9 @@ label:hover {
 
 /* Scrape pagination page number that is currently displayed */
 .pagination-button-current {
-  background: rgba(150, 150, 150, 0.4);
+  /* background: rgba(150, 150, 150, 0.4); */
+  background: #f1f1f1;
+  color: black;
 }
 
 /* Div for scrape pagination page display on small screens */
