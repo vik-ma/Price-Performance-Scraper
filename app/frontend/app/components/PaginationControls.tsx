@@ -18,6 +18,11 @@ export default function PaginationControls({
 
   const page = searchParams.get("page") ?? "1";
 
+  const pagesArray: number[] = Array.from(
+    { length: maxPages },
+    (_, index) => index + 1
+  );
+
   return (
     <div className="scrape-pagination-container">
       <button
@@ -30,7 +35,25 @@ export default function PaginationControls({
         Prev
       </button>
       <div className="pagination-page-display">
-        {page} / {maxPages}
+        {pagesArray.map((index) => {
+          return (
+            <button
+              className={
+                index === Number(page)
+                  ? "pagination-button pagination-button-current"
+                  : "pagination-button"
+              }
+              onClick={() => {
+                router.push(`/scrapes/?page=${index}`);
+              }}
+            >
+              {index}
+            </button>
+          );
+        })}
+      </div>
+      <div className="pagination-page-display-small">
+        Page {page} / {maxPages}
       </div>
       <button
         className="pagination-button"

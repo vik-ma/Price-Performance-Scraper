@@ -499,14 +499,15 @@ label:hover {
 .pagination-button {
   width: fit-content;
   height: fit-content;
-  padding: 1px 14px 4px;
+  padding: 2px 14px 3px;
   background-color: var(--dark-bg-color);
   font-size: 22px;
   background: linear-gradient(to bottom right, #242424, #181818);
   border-radius: 10px;
   color:#f1f1f1;
   border: 1px solid rgba(190, 190, 190, 0.5);
-  margin: 0;
+  margin: 0 3px;
+  font-weight: 600;
 }
 
 .pagination-button:hover {
@@ -514,11 +515,23 @@ label:hover {
   border: 1px solid white;
 }
 
+/* Scrape pagination page number that is currently displayed */
+.pagination-button-current {
+  background: rgba(115, 115, 115, 0.8);
+}
+
+/* Div for scrape pagination page display on small screens */
+.pagination-page-display-small {
+  display: none;
+  margin: 0 11px;
+  font-weight: 600;
+  color:#f1f1f1;
+}
+
 /* Div that displays the current pagination page on scrape page */
 .pagination-page-display {
+  display: flex;
   color:white;
-  margin-left: 16px;
-  margin-right: 16px;
 }
 
 /* Link container for item in full-scrape-list */
@@ -1800,7 +1813,7 @@ h3.information-sub-header {
   }
   .pagination-button {
     font-size: 20px;
-    padding: 1px 13px 4px;
+    padding: 1px 13px 3px;
   }
   .scrape-pagination-container {
     font-size: 20px;
@@ -1872,7 +1885,8 @@ h3.information-sub-header {
   }
   .pagination-button {
     font-size: 18px;
-    padding: 1px 12px 3px;
+    padding: 1px 12px 2px;
+    margin: 0 2px;
   }
   .scrape-pagination-container {
     font-size: 18px;
@@ -2008,6 +2022,12 @@ h3.information-sub-header {
   }
   .scrape-content-wrapper {
     margin-top: 10px;
+  }
+  .pagination-page-display {
+    display: none;
+  }
+  .pagination-page-display-small {
+    display: flex;
   }
 }
 
