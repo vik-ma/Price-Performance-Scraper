@@ -1,5 +1,5 @@
 from django.test import TestCase
-from api.views import valid_cpu_set, valid_gpu_set, validate_price_fetch_request
+from api.views import VALID_CPU_SET, VALID_GPU_SET, CPU_PRODUCT_LIST_LIMIT, GPU_PRODUCT_LIST_LIMIT, validate_price_fetch_request
 from api.serializers import FetchPropertiesSerializer
 from rest_framework import serializers
 
@@ -7,8 +7,8 @@ from rest_framework import serializers
 class TestValidPriceFetchRequest(TestCase):
     """ Test cases for validating start_price_fetch POST request body """
     def setUp(self):
-        self.cpu_product_list = valid_cpu_set
-        self.gpu_product_list = valid_gpu_set
+        self.cpu_product_list = VALID_CPU_SET
+        self.gpu_product_list = VALID_GPU_SET
         self.cpu_g_fetch_type = "CPU-Gaming"
         self.cpu_n_fetch_type = "CPU-Normal"
         self.gpu_fetch_type = "GPU"
@@ -62,7 +62,59 @@ class TestValidPriceFetchRequest(TestCase):
             serializer = FetchPropertiesSerializer(data=request)
             self.assertEqual(True, serializer.is_valid())
 
-    
+
+    def test_invalid_product_list_items(self):
+        request_one_wrong_cpu = {
+            "fetch_type": self.cpu_g_fetch_type,
+            "product_list": "AMD Ryzen 9 7950X3D,GeForce RTX 4090"
+        }
+        request_one_wrong_gpu = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": "AMD Ryzen 9 7950X3D,GeForce RTX 4090"
+        }
+        request_space_in_product_list = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": "GeForce RTX 4090, GeForce RTX 4080"
+        }
+        requests = [request_one_wrong_cpu, request_one_wrong_gpu, request_space_in_product_list]
+        for request in requests:
+            serializer = FetchPropertiesSerializer(data=request)
+            with self.assertRaises(serializers.ValidationError):
+                if serializer.is_valid():
+                    validate_price_fetch_request(serializer.data)
+
+
+    def test_empty_product_list(self):
+        request_empty_gpus = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": ""
+        }
+        request_empty_cpus = {
+            "fetch_type": self.cpu_g_fetch_type,
+            "product_list": ""
+        }
+        requests = [request_empty_gpus, request_empty_cpus]
+        for request in requests:
+            serializer = FetchPropertiesSerializer(data=request)
+            self.assertNotEqual(True, serializer.is_valid())
+
+
+    def test_too_many_product_list_num_items(self):
+        request_4_gpus = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": "GeForce RTX 4090,GeForce RTX 4080,Radeon RX 7900 XTX,GeForce RTX 4070 Ti"
+        }
+        request_8_cpus = {
+            "fetch_type": self.cpu_g_fetch_type,
+            "product_list":"AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,AMD Ryzen 9 5950X,AMD Ryzen 9 5900X,AMD Ryzen 7 5800X,AMD Ryzen 7 5800X3D,AMD Ryzen 7 5700X"
+        }
+        requests = [request_4_gpus, request_8_cpus]
+        for request in requests:
+            serializer = FetchPropertiesSerializer(data=request)
+            with self.assertRaises(serializers.ValidationError):
+                if serializer.is_valid():
+                    validate_price_fetch_request(serializer.data)
+
     def test_invalid_fetch_types(self):
         request_wrong_name = {
             "fetch_type": "", 
