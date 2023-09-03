@@ -22,11 +22,11 @@ export default async function Fetches({
 }) {
   const completedFetchData = await getCompletedFetches();
 
-  const scrapes_per_page: number = 18;
+  const scrapesPerPage: number = 18;
 
   const numScrapes: number = completedFetchData?.length;
 
-  const maxPages: number = Math.ceil(numScrapes / scrapes_per_page);
+  const maxPages: number = Math.ceil(numScrapes / scrapesPerPage);
 
   if (
     Object.keys(searchParams).length !== 0 &&
@@ -42,8 +42,8 @@ export default async function Fetches({
 
   const page = searchParams["page"] ?? "1";
 
-  const start = (Number(page) - 1) * scrapes_per_page;
-  const end = start + scrapes_per_page;
+  const start = (Number(page) - 1) * scrapesPerPage;
+  const end = start + scrapesPerPage;
 
   const paginatedScrapes = completedFetchData?.reverse().slice(start, end);
 
@@ -132,6 +132,8 @@ export default async function Fetches({
             hasNextPage={end < numScrapes}
             hasPrevPage={start > 0}
             maxPages={maxPages}
+            totalCount={numScrapes}
+            pageSize={scrapesPerPage}
           />
         </Suspense>
       </div>

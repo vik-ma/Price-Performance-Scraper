@@ -1,27 +1,38 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
+import { usePaginationRange } from "./UsePaginationRange";
 
 interface PaginationControlsProps {
   hasNextPage: boolean;
   hasPrevPage: boolean;
   maxPages: number;
+  totalCount: number;
+  pageSize: number;
 }
 
 export default function PaginationControls({
   hasNextPage,
   hasPrevPage,
   maxPages,
+  totalCount,
+  pageSize,
 }: PaginationControlsProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
 
   const page = searchParams.get("page") ?? "1";
 
-  const pagesArray: number[] = Array.from(
-    { length: maxPages },
-    (_, index) => index + 1
-  );
+  const currentPage = Number(page);
+  const siblingCount: number = 1;
+
+  // Create array for pagination range
+  const paginationRange = usePaginationRange({
+    totalCount,
+    pageSize,
+    siblingCount,
+    currentPage,
+  });
 
   return (
     <div className="scrape-pagination-container">
@@ -44,7 +55,7 @@ export default function PaginationControls({
         &lt;
       </button>
       <div className="pagination-page-display">
-        {pagesArray.map((index) => {
+        {paginationRange?.map((index) => {
           return (
             <button
               className={
@@ -55,8 +66,11 @@ export default function PaginationControls({
               onClick={() => {
                 router.push(`/scrapes/?page=${index}`);
               }}
+              // Disable button if there should be dots instead
+              disabled={index === 0}
             >
-              {index}
+              {/* Replace 0 with ... */}
+              {index === 0 ? "..." : `${index}`}
             </button>
           );
         })}
