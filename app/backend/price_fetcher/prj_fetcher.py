@@ -173,7 +173,7 @@ def fetch_gpu_category_page(url) -> list:
 
             # Wait one second before scraping next page
             print("Sleeping until next page")
-            time.sleep(2.5)
+            time.sleep(1)
 
             # Scrape next page
             response = scraper.get(url)
@@ -512,7 +512,7 @@ def get_store_price_for_products_from_category(product_link_list, product_catego
 
         # Wait one second before scraping next page in list (except for last item in list)
         if product != product_link_list[-1]:
-            time.sleep(2.5)
+            time.sleep(1)
 
     return store_price_list
 
@@ -606,7 +606,7 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
                 return Exception(f"Error parsing json for GPU category page: {product_category_url}")
 
             # Wait one second before scraping product pages
-            time.sleep(2.5)
+            time.sleep(1)
 
             try:
                 # Scrape product pages of cheapest product listings for GPU model
@@ -616,7 +616,7 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
             
             # Wait one second before scraping next GPU category in list (except for last item in list)
             if product_category != product_choice_list[-1]:
-                time.sleep(2.5)
+                time.sleep(1)
 
             # Go to the next GPU model in list if no products in stock were found for this GPU model
             if len(product_price_list) < 1:
@@ -712,7 +712,7 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
 
             # Wait one second before scraping next CPU model in list (except for last item in list)
             if product != product_choice_list[-1]:
-                time.sleep(2.5)
+                time.sleep(1)
 
         # If no CPU models in list had any products in store
         if len(benchmark_price_list) < 1:
@@ -802,7 +802,7 @@ def test_number_of_fetches_possible(product_list, product_category):
         status_code_str = f"{status_code_str} {i}: {status_code}"
 
         if product != product_url_list[-1]:
-            time.sleep(2.5)
+            time.sleep(1)
 
     return status_code_str
     
