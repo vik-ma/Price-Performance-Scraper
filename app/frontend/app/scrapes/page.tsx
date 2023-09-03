@@ -8,7 +8,8 @@ import { notFound } from "next/navigation";
 async function getCompletedFetches() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_all_completed_fetches/`,
-    { next: { revalidate: 0 } }
+    // Wait 20 seconds before fetching again
+    { next: { revalidate: 20 } }
   );
   const data: CompletedFetchProps[] = await res.json();
 
