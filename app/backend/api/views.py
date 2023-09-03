@@ -43,10 +43,10 @@ class ScrapeThrottle():
 scrape_throttle = ScrapeThrottle()
 
 # List of allowed benchmark types for Price Scrape
-valid_fetch_types = frozenset(["GPU", "CPU-Gaming", "CPU-Normal"])
+VALID_FETCH_TYPES = frozenset(["GPU", "CPU-Gaming", "CPU-Normal"])
 
 # List of allowed GPU models to Price Scrape
-valid_gpu_set = frozenset([
+VALID_GPU_SET = frozenset([
     "GeForce RTX 4090",
     "GeForce RTX 4080",
     "Radeon RX 7900 XTX",
@@ -79,7 +79,7 @@ valid_gpu_set = frozenset([
 ])
 
 # List of allowed CPU models to Price Scrape
-valid_cpu_set = frozenset([
+VALID_CPU_SET = frozenset([
     "AMD Ryzen 9 7950X3D",
     "AMD Ryzen 9 7900X3D",
     "AMD Ryzen 7 7800X3D",
@@ -129,6 +129,10 @@ valid_cpu_set = frozenset([
     "Intel Core i5-12400",
 ])
 
+# Max limit for number of product_list items
+GPU_PRODUCT_LIST_LIMIT = 3
+CPU_PRODUCT_LIST_LIMIT = 7
+
 def validate_price_fetch_request(serializer_data):
     """
     Validates data sent to start_price_fetch and raises ValidationError if data is invalid.
@@ -141,7 +145,7 @@ def validate_price_fetch_request(serializer_data):
     """
 
     # Check if benchmark type is valid
-    if serializer_data["fetch_type"] not in valid_fetch_types:
+    if serializer_data["fetch_type"] not in VALID_FETCH_TYPES:
         raise serializers.ValidationError("Not a valid fetch_type")
     
     # Set benchmark type
@@ -154,20 +158,20 @@ def validate_price_fetch_request(serializer_data):
         raise serializers.ValidationError("Not a valid product_list string")
 
     # Check if there are no more than 3 products for a Price Scrape of GPUs
-    if fetch_type == "GPU" and len(product_list) > 3:
+    if fetch_type == "GPU" and len(product_list) > GPU_PRODUCT_LIST_LIMIT:
         raise serializers.ValidationError("product_list too long")
 
     # Check if there are no more than 7 products for a Price Scrape of CPUs
-    if (fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal") and len(product_list) > 7:
+    if (fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal") and len(product_list) > CPU_PRODUCT_LIST_LIMIT:
         raise serializers.ValidationError("product_list too long")
 
     # Set list of allowed products for benchmark type
     if fetch_type == "GPU":
-        valid_product_set = valid_gpu_set     
+        valid_product_set = VALID_GPU_SET     
     elif fetch_type == "CPU-Gaming":
-        valid_product_set = valid_cpu_set
+        valid_product_set = VALID_CPU_SET
     elif fetch_type == "CPU-Normal":
-        valid_product_set = valid_cpu_set
+        valid_product_set = VALID_CPU_SET
 
     # Check if all items in product_list are allowed
     if not product_list.issubset(valid_product_set):
