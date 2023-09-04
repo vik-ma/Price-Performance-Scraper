@@ -99,11 +99,39 @@ class TestValidPriceFetchRequest(TestCase):
             self.assertNotEqual(True, serializer.is_valid())
 
 
+    def test_invalid_product_list_type(self):
+        request_wrong_type = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": ["GeForce RTX 4090", "GeForce RTX 4080"]
+        }
+        serializer = FetchPropertiesSerializer(data=request_wrong_type)
+        self.assertNotEqual(True, serializer.is_valid())
+
+
+    def test_invalid_product_list_string(self):
+        request_too_many_commas = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": "GeForce RTX 4090,GeForce RTX 4080,"
+        }
+        request_no_commas = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": "GeForce RTX 4090GeForce RTX 4080"
+        }
+        requests = [request_too_many_commas, request_no_commas]
+        for request in requests:
+            serializer = FetchPropertiesSerializer(data=request)
+            with self.assertRaises(serializers.ValidationError):
+                if serializer.is_valid():
+                    validate_price_fetch_request(serializer.data)
+
+
     def test_too_many_product_list_num_items(self):
+        # Current limit is 3 GPUs per scrape, change this if limit changes
         request_4_gpus = {
             "fetch_type": self.gpu_fetch_type,
             "product_list": "GeForce RTX 4090,GeForce RTX 4080,Radeon RX 7900 XTX,GeForce RTX 4070 Ti"
         }
+        # Current limit is 7 CPUs per scrape, change this if limit changes
         request_8_cpus = {
             "fetch_type": self.cpu_g_fetch_type,
             "product_list":"AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,AMD Ryzen 9 5950X,AMD Ryzen 9 5900X,AMD Ryzen 7 5800X,AMD Ryzen 7 5800X3D,AMD Ryzen 7 5700X"
@@ -114,6 +142,7 @@ class TestValidPriceFetchRequest(TestCase):
             with self.assertRaises(serializers.ValidationError):
                 if serializer.is_valid():
                     validate_price_fetch_request(serializer.data)
+
 
     def test_invalid_fetch_types(self):
         request_wrong_name = {
