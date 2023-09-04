@@ -1722,6 +1722,25 @@ h3.information-sub-header {
   text-align: center;
 }
 
+.demo-deployment-message {
+  /* background-color: #222222; */
+  margin: 15px 0;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 24px;
+  border: 5px solid rgb(255, 89, 89);
+  border-radius: 20px;
+}
+
+.demo-deployment-heading {
+  color: var(--bold-normal-text);
+  margin-bottom: 0 !important;
+}
+
+.demo-deployment-text {
+
+}
+
 @media (max-width: 1315px) {
   /* Remove sidebar in /scrapes page */
   .sidebar {
