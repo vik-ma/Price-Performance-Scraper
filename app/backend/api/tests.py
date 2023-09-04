@@ -1,7 +1,9 @@
-from django.test import TestCase
-from api.views import VALID_CPU_SET, VALID_GPU_SET, CPU_PRODUCT_LIST_LIMIT, GPU_PRODUCT_LIST_LIMIT, validate_price_fetch_request
+from django.test import TestCase, Client
+from api.views import VALID_CPU_SET, VALID_GPU_SET, validate_price_fetch_request, start_price_fetch, ScrapeThrottle
 from api.serializers import FetchPropertiesSerializer
-from rest_framework import serializers
+from rest_framework import serializers, status
+from django.http import HttpRequest
+import json
 
 # Create your tests here.
 class TestValidPriceFetchRequest(TestCase):
@@ -174,3 +176,62 @@ class TestValidPriceFetchRequest(TestCase):
             with self.assertRaises(serializers.ValidationError):
                 if serializer.is_valid():
                     validate_price_fetch_request(serializer.data)
+
+
+class TestStartPriceFetchStatusCodes(TestCase):
+    def setUp(self):
+        self.cpu_g_fetch_type = "CPU-Gaming"
+        self.cpu_n_fetch_type = "CPU-Normal"
+        self.gpu_fetch_type = "GPU"
+        self.client = Client()
+
+
+    def test_invalid_start_price_fetch_request_status_code(self):
+        invalid_cpu_request = {
+            "fetch_type": self.cpu_g_fetch_type,
+            "product_list": "GeForce RTX 4090"
+        }
+        url = '/api/start_price_fetch/'
+        response = self.client.post(url, data=invalid_cpu_request)
+        self.assertEqual(status.HTTP_400_BAD_REQUEST, response.status_code)
+
+
+    def test_valid_start_price_fetch_request_status_code(self):
+        valid_cpu_request = {
+            "fetch_type": "CPU-Gaming",
+            "product_list": "AMD Ryzen 9 7950X3D"
+        }
+        url = '/api/start_price_fetch/'
+        response = self.client.post(url, data=valid_cpu_request)
+        self.assertEqual(status.HTTP_201_CREATED, response.status_code)
+
+
+    def test_valid_start_price_fetch_request_status_code_cooldown(self):
+        valid_cpu_request = {
+            "fetch_type": "CPU-Gaming",
+            "product_list": "AMD Ryzen 9 7950X3D"
+        }
+        url = '/api/start_price_fetch/'
+        response = self.client.post(url, data=valid_cpu_request)
+        response_2 = self.client.post(url, data=valid_cpu_request)
+        self.assertEqual(status.HTTP_503_SERVICE_UNAVAILABLE, response_2.status_code)
+    
+
+class TestScrapeThrottle(TestCase):
+    def setUp(self):
+        self.cpu_g_fetch_type = "CPU-Gaming"
+        self.cpu_n_fetch_type = "CPU-Normal"
+        self.gpu_fetch_type = "GPU"
+
+
+    def test_valid_allow_request(self):
+        scrape_throttle = ScrapeThrottle()
+        allowed = scrape_throttle.allow_request()
+        self.assertEqual(True, allowed)
+    
+
+    def test_invalid_allow_request(self):
+        scrape_throttle = ScrapeThrottle()
+        scrape_throttle.set_new_time()
+        allowed = scrape_throttle.allow_request()
+        self.assertNotEqual(True, allowed)
