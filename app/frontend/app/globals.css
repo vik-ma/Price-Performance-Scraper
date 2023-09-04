@@ -1725,10 +1725,10 @@ h3.information-sub-header {
 .demo-deployment-message {
   /* background-color: #222222; */
   margin: 15px 0;
-  padding: 6px 20px 15px;
+  padding: 6px 22px 15px;
   /* text-align: center; */
   font-size: 24px;
-  border: 5px solid rgb(255, 89, 89);
+  border: 5px solid rgb(255, 83, 83);
   border-radius: 20px;
 }
 

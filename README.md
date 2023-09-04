@@ -151,3 +151,5 @@ The following models **are** included:
 - Intel Core i5-12400F
 - AMD Ryzen 5 5500
 - Intel Core i5-12400
+
+## Set Up Application On Localhost
