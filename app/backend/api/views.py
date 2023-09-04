@@ -6,6 +6,8 @@ from price_fetcher.models import BenchmarkData, CompletedFetch, ProductListing
 import price_fetcher.views as pf
 import datetime
 import json
+from django.db.models import Q
+import time
 
 class ScrapeThrottle():
     """
@@ -228,7 +230,9 @@ def start_price_fetch(request) -> Response:
         scrape_throttle.set_new_time()
 
         # Start Price Scrape
-        price_fetch = pf.start_price_fetching(serializer.data)
+        # price_fetch = pf.start_price_fetching(serializer.data)
+
+        price_fetch = mock_price_scrape(serializer.data)
 
         # Send back Response once Price Scraping is finished
         return Response(price_fetch, status=status.HTTP_201_CREATED)
@@ -343,6 +347,24 @@ def get_scrape_allowed(request) -> Response:
     return Response({
         "success": True, "allow": allow_scrape_request
     }, status=status.HTTP_200_OK)
+
+
+def mock_price_scrape(data):
+    fetch_type = data["fetch_type"]
+
+    try:
+        if fetch_type != "GPU":
+            random_scrape = CompletedFetch.objects.filter(Q(product_list__contains=',') & Q(benchmark_type=fetch_type))
+        else:
+            random_scrape = CompletedFetch.objects.filter(benchmark_type = 'GPU')
+    except:
+        return {"success": False, "message": "An error occurred during mocked price scrape."}
+
+    random_scrape_object = random_scrape.order_by('?').first()
+
+    time.sleep(2.5)
+
+    return {"success": True, "message": str(random_scrape_object.timestamp_id)}
 
 
 # @api_view(['GET'])
