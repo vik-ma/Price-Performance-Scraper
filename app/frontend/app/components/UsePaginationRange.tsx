@@ -1,3 +1,6 @@
+// Custom Pagination Controls Hook
+// From https://github.com/mayankshubham/react-pagination/blob/master/src/usePagination.js
+
 import { useMemo } from "react";
 
 export type PaginationProps = {
