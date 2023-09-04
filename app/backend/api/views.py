@@ -232,6 +232,7 @@ def start_price_fetch(request) -> Response:
         # Start Price Scrape
         # price_fetch = pf.start_price_fetching(serializer.data)
 
+        # Start a Mock Price Scrape
         price_fetch = mock_price_scrape(serializer.data)
 
         # Send back Response once Price Scraping is finished
@@ -350,21 +351,47 @@ def get_scrape_allowed(request) -> Response:
 
 
 def mock_price_scrape(data):
+    """
+    Starts a Mock Price Scrape based on the benchmark type of request data.
+
+    A Mock Price Scrape will, instead of executing a real time price scrape, just fetch a random
+    CompletedFetch item from the database of the same fetch_type/benchmark_type as the request.
+
+        Parameters:
+            data (dict): Dictionary containing JSON data from API call.
+                         Contains data of the FetchProperties type in api/models.
+        
+        Returns:
+            dict{"success": True, "message": str}: If database fetching was successful,
+                                                   returns the timestamp_id of the
+                                                   random CompletedFetch timestamp_id as message.
+
+            dict{"success": False, "message": str}: If database fetching ran into an error,
+                                                    returns a generic error message.
+    """
     fetch_type = data["fetch_type"]
 
     try:
         if fetch_type != "GPU":
+            # If fetch_type is CPU, grab all CompletedFetch objects of the same benchmark_type
+            # That has a product_list of more than one product
             random_scrape = CompletedFetch.objects.filter(Q(product_list__contains=',') & Q(benchmark_type=fetch_type))
         else:
+            # If fetch_type is GPU, grab all CompletedFetch objects of 'GPU' benchmark_type
             random_scrape = CompletedFetch.objects.filter(benchmark_type = 'GPU')
     except:
         return {"success": False, "message": "An error occurred during mocked price scrape."}
 
+    # Get random CompletedFetch object 
     random_scrape_object = random_scrape.order_by('?').first()
 
-    time.sleep(2.5)
+    # Wait for 3 seconds to simulate a real-time scrape
+    time.sleep(3)
 
-    return {"success": True, "message": str(random_scrape_object.timestamp_id)}
+    # Get the timestamp_id of the random object
+    timestamp_id = str(random_scrape_object.timestamp_id)
+
+    return {"success": True, "message": timestamp_id}
 
 
 # @api_view(['GET'])

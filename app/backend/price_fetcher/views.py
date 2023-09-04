@@ -127,7 +127,7 @@ def start_price_fetching(data) -> dict:
                                                    Price Scrape as message.
 
             dict{"success": False, "message": str}: If Price Scrape ran into an error,
-                                                    returns the error as message.
+                                                    returns a generic error message.
 
             Exception: If data gathered from Price Scrape can't be saved to database.            
     """
