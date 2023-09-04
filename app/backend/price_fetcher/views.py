@@ -145,8 +145,10 @@ def start_price_fetching(data) -> dict:
 
     # If Price Scrape has returned an Exception
     if type(fetched_prices) == Exception:
-        # Return dict/JSON with message of Exception
-        return {"success": False, "message": str(fetched_prices)}
+        # Print message of Exception
+        print(str(fetched_prices))
+        # Return JSON saying price scraping failed
+        return {"success": False, "message": "An error occurred during price scraping."}
 
     # Create timestamp of when Price Scrape was completed
     current_timestamp = get_current_timestamp()
