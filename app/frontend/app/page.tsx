@@ -29,7 +29,31 @@ export default async function Home() {
       </h1>
       <div className="demo-deployment-message">
         <h2 className="demo-deployment-heading">Important Message</h2>
-        <p className="demo-deployment-text">Test</p>
+        <h3 className="demo-deployment-heading">This Is A Demo Deployment</h3>
+        <p className="demo-deployment-text">
+          Since the project started, it has become impossible to perform price
+          scraping if the back-end is hosted at a data center. Without either
+          self-hosting the back-end from a residential IP-address, or using a
+          residential proxy service, it is no longer possible to perform
+          real-time price scrapes using this website.
+          <br />
+          <br />
+          Everything else on both the front-end and back-end still works. In
+          this demo-deployment, real-time Price Scraping is mocked. When a Price
+          Scrape is started, instead of performing a Price Scrape, the back-end
+          will just wait for a few seconds, and then return a random completed
+          Price Scrape of the same Benchmark Type from the database.
+          <br />
+          <br />
+          The mocked Price Scrape process is pretty much identical to how a real
+          Price Scrape is performed. This GIF shows how the website would work
+          under normal circumstances.
+          <br />
+          <br />
+          The back-end still works like it should when you run it on localhost.
+          If you want to set up the application on your localhost, follow this
+          guide in the GitHub README.
+        </p>
       </div>
       <p className="home-text">
         <strong className="bold-white-text">Price/Performance Scraper</strong>{" "}
