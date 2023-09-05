@@ -5,6 +5,16 @@ Price/Performance Scraper is a full-stack web application that can scrape online
 
 ***As of now, only online stores in Sweden are available for scraping.***
 
+## Demo Deployment
+
+The application is currently deployed. However, since the project started, it has become impossible to perform price scraping if the back-end is hosted at a data center. Without either self-hosting the back-end from a residential IP-address, or using a residential proxy service, it is no longer possible to perform real-time price scrapes using the website.
+
+Everything else on both the front-end and back-end still works. **In the Demo Deployment, real-time Price Scraping is mocked.** When a Price Scrape is started, instead of performing a Price Scrape, the back-end will just wait for a few seconds, and then return a random completed Price Scrape of the same Benchmark Type from the database.
+
+The back-end still works like it should when you run it on localhost. If you want to set up the application on your localhost, follow the guide in the **[Set Up Application On Localhost](#set-up-application-on-localhost)** section.
+
+## About The Application
+
 The application consists of a back-end made in **Python** and **Django**, with a **PostgreSQL** database, and a front-end made with **TypeScript**, **React**, **Next.js 13** and **PicoCSS**. **Docker** is also being used to host the back-end in development.
 
 The front-end is a website where the user can select which GPU or CPU models they want to compare. With just the click of a button, Python will start web-scraping on the back-end. Once the scrape is finished and the Price/Performance Scores calculated on the back-end, the user is presented with a table consisting of all product listings found, ranked by their Price/Performance Scores. The user is able to interact with the table, like filter out specific stores or products, or just sort the table by a different column.
