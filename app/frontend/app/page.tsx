@@ -43,7 +43,7 @@ export default async function Home() {
           <br />
           Everything else on both the front-end and back-end still works.{" "}
           <strong className="bold-white-text">
-            In this demo deployment, real-time Price Scraping is mocked.
+            In this demo deployment, real-time Price Scraping is simulated.
           </strong>{" "}
           When a Price Scrape is started, instead of performing a Price Scrape,
           the back-end will just wait for a few seconds, and then return a
@@ -51,7 +51,7 @@ export default async function Home() {
           database.
           <br />
           <br />
-          The mocked Price Scrape process is pretty much identical to how a real
+          The simulated Price Scrape process is pretty much identical to how a real
           Price Scrape is performed.{" "}
           <a
             href="https://github.com/vik-ma/Price-Performance-Scraper/blob/master/pps-preview.gif"

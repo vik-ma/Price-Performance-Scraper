@@ -9,7 +9,7 @@ Price/Performance Scraper is a full-stack web application that can scrape online
 
 The application is currently deployed. However, since the project started, it has become impossible to perform price scraping if the back-end is hosted at a data center. Without either self-hosting the back-end from a residential IP-address, or using a residential proxy service, it is no longer possible to perform real-time price scrapes using the website.
 
-Everything else on both the front-end and back-end still works. **In the Demo Deployment, real-time Price Scraping is mocked.** When a Price Scrape is started, instead of performing a Price Scrape, the back-end will just wait for a few seconds, and then return a random completed Price Scrape of the same Benchmark Type from the database.
+Everything else on both the front-end and back-end still works. **In the Demo Deployment, real-time Price Scraping is simulated.** When a Price Scrape is started, instead of performing a Price Scrape, the back-end will just wait for a few seconds, and then return a random completed Price Scrape of the same Benchmark Type from the database.
 
 The back-end still works like it should when you run it on localhost. If you want to set up the application on your localhost, follow the guide in the **[Set Up Application On Localhost](#set-up-application-on-localhost)** section.
 
@@ -179,7 +179,7 @@ After installation is complete, go into the **app/backend** directory:
 
 ```cd app/backend```
 
-Create a file called **.env** in the app/backend directory, then paste this into it and save:
+Create a file called **.env** in the app/backend directory, paste this code into it and save:
 
 ```
 DEBUG = True
@@ -198,7 +198,7 @@ DB_PORT = '5432'
 
 *Change the Secret Key if you ever deploy the backend.*
 
-Create a file called **docker-compose.yaml** in the app/backend directory, then paste this into it and save:
+Create a file called **docker-compose.yaml** in the app/backend directory, paste this code into it and save:
 
 ```
 version: '3.9'
@@ -279,7 +279,7 @@ Install dependencies using your JavaScript package manager:
 npm install
 ```
 
-Create a file called **.env.local** inside the *app/frontend* directory, then paste this line into it and save:
+Create a file called **.env.local** inside the *app/frontend* directory, paste this line into it and save:
 
 ```NEXT_PUBLIC_DJANGO_API_URL=http://localhost:8000/api```
 
