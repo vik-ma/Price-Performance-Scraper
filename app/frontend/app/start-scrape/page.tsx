@@ -7,6 +7,7 @@ import { ScrapeAllowedAPIResponse } from "@/typings";
 import GPUIcon from "../icons/GPUIcon";
 import CPUGIcon from "../icons/CPUGIcon";
 import CPUNIcon from "../icons/CPUNIcon";
+import Link from "next/link";
 
 // Function to call Django API and see if Price Scrape is on cooldown
 async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
@@ -95,6 +96,18 @@ export default function NewScrape() {
       <h1>
         <span className="title-gradient">Start New Price Scrape</span>
       </h1>
+      <div id="demo-deployment" className="demo-deployment-container">
+        <h2 className="demo-deployment-heading">Price Scraping Is Mocked</h2>
+        <p className="demo-deployment-text text-centered">
+          <strong className="bold-white-text">
+            Read the Important Message on the{" "}
+            <Link href={"/"} className="internal-link-color">
+              Home Page
+            </Link>{" "}
+            to learn more.
+          </strong>
+        </p>
+      </div>
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>

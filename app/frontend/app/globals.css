@@ -1742,7 +1742,7 @@ h3.information-sub-header {
 /* Text inside p tag of demo-deployment-container */
 .demo-deployment-text {
   margin-top: 6px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 @media (max-width: 1315px) {
@@ -2060,7 +2060,6 @@ h3.information-sub-header {
   }
   .demo-deployment-text {
     margin-top: 8px;
-    margin-bottom: 8px;
   }
 }
 
