@@ -299,6 +299,10 @@ label:hover {
   border: 2px solid white;
 }
 
+.dark-button:active {
+  background-color: rgba(160, 160, 170, 0.9);
+}
+
 /* Generic class for links to other pages on site */
 .internal-link-color {
   color:rgb(47, 161, 255);
