@@ -163,3 +163,132 @@ The following models **are** included:
 - Intel Core i5-12400
 
 ## Set Up Application On Localhost
+Make sure you have **Docker Engine/Docker Desktop**, **Pipenv** and a JS package manager **(npm/yarn/pnpm)** installed first.
+
+### 1. Clone the localhost branch
+Clone the **localhost** branch to get the pure version of the application:
+
+```git clone -b localhost git@github.com:vik-ma/Price-Performance-Scraper.git```
+
+### 2. Set up the backend
+In the root of the project, install dependencies from Pipfile using Pipenv:
+
+```pipenv install```
+
+After installation is complete, go into the **app/backend** directory:
+
+```cd app/backend```
+
+Create a file called **.env** in the app/backend directory, then paste this into it and save:
+
+```
+DEBUG = True
+SECRET_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+ALLOWED_HOSTS = "*"
+CORS_ORIGIN_WHITELIST = 'http://localhost:3000'
+CORS_ALLOWED_ORIGINS = 'http://localhost:3000'
+CORS_ORIGIN_ALLOW_ALL = True
+
+DB_NAME = 'pps_db'
+DB_USER = 'root'
+DB_PASSWORD = 'root'
+DB_HOST = 'host.docker.internal'
+DB_PORT = '5432'
+```
+
+*Change the Secret Key if you ever deploy the backend.*
+
+Create a file called **docker-compose.yaml** in the app/backend directory, then paste this into it and save:
+
+```
+version: '3.9'
+
+
+services:
+  db:
+    container_name: db_container
+    image: postgres
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+    volumes:
+       - postgres:/data/postgres
+    ports:
+      - "5432:5432"
+    networks:
+      app_net:
+        ipv4_address: 192.168.0.2
+
+  backend: 
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+    ports:
+      - '8000:8000'
+    volumes:
+      - ./backend:/app/backend
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+      PGDATA: /data/postgres
+    depends_on:
+      - db
+
+volumes:
+    postgres:
+
+networks:
+  app_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "192.168.0.0/24"
+          gateway: 192.168.0.1
+```
+
+Build the Docker containers:
+
+```docker-compose build```
+
+Once the Docker containers are built, start the backend:
+
+```docker-compose up```
+### 3. Access the backend dashboard
+
+The backend dashboard can now be accessed on **http://localhost:8000/**.
+
+**Before you can do a Price Scrape, you need to scrape benchmark data at least once.**
+
+Click the **Scrape Benchmarks** button on the dashboard.
+
+Once you have added benchmark data to the database, you can perform a test Price Scrape by clicking on any of the buttons under the **Price Scrapes** section.
+
+### 4. Set up the frontend
+
+Navigate to the **app/frontend** directory.
+
+Install dependencies using your JavaScript package manager:
+
+*Examples using npm*
+
+```
+npm install
+```
+
+Create a file called **.env.local** inside the *app/frontend* directory, then paste this line into it and save:
+
+```NEXT_PUBLIC_DJANGO_API_URL=http://localhost:8000/api```
+
+Now, build the Next.js app *(Backend must be running during this)*:
+
+```npm run build```
+
+When building is complete, start the frontend:
+
+```npm run start```
+
+**Setup is now complete** and you can access the frontend on **http://localhost:3000/**!
