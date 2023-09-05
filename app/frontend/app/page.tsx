@@ -27,7 +27,7 @@ export default async function Home() {
       <h1>
         <span className="title-gradient">Price/Performance Scraper</span>
       </h1>
-      <div id="demo-deployment-div" className="demo-deployment-message">
+      <div id="demo-deployment" className="demo-deployment-container">
         <h2 className="demo-deployment-heading">Important Message</h2>
         <h3 className="demo-deployment-heading">This Is A Demo Deployment</h3>
         <p className="demo-deployment-text">

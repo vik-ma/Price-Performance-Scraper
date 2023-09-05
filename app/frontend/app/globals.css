@@ -1722,24 +1722,26 @@ h3.information-sub-header {
   text-align: center;
 }
 
-.demo-deployment-message {
-  /* background-color: #222222; */
+/* Container for the demo-deployment message */
+.demo-deployment-container {
   margin: 15px 0;
-  padding: 6px 22px 15px;
+  padding: 4px 22px 14px;
   /* text-align: center; */
   font-size: 24px;
   border: 5px solid rgb(255, 83, 83);
   border-radius: 20px;
 }
 
+/* Headers inside demo-deployment-container */
 .demo-deployment-heading {
   text-align: center;
   color: var(--bold-normal-text);
   margin-bottom: 0 !important;
 }
 
+/* Text inside p tag of demo-deployment-container */
 .demo-deployment-text {
-  margin-top: 5px;
+  margin-top: 6px;
 }
 
 @media (max-width: 1315px) {
@@ -2051,6 +2053,12 @@ h3.information-sub-header {
   }
   .pagination-page-display-small {
     display: flex;
+  }
+  .demo-deployment-container {
+    padding: 4px 12px 10px;
+  }
+  .demo-deployment-text {
+    margin-top: 8px;
   }
 }
 
