@@ -1725,7 +1725,7 @@ h3.information-sub-header {
 /* Container for the demo-deployment message */
 .demo-deployment-container {
   margin: 15px 0;
-  padding: 4px 22px 14px;
+  padding: 4px 22px;
   /* text-align: center; */
   font-size: 24px;
   border: 5px solid rgb(255, 83, 83);
@@ -1742,6 +1742,7 @@ h3.information-sub-header {
 /* Text inside p tag of demo-deployment-container */
 .demo-deployment-text {
   margin-top: 6px;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 1315px) {
@@ -2055,10 +2056,11 @@ h3.information-sub-header {
     display: flex;
   }
   .demo-deployment-container {
-    padding: 4px 12px 10px;
+    padding: 4px 12px;
   }
   .demo-deployment-text {
     margin-top: 8px;
+    margin-bottom: 8px;
   }
 }
 
