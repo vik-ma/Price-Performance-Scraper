@@ -179,7 +179,7 @@ After installation is complete, go into the **app/backend** directory:
 
 ```cd app/backend```
 
-Create a file called **.env** in the app/backend directory, paste this code into it and save:
+Create a file called **.env** in the **app/backend** directory, paste this code into it and save:
 
 ```
 DEBUG = True
@@ -198,7 +198,11 @@ DB_PORT = '5432'
 
 *Change the Secret Key if you ever deploy the backend.*
 
-Create a file called **docker-compose.yaml** in the app/backend directory, paste this code into it and save:
+Go up one step to the **app** directory:
+
+```cd ..```
+
+Create a file called **docker-compose.yaml** in the **app** directory, paste this code into it and save:
 
 ```
 version: '3.9'
