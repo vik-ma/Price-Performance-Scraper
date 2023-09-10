@@ -7,9 +7,9 @@ Price/Performance Scraper is a full-stack web application that can scrape online
 
 ## Demo Deployment
 
-The application is currently deployed. However, since the project started, it has become impossible to perform price scraping if the back-end is hosted at a data center. Without either self-hosting the back-end from a residential IP-address, or using a residential proxy service, it is no longer possible to perform real-time price scrapes using the website.
+**[The website can be visited here!](https://price-performance-scraper.vercel.app/)** However, since the project started, it has become impossible to perform price scraping if the back-end is hosted at a data center. Without either self-hosting the back-end from a residential IP-address, or using a residential proxy service, it is no longer possible to perform real-time price scrapes using the website.
 
-Everything else on both the front-end and back-end still works. **In the Demo Deployment, real-time Price Scraping is simulated.** When a Price Scrape is started, instead of performing a Price Scrape, the back-end will just wait for a few seconds, and then return a random completed Price Scrape of the same Benchmark Type from the database.
+**In the Demo Deployment, real-time Price Scraping is simulated.** When a Price Scrape is started, instead of performing a Price Scrape, the back-end will just wait for a few seconds, and then return a random completed Price Scrape of the same Benchmark Type from the database. Everything else on both the front-end and back-end still works.
 
 The back-end still works like it should when you run it on localhost. If you want to set up the application on your localhost, follow the guide in the **[Set Up Application On Localhost](#set-up-application-on-localhost)** section.
 
