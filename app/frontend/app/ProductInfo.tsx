@@ -56,13 +56,13 @@ export const gpuInfo = {
     tier: "3",
     manufacturer: "AMD",
   },
+  "Radeon RX 7700 XT": {
+    tier: "3",
+    manufacturer: "AMD",
+  },
   "GeForce RTX 3060 Ti": {
     tier: "4",
     manufacturer: "Nvidia",
-  },
-  "Radeon RX 7700 XT": {
-    tier: "4",
-    manufacturer: "AMD",
   },
   "Radeon RX 6700 XT": {
     tier: "4",
@@ -219,7 +219,7 @@ export const cpuInfo = {
     socket: "Socket AM5",
   },
   "AMD Ryzen 9 7900": {
-    gamingTier: "7",
+    gamingTier: "2",
     normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "AMD",
@@ -387,7 +387,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-12700F": {
-    gamingTier: "5",
+    gamingTier: "6",
     normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "Intel",
