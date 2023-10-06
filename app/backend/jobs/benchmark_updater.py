@@ -8,5 +8,5 @@ def start():
         every day at 22:00 Swedish time.
     """
     scheduler = BackgroundScheduler(timezone="Europe/Stockholm")
-    scheduler.add_job(pf.update_benchmarks, 'cron', hour=13, minute=00, misfire_grace_time=None)
+    scheduler.add_job(pf.update_benchmarks, 'cron', hour=13, minute=15, misfire_grace_time=None)
     scheduler.start()
