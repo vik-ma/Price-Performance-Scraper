@@ -1,5 +1,4 @@
 from django.apps import AppConfig
-import os
 
 class PriceFetcherConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
@@ -12,6 +11,5 @@ class PriceFetcherConfig(AppConfig):
         """
         from jobs import benchmark_updater
         
-        if os.environ.get('RUN_MAIN'):
-            benchmark_updater.start()
+        benchmark_updater.start()
         
