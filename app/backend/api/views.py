@@ -232,10 +232,11 @@ def start_price_fetch(request) -> Response:
         scrape_throttle.set_new_time()
 
         # Start Price Scrape
-        # price_fetch = pf.start_price_fetching(serializer.data)
+        price_fetch = pf.start_price_fetching(serializer.data)
 
-        # Start a Mock Price Scrape
-        price_fetch = mock_price_scrape(serializer.data)
+        if price_fetch["success"] is False:
+            # Start a Mock Price Scrape if Price Scraping failed
+            price_fetch = mock_price_scrape(serializer.data)
 
         # Send back Response once Price Scraping is finished
         return Response(price_fetch, status=status.HTTP_201_CREATED)
