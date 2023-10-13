@@ -97,7 +97,9 @@ export default function NewScrape() {
         <span className="title-gradient">Start New Price Scrape</span>
       </h1>
       <div id="demo-deployment" className="demo-deployment-container">
-        <h2 className="demo-deployment-heading">Price Scraping Is Simulated</h2>
+        <h2 className="demo-deployment-heading">
+          Price Scraping May Get Simulated
+        </h2>
         <p className="demo-deployment-text text-centered">
           <strong className="bold-white-text">
             Read the Important Message on the{" "}

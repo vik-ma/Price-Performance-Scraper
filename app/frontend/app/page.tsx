@@ -31,28 +31,30 @@ export default async function Home() {
         <h2 className="demo-deployment-heading">Important Message</h2>
         <h3 className="demo-deployment-heading">This Is A Demo Deployment</h3>
         <p className="demo-deployment-text">
-          Since the project started, it has become impossible to perform price
-          scraping if the back-end is hosted at a data center. Without either
-          self-hosting the back-end from a residential IP-address, or using a
-          residential proxy service,{" "}
+          Since the project started, it has generally become impossible to
+          perform price scraping if the back-end is hosted at a data center.
+          Without either self-hosting the back-end from a residential
+          IP-address, or using a residential proxy service,{" "}
           <strong className="bold-white-text">
-            it is no longer possible to perform real-time price scrapes using
-            this website.
-          </strong>
-          <br />
-          <br />
-          Everything else on both the front-end and back-end still works.{" "}
-          <strong className="bold-white-text">
-            In this demo deployment, real-time Price Scraping is simulated.
+            it is (most of the time) no longer possible to perform real-time
+            price scrapes using this website.
           </strong>{" "}
-          When a Price Scrape is started, instead of performing a Price Scrape,
-          the back-end will just wait for a few seconds, and then return a
+          Everything else on both the front-end and back-end still works.
+          <br />
+          <br />{" "}
+          <strong className="bold-white-text">
+            In this demo deployment, Price Scraping gets simulated if the
+            real-time Price Scrape fails.
+          </strong>{" "}
+          When a Price Scrape is started, on rare occasions, it will perform a
+          Price Scrape as per usual. If it fails, the back-end will instead
+          simulate a Price Scrape by waiting for a few seconds and then return a
           random completed Price Scrape of the same Benchmark Type from the
           database.
           <br />
           <br />
-          The simulated Price Scrape process is pretty much identical to how a real
-          Price Scrape is performed.{" "}
+          The simulated Price Scrape process is pretty much identical to how a
+          real Price Scrape is performed.{" "}
           <a
             href="https://github.com/vik-ma/Price-Performance-Scraper/blob/master/pps-preview.gif"
             target="_blank"
@@ -63,8 +65,8 @@ export default async function Home() {
           shows how the website would work under normal circumstances.
           <br />
           <br />
-          The back-end still works like it should when you run it on localhost.
-          If you want to set up the application on your localhost, follow{" "}
+          The back-end still works as normal when its run locally. If you want
+          to set up this application on your localhost, follow{" "}
           <a
             href="https://github.com/vik-ma/Price-Performance-Scraper#set-up-application-on-localhost"
             target="_blank"
