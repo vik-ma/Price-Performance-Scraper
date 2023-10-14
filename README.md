@@ -168,9 +168,9 @@ The following models **are** included:
 Make sure you have **Docker Engine/Docker Desktop**, **Pipenv** and a JS package manager **(npm/yarn/pnpm)** installed first.
 
 ### 1. Clone the localhost branch
-Clone the **localhost** branch to get the pure version of the application:
+Clone the project:
 
-```git clone -b localhost git@github.com:vik-ma/Price-Performance-Scraper.git```
+```git clone https://github.com/vik-ma/Price-Performance-Scraper.git```
 
 ### 2. Set up the backend
 In the root of the project, install dependencies from Pipfile using Pipenv:
@@ -186,10 +186,8 @@ Create a file called **.env** in the **app/backend** directory, paste this code 
 ```
 DEBUG = True
 SECRET_KEY = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-ALLOWED_HOSTS = "*"
-CORS_ORIGIN_WHITELIST = 'http://localhost:3000'
+ALLOWED_HOSTS = '*'
 CORS_ALLOWED_ORIGINS = 'http://localhost:3000'
-CORS_ORIGIN_ALLOW_ALL = True
 
 DB_NAME = 'pps_db'
 DB_USER = 'root'
