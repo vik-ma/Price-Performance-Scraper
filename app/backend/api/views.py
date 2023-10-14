@@ -407,9 +407,3 @@ def mock_price_scrape(data):
 # def test_post(request):
 #     """Test POST request for debugging purposes."""
 #     pass
-
-
-# @api_view(['GET'])
-# def wake_api(request) -> Response:
-#     """GET request to wake sleeping serverless web service."""
-#     return Response({"message": "awake"}, status=status.HTTP_200_OK)
