@@ -30,7 +30,7 @@ export default async function Home() {
           </strong>{" "}
           When a Price Scrape is started, on rare occasions, it will perform a
           Price Scrape as per usual. If it fails, the back-end will instead
-          simulate a Price Scrape by waiting for a few seconds and then return a
+          simulate a Price Scrape by waiting for a few seconds and then fetch a
           random completed Price Scrape of the same Benchmark Type from the
           database.
           <br />

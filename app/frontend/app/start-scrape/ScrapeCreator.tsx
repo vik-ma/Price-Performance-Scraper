@@ -8,15 +8,18 @@ import { useRouter } from "next/navigation";
 import { useNewScrapeContext } from "../context/NewScrapeContext";
 import Link from "next/link";
 
-// POST Request to start Price Scraping in Django application
+// POST Request to start Price Scraping in Django application via Next.js API route
 async function startPriceFetch(data = {}) {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_NEXT_API_URL}/start-scrape/`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_NEXT_API_URL}/start-scrape/`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    }
+  );
   return response.json();
 }
 
