@@ -283,9 +283,12 @@ Install dependencies using your JavaScript package manager:
 npm install
 ```
 
-Create a file called **.env.local** inside the *app/frontend* directory, paste this line into it and save:
+Create a file called **.env.local** inside the *app/frontend* directory, paste these lines into it and save:
 
-```NEXT_PUBLIC_DJANGO_API_URL=http://localhost:8000/api```
+```
+NEXT_PUBLIC_DJANGO_API_URL=http://localhost:8000/api
+NEXT_PUBLIC_NEXT_API_URL=http://localhost:3000/api
+```
 
 Now, build the Next.js app *(Backend must be running during this)*:
 
