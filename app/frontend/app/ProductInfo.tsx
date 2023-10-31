@@ -282,14 +282,14 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-14600K": {
-    gamingTier: "3",
+    gamingTier: "",
     normalTier: "3",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-14600KF": {
-    gamingTier: "",
+    gamingTier: "3",
     normalTier: "3",
     generation: "Latest Generation",
     manufacturer: "Intel",
