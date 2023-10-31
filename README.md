@@ -118,11 +118,15 @@ The following models **are** included:
 
 - AMD Ryzen 9 7950X3D
 - AMD Ryzen 9 7950X
+- Intel Core i9-14900K
+- Intel Core i9-14900KF
 - Intel Core i9-13900KS
 - Intel Core i9-13900K
 - Intel Core i9-13900KF
 - AMD Ryzen 9 7900X
 - AMD Ryzen 9 7900X3D
+- Intel Core i7-14700KF
+- Intel Core i7-14700K
 - Intel Core i9-13900F
 - Intel Core i9-13900
 - AMD Ryzen 9 7900
@@ -133,6 +137,8 @@ The following models **are** included:
 - Intel Core i7-13700F
 - Intel Core i9-12900K
 - Intel Core i9-12900KF
+- Intel Core i5-14600K
+- Intel Core i5-14600KF
 - AMD Ryzen 9 5900X
 - Intel Core i7-13700
 - Intel Core i5-13600K
@@ -163,6 +169,9 @@ The following models **are** included:
 - Intel Core i5-12400F
 - AMD Ryzen 5 5500
 - Intel Core i5-12400
+
+#### **Currently Missing Benchmarks**
+- Intel Core i5-14600K - GAMING BENCHMARKS
 
 ## Set Up Application On Localhost
 Make sure you have **Docker Engine/Docker Desktop**, **Pipenv** and a JS package manager **(npm/yarn/pnpm)** installed first.
