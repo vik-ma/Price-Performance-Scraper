@@ -246,6 +246,7 @@ def start_price_fetch(request) -> Response:
         # Start Price Scrape
         price_fetch = pf.start_price_fetching(serializer.data)
 
+        # COMMENT THIS OUT WHEN RUNNING TESTS
         if price_fetch["success"] is False:
             # Start a Mock Price Scrape if Price Scraping failed
             price_fetch = mock_price_scrape(serializer.data)

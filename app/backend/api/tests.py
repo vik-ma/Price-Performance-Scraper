@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from api.views import VALID_CPU_NORMAL_SET, VALID_GPU_SET, validate_price_fetch_request, ScrapeThrottle
+from api.views import VALID_CPU_NORMAL_SET, VALID_CPU_GAMING_SET, VALID_GPU_SET, validate_price_fetch_request, ScrapeThrottle
 from api.serializers import FetchPropertiesSerializer
 from rest_framework import serializers, status
 
@@ -7,15 +7,16 @@ from rest_framework import serializers, status
 class TestValidPriceFetchRequest(TestCase):
     """Test cases for validating start_price_fetch POST request body."""
     def setUp(self):
-        self.cpu_product_list = VALID_CPU_NORMAL_SET
+        self.cpu_n_product_list = VALID_CPU_NORMAL_SET
+        self.cpu_g_product_list = VALID_CPU_GAMING_SET
         self.gpu_product_list = VALID_GPU_SET
         self.cpu_g_fetch_type = "CPU-Gaming"
         self.cpu_n_fetch_type = "CPU-Normal"
         self.gpu_fetch_type = "GPU"
 
     def test_valid_products_cpu_g(self):
-        """Test all CPUs in VALID_CPU_SET that they pass the serializer for CPU-Gaming."""
-        for cpu in self.cpu_product_list:
+        """Test all CPUs in VALID_CPU_GAMING_SET that they pass the serializer for CPU-Gaming."""
+        for cpu in self.cpu_g_product_list:
             request = { 
                 "fetch_type": self.cpu_g_fetch_type, 
                 "product_list": cpu
@@ -24,8 +25,8 @@ class TestValidPriceFetchRequest(TestCase):
             self.assertEqual(True, serializer.is_valid())
     
     def test_valid_products_cpu_n(self):
-        """Test all CPUs in VALID_CPU_SET that they pass the serializer for CPU-Normal."""
-        for cpu in self.cpu_product_list:
+        """Test all CPUs in VALID_CPU_NORMAL_SET that they pass the serializer for CPU-Normal."""
+        for cpu in self.cpu_n_product_list:
             request = { 
                 "fetch_type": self.cpu_n_fetch_type, 
                 "product_list": cpu
@@ -205,7 +206,12 @@ class TestStartPriceFetchStatusCodes(TestCase):
         self.assertEqual(status.HTTP_201_CREATED, response.status_code)
 
     def test_valid_start_price_fetch_request_status_code_cooldown(self):
-        """Test if a valid request return 503 Status Code if scraping is on cooldown."""
+        """
+        Test if a valid request return 503 Status Code if scraping is on cooldown.
+
+        THIS WILL FAIL IF MOCK_PRICE_SCRAPE IS CALLED IN START_PRICE_FETCH FUNCTION.
+        COMMENT OUT THE MOCK_PRICE_SCRAPE CALL BEFORE RUNNING TESTS.
+        """
         valid_cpu_request = {
             "fetch_type": "CPU-Gaming",
             "product_list": "AMD Ryzen 9 7950X3D"
