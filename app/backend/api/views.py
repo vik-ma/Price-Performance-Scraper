@@ -83,7 +83,7 @@ VALID_GPU_SET = frozenset([
 ])
 
 # List of allowed CPU models to Price Scrape
-VALID_CPU_SET = frozenset([
+VALID_CPU_NORMAL_LIST = [
     "AMD Ryzen 9 7950X3D",
     "AMD Ryzen 9 7900X3D",
     "AMD Ryzen 7 7800X3D",
@@ -102,6 +102,12 @@ VALID_CPU_SET = frozenset([
     "AMD Ryzen 7 7700",
     "AMD Ryzen 5 7600X",
     "AMD Ryzen 5 7600",
+    "Intel Core i9-14900K",
+    "Intel Core i9-14900KF",
+    "Intel Core i7-14700K",
+    "Intel Core i7-14700KF",
+    "Intel Core i5-14600K",
+    "Intel Core i5-14600KF",
     "Intel Core i9-13900KS",
     "Intel Core i9-13900K",
     "Intel Core i9-13900KF",
@@ -131,7 +137,13 @@ VALID_CPU_SET = frozenset([
     "Intel Core i5-12500",
     "Intel Core i5-12400F",
     "Intel Core i5-12400",
-])
+]
+
+VALID_CPU_NORMAL_SET = frozenset(VALID_CPU_NORMAL_LIST)
+VALID_CPU_GAMING_LIST = VALID_CPU_NORMAL_LIST.copy()
+# Remove Intel Core i5-14600K because it has no Gaming Benchmarks
+VALID_CPU_GAMING_LIST.remove("Intel Core i5-14600K")
+VALID_CPU_GAMING_SET = frozenset(VALID_CPU_GAMING_LIST)
 
 # Max limit for number of product_list items
 GPU_PRODUCT_LIST_LIMIT = 3
@@ -142,7 +154,7 @@ def validate_price_fetch_request(serializer_data):
     Validates data sent to start_price_fetch and raises ValidationError if data is invalid.
     
     "product_list" must be a string of listed of product models, with a comma separating them.
-    All products must be in either "valid_gpu_set" or "valid_cpu_set",
+    All products must be in either "VALID_GPU_SET", "VALID_CPU_GAMING_SET" or "VALID_CPU_NORMAL_SET",
     depending on the "fetch_type".
 
     "fetch_type" must be an allowed benchmark type contained in "valid_fetch_types".
@@ -173,9 +185,9 @@ def validate_price_fetch_request(serializer_data):
     if fetch_type == "GPU":
         valid_product_set = VALID_GPU_SET     
     elif fetch_type == "CPU-Gaming":
-        valid_product_set = VALID_CPU_SET
+        valid_product_set = VALID_CPU_GAMING_SET
     elif fetch_type == "CPU-Normal":
-        valid_product_set = VALID_CPU_SET
+        valid_product_set = VALID_CPU_NORMAL_SET
 
     # Check if all items in product_list are allowed
     if not product_list.issubset(valid_product_set):

@@ -1,5 +1,5 @@
 from django.test import TestCase, Client
-from api.views import VALID_CPU_SET, VALID_GPU_SET, validate_price_fetch_request, ScrapeThrottle
+from api.views import VALID_CPU_NORMAL_SET, VALID_GPU_SET, validate_price_fetch_request, ScrapeThrottle
 from api.serializers import FetchPropertiesSerializer
 from rest_framework import serializers, status
 
@@ -7,7 +7,7 @@ from rest_framework import serializers, status
 class TestValidPriceFetchRequest(TestCase):
     """Test cases for validating start_price_fetch POST request body."""
     def setUp(self):
-        self.cpu_product_list = VALID_CPU_SET
+        self.cpu_product_list = VALID_CPU_NORMAL_SET
         self.gpu_product_list = VALID_GPU_SET
         self.cpu_g_fetch_type = "CPU-Gaming"
         self.cpu_n_fetch_type = "CPU-Normal"
