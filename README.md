@@ -170,9 +170,6 @@ The following models **are** included:
 - AMD Ryzen 5 5500
 - Intel Core i5-12400
 
-#### **Currently Missing Benchmarks**
-- Intel Core i5-14600K - GAMING BENCHMARKS
-
 ## Set Up Application On Localhost
 Make sure you have **Docker Engine/Docker Desktop**, **Pipenv** and a JS package manager **(npm/yarn/pnpm)** installed first.
 

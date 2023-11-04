@@ -108,9 +108,6 @@ CPU MODELS INCLUDED:
     AMD Ryzen 5 5500
     Intel Core i5-12400
 
-CURRENTLY MISSING BENCHMARKS:
-    Intel Core i5-14600K - GAMING BENCHMARKS
-
 NOTES ABOUT CPU MODELS:
     - No workstation CPUs are included.
 
