@@ -164,14 +164,14 @@ export const cpuInfo = {
   },
   "AMD Ryzen 7 5800X": {
     gamingTier: "6",
-    normalTier: "6",
+    normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "AMD",
     socket: "Socket AM4",
   },
   "AMD Ryzen 7 5800X3D": {
     gamingTier: "2",
-    normalTier: "6",
+    normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "AMD",
     socket: "Socket AM4",
@@ -423,7 +423,7 @@ export const cpuInfo = {
   },
   "Intel Core i5-13500": {
     gamingTier: "4",
-    normalTier: "5",
+    normalTier: "4",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
