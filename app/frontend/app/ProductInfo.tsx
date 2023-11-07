@@ -163,7 +163,7 @@ export const cpuInfo = {
     socket: "Socket AM4",
   },
   "AMD Ryzen 7 5800X": {
-    gamingTier: "6",
+    gamingTier: "7",
     normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -212,7 +212,7 @@ export const cpuInfo = {
     socket: "Socket AM5",
   },
   "AMD Ryzen 9 7900X": {
-    gamingTier: "3",
+    gamingTier: "2",
     normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "AMD",
@@ -275,7 +275,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-14700KF": {
-    gamingTier: "2",
+    gamingTier: "1",
     normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "Intel",
@@ -380,14 +380,14 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-13600K": {
-    gamingTier: "3",
+    gamingTier: "2",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-13600KF": {
-    gamingTier: "3",
+    gamingTier: "2",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
