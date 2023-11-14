@@ -141,8 +141,6 @@ VALID_CPU_NORMAL_LIST = [
 
 VALID_CPU_NORMAL_SET = frozenset(VALID_CPU_NORMAL_LIST)
 VALID_CPU_GAMING_LIST = VALID_CPU_NORMAL_LIST.copy()
-# Remove Intel Core i5-14600K because it has no Gaming Benchmarks
-VALID_CPU_GAMING_LIST.remove("Intel Core i5-14600K")
 VALID_CPU_GAMING_SET = frozenset(VALID_CPU_GAMING_LIST)
 
 # Max limit for number of product_list items
