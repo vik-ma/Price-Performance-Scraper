@@ -470,16 +470,19 @@ def get_lowest_prices_in_gpu_category(json_list, num_gpu_categories) -> list:
     # Sort list of prices by lowest price
     sorted_price_list = sorted(price_list, key = lambda x: x[1])
 
-    if num_gpu_categories < 2:
-        # Return only the 8 cheapest products if there is only 1 total GPU Model in Price Scrape
-        lowest_price_list = sorted_price_list[:8]
-    elif num_gpu_categories == 2:
-        # Return only the 6 cheapest products if there is 2 total GPU Models in Price Scrape
-        lowest_price_list = sorted_price_list[:6]
-    elif num_gpu_categories > 2:
-        # Return only the 5 cheapest products if there are more than 2 total GPU Models in Price Scrape
-        lowest_price_list = sorted_price_list[:5]
+    # if num_gpu_categories < 2:
+    #     # Return only the 8 cheapest products if there is only 1 total GPU Model in Price Scrape
+    #     lowest_price_list = sorted_price_list[:8]
+    # elif num_gpu_categories == 2:
+    #     # Return only the 6 cheapest products if there is 2 total GPU Models in Price Scrape
+    #     lowest_price_list = sorted_price_list[:6]
+    # elif num_gpu_categories > 2:
+    #     # Return only the 5 cheapest products if there are more than 2 total GPU Models in Price Scrape
+    #     lowest_price_list = sorted_price_list[:5]
         
+    # Return only the 5 cheapest products
+    lowest_price_list = sorted_price_list[:5]
+
     return lowest_price_list
 
 
