@@ -13,7 +13,7 @@ import Link from "next/link";
 async function getScrapeAllowed(): Promise<ScrapeAllowedAPIResponse> {
   try {
     const response = await fetch(
-      `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_scrape_allowed/`,
+      `${process.env.NEXT_PUBLIC_NEXT_API_URL}/start-scrape/`,
       {
         // Don't cache response
         cache: "no-store",

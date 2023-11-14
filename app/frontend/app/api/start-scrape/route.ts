@@ -14,3 +14,15 @@ export async function POST(request: Request) {
 
     return response;
 }
+
+export async function GET() {
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_DJANGO_API_URL}/get_scrape_allowed/`,
+    {
+      // Don't cache response
+      cache: "no-store",
+    }
+  );
+
+  return response;
+}
