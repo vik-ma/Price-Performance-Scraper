@@ -98,7 +98,7 @@ export default function NewScrape() {
       </h1>
       <div id="demo-deployment" className="demo-deployment-container">
         <h2 className="demo-deployment-heading">
-          Price Scraping Will Be Simulated
+          Price Scraping May Get Simulated
         </h2>
         <p className="demo-deployment-text text-centered">
           <strong className="bold-white-text">
