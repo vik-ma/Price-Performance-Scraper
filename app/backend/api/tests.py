@@ -127,7 +127,11 @@ class TestValidPriceFetchRequest(TestCase):
 
     def test_too_many_product_list_num_items(self):
         """Test if too many products in product_list pass the serializer."""
-        # Current limit is 3 GPUs per scrape, change this if limit changes
+        # Current limit is 1 GPU per scrape, change this if limit changes
+        request_2_gpus = {
+            "fetch_type": self.gpu_fetch_type,
+            "product_list": "GeForce RTX 4090,GeForce RTX 4080"
+        }
         request_4_gpus = {
             "fetch_type": self.gpu_fetch_type,
             "product_list": "GeForce RTX 4090,GeForce RTX 4080,Radeon RX 7900 XTX,GeForce RTX 4070 Ti"
@@ -137,7 +141,7 @@ class TestValidPriceFetchRequest(TestCase):
             "fetch_type": self.cpu_g_fetch_type,
             "product_list":"AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,AMD Ryzen 9 5950X,AMD Ryzen 9 5900X,AMD Ryzen 7 5800X,AMD Ryzen 7 5800X3D,AMD Ryzen 7 5700X"
         }
-        requests = [request_4_gpus, request_8_cpus]
+        requests = [request_2_gpus, request_4_gpus, request_8_cpus]
         for request in requests:
             serializer = FetchPropertiesSerializer(data=request)
             with self.assertRaises(serializers.ValidationError):

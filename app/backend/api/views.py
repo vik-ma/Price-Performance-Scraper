@@ -144,7 +144,7 @@ VALID_CPU_GAMING_LIST = VALID_CPU_NORMAL_LIST.copy()
 VALID_CPU_GAMING_SET = frozenset(VALID_CPU_GAMING_LIST)
 
 # Max limit for number of product_list items
-GPU_PRODUCT_LIST_LIMIT = 3
+GPU_PRODUCT_LIST_LIMIT = 1
 CPU_PRODUCT_LIST_LIMIT = 7
 
 def validate_price_fetch_request(serializer_data):
