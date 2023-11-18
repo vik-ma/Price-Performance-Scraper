@@ -353,7 +353,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
 
                   <h2>Scraping prices...</h2>
 
-                  <p>This process can take up to 30 seconds.</p>
+                  <p>This process can a few seconds.</p>
                 </div>
               ) : (
                 // Show Start Price Scrape button if price scraping is allowed and not ongoing
