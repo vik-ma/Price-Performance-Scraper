@@ -58,8 +58,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const productInfo = getProductInfo();
 
   // Limit of how many products can be added to a Price Scrape
-  // GPU = 1, Either CPU = 7
-  const productLimit: number = scrapeType.name === "GPU" ? 1 : 7;
+  // GPU = 1, Either CPU = 5
+  const productLimit: number = scrapeType.name === "GPU" ? 1 : 5;
 
   // Set for every different Tier in productInfo
   const tiers: Set<string> = new Set();
