@@ -126,7 +126,8 @@ export default function NewScrape() {
               <br />
               <div className="tutorial-tab">
                 <em>
-                  You can only compare 3 GPUs or 7 CPUs at a time, but{" "}
+                  You can only compare 1 GPU model or 5 CPU models at a time,
+                  but{" "}
                   <strong className="bold-white-text">
                     you do not need to fill the maximum amount of products.
                   </strong>
