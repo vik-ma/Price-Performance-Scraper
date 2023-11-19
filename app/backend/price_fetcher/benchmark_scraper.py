@@ -190,8 +190,8 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
     for tr in tbody.find_all("tr"):
         name = tr.find("a").text.strip()
         if name.lower() in gpu_set_lower_case or name == "Radeon RX 6700 10GB":
-            value_1080p = tr.find_all("td")[1].text.strip().split("%")[0]
-            value_1440p = tr.find_all("td")[3].text.strip().split("%")[0]
+            value_1080p = tr.find_all("td")[2].text.strip().split("%")[0]
+            value_1440p = tr.find_all("td")[4].text.strip().split("%")[0]
             if value_1440p != "":
                 # Get the average value of 1080p and 1440p benchmark scores
                 value = round(((float(value_1080p) + float(value_1440p)) / 2), 2)
