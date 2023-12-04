@@ -2,6 +2,7 @@ import Navbar from "./components/Navbar";
 import "@picocss/pico/css/pico.min.css";
 import "./globals.css";
 import { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: "Price/Performance Scraper",
@@ -27,6 +28,7 @@ export default function RootLayout({
             </div>
           </noscript>
           {children}
+          <Analytics />
         </main>
       </body>
     </html>
