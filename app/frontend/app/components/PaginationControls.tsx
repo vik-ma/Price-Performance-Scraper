@@ -58,6 +58,7 @@ export default function PaginationControls({
         {paginationRange?.map((index) => {
           return (
             <button
+              key={`pagination-range-button-${index}`}
               className={
                 index === Number(page)
                   ? "pagination-button pagination-button-current"
