@@ -68,6 +68,12 @@ label:hover {
   color: white;
 }
 
+article {
+  background: none !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+
 /* Button to refresh page on error pages */
 .error-button {
   max-width: fit-content;
