@@ -250,7 +250,7 @@ def get_product_json(soup) -> dict:
                               from scraped webpage
     """
     # Script tag which contains JSON data (formatted as plain text)
-    page_json = soup.find_all("script")[5].text
+    page_json = soup.find_all("script")[7].text
 
     ## Parse JSON using regex
 
@@ -398,7 +398,7 @@ def create_json_list_from_gpu_category(soup_list) -> dict:
     # Loop through all pages
     for soup in soup_list:
         # Script tag which contains JSON data (formatted as plain text)
-        page_json = soup.find_all("script")[4].text
+        page_json = soup.find_all("script")[6].text
 
         ## Parse JSON using regex
 
