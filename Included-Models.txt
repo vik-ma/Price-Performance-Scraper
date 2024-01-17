@@ -114,5 +114,4 @@ NOTES ABOUT CPU MODELS:
     - Only socket AM5, AM4 and LGA 1700 CPUs are included.
 
     - CPU-Gaming benchmarks are not entirely accurate.
-      (Notably 7900X3D being over-rated)
     
