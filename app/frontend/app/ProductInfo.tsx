@@ -128,7 +128,7 @@ export const gpuInfo = {
 
 export const cpuInfo = {
   "AMD Ryzen 9 7950X3D": {
-    gamingTier: "1",
+    gamingTier: "2",
     normalTier: "1",
     generation: "Latest Generation",
     manufacturer: "AMD",
@@ -191,7 +191,7 @@ export const cpuInfo = {
     socket: "Socket AM4",
   },
   "AMD Ryzen 5 5600": {
-    gamingTier: "5",
+    gamingTier: "6",
     normalTier: "7",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -233,7 +233,7 @@ export const cpuInfo = {
     socket: "Socket AM5",
   },
   "AMD Ryzen 7 7700": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "4",
     generation: "Latest Generation",
     manufacturer: "AMD",
@@ -303,7 +303,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-13900K": {
-    gamingTier: "2",
+    gamingTier: "1",
     normalTier: "1",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -478,7 +478,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-12500": {
-    gamingTier: "6",
+    gamingTier: "7",
     normalTier: "7",
     generation: "Previous Generation",
     manufacturer: "Intel",
