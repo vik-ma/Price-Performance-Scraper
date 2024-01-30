@@ -128,7 +128,7 @@ export const gpuInfo = {
 
 export const cpuInfo = {
   "AMD Ryzen 9 7950X3D": {
-    gamingTier: "2",
+    gamingTier: "1",
     normalTier: "1",
     generation: "Latest Generation",
     manufacturer: "AMD",
