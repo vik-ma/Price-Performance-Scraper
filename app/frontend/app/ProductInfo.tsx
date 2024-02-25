@@ -8,8 +8,20 @@ export const gpuInfo = {
     tier: "1",
     manufacturer: "Nvidia",
   },
-  "Radeon RX 7900 XTX": {
+  "GeForce RTX 4080 Super": {
     tier: "1",
+    manufacturer: "Nvidia",
+  },
+  "GeForce RTX 4070 Ti Super": {
+    tier: "2",
+    manufacturer: "Nvidia",
+  },
+  "GeForce RTX 4070 Super": {
+    tier: "2",
+    manufacturer: "Nvidia",
+  },
+  "Radeon RX 7900 XTX": {
+    tier: "2",
     manufacturer: "AMD",
   },
   "GeForce RTX 4070 Ti": {
@@ -17,7 +29,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 6950 XT": {
-    tier: "2",
+    tier: "3",
     manufacturer: "AMD",
   },
   "Radeon RX 7900 XT": {
@@ -25,55 +37,55 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "Radeon RX 6800 XT": {
-    tier: "2",
+    tier: "3",
     manufacturer: "AMD",
   },
   "GeForce RTX 4070": {
-    tier: "2",
+    tier: "3",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7800 XT": {
-    tier: "2",
+    tier: "3",
     manufacturer: "AMD",
   },
   "GeForce RTX 3070 Ti": {
-    tier: "3",
+    tier: "4",
     manufacturer: "Nvidia",
   },
   "GeForce RTX 3070": {
-    tier: "3",
+    tier: "4",
     manufacturer: "Nvidia",
   },
   "Radeon RX 6800": {
-    tier: "3",
+    tier: "4",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060 Ti": {
-    tier: "3",
+    tier: "4",
     manufacturer: "Nvidia",
   },
   "Radeon RX 6750 XT": {
-    tier: "3",
+    tier: "4",
     manufacturer: "AMD",
   },
   "Radeon RX 7700 XT": {
-    tier: "3",
+    tier: "4",
     manufacturer: "AMD",
   },
   "GeForce RTX 3060 Ti": {
-    tier: "4",
+    tier: "5",
     manufacturer: "Nvidia",
   },
   "Radeon RX 6700 XT": {
-    tier: "4",
+    tier: "5",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060": {
-    tier: "4",
+    tier: "5",
     manufacturer: "Nvidia",
   },
   "Radeon RX 6700": {
-    tier: "4",
+    tier: "5",
     manufacturer: "AMD",
   },
   "Radeon RX 7600": {
@@ -85,15 +97,15 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "GeForce RTX 3060": {
-    tier: "5",
+    tier: "6",
     manufacturer: "Nvidia",
   },
   "Radeon RX 6600 XT": {
-    tier: "5",
+    tier: "6",
     manufacturer: "AMD",
   },
   "Radeon RX 6600": {
-    tier: "5",
+    tier: "6",
     manufacturer: "AMD",
   },
   "GeForce RTX 2060": {
@@ -101,7 +113,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "GeForce GTX 1660 Super": {
-    tier: "6",
+    tier: "7",
     manufacturer: "Nvidia",
   },
   "GeForce RTX 3050": {
@@ -109,7 +121,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "GeForce GTX 1660 Ti": {
-    tier: "6",
+    tier: "7",
     manufacturer: "Nvidia",
   },
   "GeForce GTX 1660": {
