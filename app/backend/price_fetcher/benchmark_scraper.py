@@ -165,6 +165,12 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> d
                 max_value = count_num
             if prdname == "GeForce GTX 1660 SUPER":
                 benchmarks_dict["GeForce GTX 1660 Super"] = count_num
+            elif prdname == "GeForce RTX 4080 SUPER":
+                benchmarks_dict["GeForce RTX 4080 Super"] = count_num
+            elif prdname == "GeForce RTX 4070 Ti SUPER":
+                benchmarks_dict["GeForce RTX 4070 Ti Super"] = count_num
+            elif prdname == "GeForce RTX 4070 SUPER":
+                benchmarks_dict["GeForce RTX 4070 Super"] = count_num
             else:
                 benchmarks_dict[prdname] = count_num
 
