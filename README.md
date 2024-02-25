@@ -65,11 +65,14 @@ This section lists which CPU and GPU models are available in this app. **Unavail
 The following models **are** included:
 
 - GeForce RTX 4090
+- GeForce RTX 4080 Super
 - GeForce RTX 4080
 - Radeon RX 7900 XTX
+- GeForce RTX 4070 Ti Super
 - GeForce RTX 4070 Ti
 - Radeon RX 7900 XT
 - Radeon RX 6950 XT
+- GeForce RTX 4070 Super
 - GeForce RTX 4070
 - Radeon RX 7800 XT
 - Radeon RX 7700 XT
@@ -120,6 +123,12 @@ The following models **are** included:
 - AMD Ryzen 9 7950X
 - Intel Core i9-14900K
 - Intel Core i9-14900KF
+- Intel Core i9-14900
+- Intel Core i7-14700F
+- Intel Core i7-14700
+- Intel Core i5-14500
+- Intel Core i5-14400F
+- Intel Core i5-14400
 - Intel Core i9-13900KS
 - Intel Core i9-13900K
 - Intel Core i9-13900KF
@@ -159,6 +168,7 @@ The following models **are** included:
 - AMD Ryzen 5 7600
 - Intel Core i5-12600K
 - Intel Core i5-12600KF
+- AMD Ryzen 7 5700X3D
 - AMD Ryzen 7 5700X
 - Intel Core i5-13400
 - Intel Core i5-13400F
