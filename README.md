@@ -124,6 +124,8 @@ The following models **are** included:
 - Intel Core i9-14900K
 - Intel Core i9-14900KF
 - Intel Core i9-14900
+- Intel Core i7-14700KF
+- Intel Core i7-14700K
 - Intel Core i7-14700F
 - Intel Core i7-14700
 - Intel Core i5-14500
@@ -134,8 +136,6 @@ The following models **are** included:
 - Intel Core i9-13900KF
 - AMD Ryzen 9 7900X
 - AMD Ryzen 9 7900X3D
-- Intel Core i7-14700KF
-- Intel Core i7-14700K
 - Intel Core i9-13900F
 - Intel Core i9-13900
 - AMD Ryzen 9 7900
