@@ -19,7 +19,7 @@
 
 p {
   margin: 2px;
-  color: var(--normal-text-color)
+  color: var(--normal-text-color);
 }
 
 /* Center content regardless if scrollbar appears or not */
@@ -39,7 +39,8 @@ h1 {
   margin-bottom: 10px !important;
 }
 
-h2, h3 {
+h2,
+h3 {
   margin-bottom: 10px !important;
   word-break: normal;
 }
@@ -80,14 +81,14 @@ article {
   margin: auto;
   background-color: var(--dark-bg-color);
   font-size: larger;
-  color:#ececec;
+  color: #ececec;
   padding: 5px 20px 10px;
-  border: 2px solid rgba(233, 233, 233, 0.780);
+  border: 2px solid rgba(233, 233, 233, 0.78);
   border-radius: 12px;
 }
 
 .error-button:hover {
-  background-color: rgba(160, 160, 170, 0.380);
+  background-color: rgba(160, 160, 170, 0.38);
   color: white;
   border: 2px solid white;
 }
@@ -123,7 +124,11 @@ article {
   border-bottom: 1px solid rgba(202, 202, 202, 0.2);
   /* box-shadow: 0 5px 10px rgb(28, 28, 28); */
   background-color: rgb(26, 26, 26);
-  background: linear-gradient(to bottom, rgb(27, 27, 27) 20%, rgb(37, 37, 37) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgb(27, 27, 27) 20%,
+    rgb(37, 37, 37) 100%
+  );
 }
 
 /* Wrapper for items in Navigation Bar */
@@ -171,7 +176,7 @@ article {
 
 /* Start Price Scrape text in Navigation Bar */
 .nav-item-start {
-  color:#9dff70;
+  color: #9dff70;
   font-weight: bold;
   white-space: nowrap;
 }
@@ -222,12 +227,20 @@ article {
   border-bottom: 1px solid rgb(59, 59, 59);
   transition-duration: 0.15s;
   background-color: rgb(26, 26, 26);
-  background: linear-gradient(to bottom right, rgb(26, 26, 26) 40%, rgb(39, 39, 39) 100%);
+  background: linear-gradient(
+    to bottom right,
+    rgb(26, 26, 26) 40%,
+    rgb(39, 39, 39) 100%
+  );
 }
 
 .nav-full-menu-item:hover {
   background-color: rgb(48, 48, 48);
-  background: linear-gradient(to bottom right, rgb(75, 75, 75) 40%, rgb(99, 99, 99) 100%);
+  background: linear-gradient(
+    to bottom right,
+    rgb(75, 75, 75) 40%,
+    rgb(99, 99, 99) 100%
+  );
 }
 
 /* Text for individual item in Navigation Bar hamburger menu */
@@ -293,14 +306,14 @@ article {
   border-radius: 12px;
   font-size: larger;
   background-color: var(--dark-bg-color);
-  color:#f1f1f1;
+  color: #f1f1f1;
   word-break: normal;
   margin-bottom: 0;
   font-size: 24px;
 }
 
 .dark-button:hover {
-  background-color: rgba(160, 160, 170, 0.380);
+  background-color: rgba(160, 160, 170, 0.38);
   color: white;
   border: 2px solid white;
 }
@@ -311,22 +324,22 @@ article {
 
 /* Generic class for links to other pages on site */
 .internal-link-color {
-  color:rgb(47, 161, 255);
+  color: rgb(47, 161, 255);
   word-break: normal;
 }
 
 /* Generic class for links to external sites */
 .external-link {
-  color:rgb(52, 163, 228);
+  color: rgb(52, 163, 228);
   word-break: normal;
 }
 
 .external-link:hover {
-  color:rgb(144, 197, 228);
+  color: rgb(144, 197, 228);
 }
 
 .external-link:visited {
-  color:rgb(144, 53, 230);
+  color: rgb(144, 53, 230);
 }
 
 /* Generic class to remove underscores */
@@ -371,7 +384,7 @@ article {
 .github-logo-link {
   background-color: var(--dark-bg-color);
   padding: 1px 4px 3px 9px;
-  border: 2px solid rgba(233, 233, 233, 0.780);
+  border: 2px solid rgba(233, 233, 233, 0.78);
   border-radius: 12px;
   white-space: nowrap;
   overflow: hidden;
@@ -435,7 +448,11 @@ article {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #353535;
-  background: linear-gradient(to top left, rgb(32, 32, 32) 20%, rgb(51, 51, 51) 100%);
+  background: linear-gradient(
+    to top left,
+    rgb(32, 32, 32) 20%,
+    rgb(51, 51, 51) 100%
+  );
 }
 
 /* Button to show full list of Completed Scrapes in sidebar container */
@@ -451,7 +468,12 @@ article {
   font-weight: 600;
   border: 2px solid #dbdbdb;
   background-color: rgb(3, 151, 232);
-  background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
+  background: linear-gradient(
+    to top left,
+    rgb(77, 238, 253) 0.7%,
+    rgb(3, 151, 232) 26.1%,
+    rgb(47, 31, 116) 95.7%
+  );
   border-radius: 6px;
   transition: ease 0.15;
 }
@@ -514,7 +536,7 @@ article {
   font-size: 22px;
   background: linear-gradient(to bottom right, #242424, #181818);
   border-radius: 10px;
-  color:#f1f1f1;
+  color: #f1f1f1;
   border: 1px solid rgba(190, 190, 190, 0.5);
   margin: 0 3px;
   font-weight: 600;
@@ -537,13 +559,13 @@ article {
   display: none;
   margin: 0 9px;
   font-weight: 600;
-  color:#f1f1f1;
+  color: #f1f1f1;
 }
 
 /* Div that displays the current pagination page on scrape page */
 .pagination-page-display {
   display: flex;
-  color:white;
+  color: white;
   margin: 0 4px;
 }
 
@@ -577,17 +599,17 @@ article {
 }
 
 .full-scrape-list-item-text:hover {
-  color:white;
+  color: white;
 }
 
 /* Timestamp text for item in full-scrape-list */
 .full-scrape-list-item-timestamp {
-  color:rgb(170, 170, 170);
+  color: rgb(170, 170, 170);
 }
 
 /* Text to show amount of products for item in full-scrape-list */
 .full-scrape-list-title-product {
-  color:rgb(240, 240, 240);
+  color: rgb(240, 240, 240);
 }
 
 /* Span class to make sure number of products and "Product(s)" remain on the same line */
@@ -608,7 +630,7 @@ article {
 
 /* Text color for CPU-Normal (Multithread) scrapes */
 .color-text-cpu-n {
-  color:var(--cpu-n-color);
+  color: var(--cpu-n-color);
 }
 
 /* Currently unused border colors representing the scrape type */
@@ -663,7 +685,12 @@ article {
   margin-left: auto;
   font-size: 22px;
   background-color: rgb(3, 151, 232);
-  background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
+  background: linear-gradient(
+    to top left,
+    rgb(77, 238, 253) 0.7%,
+    rgb(3, 151, 232) 26.1%,
+    rgb(47, 31, 116) 95.7%
+  );
   padding-top: 1px !important;
   color: #ffffff;
   border-color: #f1f1f1;
@@ -703,12 +730,12 @@ article {
 /* Title showing timestamp of when Completed Scrape was made */
 .scrape-timestamp {
   margin-bottom: 13px !important;
-  color:rgb(104, 170, 255);
+  color: rgb(104, 170, 255);
   line-height: 100%;
 }
 
 /* Change background color of every other row in tables with "role=grid" */
-table[role=grid] tbody tr:nth-child(odd) {
+table[role="grid"] tbody tr:nth-child(odd) {
   background-color: rgba(87, 87, 87, 0.225);
 }
 
@@ -754,7 +781,7 @@ td {
 
 /* Cells in the Price column for Completed Scrapes */
 .price-cell {
-  color:white;
+  color: white;
   white-space: nowrap;
 }
 
@@ -782,11 +809,15 @@ td {
   font-size: 24px;
   background: none;
   background-color: var(--dark-bg-color);
-  background: linear-gradient(to bottom right, rgb(27, 27, 27) 20%, rgb(39, 39, 39) 100%);
+  background: linear-gradient(
+    to bottom right,
+    rgb(27, 27, 27) 20%,
+    rgb(39, 39, 39) 100%
+  );
   padding: 3px 15px 6px;
   word-break: normal;
   margin-bottom: 8px !important;
-  color:#f1f1f1;
+  color: #f1f1f1;
   border-color: rgba(190, 190, 190, 0.5);
   border-radius: 8px;
 }
@@ -814,7 +845,7 @@ td {
 
 /* Text for checkbox labels inside Filter Stores accordion for Completed Scrapes */
 .listing-table-label {
-  color:rgb(230, 230, 230);
+  color: rgb(230, 230, 230);
 }
 
 /* Text for checkbox labels inside Filter Products Models accordion for Completed Scrapes */
@@ -958,12 +989,9 @@ td {
   margin: -5px;
   text-align: center;
   color: white;
-  text-shadow:
-       0px 0px 1px rgb(26, 26, 26),
-     -1px -1px 1px rgb(26, 26, 26),  
-      1px -1px 1px rgb(26, 26, 26),
-      -1px 1px 1px rgb(26, 26, 26),
-       1px 1px 1px rgb(26, 26, 26);
+  text-shadow: 0px 0px 1px rgb(26, 26, 26), -1px -1px 1px rgb(26, 26, 26),
+    1px -1px 1px rgb(26, 26, 26), -1px 1px 1px rgb(26, 26, 26),
+    1px 1px 1px rgb(26, 26, 26);
 }
 
 /* Adjustment for shortened GPU names in model-background for smaller screens */
@@ -980,7 +1008,7 @@ td {
 
 /* Color gradient backgrounds for different models in Completed Scrape Product List */
 .model-gradient-0 {
-  background-color: rgb(82, 157, 255);;
+  background-color: rgb(82, 157, 255);
   background: linear-gradient(to bottom right, #1722c0, #69bcf3);
   border: 2px solid rgb(36, 131, 255);
 }
@@ -1017,7 +1045,7 @@ td {
 
 .model-gradient-6 {
   background-color: rgb(255, 253, 140);
-  background: linear-gradient(to bottom right, #7c792a, #F7F477);
+  background: linear-gradient(to bottom right, #7c792a, #f7f477);
   border: 2px solid rgb(255, 253, 109);
 }
 
@@ -1127,13 +1155,13 @@ td {
   font-size: 24px;
   word-break: normal;
   border-radius: 30px;
-  color:#fafafa;
+  color: #fafafa;
   font-weight: 700;
 }
 
 .benchmark-table-tabs:hover {
   background: rgba(128, 128, 128, 0.6);
-  color:white;
+  color: white;
   transition-duration: 0.3s;
 }
 
@@ -1144,14 +1172,14 @@ td {
 
 /* Currently active tab for Benchmark Table */
 .benchmark-table-active-tabs {
-  background-color: #045DE9;
-  background: linear-gradient(to bottom, #045DE9, #09C6F9) !important;
-  color:white;
+  background-color: #045de9;
+  background: linear-gradient(to bottom, #045de9, #09c6f9) !important;
+  color: white;
 }
 
 /* Container for all benchmark-table-content */
 .benchmark-table-content-tabs {
-  flex-grow : 1;
+  flex-grow: 1;
 }
 
 /* Container for Benchmark Table content */
@@ -1173,7 +1201,7 @@ td {
   padding-bottom: 8px !important;
   padding-left: 20px !important;
   word-break: normal;
-  color:#fcfcfc;
+  color: #fcfcfc;
 }
 
 /* Table for Benchmark data */
@@ -1221,19 +1249,19 @@ td {
 
 /* Colors for respective Benchmark Performance Tiers */
 .text-color-tier-1 {
-  color: #2ECC71;
+  color: #2ecc71;
 }
 
 .text-color-tier-2 {
-  color: #DAF7A6;
+  color: #daf7a6;
 }
 
 .text-color-tier-3 {
-  color: #F4D03F;
+  color: #f4d03f;
 }
 
 .text-color-tier-4 {
-  color: #E67E22;
+  color: #e67e22;
 }
 
 .text-color-tier-5 {
@@ -1279,7 +1307,7 @@ td {
 /* Header for selecting Benchmark Type on Start Scrape page */
 .new-scrape-benchmark-header {
   margin-top: 5px;
-  margin-bottom: 3px !important; 
+  margin-bottom: 3px !important;
 }
 
 /* Multi-colored border around selected-products-container */
@@ -1287,10 +1315,10 @@ td {
   position: sticky;
   margin-top: 18px;
   top: 56px;
-  background-color: #045DE9;
+  background-color: #045de9;
   background: linear-gradient(to bottom right, #70c6ff, #1a43b4);
   padding: 2px;
-  box-shadow: 0px 0px 10px 2px rgba(91, 167, 255, 0.600);
+  box-shadow: 0px 0px 10px 2px rgba(91, 167, 255, 0.6);
   border-radius: 10px;
   margin-bottom: 15px;
   z-index: 1;
@@ -1301,7 +1329,11 @@ td {
   padding: 2px 15px 11px;
   border-radius: 10px;
   background: var(--dark-bg-color);
-  background: linear-gradient(to top left, rgb(24, 24, 24) 40%, rgb(39, 39, 39) 100%);
+  background: linear-gradient(
+    to top left,
+    rgb(24, 24, 24) 40%,
+    rgb(39, 39, 39) 100%
+  );
 }
 
 /* Main heading for selected-products-container */
@@ -1315,14 +1347,14 @@ td {
 .selected-products-type {
   margin-top: -7px;
   font-size: medium;
-  color:rgb(74, 153, 255);
+  color: rgb(74, 153, 255);
   margin-bottom: 0px;
 }
 
 /* Hint text inside selected-products-container for removing product from Selected Products list */
 .remove-product-hint {
   font-size: small;
-  color:#cccccc;
+  color: #cccccc;
   margin-top: 0;
   margin-bottom: 1px;
   margin-left: 3px;
@@ -1348,8 +1380,8 @@ td {
 
 /* Button inside selected-products-container to Start Price Scraping */
 .start-scrape-button {
-  background-color: #045DE9;
-  background: linear-gradient(to bottom, #045DE9, #09C6F9);
+  background-color: #045de9;
+  background: linear-gradient(to bottom, #045de9, #09c6f9);
   padding: 1px 16px 5px;
   margin-top: 6px;
   margin-bottom: 2px;
@@ -1376,12 +1408,9 @@ td {
   margin: 0;
   width: fit-content;
   color: white;
-  text-shadow:
-      0px 0px 1px rgb(26, 26, 26),
-    -1px -1px 1px rgb(26, 26, 26),  
-    1px -1px 1px rgb(26, 26, 26),
-    -1px 1px 1px rgb(26, 26, 26),
-      1px 1px 1px rgb(26, 26, 26);
+  text-shadow: 0px 0px 1px rgb(26, 26, 26), -1px -1px 1px rgb(26, 26, 26),
+    1px -1px 1px rgb(26, 26, 26), -1px 1px 1px rgb(26, 26, 26),
+    1px 1px 1px rgb(26, 26, 26);
   border: 2px solid white;
   word-break: normal;
   transition-duration: 0.1s;
@@ -1400,7 +1429,7 @@ td {
 .selected-products-list {
   display: flex;
   flex-wrap: wrap;
-} 
+}
 
 /* Individual item inside selected-products-list */
 .selected-products-list-item {
@@ -1414,27 +1443,27 @@ td {
 
 /* Different background colors for product-selection item's respective Benchmark Tier */
 .background-color-tier-1 {
-  background-color: #2ECC71;
+  background-color: #2ecc71;
   background: linear-gradient(to bottom right, #005e00, #1dff3b);
 }
 
 .background-color-tier-2 {
-  background-color: #DAF7A6;
+  background-color: #daf7a6;
   background: linear-gradient(to bottom right, #5a6e00, #daff96);
 }
 
 .background-color-tier-3 {
-  background-color: #F4D03F;
+  background-color: #f4d03f;
   background: linear-gradient(to bottom right, #c28e00, #fff9a7);
 }
 
 .background-color-tier-4 {
-  background-color: #E67E22;
+  background-color: #e67e22;
   background: linear-gradient(to bottom right, #c44800, #ffbd41);
 }
 
 .background-color-tier-5 {
-  background-color: #E74C3C;
+  background-color: #e74c3c;
   background: linear-gradient(to bottom right, #d82000, #ff8585);
 }
 
@@ -1444,7 +1473,7 @@ td {
 }
 
 .background-color-tier-7 {
-  background-color: #7B7D7D;
+  background-color: #7b7d7d;
   background: linear-gradient(to bottom right, #2b2b2b, #979797);
 }
 
@@ -1545,7 +1574,7 @@ td {
   margin-top: 5px;
   font-size: 32px;
   font-weight: 700;
-  color:#fafafa;
+  color: #fafafa;
   word-break: normal;
 }
 
@@ -1557,10 +1586,10 @@ td {
 /* Animation to fade in element */
 @keyframes fade-in {
   from {
-      opacity: 0;
+    opacity: 0;
   }
   to {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
@@ -1590,7 +1619,11 @@ h3.information-sub-header {
 /* Container to show Price/Performance Score formula on Information Page */
 .formula-container {
   background-color: #353535;
-  background: linear-gradient(to top left, rgb(32, 32, 32) 30%, rgb(51, 51, 51) 100%);
+  background: linear-gradient(
+    to top left,
+    rgb(32, 32, 32) 30%,
+    rgb(51, 51, 51) 100%
+  );
   width: fit-content;
   padding: 3px 15px 7px;
   border-radius: 10px;
@@ -1659,7 +1692,7 @@ h3.information-sub-header {
 /* Styling for text input fields in mct-table */
 .mct-table input {
   margin: 10px;
-  padding: 5px;
+  padding: 9px;
   max-height: 40px;
   margin-left: 2px !important;
 }
@@ -1676,7 +1709,12 @@ h3.information-sub-header {
   margin-top: 10px;
   margin-left: 3px;
   background-color: rgb(3, 151, 232);
-  background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
+  background: linear-gradient(
+    to top left,
+    rgb(77, 238, 253) 0.7%,
+    rgb(3, 151, 232) 26.1%,
+    rgb(47, 31, 116) 95.7%
+  );
   font-size: xx-large;
   color: #ffffff;
   border-color: #f1f1f1;
@@ -1706,7 +1744,12 @@ h3.information-sub-header {
 
 /* Button to take you to Start Scrape page from Home page */
 .start-button-home {
-  background: linear-gradient(to top left, rgb(77, 238, 253) 0.7%, rgb(3, 151, 232) 26.1%, rgb(47, 31, 116) 95.7%);
+  background: linear-gradient(
+    to top left,
+    rgb(77, 238, 253) 0.7%,
+    rgb(3, 151, 232) 26.1%,
+    rgb(47, 31, 116) 95.7%
+  );
   padding: 1px 16px 5px;
   border-radius: 12px;
   border-color: #3787ff;
@@ -1721,7 +1764,7 @@ h3.information-sub-header {
 
 /* Text inside filter-button that shows if any products has been filtered out */
 .filter-button-products-text {
-  color:#aaaaaa;
+  color: #aaaaaa;
   font-size: smaller;
   font-weight: 600;
 }
@@ -1792,7 +1835,7 @@ h3.information-sub-header {
   body {
     width: 100%;
     margin-right: 0;
-  }  
+  }
   /* Hides the items in Navigation Bar seen on larger screens */
   .nav-item-extended {
     display: none;
@@ -2001,6 +2044,10 @@ h3.information-sub-header {
   .scrape-pagination-container {
     margin-top: 12px;
   }
+  .mct-table input::placeholder {
+    /* "Hide" placeholder text by setting text color to background color of input */
+    color: rgb(24, 25, 26);
+  }
 }
 
 @media (max-width: 650px) {
@@ -2080,7 +2127,8 @@ h3.information-sub-header {
   .benchmark-table-tab-cpu-n {
     width: 100%;
   }
-  .nav-item-menu, .nav-item-start {
+  .nav-item-menu,
+  .nav-item-start {
     padding-left: 15px;
     padding-right: 15px;
   }
