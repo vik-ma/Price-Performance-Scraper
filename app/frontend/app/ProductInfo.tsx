@@ -202,6 +202,13 @@ export const cpuInfo = {
     manufacturer: "AMD",
     socket: "Socket AM4",
   },
+  "AMD Ryzen 7 5700": {
+    gamingTier: "7",
+    normalTier: "7",
+    generation: "Previous Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM4",
+  },
   "AMD Ryzen 5 5600X": {
     gamingTier: "6",
     normalTier: "7",
@@ -272,6 +279,13 @@ export const cpuInfo = {
     manufacturer: "AMD",
     socket: "Socket AM5",
   },
+  "Intel Core i9-14900KS": {
+    gamingTier: "1",
+    normalTier: "1",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1700",
+  },
   "Intel Core i9-14900K": {
     gamingTier: "1",
     normalTier: "1",
@@ -286,8 +300,15 @@ export const cpuInfo = {
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
-  "Intel Core i9-14900": {
+  "Intel Core i9-14900F": {
     gamingTier: "2",
+    normalTier: "2",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1700",
+  },
+  "Intel Core i9-14900": {
+    gamingTier: "3",
     normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "Intel",
@@ -308,7 +329,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-14700F": {
-    gamingTier: "3",
+    gamingTier: "4",
     normalTier: "3",
     generation: "Latest Generation",
     manufacturer: "Intel",
@@ -316,7 +337,7 @@ export const cpuInfo = {
   },
   "Intel Core i7-14700": {
     gamingTier: "3",
-    normalTier: "2",
+    normalTier: "3",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -350,7 +371,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-14400": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "6",
     generation: "Latest Generation",
     manufacturer: "Intel",
@@ -364,7 +385,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-13900K": {
-    gamingTier: "1",
+    gamingTier: "2",
     normalTier: "1",
     generation: "Previous Generation",
     manufacturer: "Intel",
