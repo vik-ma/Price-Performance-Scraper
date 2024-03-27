@@ -75,6 +75,15 @@ article {
   width: 100%;
 }
 
+progress {
+  background-color: rgb(66, 66, 66) !important;
+  background-image: linear-gradient(
+    to right,
+    rgb(222, 223, 228) 30%,
+    rgb(66, 66, 66) 30%
+  ) !important;
+}
+
 /* Button to refresh page on error pages */
 .error-button {
   max-width: fit-content;
