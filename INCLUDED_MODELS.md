@@ -58,8 +58,10 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 #### CPU MODELS INCLUDED
 - AMD Ryzen 9 7950X3D
 - AMD Ryzen 9 7950X
+- Intel Core i9-14900KS
 - Intel Core i9-14900K
 - Intel Core i9-14900KF
+- Intel Core i9-14900F
 - Intel Core i9-14900
 - Intel Core i7-14700KF
 - Intel Core i7-14700K
@@ -107,6 +109,7 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - Intel Core i5-12600KF
 - AMD Ryzen 7 5700X3D
 - AMD Ryzen 7 5700X
+- AMD Ryzen 7 5700
 - Intel Core i5-13400
 - Intel Core i5-13400F
 - AMD Ryzen 5 5600X
