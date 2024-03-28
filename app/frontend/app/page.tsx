@@ -19,9 +19,10 @@ export default async function Home() {
           IP-address, or using a residential proxy service,{" "}
           <strong className="bold-white-text">
             it is (most of the time) no longer possible to perform real-time
-            price scrapes using this website.
+            Price Scrapes using this website.
           </strong>{" "}
-          Everything else on both the front-end and back-end still works.
+          Everything else on both the front-end and back-end still works as
+          normal.
           <br />
           <br />{" "}
           <strong className="bold-white-text">
@@ -47,8 +48,8 @@ export default async function Home() {
           shows how the website would work under normal circumstances.
           <br />
           <br />
-          The back-end still works as normal when its run locally. If you want
-          to set up this application on your localhost, follow{" "}
+          Price Scraping still works as normal when the project is run locally.
+          If you want to set up this application on your localhost, follow{" "}
           <a
             href="https://github.com/vik-ma/Price-Performance-Scraper#set-up-application-on-localhost"
             target="_blank"
