@@ -14,7 +14,7 @@ graphene-django==3.2.0
 graphql-core==3.2.3; python_version >= '3.6' and python_version < '4'
 graphql-relay==3.2.0; python_version >= '3.6' and python_version < '4'
 gunicorn==21.2.0; python_version >= '3.5'
-idna==3.6; python_version >= '3.5'
+idna==3.7; python_version >= '3.5'
 packaging==24.0; python_version >= '3.7'
 promise==2.3
 psycopg2-binary==2.9.9; python_version >= '3.7'
