@@ -77,6 +77,7 @@ cpu_pj_url_dict = {
     "Intel Core i7-14700": "https://www.prisjakt.nu/produkt.php?p=13097086",
     "Intel Core i5-14600K": "https://www.prisjakt.nu/produkt.php?p=12475615",
     "Intel Core i5-14600KF": "https://www.prisjakt.nu/produkt.php?p=12477200",
+    "Intel Core i5-14600": "https://www.prisjakt.nu/produkt.php?p=13239274",
     "Intel Core i5-14500": "https://www.prisjakt.nu/produkt.php?p=13219783",
     "Intel Core i5-14400F": "https://www.prisjakt.nu/produkt.php?p=13219693",
     "Intel Core i5-14400": "https://www.prisjakt.nu/produkt.php?p=13236199",

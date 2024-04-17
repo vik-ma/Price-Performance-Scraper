@@ -118,6 +118,7 @@ VALID_CPU_NORMAL_LIST = [
     "Intel Core i7-14700",
     "Intel Core i5-14600K",
     "Intel Core i5-14600KF",
+    "Intel Core i5-14600",
     "Intel Core i5-14500",
     "Intel Core i5-14400F",
     "Intel Core i5-14400",
