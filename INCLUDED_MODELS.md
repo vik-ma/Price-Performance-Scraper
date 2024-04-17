@@ -87,6 +87,7 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - Intel Core i9-12900KF
 - Intel Core i5-14600K
 - Intel Core i5-14600KF
+- Intel Core i5-14600
 - AMD Ryzen 9 5900X
 - Intel Core i7-13700
 - Intel Core i5-13600K
