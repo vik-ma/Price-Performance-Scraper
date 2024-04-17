@@ -356,6 +356,13 @@ export const cpuInfo = {
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
+  "Intel Core i5-14600": {
+    gamingTier: "7",
+    normalTier: "4",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1700",
+  },
   "Intel Core i5-14500": {
     gamingTier: "4",
     normalTier: "5",
@@ -365,7 +372,7 @@ export const cpuInfo = {
   },
   "Intel Core i5-14400F": {
     gamingTier: "5",
-    normalTier: "7",
+    normalTier: "6",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -407,7 +414,7 @@ export const cpuInfo = {
   },
   "Intel Core i9-13900": {
     gamingTier: "3",
-    normalTier: "3",
+    normalTier: "2",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -441,7 +448,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-12900KF": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -546,7 +553,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-13400F": {
-    gamingTier: "5",
+    gamingTier: "6",
     normalTier: "7",
     generation: "Previous Generation",
     manufacturer: "Intel",
