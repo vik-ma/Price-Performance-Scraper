@@ -263,7 +263,7 @@ def get_product_json(soup) -> dict:
                               from scraped webpage
     """
     # Script tag which contains JSON data (formatted as plain text)
-    page_json = soup.find_all("script")[7].text
+    page_json = soup.find_all("script")[8].text
 
     ## Parse JSON using regex
 
