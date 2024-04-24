@@ -358,7 +358,7 @@ export const cpuInfo = {
   },
   "Intel Core i5-14600": {
     gamingTier: "7",
-    normalTier: "4",
+    normalTier: "5",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
