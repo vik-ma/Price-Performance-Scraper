@@ -9,20 +9,6 @@ export default async function Information() {
       <h1>
         <span className="title-gradient">Information</span>
       </h1>
-      <div id="demo-deployment" className="demo-deployment-container">
-        <p className="demo-deployment-text text-centered">
-          Some of the information on this page may not be accurate for this demo
-          deployment.
-          <br />
-          <strong className="bold-white-text">
-            Read the Important Message on the{" "}
-            <Link href={"/"} className="internal-link-color">
-              Home Page
-            </Link>{" "}
-            to learn more.
-          </strong>
-        </p>
-      </div>
       <p className="information-text information-top-text">
         <strong className="bold-white-text">
           This website is designed to help you find the most value-for-money
