@@ -848,6 +848,11 @@ td {
   margin-top: 4px;
 }
 
+.filter-button:hover,
+.filter-button:focus {
+  outline: 1px solid white;
+}
+
 /* Container for content inside Filter accordions for Completed Scrapes */
 .filter-listing-container {
   display: grid;
