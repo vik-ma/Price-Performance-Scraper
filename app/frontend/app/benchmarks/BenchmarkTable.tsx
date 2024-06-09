@@ -39,7 +39,7 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
       <div className="benchmark-table-container">
         {/* Tabs to select Benchmark Type */}
         <div className="benchmark-table-tabs-container">
-          <div
+          <button
             className={
               tabIndex === 1
                 ? "benchmark-table-tabs benchmark-table-active-tabs"
@@ -51,8 +51,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               <GPUIcon />
             </span>
             GPU
-          </div>
-          <div
+          </button>
+          <button
             className={
               tabIndex === 2
                 ? "benchmark-table-tabs benchmark-table-active-tabs"
@@ -64,8 +64,8 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
               <CPUGIcon />
             </span>
             CPU (Gaming)
-          </div>
-          <div
+          </button>
+          <button
             className={
               tabIndex === 3
                 ? "benchmark-table-tabs benchmark-table-active-tabs"
@@ -76,9 +76,10 @@ export default function BenchmarkTable({ benchmarks }: BenchmarksDataProps) {
             <span className="benchmark-header-icon">
               <CPUNIcon />
             </span>
-            <span className="benchmark-table-tab-cpu-n">CPU (Multi-threading)</span>
-            
-          </div>
+            <span className="benchmark-table-tab-cpu-n">
+              CPU (Multi-threading)
+            </span>
+          </button>
         </div>
         <div className="color-toggle-container benchmark-color-toggle-container">
           <label className="color-toggle-label-benchmarks">

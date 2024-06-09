@@ -168,7 +168,7 @@ export default function NewScrape() {
       <div className="benchmark-table-container">
         {/* Tabs to select Benchmark Type */}
         <div className="benchmark-table-tabs-container">
-          <div
+          <button
             className={
               tabIndex === 1
                 ? "benchmark-table-tabs benchmark-table-active-tabs"
@@ -180,8 +180,8 @@ export default function NewScrape() {
               <GPUIcon />
             </span>
             GPU
-          </div>
-          <div
+          </button>
+          <button
             className={
               tabIndex === 2
                 ? "benchmark-table-tabs benchmark-table-active-tabs"
@@ -193,8 +193,8 @@ export default function NewScrape() {
               <CPUGIcon />
             </span>
             CPU (Gaming)
-          </div>
-          <div
+          </button>
+          <button
             className={
               tabIndex === 3
                 ? "benchmark-table-tabs benchmark-table-active-tabs"
@@ -206,7 +206,7 @@ export default function NewScrape() {
               <CPUNIcon />
             </span>
             CPU (Multi-threading)
-          </div>
+          </button>
         </div>
         <div className="benchmark-table-content-tabs">
           <div
