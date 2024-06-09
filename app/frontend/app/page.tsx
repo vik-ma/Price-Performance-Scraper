@@ -13,39 +13,21 @@ export default async function Home() {
         <h2 className="demo-deployment-heading">Important Message</h2>
         <h3 className="demo-deployment-heading">This Is A Demo Deployment</h3>
         <p className="demo-deployment-text">
-          Since the project started, it has generally become impossible to
-          perform price scraping if the back-end is hosted at a data center.
-          Without either self-hosting the back-end from a residential
-          IP-address, or using a residential proxy service,{" "}
+          Since the back-end server is hosted at a data center,{" "}
           <strong className="bold-white-text">
-            it is (most of the time) no longer possible to perform real-time
-            Price Scrapes using this website.
-          </strong>{" "}
-          Everything else on both the front-end and back-end still works as
-          normal.
+            real-time price scraping may fail due to the server's IP-address being
+            blocked
+          </strong>
+          .
           <br />
-          <br />{" "}
+          <br />
+          In this demo deployment,{" "}
           <strong className="bold-white-text">
-            In this demo deployment, Price Scraping gets simulated if the
-            real-time Price Scrape fails.
+            if price scraping fails, the back-end will instead simulate a Price
+            Scrape
           </strong>{" "}
-          When a Price Scrape is started, on rare occasions, it will perform a
-          Price Scrape as per usual. If it fails, the back-end will instead
-          simulate a Price Scrape by waiting for a few seconds and then fetch a
-          random completed Price Scrape of the same Benchmark Type from the
-          database.
-          <br />
-          <br />
-          The simulated Price Scrape process is pretty much identical to how a
-          real Price Scrape is performed.{" "}
-          <a
-            href="https://github.com/vik-ma/Price-Performance-Scraper/blob/master/pps-preview.gif"
-            target="_blank"
-            className="internal-link-color"
-          >
-            <strong>This GIF</strong>
-          </a>{" "}
-          shows how the website would work under normal circumstances.
+          by waiting for a few seconds and then fetch a random completed Price
+          Scrape of the same Benchmark Type from the database.
           <br />
           <br />
           Price Scraping still works as normal when the project is run locally.
