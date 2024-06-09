@@ -61,11 +61,21 @@ input[type="checkbox"]:checked {
   border-color: #6cbdff;
 }
 
+input[type="checkbox"]:checked:focus {
+  background-color: #6cbdff;
+  border-color: white;
+}
+
 label {
   cursor: pointer;
 }
 
 label:hover {
+  color: white;
+}
+
+/* Label for checkboxes when focused */
+label:has(input[type="checkbox"]:focus) {
   color: white;
 }
 
