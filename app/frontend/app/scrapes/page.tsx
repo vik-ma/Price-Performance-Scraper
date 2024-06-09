@@ -78,7 +78,7 @@ export default async function Fetches({
             </div>
           }
         >
-          <ul className="full-scrape-list no-dot-list">
+          <div className="full-scrape-list">
             {/* Show every completed Price Scrape with the most recent ones on top */}
             {paginatedScrapes.map((scrape: CompletedFetchProps) => {
               // Remove the "-" from scrapeType value to make it compatible with scrapeTypeMap
@@ -99,14 +99,12 @@ export default async function Fetches({
               )}:${timestamp.substring(10, 12)}:${timestamp.substring(12, 14)}`;
               return (
                 // Display every item in the color of their respective Benchmark Type
-                <li
-                  className={`full-scrape-list-item ${scrapeTypeMap[scrapeType].cssNameBorder} no-dot-list-item`}
+                <Link
+                  className="full-scrape-link"
+                  href={`/scrapes/${scrape.timestamp_id}`}
                   key={scrape.timestamp_id}
                 >
-                  <Link
-                    className="full-scrape-link"
-                    href={`/scrapes/${scrape.timestamp_id}`}
-                  >
+                  <div className="full-scrape-list-item">
                     <p className="full-scrape-list-item-text">
                       <strong className={scrapeTypeMap[scrapeType].cssNameText}>
                         {scrapeTypeMap[scrapeType].title}{" "}
@@ -124,11 +122,11 @@ export default async function Fetches({
                         {`${formattedDate} ${formattedTime}`}
                       </small>
                     </p>
-                  </Link>
-                </li>
+                  </div>
+                </Link>
               );
             })}
-          </ul>
+          </div>
           <PaginationControls
             hasNextPage={end < numScrapes}
             hasPrevPage={start > 0}
