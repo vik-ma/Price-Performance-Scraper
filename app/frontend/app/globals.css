@@ -94,9 +94,11 @@ progress {
   padding: 5px 20px 10px;
   border: 2px solid rgba(233, 233, 233, 0.78);
   border-radius: 12px;
+  transition-duration: 0.1s;
 }
 
-.error-button:hover {
+.error-button:hover,
+.error-button:focus {
   background-color: rgba(160, 160, 170, 0.38);
   color: white;
   border: 2px solid white;
@@ -243,7 +245,8 @@ progress {
   );
 }
 
-.nav-full-menu-item:hover {
+.nav-full-menu-item:hover,
+.nav-full-menu-item:focus {
   background-color: rgb(48, 48, 48);
   background: linear-gradient(
     to bottom right,
@@ -319,9 +322,11 @@ progress {
   word-break: normal;
   margin-bottom: 0;
   font-size: 24px;
+  transition-duration: 0.05s;
 }
 
-.dark-button:hover {
+.dark-button:hover,
+.dark-button:focus {
   background-color: rgba(160, 160, 170, 0.38);
   color: white;
   border: 2px solid white;
@@ -400,7 +405,8 @@ progress {
   transition: 0.2s ease-in-out;
 }
 
-.github-logo-link:hover {
+.github-logo-link:hover,
+.github-logo-link:focus {
   background-color: #2b80ff48;
   border: 2px solid #2b80ff;
   box-shadow: 0px 0px 10px 1px #2b80ff;
@@ -416,7 +422,8 @@ progress {
 }
 
 /* Change github-text color when hovering over github-logo-link */
-.github-logo-link:hover + .github-text {
+.github-logo-link:hover + .github-text,
+.github-logo-link:focus + .github-text {
   color: #2b80ff;
 }
 
@@ -484,12 +491,13 @@ progress {
     rgb(47, 31, 116) 95.7%
   );
   border-radius: 6px;
-  transition: ease 0.15;
+  transition-duration: 0.05s;
 }
 
-.sidebar-full-list-button:hover {
+.sidebar-full-list-button:hover,
+.sidebar-full-list-button:focus {
   border-color: #ffffff;
-  box-shadow: 0px 0px 6px 1px #ffffff;
+  box-shadow: 0px 0px 4px 1px #ffffff;
 }
 
 .sidebar-full-list-button:active {
@@ -551,7 +559,8 @@ progress {
   font-weight: 600;
 }
 
-.pagination-button:hover {
+.pagination-button:hover,
+.pagination-button:focus {
   color: white;
   border: 1px solid white;
 }
@@ -560,7 +569,7 @@ progress {
 .pagination-button-current {
   /* background: rgba(150, 150, 150, 0.4); */
   background: #f1f1f1;
-  color: black;
+  color: black !important;
 }
 
 /* Div for scrape pagination page display on small screens */
@@ -705,9 +714,10 @@ progress {
   border-color: #f1f1f1;
 }
 
-.view-all-scrapes-button:hover {
+.view-all-scrapes-button:hover,
+.view-all-scrapes-button:focus {
   border-color: #ffffff;
-  box-shadow: 0px 0px 12px 1px #ffffff;
+  box-shadow: 0px 0px 8px 1px #ffffff;
 }
 
 .view-all-scrapes-button:active {
@@ -1150,6 +1160,7 @@ td {
 
 /* Individual items in benchmark-table-tabs-container */
 .benchmark-table-tabs {
+  all: unset;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -1168,7 +1179,8 @@ td {
   font-weight: 700;
 }
 
-.benchmark-table-tabs:hover {
+.benchmark-table-tabs:hover,
+.benchmark-table-tabs:focus {
   background: rgba(128, 128, 128, 0.6);
   color: white;
   transition-duration: 0.3s;
@@ -1397,7 +1409,8 @@ td {
   margin-right: 10px;
 }
 
-.start-scrape-button:hover {
+.start-scrape-button:hover,
+.start-scrape-button:focus {
   border-color: #ffffff;
   box-shadow: 0px 0px 12px 1px #ffffff;
 }
@@ -1422,10 +1435,11 @@ td {
     1px 1px 1px rgb(26, 26, 26);
   border: 2px solid white;
   word-break: normal;
-  transition-duration: 0.1s;
+  transition-duration: 0.05s;
 }
 
-.product-selection:hover {
+.product-selection:hover,
+.product-selection:focus {
   outline: 2px solid white;
   box-shadow: 0px 0px 10px 4px white;
 }
@@ -1727,10 +1741,11 @@ h3.information-sub-header {
   font-size: xx-large;
   color: #ffffff;
   border-color: #f1f1f1;
-  transition: ease 0.15;
+  transition: ease 0.05;
 }
 
-.mct-calculate-button:hover {
+.mct-calculate-button:hover,
+.mct-calculate-button:focus {
   border-color: #ffffff;
   box-shadow: 0px 0px 10px 1px #ffffff;
 }
@@ -1766,7 +1781,8 @@ h3.information-sub-header {
   margin-top: 2px;
 }
 
-.start-button-home:hover {
+.start-button-home:hover,
+.start-button:focus {
   border-color: #ffffff;
   box-shadow: 0px 0px 10px 1px #ffffff;
 }
