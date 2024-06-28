@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useMemo } from "react";
 import { useState } from "react";
 import { ScrapeType } from "@/typings";
 import { gpuInfo, cpuInfo } from "../ProductInfo";
@@ -129,10 +129,8 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const {
     loadingScrape,
     setLoadingScrape,
-    errorMsg,
-    setErrorMsg,
-    showErrorMsg,
-    setShowErrorMsg,
+    errorCode,
+    setErrorCode,
     isScrapeAllowed,
     setIsScrapeAllowed,
     scrapeAllowedTimer,
@@ -146,8 +144,7 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
       const data = createScrapePostBody();
 
       // Clear any error messages
-      setShowErrorMsg(false);
-      setErrorMsg("");
+      setErrorCode(0);
 
       // State that shows a loading bar instead of Start Price Scrape button
       setLoadingScrape(true);
@@ -169,24 +166,20 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
             setScrapeAllowedTimer(response.seconds_left);
           } else {
             // Show error message if POST request was successful but the actual Price Scraping in Django app ran into an error
-            setErrorMsg(`An error occurred during price scraping.`);
-            setShowErrorMsg(true);
+            setErrorCode(2);
           }
         } else {
           // Show error message if POST request body was faulty
-          setErrorMsg(`An error occurred when communicating with the API.`);
-          setShowErrorMsg(true);
+          setErrorCode(3);
         }
       } catch {
         // Show error message if API call has no response
         setLoadingScrape(false);
-        setErrorMsg(`Failed to communicate with server.`);
-        setShowErrorMsg(true);
+        setErrorCode(4);
       }
     } else {
       // Show error message if no products were selected when pressing button
-      setErrorMsg("No product(s) selected");
-      setShowErrorMsg(true);
+      setErrorCode(1);
     }
   };
 
@@ -282,6 +275,17 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     }
   };
 
+  // Displayed error messages for errorCode numbers
+  const errorMsgMap: Map<number, string> = useMemo(() => {
+    return new Map([
+      [0, ""],
+      [1, "No product(s) selected"],
+      [2, "An error occurred during price scraping."],
+      [3, "An error occurred when communicating with the API."],
+      [4, "Failed to communicate with server."],
+    ]);
+  }, []);
+
   return (
     <>
       <div className="selected-products-border">
@@ -365,9 +369,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
                 </button>
               )}
               {/* Show any error messages related to Price Scraping */}
-              {showErrorMsg && (
+              {errorCode !== 0 && errorMsgMap.has(errorCode) && (
                 <div className="horizontally-centered-container error-msg-container">
-                  {errorMsg}
+                  {errorMsgMap.get(errorCode)}
                 </div>
               )}
             </div>

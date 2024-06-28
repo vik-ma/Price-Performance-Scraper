@@ -12,10 +12,8 @@ import {
 interface ScrapeContextProps {
   loadingScrape: boolean;
   setLoadingScrape: Dispatch<SetStateAction<boolean>>;
-  errorMsg: string;
-  setErrorMsg: Dispatch<SetStateAction<string>>;
-  showErrorMsg: boolean;
-  setShowErrorMsg: Dispatch<SetStateAction<boolean>>;
+  errorCode: number;
+  setErrorCode: Dispatch<SetStateAction<number>>;
   scrapeAllowedMsg: string;
   setScrapeAllowedMsg: Dispatch<SetStateAction<string>>;
   isScrapeAllowed: boolean;
@@ -27,10 +25,8 @@ interface ScrapeContextProps {
 const NewScrapeContext = createContext<ScrapeContextProps>({
   loadingScrape: false,
   setLoadingScrape: () => {},
-  errorMsg: "",
-  setErrorMsg: () => {},
-  showErrorMsg: false,
-  setShowErrorMsg: () => {},
+  errorCode: 0,
+  setErrorCode: () => {},
   scrapeAllowedMsg: "",
   setScrapeAllowedMsg: () => {},
   isScrapeAllowed: true,
@@ -42,8 +38,7 @@ const NewScrapeContext = createContext<ScrapeContextProps>({
 /* @ts-ignore */
 export const NewScrapeContextProvider = ({ children }) => {
   const [loadingScrape, setLoadingScrape] = useState<boolean>(false);
-  const [errorMsg, setErrorMsg] = useState<string>("");
-  const [showErrorMsg, setShowErrorMsg] = useState<boolean>(false);
+  const [errorCode, setErrorCode] = useState<number>(0);
   const [scrapeAllowedMsg, setScrapeAllowedMsg] = useState<string>("");
   const [isScrapeAllowed, setIsScrapeAllowed] = useState<boolean>(true);
   const [scrapeAllowedTimer, setScrapeAllowedTimer] = useState<number>(0);
@@ -53,10 +48,8 @@ export const NewScrapeContextProvider = ({ children }) => {
       value={{
         loadingScrape,
         setLoadingScrape,
-        errorMsg,
-        setErrorMsg,
-        showErrorMsg,
-        setShowErrorMsg,
+        errorCode,
+        setErrorCode,
         scrapeAllowedMsg,
         setScrapeAllowedMsg,
         isScrapeAllowed,

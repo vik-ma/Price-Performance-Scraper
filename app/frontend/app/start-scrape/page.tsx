@@ -30,8 +30,7 @@ export default function NewScrape() {
   // useContext for variables shared between this component and ScrapeCreator.tsx
   const {
     loadingScrape,
-    setErrorMsg,
-    setShowErrorMsg,
+    setErrorCode,
     setScrapeAllowedMsg,
     setIsScrapeAllowed,
     scrapeAllowedTimer,
@@ -45,8 +44,7 @@ export default function NewScrape() {
   const toggleTab = (index: number) => {
     if (!loadingScrape) {
       setTabIndex(index);
-      setErrorMsg("");
-      setShowErrorMsg(false);
+      setErrorCode(0);
     }
   };
 
