@@ -26,8 +26,11 @@ export default function RootLayout({
       <div className="sidebar">
         <div className="sidebar-title-container">
           <h4 className="sidebar-title">Last 20 Scrapes</h4>
-          <Link className="no-underscore" href="/scrapes">
-            <button className="sidebar-full-list-button">View Full List</button>
+          <Link
+            className="sidebar-full-list-button no-underscore"
+            href="/scrapes"
+          >
+            View Full List
           </Link>
         </div>
         {/* @ts-ignore */}
