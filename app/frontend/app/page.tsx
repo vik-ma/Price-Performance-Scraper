@@ -15,8 +15,8 @@ export default async function Home() {
         <p className="demo-deployment-text">
           Since the back-end server is hosted at a data center,{" "}
           <strong className="bold-white-text">
-            real-time price scraping may fail due to the server's IP-address being
-            blocked
+            real-time price scraping may fail due to the server's IP-address
+            being blocked
           </strong>
           .
           <br />
@@ -63,10 +63,11 @@ export default async function Home() {
         <strong>Click the button below to start a price scrape!</strong>
       </p>
       <div className="centered-container">
-        <Link href="/start-scrape">
-          <button className="start-button start-button-home">
-            <strong>Start Price Scrape</strong>
-          </button>
+        <Link
+          className="dark-button start-button start-button-home no-underscore"
+          href="/start-scrape"
+        >
+          <strong>Start Price Scrape</strong>
         </Link>
       </div>
       <br />
