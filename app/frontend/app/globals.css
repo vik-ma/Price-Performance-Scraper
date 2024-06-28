@@ -1,7 +1,7 @@
 :root {
   --primary: #dedfe4;
   --primary-hover: #616161;
-  --primary-focus: rgba(172, 172, 172, 0.125);
+  --primary-focus: rgba(255, 255, 255, 0.2);
   --table-border-color: rgba(44, 44, 44, 0.225);
   --dark-bg-color: #1f1f1e;
   --gpu-color: #52e068;
