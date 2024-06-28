@@ -17,10 +17,11 @@ export default function RootLayout({
         <h1 className="completed-scrapes-title">
           <span className="title-gradient">Completed Scrapes</span>
         </h1>
-        <Link className="no-underscore" href="/scrapes">
-          <button className="dark-button view-all-scrapes-button">
-            <strong>View All Scrapes</strong>
-          </button>
+        <Link
+          className="dark-button view-all-scrapes-button no-underscore"
+          href="/scrapes"
+        >
+          <strong>View All Scrapes</strong>
         </Link>
       </div>
       <div className="sidebar">
