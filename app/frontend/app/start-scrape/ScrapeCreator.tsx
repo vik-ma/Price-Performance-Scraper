@@ -93,6 +93,10 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     if (selectedProducts.size < productLimit) {
       setSelectedProducts((prev) => new Set(prev.add(name)));
     }
+    if (errorCode === 1) {
+      // Remove "No Product(s) Selected" error message
+      setErrorCode(0);
+    }
   };
 
   // Handle function for when user removes a product from selectedProducts
