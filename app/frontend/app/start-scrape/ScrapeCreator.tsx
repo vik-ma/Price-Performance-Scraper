@@ -62,28 +62,33 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
   const productLimit: number = scrapeType.name === "GPU" ? 1 : 5;
 
   // Set for every different Tier in productInfo
-  const tiers: Set<string> = new Set();
-  Object.values(productInfo).forEach((product) => {
-    // Loop over all values in productInfo
-    const tier =
-      scrapeType.name === "CPU-Gaming"
-        ? product.gamingTier
-        : scrapeType.name === "CPU-Normal"
-        ? product.normalTier
-        : product.tier;
-    if (
-      // Clause to stop empty CPU-Gaming values from being added
-      (scrapeType.name === "CPU-Gaming" && product.gamingTier !== "") ||
-      scrapeType.name !== "CPU-Gaming"
-    ) {
-      // Add unique tier to Set
-      tiers.add(tier);
-    }
-  });
+  const tiers: Set<string> = useMemo(() => {
+    const tiers = new Set<string>();
+    Object.values(productInfo).forEach((product) => {
+      // Loop over all values in productInfo
+      const tier =
+        scrapeType.name === "CPU-Gaming"
+          ? product.gamingTier
+          : scrapeType.name === "CPU-Normal"
+          ? product.normalTier
+          : product.tier;
+      if (
+        // Clause to stop empty CPU-Gaming values from being added
+        (scrapeType.name === "CPU-Gaming" && product.gamingTier !== "") ||
+        scrapeType.name !== "CPU-Gaming"
+      ) {
+        // Add unique tier to Set
+        tiers.add(tier);
+      }
+    });
+    return tiers;
+  }, []);
 
   // Array of tiers Set to map over
-  const tiersArray: string[] = Array.from(tiers);
-  tiersArray.sort();
+  const tiersArray: string[] = useMemo(() => {
+    const tiersArray: string[] = Array.from(tiers);
+    return tiersArray.sort();
+  }, []);
 
   // Set of products the user has selected for Price Scraping
   const [selectedProducts, setSelectedProducts] = useState(new Set<string>([]));
