@@ -118,6 +118,9 @@ export default function ScrapeCreator(scrapeType: ScrapeType) {
     if (selectedProducts.size > 0) {
       setSelectedProducts(new Set<string>([]));
     }
+    if (errorCode !== 0) {
+      setErrorCode(0);
+    }
   };
 
   // Arrow function to convert the set of selectedProducts to a string to be sent in POST request
