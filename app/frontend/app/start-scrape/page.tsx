@@ -94,7 +94,7 @@ export default function NewScrape() {
       <h1>
         <span className="title-gradient">Start New Price Scrape</span>
       </h1>
-      <div id="demo-deployment" className="demo-deployment-container">
+      {/* <div id="demo-deployment" className="demo-deployment-container">
         <h2 className="demo-deployment-heading">
           Price Scraping May Get Simulated
         </h2>
@@ -107,7 +107,7 @@ export default function NewScrape() {
             to learn more.
           </strong>
         </p>
-      </div>
+      </div> */}
       <details>
         <summary className="filter-button scrape-tutorial-button" role="button">
           <strong>Show Tutorial</strong>

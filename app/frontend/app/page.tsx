@@ -9,7 +9,7 @@ export default async function Home() {
       <h1>
         <span className="title-gradient">Price/Performance Scraper</span>
       </h1>
-      <div id="demo-deployment" className="demo-deployment-container">
+      {/* <div id="demo-deployment" className="demo-deployment-container">
         <h2 className="demo-deployment-heading">Important Message</h2>
         <h3 className="demo-deployment-heading">This Is A Demo Deployment</h3>
         <p className="demo-deployment-text">
@@ -41,7 +41,7 @@ export default async function Home() {
           </a>
           .
         </p>
-      </div>
+      </div> */}
       <p className="home-text">
         <strong className="bold-white-text">Price/Performance Scraper</strong>{" "}
         is a tool to compare the price efficiency of different GPU and CPU
