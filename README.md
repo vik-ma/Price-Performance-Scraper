@@ -225,9 +225,6 @@ Go up one step to the **app** directory:
 Create a file called **docker-compose.yaml** in the **app** directory, paste this code into it and save:
 
 ```
-version: '3.9'
-
-
 services:
   db:
     container_name: db_container
