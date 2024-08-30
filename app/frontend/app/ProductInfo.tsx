@@ -139,6 +139,34 @@ export const gpuInfo = {
 };
 
 export const cpuInfo = {
+  "AMD Ryzen 9 9950X": {
+    gamingTier: "4",
+    normalTier: "1",
+    generation: "Latest Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM5",
+  },
+  "AMD Ryzen 9 9900X": {
+    gamingTier: "2",
+    normalTier: "2",
+    generation: "Latest Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM5",
+  },
+  "AMD Ryzen 7 9700X": {
+    gamingTier: "3",
+    normalTier: "4",
+    generation: "Latest Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM5",
+  },
+  "AMD Ryzen 5 9600X": {
+    gamingTier: "2",
+    normalTier: "5",
+    generation: "Latest Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM5",
+  },
   "AMD Ryzen 9 7950X3D": {
     gamingTier: "1",
     normalTier: "1",
