@@ -56,6 +56,10 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 ## CPU 
 
 #### CPU MODELS INCLUDED
+- AMD Ryzen 9 9950X
+- AMD Ryzen 9 9900X
+- AMD Ryzen 7 9700X
+- AMD Ryzen 5 9600X
 - AMD Ryzen 9 7950X3D
 - AMD Ryzen 9 7950X
 - Intel Core i9-14900KS
