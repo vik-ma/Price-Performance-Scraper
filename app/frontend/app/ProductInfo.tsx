@@ -217,7 +217,7 @@ export const cpuInfo = {
     socket: "Socket AM4",
   },
   "AMD Ryzen 7 5700X": {
-    gamingTier: "6",
+    gamingTier: "7",
     normalTier: "6",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -280,7 +280,7 @@ export const cpuInfo = {
     socket: "Socket AM5",
   },
   "AMD Ryzen 7 7700X": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "4",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -364,7 +364,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-14700": {
-    gamingTier: "3",
+    gamingTier: "4",
     normalTier: "3",
     generation: "Latest Generation",
     manufacturer: "Intel",
@@ -420,7 +420,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-13900K": {
-    gamingTier: "2",
+    gamingTier: "1",
     normalTier: "1",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -442,7 +442,7 @@ export const cpuInfo = {
   },
   "Intel Core i9-13900": {
     gamingTier: "3",
-    normalTier: "2",
+    normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -476,14 +476,14 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-12900KF": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-13700": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "4",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -518,21 +518,21 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-12900": {
-    gamingTier: "5",
+    gamingTier: "6",
     normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-12700K": {
-    gamingTier: "5",
+    gamingTier: "6",
     normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-12700KF": {
-    gamingTier: "5",
+    gamingTier: "6",
     normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -574,7 +574,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-13400": {
-    gamingTier: "6",
+    gamingTier: "7",
     normalTier: "7",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -595,14 +595,14 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-12500": {
-    gamingTier: "6",
+    gamingTier: "7",
     normalTier: "7",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-12400F": {
-    gamingTier: "6",
+    gamingTier: "7",
     normalTier: "7",
     generation: "Previous Generation",
     manufacturer: "Intel",
