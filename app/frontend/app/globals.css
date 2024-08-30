@@ -839,6 +839,9 @@ td {
 
 /* Accordion button for <details> tag, mainly to toggle filters */
 .filter-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-size: 24px;
   background: none;
   background-color: var(--dark-bg-color);
@@ -859,7 +862,7 @@ td {
 .filter-button::after {
   background-size: 1.5rem auto;
   width: 1.5rem;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .filter-button:hover,
@@ -1937,7 +1940,7 @@ h3.information-sub-header {
     margin-left: -5px;
   }
   .filter-button::after {
-    margin-top: 6px;
+    margin-top: 4px;
   }
   .pagination-button {
     font-size: 20px;
@@ -1994,6 +1997,13 @@ h3.information-sub-header {
   }
   .start-button {
     font-size: 28px;
+  }
+  .filter-button {
+    font-size: 20px;
+    padding: 2px 15px 4px;
+  }
+  .filter-button::after {
+    margin-top: 3px;
   }
   .github-text {
     font-size: medium;
@@ -2061,13 +2071,6 @@ h3.information-sub-header {
   .start-button {
     font-size: 24px;
   }
-  .filter-button {
-    font-size: 20px;
-    padding: 2px 15px 4px;
-  }
-  .filter-button::after {
-    margin-top: 4px;
-  }
   .filter-button-products-text {
     font-size: small;
     font-weight: 600;
@@ -2086,9 +2089,6 @@ h3.information-sub-header {
     padding-left: 15px;
     padding-top: 5px;
     padding-bottom: 8px;
-  }
-  .filter-button::after {
-    margin-top: 7px;
   }
   .scrape-pagination-container {
     margin-top: 12px;
