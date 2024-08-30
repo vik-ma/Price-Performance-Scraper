@@ -55,6 +55,10 @@ list_of_gpus_to_scrape = [
     ]
 
 list_of_cpus_to_scrape = [
+    "AMD Ryzen 9 9950X",
+    "AMD Ryzen 9 9900X",
+    "AMD Ryzen 7 9700X",
+    "AMD Ryzen 5 9600X",
     "AMD Ryzen 9 5950X",
     "AMD Ryzen 9 5900X",
     "AMD Ryzen 7 5800X",

@@ -46,6 +46,10 @@ gpu_pj_url_dict = {
 
 # Product page for each CPU model to scrape prices from
 cpu_pj_url_dict = {
+    "AMD Ryzen 9 9950X": "https://www.prisjakt.nu/produkt.php?p=13619009",
+    "AMD Ryzen 9 9900X": "https://www.prisjakt.nu/produkt.php?p=13619028",
+    "AMD Ryzen 7 9700X": "https://www.prisjakt.nu/produkt.php?p=13619029",
+    "AMD Ryzen 5 9600X": "https://www.prisjakt.nu/produkt.php?p=13619010",
     "AMD Ryzen 9 5950X": "https://www.prisjakt.nu/produkt.php?p=5588372",
     "AMD Ryzen 9 5900X": "https://www.prisjakt.nu/produkt.php?p=5588367",
     "AMD Ryzen 7 5800X": "https://www.prisjakt.nu/produkt.php?p=5588364",
