@@ -116,7 +116,7 @@ export default async function Benchmarks() {
           <em>
             <strong className="bold-white-text">GPUs</strong> of the same model
             come in different 'sub-models' made by various third party
-            manufacturers which may differ in performance from each other.{" "}
+            manufacturers, which may differ in performance from each other.{" "}
             <strong className="bold-white-text">
               No comparisons are made between individual sub-models in these
               benchmarks.
