@@ -472,7 +472,7 @@ progress {
   display: flex;
   flex-direction: column;
   padding: 2px 0 10px;
-  border: 1px solid rgba(190, 190, 190, 0.5);
+  border: 1px solid rgba(190, 190, 190, 0.3);
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: #353535;
@@ -524,7 +524,7 @@ progress {
   padding: 1px 10px;
   padding-bottom: 8px;
   background-color: var(--dark-bg-color);
-  border: 1px solid rgba(190, 190, 190, 0.5);
+  border: 1px solid rgba(190, 190, 190, 0.25);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   border-top: none;
@@ -567,7 +567,7 @@ progress {
   background: linear-gradient(to bottom right, #242424, #181818);
   border-radius: 8px;
   color: #f1f1f1;
-  border: 1px solid rgba(190, 190, 190, 0.5);
+  border: 1px solid rgba(190, 190, 190, 0.3);
   margin: 0 3px;
   font-weight: 600;
 }
@@ -611,7 +611,7 @@ progress {
   background: linear-gradient(to bottom right, #242424, #181818);
   border-radius: 10px;
   margin-bottom: 8px;
-  border: 1px solid rgba(190, 190, 190, 0.5);
+  border: 1px solid rgba(190, 190, 190, 0.25);
   /* box-shadow: 0px 0px 5px rgba(190, 190, 190, 0.5); */
 }
 
@@ -620,7 +620,7 @@ progress {
   background: none;
   background-color: rgb(54, 54, 54);
   text-decoration: none !important;
-  border: 1px solid white;
+  border: 1px solid rgb(255, 255, 255);
   box-shadow: 0px 0px 5px white;
   transition: 0.2s;
 }
@@ -1681,7 +1681,7 @@ h3.information-sub-header {
   font-size: 24px;
   margin-top: 7px;
   font-weight: 600;
-  border: 1px solid rgba(200, 200, 200, 0.5);
+  border: 1px solid rgba(190, 190, 190, 0.4);
 }
 
 /* Wrapper for content on Manual Comparison Tool page */
