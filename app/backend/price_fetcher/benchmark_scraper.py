@@ -1,3 +1,4 @@
+import re
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -211,6 +212,8 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
 
     benchmarks_dict = {}
 
+    float_pattern = r'^[1-9]\d*(\.\d+)?$'
+
     tbody = soup.find("tbody", {"class": "table__body"})
 
     for tr in tbody.find_all("tr"):
@@ -218,7 +221,8 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
         if name.lower() in gpu_set_lower_case or name == "Radeon RX 6700 10GB":
             value_1080p = tr.find_all("td")[2].text.strip().split("%")[0]
             value_1440p = tr.find_all("td")[4].text.strip().split("%")[0]
-            if value_1440p != "":
+            # Check if 1440p is a valid float number
+            if re.match(float_pattern, value_1440p):
                 # Get the average value of 1080p and 1440p benchmark scores
                 value = round(
                     ((float(value_1080p) + float(value_1440p)) / 2), 2)
