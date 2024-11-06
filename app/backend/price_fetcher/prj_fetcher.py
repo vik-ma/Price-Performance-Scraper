@@ -41,7 +41,7 @@ gpu_pj_url_dict = {
     "GeForce GTX 1660 Super": "https://www.prisjakt.nu/c/grafikkort?532=32763",
     "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
     "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
-    "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",  
+    "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
 }
 
 # Product page for each CPU model to scrape prices from
@@ -114,7 +114,7 @@ cpu_pj_url_dict = {
     "Intel Core i5-12500": "https://www.prisjakt.nu/produkt.php?p=5948021",
     "Intel Core i5-12400F": "https://www.prisjakt.nu/produkt.php?p=5948013",
     "Intel Core i5-12400": "https://www.prisjakt.nu/produkt.php?p=5948016",
-}    
+}
 
 
 def import_benchmark_json(benchmark_type, run_locally=False) -> dict:
@@ -126,7 +126,7 @@ def import_benchmark_json(benchmark_type, run_locally=False) -> dict:
                                   (Must be either "GPU", "CPU-Gaming" or "CPU-Normal")
 
             run_locally (bool): Must be True if module is ran outside of Django
-        
+
         Returns:
             data (dict): Dictionary of benchmark data where every key is a product model
                          and their value is the model's corresponding benchmark score
@@ -243,7 +243,7 @@ def test_local_html_page(filename):
     with open(filename, "r", encoding="utf-8") as file:
         soup = BeautifulSoup(file, "html.parser")
 
-    
+
 def test_local_json_file(filename):
     """
     Import a local .json file.
@@ -262,7 +262,7 @@ def get_product_json(soup) -> dict:
 
         Parameters:
             soup (BeautifulSoup object): Website content scraped with BeautifulSoup
-    
+
         Returns:
             json_data (dict): Dictionary containing everything inside the key "prices"
                               from scraped webpage
@@ -270,14 +270,15 @@ def get_product_json(soup) -> dict:
     # Script tag which contains JSON data (formatted as plain text)
     page_json = soup.find_all("script")[8].text
 
-    ## Parse JSON using regex
+    # Parse JSON using regex
 
     # Key to extract data from
     start_text = r'"prices":'
     # Continue until this key
     end_text = r',"popularProducts"'
     # Extract all text from start_text to end_text, including start_text but excluding end_text
-    price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
+    price_data = re.search(
+        f"{start_text}.*?(?={end_text})", page_json).group(0)
 
     # Wrap string in dictionary brackets to convert to dictionary via json module
     price_data = f"{{{price_data}}}"
@@ -300,7 +301,7 @@ def get_product_price_list(json_data, product_category) -> list:
             json_data (dict): Dictionary containing information about listed prices for product
 
             product_category (str): Name of product model
-        
+
         Returns:
             product_list (list): List of tuples containing various information about
                                  listed prices for a product
@@ -319,8 +320,9 @@ def get_product_price_list(json_data, product_category) -> list:
             # Link to product listing on store
             product_link = product["externalUri"]
             # Append tuple containing information of product listing to list
-            product_list.append((product_category, store_name, store_price, product_link, product_name))
-    
+            product_list.append(
+                (product_category, store_name, store_price, product_link, product_name))
+
     return product_list
 
 
@@ -341,7 +343,7 @@ def save_local_html_page(soup, filename=None):
 
         Parameters:
             soup (BeautifulSoup object): Website content scraped with BeautifulSoup
-        
+
             filename (str): Optional name of .html file
     """
     if filename:
@@ -360,10 +362,10 @@ def create_soup_of_local_html_files(file_list):
     """
     Create list of BeautifulSoup objects from provided local .html files.
     (For debugging purposes)
-    
+
         Parameters:
             file_list (list): List of strings containing the filepath of local .html files
-        
+
         Returns:
             soup_list (list): List of local .html files parsed as BeautifulSoup objects
     """
@@ -373,7 +375,7 @@ def create_soup_of_local_html_files(file_list):
         with open(html_file, "r", encoding="utf-8") as file:
             soup = BeautifulSoup(file, "html.parser")
             soup_list.append(soup)
-    
+
     return soup_list
 
 
@@ -394,7 +396,7 @@ def create_json_list_of_local_json_files(file_list):
         with open(json_file) as file:
             products_json = json.load(file)
             json_list.append(products_json)
-    
+
     return json_list
 
 
@@ -404,13 +406,13 @@ def create_json_list_from_gpu_category(soup_list) -> dict:
 
         Parameters:
             soup_list (list): List of BeautifulSoup objects
-        
+
         Returns:
             json_list (list): List of dictionaries containing everything inside the key
                               "ProductsSlice" from scraped webpages
     """
 
-    # JSON data for all pages in category    
+    # JSON data for all pages in category
     json_list = []
 
     # Loop through all pages
@@ -418,17 +420,19 @@ def create_json_list_from_gpu_category(soup_list) -> dict:
         # Script tag which contains JSON data (formatted as plain text)
         page_json = soup.find_all("script")[7].text
 
-        ## Parse JSON using regex
+        # Parse JSON using regex
 
         # Key to extract data from
         start_text = r'{"__typename":"ProductsSlice"'
         # Continue until this key
         end_text = r',{"__typename":"DescriptionSlice"'
         # Extract all text from start_text to end_text, including start_text but excluding end_text
-        price_data = re.search(f"{start_text}.*?(?={end_text})", page_json).group(0)
+        price_data = re.search(
+            f"{start_text}.*?(?={end_text})", page_json).group(0)
 
         # Remove escape characters and ensure unicode characters stays
-        reencoded_price_data = price_data.encode('utf-8').decode('unicode_escape')
+        reencoded_price_data = price_data.encode(
+            'utf-8').decode('unicode_escape')
 
         # Load string as a dictionary
         json_data = json.loads(reencoded_price_data)
@@ -464,9 +468,9 @@ def get_lowest_prices_in_gpu_category(json_list, num_gpu_categories) -> list:
         Parameters:
             json_list (list): List of dictionaries containing everything inside the key
                               "ProductsSlice" from scraped webpages
-                              
+
             num_gpu_categories (int): The number of GPU models selected in Price Scrape
-        
+
         Returns:
             lowest_price_list (list): List of tuples containing a link to the product page
                                       of the specific model and its lowest price
@@ -486,7 +490,7 @@ def get_lowest_prices_in_gpu_category(json_list, num_gpu_categories) -> list:
                 price_list.append((product_link, product_price))
 
     # Sort list of prices by lowest price
-    sorted_price_list = sorted(price_list, key = lambda x: x[1])
+    sorted_price_list = sorted(price_list, key=lambda x: x[1])
 
     # if num_gpu_categories < 2:
     #     # Return only the 8 cheapest products if there is only 1 total GPU Model in Price Scrape
@@ -497,7 +501,7 @@ def get_lowest_prices_in_gpu_category(json_list, num_gpu_categories) -> list:
     # elif num_gpu_categories > 2:
     #     # Return only the 5 cheapest products if there are more than 2 total GPU Models in Price Scrape
     #     lowest_price_list = sorted_price_list[:5]
-        
+
     # Return only the 5 cheapest products
     lowest_price_list = sorted_price_list[:5]
 
@@ -514,7 +518,7 @@ def get_store_price_for_products_from_category(product_link_list, product_catego
                                       to be scraped and lowest listed price of said product
 
             product_category (str): Name of product model
-        
+
         Returns:
             store_price_list (list): List of tuples containing various information about
                                      listed prices for all products in product_link_list
@@ -534,7 +538,8 @@ def get_store_price_for_products_from_category(product_link_list, product_catego
         json_data = get_product_json(soup)
 
         # Extract list of tuples containing information of product listing
-        product_price_list = get_product_price_list(json_data, product_category)
+        product_price_list = get_product_price_list(
+            json_data, product_category)
 
         # Append list of tuples containing information of product listing to main list
         store_price_list.extend(product_price_list)
@@ -554,7 +559,7 @@ def get_price_benchmark_score(product_price_list, benchmark_json) -> list:
         Parameters:
             product_price_list (list): List of tuples containing various information about
                                        listed prices for a product
-            
+
             benchmark_json (dict): Dictionary where every key is a product and
                                    their value is their benchmark score
         Returns:
@@ -573,12 +578,12 @@ def get_price_benchmark_score(product_price_list, benchmark_json) -> list:
     for product in product_price_list:
         # Calculate Price/Performance Score of product listing
         price_score = round(benchmark_value / product[2] * 100, 2)
-        # Append benchmark value of product and Price/Performance Score 
+        # Append benchmark value of product and Price/Performance Score
         # of product listing to tuple containing information about product listing
         new_product_info = product + (benchmark_value, price_score)
         # Append new tuple to new list
         price_score_list.append(new_product_info)
-    
+
     return price_score_list
 
 
@@ -590,7 +595,7 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
         Parameters:
             product_choice_list (list): List containing strings of the names of 
                                         GPU models to be scraped
-            
+
             run_locally (bool): Must be True if module is ran outside of Django
 
         Returns:
@@ -630,7 +635,8 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
 
             try:
                 # Get the cheapest product listing for GPU model category
-                lowest_category_prices = get_lowest_prices_in_gpu_category(json_list, len(product_choice_list))
+                lowest_category_prices = get_lowest_prices_in_gpu_category(
+                    json_list, len(product_choice_list))
             except:
                 return Exception(f"Error parsing json for GPU category page: {product_category_url}")
 
@@ -639,10 +645,11 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
 
             try:
                 # Scrape product pages of cheapest product listings for GPU model
-                product_price_list = get_store_price_for_products_from_category(lowest_category_prices, str(product_category))
+                product_price_list = get_store_price_for_products_from_category(
+                    lowest_category_prices, str(product_category))
             except:
                 return Exception(f"Error getting store price for product for GPU category page: {product_category_url}")
-            
+
             # Wait half a second before scraping next GPU category in list (except for last item in list)
             if product_category != product_choice_list[-1]:
                 time.sleep(0.5)
@@ -652,17 +659,19 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
                 continue
 
             # Calculate Price/Performance Score for all product listings for GPU model
-            benchmark_score_list = get_price_benchmark_score(product_price_list, benchmark_json)
-            
+            benchmark_score_list = get_price_benchmark_score(
+                product_price_list, benchmark_json)
+
             # Append product listings for GPU model to main list
             benchmark_price_list.extend(benchmark_score_list)
-        
+
         # If no GPU models in list had any products in store
         if len(benchmark_price_list) < 1:
             return Exception("No products in store for any products in list")
-        
+
         # Sort list of product listings for all GPU models by the highest Price/Performance Score
-        sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
+        sorted_benchmark_price_list = sorted(
+            benchmark_price_list, key=lambda x: x[6], reverse=True)
 
         return sorted_benchmark_price_list
     except:
@@ -670,7 +679,7 @@ def start_price_fetching_gpu(product_choice_list, *, run_locally=False) -> list:
         return Exception("Unexpected Error")
 
 
-def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally = False) -> list:
+def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally=False) -> list:
     """
     Scrape prices and calculate Price/Performance Score of products listings for all
     CPU models in provided list.
@@ -678,7 +687,7 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
         Parameters:
             benchmark_type (str): Type of benchmark data to be compared.
                                   (Must be either "CPU-Gaming" or "CPU-Normal")
-            
+
             product_choice_list (list): List containing strings of the names of
                                         CPU models to be scraped
 
@@ -698,7 +707,7 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
             # benchmark_json = import_benchmark_json(benchmark_type, run_locally)
         except:
             return Exception("Error importing benchmarks")
-        
+
         cpu_url_dict = cpu_pj_url_dict
 
         # List of product listing information for all CPU models in provided list
@@ -734,7 +743,8 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
                 continue
 
             # Calculate Price/Performance Score for all product listings for CPU model
-            product_benchmark_price_list = get_price_benchmark_score(product_price_list, benchmark_json)
+            product_benchmark_price_list = get_price_benchmark_score(
+                product_price_list, benchmark_json)
 
             # Append product listings for CPU model to main list
             benchmark_price_list.extend(product_benchmark_price_list)
@@ -748,7 +758,8 @@ def start_price_fetching_cpu(benchmark_type, product_choice_list, *, run_locally
             return Exception("No products in store for any products in list")
 
         # Sort list of product listings for all CPU models by the highest Price/Performance Score
-        sorted_benchmark_price_list = sorted(benchmark_price_list, key = lambda x: x[6], reverse=True)
+        sorted_benchmark_price_list = sorted(
+            benchmark_price_list, key=lambda x: x[6], reverse=True)
 
         return sorted_benchmark_price_list
     except:
@@ -783,7 +794,7 @@ def test_fetch_product_page(product_name, product_category) -> str:
         product_url = cpu_pj_url_dict[product_name]
     except:
         return "Invalid product"
-    
+
     scraper = cloudscraper.create_scraper()
     response = scraper.get(product_url)
 
@@ -795,8 +806,9 @@ def test_fetch_product_page(product_name, product_category) -> str:
         json_data = get_product_json(soup)
     except:
         content = soup.body.text
-    else: 
-        product_price_list = get_product_price_list(json_data, product_category)
+    else:
+        product_price_list = get_product_price_list(
+            json_data, product_category)
         content = " ".join(map(str, product_price_list))
 
     status_code_and_content_str = f"{status_code} - {content}"
@@ -807,10 +819,10 @@ def test_fetch_product_page(product_name, product_category) -> str:
 def test_number_of_fetches_possible(product_list, product_category):
     if product_category != "CPU-Gaming" and product_category != "CPU-Normal":
         return "Invalid category"
-    
+
     if not isinstance(product_list, list):
         return "Invalid product list"
-    
+
     product_url_list = []
     for product in product_list:
         try:
@@ -818,7 +830,6 @@ def test_number_of_fetches_possible(product_list, product_category):
             product_url_list.append(product_url)
         except:
             return f"{product}: Invalid product"
-
 
     scraper = cloudscraper.create_scraper()
 
@@ -834,7 +845,7 @@ def test_number_of_fetches_possible(product_list, product_category):
             time.sleep(0.5)
 
     return status_code_str
-    
+
+
 if __name__ == "__main__":
     pass
-

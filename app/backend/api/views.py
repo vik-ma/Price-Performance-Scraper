@@ -9,14 +9,16 @@ import json
 from django.db.models import Q
 import time
 
+
 class ScrapeThrottle():
     """
     Class to throttle Price Scrape requests made to API.
     """
+
     def __init__(self):
         # Time where next Price Scrape is allowed
         self.next_scrape_time = None
-    
+
     def allow_request(self) -> bool:
         """
         Returns True if cooldown for Price Scrape has passed, otherwise False.
@@ -33,7 +35,8 @@ class ScrapeThrottle():
         Sets the time of next allowed Price Scrape to 3 minutes from current time.
         """
         current_datetime = datetime.datetime.now()
-        self.next_scrape_time = current_datetime + datetime.timedelta(minutes=3)
+        self.next_scrape_time = current_datetime + \
+            datetime.timedelta(minutes=3)
 
     def calculate_seconds_left(self) -> int:
         """Returns the time left until next Price Scrape is allowed in seconds."""
@@ -41,6 +44,7 @@ class ScrapeThrottle():
         time_left = self.next_scrape_time - current_datetime
         seconds_left = int(time_left.total_seconds())
         return seconds_left
+
 
 scrape_throttle = ScrapeThrottle()
 
@@ -165,10 +169,11 @@ VALID_CPU_GAMING_SET = frozenset(VALID_CPU_GAMING_LIST)
 GPU_PRODUCT_LIST_LIMIT = 1
 CPU_PRODUCT_LIST_LIMIT = 5
 
+
 def validate_price_fetch_request(serializer_data):
     """
     Validates data sent to start_price_fetch and raises ValidationError if data is invalid.
-    
+
     "product_list" must be a string of listed of product models, with a comma separating them.
     All products must be in either "VALID_GPU_SET", "VALID_CPU_GAMING_SET" or "VALID_CPU_NORMAL_SET",
     depending on the "fetch_type".
@@ -179,7 +184,7 @@ def validate_price_fetch_request(serializer_data):
     # Check if benchmark type is valid
     if serializer_data["fetch_type"] not in VALID_FETCH_TYPES:
         raise serializers.ValidationError("Not a valid fetch_type")
-    
+
     # Set benchmark type
     fetch_type = serializer_data["fetch_type"]
 
@@ -199,7 +204,7 @@ def validate_price_fetch_request(serializer_data):
 
     # Set list of allowed products for benchmark type
     if fetch_type == "GPU":
-        valid_product_set = VALID_GPU_SET     
+        valid_product_set = VALID_GPU_SET
     elif fetch_type == "CPU-Gaming":
         valid_product_set = VALID_CPU_GAMING_SET
     elif fetch_type == "CPU-Normal":
@@ -245,7 +250,7 @@ def start_price_fetch(request) -> Response:
 
         # Return a Response that says that Price Scraping is on cooldown
         return Response({
-        "message": f"Scrape request on cooldown, {seconds_left} seconds left", "success": False, "seconds_left": seconds_left
+            "message": f"Scrape request on cooldown, {seconds_left} seconds left", "success": False, "seconds_left": seconds_left
         }, status=status.HTTP_503_SERVICE_UNAVAILABLE)
 
     serializer = FetchPropertiesSerializer(data=request.data)
@@ -286,10 +291,10 @@ def get_all_completed_fetches(request):
 def get_completed_fetch_by_timestamp_id(request, timestamp_id):
     """Return meta info for Completed Price Scrape with specific timestamp_id."""
     try:
-        completed_fetch = CompletedFetch.objects.get(timestamp_id = timestamp_id)
+        completed_fetch = CompletedFetch.objects.get(timestamp_id=timestamp_id)
     except CompletedFetch.DoesNotExist:
         return Response({"error": "Timestamp ID not found"}, status=status.HTTP_404_NOT_FOUND)
-    
+
     serializer = CompletedFetchSerializer(completed_fetch)
     return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -303,10 +308,11 @@ def get_product_listings_from_timestamp_id(request, timestamp_id):
     try:
         # Order by id, which is the order that ProductListings was entered into database.
         # The list of ProductListings for a specific timestamp_id is always pre-sorted by their PPS
-        product_listings = ProductListing.objects.filter(timestamp_id = timestamp_id).order_by('id')
+        product_listings = ProductListing.objects.filter(
+            timestamp_id=timestamp_id).order_by('id')
     except:
         return Response({"error": "Timestamp ID not found"}, status=status.HTTP_404_NOT_FOUND)
-    
+
     if len(product_listings) == 0:
         # If no product_listings has timestamp_id
         return Response({"error": "Timestamp ID not found"}, status=status.HTTP_404_NOT_FOUND)
@@ -353,7 +359,7 @@ def get_benchmarks(request) -> Response:
 def get_scrape_allowed(request) -> Response:
     """
     Returns wether Price Scraping is allowed or on cooldown.
-    
+
         Returns:
             If Price Scrape is allowed:
                 Response with dictionary keys:
@@ -374,8 +380,8 @@ def get_scrape_allowed(request) -> Response:
 
         # Return time left until Price Scraping is allowed again
         return Response({
-        "success": True, "allow": allow_scrape_request, "seconds_left": seconds_left
-    }, status=status.HTTP_503_SERVICE_UNAVAILABLE)
+            "success": True, "allow": allow_scrape_request, "seconds_left": seconds_left
+        }, status=status.HTTP_503_SERVICE_UNAVAILABLE)
 
     return Response({
         "success": True, "allow": allow_scrape_request
@@ -392,7 +398,7 @@ def mock_price_scrape(data):
         Parameters:
             data (dict): Dictionary containing JSON data from API call.
                          Contains data of the FetchProperties type in api/models.
-        
+
         Returns:
             dict{"success": True, "message": str}: If database fetching was successful,
                                                    returns the timestamp_id of the
@@ -407,14 +413,15 @@ def mock_price_scrape(data):
         if fetch_type != "GPU":
             # If fetch_type is CPU, grab all CompletedFetch objects of the same benchmark_type
             # That has a product_list of more than one product
-            random_scrape = CompletedFetch.objects.filter(Q(product_list__contains=',') & Q(benchmark_type=fetch_type))
+            random_scrape = CompletedFetch.objects.filter(
+                Q(product_list__contains=',') & Q(benchmark_type=fetch_type))
         else:
             # If fetch_type is GPU, grab all CompletedFetch objects of 'GPU' benchmark_type
-            random_scrape = CompletedFetch.objects.filter(benchmark_type = 'GPU')
+            random_scrape = CompletedFetch.objects.filter(benchmark_type='GPU')
     except:
         return {"success": False, "message": "An error occurred during mocked price scrape."}
 
-    # Get random CompletedFetch object 
+    # Get random CompletedFetch object
     random_scrape_object = random_scrape.order_by('?').first()
 
     # Wait for 3 seconds to simulate a real-time scrape

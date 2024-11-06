@@ -52,7 +52,7 @@ list_of_gpus_to_scrape = [
     "GeForce GTX 1660",
     "Radeon RX 6500 XT",
     "Radeon RX 6400",
-    ]
+]
 
 list_of_cpus_to_scrape = [
     "AMD Ryzen 9 9950X",
@@ -123,7 +123,7 @@ list_of_cpus_to_scrape = [
     "Intel Core i5-12500",
     "Intel Core i5-12400F",
     "Intel Core i5-12400",
-    ]
+]
 
 gpu_set = set(list_of_gpus_to_scrape)
 cpu_set = set(list_of_cpus_to_scrape)
@@ -168,7 +168,7 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> d
             count = li.find("span", {"class": "count"}).text.strip()
             count_num = int(count.replace(",", ""))
             if len(benchmarks_dict) == 0:
-                # Adds the product in product_set which appears at the top of 
+                # Adds the product in product_set which appears at the top of
                 # the site list's benchmark value as max_value
                 max_value = count_num
             if prdname == "GeForce GTX 1660 SUPER":
@@ -188,7 +188,8 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> d
 
     # Save the data to a .json file
     if run_locally:
-        save_to_json_with_timestamp(percent_dict, f"{benchmark_type}_PASSMARK", run_locally=run_locally)
+        save_to_json_with_timestamp(
+            percent_dict, f"{benchmark_type}_PASSMARK", run_locally=run_locally)
 
     return percent_dict
 
@@ -204,7 +205,8 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
             benchmarks_dict (dict): Dictionary where every product from gpu_set_lower_case 
                                     is paired with their benchmark value
     """
-    response = requests.get("https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html")
+    response = requests.get(
+        "https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html")
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
@@ -218,7 +220,8 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
             value_1440p = tr.find_all("td")[4].text.strip().split("%")[0]
             if value_1440p != "":
                 # Get the average value of 1080p and 1440p benchmark scores
-                value = round(((float(value_1080p) + float(value_1440p)) / 2), 2)
+                value = round(
+                    ((float(value_1080p) + float(value_1440p)) / 2), 2)
             if name == "Radeon RX 6700 10GB":
                 benchmarks_dict["Radeon RX 6700"] = value
             else:
@@ -226,7 +229,8 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
 
     # Save the data to a .json file
     if run_locally:
-        save_to_json_with_timestamp(benchmarks_dict, f"GPU_TH", run_locally=run_locally)
+        save_to_json_with_timestamp(
+            benchmarks_dict, f"GPU_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -242,13 +246,15 @@ def scrape_toms_hardware_cpu_gaming(*, run_locally=False) -> dict:
             benchmarks_dict (dict): Dictionary where every product from cpu_set_lower_case 
                                     is paired with their benchmark value
     """
-    response = requests.get("https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
+    response = requests.get(
+        "https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
 
     # Remove first word from each entry in cpu_set_lower_case
-    cpu_set_lower_case_th = {' '.join(full_cpu_name.split()[1:]).lower():full_cpu_name for full_cpu_name in cpu_set}
+    cpu_set_lower_case_th = {' '.join(full_cpu_name.split()[1:]).lower(
+    ): full_cpu_name for full_cpu_name in cpu_set}
 
     table = soup.find("div", {"id": "slice-container-table-7"})
 
@@ -261,19 +267,22 @@ def scrape_toms_hardware_cpu_gaming(*, run_locally=False) -> dict:
                 value_1080p = columns[1].text.strip().split("%")[0]
                 value_1440p = columns[2].text.strip().split("%")[0]
                 # Get the average value of 1080p and 1440p benchmark scores
-                value = round(((float(value_1080p) + float(value_1440p)) / 2), 2)
+                value = round(
+                    ((float(value_1080p) + float(value_1440p)) / 2), 2)
                 benchmarks_dict[cpu_set_lower_case_th[name.lower()]] = value
             elif name == "Core i5-13400 / F":
                 value_1080p = columns[1].text.strip().split("%")[0]
                 value_1440p = columns[2].text.strip().split("%")[0]
                 # Get the average value of 1080p and 1440p benchmark scores
-                value = round(((float(value_1080p) + float(value_1440p)) / 2), 2)
-                benchmarks_dict["Intel Core i5-13400"] = value 
+                value = round(
+                    ((float(value_1080p) + float(value_1440p)) / 2), 2)
+                benchmarks_dict["Intel Core i5-13400"] = value
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
     # Save the data to a .json file
     if run_locally:
-        save_to_json_with_timestamp(benchmarks_dict, f"CPU-Gaming_TH", run_locally=run_locally)
+        save_to_json_with_timestamp(
+            benchmarks_dict, f"CPU-Gaming_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -289,13 +298,15 @@ def scrape_toms_hardware_cpu_normal(*, run_locally=False) -> dict:
             benchmarks_dict (dict): Dictionary where every product from cpu_set_lower_case 
                                     is paired with their benchmark value
     """
-    response = requests.get("https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
+    response = requests.get(
+        "https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
 
     # Remove first word from each entry in cpu_set_lower_case
-    cpu_set_lower_case_th = {' '.join(full_cpu_name.split()[1:]).lower():full_cpu_name for full_cpu_name in cpu_set}
+    cpu_set_lower_case_th = {' '.join(full_cpu_name.split()[1:]).lower(
+    ): full_cpu_name for full_cpu_name in cpu_set}
 
     table = soup.find("div", {"id": "slice-container-table-17"})
 
@@ -309,12 +320,13 @@ def scrape_toms_hardware_cpu_normal(*, run_locally=False) -> dict:
                 benchmarks_dict[cpu_set_lower_case_th[name.lower()]] = value
             elif name == "Core i5-13400 / F":
                 value = float(columns[1].text.strip().split("%")[0])
-                benchmarks_dict["Intel Core i5-13400"] = value 
+                benchmarks_dict["Intel Core i5-13400"] = value
                 benchmarks_dict["Intel Core i5-13400F"] = value
 
     # Save the data to a .json file
     if run_locally:
-        save_to_json_with_timestamp(benchmarks_dict, f"CPU-Normal_TH", run_locally=run_locally)
+        save_to_json_with_timestamp(
+            benchmarks_dict, f"CPU-Normal_TH", run_locally=run_locally)
 
     return benchmarks_dict
 
@@ -372,7 +384,7 @@ def save_to_json_with_timestamp(benchmarks_dict, dict_type, *, run_locally=False
     else:
         # If function is run from Django
         directory = "price_fetcher/benchmarks/completed-scrapes"
-    
+
     filename = f"{directory}/{dict_type}_{current_time}.json"
 
     # Create directory if it does not exist
@@ -391,9 +403,9 @@ def convert_dict_numbers_to_percent(benchmark_dict, max_value) -> dict:
         Parameters:
             benchmarks_dict (dict): Dictionary where every key is a product and
                                     their value is their benchmark score
-            
+
             max_value (int): The maximum value of any key in the benchmarks_dict
-        
+
         Returns:
             percent_dict (dict): Dictionary where every key is a product and their value
                                  is the equivalent percentage value compared to the maximum
@@ -427,7 +439,7 @@ def get_average_benchmarks(benchmark_list) -> dict:
         Parameters:
             benchmark_list (list): List of Benchmark dictionaries which contains
                                    the same keys but have different number values
-        
+
         Returns:
             sorted_average_benchmarks (dict): Dictionary where every value has been
                                               replaced by the average value of all
@@ -448,10 +460,11 @@ def get_average_benchmarks(benchmark_list) -> dict:
         average_benchmarks[key] = average_value
 
     # Sort Benchmark keys from highest value to lowest
-    sorted_average_benchmarks = dict(sorted(average_benchmarks.items(), key=lambda x: x[1], reverse=True))
+    sorted_average_benchmarks = dict(
+        sorted(average_benchmarks.items(), key=lambda x: x[1], reverse=True))
 
     return sorted_average_benchmarks
-    
+
 
 def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
     """    
@@ -459,7 +472,7 @@ def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
 
         Parameters:
             run_locally (bool): Must be True if module is ran outside of Django
-        
+
         Returns:
             average_benchmark_data (dict): Dictionary where every key is a product
                                            and their value is the average scraped
@@ -468,7 +481,8 @@ def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
     benchmark_list = []
 
     # Benchmark Data from Passmark
-    passmark_data = scrape_passmark("GPU", passmark_gpu_url, gpu_set_lower_case, run_locally=run_locally)
+    passmark_data = scrape_passmark(
+        "GPU", passmark_gpu_url, gpu_set_lower_case, run_locally=run_locally)
     benchmark_list.append(passmark_data)
 
     # Benchmark Data from Tom's Hardware
@@ -486,7 +500,8 @@ def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
 
     # Save the data to a .json file
     if run_locally:
-        save_to_json_with_timestamp(average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
+        save_to_json_with_timestamp(
+            average_benchmark_data, "GPU_AVERAGE", run_locally=run_locally)
 
     return average_benchmark_data
 
@@ -497,13 +512,13 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False) -> dict:
 
         Parameters:
             run_locally (bool): Must be True if module is ran outside of Django
-        
+
         Returns:
             average_benchmark_data (dict): Dictionary where every key is a product
                                            and their value is the average scraped
                                            benchmark score for the product
     """
-    ### Average of multiple sites (Currently not in use)
+    # Average of multiple sites (Currently not in use)
     # benchmark_list = []
 
     # passmark_data = scrape_passmark("CPU-Gaming", passmark_cpu_gaming_url, cpu_set_lower_case, run_locally=run_locally)
@@ -516,9 +531,9 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False) -> dict:
 
     # save_to_json(average_benchmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
-
     # Currently only scraping Passmark data
-    passmark_data = scrape_passmark("CPU-Gaming", passmark_cpu_gaming_url, cpu_set_lower_case, run_locally=run_locally)
+    passmark_data = scrape_passmark(
+        "CPU-Gaming", passmark_cpu_gaming_url, cpu_set_lower_case, run_locally=run_locally)
 
     # Get time of scrape in readable format
     current_datetime = str(datetime.datetime.now())[:-7]
@@ -528,7 +543,8 @@ def fetch_cpu_gaming_benchmarks(*, run_locally=False) -> dict:
 
     # Save the data to a .json file
     if run_locally:
-        save_to_json_with_timestamp(passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
+        save_to_json_with_timestamp(
+            passmark_data, "CPU-Gaming_AVERAGE", run_locally=run_locally)
 
     return passmark_data
 
@@ -539,13 +555,13 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False) -> dict:
 
         Parameters:
             run_locally (bool): Must be True if module is ran outside of Django
-        
+
         Returns:
             average_benchmark_data (dict): Dictionary where every key is a product
                                            and their value is the average scraped
                                            benchmark score for the product
     """
-    ### Average of multiple sites (Currently not in use)
+    # Average of multiple sites (Currently not in use)
     # benchmark_list = []
 
     # passmark_data = scrape_passmark("CPU-Normal", passmark_cpu_normal_url, cpu_set_lower_case, run_locally=run_locally)
@@ -558,9 +574,9 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False) -> dict:
 
     # save_to_json(average_benchmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
 
-
     # Currently only scraping Passmark data
-    passmark_data = scrape_passmark("CPU-Normal", passmark_cpu_normal_url, cpu_set_lower_case, run_locally=run_locally)
+    passmark_data = scrape_passmark(
+        "CPU-Normal", passmark_cpu_normal_url, cpu_set_lower_case, run_locally=run_locally)
 
     # Get time of scrape in readable format
     current_datetime = str(datetime.datetime.now())[:-7]
@@ -570,10 +586,11 @@ def fetch_cpu_normal_benchmarks(*, run_locally=False) -> dict:
 
     # Save the data to a .json file
     if run_locally:
-        save_to_json_with_timestamp(passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
+        save_to_json_with_timestamp(
+            passmark_data, "CPU-Normal_AVERAGE", run_locally=run_locally)
 
     return passmark_data
-    
+
 
 def test_offline_page(filepath):
     """
@@ -594,7 +611,7 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
         Parameters:
             benchmark_type (str): Type of benchmark data to replace 
                                   (Must be either "GPU", "CPU-Gaming" or "CPU-Normal")
-                                  
+
             new_benchmarks (dict): Dictionary of new benchmark data to replace existing one
 
             run_locally (bool): Must be True if module is ran outside of Django
@@ -623,13 +640,14 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
             write_json_file(new_benchmarks, filename_backup)
 
             print(f"Successfully updated {benchmark_type} benchmarks")
-            write_to_log(success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
+            write_to_log(
+                success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
 
             # Exit rest of function
             return
 
         # Load old benchmarks
-        with open (filename, "r", encoding="utf-8") as file:
+        with open(filename, "r", encoding="utf-8") as file:
             old_benchmarks = json.load(file)
 
         # Compare new benchmark data to old one to see if it's valid
@@ -640,23 +658,26 @@ def replace_latest_benchmark(benchmark_type, new_benchmarks, *, run_locally=Fals
             write_json_file(old_benchmarks, filename_backup)
 
             print(f"Successfully updated {benchmark_type} benchmarks")
-            write_to_log(success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
+            write_to_log(
+                success=True, message=f"Successfully updated {benchmark_type} benchmarks", run_locally=run_locally)
         else:
             print(f"Failed to validate new {benchmark_type} benchmarks")
-            write_to_log(success=False, message=f"Failed to validate new {benchmark_type} benchmarks", run_locally=run_locally)
+            write_to_log(
+                success=False, message=f"Failed to validate new {benchmark_type} benchmarks", run_locally=run_locally)
     except Exception as e:
         # Log error if one occurs
         print(f"Error Replacing {benchmark_type} Benchmark: {e}")
-        write_to_log(success=False, message=f"Error Replacing {benchmark_type} Benchmark: {e}", run_locally=run_locally)  
+        write_to_log(
+            success=False, message=f"Error Replacing {benchmark_type} Benchmark: {e}", run_locally=run_locally)
 
 
 def update_all_benchmarks(*, run_locally=False) -> dict:
     """
     Scrape benchmark data for all benchmark types and return dictionary of Benchmark Data.
-    
+
         Parameters:
             run_locally (bool): Must be True if module is ran outside of Django
-        
+
         Returns:
             If benchmark scraping was successful:
                 new_benchmarks_dict (dict): Contains dictionary with keys "GPU", "CPU-Gaming"
@@ -676,10 +697,11 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
         print(error_msg)
         return Exception(error_msg)
     else:
-        # Replace json old benchmark data with new benchmark data 
-        # if scrape was successful and benchmark scrape was ran locally 
+        # Replace json old benchmark data with new benchmark data
+        # if scrape was successful and benchmark scrape was ran locally
         if run_locally:
-            replace_latest_benchmark("GPU", gpu_benchmarks, run_locally=run_locally)
+            replace_latest_benchmark(
+                "GPU", gpu_benchmarks, run_locally=run_locally)
 
     # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
@@ -687,17 +709,19 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
     print("Scraping CPU-Gaming Benchmarks")
     try:
         # Attempt to scrape new CPU-Gaming benchmark data
-        cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(run_locally=run_locally)
+        cpu_gaming_benchmarks = fetch_cpu_gaming_benchmarks(
+            run_locally=run_locally)
         print("Success")
     except Exception as e:
         error_msg = f"Error scraping GPU Benchmarks: {e}"
         print(error_msg)
         return Exception(error_msg)
     else:
-        # Replace json old benchmark data with new benchmark data 
-        # if scrape was successful and benchmark scrape was ran locally 
+        # Replace json old benchmark data with new benchmark data
+        # if scrape was successful and benchmark scrape was ran locally
         if run_locally:
-             replace_latest_benchmark("CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
+            replace_latest_benchmark(
+                "CPU-Gaming", cpu_gaming_benchmarks, run_locally=run_locally)
 
     # Wait half a second before scraping next benchmark type
     time.sleep(0.5)
@@ -705,23 +729,26 @@ def update_all_benchmarks(*, run_locally=False) -> dict:
     print("Scraping CPU-Normal Benchmarks")
     try:
         # Attempt to scrape new CPU-Normal (Multithreading) benchmark data
-        cpu_normal_benchmarks = fetch_cpu_normal_benchmarks(run_locally=run_locally)
+        cpu_normal_benchmarks = fetch_cpu_normal_benchmarks(
+            run_locally=run_locally)
         print("Success")
     except Exception as e:
         error_msg = f"Error scraping GPU Benchmarks: {e}"
         print(error_msg)
         return Exception(error_msg)
     else:
-        # Replace json old benchmark data with new benchmark data 
-        # if scrape was successful and benchmark scrape was ran locally 
+        # Replace json old benchmark data with new benchmark data
+        # if scrape was successful and benchmark scrape was ran locally
         if run_locally:
-            replace_latest_benchmark("CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
+            replace_latest_benchmark(
+                "CPU-Normal", cpu_normal_benchmarks, run_locally=run_locally)
 
-    new_benchmarks_dict = {"GPU": gpu_benchmarks, 
-                            "CPU-Gaming": cpu_gaming_benchmarks, 
-                            "CPU-Normal": cpu_normal_benchmarks}
+    new_benchmarks_dict = {"GPU": gpu_benchmarks,
+                           "CPU-Gaming": cpu_gaming_benchmarks,
+                           "CPU-Normal": cpu_normal_benchmarks}
 
     return new_benchmarks_dict
+
 
 def validate_new_benchmarks(old_benchmark_json, new_benchmark_json, *, run_locally=False) -> bool:
     """
@@ -733,46 +760,55 @@ def validate_new_benchmarks(old_benchmark_json, new_benchmark_json, *, run_local
             new_benchmark_json (dict): Dictionary of newly scraped benchmark data
 
             run_locally (bool): Must be True if module is ran outside of Django
-        
+
         Returns:
             True if validation passed, False otherwise
 
     """
     # Check if the number of products are the same
     if len(old_benchmark_json) != len(new_benchmark_json):
-        print(f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}")
-        write_to_log(success=False, message=f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}", run_locally=run_locally)
+        print(
+            f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}")
+        write_to_log(
+            success=False, message=f"Number of keys does not match. OLD: {len(old_benchmark_json)} NEW: {len(new_benchmark_json)}", run_locally=run_locally)
         return False
-    
+
     # Check if every single product is the same
     if set(old_benchmark_json.keys()) != set(new_benchmark_json.keys()):
-        print(f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}")
-        write_to_log(success=False, message=f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}", run_locally=run_locally)
+        print(
+            f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}")
+        write_to_log(
+            success=False, message=f"All keys do not match. OLD: {old_benchmark_json.keys()} NEW: {new_benchmark_json.keys()}", run_locally=run_locally)
         return False
-    
+
     # Check if the first key of the benchmark data has a value of 100
     if new_benchmark_json[next(iter(new_benchmark_json))] != 100:
-        print(f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}")
-        write_to_log(success=False, message=f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}", run_locally=run_locally)
+        print(
+            f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}")
+        write_to_log(
+            success=False, message=f"First Benchmark Value is not 100: {new_benchmark_json[next(iter(new_benchmark_json))]}", run_locally=run_locally)
         return False
 
     for key, value in new_benchmark_json.items():
         # Check if every key is of type str
         if not isinstance(key, str):
             print(f"Key is not String: {key}")
-            write_to_log(success=False, message=f"Key is not String: {key}", run_locally=run_locally)
+            write_to_log(
+                success=False, message=f"Key is not String: {key}", run_locally=run_locally)
             return False
-        
+
         if key != "timestamp":
             # Check if every key except for "timestamp" has a value of type float
             if not isinstance(value, float):
                 print(f"Value is not Float: {key}: {value}")
-                write_to_log(success=False, message=f"Value is not Float: {key}: {value}", run_locally=run_locally)
+                write_to_log(
+                    success=False, message=f"Value is not Float: {key}: {value}", run_locally=run_locally)
                 return False
             # Check if every key except for "timestamp" has a value between 100 and 0.01
             if value > 100 or value < 0.01:
                 print(f"Value is not within range: {key}: {value}")
-                write_to_log(success=False, message=f"Value is not within range: {key}: {value}", run_locally=run_locally)
+                write_to_log(
+                    success=False, message=f"Value is not within range: {key}: {value}", run_locally=run_locally)
                 return False
 
     # If no issues found, return True
@@ -808,7 +844,7 @@ def write_to_log(*, success, message, run_locally=False):
         directory = "app/backend/price_fetcher/benchmarks"
     else:
         directory = "price_fetcher/benchmarks"
-    
+
     # Name of log file
     filename = f"{directory}/update_log.log"
 
@@ -817,19 +853,20 @@ def write_to_log(*, success, message, run_locally=False):
         os.makedirs(directory)
 
     logging.basicConfig(
-    filename=filename,
-    filemode="w",
-    level=logging.INFO,
-    format="%(asctime)s - %(levelname)s - %(message)s",
-    datefmt="%Y-%m-%d %H:%M:%S",
+        filename=filename,
+        filemode="w",
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
     )
-    
+
     if success:
         # Log message at INFO level if attempted operation was successful
         logging.info(message)
-    else: 
+    else:
         # Log message at ERROR level if attempted operation was unsuccessful
         logging.error(message)
+
 
 if __name__ == "__main__":
     pass

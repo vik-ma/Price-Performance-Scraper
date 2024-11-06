@@ -6,67 +6,71 @@ from . import benchmark_scraper as bm
 import datetime
 import json
 
-def pps_dashboard(request:HttpRequest):
+
+def pps_dashboard(request: HttpRequest):
     """HTML Template for PPS Backend Dashboard."""
 
     benchmark_data_list = BenchmarkData.objects.all()
     # Extract GPU Benchmark dict from JSON string in all BenchmarkData objects
-    benchmark_dict_list = [json.loads(benchmark_data.gpu_benchmarks) for benchmark_data in benchmark_data_list]
+    benchmark_dict_list = [json.loads(
+        benchmark_data.gpu_benchmarks) for benchmark_data in benchmark_data_list]
     # Create list of timestamps for every BenchmarkData object
-    benchmark_timestamp_list = [benchmark_dict["timestamp"] for benchmark_dict in benchmark_dict_list]
-    
+    benchmark_timestamp_list = [benchmark_dict["timestamp"]
+                                for benchmark_dict in benchmark_dict_list]
+
     completed_fetch_list = CompletedFetch.objects.all()
-    
+
     current_datetime = get_current_timestamp()
-    
+
     context = {
-        'benchmark_data_list' : benchmark_timestamp_list, 
-        'completed_fetch_list' : completed_fetch_list,
-        'current_datetime' : current_datetime,
-        }
-    
+        'benchmark_data_list': benchmark_timestamp_list,
+        'completed_fetch_list': completed_fetch_list,
+        'current_datetime': current_datetime,
+    }
+
     return render(request, 'price_fetcher/pps_dashboard.html', context)
 
-def test_button_cpu_g(request:HttpRequest):
+
+def test_button_cpu_g(request: HttpRequest):
     """Button to test CPU-Gaming Price Scrape in pps_dashboard for debugging purposes."""
     data = {
-        "product_list": 
+        "product_list":
         "AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D",
-        "fetch_type": "CPU-Gaming" 
-        }
+        "fetch_type": "CPU-Gaming"
+    }
     pf_return = start_price_fetching(data)
     print(pf_return)
 
     return redirect('/')
 
 
-def test_button_cpu_n(request:HttpRequest):
+def test_button_cpu_n(request: HttpRequest):
     """Button to test CPU-Normal Price Scrape in pps_dashboard for debugging purposes."""
     data = {
-        "product_list": 
-        "AMD Ryzen 9 7950X,Intel Core i9-13900KS,Intel Core i9-13900K", 
-        "fetch_type": "CPU-Normal" 
-        }
+        "product_list":
+        "AMD Ryzen 9 7950X,Intel Core i9-13900KS,Intel Core i9-13900K",
+        "fetch_type": "CPU-Normal"
+    }
     pf_return = start_price_fetching(data)
     print(pf_return)
 
     return redirect('/')
 
 
-def test_button_gpu(request:HttpRequest):
+def test_button_gpu(request: HttpRequest):
     """Button to test GPU Price Scrape in pps_dashboard for debugging purposes."""
     data = {
-        "product_list": 
-        "GeForce RTX 4090,GeForce RTX 4080,Radeon RX 7900 XTX", 
-        "fetch_type": "GPU" 
-        }
+        "product_list":
+        "GeForce RTX 4090,GeForce RTX 4080,Radeon RX 7900 XTX",
+        "fetch_type": "GPU"
+    }
     pf_return = start_price_fetching(data)
     print(pf_return)
 
     return redirect('/')
 
 
-def test_button_benchmarks(request:HttpRequest):
+def test_button_benchmarks(request: HttpRequest):
     """Button to test Benchmark Updater in pps_dashboard for debugging purposes."""
     update_benchmarks()
 
@@ -78,7 +82,7 @@ def get_current_timestamp() -> datetime:
     return datetime.datetime.now()
 
 
-def test_button_scrape(request:HttpRequest):
+def test_button_scrape(request: HttpRequest):
     """Button to test if if product pages are fetchable, for debugging purposes."""
     product_name = "AMD Ryzen 9 7900X3D"
     product_category = "CPU-Gaming"
@@ -95,13 +99,13 @@ def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id
         Parameters:
             product_list (str): List of product models used in Price Scrape
                                 (Models are separated by commas)
-            
+
             benchmark_type (str): Type of benchmark data to be compared
                                   (Must be either "CPU-Gaming" or "CPU-Normal")
-                    
+
             timestamp (datetime): Datetime object of the date + time of when
                                   Price Scrape was completed
-            
+
             timestamp_id (str): String of timestamp object to relate a CompletedFetch
                                 entry to ProductListing entries
     """
@@ -112,6 +116,7 @@ def create_completed_fetch(product_list, benchmark_type, timestamp, timestamp_id
     completed_fetch.timestamp_id = timestamp_id
     completed_fetch.save()
 
+
 def start_price_fetching(data) -> dict:
     """
     Start a Price Scrap based on input data and save information gathered from
@@ -120,7 +125,7 @@ def start_price_fetching(data) -> dict:
         Parameters:
             data (dict): Dictionary containing JSON data from API call.
                          Contains data of the FetchProperties type in api/models.
-        
+
         Returns:
             dict{"success": True, "message": str}: If Price Scrape was successful,
                                                    returns the timestamp_id of the
@@ -141,7 +146,8 @@ def start_price_fetching(data) -> dict:
     if fetch_type == "GPU":
         fetched_prices = pf.start_price_fetching_gpu(products_to_fetch)
     elif fetch_type == "CPU-Gaming" or fetch_type == "CPU-Normal":
-        fetched_prices = pf.start_price_fetching_cpu(fetch_type, products_to_fetch)
+        fetched_prices = pf.start_price_fetching_cpu(
+            fetch_type, products_to_fetch)
 
     # If Price Scrape has returned an Exception
     if type(fetched_prices) == Exception:
@@ -153,7 +159,7 @@ def start_price_fetching(data) -> dict:
     # Create timestamp of when Price Scrape was completed
     current_timestamp = get_current_timestamp()
 
-    # Convert datetime object timestamp to a string ID to relate a 
+    # Convert datetime object timestamp to a string ID to relate a
     # completed Price Scrape and Product Listings from Price Scrape to each other
     timestamp_id = (''.join(i for i in str(current_timestamp) if i.isdigit()))
 
@@ -175,13 +181,15 @@ def start_price_fetching(data) -> dict:
             product_listing.save()
 
         # Save metadata about Price Scrape to PostgreSQL database
-        create_completed_fetch(product_list, fetch_type, current_timestamp, timestamp_id)
+        create_completed_fetch(product_list, fetch_type,
+                               current_timestamp, timestamp_id)
     except:
         # If saving failed because faulty data was found
         return Exception("Error adding Price Scrape to database")
-    
+
     # Return the database id of completed Price Scrape
     return {"success": True, "message": str(timestamp_id)}
+
 
 def update_benchmarks():
     """
@@ -198,10 +206,11 @@ def update_benchmarks():
             print("Benchmarks Saved")
         except:
             print("Error saving benchmarks")
-    
+
     # If Benchmark scraping failed
     if type(new_benchmarks) is Exception:
         print(str(new_benchmarks))
+
 
 def save_benchmark_data(benchmark_data):
     """
