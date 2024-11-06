@@ -62,6 +62,8 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - AMD Ryzen 5 9600X
 - AMD Ryzen 9 7950X3D
 - AMD Ryzen 9 7950X
+- Intel Core Ultra 9 285K
+- Intel Core Ultra 7 265K
 - Intel Core i9-14900KS
 - Intel Core i9-14900K
 - Intel Core i9-14900KF
