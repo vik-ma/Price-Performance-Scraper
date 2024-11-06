@@ -115,6 +115,8 @@ VALID_CPU_NORMAL_LIST = [
     "AMD Ryzen 7 7700",
     "AMD Ryzen 5 7600X",
     "AMD Ryzen 5 7600",
+    "Intel Core Ultra 9 285K",
+    "Intel Core Ultra 7 265K",
     "Intel Core i9-14900KS",
     "Intel Core i9-14900K",
     "Intel Core i9-14900KF",
