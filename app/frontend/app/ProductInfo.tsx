@@ -455,7 +455,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-13900": {
-    gamingTier: "2",
+    gamingTier: "3",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
