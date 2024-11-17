@@ -91,6 +91,7 @@ VALID_GPU_SET = frozenset([
 
 # List of allowed CPU models to Price Scrape
 VALID_CPU_NORMAL_LIST = [
+    "AMD Ryzen 7 9800X3D",
     "AMD Ryzen 9 9950X",
     "AMD Ryzen 9 9900X",
     "AMD Ryzen 7 9700X",
@@ -117,6 +118,7 @@ VALID_CPU_NORMAL_LIST = [
     "AMD Ryzen 5 7600",
     "Intel Core Ultra 9 285K",
     "Intel Core Ultra 7 265K",
+    "Intel Core Ultra 5 245K",
     "Intel Core i9-14900KS",
     "Intel Core i9-14900K",
     "Intel Core i9-14900KF",

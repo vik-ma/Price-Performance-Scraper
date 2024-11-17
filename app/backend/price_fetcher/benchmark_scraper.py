@@ -56,6 +56,7 @@ list_of_gpus_to_scrape = [
 ]
 
 list_of_cpus_to_scrape = [
+    "AMD Ryzen 7 9800X3D",
     "AMD Ryzen 9 9950X",
     "AMD Ryzen 9 9900X",
     "AMD Ryzen 7 9700X",
@@ -82,6 +83,7 @@ list_of_cpus_to_scrape = [
     "AMD Ryzen 5 7600",
     "Intel Core Ultra 9 285K",
     "Intel Core Ultra 7 265K",
+    "Intel Core Ultra 5 245K",
     "Intel Core i9-14900KS",
     "Intel Core i9-14900K",
     "Intel Core i9-14900KF",
