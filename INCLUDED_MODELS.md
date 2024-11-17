@@ -56,6 +56,7 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 ## CPU 
 
 #### CPU MODELS INCLUDED
+- AMD Ryzen 7 9800X3D
 - AMD Ryzen 9 9950X
 - AMD Ryzen 9 9900X
 - AMD Ryzen 7 9700X
@@ -64,6 +65,7 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - AMD Ryzen 9 7950X
 - Intel Core Ultra 9 285K
 - Intel Core Ultra 7 265K
+- Intel Core Ultra 5 245K
 - Intel Core i9-14900KS
 - Intel Core i9-14900K
 - Intel Core i9-14900KF
@@ -129,6 +131,6 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 
 #### NOTES ABOUT CPU MODELS
 - No workstation CPUs are included.
-- Only socket AM5, AM4 and LGA 1700 CPUs are included.
+- Only socket AM5, AM4, LGA 1851 and LGA 1700 CPUs are included.
 - CPU-Gaming benchmarks are not entirely accurate.
     
