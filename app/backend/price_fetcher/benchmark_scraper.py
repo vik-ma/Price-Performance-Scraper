@@ -1,5 +1,5 @@
 import re
-import requests
+import cloudscraper
 from bs4 import BeautifulSoup
 import json
 import datetime
@@ -160,7 +160,9 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> d
             percent_dict (dict): Dictionary where every product from product_set is paired
                                  with their benchmark value in percentage form
     """
-    response = requests.get(url)
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(url)
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
@@ -210,8 +212,10 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
             benchmarks_dict (dict): Dictionary where every product from gpu_set_lower_case 
                                     is paired with their benchmark value
     """
-    response = requests.get(
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(
         "https://www.tomshardware.com/reviews/gpu-hierarchy,4388.html")
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
@@ -254,8 +258,10 @@ def scrape_toms_hardware_cpu_gaming(*, run_locally=False) -> dict:
             benchmarks_dict (dict): Dictionary where every product from cpu_set_lower_case 
                                     is paired with their benchmark value
     """
-    response = requests.get(
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(
         "https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
@@ -306,8 +312,10 @@ def scrape_toms_hardware_cpu_normal(*, run_locally=False) -> dict:
             benchmarks_dict (dict): Dictionary where every product from cpu_set_lower_case 
                                     is paired with their benchmark value
     """
-    response = requests.get(
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(
         "https://www.tomshardware.com/reviews/cpu-hierarchy,4312.html")
+
     soup = BeautifulSoup(response.text, "html.parser")
 
     benchmarks_dict = {}
@@ -346,7 +354,8 @@ def scrape_page(url):
         Parameters:
             url (str): Link to the website to be scraped
     """
-    response = requests.get(url)
+    scraper = cloudscraper.create_scraper()
+    response = scraper.get(url)
     soup = BeautifulSoup(response.text, "html.parser")
 
     save_local_html_page(soup)
