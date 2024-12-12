@@ -328,7 +328,21 @@ export const cpuInfo = {
     manufacturer: "Intel",
     socket: "Socket LGA 1851",
   },
+  "Intel Core Ultra 7 265KF": {
+    gamingTier: "1",
+    normalTier: "1",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
   "Intel Core Ultra 5 245K": {
+    gamingTier: "1",
+    normalTier: "3",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
+  "Intel Core Ultra 5 245KF": {
     gamingTier: "1",
     normalTier: "3",
     generation: "Latest Generation",
@@ -441,7 +455,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-13900KS": {
-    gamingTier: "1",
+    gamingTier: "2",
     normalTier: "1",
     generation: "Previous Generation",
     manufacturer: "Intel",
