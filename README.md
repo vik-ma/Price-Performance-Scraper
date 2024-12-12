@@ -128,7 +128,9 @@ The following models **are** included:
 - AMD Ryzen 9 7950X
 - Intel Core Ultra 9 285K
 - Intel Core Ultra 7 265K
+- Intel Core Ultra 7 265KF
 - Intel Core Ultra 5 245K
+- Intel Core Ultra 5 245KF
 - Intel Core i9-14900KS
 - Intel Core i9-14900K
 - Intel Core i9-14900KF
