@@ -16,7 +16,6 @@
 - Radeon RX 7800 XT
 - Radeon RX 7700 XT
 - Radeon RX 6800 XT
-- Radeon RX 6800
 - GeForce RTX 4060 Ti
 - GeForce RTX 3070 Ti
 - GeForce RTX 3070
@@ -24,7 +23,6 @@
 - Radeon RX 6700 XT
 - GeForce RTX 3060 Ti
 - GeForce RTX 4060
-- Radeon RX 6700
 - Radeon RX 7600
 - Radeon RX 6650 XT
 - Radeon RX 6600 XT
@@ -32,23 +30,8 @@
 - Radeon RX 6600
 - GeForce RTX 2060
 - GeForce RTX 3050
-- GeForce GTX 1660 Ti
 - GeForce GTX 1660 Super
-- GeForce GTX 1660
-- Radeon RX 6500 XT
 - Radeon RX 6400
-
-#### NOTABLE GPU MODELS *NOT* INCLUDED DUE TO TERRIBLE PRICE/PERFORMANCE RATING AT RETAIL PRICES
-- GeForce RTX 3090 Ti
-- GeForce RTX 3090
-- GeForce RTX 3080 Ti
-- Radeon RX 6900 XT
-- GeForce RTX 3080
-- GeForce GTX 1650 SUPER
-- GeForce GTX 1650
-- GeForce GTX 1050 Ti
-- Intel Arc A770
-- Intel Arc A750
 
 #### NOTES ABOUT GPU MODELS
 Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do not have separate categories.
