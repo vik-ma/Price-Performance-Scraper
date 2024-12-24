@@ -482,7 +482,13 @@ export default function GpuListingsTable({
                       </strong>
                     </td>
                   )}
-                  <td className="gpu-model-text">
+                  <td
+                    className={
+                      colorCodingEnabled
+                        ? "gpu-model-text"
+                        : "gpu-model-text-no-color"
+                    }
+                  >
                     <div
                       className={
                         colorCodingEnabled

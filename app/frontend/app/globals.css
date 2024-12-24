@@ -835,6 +835,10 @@ td {
   min-width: 200px;
 }
 
+.gpu-model-text-no-color {
+  min-width: 170px;
+}
+
 /* Arrow (SVG) on the right side of column heading in listing-table to indicate which column is sorted */
 .arrow-right-side {
   margin-left: -4px;
@@ -1873,6 +1877,9 @@ h3.information-sub-header {
   .gpu-model-text {
     white-space: nowrap;
   }
+  .gpu-model-text-no-color {
+    white-space: nowrap;
+  }
 }
 
 @media (min-width: 1316px) {
@@ -2115,6 +2122,9 @@ h3.information-sub-header {
   .gpu-model-text {
     min-width: 146px;
   }
+  .gpu-model-text-no-color {
+    min-width: 128px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -2213,6 +2223,9 @@ h3.information-sub-header {
     margin: 0 5px;
   }
   .gpu-model-text {
+    min-width: 100%;
+  }
+  .gpu-model-text-no-color {
     min-width: 100%;
   }
 }
