@@ -493,7 +493,7 @@ export default function GpuListingsTable({
                       }
                     >
                       {/* Shorten the Product Model name for screens smaller than 500 px width */}
-                      {windowResizeStage > 3 ? (
+                      {windowResizeStage > 2 ? (
                         <strong
                           className="model-tooltip"
                           data-tooltip={listing.product_category}

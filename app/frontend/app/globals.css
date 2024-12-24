@@ -1870,6 +1870,9 @@ h3.information-sub-header {
   .scrape-content {
     margin-left: 0;
   }
+  .gpu-model-text {
+    white-space: nowrap;
+  }
 }
 
 @media (min-width: 1316px) {
@@ -2109,6 +2112,9 @@ h3.information-sub-header {
     /* "Hide" placeholder text by setting text color to background color of input */
     color: rgb(24, 25, 26);
   }
+  .gpu-model-text {
+    min-width: 146px;
+  }
 }
 
 @media (max-width: 650px) {
@@ -2205,6 +2211,9 @@ h3.information-sub-header {
   }
   .product-filter-item {
     margin: 0 5px;
+  }
+  .gpu-model-text {
+    min-width: 100%;
   }
 }
 
