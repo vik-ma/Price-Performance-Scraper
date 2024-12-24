@@ -810,6 +810,12 @@ td {
 /* Right-most Table Heading in listing-table-head */
 .listing-table-head-last {
   border-top-right-radius: 10px;
+  /* max-width: 170px; */
+}
+
+/* Right-most Table Heading in GPU listing-table-head */
+.listing-table-head-last-gpu {
+  max-width: 170px;
 }
 
 /* Cells in the Price column for Completed Scrapes */
@@ -821,6 +827,12 @@ td {
 /* Detailed Product Name for GPU Completed Scrapes */
 .gpu-product-text {
   color: rgb(233, 233, 233);
+  max-width: 200px;
+}
+
+/* GPU Model Name In GPU listing-table */
+.gpu-model-text {
+  min-width: 200px;
 }
 
 /* Arrow (SVG) on the right side of column heading in listing-table to indicate which column is sorted */

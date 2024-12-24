@@ -360,7 +360,7 @@ export default function GpuListingsTable({
                       headID === 0
                       ? "listing-table-head listing-table-head-first"
                       : headID === tableHeading.length - 1
-                      ? "listing-table-head listing-table-head-last"
+                      ? "listing-table-head listing-table-head-last listing-table-head-last-gpu"
                       : "listing-table-head"
                     : headID === 0
                     ? // Don't display first column for screens below 991 px wide
@@ -371,7 +371,7 @@ export default function GpuListingsTable({
                     ? // Don't display third column for screens below 500 px wide
                       "display-none"
                     : headID === tableHeading.length - 1
-                    ? "listing-table-head listing-table-head-last"
+                    ? "listing-table-head listing-table-head-last listing-table-head-last-gpu"
                     : "listing-table-head"
                 }
               >
@@ -482,7 +482,7 @@ export default function GpuListingsTable({
                       </strong>
                     </td>
                   )}
-                  <td className="nowrap">
+                  <td className="gpu-model-text">
                     <div
                       className={
                         colorCodingEnabled
