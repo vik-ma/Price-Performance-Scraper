@@ -121,7 +121,7 @@ export default function CpuListingsTable({
 
   // List of all stores in Price Scrape
   const storeNames: string[] = [];
-  // List of all product podels in Price Scrape
+  // List of all product models in Price Scrape
   const productModels: string[] = [];
 
   // Add all different stores and product models gathered from Price Scrape to a list where

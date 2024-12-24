@@ -129,7 +129,7 @@ export default function GpuListingsTable({
 
   // List of all stores in Price Scrape
   const storeNames: string[] = [];
-  // List of all product podels in Price Scrape
+  // List of all product models in Price Scrape
   const productModels: string[] = [];
 
   // Add all different stores and product models gathered from Price Scrape to a list where
@@ -509,7 +509,7 @@ export default function GpuListingsTable({
                       )}
                     </div>
                     {/* Display the Benchmark Value in this column, below the Product Model,
-                        for screns smaller than 500px width */}
+                        for screens smaller than 500px width */}
                     {windowResizeStage > 3 && (
                       // Display the product's Benchmark Value in the color of the Product Model's Benchmark Tier
                       <div className="text-centered benchmark-value-shortened-gpu">
