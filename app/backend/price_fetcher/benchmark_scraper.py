@@ -35,12 +35,10 @@ list_of_gpus_to_scrape = [
     "GeForce RTX 4060 Ti",
     "GeForce RTX 3070 Ti",
     "GeForce RTX 3070",
-    "Radeon RX 6800",
     "Radeon RX 6750 XT",
     "GeForce RTX 3060 Ti",
     "Radeon RX 6700 XT",
     "GeForce RTX 4060",
-    "Radeon RX 6700",
     "Radeon RX 7600",
     "Radeon RX 6650 XT",
     "GeForce RTX 3060",
@@ -49,9 +47,6 @@ list_of_gpus_to_scrape = [
     "GeForce RTX 2060",
     "GeForce GTX 1660 Super",
     "GeForce RTX 3050",
-    "GeForce GTX 1660 Ti",
-    "GeForce GTX 1660",
-    "Radeon RX 6500 XT",
     "Radeon RX 6400",
 ]
 
@@ -228,7 +223,7 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
 
     for tr in tbody.find_all("tr"):
         name = tr.find("a").text.strip()
-        if name.lower() in gpu_set_lower_case or name == "Radeon RX 6700 10GB":
+        if name.lower() in gpu_set_lower_case:
             value_1080p = tr.find_all("td")[2].text.strip().split("%")[0]
             value_1440p = tr.find_all("td")[4].text.strip().split("%")[0]
             # Check if 1440p is a valid float number
@@ -236,9 +231,6 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
                 # Get the average value of 1080p and 1440p benchmark scores
                 value = round(
                     ((float(value_1080p) + float(value_1440p)) / 2), 2)
-            if name == "Radeon RX 6700 10GB":
-                benchmarks_dict["Radeon RX 6700"] = value
-            else:
                 benchmarks_dict[name] = value
 
     # Save the data to a .json file

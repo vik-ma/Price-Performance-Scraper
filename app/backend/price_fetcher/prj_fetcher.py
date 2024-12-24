@@ -21,7 +21,6 @@ gpu_pj_url_dict = {
     "Radeon RX 7700 XT": "https://www.prisjakt.nu/c/grafikkort?532=41131",
     "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
     "GeForce RTX 4070": "https://www.prisjakt.nu/c/grafikkort?532=40332",
-    "Radeon RX 6800": "https://www.prisjakt.nu/c/grafikkort?532=36622",
     "GeForce RTX 4060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40881",
     "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
     "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
@@ -29,7 +28,6 @@ gpu_pj_url_dict = {
     "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
     "GeForce RTX 4060": "https://www.prisjakt.nu/c/grafikkort?532=40880",
     "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
-    "Radeon RX 6700": "https://www.prisjakt.nu/c/grafikkort?532=36620",
     "Radeon RX 7600": "https://www.prisjakt.nu/c/grafikkort?532=40890",
     "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
     "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
@@ -37,10 +35,7 @@ gpu_pj_url_dict = {
     "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
     "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
     "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
-    "GeForce GTX 1660 Ti": "https://www.prisjakt.nu/c/grafikkort?532=32120",
     "GeForce GTX 1660 Super": "https://www.prisjakt.nu/c/grafikkort?532=32763",
-    "GeForce GTX 1660": "https://www.prisjakt.nu/c/grafikkort?532=32119",
-    "Radeon RX 6500 XT": "https://www.prisjakt.nu/c/grafikkort?532=38073",
     "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
 }
 

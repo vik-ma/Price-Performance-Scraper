@@ -65,7 +65,6 @@ VALID_GPU_SET = frozenset([
     "GeForce RTX 4070",
     "Radeon RX 7800 XT",
     "Radeon RX 7700 XT",
-    "Radeon RX 6800 XT",
     "GeForce RTX 4060 Ti",
     "GeForce RTX 3070 Ti",
     "GeForce RTX 3070",
@@ -74,7 +73,6 @@ VALID_GPU_SET = frozenset([
     "GeForce RTX 3060 Ti",
     "Radeon RX 6700 XT",
     "GeForce RTX 4060",
-    "Radeon RX 6700",
     "Radeon RX 7600",
     "Radeon RX 6650 XT",
     "GeForce RTX 3060",
@@ -83,9 +81,6 @@ VALID_GPU_SET = frozenset([
     "GeForce RTX 2060",
     "GeForce GTX 1660 Super",
     "GeForce RTX 3050",
-    "GeForce GTX 1660 Ti",
-    "GeForce GTX 1660",
-    "Radeon RX 6500 XT",
     "Radeon RX 6400",
 ])
 
