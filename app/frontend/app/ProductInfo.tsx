@@ -180,13 +180,6 @@ export const cpuInfo = {
     manufacturer: "AMD",
     socket: "Socket AM4",
   },
-  "AMD Ryzen 7 5800X3D": {
-    gamingTier: "2",
-    normalTier: "6",
-    generation: "Previous Generation",
-    manufacturer: "AMD",
-    socket: "Socket AM4",
-  },
   "AMD Ryzen 7 5700X": {
     gamingTier: "7",
     normalTier: "6",

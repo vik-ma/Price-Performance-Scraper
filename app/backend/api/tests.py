@@ -143,7 +143,7 @@ class TestValidPriceFetchRequest(TestCase):
         }
         request_8_cpus = {
             "fetch_type": self.cpu_g_fetch_type,
-            "product_list":"AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,AMD Ryzen 9 5950X,AMD Ryzen 9 5900X,AMD Ryzen 7 5800X,AMD Ryzen 7 5800X3D,AMD Ryzen 7 5700X"
+            "product_list":"AMD Ryzen 9 7950X3D,AMD Ryzen 9 7900X3D,AMD Ryzen 7 7800X3D,AMD Ryzen 9 5950X,AMD Ryzen 9 5900X,AMD Ryzen 7 5800X,AMD Ryzen 7 7800X3D,AMD Ryzen 7 5700X"
         }
         requests = [request_2_gpus, request_4_gpus, request_6_cpus, request_8_cpus]
         for request in requests:

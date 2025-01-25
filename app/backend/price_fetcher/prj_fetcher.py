@@ -45,7 +45,6 @@ cpu_pj_url_dict = {
     "AMD Ryzen 9 5950X": "https://www.prisjakt.nu/produkt.php?p=5588372",
     "AMD Ryzen 9 5900X": "https://www.prisjakt.nu/produkt.php?p=5588367",
     "AMD Ryzen 7 5800X": "https://www.prisjakt.nu/produkt.php?p=5588364",
-    "AMD Ryzen 7 5800X3D": "https://www.prisjakt.nu/produkt.php?p=6040557",
     "AMD Ryzen 7 5700X": "https://www.prisjakt.nu/produkt.php?p=6040676",
     "AMD Ryzen 7 5700X3D": "https://www.prisjakt.nu/produkt.php?p=12941877",
     "AMD Ryzen 7 5700": "https://www.prisjakt.nu/produkt.php?p=13324327",

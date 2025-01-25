@@ -55,7 +55,6 @@ list_of_cpus_to_scrape = [
     "AMD Ryzen 9 5950X",
     "AMD Ryzen 9 5900X",
     "AMD Ryzen 7 5800X",
-    "AMD Ryzen 7 5800X3D",
     "AMD Ryzen 7 5700X",
     "AMD Ryzen 7 5700X3D",
     "AMD Ryzen 7 5700",

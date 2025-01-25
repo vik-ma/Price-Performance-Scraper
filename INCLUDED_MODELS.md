@@ -92,7 +92,6 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - Intel Core i7-12700F
 - Intel Core i7-12700
 - AMD Ryzen 5 7600X
-- AMD Ryzen 7 5800X3D
 - AMD Ryzen 7 5800X
 - AMD Ryzen 5 7600
 - Intel Core i5-12600K
