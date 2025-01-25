@@ -33,8 +33,6 @@ list_of_gpus_to_scrape = [
     "Radeon RX 7700 XT",
     "Radeon RX 6800 XT",
     "GeForce RTX 4060 Ti",
-    "GeForce RTX 3070 Ti",
-    "GeForce RTX 3070",
     "Radeon RX 6750 XT",
     "GeForce RTX 3060 Ti",
     "Radeon RX 6700 XT",
@@ -44,10 +42,8 @@ list_of_gpus_to_scrape = [
     "GeForce RTX 3060",
     "Radeon RX 6600 XT",
     "Radeon RX 6600",
-    "GeForce RTX 2060",
     "GeForce GTX 1660 Super",
     "GeForce RTX 3050",
-    "Radeon RX 6400",
 ]
 
 list_of_cpus_to_scrape = [

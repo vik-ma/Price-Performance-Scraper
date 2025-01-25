@@ -22,8 +22,6 @@ gpu_pj_url_dict = {
     "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
     "GeForce RTX 4070": "https://www.prisjakt.nu/c/grafikkort?532=40332",
     "GeForce RTX 4060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40881",
-    "GeForce RTX 3070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36434",
-    "GeForce RTX 3070": "https://www.prisjakt.nu/c/grafikkort?532=36253",
     "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
     "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
     "GeForce RTX 4060": "https://www.prisjakt.nu/c/grafikkort?532=40880",
@@ -33,10 +31,8 @@ gpu_pj_url_dict = {
     "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
     "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
     "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
-    "GeForce RTX 2060": "https://www.prisjakt.nu/c/grafikkort?532=32050",
     "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
     "GeForce GTX 1660 Super": "https://www.prisjakt.nu/c/grafikkort?532=32763",
-    "Radeon RX 6400": "https://www.prisjakt.nu/c/grafikkort?532=39913",
 }
 
 # Product page for each CPU model to scrape prices from

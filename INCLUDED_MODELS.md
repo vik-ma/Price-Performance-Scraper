@@ -17,8 +17,6 @@
 - Radeon RX 7700 XT
 - Radeon RX 6800 XT
 - GeForce RTX 4060 Ti
-- GeForce RTX 3070 Ti
-- GeForce RTX 3070
 - Radeon RX 6750 XT
 - Radeon RX 6700 XT
 - GeForce RTX 3060 Ti
@@ -28,10 +26,8 @@
 - Radeon RX 6600 XT
 - GeForce RTX 3060
 - Radeon RX 6600
-- GeForce RTX 2060
 - GeForce RTX 3050
 - GeForce GTX 1660 Super
-- Radeon RX 6400
 
 #### NOTES ABOUT GPU MODELS
 Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do not have separate categories.

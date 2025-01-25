@@ -48,14 +48,6 @@ export const gpuInfo = {
     tier: "3",
     manufacturer: "AMD",
   },
-  "GeForce RTX 3070 Ti": {
-    tier: "4",
-    manufacturer: "Nvidia",
-  },
-  "GeForce RTX 3070": {
-    tier: "4",
-    manufacturer: "Nvidia",
-  },
   "GeForce RTX 4060 Ti": {
     tier: "4",
     manufacturer: "Nvidia",
@@ -100,10 +92,6 @@ export const gpuInfo = {
     tier: "7",
     manufacturer: "AMD",
   },
-  "GeForce RTX 2060": {
-    tier: "7",
-    manufacturer: "Nvidia",
-  },
   "GeForce GTX 1660 Super": {
     tier: "7",
     manufacturer: "Nvidia",
@@ -111,10 +99,6 @@ export const gpuInfo = {
   "GeForce RTX 3050": {
     tier: "7",
     manufacturer: "Nvidia",
-  },
-  "Radeon RX 6400": {
-    tier: "7",
-    manufacturer: "AMD",
   },
 };
 

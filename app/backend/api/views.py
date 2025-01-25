@@ -66,8 +66,6 @@ VALID_GPU_SET = frozenset([
     "Radeon RX 7800 XT",
     "Radeon RX 7700 XT",
     "GeForce RTX 4060 Ti",
-    "GeForce RTX 3070 Ti",
-    "GeForce RTX 3070",
     "Radeon RX 6800",
     "Radeon RX 6750 XT",
     "GeForce RTX 3060 Ti",
@@ -78,10 +76,8 @@ VALID_GPU_SET = frozenset([
     "GeForce RTX 3060",
     "Radeon RX 6600 XT",
     "Radeon RX 6600",
-    "GeForce RTX 2060",
     "GeForce GTX 1660 Super",
     "GeForce RTX 3050",
-    "Radeon RX 6400",
 ])
 
 # List of allowed CPU models to Price Scrape
