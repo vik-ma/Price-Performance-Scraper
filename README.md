@@ -71,6 +71,7 @@ The following models **are** included:
 - GeForce RTX 4070 Ti Super
 - GeForce RTX 4070 Ti
 - Radeon RX 7900 XT
+- Radeon RX 7900 GRE
 - Radeon RX 6950 XT
 - GeForce RTX 4070 Super
 - GeForce RTX 4070
@@ -89,6 +90,7 @@ The following models **are** included:
 - Radeon RX 6600
 - GeForce RTX 3050
 - GeForce GTX 1660 Super
+- Intel Arc B580
 
 #### Additional Notes About GPU Models
 - 4060 Ti 8GB and 16GB are not separated into different categories.

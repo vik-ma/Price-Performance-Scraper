@@ -36,20 +36,24 @@ export const gpuInfo = {
     tier: "2",
     manufacturer: "AMD",
   },
-  "Radeon RX 6800 XT": {
+  "Radeon RX 7900 GRE": {
     tier: "3",
+    manufacturer: "AMD",
+  },
+  "Radeon RX 6800 XT": {
+    tier: "4",
     manufacturer: "AMD",
   },
   "GeForce RTX 4070": {
-    tier: "3",
+    tier: "4",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7800 XT": {
-    tier: "3",
+    tier: "4",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060 Ti": {
-    tier: "4",
+    tier: "5",
     manufacturer: "Nvidia",
   },
   "Radeon RX 6750 XT": {
@@ -69,7 +73,7 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "GeForce RTX 4060": {
-    tier: "5",
+    tier: "6",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7600": {
@@ -99,6 +103,10 @@ export const gpuInfo = {
   "GeForce RTX 3050": {
     tier: "7",
     manufacturer: "Nvidia",
+  },
+  "Intel Arc B580": {
+    tier: "7",
+    manufacturer: "Intel",
   },
 };
 
@@ -167,7 +175,7 @@ export const cpuInfo = {
     socket: "Socket AM4",
   },
   "AMD Ryzen 9 5900X": {
-    gamingTier: "6",
+    gamingTier: "5",
     normalTier: "4",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -510,7 +518,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-12900F": {
-    gamingTier: "5",
+    gamingTier: "6",
     normalTier: "4",
     generation: "Previous Generation",
     manufacturer: "Intel",

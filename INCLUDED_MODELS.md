@@ -10,6 +10,7 @@
 - GeForce RTX 4070 Ti Super
 - GeForce RTX 4070 Ti
 - Radeon RX 7900 XT
+- Radeon RX 7900 GRE
 - Radeon RX 6950 XT
 - GeForce RTX 4070 Super
 - GeForce RTX 4070
@@ -28,6 +29,7 @@
 - Radeon RX 6600
 - GeForce RTX 3050
 - GeForce GTX 1660 Super
+- Intel Arc B580
 
 #### NOTES ABOUT GPU MODELS
 Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do not have separate categories.
