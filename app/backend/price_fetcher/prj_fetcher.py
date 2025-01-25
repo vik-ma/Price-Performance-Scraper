@@ -17,6 +17,7 @@ gpu_pj_url_dict = {
     "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
     "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
     "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
+    "Radeon RX 7900 GRE": "https://www.prisjakt.nu/c/grafikkort?114854=42577",
     "Radeon RX 7800 XT": "https://www.prisjakt.nu/c/grafikkort?532=41132",
     "Radeon RX 7700 XT": "https://www.prisjakt.nu/c/grafikkort?532=41131",
     "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
@@ -33,6 +34,7 @@ gpu_pj_url_dict = {
     "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
     "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
     "GeForce GTX 1660 Super": "https://www.prisjakt.nu/c/grafikkort?532=32763",
+    "Intel Arc B580": "https://www.prisjakt.nu/c/grafikkort?114854=43664",
 }
 
 # Product page for each CPU model to scrape prices from

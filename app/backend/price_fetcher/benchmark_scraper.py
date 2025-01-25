@@ -28,6 +28,7 @@ list_of_gpus_to_scrape = [
     "GeForce RTX 4070 Ti",
     "Radeon RX 6950 XT",
     "Radeon RX 7900 XT",
+    "Radeon RX 7900 GRE",
     "GeForce RTX 4070",
     "Radeon RX 7800 XT",
     "Radeon RX 7700 XT",
@@ -44,6 +45,7 @@ list_of_gpus_to_scrape = [
     "Radeon RX 6600",
     "GeForce GTX 1660 Super",
     "GeForce RTX 3050",
+    "Intel Arc B580",
 ]
 
 list_of_cpus_to_scrape = [
