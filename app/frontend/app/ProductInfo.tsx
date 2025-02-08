@@ -73,7 +73,7 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "GeForce RTX 4060": {
-    tier: "6",
+    tier: "5",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7600": {
@@ -105,7 +105,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Intel Arc B580": {
-    tier: "7",
+    tier: "6",
     manufacturer: "Intel",
   },
 };
@@ -113,7 +113,7 @@ export const gpuInfo = {
 export const cpuInfo = {
   "AMD Ryzen 7 9800X3D": {
     gamingTier: "1",
-    normalTier: "3",
+    normalTier: "4",
     generation: "Latest Generation",
     manufacturer: "AMD",
     socket: "Socket AM5",
@@ -343,7 +343,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-14900": {
-    gamingTier: "3",
+    gamingTier: "4",
     normalTier: "2",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -435,7 +435,7 @@ export const cpuInfo = {
   },
   "Intel Core i9-13900KF": {
     gamingTier: "2",
-    normalTier: "1",
+    normalTier: "2",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -449,7 +449,7 @@ export const cpuInfo = {
   },
   "Intel Core i9-13900": {
     gamingTier: "4",
-    normalTier: "2",
+    normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
