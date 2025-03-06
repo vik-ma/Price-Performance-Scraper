@@ -1,5 +1,13 @@
 // Information about every GPU and CPU model available in this app
 export const gpuInfo = {
+  "GeForce RTX 5080": {
+    tier: "1",
+    manufacturer: "Nvidia",
+  },
+  "GeForce RTX 5070 Ti": {
+    tier: "2",
+    manufacturer: "Nvidia",
+  },
   "GeForce RTX 4090": {
     tier: "1",
     manufacturer: "Nvidia",
@@ -204,7 +212,7 @@ export const cpuInfo = {
   },
   "AMD Ryzen 7 5700": {
     gamingTier: "7",
-    normalTier: "7",
+    normalTier: "6",
     generation: "Previous Generation",
     manufacturer: "AMD",
     socket: "Socket AM4",
@@ -286,6 +294,13 @@ export const cpuInfo = {
     manufacturer: "Intel",
     socket: "Socket LGA 1851",
   },
+  "Intel Core Ultra 9 285": {
+    gamingTier: "1",
+    normalTier: "2",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
   "Intel Core Ultra 7 265K": {
     gamingTier: "1",
     normalTier: "1",
@@ -314,8 +329,15 @@ export const cpuInfo = {
     manufacturer: "Intel",
     socket: "Socket LGA 1851",
   },
+  "Intel Core Ultra 5 225F": {
+    gamingTier: "2",
+    normalTier: "5",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
   "Intel Core i9-14900KS": {
-    gamingTier: "1",
+    gamingTier: "2",
     normalTier: "1",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -350,7 +372,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-14700K": {
-    gamingTier: "2",
+    gamingTier: "3",
     normalTier: "2",
     generation: "Previous Generation",
     manufacturer: "Intel",
