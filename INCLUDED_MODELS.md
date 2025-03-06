@@ -3,6 +3,8 @@
 ## GPU
 
 #### GPU MODELS INCLUDED
+- GeForce RTX 5080
+- GeForce RTX 5070 Ti
 - GeForce RTX 4090
 - GeForce RTX 4080 Super
 - GeForce RTX 4080
@@ -45,10 +47,12 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - AMD Ryzen 9 7950X3D
 - AMD Ryzen 9 7950X
 - Intel Core Ultra 9 285K
+- Intel Core Ultra 9 285
 - Intel Core Ultra 7 265K
 - Intel Core Ultra 7 265KF
 - Intel Core Ultra 5 245K
 - Intel Core Ultra 5 245KF
+- Intel Core Ultra 5 225F
 - Intel Core i9-14900KS
 - Intel Core i9-14900K
 - Intel Core i9-14900KF
