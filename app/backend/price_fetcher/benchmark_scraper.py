@@ -19,6 +19,8 @@ TODOLIST FOR ADDING A NEW MODEL:
 """
 
 list_of_gpus_to_scrape = [
+    "GeForce RTX 5080",
+    "GeForce RTX 5070 Ti",
     "GeForce RTX 4090",
     "GeForce RTX 4080",
     "GeForce RTX 4080 Super",
@@ -74,10 +76,12 @@ list_of_cpus_to_scrape = [
     "AMD Ryzen 5 7600X",
     "AMD Ryzen 5 7600",
     "Intel Core Ultra 9 285K",
+    "Intel Core Ultra 9 285",
     "Intel Core Ultra 7 265K",
     "Intel Core Ultra 7 265KF",
     "Intel Core Ultra 5 245K",
     "Intel Core Ultra 5 245KF",
+    "Intel Core Ultra 5 225F",
     "Intel Core i9-14900KS",
     "Intel Core i9-14900K",
     "Intel Core i9-14900KF",

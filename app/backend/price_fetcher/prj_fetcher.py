@@ -8,6 +8,8 @@ from .models import BenchmarkData
 
 # Product page for each GPU model to scrape prices from
 gpu_pj_url_dict = {
+    "GeForce RTX 5080": "https://www.prisjakt.nu/c/grafikkort?114854=43742",
+    "GeForce RTX 5070 Ti": "https://www.prisjakt.nu/c/grafikkort?114854=43694",
     "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
     "GeForce RTX 4080": "https://www.prisjakt.nu/c/grafikkort?532=39779",
     "GeForce RTX 4080 Super": "https://www.prisjakt.nu/c/grafikkort?532=41465",
@@ -64,10 +66,12 @@ cpu_pj_url_dict = {
     "AMD Ryzen 5 7600X": "https://www.prisjakt.nu/produkt.php?p=6999754",
     "AMD Ryzen 5 7600": "https://www.prisjakt.nu/produkt.php?p=7327471",
     "Intel Core Ultra 9 285K": "https://www.prisjakt.nu/produkt.php?p=13931062",
+    "Intel Core Ultra 9 285": "https://www.prisjakt.nu/produkt.php?p=14076064",
     "Intel Core Ultra 7 265KF": "https://www.prisjakt.nu/produkt.php?p=13931043",
     "Intel Core Ultra 7 265K": "https://www.prisjakt.nu/produkt.php?p=13931072",
     "Intel Core Ultra 5 245KF": "https://www.prisjakt.nu/produkt.php?p=13931061",
     "Intel Core Ultra 5 245K": "https://www.prisjakt.nu/produkt.php?p=13931044",
+    "Intel Core Ultra 5 225F": "https://www.prisjakt.nu/produkt.php?p=14363518",
     "Intel Core i9-14900KS": "https://www.prisjakt.nu/produkt.php?p=13308143",
     "Intel Core i9-14900K": "https://www.prisjakt.nu/produkt.php?p=12475625",
     "Intel Core i9-14900KF": "https://www.prisjakt.nu/produkt.php?p=12477198",
