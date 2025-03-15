@@ -21,6 +21,9 @@ TODOLIST FOR ADDING A NEW MODEL:
 list_of_gpus_to_scrape = [
     "GeForce RTX 5080",
     "GeForce RTX 5070 Ti",
+    "GeForce RTX 5070",
+    "Radeon RX 9070 XT",
+    "Radeon RX 9070",
     "GeForce RTX 4090",
     "GeForce RTX 4080",
     "GeForce RTX 4080 Super",

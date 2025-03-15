@@ -55,6 +55,9 @@ VALID_FETCH_TYPES = frozenset(["GPU", "CPU-Gaming", "CPU-Normal"])
 VALID_GPU_SET = frozenset([
     "GeForce RTX 5080",
     "GeForce RTX 5070 Ti",
+    "GeForce RTX 5070",
+    "Radeon RX 9070 XT",
+    "Radeon RX 9070",
     "GeForce RTX 4090",
     "GeForce RTX 4080",
     "GeForce RTX 4080 Super",
