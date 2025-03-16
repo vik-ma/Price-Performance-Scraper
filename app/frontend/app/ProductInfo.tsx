@@ -8,6 +8,18 @@ export const gpuInfo = {
     tier: "2",
     manufacturer: "Nvidia",
   },
+  "GeForce RTX 5070": {
+    tier: "3",
+    manufacturer: "Nvidia",
+  },
+  "Radeon RX 9070 XT": {
+    tier: "4",
+    manufacturer: "AMD",
+  },
+  "Radeon RX 9070": {
+    tier: "4",
+    manufacturer: "AMD",
+  },
   "GeForce RTX 4090": {
     tier: "1",
     manufacturer: "Nvidia",
@@ -53,11 +65,11 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "GeForce RTX 4070": {
-    tier: "4",
+    tier: "3",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7800 XT": {
-    tier: "4",
+    tier: "3",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060 Ti": {
@@ -119,9 +131,16 @@ export const gpuInfo = {
 };
 
 export const cpuInfo = {
+  "AMD Ryzen 9 9950X3D": {
+    gamingTier: "1",
+    normalTier: "1",
+    generation: "Latest Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM5",
+  },
   "AMD Ryzen 7 9800X3D": {
     gamingTier: "1",
-    normalTier: "4",
+    normalTier: "3",
     generation: "Latest Generation",
     manufacturer: "AMD",
     socket: "Socket AM5",
@@ -295,7 +314,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1851",
   },
   "Intel Core Ultra 9 285": {
-    gamingTier: "1",
+    gamingTier: "2",
     normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "Intel",
@@ -323,6 +342,13 @@ export const cpuInfo = {
     socket: "Socket LGA 1851",
   },
   "Intel Core Ultra 5 245KF": {
+    gamingTier: "1",
+    normalTier: "3",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
+  "Intel Core Ultra 5 235": {
     gamingTier: "1",
     normalTier: "3",
     generation: "Latest Generation",
@@ -457,7 +483,7 @@ export const cpuInfo = {
   },
   "Intel Core i9-13900KF": {
     gamingTier: "2",
-    normalTier: "2",
+    normalTier: "1",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -485,7 +511,7 @@ export const cpuInfo = {
   },
   "Intel Core i7-13700KF": {
     gamingTier: "3",
-    normalTier: "3",
+    normalTier: "2",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
