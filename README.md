@@ -66,6 +66,9 @@ The following models **are** included:
 
 - GeForce RTX 5080
 - GeForce RTX 5070 Ti
+- GeForce RTX 5070
+- Radeon RX 9070 XT
+- Radeon RX 9070
 - GeForce RTX 4090
 - GeForce RTX 4080 Super
 - GeForce RTX 4080
@@ -102,6 +105,7 @@ The following models **are** included:
 
 The following models **are** included:
 
+- AMD Ryzen 9 9950X3D
 - AMD Ryzen 7 9800X3D
 - AMD Ryzen 9 9950X
 - AMD Ryzen 9 9900X
@@ -115,6 +119,7 @@ The following models **are** included:
 - Intel Core Ultra 7 265KF
 - Intel Core Ultra 5 245K
 - Intel Core Ultra 5 245KF
+- Intel Core Ultra 5 235
 - Intel Core Ultra 5 225F
 - Intel Core i9-14900KS
 - Intel Core i9-14900K
