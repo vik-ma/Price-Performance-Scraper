@@ -138,6 +138,13 @@ export const cpuInfo = {
     manufacturer: "AMD",
     socket: "Socket AM5",
   },
+  "AMD Ryzen 9 9900X3D": {
+    gamingTier: "1",
+    normalTier: "1",
+    generation: "Latest Generation",
+    manufacturer: "AMD",
+    socket: "Socket AM5",
+  },
   "AMD Ryzen 7 9800X3D": {
     gamingTier: "1",
     normalTier: "3",
@@ -330,6 +337,20 @@ export const cpuInfo = {
   "Intel Core Ultra 7 265KF": {
     gamingTier: "1",
     normalTier: "1",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
+  "Intel Core Ultra 7 265": {
+    gamingTier: "2",
+    normalTier: "2",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
+  "Intel Core Ultra 7 265F": {
+    gamingTier: "3",
+    normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1851",
