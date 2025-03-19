@@ -140,14 +140,14 @@ export const cpuInfo = {
   },
   "AMD Ryzen 9 9900X3D": {
     gamingTier: "1",
-    normalTier: "1",
+    normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "AMD",
     socket: "Socket AM5",
   },
   "AMD Ryzen 7 9800X3D": {
     gamingTier: "1",
-    normalTier: "3",
+    normalTier: "4",
     generation: "Latest Generation",
     manufacturer: "AMD",
     socket: "Socket AM5",
@@ -371,7 +371,7 @@ export const cpuInfo = {
   },
   "Intel Core Ultra 5 235": {
     gamingTier: "1",
-    normalTier: "3",
+    normalTier: "4",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1851",
@@ -406,14 +406,14 @@ export const cpuInfo = {
   },
   "Intel Core i9-14900F": {
     gamingTier: "3",
-    normalTier: "2",
+    normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-14900": {
     gamingTier: "4",
-    normalTier: "2",
+    normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -504,7 +504,7 @@ export const cpuInfo = {
   },
   "Intel Core i9-13900KF": {
     gamingTier: "2",
-    normalTier: "1",
+    normalTier: "2",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -532,7 +532,7 @@ export const cpuInfo = {
   },
   "Intel Core i7-13700KF": {
     gamingTier: "3",
-    normalTier: "2",
+    normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
@@ -651,7 +651,7 @@ export const cpuInfo = {
   },
   "Intel Core i5-13400": {
     gamingTier: "7",
-    normalTier: "7",
+    normalTier: "6",
     generation: "Previous Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1700",
