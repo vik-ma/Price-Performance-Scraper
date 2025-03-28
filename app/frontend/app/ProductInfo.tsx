@@ -307,7 +307,7 @@ export const cpuInfo = {
     socket: "Socket AM5",
   },
   "AMD Ryzen 5 7600": {
-    gamingTier: "5",
+    gamingTier: "4",
     normalTier: "6",
     generation: "Previous Generation",
     manufacturer: "AMD",
@@ -349,7 +349,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1851",
   },
   "Intel Core Ultra 7 265F": {
-    gamingTier: "3",
+    gamingTier: "2",
     normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "Intel",
@@ -412,7 +412,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i9-14900": {
-    gamingTier: "4",
+    gamingTier: "3",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
@@ -524,7 +524,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i7-13700K": {
-    gamingTier: "4",
+    gamingTier: "3",
     normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "Intel",
