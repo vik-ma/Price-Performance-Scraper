@@ -181,8 +181,6 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> d
             count = li.find("span", {"class": "count"}).text.strip()
             count_num = int(count.replace(",", ""))
             if len(benchmarks_dict) == 0:
-                # Adds the product in product_set which appears at the top of
-                # the site list's benchmark value as max_value
                 max_value = count_num
             if prdname == "GeForce GTX 1660 SUPER":
                 benchmarks_dict["GeForce GTX 1660 Super"] = count_num
@@ -226,28 +224,38 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
 
     benchmarks_dict = {}
 
-    float_pattern = r'^[1-9]\d*(\.\d+)?$'
+    fps_pattern = r'([\d.]+)fps'
 
     tbody = soup.find("tbody", {"class": "table__body"})
 
     for tr in tbody.find_all("tr"):
         name = tr.find("a").text.strip()
         if name.lower() in gpu_set_lower_case:
-            value_1080p = tr.find_all("td")[2].text.strip().split("%")[0]
-            value_1440p = tr.find_all("td")[4].text.strip().split("%")[0]
-            # Check if 1440p is a valid float number
-            if re.match(float_pattern, value_1440p):
+            text_1080p = tr.find_all("td")[2].text.strip()
+            text_1440p = tr.find_all("td")[4].text.strip()
+            # Extract the fps of the cell
+            match_1080p = re.search(fps_pattern, text_1080p)
+            match_1440p = re.search(fps_pattern, text_1440p)
+            if (match_1080p and match_1440p):
+                value_1080p = float(match_1080p.group(1))
+                value_1440p = float(match_1440p.group(1))
                 # Get the average value of 1080p and 1440p benchmark scores
                 value = round(
                     ((float(value_1080p) + float(value_1440p)) / 2), 2)
                 benchmarks_dict[name] = value
+                if len(benchmarks_dict) == 1:
+                    max_value = value
+
+    # Get the benchmark values for every product in percentage form,
+    # where the best product in product_set gets the value 100
+    percent_dict = convert_dict_numbers_to_percent(benchmarks_dict, max_value)
 
     # Save the data to a .json file
     if run_locally:
         save_to_json_with_timestamp(
-            benchmarks_dict, f"GPU_TH", run_locally=run_locally)
+            percent_dict, f"GPU_TH", run_locally=run_locally)
 
-    return benchmarks_dict
+    return percent_dict
 
 
 def scrape_toms_hardware_cpu_gaming(*, run_locally=False) -> dict:
@@ -373,14 +381,8 @@ def save_local_html_page(soup):
     """
     # Get the current date and timestamp
     current_time = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    # Folder to save scraped websites to
-    directory = "benchmarks/completed-scrapes"
     # Name the local file to be saved with current date and timestamp
-    filename = f"{directory}/output_{current_time}.html"
-
-    # Create directory if it does not exist
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    filename = f"output_{current_time}.html"
 
     # Save the file
     with open(filename, "w", encoding="utf-8") as file:
