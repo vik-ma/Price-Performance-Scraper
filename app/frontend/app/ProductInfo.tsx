@@ -69,7 +69,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 7800 XT": {
-    tier: "3",
+    tier: "4",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060 Ti": {
