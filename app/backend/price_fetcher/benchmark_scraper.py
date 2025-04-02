@@ -31,7 +31,6 @@ list_of_gpus_to_scrape = [
     "GeForce RTX 4070 Super",
     "Radeon RX 7900 XTX",
     "GeForce RTX 4070 Ti",
-    "Radeon RX 6950 XT",
     "Radeon RX 7900 XT",
     "Radeon RX 7900 GRE",
     "GeForce RTX 4070",
@@ -46,9 +45,7 @@ list_of_gpus_to_scrape = [
     "Radeon RX 7600",
     "Radeon RX 6650 XT",
     "GeForce RTX 3060",
-    "Radeon RX 6600 XT",
     "Radeon RX 6600",
-    "GeForce GTX 1660 Super",
     "GeForce RTX 3050",
     "Intel Arc B580",
 ]
@@ -182,9 +179,7 @@ def scrape_passmark(benchmark_type, url, product_set, *, run_locally=False) -> d
             count_num = int(count.replace(",", ""))
             if len(benchmarks_dict) == 0:
                 max_value = count_num
-            if prdname == "GeForce GTX 1660 SUPER":
-                benchmarks_dict["GeForce GTX 1660 Super"] = count_num
-            elif prdname == "GeForce RTX 4080 SUPER":
+            if prdname == "GeForce RTX 4080 SUPER":
                 benchmarks_dict["GeForce RTX 4080 Super"] = count_num
             elif prdname == "GeForce RTX 4070 Ti SUPER":
                 benchmarks_dict["GeForce RTX 4070 Ti Super"] = count_num

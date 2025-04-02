@@ -48,10 +48,6 @@ export const gpuInfo = {
     tier: "2",
     manufacturer: "Nvidia",
   },
-  "Radeon RX 6950 XT": {
-    tier: "3",
-    manufacturer: "AMD",
-  },
   "Radeon RX 7900 XT": {
     tier: "2",
     manufacturer: "AMD",
@@ -108,17 +104,9 @@ export const gpuInfo = {
     tier: "6",
     manufacturer: "Nvidia",
   },
-  "Radeon RX 6600 XT": {
-    tier: "6",
-    manufacturer: "AMD",
-  },
   "Radeon RX 6600": {
     tier: "7",
     manufacturer: "AMD",
-  },
-  "GeForce GTX 1660 Super": {
-    tier: "7",
-    manufacturer: "Nvidia",
   },
   "GeForce RTX 3050": {
     tier: "7",

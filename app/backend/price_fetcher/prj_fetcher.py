@@ -20,7 +20,6 @@ gpu_pj_url_dict = {
     "GeForce RTX 4070 Super": "https://www.prisjakt.nu/c/grafikkort?114854=41460",
     "Radeon RX 7900 XTX": "https://www.prisjakt.nu/c/grafikkort?532=39908",
     "GeForce RTX 4070 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40333",
-    "Radeon RX 6950 XT": "https://www.prisjakt.nu/c/grafikkort?532=39794",
     "Radeon RX 7900 XT": "https://www.prisjakt.nu/c/grafikkort?532=39907",
     "Radeon RX 7900 GRE": "https://www.prisjakt.nu/c/grafikkort?114854=42577",
     "Radeon RX 7800 XT": "https://www.prisjakt.nu/c/grafikkort?532=41132",
@@ -34,11 +33,9 @@ gpu_pj_url_dict = {
     "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
     "Radeon RX 7600": "https://www.prisjakt.nu/c/grafikkort?114854=41186",
     "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
-    "Radeon RX 6600 XT": "https://www.prisjakt.nu/c/grafikkort?532=37636",
     "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
     "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
     "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
-    "GeForce GTX 1660 Super": "https://www.prisjakt.nu/c/grafikkort?532=32763",
     "Intel Arc B580": "https://www.prisjakt.nu/c/grafikkort?114854=43664",
 }
 
