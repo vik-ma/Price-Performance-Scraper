@@ -219,24 +219,30 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
 
     benchmarks_dict = {}
 
-    fps_pattern = r'([\d.]+)fps'
+    fps_pattern = r"\(([\d\.]+)\)"
 
     tbody = soup.find("tbody", {"class": "table__body"})
 
     for tr in tbody.find_all("tr"):
         name = tr.find("a").text.strip()
         if name.lower() in gpu_set_lower_case:
-            text_1080p = tr.find_all("td")[2].text.strip()
-            text_1440p = tr.find_all("td")[4].text.strip()
+            text_1080p_med = tr.find_all("td")[2].text.strip()
+            text_1080p_ult = tr.find_all("td")[3].text.strip()
+            text_1440p_ult = tr.find_all("td")[4].text.strip()
+            text_4k_ult = tr.find_all("td")[5].text.strip()
             # Extract the fps of the cell
-            match_1080p = re.search(fps_pattern, text_1080p)
-            match_1440p = re.search(fps_pattern, text_1440p)
-            if (match_1080p and match_1440p):
-                value_1080p = float(match_1080p.group(1))
-                value_1440p = float(match_1440p.group(1))
+            match_1080p_med = re.search(fps_pattern, text_1080p_med)
+            match_1080p_ult = re.search(fps_pattern, text_1080p_ult)
+            match_1440p_ult = re.search(fps_pattern, text_1440p_ult)
+            match_4k_ult = re.search(fps_pattern, text_4k_ult)
+            if (match_1080p_med and match_1080p_ult and match_1440p_ult and match_4k_ult):
+                value_1080p_med = float(match_1080p_med.group(1))
+                value_1080p_ult = float(match_1080p_ult.group(1))
+                value_1440p_ult = float(match_1440p_ult.group(1))
+                value_4k_ult = float(match_4k_ult.group(1))
                 # Get the average value of 1080p and 1440p benchmark scores
                 value = round(
-                    ((float(value_1080p) + float(value_1440p)) / 2), 2)
+                    ((float(value_1080p_med) + float(value_1080p_ult) + float(value_1440p_ult) + float(value_4k_ult)) / 4), 2)
                 benchmarks_dict[name] = value
                 if len(benchmarks_dict) == 1:
                     max_value = value
