@@ -55,10 +55,10 @@ export default function PaginationControls({
         &lt;
       </button>
       <div className="pagination-page-display">
-        {paginationRange?.map((index) => {
+        {paginationRange?.map((index, i) => {
           return (
             <button
-              key={`pagination-range-button-${index}`}
+              key={`pagination-range-button-${i}`}
               className={
                 index === Number(page)
                   ? "pagination-button pagination-button-current"
