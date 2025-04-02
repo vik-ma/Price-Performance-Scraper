@@ -13,11 +13,11 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 9070 XT": {
-    tier: "4",
+    tier: "3",
     manufacturer: "AMD",
   },
   "Radeon RX 9070": {
-    tier: "4",
+    tier: "3",
     manufacturer: "AMD",
   },
   "GeForce RTX 4090": {
@@ -37,7 +37,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "GeForce RTX 4070 Super": {
-    tier: "3",
+    tier: "2",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7900 XTX": {
@@ -49,7 +49,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 7900 XT": {
-    tier: "2",
+    tier: "3",
     manufacturer: "AMD",
   },
   "Radeon RX 7900 GRE": {
@@ -61,7 +61,7 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "GeForce RTX 4070": {
-    tier: "3",
+    tier: "4",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7800 XT": {
@@ -77,7 +77,7 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "Radeon RX 7700 XT": {
-    tier: "4",
+    tier: "5",
     manufacturer: "AMD",
   },
   "GeForce RTX 3060 Ti": {
@@ -85,15 +85,15 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 6700 XT": {
-    tier: "5",
+    tier: "6",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060": {
-    tier: "5",
+    tier: "6",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7600": {
-    tier: "6",
+    tier: "7",
     manufacturer: "AMD",
   },
   "Radeon RX 6650 XT": {
@@ -113,7 +113,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Intel Arc B580": {
-    tier: "6",
+    tier: "7",
     manufacturer: "Intel",
   },
 };
