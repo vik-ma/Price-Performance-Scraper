@@ -17,7 +17,7 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "Radeon RX 9070": {
-    tier: "3",
+    tier: "4",
     manufacturer: "AMD",
   },
   "GeForce RTX 4090": {
@@ -37,7 +37,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "GeForce RTX 4070 Super": {
-    tier: "2",
+    tier: "3",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7900 XTX": {
