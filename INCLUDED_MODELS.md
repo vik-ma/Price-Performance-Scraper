@@ -81,10 +81,7 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - Intel Core i7-13700K
 - Intel Core i7-13700KF
 - AMD Ryzen 9 5950X
-- Intel Core i9-12900KS
 - Intel Core i7-13700F
-- Intel Core i9-12900K
-- Intel Core i9-12900KF
 - Intel Core i5-14600K
 - Intel Core i5-14600KF
 - Intel Core i5-14600
@@ -92,21 +89,13 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - Intel Core i7-13700
 - Intel Core i5-13600K
 - Intel Core i5-13600KF
-- Intel Core i9-12900F
 - AMD Ryzen 7 7700X
 - AMD Ryzen 7 7700
 - AMD Ryzen 7 7800X3D
-- Intel Core i7-12700K
-- Intel Core i9-12900
-- Intel Core i7-12700KF
 - Intel Core i5-13500
-- Intel Core i7-12700F
-- Intel Core i7-12700
 - AMD Ryzen 5 7600X
 - AMD Ryzen 7 5800X
 - AMD Ryzen 5 7600
-- Intel Core i5-12600K
-- Intel Core i5-12600KF
 - AMD Ryzen 7 5700X3D
 - AMD Ryzen 7 5700X
 - AMD Ryzen 7 5700
@@ -114,11 +103,7 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - Intel Core i5-13400F
 - AMD Ryzen 5 5600X
 - AMD Ryzen 5 5600
-- Intel Core i5-12600
-- Intel Core i5-12500
-- Intel Core i5-12400F
 - AMD Ryzen 5 5500
-- Intel Core i5-12400
 
 #### NOTES ABOUT CPU MODELS
 - No workstation CPUs are included.
