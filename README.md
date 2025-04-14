@@ -84,7 +84,6 @@ The following models **are** included:
 - Radeon RX 6800 XT
 - GeForce RTX 4060 Ti
 - Radeon RX 6750 XT
-- Radeon RX 6700 XT
 - GeForce RTX 3060 Ti
 - GeForce RTX 4060
 - Radeon RX 7600

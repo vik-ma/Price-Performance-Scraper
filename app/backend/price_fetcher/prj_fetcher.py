@@ -28,7 +28,6 @@ gpu_pj_url_dict = {
     "GeForce RTX 4070": "https://www.prisjakt.nu/c/grafikkort?532=40332",
     "GeForce RTX 4060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40881",
     "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
-    "Radeon RX 6700 XT": "https://www.prisjakt.nu/c/grafikkort?532=36619",
     "GeForce RTX 4060": "https://www.prisjakt.nu/c/grafikkort?532=40880",
     "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
     "Radeon RX 7600": "https://www.prisjakt.nu/c/grafikkort?114854=41186",
