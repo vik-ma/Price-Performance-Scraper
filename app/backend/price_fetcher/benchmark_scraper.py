@@ -210,10 +210,10 @@ def scrape_toms_hardware_gpus(*, run_locally=False) -> dict:
     for tr in tbody.find_all("tr"):
         name = tr.find("a").text.strip()
         if name.lower() in gpu_set_lower_case:
-            text_1080p_med = tr.find_all("td")[2].text.strip()
-            text_1080p_ult = tr.find_all("td")[3].text.strip()
-            text_1440p_ult = tr.find_all("td")[4].text.strip()
-            text_4k_ult = tr.find_all("td")[5].text.strip()
+            text_1080p_med = tr.find_all("td")[3].text.strip()
+            text_1080p_ult = tr.find_all("td")[4].text.strip()
+            text_1440p_ult = tr.find_all("td")[5].text.strip()
+            text_4k_ult = tr.find_all("td")[6].text.strip()
             # Extract the fps of the cell
             match_1080p_med = re.search(fps_pattern, text_1080p_med)
             match_1080p_ult = re.search(fps_pattern, text_1080p_ult)
