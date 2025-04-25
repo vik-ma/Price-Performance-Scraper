@@ -20,16 +20,9 @@
 - GeForce RTX 4070
 - Radeon RX 7800 XT
 - Radeon RX 7700 XT
-- Radeon RX 6800 XT
 - GeForce RTX 4060 Ti
-- Radeon RX 6750 XT
-- GeForce RTX 3060 Ti
 - GeForce RTX 4060
 - Radeon RX 7600
-- Radeon RX 6650 XT
-- GeForce RTX 3060
-- Radeon RX 6600
-- GeForce RTX 3050
 - Intel Arc B580
 
 #### NOTES ABOUT GPU MODELS

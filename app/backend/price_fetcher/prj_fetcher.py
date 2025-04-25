@@ -24,17 +24,10 @@ gpu_pj_url_dict = {
     "Radeon RX 7900 GRE": "https://www.prisjakt.nu/c/grafikkort?114854=42577",
     "Radeon RX 7800 XT": "https://www.prisjakt.nu/c/grafikkort?532=41132",
     "Radeon RX 7700 XT": "https://www.prisjakt.nu/c/grafikkort?532=41131",
-    "Radeon RX 6800 XT": "https://www.prisjakt.nu/c/grafikkort?532=36621",
     "GeForce RTX 4070": "https://www.prisjakt.nu/c/grafikkort?532=40332",
     "GeForce RTX 4060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=40881",
-    "Radeon RX 6750 XT": "https://www.prisjakt.nu/c/grafikkort?532=39911",
     "GeForce RTX 4060": "https://www.prisjakt.nu/c/grafikkort?532=40880",
-    "GeForce RTX 3060 Ti": "https://www.prisjakt.nu/c/grafikkort?532=36433",
     "Radeon RX 7600": "https://www.prisjakt.nu/c/grafikkort?114854=41186",
-    "Radeon RX 6650 XT": "https://www.prisjakt.nu/c/grafikkort?532=39910",
-    "Radeon RX 6600": "https://www.prisjakt.nu/c/grafikkort?532=37787",
-    "GeForce RTX 3060": "https://www.prisjakt.nu/c/grafikkort?532=36256",
-    "GeForce RTX 3050": "https://www.prisjakt.nu/c/grafikkort?532=38072",
     "Intel Arc B580": "https://www.prisjakt.nu/c/grafikkort?114854=43664",
 }
 
