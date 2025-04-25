@@ -90,12 +90,10 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - AMD Ryzen 5 7600
 - AMD Ryzen 7 5700X3D
 - AMD Ryzen 7 5700X
-- AMD Ryzen 7 5700
 - Intel Core i5-13400
 - Intel Core i5-13400F
 - AMD Ryzen 5 5600X
 - AMD Ryzen 5 5600
-- AMD Ryzen 5 5500
 
 #### NOTES ABOUT CPU MODELS
 - No workstation CPUs are included.

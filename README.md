@@ -153,12 +153,10 @@ The following models **are** included:
 - AMD Ryzen 5 7600
 - AMD Ryzen 7 5700X3D
 - AMD Ryzen 7 5700X
-- AMD Ryzen 7 5700
 - Intel Core i5-13400
 - Intel Core i5-13400F
 - AMD Ryzen 5 5600X
 - AMD Ryzen 5 5600
-- AMD Ryzen 5 5500
 
 ## Set Up Application On Localhost
 Make sure you have **Docker Engine/Docker Desktop**, **Pipenv** and a JS package manager **(npm/yarn/pnpm)** installed first.
