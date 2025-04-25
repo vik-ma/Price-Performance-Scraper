@@ -9,7 +9,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "GeForce RTX 5070": {
-    tier: "3",
+    tier: "4",
     manufacturer: "Nvidia",
   },
   "Radeon RX 9070 XT": {
@@ -29,15 +29,15 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "GeForce RTX 4080 Super": {
-    tier: "1",
-    manufacturer: "Nvidia",
-  },
-  "GeForce RTX 4070 Ti Super": {
     tier: "2",
     manufacturer: "Nvidia",
   },
-  "GeForce RTX 4070 Super": {
+  "GeForce RTX 4070 Ti Super": {
     tier: "3",
+    manufacturer: "Nvidia",
+  },
+  "GeForce RTX 4070 Super": {
+    tier: "4",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7900 XTX": {
@@ -45,7 +45,7 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "GeForce RTX 4070 Ti": {
-    tier: "2",
+    tier: "3",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7900 XT": {
@@ -53,63 +53,35 @@ export const gpuInfo = {
     manufacturer: "AMD",
   },
   "Radeon RX 7900 GRE": {
-    tier: "3",
-    manufacturer: "AMD",
-  },
-  "Radeon RX 6800 XT": {
     tier: "4",
     manufacturer: "AMD",
   },
   "GeForce RTX 4070": {
-    tier: "4",
+    tier: "5",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7800 XT": {
-    tier: "4",
+    tier: "5",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060 Ti": {
-    tier: "5",
+    tier: "6",
     manufacturer: "Nvidia",
-  },
-  "Radeon RX 6750 XT": {
-    tier: "5",
-    manufacturer: "AMD",
   },
   "Radeon RX 7700 XT": {
-    tier: "5",
+    tier: "6",
     manufacturer: "AMD",
   },
-  "GeForce RTX 3060 Ti": {
-    tier: "5",
-    manufacturer: "Nvidia",
-  },
   "GeForce RTX 4060": {
-    tier: "6",
+    tier: "7",
     manufacturer: "Nvidia",
   },
   "Radeon RX 7600": {
     tier: "7",
     manufacturer: "AMD",
   },
-  "Radeon RX 6650 XT": {
-    tier: "6",
-    manufacturer: "AMD",
-  },
-  "GeForce RTX 3060": {
-    tier: "6",
-    manufacturer: "Nvidia",
-  },
-  "Radeon RX 6600": {
-    tier: "7",
-    manufacturer: "AMD",
-  },
-  "GeForce RTX 3050": {
-    tier: "7",
-    manufacturer: "Nvidia",
-  },
   "Intel Arc B580": {
-    tier: "6",
+    tier: "7",
     manufacturer: "Intel",
   },
 };
@@ -220,13 +192,6 @@ export const cpuInfo = {
     manufacturer: "AMD",
     socket: "Socket AM4",
   },
-  "AMD Ryzen 7 5700": {
-    gamingTier: "7",
-    normalTier: "7",
-    generation: "Previous Generation",
-    manufacturer: "AMD",
-    socket: "Socket AM4",
-  },
   "AMD Ryzen 5 5600X": {
     gamingTier: "7",
     normalTier: "7",
@@ -235,13 +200,6 @@ export const cpuInfo = {
     socket: "Socket AM4",
   },
   "AMD Ryzen 5 5600": {
-    gamingTier: "7",
-    normalTier: "7",
-    generation: "Previous Generation",
-    manufacturer: "AMD",
-    socket: "Socket AM4",
-  },
-  "AMD Ryzen 5 5500": {
     gamingTier: "7",
     normalTier: "7",
     generation: "Previous Generation",
@@ -361,6 +319,13 @@ export const cpuInfo = {
     socket: "Socket LGA 1851",
   },
   "Intel Core Ultra 5 225F": {
+    gamingTier: "4",
+    normalTier: "6",
+    generation: "Latest Generation",
+    manufacturer: "Intel",
+    socket: "Socket LGA 1851",
+  },
+  "Intel Core Ultra 5 225": {
     gamingTier: "4",
     normalTier: "6",
     generation: "Latest Generation",
