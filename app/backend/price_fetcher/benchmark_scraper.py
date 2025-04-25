@@ -77,6 +77,7 @@ list_of_cpus_to_scrape = [
     "Intel Core Ultra 5 245KF",
     "Intel Core Ultra 5 235",
     "Intel Core Ultra 5 225F",
+    "Intel Core Ultra 5 225",
     "Intel Core i9-14900KS",
     "Intel Core i9-14900K",
     "Intel Core i9-14900KF",

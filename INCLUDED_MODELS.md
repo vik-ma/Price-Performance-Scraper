@@ -50,6 +50,7 @@ Graphic cards with different memory capacities *(e.g., 4060 Ti 8GB and 16GB)* do
 - Intel Core Ultra 5 245KF
 - Intel Core Ultra 5 235
 - Intel Core Ultra 5 225F
+- Intel Core Ultra 5 225
 - Intel Core i9-14900KS
 - Intel Core i9-14900K
 - Intel Core i9-14900KF

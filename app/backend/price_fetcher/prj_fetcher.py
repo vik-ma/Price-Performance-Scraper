@@ -67,6 +67,7 @@ cpu_pj_url_dict = {
     "Intel Core Ultra 5 245K": "https://www.prisjakt.nu/produkt.php?p=13931044",
     "Intel Core Ultra 5 235": "https://www.prisjakt.nu/produkt.php?p=14503334",
     "Intel Core Ultra 5 225F": "https://www.prisjakt.nu/produkt.php?p=14363518",
+    "Intel Core Ultra 5 225": "https://www.prisjakt.nu/produkt.php?p=14363519",
     "Intel Core i9-14900KS": "https://www.prisjakt.nu/produkt.php?p=13308143",
     "Intel Core i9-14900K": "https://www.prisjakt.nu/produkt.php?p=12475625",
     "Intel Core i9-14900KF": "https://www.prisjakt.nu/produkt.php?p=12477198",
