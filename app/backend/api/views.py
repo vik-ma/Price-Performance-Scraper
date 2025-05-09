@@ -56,6 +56,7 @@ VALID_GPU_SET = frozenset([
     "GeForce RTX 5080",
     "GeForce RTX 5070 Ti",
     "GeForce RTX 5070",
+    "GeForce RTX 5060 Ti",
     "Radeon RX 9070 XT",
     "Radeon RX 9070",
     "GeForce RTX 4090",

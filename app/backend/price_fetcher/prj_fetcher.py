@@ -11,6 +11,7 @@ gpu_pj_url_dict = {
     "GeForce RTX 5080": "https://www.prisjakt.nu/c/grafikkort?114854=43742",
     "GeForce RTX 5070 Ti": "https://www.prisjakt.nu/c/grafikkort?114854=43694",
     "GeForce RTX 5070": "https://www.prisjakt.nu/c/grafikkort?114854=43743",
+    "GeForce RTX 5060 Ti": "https://www.prisjakt.nu/c/grafikkort?114854=43666",
     "Radeon RX 9070 XT": "https://www.prisjakt.nu/c/grafikkort?114854=44317",
     "Radeon RX 9070": "https://www.prisjakt.nu/c/grafikkort?114854=44312",
     "GeForce RTX 4090": "https://www.prisjakt.nu/c/grafikkort?532=39780",
