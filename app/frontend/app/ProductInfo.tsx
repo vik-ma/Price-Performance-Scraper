@@ -12,6 +12,10 @@ export const gpuInfo = {
     tier: "4",
     manufacturer: "Nvidia",
   },
+  "GeForce RTX 5060 Ti": {
+    tier: "6",
+    manufacturer: "Nvidia",
+  },
   "Radeon RX 9070 XT": {
     tier: "3",
     manufacturer: "AMD",
