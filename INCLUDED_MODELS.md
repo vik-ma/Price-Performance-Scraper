@@ -3,10 +3,12 @@
 ## GPU
 
 #### GPU MODELS INCLUDED
+- GeForce RTX 5090
 - GeForce RTX 5080
 - GeForce RTX 5070 Ti
 - GeForce RTX 5070
 - GeForce RTX 5060 Ti
+- GeForce RTX 5060
 - Radeon RX 9070 XT
 - Radeon RX 9070
 - GeForce RTX 4090
