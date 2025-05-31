@@ -152,13 +152,9 @@ export default async function Information() {
         Benchmark Disclaimers
       </h3>
       <p className="information-text">
-        Benchmark Values are not always accurate and in no way definite. The CPU
-        benchmarks are sourced from{" "}
-        <strong className="bold-white-text">PassMark</strong>, while GPU
-        benchmarks are an aggregate of data from{" "}
-        <strong className="bold-white-text">PassMark</strong> and{" "}
-        <strong className="bold-white-text">Tom's Hardware</strong>. Benchmarks
-        are
+        Benchmark Values are not always accurate and in no way definite. GPU and
+        CPU benchmarks are both sourced from{" "}
+        <strong className="bold-white-text">PassMark</strong>. Benchmarks are
         <strong className="bold-white-text">
           {" "}
           automatically updated once every day

@@ -92,19 +92,16 @@ export default async function Benchmarks() {
       <div className="benchmark-info-wrapper">
         <p className="benchmark-source-text">
           <em>
-            <strong className="bold-white-text">CPU</strong> benchmarks are
-            sourced from <strong className="bold-white-text">PassMark</strong>{" "}
-            and <strong className="bold-white-text">GPU</strong> benchmarks are
-            an aggregate of data from{" "}
-            <strong className="bold-white-text">PassMark</strong> and{" "}
-            <strong className="bold-white-text">Tom's Hardware</strong>.
+            <strong className="bold-white-text">GPU</strong> and{" "}
+            <strong className="bold-white-text">CPU</strong> benchmarks are both
+            sourced from <strong className="bold-white-text">PassMark</strong>.
           </em>
         </p>
         <h2 className="benchmark-disclaimer-heading">Disclaimers</h2>
         <p className="benchmark-disclaimer-text">
           <em>
-            <strong className="bold-white-text">CPU Gaming</strong> benchmarks
-            are semi-theoretical and{" "}
+            <strong className="bold-white-text">CPU Gaming and GPU</strong>{" "}
+            benchmarks are semi-theoretical and{" "}
             <strong className="bold-white-text">
               not necessarily indicative of actual gaming performance
             </strong>

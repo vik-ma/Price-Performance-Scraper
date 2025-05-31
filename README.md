@@ -37,7 +37,7 @@ Also note that **GPU** models always come in various sub-models, made by third-p
 The website does feature a **Manual Comparison Tool**, partly to deal with this problem. This tool allows the user to manually enter price and performance values for multiple products, in order to compare Price/Performance Scores.
 ## Benchmarks
 
-There are three different types of benchmark values in this app; **GPU Performance**, **CPU (Gaming Performance)** and **CPU (Multi-threaded Performance)**. Benchmark values are automatically scraped and updated once every day. CPU benchmarks are sourced from PassMark and GPU benchmarks are an aggregate of data from PassMark and Tom's Hardware.
+There are three different types of benchmark values in this app; **GPU Performance**, **CPU (Gaming Performance)** and **CPU (Multi-threaded Performance)**. Benchmark values are automatically scraped and updated once every day. GPU and CPU benchmarks are both sourced from PassMark.
 
 The current benchmark values in use are displayed on the website.
 
