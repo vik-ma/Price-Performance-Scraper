@@ -488,8 +488,8 @@ def fetch_gpu_benchmarks(*, run_locally=False) -> dict:
     benchmark_list.append(passmark_data)
 
     # Benchmark Data from Tom's Hardware
-    th_data = scrape_toms_hardware_gpus(run_locally=run_locally)
-    benchmark_list.append(th_data)
+    # th_data = scrape_toms_hardware_gpus(run_locally=run_locally)
+    # benchmark_list.append(th_data)
 
     # Average Benchmark Data from all sites
     average_benchmark_data = get_average_benchmarks(benchmark_list)
