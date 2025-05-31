@@ -1,5 +1,9 @@
 // Information about every GPU and CPU model available in this app
 export const gpuInfo = {
+  "GeForce RTX 5090": {
+    tier: "1",
+    manufacturer: "Nvidia",
+  },
   "GeForce RTX 5080": {
     tier: "1",
     manufacturer: "Nvidia",
@@ -16,12 +20,16 @@ export const gpuInfo = {
     tier: "6",
     manufacturer: "Nvidia",
   },
+  "GeForce RTX 5060": {
+    tier: "7",
+    manufacturer: "Nvidia",
+  },
   "Radeon RX 9070 XT": {
-    tier: "3",
+    tier: "5",
     manufacturer: "AMD",
   },
   "Radeon RX 9070": {
-    tier: "4",
+    tier: "6",
     manufacturer: "AMD",
   },
   "GeForce RTX 4090": {
@@ -29,7 +37,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "GeForce RTX 4080": {
-    tier: "1",
+    tier: "2",
     manufacturer: "Nvidia",
   },
   "GeForce RTX 4080 Super": {
@@ -45,7 +53,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 7900 XTX": {
-    tier: "2",
+    tier: "3",
     manufacturer: "AMD",
   },
   "GeForce RTX 4070 Ti": {
@@ -53,11 +61,11 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 7900 XT": {
-    tier: "3",
+    tier: "4",
     manufacturer: "AMD",
   },
   "Radeon RX 7900 GRE": {
-    tier: "4",
+    tier: "5",
     manufacturer: "AMD",
   },
   "GeForce RTX 4070": {
@@ -65,7 +73,7 @@ export const gpuInfo = {
     manufacturer: "Nvidia",
   },
   "Radeon RX 7800 XT": {
-    tier: "5",
+    tier: "6",
     manufacturer: "AMD",
   },
   "GeForce RTX 4060 Ti": {
