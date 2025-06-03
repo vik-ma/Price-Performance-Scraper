@@ -136,7 +136,7 @@ export const cpuInfo = {
   },
   "AMD Ryzen 7 9700X": {
     gamingTier: "6",
-    normalTier: "6",
+    normalTier: "5",
     generation: "Latest Generation",
     manufacturer: "AMD",
     socket: "Socket AM5",
@@ -276,7 +276,7 @@ export const cpuInfo = {
   },
   "Intel Core Ultra 9 285": {
     gamingTier: "2",
-    normalTier: "3",
+    normalTier: "2",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1851",
@@ -297,7 +297,7 @@ export const cpuInfo = {
   },
   "Intel Core Ultra 7 265": {
     gamingTier: "3",
-    normalTier: "4",
+    normalTier: "3",
     generation: "Latest Generation",
     manufacturer: "Intel",
     socket: "Socket LGA 1851",
