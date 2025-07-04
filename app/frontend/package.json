@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@picocss/pico": "^1.5.13",
-    "@types/node": "^22.15.32",
+    "@types/node": "^22.16.0",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
     "@vercel/analytics": "^1.5.0",
