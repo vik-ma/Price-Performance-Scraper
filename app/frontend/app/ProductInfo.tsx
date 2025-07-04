@@ -234,7 +234,7 @@ export const cpuInfo = {
   },
   "AMD Ryzen 9 7900": {
     gamingTier: "4",
-    normalTier: "4",
+    normalTier: "3",
     generation: "Previous Generation",
     manufacturer: "AMD",
     socket: "Socket AM5",
@@ -415,7 +415,7 @@ export const cpuInfo = {
     socket: "Socket LGA 1700",
   },
   "Intel Core i5-14600KF": {
-    gamingTier: "4",
+    gamingTier: "5",
     normalTier: "5",
     generation: "Previous Generation",
     manufacturer: "Intel",
